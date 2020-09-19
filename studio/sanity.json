@@ -1,11 +1,11 @@
 {
   "root": true,
-  "project": {
-    "name": "David Zwirner"
-  },
   "api": {
-    "projectId": "dsk3cuzk",
+    "projectId": "m8l686jf",
     "dataset": "production"
+  },
+  "project": {
+    "name": "Earth"
   },
   "plugins": [
     "@sanity/base",
@@ -18,7 +18,8 @@
     "dashboard-widget-document-list",
     "dashboard-widget-netlify",
     "@sanity/studio-hints",
-    "media"
+    "media",
+    "tabs"
   ],
   "parts": [
     {

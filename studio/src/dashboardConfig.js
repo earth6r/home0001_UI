@@ -15,33 +15,33 @@ export default {
                   buildHookId: '',
                   title: 'Sanity Studio',
                   name: '',
-                  apiId: ''
+                  apiId: '',
                 },
                 {
                   buildHookId: '',
                   title: 'Blog Website',
                   name: '',
-                  apiId: ''
-                }
-              ]
-            }
-          }
+                  apiId: '',
+                },
+              ],
+            },
+          },
         ],
         data: [
           {
             title: 'GitHub repo',
-            value: 'https://github.com/DanielHirunrusme/david-zwirner',
-            category: 'Code'
+            value: 'https://github.com/DanielHirunrusme/earth',
+            category: 'Code',
           },
-          { title: 'Frontend', value: '', category: 'apps' }
-        ]
-      }
+          { title: 'Frontend', value: '', category: 'apps' },
+        ],
+      },
     },
     { name: 'project-users', layout: { height: 'auto' } },
     {
       name: 'document-list',
       options: { title: 'Recent blog posts', order: '_createdAt desc', types: ['post'] },
-      layout: { width: 'medium' }
-    }
-  ]
+      layout: { width: 'medium' },
+    },
+  ],
 }

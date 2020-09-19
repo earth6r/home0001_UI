@@ -6,16 +6,17 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // document schemas
 import author from './documents/author'
-import artist from './documents/artist'
 import category from './documents/category'
-import gallery from './documents/gallery'
-import exhibition from './documents/exhibition'
-import viewingRoom from './documents/viewingRoom'
-import fair from './documents/fair'
-import job from './documents/job'
+import page from './documents/page'
 import post from './documents/post'
+import blockContent from './blockContent'
+import blockText from './blockText'
 import siteSettings from './documents/siteSettings'
-import staff from './documents/staff'
+
+//static pages
+import home from './documents/home'
+import checkout from './documents/checkout'
+import about from './documents/about'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -24,14 +25,24 @@ import imagePortableText from './objects/imagePortableText'
 import listPortableText from './objects/listPortableText'
 import excerptPortableText from './objects/excerptPortableText'
 import mainImage from './objects/mainImage'
-import artworkImage from './objects/artworkImage'
-import artistReference from './objects/artistReference'
 import authorReference from './objects/authorReference'
-import galleryReference from './objects/galleryReference'
-import pageItem from './objects/pageItem'
-import hoursItem from './objects/hoursItem'
-import contactItem from './objects/contactItem'
-import exhibitionDetails from './objects/exhibitionDetails'
+
+// Modules
+import externalLink from './modules/externalLink'
+import internalLink from './modules/internalLink'
+import metaCard from './modules/metaCard'
+import postCategory from './modules/postCategory'
+import social from './modules/social'
+import nestedPages from './modules/nestedPages'
+import pageItem from './modules/pageItem'
+import pageModule from './modules/pageModule'
+import imageModule from './modules/imageModule'
+import standardText from './modules/standardText'
+import moduleContent from './modules/moduleContent'
+
+// Tabs
+import globalContent from './tabs/globalContent'
+import pageContent from './tabs/pageContent'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -44,29 +55,36 @@ export default createSchema({
     // in the studio.
     siteSettings,
     post,
+    page,
+    //static pages
+    home,
+    about,
+    checkout,
+    //
     category,
-    artist,
     author,
-    job,
-    gallery,
-    viewingRoom,
-    exhibition,
-    fair,
-    artworkImage,
     mainImage,
-    artistReference,
     authorReference,
-    galleryReference,
     bodyPortableText,
     bioPortableText,
     imagePortableText,
     excerptPortableText,
     listPortableText,
     pageItem,
-    hoursItem,
-    contactItem,
-    exhibitionDetails,
-    staff,
+    pageContent,
+    globalContent,
+    externalLink,
+    internalLink,
+    pageModule,
+    nestedPages,
+    social,
+    standardText,
+    imageModule,
+    moduleContent,
+    metaCard,
+    blockContent,
+    blockText,
+    postCategory,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ]),

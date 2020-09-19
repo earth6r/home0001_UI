@@ -1,15 +1,16 @@
-import React from 'react'
-import {graphql} from 'gatsby'
+import React from "react";
+import { graphql } from "gatsby";
 import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
-  filterOutDocsPublishedInTheFuture
-} from '../lib/helpers'
-import BlogPostPreviewList from '../components/blog-post-preview-list'
-import Container from '../components/container'
-import GraphQLErrorList from '../components/graphql-error-list'
-import SEO from '../components/seo'
-import Layout from '../containers/layout'
+  filterOutDocsPublishedInTheFuture,
+} from "../lib/helpers";
+import BlogPostPreviewList from "../components/blog-post-preview-list";
+import Container from "../components/container";
+import GraphQLErrorList from "../components/graphql-error-list";
+import SEO from "../components/seo";
+import Layout from "../containers/layout";
+import { RenderModules } from "../utils/renderModules";
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
@@ -40,73 +41,48 @@ export const query = graphql`
       description
       keywords
     }
-    posts: allSanityPost(
-      limit: 6
-      sort: { fields: [publishedAt], order: DESC }
-      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
-    ) {
+    allSanityHome {
       edges {
         node {
-          id
-          publishedAt
-          mainImage {
-            ...SanityImage
-            alt
-          }
-          title
-          _rawExcerpt
-          slug {
-            current
-          }
+          _rawContent(resolveReferences: { maxDepth: 20 })
         }
       }
     }
   }
-`
+`;
 
-const IndexPage = props => {
-  const {data, errors} = props
+const IndexPage = (props) => {
+  const { data, errors } = props;
 
   if (errors) {
     return (
       <Layout>
         <GraphQLErrorList errors={errors} />
       </Layout>
-    )
+    );
   }
 
-  const site = (data || {}).site
-  const postNodes = (data || {}).posts
-    ? mapEdgesToNodes(data.posts)
-      .filter(filterOutDocsWithoutSlugs)
-      .filter(filterOutDocsPublishedInTheFuture)
-    : []
+  const site = (data || {}).site;
+  const {
+    main: { modules, slug },
+    meta,
+  } = data.allSanityHome.edges[0].node._rawContent;
 
   if (!site) {
     throw new Error(
       'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
-    )
+    );
   }
 
   return (
     <Layout>
-      <SEO
-        title={site.title}
-        description={site.description}
-        keywords={site.keywords}
-      />
+      <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
-        {postNodes && (
-          <BlogPostPreviewList
-            title='Latest blog posts'
-            nodes={postNodes}
-            browseMoreHref='/archive/'
-          />
-        )}
+        <div className="md:pt-48">{RenderModules(modules)}</div>
       </Container>
     </Layout>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;

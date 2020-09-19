@@ -9,6 +9,7 @@ const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
   plugins: [
+    `gatsby-plugin-typescript`,
     "gatsby-plugin-postcss",
     "gatsby-plugin-react-helmet",
     {
@@ -24,7 +25,7 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         custom: {
-          families: ["Avenir"],
+          families: ["GP"],
           urls: ["/fonts/fonts.css"],
         },
         usePreload: true,

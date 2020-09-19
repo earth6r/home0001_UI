@@ -33,11 +33,6 @@ export default {
       type: 'url',
       title: 'Author Website',
     },
-    {
-      name: 'books',
-      type: 'url',
-      title: 'Books',
-    },
   ],
   preview: {
     select: {

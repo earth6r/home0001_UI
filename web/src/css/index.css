@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  font-family: "Avenir", Arial, Helvetica, sans-serif;
+  font-family: "GP", Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -18,95 +18,6 @@ body > div > div {
   height: 100%;
 }
 
-.spacer {
-  @apply mt-mobile;
-}
-
-.button {
-  @apply border;
-  @apply px-4;
-  @apply py-2;
-}
-
-.button.button--dark:hover {
-  @apply bg-white;
-  @apply text-darkGray;
-}
-
-h1,
-h2,
-h3 {
-  @apply text-2xl;
-  @apply tracking-tight;
-}
-
-.rte h1 {
-  @apply mb-2;
-}
-
-h2,
-h3 {
-  @apply mb-2;
-}
-
-.rte {
-  @apply text-rte;
-}
-
-.rte a {
-  @apply underline;
-}
-
-.rte p:not(:last-child) {
-  margin-bottom: 1em;
-}
-
-.rte aside a {
-  @apply no-underline;
-  @apply text-aside;
-}
-
-.rte ul {
-  @apply list-outside;
-  margin-left: 1em;
-  margin-bottom: 1em;
-}
-
-.rte ul li {
-  @apply list-disc;
-  @apply max-w-xl;
-}
-
-nav a {
-  @apply font-bold;
-}
-
-.rte nav ul {
-  @apply ml-0;
-}
-.rte nav ul li {
-  @apply list-none;
-}
-
-.tab:not(.react-tabs__tab--selected) {
-  @apply text-gray;
-  @apply cursor-pointer;
-}
-
-.tab-content:last-child {
-  @apply border-none;
-}
-
-small {
-  @apply text-sm;
-}
-
-@screen md {
-  .spacer {
-    @apply mt-desktop;
-  }
-
-  .rte p {
-    @apply max-w-lg;
-  }
+.rte * {
+  @apply text-base;
 }

@@ -1,31 +1,13 @@
 import { format } from 'date-fns'
 
 export default {
-  name: 'post',
+  name: 'home',
   type: 'document',
-  title: 'Blog Post',
+  title: 'Home',
   fields: [
     {
-      name: 'title',
-      type: 'string',
-      title: 'Title',
-      description: 'Titles should be catchy, descriptive, and not too long',
-    },
-    {
-      name: 'slug',
-      type: 'slug',
-      title: 'Slug',
-      description: 'Some frontends will require a slug to be set to be able to show the post',
-      options: {
-        source: 'title',
-        maxLength: 96,
-      },
-    },
-    {
-      name: 'publishedAt',
-      type: 'datetime',
-      title: 'Published at',
-      description: 'This can be used to schedule post for publishing',
+      name: 'content',
+      type: 'pageContent',
     },
     {
       name: 'mainImage',

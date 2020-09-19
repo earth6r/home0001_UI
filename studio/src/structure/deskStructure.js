@@ -1,6 +1,13 @@
 import S from '@sanity/desk-tool/structure-builder'
-import MdSettings from 'react-icons/lib/md/settings'
-import { MdPerson, MdDescription, MdLocalOffer } from 'react-icons/lib/md'
+import {
+  MdPerson,
+  MdDescription,
+  MdHome,
+  MdLocalOffer,
+  MdSettings,
+  MdPayment,
+  MdPublic,
+} from 'react-icons/md'
 import IframePreview from '../previews/IframePreview'
 
 // Web preview configuration
@@ -49,46 +56,59 @@ export default () =>
         .icon(MdDescription)
         .schemaType('post')
         .child(S.documentTypeList('post').title('Blog posts')),
+      S.divider(),
       S.listItem()
-        .title('Artists')
-        .icon(MdPerson)
-        .schemaType('artist')
-        .child(S.documentTypeList('artist').title('Artists')),
+        .title('Home')
+        .icon(MdHome)
+        .child(S.editor().id('home').schemaType('home').documentId('home')),
       S.listItem()
-        .title('Viewing Room')
-        .icon(MdPerson)
-        .schemaType('viewingRoom')
-        .child(S.documentTypeList('viewingRoom').title('Viewing Room')),
+        .title('Checkout')
+        .icon(MdPayment)
+        .child(S.editor().id('checkout').schemaType('checkout').documentId('checkout')),
       S.listItem()
-        .title('Galleries')
-        .icon(MdPerson)
-        .schemaType('gallery')
-        .child(S.documentTypeList('gallery').title('Galleries')),
-      S.listItem()
-        .title('Exhibitions')
-        .icon(MdPerson)
-        .schemaType('exhibition')
-        .child(S.documentTypeList('exhibition').title('Exhibitions')),
-      S.listItem()
-        .title('Jobs')
-        .icon(MdPerson)
-        .schemaType('job')
-        .child(S.documentTypeList('job').title('Jobs')),
-      S.listItem()
-        .title('Fairs')
-        .icon(MdPerson)
-        .schemaType('fair')
-        .child(S.documentTypeList('fair').title('Fairs')),
+        .title('About')
+        .icon(MdPublic)
+        .child(S.editor().id('about').schemaType('about').documentId('about')),
+      // S.listItem()
+      //   .title('Artists')
+      //   .icon(MdPerson)
+      //   .schemaType('artist')
+      //   .child(S.documentTypeList('artist').title('Artists')),
+      // S.listItem()
+      //   .title('Viewing Room')
+      //   .icon(MdPerson)
+      //   .schemaType('viewingRoom')
+      //   .child(S.documentTypeList('viewingRoom').title('Viewing Room')),
+      // S.listItem()
+      //   .title('Galleries')
+      //   .icon(MdPerson)
+      //   .schemaType('gallery')
+      //   .child(S.documentTypeList('gallery').title('Galleries')),
+      // S.listItem()
+      //   .title('Exhibitions')
+      //   .icon(MdPerson)
+      //   .schemaType('exhibition')
+      //   .child(S.documentTypeList('exhibition').title('Exhibitions')),
+      // S.listItem()
+      //   .title('Jobs')
+      //   .icon(MdPerson)
+      //   .schemaType('job')
+      //   .child(S.documentTypeList('job').title('Jobs')),
+      // S.listItem()
+      //   .title('Fairs')
+      //   .icon(MdPerson)
+      //   .schemaType('fair')
+      //   .child(S.documentTypeList('fair').title('Fairs')),
       S.listItem()
         .title('Categories')
         .icon(MdLocalOffer)
         .schemaType('category')
         .child(S.documentTypeList('category').title('Categories')),
-      S.divider(),
-      S.listItem()
-        .title('Staff')
-        .icon(MdSettings)
-        .child(S.editor().id('staff').schemaType('staff').documentId('staff')),
+      // S.divider(),
+      // S.listItem()
+      //   .title('Staff')
+      //   .icon(MdSettings)
+      //   .child(S.editor().id('staff').schemaType('staff').documentId('staff')),
 
       // `S.documentTypeListItems()` returns an array of all the document types
       // defined in schema.js. We filter out those that we have
@@ -97,16 +117,19 @@ export default () =>
         (listItem) =>
           ![
             'category',
-            'artist',
-            'gallery',
-            'author',
-            'viewingRoom',
-            'fair',
-            'exhibition',
-            'job',
+            'home',
+            'about',
+            'checkout',
+            //'artist',
+            //'gallery',
+            //'author',
+            //'viewingRoom',
+            //'fair',
+            //'exhibition',
+            //'job',
             'post',
             'siteSettings',
-            'staff',
+            //'staff',
           ].includes(listItem.getId())
       ),
     ])

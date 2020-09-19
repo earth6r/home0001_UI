@@ -44,77 +44,77 @@ async function createBlogPostPages(graphql, actions) {
     });
 }
 
-async function createArtistPages(graphql, actions) {
-  const { createPage } = actions;
-  const result = await graphql(`
-    {
-      allSanityArtist(filter: { slug: { current: { ne: null } } }) {
-        edges {
-          node {
-            id
-            slug {
-              current
-            }
-          }
-        }
-      }
-    }
-  `);
+// async function createArtistPages(graphql, actions) {
+//   const { createPage } = actions;
+//   const result = await graphql(`
+//     {
+//       allSanityArtist(filter: { slug: { current: { ne: null } } }) {
+//         edges {
+//           node {
+//             id
+//             slug {
+//               current
+//             }
+//           }
+//         }
+//       }
+//     }
+//   `);
 
-  if (result.errors) throw result.errors;
+//   if (result.errors) throw result.errors;
 
-  const postEdges = (result.data.allSanityArtist || {}).edges || [];
+//   const postEdges = (result.data.allSanityArtist || {}).edges || [];
 
-  postEdges
-    //.filter(edge => !isFuture(edge.node.publishedAt))
-    .forEach((edge, index) => {
-      const { id, slug = {} } = edge.node;
-      const path = `/artist/${slug.current}/`;
+//   postEdges
+//     //.filter(edge => !isFuture(edge.node.publishedAt))
+//     .forEach((edge, index) => {
+//       const { id, slug = {} } = edge.node;
+//       const path = `/artist/${slug.current}/`;
 
-      createPage({
-        path,
-        component: require.resolve("./src/templates/artist.js"),
-        context: { id },
-      });
-    });
-}
+//       createPage({
+//         path,
+//         component: require.resolve("./src/templates/artist.js"),
+//         context: { id },
+//       });
+//     });
+// }
 
-async function createGalleryPages(graphql, actions) {
-  const { createPage } = actions;
-  const result = await graphql(`
-    {
-      allSanityGallery(filter: { slug: { current: { ne: null } } }) {
-        edges {
-          node {
-            id
-            slug {
-              current
-            }
-          }
-        }
-      }
-    }
-  `);
+// async function createGalleryPages(graphql, actions) {
+//   const { createPage } = actions;
+//   const result = await graphql(`
+//     {
+//       allSanityGallery(filter: { slug: { current: { ne: null } } }) {
+//         edges {
+//           node {
+//             id
+//             slug {
+//               current
+//             }
+//           }
+//         }
+//       }
+//     }
+//   `);
 
-  if (result.errors) throw result.errors;
+//   if (result.errors) throw result.errors;
 
-  const postEdges = (result.data.allSanityGallery || {}).edges || [];
+//   const postEdges = (result.data.allSanityGallery || {}).edges || [];
 
-  postEdges
-    //.filter(edge => !isFuture(edge.node.publishedAt))
-    .forEach((edge, index) => {
-      const { id, slug = {} } = edge.node;
-      const path = `/galleries/${slug.current}/`;
+//   postEdges
+//     //.filter(edge => !isFuture(edge.node.publishedAt))
+//     .forEach((edge, index) => {
+//       const { id, slug = {} } = edge.node;
+//       const path = `/galleries/${slug.current}/`;
 
-      createPage({
-        path,
-        component: require.resolve("./src/templates/gallery.js"),
-        context: { id },
-      });
-    });
-}
+//       createPage({
+//         path,
+//         component: require.resolve("./src/templates/gallery.js"),
+//         context: { id },
+//       });
+//     });
+// }
 
 exports.createPages = async ({ graphql, actions }) => {
   await createBlogPostPages(graphql, actions);
-  await createArtistPages(graphql, actions);
+  // await createArtistPages(graphql, actions);
 };

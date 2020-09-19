@@ -24,11 +24,6 @@ export default {
       type: 'bodyPortableText',
       title: 'Description',
     },
-    {
-      name: 'gallery',
-      type: 'array',
-      of: [{ type: 'artworkImage' }],
-    },
   ],
   preview: {
     select: {

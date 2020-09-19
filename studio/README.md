@@ -1,1 +1,1 @@
-# david-zwirner-studio
+# earth-studio
