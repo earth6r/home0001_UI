@@ -36,9 +36,9 @@ module.exports = {
     {
       resolve: "gatsby-theme-stripe-checkout-button",
       options: {
-        STRIPE_API_KEY,
-        STRIPE_SECRET_KEY,
-        SITE_URL,
+        STRIPE_API_KEY: process.env.STRIPE_API_KEY,
+        STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
+        siteUrl: process.env.SITE_URL,
       },
     },
     // {
