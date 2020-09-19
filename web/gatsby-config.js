@@ -34,13 +34,13 @@ module.exports = {
       useMinify: true,
     },
     {
-      resolve: 'gatsby-theme-stripe-checkout-button',
+      resolve: "gatsby-theme-stripe-checkout-button",
       options: {
-        process.env.STRIPE_API_KEY,
-        process.env.STRIPE_SECRET_KEY,
-        process.env.SITE_URL
-      }
-    }
+        STRIPE_API_KEY,
+        STRIPE_SECRET_KEY,
+        SITE_URL,
+      },
+    },
     // {
     //   resolve: `gatsby-plugin-google-analytics`,
     //   options: {
