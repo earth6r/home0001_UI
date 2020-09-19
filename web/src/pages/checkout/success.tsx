@@ -4,7 +4,7 @@ import SEO from "../../components/seo";
 import Layout from "../../containers/layout";
 export default () => (
   <Layout>
-    <SEO title={site.title} description={site.description} keywords={site.keywords} />
+    <SEO title={"success"} description={"success"} keywords={[]} />
     <Container>
       <h1>Success!</h1>
     </Container>
