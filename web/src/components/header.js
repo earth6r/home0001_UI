@@ -8,6 +8,8 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
       <button
         className="lg:hidden absolute left-0 px-mobile py-desktop"
         onClick={showNav ? onHideNav : onShowNav}
+        role="button"
+        aria-label="Open the menu"
       >
         <Icon symbol="hamburger" />
       </button>
