@@ -8,7 +8,7 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
     <div
       className={`${
         showNav ? "h-full" : ""
-      } flex sm:container pb-0 w-full nav bg-white md:bg-transparent md:relative justify-between md:justify-center md:justify-between items-center content-center`}
+      } flex container pb-0 w-full nav bg-white md:bg-transparent md:relative justify-between md:justify-center md:justify-between items-center content-center`}
     >
       <GridRow className="flex justify-between md:hidden">
         <span className="grid-marker"></span>

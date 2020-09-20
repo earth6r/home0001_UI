@@ -1,7 +1,7 @@
 .grid-row {
   @apply relative;
   @apply w-full;
-  font-family: "Earth";
+  /* font-family: "Earth"; */
   @apply text-base;
 }
 
