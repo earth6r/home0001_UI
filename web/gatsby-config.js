@@ -29,7 +29,7 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         custom: {
-          families: ["GP"],
+          families: ["GP", "Earth"],
           urls: ["/fonts/fonts.css"],
         },
         usePreload: true,

@@ -23,7 +23,7 @@
 
 .rte ol li {
   counter-increment: rte-list;
-  @apply pl-6em;
+  @apply pl-4em;
   @apply relative;
   @apply mb-1em;
 }

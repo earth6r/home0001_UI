@@ -33,11 +33,11 @@ export const AccordionModule = ({ data }: AccordionModuleProps) => {
             >
               {({ isExpanded }) => (
                 <>
-                  <AccordionHeader padding=".5em" position="relative">
+                  <AccordionHeader paddingTop=".5em" paddingBottom=".375em" position="relative">
                     <h2 className="m-0">{item.title}</h2>
-                    <div className="right-0 absolute pr-4">{isExpanded ? "-" : "+"}</div>
+                    <div className="right-0 absolute pr-1/2em">{isExpanded ? "-" : "+"}</div>
                   </AccordionHeader>
-                  <AccordionPanel paddingLeft="1em" pb={4}>
+                  <AccordionPanel paddingLeft=".5em" pb={4}>
                     <PortableText blocks={item.text} />
                   </AccordionPanel>
                 </>

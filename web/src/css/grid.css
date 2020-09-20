@@ -1,29 +1,29 @@
 .grid-row {
   @apply relative;
   @apply w-full;
-  font-family: "GP";
+  font-family: "Earth";
   @apply text-base;
 }
 
 .grid-row:before {
-  content: "T";
+  content: "H";
   @apply absolute;
   @apply left-0;
   /* @apply pl-mobile; */
   @apply top-1/2;
   @apply transform;
-  font-family: "GP";
+  font-family: "Earth";
   @apply text-base;
   @apply -translate-y-1/2;
 }
 
 .grid-row:after {
-  content: "T";
+  content: "H";
   @apply absolute;
   left: 63.24%;
   @apply top-1/2;
   @apply transform;
-  font-family: "GP";
+  font-family: "Earth";
   @apply text-base;
   @apply -translate-y-1/2;
 }
@@ -40,7 +40,13 @@
   left: 34%;
 }
 .grid-marker:before {
-  content: "T";
-  font-family: "GP";
+  content: "H";
+  font-family: "Earth";
   @apply text-base;
+}
+
+@screen md {
+  .grid-marker {
+    @apply -mt-2;
+  }
 }
