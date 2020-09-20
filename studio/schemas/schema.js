@@ -30,6 +30,8 @@ import mainImage from './objects/mainImage'
 import authorReference from './objects/authorReference'
 
 // Modules
+import accordion from './modules/accordion'
+import accordionItem from './modules/accordionItem'
 import externalLink from './modules/externalLink'
 import internalLink from './modules/internalLink'
 import metaCard from './modules/metaCard'
@@ -65,6 +67,8 @@ export default createSchema({
     homes,
     howItWorks,
     //
+    accordion,
+    accordionItem,
     category,
     author,
     mainImage,

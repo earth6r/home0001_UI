@@ -41,7 +41,7 @@ export const query = graphql`
       description
       keywords
     }
-    allSanityHome {
+    allSanityHowItWorks {
       edges {
         node {
           _rawContent(resolveReferences: { maxDepth: 20 })
@@ -66,7 +66,7 @@ const HowItWorksPage = (props) => {
   const {
     main: { modules, slug },
     meta,
-  } = data.allSanityHome.edges[0].node._rawContent;
+  } = data.allSanityHowItWorks.edges[0].node._rawContent;
 
   if (!site) {
     throw new Error(

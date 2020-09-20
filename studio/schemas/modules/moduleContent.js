@@ -9,8 +9,11 @@ export default {
     {
       type: 'standardText',
     },
+    // {
+    //   type: 'nestedPages',
+    // },
     {
-      type: 'nestedPages',
+      type: 'accordion',
     },
   ],
 }

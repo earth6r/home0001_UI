@@ -36,10 +36,15 @@
     "react-helmet": "^5.2.1"
   },
   "dependencies": {
+    "@chakra-ui/core": "^0.8.0",
+    "@emotion/core": "^10.0.35",
+    "@emotion/styled": "^10.0.27",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
+    "emotion-theming": "^10.0.27",
     "gatsby-image": "^2.0.41",
+    "gatsby-plugin-chakra-ui": "^0.1.4",
     "gatsby-plugin-google-analytics": "^2.3.14",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-theme-stripe-checkout-button": "^1.0.4",

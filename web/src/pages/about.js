@@ -66,7 +66,7 @@ const AboutPage = (props) => {
   const {
     main: { modules, slug },
     meta,
-  } = data.allSanityHome.edges[0].node._rawContent;
+  } = data.allSanityAbout.edges[0].node._rawContent;
 
   if (!site) {
     throw new Error(
