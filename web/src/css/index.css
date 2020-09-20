@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import "./nav.css";
 html {
   font-family: "GP", Arial, Helvetica, sans-serif;
 }
@@ -20,4 +20,12 @@ body > div > div {
 
 .rte * {
   @apply text-base;
+}
+
+.rte h1 {
+  @apply uppercase;
+}
+
+.rte a {
+  font-weight: bold;
 }

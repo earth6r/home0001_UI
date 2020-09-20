@@ -15,6 +15,8 @@ import siteSettings from './documents/siteSettings'
 
 //static pages
 import home from './documents/home'
+import homes from './documents/homes'
+import howItWorks from './documents/howItWorks'
 import checkout from './documents/checkout'
 import about from './documents/about'
 
@@ -60,6 +62,8 @@ export default createSchema({
     home,
     about,
     checkout,
+    homes,
+    howItWorks,
     //
     category,
     author,

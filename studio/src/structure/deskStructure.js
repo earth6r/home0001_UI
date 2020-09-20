@@ -7,6 +7,9 @@ import {
   MdSettings,
   MdPayment,
   MdPublic,
+  MdDashboard,
+  MdAccountBalance,
+  MdInfoOutline,
 } from 'react-icons/md'
 import IframePreview from '../previews/IframePreview'
 
@@ -58,9 +61,17 @@ export default () =>
         .child(S.documentTypeList('post').title('Blog posts')),
       S.divider(),
       S.listItem()
-        .title('Home')
-        .icon(MdHome)
+        .title('Landing')
+        .icon(MdDashboard)
         .child(S.editor().id('home').schemaType('home').documentId('home')),
+      S.listItem()
+        .title('Homes')
+        .icon(MdHome)
+        .child(S.editor().id('homes').schemaType('homes').documentId('homes')),
+      S.listItem()
+        .title('How It Works')
+        .icon(MdInfoOutline)
+        .child(S.editor().id('howItWorks').schemaType('howItWorks').documentId('howItWorks')),
       S.listItem()
         .title('Checkout')
         .icon(MdPayment)
@@ -120,6 +131,8 @@ export default () =>
             'home',
             'about',
             'checkout',
+            'homes',
+            'howItWorks',
             //'artist',
             //'gallery',
             //'author',

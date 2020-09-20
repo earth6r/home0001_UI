@@ -35,13 +35,13 @@ export const query = graphql`
     }
   }
 
-  query IndexPageQuery {
+  query HomesPageQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
       description
       keywords
     }
-    allSanityHome {
+    allSanityHomes {
       edges {
         node {
           _rawContent(resolveReferences: { maxDepth: 20 })
@@ -51,7 +51,7 @@ export const query = graphql`
   }
 `;
 
-const IndexPage = (props) => {
+const HomesPage = (props) => {
   const { data, errors } = props;
 
   if (errors) {
@@ -66,7 +66,7 @@ const IndexPage = (props) => {
   const {
     main: { modules, slug },
     meta,
-  } = data.allSanityHome.edges[0].node._rawContent;
+  } = data.allSanityHomes.edges[0].node._rawContent;
 
   if (!site) {
     throw new Error(
@@ -79,10 +79,10 @@ const IndexPage = (props) => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
-        <div>{RenderModules(modules)}</div>
+        <div className="md:pt-8">{RenderModules(modules)}</div>
       </Container>
     </Layout>
   );
 };
 
-export default IndexPage;
+export default HomesPage;

@@ -2,15 +2,19 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV || "development"}`,
 });
-
 const clientConfig = require("./client-config");
-
 const isProd = process.env.NODE_ENV === "production";
+const tailwindConfig = require("./tailwind.config.js");
 
 module.exports = {
   plugins: [
     `gatsby-plugin-typescript`,
-    "gatsby-plugin-postcss",
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [require(`tailwindcss`)(tailwindConfig)],
+      },
+    },
     "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-source-sanity",

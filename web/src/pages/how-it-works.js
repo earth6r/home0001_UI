@@ -35,7 +35,7 @@ export const query = graphql`
     }
   }
 
-  query IndexPageQuery {
+  query HowItWorksPageQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
       description
@@ -51,7 +51,7 @@ export const query = graphql`
   }
 `;
 
-const IndexPage = (props) => {
+const HowItWorksPage = (props) => {
   const { data, errors } = props;
 
   if (errors) {
@@ -85,4 +85,4 @@ const IndexPage = (props) => {
   );
 };
 
-export default IndexPage;
+export default HowItWorksPage;

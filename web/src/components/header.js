@@ -3,7 +3,7 @@ import React from "react";
 import Icon from "./icon";
 
 const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
-  <div className="container pb-0">
+  <div className="container nav pb-0">
     <div className="flex w-full fixed bg-white lg:bg-transparent lg:relative justify-center lg:justify-between items-center content-center py-4">
       <button
         className="lg:hidden absolute left-0 px-mobile py-desktop"
@@ -12,16 +12,22 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
         <Icon symbol="hamburger" />
       </button>
 
-      <nav className="hidden lg:block text-nav">
-        <ul className="flex">
+      <nav className="hidden w-full lg:block text-nav">
+        <ul className="flex w-full justify-between">
           <li>
-            <h1 className="text-lg">
+            <h1 className="logo">
               <Link to="/">{siteTitle}</Link>
             </h1>
           </li>
-          <li>How it Works</li>
-          <li>View Homes</li>
-          <li>About</li>
+          <li>
+            <Link to="/how-it-works">How it Works</Link>
+          </li>
+          <li>
+            <Link to="/homes">View Homes</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
         </ul>
       </nav>
     </div>

@@ -35,13 +35,13 @@ export const query = graphql`
     }
   }
 
-  query IndexPageQuery {
+  query AboutPageQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
       description
       keywords
     }
-    allSanityHome {
+    allSanityAbout {
       edges {
         node {
           _rawContent(resolveReferences: { maxDepth: 20 })
@@ -51,7 +51,7 @@ export const query = graphql`
   }
 `;
 
-const IndexPage = (props) => {
+const AboutPage = (props) => {
   const { data, errors } = props;
 
   if (errors) {
@@ -85,4 +85,4 @@ const IndexPage = (props) => {
   );
 };
 
-export default IndexPage;
+export default AboutPage;

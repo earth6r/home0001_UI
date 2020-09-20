@@ -13,15 +13,15 @@ export default {
               sites: [
                 {
                   buildHookId: '',
-                  title: 'Sanity Studio',
-                  name: '',
+                  title: 'Earth Sanity Studio',
+                  name: 'earth-v1-studio',
                   apiId: '',
                 },
                 {
-                  buildHookId: '',
-                  title: 'Blog Website',
-                  name: '',
-                  apiId: '',
+                  buildHookId: '5f6683be8466db46fb09dd6b',
+                  title: 'Earth Website',
+                  name: 'earth-v1',
+                  apiId: '70ce073f-c55c-4a10-9731-f12d74316845',
                 },
               ],
             },
