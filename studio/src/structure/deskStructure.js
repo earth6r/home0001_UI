@@ -63,11 +63,16 @@ export default () =>
       S.listItem()
         .title('Landing')
         .icon(MdDashboard)
-        .child(S.editor().id('home').schemaType('home').documentId('home')),
+        .child(S.editor().id('landing').schemaType('landing').documentId('landing')),
+      S.listItem()
+        .title('View Homes')
+        .icon(MdSettings)
+        .child(S.editor().id('viewHomes').schemaType('page').documentId('viewHomes')),
       S.listItem()
         .title('Homes')
         .icon(MdHome)
-        .child(S.editor().id('homes').schemaType('homes').documentId('homes')),
+        .schemaType('home')
+        .child(S.documentTypeList('home').title('Home')),
       S.listItem()
         .title('How It Works')
         .icon(MdInfoOutline)
@@ -80,6 +85,7 @@ export default () =>
         .title('About')
         .icon(MdPublic)
         .child(S.editor().id('about').schemaType('about').documentId('about')),
+
       // S.listItem()
       //   .title('Artists')
       //   .icon(MdPerson)
@@ -128,6 +134,7 @@ export default () =>
         (listItem) =>
           ![
             'category',
+            'landing',
             'home',
             'about',
             'checkout',

@@ -41,10 +41,11 @@ export const query = graphql`
       description
       keywords
     }
-    allSanityHomes {
+    allSanityPage(filter: { content: { main: { slug: { current: { eq: "homes" } } } } }) {
       edges {
         node {
-          _rawContent(resolveReferences: { maxDepth: 20 })
+          id
+          _rawContent(resolveReferences: { maxDepth: 10 })
         }
       }
     }
@@ -66,7 +67,7 @@ const HomesPage = (props) => {
   const {
     main: { modules, slug },
     meta,
-  } = data.allSanityHomes.edges[0].node._rawContent;
+  } = data.allSanityPage.edges[0].node._rawContent;
 
   if (!site) {
     throw new Error(

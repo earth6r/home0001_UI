@@ -28,6 +28,7 @@ export const Image = ({
 }) => {
   const [loaded, setLoaded] = useState(false);
   let fluidProps;
+  let svgProps;
 
   if (imageId && !/gif/.test(imageId)) {
     fluidProps = getFluidGatsbyImage(imageId, { maxWidth: width || 2400 }, sanityConfig);

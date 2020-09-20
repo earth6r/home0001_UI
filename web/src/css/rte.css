@@ -1,0 +1,29 @@
+.rte * {
+  @apply text-base;
+}
+
+.rte h1 {
+  @apply uppercase;
+}
+
+.rte a {
+  @apply font-bold;
+}
+
+.rte ol {
+  @apply list-none;
+  counter-reset: rte-list;
+}
+
+.rte ol li {
+  counter-increment: rte-list;
+  @apply pl-20;
+  @apply relative;
+  @apply mb-1em;
+}
+
+.rte ol li:before {
+  content: counter(rte-list) "";
+  @apply absolute;
+  @apply left-0;
+}

@@ -14,6 +14,7 @@ import blockText from './blockText'
 import siteSettings from './documents/siteSettings'
 
 //static pages
+import landing from './documents/landing'
 import home from './documents/home'
 import homes from './documents/homes'
 import howItWorks from './documents/howItWorks'
@@ -61,6 +62,7 @@ export default createSchema({
     post,
     page,
     //static pages
+    landing,
     home,
     about,
     checkout,

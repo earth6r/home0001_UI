@@ -3,6 +3,9 @@
 @tailwind utilities;
 @import "./box.css";
 @import "./nav.css";
+@import "./grid.css";
+@import "./rte.css";
+
 html {
   font-family: "GP", Arial, Helvetica, sans-serif;
 }
@@ -17,16 +20,4 @@ body,
 body > div:first-child,
 body > div > div {
   height: 100%;
-}
-
-.rte * {
-  @apply text-base;
-}
-
-.rte h1 {
-  @apply uppercase;
-}
-
-.rte a {
-  font-weight: bold;
 }

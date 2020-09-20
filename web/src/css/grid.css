@@ -1,0 +1,35 @@
+.grid-row {
+  @apply relative;
+  @apply w-full;
+}
+
+.grid-row:before {
+  content: "X";
+  @apply absolute;
+  @apply left-0;
+  @apply top-1/2;
+  @apply transform;
+  @apply -translate-y-1/2;
+}
+
+.grid-row:after {
+  content: "X";
+  @apply absolute;
+  left: 63.24%;
+  @apply top-1/2;
+  @apply transform;
+  @apply -translate-y-1/2;
+}
+
+.grid-marker {
+  @apply block;
+  @apply absolute;
+  @apply pointer-events-none;
+  @apply top-1/2;
+  @apply transform;
+  @apply -translate-y-1/2;
+  left: 34%;
+}
+.grid-marker:before {
+  content: "X";
+}

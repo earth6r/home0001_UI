@@ -5,6 +5,7 @@ import {
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture,
 } from "../lib/helpers";
+import BlogPostPreviewList from "../components/blog-post-preview-list";
 import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
@@ -34,13 +35,13 @@ export const query = graphql`
     }
   }
 
-  query IndexPageQuery {
+  query HomePageQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
       description
       keywords
     }
-    allSanityLanding {
+    allSanityAbout {
       edges {
         node {
           _rawContent(resolveReferences: { maxDepth: 20 })
@@ -50,7 +51,7 @@ export const query = graphql`
   }
 `;
 
-const IndexPage = (props) => {
+const HomePage = (props) => {
   const { data, errors } = props;
 
   if (errors) {
@@ -65,9 +66,7 @@ const IndexPage = (props) => {
   const {
     main: { modules, slug },
     meta,
-  } = data.allSanityLanding.edges[0].node._rawContent;
-
-  console.log(data.allSanityHome);
+  } = data.allSanityHome.edges[0].node._rawContent;
 
   if (!site) {
     throw new Error(
@@ -79,11 +78,11 @@ const IndexPage = (props) => {
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
-        index
+        <h1 hidden>Welcome to {site.title}</h1>
         <div>{RenderModules(modules)}</div>
       </Container>
     </Layout>
   );
 };
 
-export default IndexPage;
+export default HomePage;

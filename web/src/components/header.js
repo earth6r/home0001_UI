@@ -1,19 +1,27 @@
 import { Link } from "gatsby";
 import React from "react";
 import Icon from "./icon";
+import GridRow from "./grid/grid-row";
 
 const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
   <div className="container nav pb-0">
-    <div className="flex w-full fixed bg-white lg:bg-transparent lg:relative justify-center lg:justify-between items-center content-center py-4">
-      <button
-        className="lg:hidden absolute left-0 px-mobile py-desktop"
-        onClick={showNav ? onHideNav : onShowNav}
-        role="button"
-        aria-label="Open the menu"
-      >
-        <Icon symbol="hamburger" />
-      </button>
-
+    <div className="flex w-full fixed bg-white md:bg-transparent md:relative justify-between md:justify-center md:justify-between items-center content-center">
+      <GridRow className="flex justify-between md:hidden">
+        <span class="grid-marker"></span>
+        <h1 className="md:hidden logo py-6">
+          <Link to="/">{siteTitle}</Link>
+        </h1>
+        <button
+          className="lg:hidden px-mobile py-6"
+          onClick={showNav ? onHideNav : onShowNav}
+          role="button"
+          aria-label="Open the menu"
+        >
+          <div className="box px-4 -mt-1">
+            <Icon symbol="hamburger" />
+          </div>
+        </button>
+      </GridRow>
       <nav className="hidden w-full lg:block text-nav">
         <ul className="flex w-full justify-between">
           <li>
