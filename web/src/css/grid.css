@@ -1,23 +1,30 @@
 .grid-row {
   @apply relative;
   @apply w-full;
+  font-family: "GP";
+  @apply text-base;
 }
 
 .grid-row:before {
-  content: "X";
+  content: "T";
   @apply absolute;
   @apply left-0;
+  /* @apply pl-mobile; */
   @apply top-1/2;
   @apply transform;
+  font-family: "GP";
+  @apply text-base;
   @apply -translate-y-1/2;
 }
 
 .grid-row:after {
-  content: "X";
+  content: "T";
   @apply absolute;
   left: 63.24%;
   @apply top-1/2;
   @apply transform;
+  font-family: "GP";
+  @apply text-base;
   @apply -translate-y-1/2;
 }
 
@@ -28,8 +35,12 @@
   @apply top-1/2;
   @apply transform;
   @apply -translate-y-1/2;
+  font-size: 1em !important;
+  line-height: 0 !important;
   left: 34%;
 }
 .grid-marker:before {
-  content: "X";
+  content: "T";
+  font-family: "GP";
+  @apply text-base;
 }

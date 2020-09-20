@@ -67,8 +67,6 @@ const IndexPage = (props) => {
     meta,
   } = data.allSanityLanding.edges[0].node._rawContent;
 
-  console.log(data.allSanityHome);
-
   if (!site) {
     throw new Error(
       'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
@@ -79,7 +77,6 @@ const IndexPage = (props) => {
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
-        index
         <div>{RenderModules(modules)}</div>
       </Container>
     </Layout>

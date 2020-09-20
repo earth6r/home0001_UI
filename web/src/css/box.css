@@ -1,5 +1,38 @@
 .box {
-  border-radius: 16px;
+  border-radius: 0.5em;
   background: #ffffff;
   box-shadow: 5px 5px 11px #a1a1a1, -5px -5px 11px #ffffff;
+}
+
+.box-link {
+  @apply inline-block;
+  @apply uppercase;
+  @apply text-sm;
+  @apply relative;
+  @apply px-1/2em;
+  z-index: 1;
+  box-shadow: none;
+}
+
+.box-link:before {
+  content: "";
+  z-index: -1;
+  @apply absolute;
+  @apply w-full;
+  @apply h-full;
+  @apply left-0;
+  @apply py-1em;
+  @apply px-1/2em;
+  @apply block;
+  top: -0.5em;
+  border-radius: 0.5em;
+  background: #ffffff;
+  box-shadow: 5px 5px 11px #a1a1a1, -5px -5px 11px #ffffff;
+}
+
+@screen md {
+  .box-link:before {
+    @apply py-1/2em;
+    top: -0.1em;
+  }
 }

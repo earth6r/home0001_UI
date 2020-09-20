@@ -1,8 +1,5 @@
 import React from "react";
-
-import BlockContent from "@sanity/block-content-to-react";
-
-import { Serializer } from "../../utils/serializer";
+import PortableText from "../portableText";
 
 export interface StandardTextProps {
   data: {
@@ -12,9 +9,10 @@ export interface StandardTextProps {
 
 export const StandardText = ({ data }: StandardTextProps) => {
   const { text } = data;
+  console.log(text);
   return (
-    <div className="container--xl outer mxa py2 p1 al p x">
-      <BlockContent blocks={text} serializers={Serializer} />
+    <div style={{ marginLeft: "-.06em" }}>
+      <PortableText blocks={text} />
     </div>
   );
 };

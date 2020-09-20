@@ -2,7 +2,8 @@
   @apply text-base;
 }
 
-.rte h1 {
+.rte h1,
+.rte h2 {
   @apply uppercase;
 }
 
@@ -15,9 +16,14 @@
   counter-reset: rte-list;
 }
 
+.rte h1,
+.rte h2 {
+  @apply mb-1em;
+}
+
 .rte ol li {
   counter-increment: rte-list;
-  @apply pl-20;
+  @apply pl-6em;
   @apply relative;
   @apply mb-1em;
 }
@@ -26,4 +32,10 @@
   content: counter(rte-list) "";
   @apply absolute;
   @apply left-0;
+}
+
+@screen md {
+  .rte * {
+    @apply text-baseDesktop;
+  }
 }

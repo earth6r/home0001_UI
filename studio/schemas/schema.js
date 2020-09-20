@@ -11,6 +11,7 @@ import page from './documents/page'
 import post from './documents/post'
 import blockContent from './blockContent'
 import blockText from './blockText'
+import partner from './documents/partner'
 import siteSettings from './documents/siteSettings'
 
 //static pages
@@ -29,6 +30,7 @@ import listPortableText from './objects/listPortableText'
 import excerptPortableText from './objects/excerptPortableText'
 import mainImage from './objects/mainImage'
 import authorReference from './objects/authorReference'
+import partnerReference from './objects/partnerReference'
 
 // Modules
 import accordion from './modules/accordion'
@@ -73,8 +75,10 @@ export default createSchema({
     accordionItem,
     category,
     author,
+    partner,
     mainImage,
     authorReference,
+    partnerReference,
     bodyPortableText,
     bioPortableText,
     imagePortableText,

@@ -9,6 +9,7 @@ import {
   AccordionIcon,
 } from "@chakra-ui/core";
 import PortableText from "../portableText";
+import GridRow from "../grid/grid-row";
 
 export interface AccordionModuleProps {
   data: {
@@ -22,25 +23,28 @@ export const AccordionModule = ({ data }: AccordionModuleProps) => {
   return (
     <Accordion allowMultiple={false}>
       {accordionItems.length > 0 &&
-        accordionItems.map((item) => (
-          <AccordionItem
-            defaultIsOpen={false}
-            className="box mb-10"
-            paddingLeft="0"
-            key={item._key}
-          >
-            {({ isExpanded }) => (
-              <>
-                <AccordionHeader padding="1em" position="relative">
-                  <div>{item.title}</div>
-                  <div className="right-0 absolute pr-4">{isExpanded ? "-" : "+"}</div>
-                </AccordionHeader>
-                <AccordionPanel paddingLeft="1em" pb={4}>
-                  <PortableText blocks={item.text} />
-                </AccordionPanel>
-              </>
-            )}
-          </AccordionItem>
+        accordionItems.map((item, index) => (
+          <>
+            <AccordionItem
+              defaultIsOpen={false}
+              className="box my-3"
+              paddingLeft="0"
+              key={item._key}
+            >
+              {({ isExpanded }) => (
+                <>
+                  <AccordionHeader padding=".5em" position="relative">
+                    <h2 className="m-0">{item.title}</h2>
+                    <div className="right-0 absolute pr-4">{isExpanded ? "-" : "+"}</div>
+                  </AccordionHeader>
+                  <AccordionPanel paddingLeft="1em" pb={4}>
+                    <PortableText blocks={item.text} />
+                  </AccordionPanel>
+                </>
+              )}
+            </AccordionItem>
+            <div>{index < accordionItems.length - 1 && <GridRow></GridRow>}</div>
+          </>
         ))}
     </Accordion>
   );

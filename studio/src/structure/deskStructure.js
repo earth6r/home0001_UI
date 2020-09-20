@@ -9,6 +9,7 @@ import {
   MdPublic,
   MdDashboard,
   MdAccountBalance,
+  MdPeople,
   MdInfoOutline,
 } from 'react-icons/md'
 import IframePreview from '../previews/IframePreview'
@@ -64,23 +65,28 @@ export default () =>
         .title('Landing')
         .icon(MdDashboard)
         .child(S.editor().id('landing').schemaType('landing').documentId('landing')),
+      S.divider(),
       S.listItem()
         .title('View Homes')
         .icon(MdSettings)
         .child(S.editor().id('viewHomes').schemaType('page').documentId('viewHomes')),
+      S.divider(),
       S.listItem()
         .title('Homes')
         .icon(MdHome)
         .schemaType('home')
         .child(S.documentTypeList('home').title('Home')),
+      S.divider(),
       S.listItem()
         .title('How It Works')
         .icon(MdInfoOutline)
         .child(S.editor().id('howItWorks').schemaType('howItWorks').documentId('howItWorks')),
+      S.divider(),
       S.listItem()
         .title('Checkout')
         .icon(MdPayment)
         .child(S.editor().id('checkout').schemaType('checkout').documentId('checkout')),
+      S.divider(),
       S.listItem()
         .title('About')
         .icon(MdPublic)
@@ -116,11 +122,18 @@ export default () =>
       //   .icon(MdPerson)
       //   .schemaType('fair')
       //   .child(S.documentTypeList('fair').title('Fairs')),
+      S.divider(),
       S.listItem()
         .title('Categories')
         .icon(MdLocalOffer)
         .schemaType('category')
         .child(S.documentTypeList('category').title('Categories')),
+      S.divider(),
+      S.listItem()
+        .title('Partners')
+        .icon(MdPeople)
+        .schemaType('partner')
+        .child(S.documentTypeList('partner').title('Partners')),
       // S.divider(),
       // S.listItem()
       //   .title('Staff')
@@ -140,6 +153,7 @@ export default () =>
             'checkout',
             'homes',
             'howItWorks',
+            'partner',
             //'artist',
             //'gallery',
             //'author',
