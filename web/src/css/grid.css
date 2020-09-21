@@ -47,6 +47,6 @@
 
 @screen md {
   .grid-marker {
-    @apply -mt-2;
+    @apply -mt-1;
   }
 }

@@ -41,7 +41,7 @@ export const query = graphql`
       description
       keywords
     }
-    allSanityAbout {
+    allSanityHome {
       edges {
         node {
           _rawContent(resolveReferences: { maxDepth: 20 })
