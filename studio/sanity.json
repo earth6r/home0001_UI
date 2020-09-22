@@ -19,8 +19,7 @@
     "dashboard-widget-netlify",
     "@sanity/studio-hints",
     "media",
-    "tabs",
-    "inline-svg"
+    "tabs"
   ],
   "parts": [
     {
