@@ -24,6 +24,11 @@ export default {
       title: 'Image',
     },
     {
+      name: 'logo',
+      title: 'Upload SVG File',
+      type: 'image',
+    },
+    {
       name: 'bio',
       type: 'bioPortableText',
       title: 'Biography',

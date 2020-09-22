@@ -6,7 +6,11 @@ const serializers = {
   types: {
     authorReference: ({ node }) => <span>{node.author.name}</span>,
     partnerReference: ({ node }) => (
-      <PopoverModule trigger={node.partner.name} content={node.partner.bio} />
+      <PopoverModule
+        logo={node.partner._rawLogo}
+        text={node.partner.name}
+        content={node.partner.bio}
+      />
     ),
     mainImage: Figure,
   },

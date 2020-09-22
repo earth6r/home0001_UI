@@ -8,7 +8,16 @@
 }
 
 .rte a {
-  @apply font-bold;
+  /* @apply font-bold; */
+  /* border-bottom: 1.5px solid; */
+  will-change: color;
+  font-size: 0.875em;
+  @apply uppercase;
+  transition: 0.125s color;
+}
+
+.rte a:hover {
+  color: #ccc;
 }
 
 .rte ol {

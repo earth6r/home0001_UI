@@ -1,7 +1,29 @@
 .box {
-  border-radius: 0.5em;
+  border-radius: 1em;
   background: #ffffff;
-  box-shadow: 5px 5px 11px #a1a1a1, -5px -5px 11px #ffffff;
+  box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.3), -5px -5px 11px rgba(255, 255, 255, 0);
+  will-change: box-shadow;
+  transition: box-shadow 5s linear;
+}
+
+.box-circle {
+  width: 40%;
+}
+
+.box-circle .square {
+  padding-bottom: 100%;
+  /* background: rgba(255, 255, 255, 0.95); */
+  box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.3), -5px -5px 11px rgba(255, 255, 255, 0);
+  border-radius: 9999px;
+  /* backdrop-filter: blur(10px); */
+  transition: 0.25s all;
+  cursor: pointer;
+}
+
+.box-circle:hover .square {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8), -5px -5px 20px rgba(255, 255, 255, 0);
+  /* backdrop-filter: blur(10px); */
 }
 
 .box-link {
@@ -12,6 +34,14 @@
   @apply px-1/2em;
   z-index: 1;
   box-shadow: none;
+  outline: none !important;
+}
+
+.box-link img {
+  width: auto;
+  @apply block;
+  height: 0.675em;
+  @apply relative;
 }
 
 .box-link:before {
@@ -24,10 +54,20 @@
   @apply py-1em;
   @apply px-1/2em;
   @apply block;
-  top: -0.5em;
-  border-radius: 0.5em;
+  top: -0.675em;
+  border-radius: 1em;
   background: #ffffff;
-  box-shadow: 5px 5px 11px #a1a1a1, -5px -5px 11px #ffffff;
+  box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.3), -5px -5px 11px rgba(255, 255, 255, 0);
+  will-change: box-shadow;
+  transition: 1s box-shadow;
+}
+
+.box-link:hover:before {
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3), -5px -5px 20px rgba(255, 255, 255, 0);
+}
+
+.box-link[aria-expanded="true"]:before {
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8), -5px -5px 20px rgba(255, 255, 255, 0);
 }
 
 @screen md {
@@ -36,6 +76,8 @@
   }
   .box-link:before {
     @apply py-1/2em;
-    top: -0.1em;
+    top: -0.15em;
+  }
+  .box-link img {
   }
 }

@@ -32,3 +32,11 @@ body > div:first-child,
 body > div > div {
   height: 100%;
 }
+
+small {
+  font-size: 100% !important;
+}
+
+.earth {
+  font-family: "Earth";
+}

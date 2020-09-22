@@ -9,13 +9,13 @@ export default {
       title: 'Image',
       type: 'image',
       options: {
-        hotspot: true
-      }
+        hotspot: true,
+      },
     },
     {
       name: 'caption',
       title: 'Image Caption',
-      type: 'text'
+      type: 'text',
     },
     {
       name: 'layout',
@@ -23,12 +23,13 @@ export default {
       type: 'string',
       options: {
         list: [
-          {title: 'Full', value: 'full'},
-          {title: 'large', value: 'large'},
-          {title: 'medium', value: 'medium'}
+          { title: 'Full', value: 'full' },
+          { title: 'Large', value: 'large' },
+          { title: 'Medium', value: 'medium' },
+          { title: 'Small', value: 'small' },
         ],
-        layout: 'dropdown'
-      }
-    }
-  ]
+        layout: 'dropdown',
+      },
+    },
+  ],
 }

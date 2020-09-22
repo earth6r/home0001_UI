@@ -69,7 +69,7 @@ export default () =>
       S.listItem()
         .title('View Homes')
         .icon(MdSettings)
-        .child(S.editor().id('viewHomes').schemaType('page').documentId('viewHomes')),
+        .child(S.editor().id('homes').schemaType('homes').documentId('homes')),
       S.divider(),
       S.listItem()
         .title('Homes')
@@ -154,6 +154,7 @@ export default () =>
             'homes',
             'howItWorks',
             'partner',
+            'viewHomes',
             //'artist',
             //'gallery',
             //'author',

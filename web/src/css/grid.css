@@ -6,7 +6,7 @@
 }
 
 .grid-row:before {
-  content: "H";
+  /* content: "H"; */
   @apply absolute;
   @apply left-0;
   /* @apply pl-mobile; */
@@ -14,11 +14,12 @@
   @apply transform;
   font-family: "Earth";
   @apply text-base;
-  @apply -translate-y-1/2;
+  @apply -translate-y-1/2 rotate-180;
+  margin-left: -0.05rem;
 }
 
 .grid-row:after {
-  content: "H";
+  /* content: "H"; */
   @apply absolute;
   left: 63.24%;
   @apply top-1/2;
@@ -34,19 +35,38 @@
   @apply pointer-events-none;
   @apply top-1/2;
   @apply transform;
+  /* @apply z-30; */
   @apply -translate-y-1/2;
   font-size: 1em !important;
   line-height: 0 !important;
+  /* left: 34%; */
+  z-index: -1;
+}
+.grid-marker-1 {
+  @apply left-0;
+}
+.grid-marker-2 {
+  left: 63.24%;
+}
+.grid-marker-3 {
   left: 34%;
 }
+
 .grid-marker:before {
   content: "H";
   font-family: "Earth";
   @apply text-base;
 }
 
+.grid-marker-1:before {
+  @apply transform;
+  @apply -translate-y-1/2 rotate-180;
+  @apply block;
+  @apply mt-5;
+}
+
 @screen md {
   .grid-marker {
-    @apply -mt-1;
+    /* @apply -mt-1; */
   }
 }

@@ -41,10 +41,9 @@ export const query = graphql`
       description
       keywords
     }
-    allSanityPage(filter: { content: { main: { slug: { current: { eq: "homes" } } } } }) {
+    allSanityHomes {
       edges {
         node {
-          id
           _rawContent(resolveReferences: { maxDepth: 10 })
         }
       }
@@ -67,7 +66,7 @@ const HomesPage = (props) => {
   const {
     main: { modules, slug },
     meta,
-  } = data.allSanityPage.edges[0].node._rawContent;
+  } = data.allSanityHomes.edges[0].node._rawContent;
 
   if (!site) {
     throw new Error(
@@ -80,7 +79,7 @@ const HomesPage = (props) => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
-        <div className="md:pt-8">{RenderModules(modules)}</div>
+        <div>{RenderModules(modules)}</div>
       </Container>
     </Layout>
   );

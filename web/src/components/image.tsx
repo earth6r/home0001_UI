@@ -2,7 +2,7 @@ import cx from "classnames";
 import Img from "gatsby-image";
 // @ts-ignore
 import { getFluidGatsbyImage } from "gatsby-source-sanity";
-import React, { useState, useEffect } from "react";
+import React, { useState, useLayoutEffect, useRef } from "react";
 import imageUrlBuilder from "@sanity/image-url";
 
 const sanityConfig = {
@@ -27,6 +27,9 @@ export const Image = ({
   src?: string;
 }) => {
   const [loaded, setLoaded] = useState(false);
+  const [randWidth, setRandWidth] = useState(0);
+  const [randPadding, setRandPadding] = useState(0);
+  const ref = useRef();
   let fluidProps;
   let svgProps;
 
@@ -34,10 +37,19 @@ export const Image = ({
     fluidProps = getFluidGatsbyImage(imageId, { maxWidth: width || 2400 }, sanityConfig);
   }
 
+  useLayoutEffect(() => {
+    console.log(ref.current.offsetWidth);
+    setRandWidth(Math.floor(Math.random() * 9) + 1);
+    setRandPadding(Math.floor((Math.random() * (randWidth - 10)) / 4));
+  }, [ref]);
+
   return (
-    <figure>
+    <figure
+      className={`${randWidth !== 10 ? `w-${randWidth}/10` : "w-full"} ${`mx${randPadding}/10`}`}
+      ref={ref}
+    >
       {fluidProps ? (
-        <Img fluid={fluidProps} alt={alt} defaultFadeIn={200} />
+        <Img className="relative z-20" fluid={fluidProps} alt={alt} defaultFadeIn={200} />
       ) : (
         <img
           alt={alt}
@@ -50,7 +62,7 @@ export const Image = ({
           }}
         />
       )}
-      {caption && <figcaption className="mt-1">{caption}</figcaption>}
+      {caption && <figcaption className="mt-1 text-sm">{caption}</figcaption>}
     </figure>
   );
 };

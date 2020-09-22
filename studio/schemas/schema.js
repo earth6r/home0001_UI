@@ -21,6 +21,7 @@ import homes from './documents/homes'
 import howItWorks from './documents/howItWorks'
 import checkout from './documents/checkout'
 import about from './documents/about'
+import viewHomes from './documents/viewHomes'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -31,6 +32,8 @@ import excerptPortableText from './objects/excerptPortableText'
 import mainImage from './objects/mainImage'
 import authorReference from './objects/authorReference'
 import partnerReference from './objects/partnerReference'
+import header from './objects/header'
+import circleButton from './objects/circleButton'
 
 // Modules
 import accordion from './modules/accordion'
@@ -70,6 +73,7 @@ export default createSchema({
     checkout,
     homes,
     howItWorks,
+    viewHomes,
     //
     accordion,
     accordionItem,
@@ -98,6 +102,8 @@ export default createSchema({
     metaCard,
     blockContent,
     blockText,
+    header,
+    circleButton,
     postCategory,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas

@@ -13,6 +13,12 @@ export default {
     //   type: 'nestedPages',
     // },
     {
+      type: 'header',
+    },
+    {
+      type: 'circleButton',
+    },
+    {
       type: 'accordion',
     },
   ],

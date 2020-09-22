@@ -5,6 +5,8 @@ import { NestedPages, NestedPagesProps } from "./global/nestedPages";
 import { AccordionModule } from "./global/accordion";
 import { Image } from "./image";
 import GridRow from "./grid/grid-row";
+import { Header } from "./global/header";
+import CircleButton from "./global/circleButton";
 
 export const Modules = ({ reactModule, type }: { type: string; reactModule: any }) => {
   switch (type) {
@@ -32,10 +34,15 @@ export const Modules = ({ reactModule, type }: { type: string; reactModule: any 
     case "imageModule":
       //console.log(reactModule);
       return (
-        <GridRow>
+        <>
           <Image imageId={reactModule.image.asset._id} caption={reactModule.caption} />
-        </GridRow>
+          <GridRow></GridRow>
+        </>
       );
+    case "header":
+      return <Header title={reactModule.title} number={reactModule.number} />;
+    case "circleButton":
+      return <CircleButton title={reactModule.title} url={reactModule.url} />;
     default:
       return <span>{type}</span>;
   }

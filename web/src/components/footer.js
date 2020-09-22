@@ -8,7 +8,7 @@ import React from "react";
 const Footer = () => {
   const query = "";
   return (
-    <footer className="container">
+    <footer className="container text-sm">
       <small>
         <a href="#">Earth</a>, All rights reserved {new Date().getFullYear()}.
       </small>

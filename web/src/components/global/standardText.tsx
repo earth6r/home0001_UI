@@ -9,9 +9,9 @@ export interface StandardTextProps {
 
 export const StandardText = ({ data }: StandardTextProps) => {
   const { text } = data;
-  console.log(text);
+  //console.log(text);
   return (
-    <div style={{ marginLeft: "-.06em" }}>
+    <div className="w-full" style={{ marginLeft: "-.06em" }}>
       <PortableText blocks={text} />
     </div>
   );
