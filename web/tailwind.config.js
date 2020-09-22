@@ -21,7 +21,7 @@ module.exports = {
           letterSpacing: ".01em",
         },
       ],
-      base: ["1rem", "1.25rem"],
+      base: ["1.625rem", "1.875rem"],
       baseDesktop: ["5vw", "5.10417vw"],
       lg: ["1.75rem", "1.2"],
       "2xl": ["2rem", "2.375rem"],

@@ -38,7 +38,7 @@ const CircleButton = ({ title, url }) => {
         <motion.div className="square" style={{ y }}>
           {/* <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}> */}
           {title && (
-            <h2 className="m-0 text-center top-1/2 absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full">
+            <h2 className="m-0 text-nav md:text-baseDesktop text-center top-1/2 absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full">
               {title}
             </h2>
           )}

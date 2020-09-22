@@ -19,14 +19,20 @@ const GridRow = ({ children, className, scroll = true }) => {
   return (
     <>
       {scroll ? (
-        <div ref={ref} className={`grid-row py-1em text-base ${className ? className : ""}`}>
+        <div
+          ref={ref}
+          className={`grid-row py-1em text-nav md:text-base ${className ? className : ""}`}
+        >
           {children}
           <motion.div className="grid-marker grid-marker-1"></motion.div>
           <motion.div className="grid-marker grid-marker-2"></motion.div>
           <motion.div className="grid-marker grid-marker-3"></motion.div>
         </div>
       ) : (
-        <div ref={ref} className={`grid-row py-1em text-base ${className ? className : ""}`}>
+        <div
+          ref={ref}
+          className={`grid-row py-2 md:py-1em text-base ${className ? className : ""}`}
+        >
           {children}
           <div className="grid-marker grid-marker-1"></div>
           <div className="grid-marker grid-marker-2"></div>

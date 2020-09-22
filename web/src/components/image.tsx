@@ -39,7 +39,7 @@ export const Image = ({
 
   useLayoutEffect(() => {
     console.log(ref.current.offsetWidth);
-    setRandWidth(Math.floor(Math.random() * 9) + 1);
+    setRandWidth(Math.floor(Math.random() * 7) + 3);
     setRandPadding(Math.floor((Math.random() * (randWidth - 10)) / 4));
   }, [ref]);
 

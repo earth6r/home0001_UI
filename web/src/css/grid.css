@@ -1,8 +1,18 @@
 .grid-row {
   @apply relative;
   @apply w-full;
-  /* font-family: "Earth"; */
-  @apply text-base;
+}
+
+.grid-row,
+.grid-row:before,
+.grid-marker:before {
+  @apply text-nav;
+  font-family: "Earth";
+}
+
+.grid-row nav,
+.grid-row ul li a {
+  font-family: "GP";
 }
 
 .grid-row:before {
@@ -12,8 +22,6 @@
   /* @apply pl-mobile; */
   @apply top-1/2;
   @apply transform;
-  font-family: "Earth";
-  @apply text-base;
   @apply -translate-y-1/2 rotate-180;
   margin-left: -0.05rem;
 }
@@ -24,8 +32,7 @@
   left: 63.24%;
   @apply top-1/2;
   @apply transform;
-  font-family: "Earth";
-  @apply text-base;
+
   @apply -translate-y-1/2;
 }
 
@@ -54,8 +61,6 @@
 
 .grid-marker:before {
   content: "H";
-  font-family: "Earth";
-  @apply text-base;
 }
 
 .grid-marker-1:before {
@@ -68,5 +73,11 @@
 @screen md {
   .grid-marker {
     /* @apply -mt-1; */
+  }
+
+  .grid-row,
+  .grid-row:before,
+  .grid-marker:before {
+    @apply text-nav;
   }
 }

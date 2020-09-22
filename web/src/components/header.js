@@ -15,14 +15,14 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => {
             showNav ? "h-full" : ""
           } flex container pb-0 w-full nav md:bg-transparent md:relative justify-between md:justify-center md:justify-between items-center content-center`}
         >
-          <GridRow scroll={false} className="flex justify-between md:hidden">
+          <GridRow scroll={false} className="flex w-full justify-between md:hidden">
             <h1 className="pl-10 md:hidden logo">
               <Link to="/">
-                <span className="earth block pt-1/2">E</span>
+                <span className="earth block pt-1 text-nav">E</span>
               </Link>
             </h1>
             <button
-              className="lg:hidden px-mobile py-0 relative"
+              className="lg:hidden py-0 relative"
               onClick={showNav ? onHideNav : onShowNav}
               role="button"
               aria-label="Open the menu"
@@ -32,13 +32,14 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => {
               </div>
             </button>
           </GridRow>
+
           <nav
             className={`${
               showNav ? "block h-full bg-white z-50" : "hidden"
             } fixed left-0 top-0 md:relative w-full md:block text-nav`}
           >
-            <GridRow scroll={false}>
-              <ul className="container md:px-0 md:flex w-full md:mb-1em justify-between">
+            <GridRow className="" scroll={false}>
+              <ul className="container md:px-0 md:flex w-full text-nav md:mb-1em justify-between">
                 <li>
                   <h1 className="logo">
                     <Link onClick={onHideNav} to="/">
