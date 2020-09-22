@@ -20,7 +20,7 @@ const SVG = ({ file }) => {
   function urlFor(source) {
     return builder.image(source);
   }
-  return <img src={urlFor(file.asset._id).url()} />;
+  return <img alt="logo" src={urlFor(file.asset._id).url()} />;
 };
 
 export default SVG;

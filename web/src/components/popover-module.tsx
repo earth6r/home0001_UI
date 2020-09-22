@@ -24,7 +24,7 @@ const PopoverModule = (props) => {
         {/* console.log(logo.asset._ref) */}
 
         {title !== "" && (
-          <button className="font-bold box box-link">
+          <button aria-label={`Open ${title}`} className="font-bold box box-link">
             {logo !== undefined ? <SVG file={logo} /> : { title }}
           </button>
         )}
