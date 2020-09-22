@@ -40,12 +40,14 @@ export const Image = ({
   useLayoutEffect(() => {
     console.log(ref.current.offsetWidth);
     setRandWidth(Math.floor(Math.random() * 7) + 3);
-    setRandPadding(Math.floor((Math.random() * (randWidth - 10)) / 4));
+    setRandPadding(Math.floor(Math.random() * 4));
   }, [ref]);
 
   return (
     <figure
-      className={`${randWidth !== 10 ? `w-${randWidth}/10` : "w-full"} ${`mx${randPadding}/10`}`}
+      className={`${
+        randWidth !== 10 ? `w-${randWidth}/10` : "w-full"
+      } ${`mx-${randPadding}/10`} md:mx-1/10  mb-1em`}
       ref={ref}
     >
       {fluidProps ? (

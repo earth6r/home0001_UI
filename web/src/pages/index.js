@@ -76,7 +76,7 @@ const IndexPage = (props) => {
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <Container>
+      <Container className="rte-large">
         <div className="flex flex-wrap">{RenderModules(modules)}</div>
       </Container>
     </Layout>

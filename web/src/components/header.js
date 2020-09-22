@@ -22,12 +22,12 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => {
               </Link>
             </h1>
             <button
-              className="lg:hidden py-0 relative"
+              className="box lg:hidden py-0 relative"
               onClick={showNav ? onHideNav : onShowNav}
               role="button"
               aria-label="Open the menu"
             >
-              <div className="box px-4 py-1 -mt-1">
+              <div className=" px-4 py-1 -mt-1">
                 <Icon symbol="hamburger" />
               </div>
             </button>
@@ -70,7 +70,7 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => {
           </nav>
         </div>
       </header>
-      <div className="fixed w-full h-5em z-10 from-white bg-gradient-to-b top-0 left-0"></div>
+      <div className="fixed w-full h-18 z-10 from-white bg-gradient-to-b top-0 left-0"></div>
     </>
   );
 };

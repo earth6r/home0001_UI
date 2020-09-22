@@ -7,6 +7,7 @@ import { Image } from "./image";
 import GridRow from "./grid/grid-row";
 import { Header } from "./global/header";
 import CircleButton from "./global/circleButton";
+import Gallery from "./global/gallery";
 
 export const Modules = ({ reactModule, type }: { type: string; reactModule: any }) => {
   switch (type) {
@@ -29,6 +30,13 @@ export const Modules = ({ reactModule, type }: { type: string; reactModule: any 
         <>
           <NestedPages data={reactModule as NestedPagesProps["data"]} />
           <GridRow></GridRow>
+        </>
+      );
+    case "gallery":
+      return (
+        <>
+          <Gallery images={reactModule.images} />
+          <GridRow />
         </>
       );
     case "imageModule":

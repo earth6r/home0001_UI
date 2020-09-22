@@ -2,8 +2,11 @@
   @apply text-base;
 }
 
-.rte h1,
-.rte h2 {
+.rte.rte-large * {
+  @apply text-baseMd;
+}
+
+.rte h1 {
   @apply uppercase;
 }
 
@@ -44,7 +47,8 @@
 }
 
 @screen md {
-  .rte * {
-    @apply text-baseDesktop;
+  .rte *,
+  .rte.rte-large * {
+    @apply text-baseLg;
   }
 }

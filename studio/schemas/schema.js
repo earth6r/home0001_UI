@@ -49,6 +49,7 @@ import pageModule from './modules/pageModule'
 import imageModule from './modules/imageModule'
 import standardText from './modules/standardText'
 import moduleContent from './modules/moduleContent'
+import gallery from './modules/gallery'
 
 // Tabs
 import globalContent from './tabs/globalContent'
@@ -99,6 +100,7 @@ export default createSchema({
     standardText,
     imageModule,
     moduleContent,
+    gallery,
     metaCard,
     blockContent,
     blockText,

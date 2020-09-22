@@ -18,7 +18,7 @@ const PopoverModule = (props) => {
   // console.log(logo.asset._ref);
   console.log(logo);
   return (
-    <Popover gutter={20}>
+    <Popover trigger="hover" gutter={20}>
       <PopoverTrigger>
         {/* {logo && } */}
         {/* console.log(logo.asset._ref) */}
@@ -29,7 +29,7 @@ const PopoverModule = (props) => {
           </button>
         )}
       </PopoverTrigger>
-      <PopoverContent maxW={1000} mr={10} bg="transparent" border="none" zIndex={40}>
+      <PopoverContent maxW={["75vw", "80vw"]} mr={10} bg="transparent" border="none" zIndex={40}>
         <span className="block box container my-1/2em py-1/2em text-base">
           {/* <PopoverArrow /> */}
           {/* <PopoverCloseButton /> */}
