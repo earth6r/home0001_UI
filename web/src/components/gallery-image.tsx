@@ -58,10 +58,9 @@ export const GalleryImage = ({
     setRandMobileWidth(Math.floor(Math.random() * 8) + 2);
     setRandPadding(Math.floor(Math.random() * (10 - randWidth)) + 3);
   }, [ref]);
-
+  // style={{ transform: `translate(${randX}rem, ${randY}rem)` }}
   return (
     <figure
-      style={{ transform: `translate(${randX}rem, ${randY}rem)` }}
       className={`${
         randWidth !== 10 ? `w-${randWidth}/10` : "w-full"
       } ${`md:px-${randPadding}`} mx-mobile md:mx-desktop  mb-1em`}
