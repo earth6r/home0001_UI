@@ -1,7 +1,7 @@
 import React, { useRef, useLayoutEffect, useState } from "react";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 
-const GridRow = ({ children, className, scroll = true }) => {
+const GridRow = ({ children, className, scroll = true, style }) => {
   const [elementTop, setElementTop] = useState(0);
   const ref = useRef(null);
   const { scrollY } = useViewportScroll();
@@ -21,7 +21,9 @@ const GridRow = ({ children, className, scroll = true }) => {
       {scroll ? (
         <div
           ref={ref}
-          className={`grid-row py-1em text-nav md:text-base ${className ? className : ""}`}
+          className={`grid-row py-1em text-nav relative z-30 md:text-base ${
+            className ? className : ""
+          }`}
         >
           {children}
           <motion.div className="grid-marker grid-marker-1"></motion.div>
@@ -31,7 +33,7 @@ const GridRow = ({ children, className, scroll = true }) => {
       ) : (
         <div
           ref={ref}
-          className={`grid-row py-2 md:py-1em text-base ${className ? className : ""}`}
+          className={`grid-row py-2 md:py-1em relative text-base ${className ? className : ""}`}
         >
           {children}
           <div className="grid-marker grid-marker-1"></div>

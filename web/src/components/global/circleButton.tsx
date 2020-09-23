@@ -19,7 +19,7 @@ const CircleButton = ({ title, url }) => {
   }, [ref]);
 
   return (
-    <div ref={ref} className={`box-circle w-4/10 relative z-30 ${`ml-${randPadding}/10`}`}>
+    <div ref={ref} className={`box-circle w-4/10 relative z-20 ${`ml-${randPadding}/10`}`}>
       <motion.div className="absolute w-full h-full left-1/2 top-1/2">
         <motion.div className="square" style={{ y }}>
           {/* <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}> */}

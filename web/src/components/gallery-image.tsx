@@ -2,7 +2,7 @@ import cx from "classnames";
 import Img from "gatsby-image";
 // @ts-ignore
 import { getFluidGatsbyImage } from "gatsby-source-sanity";
-import React, { useState, useLayoutEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import imageUrlBuilder from "@sanity/image-url";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 
@@ -13,7 +13,7 @@ const sanityConfig = {
 
 const builder = imageUrlBuilder(sanityConfig);
 
-export const Image = ({
+export const GalleryImage = ({
   imageId,
   className,
   width,
@@ -29,6 +29,7 @@ export const Image = ({
 }) => {
   const [loaded, setLoaded] = useState(false);
   const [randWidth, setRandWidth] = useState(0);
+  const [randMobileWidth, setRandMobileWidth] = useState(0);
   const [randX, setRandX] = useState(0);
   const [randY, setRandY] = useState(0);
   const [randSpeed, setRandSpeed] = useState(0);
@@ -47,25 +48,28 @@ export const Image = ({
     clamp: false,
   });
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     // console.log(ref.current.offsetWidth);
-    setRandX(Math.floor(Math.random() * 4));
-    setRandY(Math.floor(Math.random() * 4));
-    setRandSpeed(Math.random() * (0.3 - 0.2) - 0.2);
-    setRandWidth(Math.floor(Math.random() * 7) + 3);
-    setRandPadding(Math.floor(Math.random() * 4));
+    var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
+    setRandX(Math.random() * 2 * plusOrMinus);
+    setRandY(Math.random() * 2 * plusOrMinus);
+    setRandSpeed(Math.random() * 0.2 * plusOrMinus);
+    setRandWidth(Math.floor(Math.random() * 4) + 2);
+    setRandMobileWidth(Math.floor(Math.random() * 8) + 2);
+    setRandPadding(Math.floor(Math.random() * (10 - randWidth)) + 3);
   }, [ref]);
 
   return (
     <figure
+      style={{ transform: `translate(${randX}rem, ${randY}rem)` }}
       className={`${
         randWidth !== 10 ? `w-${randWidth}/10` : "w-full"
-      } ${`mx-${randPadding}/10`} md:mx-1/10  mb-1em`}
+      } ${`md:px-${randPadding}`} mx-mobile md:mx-desktop  mb-1em`}
       ref={ref}
     >
       {fluidProps ? (
         <motion.div style={{ y }}>
-          <Img className="relative z-20" fluid={fluidProps} alt={alt} defaultFadeIn={200} />
+          <Img className="relative z-10" fluid={fluidProps} alt={alt} defaultFadeIn={200} />
           {caption && <figcaption className="mt-1 text-sm">{caption}</figcaption>}
         </motion.div>
       ) : (

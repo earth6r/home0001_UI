@@ -41,3 +41,8 @@ small {
 .earth {
   font-family: "Earth";
 }
+
+[aria-haspopup="dialog"] + section {
+  /* z-index: 999 !important; */
+  /* position: fixed; */
+}

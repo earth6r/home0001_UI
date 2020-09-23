@@ -10,7 +10,7 @@ module.exports = {
       sm: [
         ".625rem",
         {
-          letterSpacing: ".05em",
+          letterSpacing: ".02em",
           lineHeight: ".875rem",
         },
       ],
@@ -90,6 +90,7 @@ module.exports = {
       },
       inset: {
         "3": "63.24%",
+        menu: "100px",
       },
       width: {
         "1/10": "10%",

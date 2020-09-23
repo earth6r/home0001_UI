@@ -84,6 +84,7 @@
   .box-link img {
   }
   .box-circle .square {
-    background: transparent;
+    /* background: rgba(255, 255, 255, 0.95); */
+    /* background: transparent; */
   }
 }
