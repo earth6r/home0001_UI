@@ -1,30 +1,16 @@
 import { Link } from "gatsby";
 import React, { useRef, useLayoutEffect, useState } from "react";
-import { motion, useViewportScroll, useTransform, useSpring } from "framer-motion";
-
-const rand = (min = 0, max = 100) => {
-  return Math.floor(Math.random() * (+max - +min)) + +min;
-};
+import { motion, useViewportScroll, useTransform } from "framer-motion";
 
 const CircleButton = ({ title, url }) => {
   const [elementTop, setElementTop] = useState(0);
   const ref = useRef(null);
   const { scrollY } = useViewportScroll();
   const [randPadding, setRandPadding] = useState(0);
-  const springConfig = {
-    damping: 100,
-    stiffness: 100,
-    mass: rand(1, 3),
-  };
 
   const y = useTransform(scrollY, [elementTop, elementTop + 1], [0.9, 1], {
     clamp: false,
   });
-
-  const scale = useSpring(
-    useTransform(scrollY, [elementTop - 100, elementTop + 100], [0, 1]),
-    springConfig
-  );
 
   useLayoutEffect(() => {
     const element = ref.current;
