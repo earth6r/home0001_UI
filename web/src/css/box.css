@@ -17,6 +17,7 @@
   border-radius: 9999px;
   /* backdrop-filter: blur(10px); */
   transition: 0.25s box-shadow;
+  transition-property: box-shadow, background-color;
   cursor: pointer;
   /* transition: 0.5s all; */
 }
