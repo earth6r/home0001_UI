@@ -10,7 +10,7 @@ const Gallery = (props) => {
   const { images } = props;
   console.log(images);
   return (
-    <div className="w-full z-10 pt-3 relative ">
+    <div style={{ mixBlendMode: "multiply" }} className="w-full z-30 pt-3 relative">
       <div className="-mx-mobile md:-mx-desktop  flex  flex-wrap justify-center">
         {images &&
           images.map((image) => (
