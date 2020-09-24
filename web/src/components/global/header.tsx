@@ -6,7 +6,7 @@ export const Header = (props) => {
   return (
     <div className="w-full">
       {title && (
-        <h2 className="text-sm my-1em relative z-30">
+        <h2 style={{ marginLeft: ".1em" }} className="text-sm my-1em relative z-20">
           {title}
           {number && <span className="text-sm absolute left-3">{number}</span>}
         </h2>

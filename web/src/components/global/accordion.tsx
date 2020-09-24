@@ -19,15 +19,15 @@ export interface AccordionModuleProps {
 
 export const AccordionModule = ({ data }: AccordionModuleProps) => {
   const { accordionItems } = data;
-  console.log(data);
+  // console.log(data);
   return (
-    <Accordion allowMultiple={false}>
+    <Accordion allowMultiple={false} width={"100%"}>
       {accordionItems.length > 0 &&
         accordionItems.map((item, index) => (
           <>
             <AccordionItem
               defaultIsOpen={false}
-              className="box my-3"
+              className="box mb-1"
               paddingLeft="0"
               key={item._key}
             >
@@ -35,8 +35,8 @@ export const AccordionModule = ({ data }: AccordionModuleProps) => {
                 <>
                   <AccordionHeader
                     paddingLeft="1em"
-                    paddingTop="1em"
-                    paddingBottom=".75em"
+                    paddingTop=".75em"
+                    paddingBottom=".65em"
                     position="relative"
                   >
                     <h2 className="m-0">{item.title}</h2>

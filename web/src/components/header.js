@@ -3,10 +3,10 @@ import React from "react";
 import Icon from "./icon";
 import GridRow from "./grid/grid-row";
 
-const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => {
+const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle }) => {
   // const containerRef = useRef(null);
   // const { height } = useDimensions(containerRef);
-
+  const menu = mainMenu.edges[0].node.items;
   return (
     <>
       <header className="fixed z-50 w-full">
@@ -16,18 +16,18 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => {
           } flex container pb-0 w-full nav md:bg-transparent md:relative justify-between md:justify-center md:justify-between items-center content-center`}
         >
           <GridRow scroll={false} className="flex w-full justify-between md:hidden">
-            <h1 className="pl-10 md:hidden logo">
+            <h1 style={{ marginTop: "0.05em" }} className="pl-3em md:hidden logo">
               <Link to="/">
-                <span className="earth block pt-1 text-nav">E</span>
+                <span className="earth block text-nav">E</span>
               </Link>
             </h1>
             <button
-              className="box lg:hidden py-0 relative"
+              className="box lg:hidden py-0 relative w-12"
               onClick={showNav ? onHideNav : onShowNav}
               role="button"
               aria-label="Open the menu"
             >
-              <div className=" px-4 py-1 -mt-1">
+              <div className="px-4 flex justify-center h-full w-full items-center absolute top-0 left-0">
                 <Icon symbol="hamburger" />
               </div>
             </button>
@@ -48,29 +48,20 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => {
                   </h1>
                 </li>
 
-                <li>
-                  <Link onClick={onHideNav} to="/how-it-works">
-                    How it Works
-                  </Link>
-                </li>
-
-                <li>
-                  <Link onClick={onHideNav} to="/homes">
-                    View Homes
-                  </Link>
-                </li>
-
-                <li>
-                  <Link onClick={onHideNav} to="/about">
-                    About
-                  </Link>
-                </li>
+                {menu &&
+                  menu.map((item) => (
+                    <li key={item._key}>
+                      <Link onClick={onHideNav} to={`/${item.link.content.main.slug.current}`}>
+                        {item.link.content.main.title}
+                      </Link>
+                    </li>
+                  ))}
               </ul>
             </GridRow>
           </nav>
         </div>
       </header>
-      <div className="fixed w-full h-24 z-30 gradient-to-b top-0 left-0"></div>
+      <div className="fixed w-full h-16 md:h-24 z-30 gradient-to-b top-0 left-0"></div>
     </>
   );
 };

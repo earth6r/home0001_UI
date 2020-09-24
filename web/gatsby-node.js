@@ -44,77 +44,51 @@ async function createBlogPostPages(graphql, actions) {
     });
 }
 
-// async function createArtistPages(graphql, actions) {
-//   const { createPage } = actions;
-//   const result = await graphql(`
-//     {
-//       allSanityArtist(filter: { slug: { current: { ne: null } } }) {
-//         edges {
-//           node {
-//             id
-//             slug {
-//               current
-//             }
-//           }
-//         }
-//       }
-//     }
-//   `);
+async function createSitePages(graphql, actions) {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allSanityPage {
+        edges {
+          node {
+            id
+            content {
+              main {
+                slug {
+                  current
+                }
+              }
+            }
+            _rawContent(resolveReferences: { maxDepth: 20 })
+          }
+        }
+      }
+    }
+  `);
 
-//   if (result.errors) throw result.errors;
+  if (result.errors) throw result.errors;
 
-//   const postEdges = (result.data.allSanityArtist || {}).edges || [];
+  const pageEdges = (result.data.allSanityPage || {}).edges || [];
 
-//   postEdges
-//     //.filter(edge => !isFuture(edge.node.publishedAt))
-//     .forEach((edge, index) => {
-//       const { id, slug = {} } = edge.node;
-//       const path = `/artist/${slug.current}/`;
+  pageEdges
+    // .filter((edge) => !isFuture(edge.node.publishedAt))
+    .forEach((edge, index) => {
+      const { id } = edge.node;
+      const slug = edge.node.content.main.slug;
+      console.log(slug);
+      // const dateSegment = format(publishedAt, "YYYY/MM");
+      const path = `/${slug.current}/`;
 
-//       createPage({
-//         path,
-//         component: require.resolve("./src/templates/artist.js"),
-//         context: { id },
-//       });
-//     });
-// }
-
-// async function createGalleryPages(graphql, actions) {
-//   const { createPage } = actions;
-//   const result = await graphql(`
-//     {
-//       allSanityGallery(filter: { slug: { current: { ne: null } } }) {
-//         edges {
-//           node {
-//             id
-//             slug {
-//               current
-//             }
-//           }
-//         }
-//       }
-//     }
-//   `);
-
-//   if (result.errors) throw result.errors;
-
-//   const postEdges = (result.data.allSanityGallery || {}).edges || [];
-
-//   postEdges
-//     //.filter(edge => !isFuture(edge.node.publishedAt))
-//     .forEach((edge, index) => {
-//       const { id, slug = {} } = edge.node;
-//       const path = `/galleries/${slug.current}/`;
-
-//       createPage({
-//         path,
-//         component: require.resolve("./src/templates/gallery.js"),
-//         context: { id },
-//       });
-//     });
-// }
+      createPage({
+        path,
+        component: require.resolve("./src/templates/page.js"),
+        context: { id },
+      });
+    });
+}
 
 exports.createPages = async ({ graphql, actions }) => {
   await createBlogPostPages(graphql, actions);
+  await createSitePages(graphql, actions);
   // await createArtistPages(graphql, actions);
 };

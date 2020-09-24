@@ -7,13 +7,14 @@ export default {
     {
       name: 'title',
       title: 'Link CTA',
-      type: 'string'
+      type: 'string',
     },
     {
-      name: 'link',
+      name: 'url', //had to rename this to url because there was a link conflict
       title: 'Link',
-      type: 'string',
-      description: 'There is no `link` validation on this so please type accurate urls with https://, mailto:, tel: etc.'
-    }
-  ]
+      type: 'url',
+      description:
+        'There is no `link` validation on this so please type accurate urls with https://, mailto:, tel: etc.',
+    },
+  ],
 }

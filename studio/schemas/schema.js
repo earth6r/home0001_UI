@@ -17,11 +17,11 @@ import siteSettings from './documents/siteSettings'
 //static pages
 import landing from './documents/landing'
 import home from './documents/home'
-import homes from './documents/homes'
-import howItWorks from './documents/howItWorks'
+// import homes from './documents/homes'
+// import howItWorks from './documents/howItWorks'
 import checkout from './documents/checkout'
 import about from './documents/about'
-import viewHomes from './documents/viewHomes'
+// import viewHomes from './documents/viewHomes'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -75,9 +75,9 @@ export default createSchema({
     home,
     about,
     checkout,
-    homes,
-    howItWorks,
-    viewHomes,
+    // homes,
+    // howItWorks,
+    // viewHomes,
     //
     accordion,
     accordionItem,

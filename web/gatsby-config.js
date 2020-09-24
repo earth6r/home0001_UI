@@ -37,14 +37,14 @@ module.exports = {
       usePreload: true,
       useMinify: true,
     },
-    {
-      resolve: "gatsby-theme-stripe-checkout-button",
-      options: {
-        STRIPE_API_KEY: process.env.STRIPE_API_KEY,
-        STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
-        siteUrl: process.env.SITE_URL,
-      },
-    },
+    // {
+    //   resolve: "gatsby-theme-stripe-checkout-button",
+    //   options: {
+    //     STRIPE_API_KEY: process.env.STRIPE_API_KEY,
+    //     STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
+    //     siteUrl: process.env.SITE_URL,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-hotjar`,
       options: {
@@ -65,6 +65,13 @@ module.exports = {
         icon: `src/images/favicon.jpg`,
       },
     },
+    // {
+    //   resolve: "gatsby-plugin-mailchimp",
+    //   options: {
+    //     endpoint: "", // string; add your MC list endpoint here; see instructions below
+    //     timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
+    //   },
+    // },
     // {
     //   resolve: `gatsby-plugin-google-analytics`,
     //   options: {

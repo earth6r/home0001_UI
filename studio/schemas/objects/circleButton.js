@@ -12,7 +12,7 @@ export default {
       name: 'url',
       title: 'Url',
       type: 'reference',
-      to: [{ type: 'page' }, { type: 'home' }, { type: 'viewHomes' }],
+      to: [{ type: 'page' }, { type: 'home' }],
     },
   ],
 }

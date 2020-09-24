@@ -3,7 +3,7 @@
 }
 
 .rte.rte-large * {
-  @apply text-baseMd;
+  @apply text-base;
 }
 
 .rte h1 {
@@ -35,7 +35,7 @@
 
 .rte ol li {
   counter-increment: rte-list;
-  @apply pl-4em;
+  @apply pl-3em;
   @apply relative;
   @apply mb-1em;
 }

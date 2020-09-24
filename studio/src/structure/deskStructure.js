@@ -11,6 +11,7 @@ import {
   MdAccountBalance,
   MdPeople,
   MdInfoOutline,
+  MdFolder,
 } from 'react-icons/md'
 import IframePreview from '../previews/IframePreview'
 
@@ -74,11 +75,11 @@ export default () =>
         .title('Landing')
         .icon(MdDashboard)
         .child(S.editor().id('landing').schemaType('landing').documentId('landing')),
-      S.divider(),
-      S.listItem()
-        .title('View Homes')
-        .icon(MdSettings)
-        .child(S.editor().id('homes').schemaType('homes').documentId('homes')),
+      // S.divider(),
+      // S.listItem()
+      //   .title('View Homes')
+      //   .icon(MdSettings)
+      //   .child(S.editor().id('homes').schemaType('homes').documentId('homes')),
       S.divider(),
       S.listItem()
         .title('Homes')
@@ -86,20 +87,20 @@ export default () =>
         .schemaType('home')
         .child(S.documentTypeList('home').title('Home')),
       S.divider(),
-      S.listItem()
-        .title('How It Works')
-        .icon(MdInfoOutline)
-        .child(S.editor().id('howItWorks').schemaType('howItWorks').documentId('howItWorks')),
-      S.divider(),
+      // S.listItem()
+      //   .title('How It Works')
+      //   .icon(MdInfoOutline)
+      //   .child(S.editor().id('howItWorks').schemaType('howItWorks').documentId('howItWorks')),
+      // S.divider(),
       S.listItem()
         .title('Checkout')
         .icon(MdPayment)
         .child(S.editor().id('checkout').schemaType('checkout').documentId('checkout')),
       S.divider(),
-      S.listItem()
-        .title('About')
-        .icon(MdPublic)
-        .child(S.editor().id('about').schemaType('about').documentId('about')),
+      // S.listItem()
+      //   .title('About')
+      //   .icon(MdPublic)
+      //   .child(S.editor().id('about').schemaType('about').documentId('about')),
 
       // S.listItem()
       //   .title('Artists')
@@ -131,7 +132,7 @@ export default () =>
       //   .icon(MdPerson)
       //   .schemaType('fair')
       //   .child(S.documentTypeList('fair').title('Fairs')),
-      S.divider(),
+      // S.divider(),
       S.listItem()
         .title('Categories')
         .icon(MdLocalOffer)
@@ -143,6 +144,12 @@ export default () =>
         .icon(MdPeople)
         .schemaType('partner')
         .child(S.documentTypeList('partner').title('Partners')),
+      S.divider(),
+      S.listItem()
+        .title('Pages')
+        .icon(MdFolder)
+        .schemaType('page')
+        .child(S.documentTypeList('page').title('Pages')),
       // S.divider(),
       // S.listItem()
       //   .title('Staff')
@@ -161,9 +168,10 @@ export default () =>
             'about',
             'checkout',
             'homes',
-            'howItWorks',
+            // 'howItWorks',
             'partner',
-            'viewHomes',
+            'page',
+            // 'viewHomes',
             //'artist',
             //'gallery',
             //'author',
