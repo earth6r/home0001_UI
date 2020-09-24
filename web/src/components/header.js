@@ -6,7 +6,7 @@ import GridRow from "./grid/grid-row";
 const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle }) => {
   // const containerRef = useRef(null);
   // const { height } = useDimensions(containerRef);
-  const menu = mainMenu.edges[0].node.items;
+  const menu = mainMenu !== undefined ? mainMenu.edges[0].node.items : null;
   return (
     <>
       <header className="fixed z-50 w-full">

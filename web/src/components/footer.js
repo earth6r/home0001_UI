@@ -7,7 +7,7 @@ import React from "react";
 
 const Footer = ({ footerMenu }) => {
   const query = "";
-  const menu = footerMenu.edges[0].node.items;
+  const menu = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
   return (
     <footer className="pb-4em md:pb-desktop container text-sm">
       <nav>
