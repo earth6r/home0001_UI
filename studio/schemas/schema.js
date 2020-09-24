@@ -55,6 +55,9 @@ import gallery from './modules/gallery'
 import globalContent from './tabs/globalContent'
 import pageContent from './tabs/pageContent'
 
+// Content Types
+import menus from './types/menus'
+
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -107,6 +110,7 @@ export default createSchema({
     header,
     circleButton,
     postCategory,
+    menus,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ]),

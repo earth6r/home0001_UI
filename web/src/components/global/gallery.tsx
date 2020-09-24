@@ -18,11 +18,12 @@ const Gallery = (props) => {
             // <div>{image.asset._id}</div>
           ))}
       </div>
+
       {images &&
-        images.map((image, index) => (
+        images.splice(0, Math.floor(images.length / 2)).map((image, index) => (
           <div
             key={`${image._key}-grid-$`}
-            style={{ top: `${(100 / images.length - 1) * index}%` }}
+            style={{ top: `${(100 / images.length) * (index + 1)}%` }}
             className="absolute w-full left-0"
           >
             <GridRow />

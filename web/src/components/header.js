@@ -70,7 +70,7 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => {
           </nav>
         </div>
       </header>
-      <div className="fixed w-full h-24 z-30 from-white bg-gradient-to-b top-0 left-0"></div>
+      <div className="fixed w-full h-24 z-30 gradient-to-b top-0 left-0"></div>
     </>
   );
 };

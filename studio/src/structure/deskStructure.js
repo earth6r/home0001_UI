@@ -56,6 +56,15 @@ export default () =>
         .child(S.editor().id('siteSettings').schemaType('siteSettings').documentId('siteSettings')),
       S.divider(),
       S.listItem()
+        .title('Menus')
+        .child(
+          S.documentTypeList('menus')
+            .title('Menus')
+            .filter('_type == $type')
+            .params({ type: 'menus' })
+        ),
+      S.divider(),
+      S.listItem()
         .title('Blog posts')
         .icon(MdDescription)
         .schemaType('post')
@@ -162,6 +171,7 @@ export default () =>
             //'fair',
             //'exhibition',
             //'job',
+            'menus',
             'post',
             'siteSettings',
             //'staff',
