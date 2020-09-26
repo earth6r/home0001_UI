@@ -1,11 +1,33 @@
 import { graphql, StaticQuery } from "gatsby";
 import React, { useState } from "react";
 import Layout from "../components/layout";
-import { ThemeProvider, CSSReset } from "@chakra-ui/core";
-import { theme } from "../gatsby-plugin-chakra-ui/theme";
+import { ThemeProvider } from "@chakra-ui/core";
+// import { theme } from "../gatsby-plugin-chakra-ui/theme";
 // import { theme } from "../lib/theme";
 
 const query = graphql`
+  fragment HomeLinkFragment on SanityHome {
+    content {
+      main {
+        title
+        slug {
+          current
+        }
+      }
+    }
+  }
+
+  fragment LinkFragment on SanityPage {
+    content {
+      main {
+        title
+        slug {
+          current
+        }
+      }
+    }
+  }
+
   query SiteTitleQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
@@ -17,19 +39,15 @@ const query = graphql`
             ... on SanityExternalLink {
               _key
               _type
+              title
+              url
             }
             ... on SanityInternalLink {
               _key
               _type
               link {
-                content {
-                  main {
-                    title
-                    slug {
-                      current
-                    }
-                  }
-                }
+                ...LinkFragment
+                ...HomeLinkFragment
               }
             }
           }
@@ -51,14 +69,8 @@ const query = graphql`
               _key
               _type
               link {
-                content {
-                  main {
-                    title
-                    slug {
-                      current
-                    }
-                  }
-                }
+                ...LinkFragment
+                ...HomeLinkFragment
               }
             }
           }
@@ -88,7 +100,7 @@ function LayoutContainer(props) {
         }
         // console.log(data);
         return (
-          <ThemeProvider theme={theme}>
+          <ThemeProvider>
             <Layout
               {...props}
               showNav={showNav}

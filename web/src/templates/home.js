@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Container from "../components/container";
-// import GraphQLErrorList from "../components/graphql-error-list";
+import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import { RenderModules } from "../utils/renderModules";
@@ -22,7 +22,15 @@ const HomeTemplate = (props) => {
     main: { modules, slug },
     meta,
   } = page._rawContent;
-  console.log(data);
+  // console.log(data);
+
+  if (errors) {
+    return (
+      <Layout>
+        <GraphQLErrorList errors={errors} />
+      </Layout>
+    );
+  }
 
   return (
     <Layout>

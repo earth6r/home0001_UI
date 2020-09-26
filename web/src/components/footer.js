@@ -20,6 +20,7 @@ import {
 const Footer = ({ footerMenu }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const query = "";
+  console.log(footerMenu);
   const menu = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
   return (
     <>

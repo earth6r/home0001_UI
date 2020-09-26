@@ -22,7 +22,7 @@ const PageTemplate = (props) => {
     main: { modules, slug },
     meta,
   } = page._rawContent;
-  console.log(data);
+  // console.log(data);
 
   return (
     <Layout>
