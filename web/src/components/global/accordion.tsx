@@ -24,13 +24,8 @@ export const AccordionModule = ({ data }: AccordionModuleProps) => {
     <Accordion allowMultiple={false} width={"100%"}>
       {accordionItems.length > 0 &&
         accordionItems.map((item, index) => (
-          <>
-            <AccordionItem
-              defaultIsOpen={false}
-              className="box mb-1"
-              paddingLeft="0"
-              key={item._key}
-            >
+          <React.Fragment key={item._key}>
+            <AccordionItem defaultIsOpen={false} className="box mb-1" paddingLeft="0">
               {({ isExpanded }) => (
                 <>
                   <AccordionHeader
@@ -49,7 +44,7 @@ export const AccordionModule = ({ data }: AccordionModuleProps) => {
               )}
             </AccordionItem>
             <div>{index < accordionItems.length - 1 && <GridRow></GridRow>}</div>
-          </>
+          </React.Fragment>
         ))}
     </Accordion>
   );

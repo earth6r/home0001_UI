@@ -81,3 +81,7 @@
     @apply text-nav;
   }
 }
+
+.l-3 {
+  @apply text-right;
+}

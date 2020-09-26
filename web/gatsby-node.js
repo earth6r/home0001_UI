@@ -87,8 +87,51 @@ async function createSitePages(graphql, actions) {
     });
 }
 
+async function createHomes(graphql, actions) {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allSanityHome {
+        edges {
+          node {
+            id
+            content {
+              main {
+                slug {
+                  current
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  if (result.errors) throw result.errors;
+
+  const pageEdges = (result.data.allSanityHome || {}).edges || [];
+
+  pageEdges
+    // .filter((edge) => !isFuture(edge.node.publishedAt))
+    .forEach((edge, index) => {
+      const { id } = edge.node;
+      const slug = edge.node.content.main.slug;
+      // console.log(slug);
+      // const dateSegment = format(publishedAt, "YYYY/MM");
+      const path = `/home/${slug.current}/`;
+
+      createPage({
+        path,
+        component: require.resolve("./src/templates/home.js"),
+        context: { id },
+      });
+    });
+}
+
 exports.createPages = async ({ graphql, actions }) => {
   await createBlogPostPages(graphql, actions);
+  await createHomes(graphql, actions);
   await createSitePages(graphql, actions);
   // await createArtistPages(graphql, actions);
 };

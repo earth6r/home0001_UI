@@ -8,6 +8,7 @@ import GridRow from "./grid/grid-row";
 import { Header } from "./global/header";
 import CircleButton from "./global/circleButton";
 import Gallery from "./global/gallery";
+import { InternalLink } from "./global/internalLink";
 
 export const Modules = ({ reactModule, type }: { type: string; reactModule: any }) => {
   switch (type) {
@@ -40,10 +41,16 @@ export const Modules = ({ reactModule, type }: { type: string; reactModule: any 
         </>
       );
     case "imageModule":
-      //console.log(reactModule);
       return (
         <>
           <Image imageId={reactModule.image.asset._id} caption={reactModule.caption} />
+          <GridRow></GridRow>
+        </>
+      );
+    case "internalLink":
+      return (
+        <>
+          <InternalLink title={reactModule.title} link={reactModule.link} />
           <GridRow></GridRow>
         </>
       );

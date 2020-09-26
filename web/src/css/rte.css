@@ -52,3 +52,28 @@
     @apply text-baseLg;
   }
 }
+
+input,
+textarea,
+select {
+  background: #ffffff;
+  box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.3), -5px -5px 11px rgba(255, 255, 255, 0);
+  will-change: box-shadow;
+  transition: box-shadow 5s linear;
+}
+
+form button {
+  color: #ffffff !important;
+  @apply text-nav;
+  @apply uppercase;
+  font-weight: normal !important;
+}
+
+form label {
+  @apply text-nav;
+  @apply uppercase;
+  color: #c0c0c0;
+}
+
+.button {
+}

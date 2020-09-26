@@ -19,6 +19,7 @@ module.exports = {
         {
           lineHeight: "1.40625rem",
           letterSpacing: ".01em",
+          textTransform: "uppercase",
         },
       ],
       base: ["1rem", "1.25rem"],

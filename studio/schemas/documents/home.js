@@ -67,7 +67,8 @@ export default {
   // ],
   preview: {
     select: {
-      title: 'pageContent.pageModule.title',
+      // title: 'pageContent.pageModule.title',
+      title: 'content.main.title',
       // publishedAt: 'publishedAt',
       slug: 'slug',
       media: 'mainImage',
@@ -75,7 +76,8 @@ export default {
     prepare({ title = 'No title', slug = {}, media }) {
       //const dateSegment = format(publishedAt, 'YYYY/MM')
       //const path = `/${dateSegment}/${slug.current}/`
-      console.log(pageContent)
+      // console.log(pageContent)
+      console.log(title)
       return {
         title,
         media,

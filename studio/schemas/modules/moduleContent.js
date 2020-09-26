@@ -12,6 +12,9 @@ export default {
     {
       type: 'standardText',
     },
+    {
+      type: 'internalLink',
+    },
     // {
     //   type: 'nestedPages',
     // },
