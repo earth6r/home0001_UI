@@ -1,7 +1,7 @@
 .box {
   border-radius: 1em;
   background: #ffffff;
-  box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.3), -5px -5px 11px rgba(255, 255, 255, 0);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5), -5px -5px 8px rgba(255, 255, 255, 0);
   will-change: box-shadow;
   transition: box-shadow 5s linear;
 }
@@ -11,20 +11,26 @@
 }
 
 .box-circle .square {
-  padding-bottom: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.3), -5px -5px 11px rgba(255, 255, 255, 0);
-  border-radius: 9999px;
   /* backdrop-filter: blur(10px); */
-  transition: 0.25s box-shadow;
-  transition-property: box-shadow, background-color;
+
   cursor: pointer;
+
   /* transition: 0.5s all; */
 }
 
-.box-circle:hover .square {
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8), -5px -5px 20px rgba(255, 255, 255, 0);
+.box-circle .background-circle {
+  padding-bottom: 100%;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 5px 11px rgba(0, 0, 0, 0.6);
+  border-radius: 9999px;
+  @apply animate-pulse;
+  transition: 0.25s box-shadow;
+  transition-property: box-shadow, background-color;
+}
+
+.box-circle:hover .background-circle {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.8);
   /* backdrop-filter: blur(10px); */
 }
 
@@ -53,6 +59,7 @@
   @apply w-full;
   @apply h-full;
   @apply left-0;
+  margin-top: -0.04em;
   padding: 1rem 0;
   @apply block;
   @apply top-1/2;
@@ -60,17 +67,17 @@
   @apply -translate-y-1/2;
   border-radius: 1em;
   background: #ffffff;
-  box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.3), -5px -5px 11px rgba(255, 255, 255, 0);
+  box-shadow: 0px 5px 11px rgba(0, 0, 0, 0.3), -0px -5px 11px rgba(255, 255, 255, 0);
   will-change: box-shadow;
   transition: 1s box-shadow;
 }
 
 .box-link:hover:before {
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3), -5px -5px 20px rgba(255, 255, 255, 0);
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3), -5px -5px 20px rgba(255, 255, 255, 0);
 }
 
 .box-link[aria-expanded="true"]:before {
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8), -5px -5px 20px rgba(255, 255, 255, 0);
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.8), -0px -5px 20px rgba(255, 255, 255, 0);
 }
 
 @screen md {
@@ -82,6 +89,9 @@
     /* top: -0.15em; */
   }
   .box-link img {
+  }
+  .box-circle * {
+    @apply text-nav;
   }
   .box-circle .square {
     /* background: rgba(255, 255, 255, 0.95); */

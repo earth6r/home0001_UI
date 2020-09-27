@@ -32,7 +32,7 @@ const PageTemplate = (props) => {
         keywords={site.keywords}
         image={meta.openImage}
       />*/}
-      <Container className="rte-large w-full">
+      <Container>
         <div className="flex flex-wrap w-full">{RenderModules(modules)}</div>
       </Container>
     </Layout>

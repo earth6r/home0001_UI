@@ -65,6 +65,7 @@ export const GalleryImage = ({
         randWidth !== 10 ? `w-${randWidth}/10` : "w-full"
       } ${`md:px-${randPadding}`} mx-mobile md:mx-desktop  mb-1em`}
       ref={ref}
+      style={{ paddingTop: `${`${randY}em`}` }}
     >
       {fluidProps ? (
         <motion.div>

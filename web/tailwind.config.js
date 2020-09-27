@@ -25,6 +25,13 @@ module.exports = {
       base: ["1rem", "1.25rem"],
       baseMd: ["1.625rem", "1.875rem"],
       baseLg: ["5vw", "5.10417vw"],
+      baseRte: [
+        "2rem",
+        {
+          lineHeight: "2.375rem",
+          letterSpacing: "0rem",
+        },
+      ],
       lg: ["1.75rem", "1.2"],
       "2xl": ["2rem", "2.375rem"],
     },
@@ -57,7 +64,7 @@ module.exports = {
         "1/2": ".5px",
       },
       fontFamily: {
-        serif: ["Helvetica", "Arial", "sans-serif"],
+        serif: ["GP", "Helvetica", "Arial", "sans-serif"],
       },
       spacing: {
         mobile: ".625rem",
@@ -68,6 +75,7 @@ module.exports = {
         gridLaptopM: "10%",
         gridDesktopM: "15%",
         gridDesktopL: "25%",
+        "1/4em": ".25em",
         "1/2em": ".5em",
         "1em": "1em",
         "2em": "2em",

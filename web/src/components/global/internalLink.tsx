@@ -20,7 +20,7 @@ export const InternalLink = (props) => {
     <div className="w-full">
       {title && link && (
         <PageLink
-          className="box w-full block text-center pt-3"
+          className="box  rounded-lg w-full block text-center leading-none py-1/2em pb-1/4em"
           to={`${uri}/${link.content.main.slug.current}`}
         >
           {title}

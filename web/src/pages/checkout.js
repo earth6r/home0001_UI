@@ -1,25 +1,69 @@
 import React from "react";
-// import { Checkout } from "gatsby-theme-stripe-checkout-button";
+import { graphql } from "gatsby";
 import Container from "../components/container";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
+import { RenderModules } from "../utils/renderModules";
+// import CartOverview from "../components/cart-overview";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
+import CheckoutForm from "../components/checkout-form";
+
+export const query = graphql`
+  fragment SanityImage on SanityMainImage {
+    crop {
+      _key
+      _type
+      top
+      bottom
+      left
+      right
+    }
+    hotspot {
+      _key
+      _type
+      x
+      y
+      height
+      width
+    }
+    asset {
+      _id
+    }
+  }
+
+  query CheckoutPageQuery {
+    sanityCheckout {
+      _rawContent(resolveReferences: { maxDepth: 10 })
+    }
+  }
+`;
 
 const CheckoutPage = (props) => {
+  const { data, errors } = props;
+
+  if (errors) {
+    return (
+      <Layout>
+        <GraphQLErrorList errors={errors} />
+      </Layout>
+    );
+  }
+
+  const {
+    main: { modules, slug },
+    meta,
+  } = data.sanityCheckout._rawContent;
+
   return (
     <Layout>
       <SEO title={"checkout"} description={"checkout"} keywords={[]} />
       <Container>
-        <h1>Purchase Now</h1>
-        <p>
-          By purchasing now, we’ll take a reservation deposit and then setup an appointment to
-          discuss how to buy the home.
-        </p>
-        {/* <Checkout
-          button={<button type="submit" text="Buy Now!" />}
-          sku="sku_123"
-          quantity={1}
-          customerEmail={`customer@email.com`}
-        />*/}
+        <div className="flex flex-wrap">{RenderModules(modules)}</div>
+        <Elements stripe={stripePromise}>
+          <CheckoutForm />
+        </Elements>
       </Container>
     </Layout>
   );

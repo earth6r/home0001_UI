@@ -37,14 +37,14 @@ module.exports = {
       usePreload: true,
       useMinify: true,
     },
-    // {
-    //   resolve: "gatsby-theme-stripe-checkout-button",
-    //   options: {
-    //     STRIPE_API_KEY: process.env.STRIPE_API_KEY,
-    //     STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
-    //     siteUrl: process.env.SITE_URL,
-    //   },
-    // },
+    {
+      resolve: `gatsby-source-stripe`,
+      options: {
+        objects: ["Price"],
+        secretKey: process.env.STRIPE_SECRET_KEY,
+        downloadFiles: false,
+      },
+    },
     {
       resolve: `gatsby-plugin-hotjar`,
       options: {

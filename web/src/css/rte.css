@@ -1,13 +1,24 @@
-.rte * {
+.rte {
   @apply text-base;
+}
+
+.rte p,
+.rte ul,
+.rte ol {
+  @apply max-w-4xl;
 }
 
 .rte.rte-large * {
   @apply text-base;
+  @apply max-w-none;
 }
 
 .rte h1 {
   @apply uppercase;
+}
+
+.rte p:not(:last-child) {
+  @apply mb-1em;
 }
 
 .rte a {
@@ -47,9 +58,11 @@
 }
 
 @screen md {
-  .rte *,
   .rte.rte-large * {
     @apply text-baseLg;
+  }
+  .rte * {
+    @apply text-baseRte;
   }
 }
 

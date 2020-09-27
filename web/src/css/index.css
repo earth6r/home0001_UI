@@ -39,7 +39,7 @@ small {
 }
 
 .earth {
-  font-family: "Earth";
+  font-family: "Earth", "GP", Arial, Helvetica, sans-serif;
 }
 
 .gradient-to-b {
@@ -47,7 +47,8 @@ small {
   background: linear-gradient(
     0deg,
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.95) 65%,
+    rgba(255, 255, 255, 0.95) 45%,
+    rgba(255, 255, 255, 0.98) 75%,
     rgba(255, 255, 255, 1) 100%
   );
 }

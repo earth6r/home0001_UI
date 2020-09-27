@@ -61,7 +61,7 @@ const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle }) => {
           </nav>
         </div>
       </header>
-      <div className="fixed w-full h-16 md:h-24 z-30 gradient-to-b pointer-events-none top-0 left-0"></div>
+      <div className="fixed w-full h-16 md:h-18 z-30 gradient-to-b pointer-events-none top-0 left-0"></div>
     </>
   );
 };

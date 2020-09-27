@@ -25,7 +25,7 @@ export const AccordionModule = ({ data }: AccordionModuleProps) => {
       {accordionItems.length > 0 &&
         accordionItems.map((item, index) => (
           <React.Fragment key={item._key}>
-            <AccordionItem defaultIsOpen={false} className="box mb-1" paddingLeft="0">
+            <AccordionItem defaultIsOpen={false} className="box mb-1 rounded-lg" paddingLeft="0">
               {({ isExpanded }) => (
                 <>
                   <AccordionHeader

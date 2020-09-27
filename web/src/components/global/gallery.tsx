@@ -5,10 +5,11 @@
 import React, { useState, useLayoutEffect, useRef } from "react";
 import { GalleryImage } from "../gallery-image";
 import GridRow from "../grid/grid-row";
+import CircleButton from "./circleButton";
 
 const Gallery = (props) => {
-  const { images } = props;
-  console.log(images);
+  const { images, url } = props;
+  console.log(props);
   return (
     <div style={{ mixBlendMode: "multiply" }} className="w-full z-30 pt-3 relative">
       <div className="-mx-mobile md:-mx-desktop  flex  flex-wrap justify-center">
@@ -17,6 +18,7 @@ const Gallery = (props) => {
             <GalleryImage key={image._key} imageId={image.asset._id} caption={image.caption} />
             // <div>{image.asset._id}</div>
           ))}
+        {url && <CircleButton title={url.title} url={url.url} float={false} />}
       </div>
 
       {images &&

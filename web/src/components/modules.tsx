@@ -36,7 +36,7 @@ export const Modules = ({ reactModule, type }: { type: string; reactModule: any 
     case "gallery":
       return (
         <>
-          <Gallery images={reactModule.images} />
+          <Gallery images={reactModule.images} url={reactModule.url} />
           <GridRow />
         </>
       );
