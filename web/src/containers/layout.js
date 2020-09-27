@@ -17,6 +17,17 @@ const query = graphql`
     }
   }
 
+  fragment CheckoutLinkFragment on SanityCheckout {
+    content {
+      main {
+        title
+        slug {
+          current
+        }
+      }
+    }
+  }
+
   fragment LinkFragment on SanityPage {
     content {
       main {

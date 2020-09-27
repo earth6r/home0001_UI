@@ -18,21 +18,24 @@ const CARD_OPTIONS = {
   style: {
     base: {
       iconColor: "#c4f0ff",
-      color: "#fff",
+      color: "#000",
       fontWeight: 500,
-      fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
-      fontSize: "16px",
+      fontFamily: "'GP', sans-serif",
+      fontSize: "2rem",
+      letterSpacing: "0rem",
+      boxShadow: "5px 5px 11px rgba(0, 0, 0, 0.3) !important",
+      minHeight: "3em",
       fontSmoothing: "antialiased",
       ":-webkit-autofill": {
         color: "#fce883",
       },
       "::placeholder": {
-        color: "#87bbfd",
+        color: "rgba(0, 0, 0, .3)",
       },
     },
     invalid: {
-      iconColor: "#ffc7ee",
-      color: "#ffc7ee",
+      iconColor: "red",
+      color: "red",
     },
   },
 };
@@ -59,7 +62,7 @@ const Field = ({ label, id, type, placeholder, required, autoComplete, value, on
   //     onChange={onChange}
   //   />
   // </div>
-  <FormControl>
+  <FormControl className="pb-1em">
     <FormLabel htmlFor={id}>{label}</FormLabel>
     <Input
       placeholder={placeholder}
@@ -69,6 +72,7 @@ const Field = ({ label, id, type, placeholder, required, autoComplete, value, on
       onChange={onChange}
       type={type}
       id={id}
+      className="box placeholder-gray-500"
       aria-describedby={`enter ${label}`}
     />
   </FormControl>
@@ -181,7 +185,7 @@ const CheckoutForm = () => {
       <ResetButton onClick={reset} />
     </div>
   ) : (
-    <form className="Form" onSubmit={handleSubmit}>
+    <form className="Form " onSubmit={handleSubmit}>
       <fieldset className="FormGroup">
         <Field
           label="Name"
@@ -220,7 +224,7 @@ const CheckoutForm = () => {
           }}
         />
       </fieldset>
-      <fieldset className="FormGroup">
+      <fieldset className="FormGroup box mb-1em">
         <CardField
           onChange={(e) => {
             setError(e.error);
@@ -230,7 +234,7 @@ const CheckoutForm = () => {
       </fieldset>
       {error && <ErrorMessage>{error.message}</ErrorMessage>}
       <SubmitButton processing={processing} error={error} disabled={!stripe}>
-        Pay $25
+        Pay $1
       </SubmitButton>
     </form>
   );

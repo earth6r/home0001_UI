@@ -61,12 +61,20 @@ const CheckoutPage = (props) => {
       <SEO title={"checkout"} description={"checkout"} keywords={[]} />
       <Container>
         <div className="flex flex-wrap">{RenderModules(modules)}</div>
-        <Elements stripe={stripePromise}>
+        <Elements options={ELEMENTS_OPTIONS} stripe={stripePromise}>
           <CheckoutForm />
         </Elements>
       </Container>
     </Layout>
   );
+};
+
+const ELEMENTS_OPTIONS = {
+  fonts: [
+    {
+      cssSrc: "fonts/fonts.css",
+    },
+  ],
 };
 
 export default CheckoutPage;

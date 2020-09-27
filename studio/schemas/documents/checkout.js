@@ -72,8 +72,8 @@ export default {
   ],
   preview: {
     select: {
-      title: 'title',
-      publishedAt: 'publishedAt',
+      title: 'content.main.title',
+      // publishedAt: 'publishedAt',
       slug: 'slug',
       media: 'mainImage',
     },

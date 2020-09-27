@@ -37,12 +37,12 @@ const PopoverModule = (props) => {
         position="fixed"
         zIndex={50}
       >
-        <span className="block box container my-1/2em py-1/2em text-base">
+        <span className="block box container my-1/2em py-1/2em">
           {/* <PopoverArrow /> */}
           {/* <PopoverCloseButton /> */}
           {/* {trigger && <span>{trigger}</span>} */}
           {content && (
-            <span className="max-w-sm text-base md:text-baseLg">
+            <span className="max-w-sm text-baseRte">
               <BasePortableText blocks={content} serializers={Serializer} />
             </span>
           )}

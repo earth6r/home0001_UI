@@ -1,6 +1,7 @@
 import React from "react";
 import Figure from "./Figure";
 import PopoverModule from "./popover-module";
+import { InternalLink } from "./global/internalLink";
 
 const serializers = {
   types: {
@@ -22,6 +23,15 @@ const serializers = {
   },
   marks: {
     partner: ({ mark, children }) => <div>partner</div>,
+    internalLink: ({ mark, children }) => {
+      console.log(mark);
+      return (
+        <InternalLink
+          title={mark.reference._rawContent.main.title}
+          link={mark.reference._rawContent.main.slug}
+        />
+      );
+    },
   },
 };
 

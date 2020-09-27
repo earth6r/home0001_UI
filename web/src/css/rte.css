@@ -8,6 +8,11 @@
   @apply max-w-4xl;
 }
 
+.rte ul li > ul,
+.rte ol li > ol {
+  @apply pt-1em;
+}
+
 .rte.rte-large * {
   @apply text-base;
   @apply max-w-none;
@@ -44,6 +49,10 @@
   @apply mb-1em;
 }
 
+.rte h2 {
+  @apply uppercase;
+}
+
 .rte ol li {
   counter-increment: rte-list;
   @apply pl-3em;
@@ -57,13 +66,17 @@
   @apply left-0;
 }
 
-@screen md {
-  .rte.rte-large * {
-    @apply text-baseLg;
-  }
-  .rte * {
-    @apply text-baseRte;
-  }
+.rte ul li {
+  /* counter-increment: rte-list; */
+  @apply pl-3em;
+  @apply relative;
+  @apply mb-1em;
+}
+
+.rte ul li:before {
+  content: "–";
+  @apply absolute;
+  @apply left-0;
 }
 
 input,
@@ -73,20 +86,50 @@ select {
   box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.3), -5px -5px 11px rgba(255, 255, 255, 0);
   will-change: box-shadow;
   transition: box-shadow 5s linear;
+  min-height: 3em;
+  @apply text-base !important;
+  fontsmoothing: "antialiased";
+  text-overflow: ellipse;
+  overflow: hidden;
+  display: block;
 }
 
-form button {
+.FormGroup {
+  min-height: 3em;
+  @apply rounded-md;
+}
+
+.FormGroup .FormRow {
+  @apply py-1/2em;
+}
+
+form button,
+button[type="submit"] {
   color: #ffffff !important;
   @apply text-nav;
   @apply uppercase;
+  @apply w-full;
+  @apply block;
+  min-height: 3em;
   font-weight: normal !important;
 }
 
 form label {
   @apply text-nav;
   @apply uppercase;
-  color: #c0c0c0;
+  /* color: rgba(0, 0, 0, 0.3); */
 }
 
-.button {
+@screen md {
+  .rte.rte-large * {
+    @apply text-baseLg;
+  }
+  .rte * {
+    @apply text-baseRte;
+  }
+  input,
+  textarea,
+  select {
+    @apply text-baseRte !important;
+  }
 }

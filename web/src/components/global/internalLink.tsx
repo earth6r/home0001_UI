@@ -3,6 +3,8 @@ import { PageLink } from "../link";
 
 export const InternalLink = (props) => {
   const { title, link } = props;
+  let slug = link.content !== undefined ? link.content.main.slug.current : link.current;
+  console.log(props);
   let uri = "";
   //   console.log(link);
   //   alert(link._type);
@@ -17,15 +19,15 @@ export const InternalLink = (props) => {
   }
   //   alert(uri);
   return (
-    <div className="w-full">
+    <span className="w-full block">
       {title && link && (
         <PageLink
-          className="box  rounded-lg w-full block text-center leading-none py-1/2em pb-1/4em"
-          to={`${uri}/${link.content.main.slug.current}`}
+          className="box  rounded-lg w-full block text-center leading-none h-3em flex items-center justify-center"
+          to={`${uri}/${slug}`}
         >
-          {title}
+          <span>{title}</span>
         </PageLink>
       )}
-    </div>
+    </span>
   );
 };

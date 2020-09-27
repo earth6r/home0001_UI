@@ -35,7 +35,7 @@ export const AccordionModule = ({ data }: AccordionModuleProps) => {
                     position="relative"
                   >
                     <h2 className="m-0">{item.title}</h2>
-                    <div className="right-0 absolute pr-1em">{isExpanded ? "-" : "+"}</div>
+                    <div className="right-0 absolute pr-1em">{isExpanded ? "–" : "+"}</div>
                   </AccordionHeader>
                   <AccordionPanel paddingLeft="1em" className="pb-1em">
                     <PortableText blocks={item.text} />
