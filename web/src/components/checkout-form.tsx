@@ -72,7 +72,7 @@ const Field = ({ label, id, type, placeholder, required, autoComplete, value, on
       onChange={onChange}
       type={type}
       id={id}
-      className="box placeholder-gray-500"
+      className="box placeholder-gray-500 py-1/2em h-auto"
       aria-describedby={`enter ${label}`}
     />
   </FormControl>
@@ -80,7 +80,7 @@ const Field = ({ label, id, type, placeholder, required, autoComplete, value, on
 
 const SubmitButton = ({ processing, error, children, disabled }) => (
   <Button
-    className={`SubmitButton ${error ? "SubmitButton--error" : ""}`}
+    className={`SubmitButton box hover:bg-black ${error ? "SubmitButton--error" : ""}`}
     type="submit"
     disabled={processing || disabled}
     bg="#000000"
@@ -224,7 +224,7 @@ const CheckoutForm = () => {
           }}
         />
       </fieldset>
-      <fieldset className="FormGroup box mb-1em">
+      <fieldset className="FormGroup box mb-1em px-1/2em">
         <CardField
           onChange={(e) => {
             setError(e.error);

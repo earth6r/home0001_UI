@@ -34,6 +34,8 @@ import authorReference from './objects/authorReference'
 import partnerReference from './objects/partnerReference'
 import header from './objects/header'
 import circleButton from './objects/circleButton'
+import richTableCell from './objects/cell'
+import richTableRow from './objects/row'
 
 // Modules
 import accordion from './modules/accordion'
@@ -50,6 +52,7 @@ import imageModule from './modules/imageModule'
 import standardText from './modules/standardText'
 import moduleContent from './modules/moduleContent'
 import gallery from './modules/gallery'
+import richTable from './modules/tableModule'
 
 // Tabs
 import globalContent from './tabs/globalContent'
@@ -111,6 +114,9 @@ export default createSchema({
     circleButton,
     postCategory,
     menus,
+    richTable,
+    richTableRow,
+    richTableCell,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ]),

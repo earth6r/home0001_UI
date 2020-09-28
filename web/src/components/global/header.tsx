@@ -6,9 +6,16 @@ export const Header = (props) => {
   return (
     <div className="w-full">
       {title && (
-        <h2 style={{ marginLeft: ".1em" }} className="text-sm my-1em relative z-20">
+        <h2
+          style={{ marginLeft: ".1em" }}
+          className=" text-mobileCaption md:text-desktopCaption my-1em relative z-20"
+        >
           {title}
-          {number && <span className="text-sm absolute left-3">{number}</span>}
+          {number && (
+            <span className="text-mobileCaption md:text-desktopCaption absolute left-3">
+              {number}
+            </span>
+          )}
         </h2>
       )}
     </div>

@@ -18,7 +18,7 @@ const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle }) => {
           <GridRow scroll={false} className="flex w-full justify-between md:hidden">
             <h1 style={{ marginTop: "0.05em" }} className="pl-3em md:hidden logo">
               <Link to="/">
-                <span className="earth block text-nav">E</span>
+                <span className="earth block text-mobileNav md:text-desktopNav">E</span>
               </Link>
             </h1>
             <button
@@ -36,12 +36,15 @@ const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle }) => {
           <nav
             className={`${
               showNav ? "block h-full bg-white z-50" : "hidden"
-            } fixed left-0 top-0 md:relative w-full md:block text-nav`}
+            } fixed left-0 top-0 md:relative w-full md:block text-mobileNav md:text-desktopNav`}
           >
             <GridRow className="" scroll={false}>
-              <ul className="container md:px-0 md:flex w-full text-nav md:mb-1em justify-between">
-                <li>
-                  <h1 className="logo">
+              <ul
+                style={{ top: ".08em" }}
+                className="relative leading-none container p-0 m-0 md:flex w-full text-mobileNav md:text-desktopNav justify-between"
+              >
+                <li className="md:w-4/10">
+                  <h1 className="logo  md:pl-6em">
                     <Link onClick={onHideNav} to="/">
                       <span className="earth">E</span>
                     </Link>

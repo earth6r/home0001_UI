@@ -15,9 +15,10 @@ export default {
     {
       type: 'internalLink',
     },
-    // {
-    //   type: 'nestedPages',
-    // },
+    {
+      // type: 'tableModule',
+      type: 'richTable',
+    },
     {
       type: 'header',
     },

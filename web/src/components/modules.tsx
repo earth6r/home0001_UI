@@ -9,6 +9,7 @@ import { Header } from "./global/header";
 import CircleButton from "./global/circleButton";
 import Gallery from "./global/gallery";
 import { InternalLink } from "./global/internalLink";
+import { RichTable } from "./global/richTable";
 
 export const Modules = ({ reactModule, type }: { type: string; reactModule: any }) => {
   switch (type) {
@@ -58,7 +59,9 @@ export const Modules = ({ reactModule, type }: { type: string; reactModule: any 
       return <Header title={reactModule.title} number={reactModule.number} />;
     case "circleButton":
       return <CircleButton title={reactModule.title} url={reactModule.url} />;
+    case "richTable":
+      return <RichTable data={reactModule} />;
     default:
-      return <span>{type}</span>;
+      return true;
   }
 };

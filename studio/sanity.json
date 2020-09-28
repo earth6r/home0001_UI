@@ -19,7 +19,8 @@
     "dashboard-widget-netlify",
     "@sanity/studio-hints",
     "media",
-    "tabs"
+    "tabs",
+    "@ssfbank/sanity-plugin-byo-table"
   ],
   "parts": [
     {

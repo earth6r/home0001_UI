@@ -22,14 +22,91 @@ module.exports = {
           textTransform: "uppercase",
         },
       ],
+
       base: ["1rem", "1.25rem"],
       baseMd: ["1.625rem", "1.875rem"],
-      baseLg: ["5vw", "5.10417vw"],
+      baseLg: ["3.75rem", "4.25rem"],
+      baseLgMobile: ["3.75rem", "4.25rem"],
       baseRte: [
         "2rem",
         {
           lineHeight: "2.375rem",
           letterSpacing: "0rem",
+        },
+      ],
+      desktopLarge: [
+        "3.75rem",
+        {
+          lineHeight: "4.25rem",
+          letterSpacing: "0rem",
+        },
+      ],
+      desktopBody: [
+        "1.875rem",
+        {
+          lineHeight: "2.5rem",
+          letterSpacing: "0rem",
+        },
+      ],
+      desktopNav: [
+        "1.125rem",
+        {
+          lineHeight: "1.125rem",
+          letterSpacing: "0rem",
+        },
+      ],
+      desktopInterface: [
+        "1.625rem",
+        {
+          lineHeight: "1.59375rem",
+          letterSpacing: "0.05em",
+          textTransform: "uppercase",
+        },
+      ],
+      desktopCaption: [
+        ".875rem",
+        {
+          lineHeight: "1rem",
+          letterSpacing: "0.01em",
+          textTransform: "uppercase",
+        },
+      ],
+      mobileLarge: [
+        "1.625rem",
+        {
+          lineHeight: "1.875rem",
+          letterSpacing: "0.01em",
+        },
+      ],
+      mobileBody: [
+        "1rem",
+        {
+          lineHeight: "1.25rem",
+          letterSpacing: "0.01em",
+        },
+      ],
+      mobileNav: [
+        ".9375rem",
+        {
+          lineHeight: "1.40625rem",
+          letterSpacing: ".01em",
+          textTransform: "uppercase",
+        },
+      ],
+      mobileInterface: [
+        ".8125rem",
+        {
+          lineHeight: "1.25rem",
+          letterSpacing: "0.05em",
+          textTransform: "uppercase",
+        },
+      ],
+      mobileCaption: [
+        ".625rem",
+        {
+          lineHeight: ".875rem",
+          letterSpacing: "0.01em",
+          textTransform: "uppercase",
         },
       ],
       lg: ["1.75rem", "1.2"],

@@ -1,5 +1,5 @@
 .rte {
-  @apply text-base;
+  @apply text-mobileBody;
 }
 
 .rte p,
@@ -14,7 +14,7 @@
 }
 
 .rte.rte-large * {
-  @apply text-base;
+  @apply text-mobileLarge;
   @apply max-w-none;
 }
 
@@ -73,7 +73,7 @@
   @apply mb-1em;
 }
 
-.rte ul li:before {
+.rte ul:not(.table) li:before {
   content: "–";
   @apply absolute;
   @apply left-0;
@@ -86,16 +86,22 @@ select {
   box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.3), -5px -5px 11px rgba(255, 255, 255, 0);
   will-change: box-shadow;
   transition: box-shadow 5s linear;
-  min-height: 3em;
+  /* min-height: 3em; */
   @apply text-base !important;
   fontsmoothing: "antialiased";
   text-overflow: ellipse;
   overflow: hidden;
   display: block;
+  @apply py-1/2em !important;
+}
+
+input:focus {
+  border-color: #000000 !important;
+  box-shadow: none !important;
 }
 
 .FormGroup {
-  min-height: 3em;
+  /* min-height: 3em; */
   @apply rounded-md;
 }
 
@@ -106,30 +112,33 @@ select {
 form button,
 button[type="submit"] {
   color: #ffffff !important;
-  @apply text-nav;
-  @apply uppercase;
   @apply w-full;
   @apply block;
+  @apply text-mobileInterface;
   min-height: 3em;
   font-weight: normal !important;
 }
 
 form label {
-  @apply text-nav;
-  @apply uppercase;
-  /* color: rgba(0, 0, 0, 0.3); */
+  @apply text-mobileInterface;
 }
 
 @screen md {
   .rte.rte-large * {
-    @apply text-baseLg;
+    @apply text-desktopLarge;
   }
   .rte * {
-    @apply text-baseRte;
+    @apply text-desktopBody;
   }
+  form label,
+  form button,
+  button[type="submit"] {
+    @apply text-desktopInterface;
+  }
+
   input,
   textarea,
   select {
-    @apply text-baseRte !important;
+    @apply text-desktopBody !important;
   }
 }

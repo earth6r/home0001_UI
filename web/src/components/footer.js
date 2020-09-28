@@ -24,18 +24,20 @@ const Footer = ({ footerMenu }) => {
   const menu = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
   return (
     <>
-      <footer className="pb-1em md:pb-desktop container text-nav uppercase">
+      <footer className="pb-1em md:pb-desktop container text-nav md:text-desktopNav uppercase">
         <nav className="relative">
-          <div className="mb-1em relative">
+          <div className="mb-2em relative">
             <a
               target="_blank"
-              className="text-sm inline-block"
+              className=" text-mobileCaption md:text-desktopCaption inline-block"
               href="https://www.instagram.com"
               title="Earth Instagram"
             >
               @<span className="earth">e</span>6r
             </a>
-            <span className="absolute bottom-0 text-sm left-3 inline-block">&copy;2020</span>
+            <span className="absolute bottom-0  text-mobileCaption md:text-desktopCaption left-3 inline-block">
+              &copy;2020
+            </span>
           </div>
           <ul className="flex flex-wrap md:flex-row relative">
             {/*<li className="mr-1em mb-1em md:mb-0 w-full md:w-auto">
@@ -78,18 +80,11 @@ const Footer = ({ footerMenu }) => {
         </nav>
         <GridRow />
       </footer>
-      <Modal
-        className="rounded-md"
-        blockScrollOnMount={false}
-        isOpen={isOpen}
-        onClose={onClose}
-        isCentered
-        preserveScrollBarGap
-      >
+      <Modal className="rounded-md" isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent className="rounded-md">
           <ModalHeader className="font-normal">
-            <h5 className="text-sm">Newsletter</h5>
+            <h5 className=" text-mobileCaption md:text-desktopCaption">Newsletter</h5>
             <br />
             <p className="text-base">
               Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie

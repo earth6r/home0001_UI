@@ -1,4 +1,4 @@
-import { Link } from "gatsby";
+import { PageLink } from "../link";
 import React, { useRef, useLayoutEffect, useState } from "react";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 
@@ -6,6 +6,7 @@ const CircleButton = ({ title, url, float = true }) => {
   const [elementTop, setElementTop] = useState(0);
   const ref = useRef(null);
   const { scrollY } = useViewportScroll();
+
   const [randPadding, setRandPadding] = useState(0);
 
   const y = useTransform(scrollY, [elementTop, elementTop + 1], [0.9, 1], {
@@ -39,13 +40,20 @@ const CircleButton = ({ title, url, float = true }) => {
           <motion.div className="">
             <motion.div className="square" style={{ y }}>
               <div className="background-circle" />
-              {/* <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}> */}
-              {title && (
-                <h2 className="m-0 text-nav leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full">
-                  {title}
-                </h2>
+              {url && url.content ? (
+                <PageLink
+                  className="m-0 h-full flex items-center justify-center text-nav leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full"
+                  to={url.content.main.slug.current}
+                >
+                  <h2 className="m-0 p-0 text-nav leading-none">{title}</h2>
+                </PageLink>
+              ) : (
+                title && (
+                  <h2 className="m-0 text-nav leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full">
+                    {title}
+                  </h2>
+                )
               )}
-              {/* </motion.button> */}
             </motion.div>
           </motion.div>
         </div>

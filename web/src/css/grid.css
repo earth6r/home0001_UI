@@ -3,10 +3,9 @@
   @apply w-full;
 }
 
-.grid-row,
 .grid-row:before,
 .grid-marker:before {
-  @apply text-nav;
+  @apply text-mobileNav;
   font-family: "Earth";
 }
 
@@ -75,10 +74,15 @@
     /* @apply -mt-1; */
   }
 
+  .grid-marker-1:before {
+    top: 0.05em;
+    @apply relative;
+  }
+
   .grid-row,
   .grid-row:before,
   .grid-marker:before {
-    @apply text-nav;
+    @apply text-desktopNav;
   }
 }
 
