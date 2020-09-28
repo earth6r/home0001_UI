@@ -62,6 +62,6 @@ export const Modules = ({ reactModule, type }: { type: string; reactModule: any 
     case "richTable":
       return <RichTable data={reactModule} />;
     default:
-      return true;
+      return "";
   }
 };
