@@ -176,6 +176,7 @@ const CheckoutForm = () => {
       setProcessing(true);
     }
 
+    /*
     const payload = await stripe.createPaymentMethod({
       type: "card",
       card: elements.getElement(CardElement),
@@ -189,6 +190,28 @@ const CheckoutForm = () => {
     } else {
       setPaymentMethod(payload.paymentMethod);
     }
+    */
+
+    const payload = await stripe
+      .createToken({
+        type: "card",
+        card: elements.getElement(CardElement),
+        billing_details: billingDetails,
+      })
+      .then(({ token }) => {
+        const charge = JSON.stringify({
+          token,
+          charge: {
+            amount: 1,
+            currency: "usd",
+            email: billingDetails.email,
+            // number: this.state.number,
+          },
+        });
+        axios.post("/.netlify/functions/charge", charge).catch(function (error) {
+          console.log(error);
+        });
+      });
   };
 
   const reset = () => {
