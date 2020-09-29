@@ -7,6 +7,7 @@ const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle }) => {
   // const containerRef = useRef(null);
   // const { height } = useDimensions(containerRef);
   const menu = mainMenu !== undefined ? mainMenu.edges[0].node.items : null;
+  console.log(mainMenu);
   return (
     <>
       <header className="fixed z-50 w-full">
@@ -40,11 +41,11 @@ const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle }) => {
           >
             <GridRow className="" scroll={false}>
               <ul
-                style={{ top: ".08em" }}
+                style={{ top: ".15em" }}
                 className="relative leading-none container p-0 m-0 md:flex w-full text-mobileNav md:text-desktopNav justify-between"
               >
-                <li className="md:w-4/10">
-                  <h1 className="logo  md:pl-6em">
+                <li className="md:w-4/10 md:pl-1/10">
+                  <h1 className="logo ">
                     <Link onClick={onHideNav} to="/">
                       <span className="earth">E</span>
                     </Link>
@@ -55,7 +56,7 @@ const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle }) => {
                   menu.map((item) => (
                     <li key={item._key}>
                       <Link onClick={onHideNav} to={`/${item.link.content.main.slug.current}`}>
-                        {item.link.content.main.title}
+                        {item.title}
                       </Link>
                     </li>
                   ))}
@@ -64,7 +65,7 @@ const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle }) => {
           </nav>
         </div>
       </header>
-      <div className="fixed w-full h-16 md:h-18 z-30 gradient-to-b pointer-events-none top-0 left-0"></div>
+      <div className="fixed w-full h-12 md:h-18 z-30 gradient-to-b pointer-events-none top-0 left-0"></div>
     </>
   );
 };

@@ -12,7 +12,6 @@ const Layout = ({ mainMenu, footerMenu, children, onHideNav, onShowNav, showNav,
       showNav={showNav}
     />
     <div className="container">{children}</div>
-    <div className="spacer" />
     <Footer footerMenu={footerMenu} />
   </div>
 );

@@ -10,16 +10,15 @@
 
 .rte ul li > ul,
 .rte ol li > ol {
-  @apply pt-1em;
+  @apply py-1em;
 }
 
 .rte.rte-large * {
   @apply text-mobileLarge;
-  @apply max-w-none;
 }
 
 .rte h1 {
-  @apply uppercase;
+  @apply text-mobileLarge;
 }
 
 .rte p:not(:last-child) {
@@ -27,10 +26,8 @@
 }
 
 .rte a {
-  /* @apply font-bold; */
-  /* border-bottom: 1.5px solid; */
   will-change: color;
-  font-size: 0.875em;
+  font-size: 0.85em;
   @apply uppercase;
   transition: 0.125s color;
 }
@@ -55,28 +52,28 @@
 
 .rte ol li {
   counter-increment: rte-list;
-  @apply pl-3em;
-  @apply relative;
-  @apply mb-1em;
+  @apply pl-1/10 relative;
 }
 
 .rte ol li:before {
   content: counter(rte-list) "";
-  @apply absolute;
-  @apply left-0;
+  @apply absolute left-0;
+  font-variant-numeric: tabular-nums;
 }
 
 .rte ul li {
   /* counter-increment: rte-list; */
-  @apply pl-3em;
-  @apply relative;
-  @apply mb-1em;
+  @apply pl-1/10 relative;
 }
 
 .rte ul:not(.table) li:before {
   content: "–";
-  @apply absolute;
-  @apply left-0;
+  @apply absolute left-0;
+}
+
+.rte blockquote,
+.rte.rte-large blockquote {
+  @apply pl-1/10 pb-1em text-mobileBody pt-1/2em;
 }
 
 input,
@@ -86,13 +83,9 @@ select {
   box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.3), -5px -5px 11px rgba(255, 255, 255, 0);
   will-change: box-shadow;
   transition: box-shadow 5s linear;
-  /* min-height: 3em; */
-  @apply text-base !important;
   fontsmoothing: "antialiased";
-  text-overflow: ellipse;
-  overflow: hidden;
-  display: block;
-  @apply py-1/2em !important;
+  @apply py-1/2em text-mobileBody h-2em truncate block p-0 m-0 pt-1em rounded-lg;
+  line-height: 2.25em !important;
 }
 
 input:focus {
@@ -100,45 +93,74 @@ input:focus {
   box-shadow: none !important;
 }
 
-.FormGroup {
-  /* min-height: 3em; */
-  @apply rounded-md;
-}
-
 .FormGroup .FormRow {
   @apply py-1/2em;
+}
+
+.rte form {
 }
 
 form button,
 button[type="submit"] {
   color: #ffffff !important;
-  @apply w-full;
-  @apply block;
-  @apply text-mobileInterface;
-  min-height: 3em;
-  font-weight: normal !important;
+  line-height: 2.25em !important;
+  @apply w-full h-2em font-normal block uppercase text-mobileBody;
 }
 
 form label {
-  @apply text-mobileInterface;
+  @apply text-mobileNav;
+  @apply uppercase;
+  @apply tracking-wide;
+  font-smoothing: none;
 }
 
 @screen md {
-  .rte.rte-large * {
-    @apply text-desktopLarge;
-  }
   .rte * {
     @apply text-desktopBody;
   }
+
+  .rte.rte-large * {
+    @apply text-desktopLarge max-w-none;
+  }
+
+  .rte h1,
+  .rte h1 * {
+    @apply text-desktopLarge mb-1/2em;
+  }
+
+  .rte form {
+    @apply max-w-4xl w-full;
+  }
+
   form label,
   form button,
   button[type="submit"] {
-    @apply text-desktopInterface;
+    @apply text-desktopBody;
+    line-height: 2.25em !important;
+  }
+
+  form label {
+    @apply pl-1em ml-1/10;
+  }
+
+  .rte blockquote,
+  .rte.rte-large blockquote {
+    @apply text-desktopBody;
   }
 
   input,
   textarea,
   select {
-    @apply text-desktopBody !important;
+    @apply text-desktopBody ml-1/10 w-auto h-2em !important;
+    line-height: 2.5em !important;
+  }
+
+  input::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .rte-large ol li,
+  .rte-large ul li {
+    @apply text-desktopBody;
   }
 }

@@ -40,7 +40,7 @@ const HomeTemplate = (props) => {
         keywords={site.keywords}
         image={meta.openImage}
       />*/}
-      <Container className="rte w-full">
+      <Container className="rte-large">
         <div className="flex flex-wrap w-full">{RenderModules(modules)}</div>
       </Container>
     </Layout>

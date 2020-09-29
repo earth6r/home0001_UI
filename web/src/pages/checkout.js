@@ -4,10 +4,7 @@ import Container from "../components/container";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import { RenderModules } from "../utils/renderModules";
-// import CartOverview from "../components/cart-overview";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
-const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
+import getMemberPrice from "../utils/get-member-price";
 import CheckoutForm from "../components/checkout-form";
 
 export const query = graphql`
@@ -61,20 +58,13 @@ const CheckoutPage = (props) => {
       <SEO title={"checkout"} description={"checkout"} keywords={[]} />
       <Container>
         <div className="flex flex-wrap">{RenderModules(modules)}</div>
-        <Elements options={ELEMENTS_OPTIONS} stripe={stripePromise}>
-          <CheckoutForm />
-        </Elements>
+        <CheckoutForm
+          price={getMemberPrice(false)}
+          onSuccessfulCheckout={() => Router.push("/success")}
+        />
       </Container>
     </Layout>
   );
-};
-
-const ELEMENTS_OPTIONS = {
-  fonts: [
-    {
-      cssSrc: "fonts/fonts.css",
-    },
-  ],
 };
 
 export default CheckoutPage;

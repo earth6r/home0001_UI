@@ -52,6 +52,10 @@ small {
   font-family: "Earth", "GP", Arial, Helvetica, sans-serif;
 }
 
+.no-shadow {
+  box-shadow: none !important; /* weird bug with popover modules */
+}
+
 .gradient-to-b {
   /* background: rgb(255, 255, 255); */
   background: linear-gradient(

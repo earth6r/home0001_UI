@@ -71,7 +71,7 @@ export const GalleryImage = ({
         <motion.div>
           <Img className="relative z-10" fluid={fluidProps} alt={alt} defaultFadeIn={200} />
           {caption && (
-            <figcaption className="mt-1 text-mobileCaption md:text-desktopCaption">
+            <figcaption className="mt-3/4em text-mobileCaption md:text-desktopCaption">
               {caption}
             </figcaption>
           )}

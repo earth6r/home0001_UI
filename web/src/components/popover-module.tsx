@@ -18,31 +18,28 @@ const PopoverModule = (props) => {
   // console.log(logo.asset._ref);
   console.log(logo);
   return (
-    <Popover trigger="hover" usePortal={true} gutter={20}>
+    <Popover trigger="hover" usePortal={true} gutter={0}>
       <PopoverTrigger>
         {/* {logo && } */}
         {/* console.log(logo.asset._ref) */}
 
         {title !== "" && (
-          <button aria-label={`Open ${title}`} className="font-bold box box-link">
+          <button aria-label={`Open ${title}`} className="font-bold box-link">
             {logo !== undefined ? <SVG file={logo} /> : { title }}
           </button>
         )}
       </PopoverTrigger>
       <PopoverContent
-        maxW={["75vw", "80vw"]}
-        mr={10}
         bg="transparent"
-        border="none"
-        position="fixed"
+        className="border-none fixed max-w-sm md:max-w-4xl no-shadow text-mobileBody md:text-desktopBody"
         zIndex={50}
       >
-        <span className="block box container my-1/2em py-1/2em">
+        <span className="block  ">
           {/* <PopoverArrow /> */}
           {/* <PopoverCloseButton /> */}
           {/* {trigger && <span>{trigger}</span>} */}
           {content && (
-            <span className="max-w-sm text-baseRte">
+            <span className="box block px-1em py-1em bg-white  text-mobileBody md:text-desktopBody">
               <BasePortableText blocks={content} serializers={Serializer} />
             </span>
           )}

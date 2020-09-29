@@ -60,6 +60,7 @@ const query = graphql`
                 ...LinkFragment
                 ...HomeLinkFragment
               }
+              title
             }
           }
         }
@@ -83,6 +84,7 @@ const query = graphql`
                 ...LinkFragment
                 ...HomeLinkFragment
               }
+              title
             }
           }
         }

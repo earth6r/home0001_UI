@@ -18,7 +18,6 @@ export default {
             { title: 'Normal', value: 'normal' },
             { title: 'H1', value: 'h1' },
             { title: 'H2', value: 'h2' },
-            { title: 'H2 - Question', value: 'h2-question' },
             { title: 'H3', value: 'h3' },
             { title: 'H4', value: 'h4' },
             { title: 'H5', value: 'h5' },

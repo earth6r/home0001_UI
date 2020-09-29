@@ -21,23 +21,21 @@ export const AccordionModule = ({ data }: AccordionModuleProps) => {
   const { accordionItems } = data;
   // console.log(data);
   return (
-    <Accordion allowMultiple={false} width={"100%"}>
+    <Accordion allowMultiple={false} className="max-w-4xl w-full">
       {accordionItems.length > 0 &&
         accordionItems.map((item, index) => (
           <React.Fragment key={item._key}>
-            <AccordionItem defaultIsOpen={false} className="box mb-1 rounded-lg" paddingLeft="0">
+            <AccordionItem
+              defaultIsOpen={false}
+              className="border-none relative block box md:ml-1/10 rounded-lg"
+            >
               {({ isExpanded }) => (
                 <>
-                  <AccordionHeader
-                    paddingLeft="1em"
-                    paddingTop=".75em"
-                    paddingBottom=".65em"
-                    position="relative"
-                  >
+                  <AccordionHeader className="relative h-2em p-0 pt-1/4em pl-1/2em border-none">
                     <h2 className="m-0">{item.title}</h2>
                     <div className="right-0 absolute pr-1em">{isExpanded ? "–" : "+"}</div>
                   </AccordionHeader>
-                  <AccordionPanel paddingLeft="1em" className="pb-1em">
+                  <AccordionPanel className="pb-1em">
                     <PortableText blocks={item.text} />
                   </AccordionPanel>
                 </>

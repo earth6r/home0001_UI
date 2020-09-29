@@ -19,13 +19,13 @@ export const InternalLink = (props) => {
   }
   //   alert(uri);
   return (
-    <span className="w-full block">
+    <span className="max-w-4xl block w-full md:pl-1/10">
       {title && link && (
         <PageLink
-          className="box  rounded-lg w-full block text-center leading-none h-3em flex items-center justify-center"
+          className="box rounded-lg w-full block text-center leading-none h-2em pt-1/4em flex items-center justify-center text-mobileBody md:text-desktopBody "
           to={`${uri}/${slug}`}
         >
-          <span>{title}</span>
+          {title}
         </PageLink>
       )}
     </span>

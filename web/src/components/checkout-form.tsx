@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 // import {loadStripe} from '@stripe/stripe-js';
 // import {CardElement, Elements, useElements, useStripe} from '../../src';
 // import '../styles/2-Card-Detailed.css';
 import { CardElement, useStripe, Elements, useElements } from "@stripe/react-stripe-js";
-
+import GridRow from "./grid/grid-row";
 import {
   FormControl,
   FormLabel,
@@ -13,24 +13,27 @@ import {
   FormHelperText,
 } from "@chakra-ui/core";
 
+import { InlineWidget } from "react-calendly";
+
 const CARD_OPTIONS = {
   iconStyle: "solid",
+
   style: {
     base: {
-      iconColor: "#c4f0ff",
+      iconColor: "#000000",
       color: "#000",
-      fontWeight: 500,
-      fontFamily: "'GP', sans-serif",
-      fontSize: "2rem",
-      letterSpacing: "0rem",
-      boxShadow: "5px 5px 11px rgba(0, 0, 0, 0.3) !important",
-      minHeight: "3em",
+      fontWeight: 400,
+      fontFamily: "'GP', Helvetica, Arial, serif",
+      fontSize: "1rem",
+      letterSpacing: "-0.02em",
+      // boxShadow: "5px 5px 6px rgba(0, 0, 0, 0.3) !important",
+      height: "2em",
       fontSmoothing: "antialiased",
       ":-webkit-autofill": {
-        color: "#fce883",
+        color: "#000000",
       },
       "::placeholder": {
-        color: "rgba(0, 0, 0, .3)",
+        color: "rgba(0, 0, 0, .1)",
       },
     },
     invalid: {
@@ -39,12 +42,6 @@ const CARD_OPTIONS = {
     },
   },
 };
-
-const CardField = ({ onChange }) => (
-  <div className="FormRow">
-    <CardElement options={CARD_OPTIONS} onChange={onChange} />
-  </div>
-);
 
 const Field = ({ label, id, type, placeholder, required, autoComplete, value, onChange }) => (
   // <div className="FormRow">
@@ -62,7 +59,7 @@ const Field = ({ label, id, type, placeholder, required, autoComplete, value, on
   //     onChange={onChange}
   //   />
   // </div>
-  <FormControl className="pb-1em">
+  <FormControl className="pb-1em flex flex-col">
     <FormLabel htmlFor={id}>{label}</FormLabel>
     <Input
       placeholder={placeholder}
@@ -72,26 +69,31 @@ const Field = ({ label, id, type, placeholder, required, autoComplete, value, on
       onChange={onChange}
       type={type}
       id={id}
-      className="box placeholder-gray-500 py-1/2em h-auto"
+      className="box h-0 pt-1em pb-3/4em h-2em px-1/2em"
       aria-describedby={`enter ${label}`}
     />
   </FormControl>
 );
 
 const SubmitButton = ({ processing, error, children, disabled }) => (
-  <Button
-    className={`SubmitButton box hover:bg-black ${error ? "SubmitButton--error" : ""}`}
-    type="submit"
-    disabled={processing || disabled}
-    bg="#000000"
-  >
-    {processing ? "Processing..." : children}
-  </Button>
+  <FormControl className="md:ml-1/10">
+    <Button
+      className={`SubmitButton box bg-black hover:bg-black ${error ? "SubmitButton--error" : ""}`}
+      type="submit"
+      disabled={processing || disabled}
+    >
+      {processing ? "Processing..." : children}
+    </Button>
+  </FormControl>
 );
 
 const ErrorMessage = ({ children }) => (
-  <div className="ErrorMessage" role="alert">
-    <svg width="16" height="16" viewBox="0 0 17 17">
+  <div
+    className="ErrorMessage md:ml-1/10 border rounded-lg text-center pt-1/2em pb-1/4em"
+    style={{ borderColor: "red", color: "red" }}
+    role="alert"
+  >
+    {/* <svg width="16" height="16" viewBox="0 0 17 17">
       <path
         fill="#FFF"
         d="M8.5,17 C3.80557963,17 0,13.1944204 0,8.5 C0,3.80557963 3.80557963,0 8.5,0 C13.1944204,0 17,3.80557963 17,8.5 C17,13.1944204 13.1944204,17 8.5,17 Z"
@@ -100,7 +102,7 @@ const ErrorMessage = ({ children }) => (
         fill="#6772e5"
         d="M8.5,7.29791847 L6.12604076,4.92395924 C5.79409512,4.59201359 5.25590488,4.59201359 4.92395924,4.92395924 C4.59201359,5.25590488 4.59201359,5.79409512 4.92395924,6.12604076 L7.29791847,8.5 L4.92395924,10.8739592 C4.59201359,11.2059049 4.59201359,11.7440951 4.92395924,12.0760408 C5.25590488,12.4079864 5.79409512,12.4079864 6.12604076,12.0760408 L8.5,9.70208153 L10.8739592,12.0760408 C11.2059049,12.4079864 11.7440951,12.4079864 12.0760408,12.0760408 C12.4079864,11.7440951 12.4079864,11.2059049 12.0760408,10.8739592 L9.70208153,8.5 L12.0760408,6.12604076 C12.4079864,5.79409512 12.4079864,5.25590488 12.0760408,4.92395924 C11.7440951,4.59201359 11.2059049,4.59201359 10.8739592,4.92395924 L8.5,7.29791847 L8.5,7.29791847 Z"
       />
-    </svg>
+    </svg> */}
     {children}
   </div>
 );
@@ -119,6 +121,7 @@ const ResetButton = ({ onClick }) => (
 const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
+
   const [error, setError] = useState(null);
   const [cardComplete, setCardComplete] = useState(false);
   const [processing, setProcessing] = useState(false);
@@ -128,6 +131,24 @@ const CheckoutForm = () => {
     phone: "",
     name: "",
   });
+
+  useEffect(() => {
+    if (typeof window && elements !== null) {
+      var cardElement = elements.getElement("card");
+      if (window.innerWidth <= 768) {
+        cardElement.update({ style: { base: { fontSize: "1rem" } } });
+      } else {
+        cardElement.update({ style: { base: { fontSize: "1.875rem" } } });
+      }
+      window.addEventListener("resize", function () {
+        if (window.innerWidth <= 768) {
+          cardElement.update({ style: { base: { fontSize: "1rem" } } });
+        } else {
+          cardElement.update({ style: { base: { fontSize: "1.875rem" } } });
+        }
+      });
+    }
+  }, [elements]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -181,6 +202,51 @@ const CheckoutForm = () => {
       <div className="ResultMessage">
         Thanks for trying Stripe Elements. No money was charged, but we generated a PaymentMethod:{" "}
         {paymentMethod.id}
+        <GridRow>
+          <InlineWidget
+            pageSettings={{
+              backgroundColor: "ffffff",
+              hideEventTypeDetails: true,
+              hideLandingPageDetails: true,
+              primaryColor: "000000",
+              textColor: "000000",
+              font: "GP",
+              fontWeight: "normal",
+            }}
+            prefill={{
+              customAnswers: {
+                a1: "",
+                a10: "a10",
+                a2: "a2",
+                a3: "a3",
+                a4: "a4",
+                a5: "a5",
+                a6: "a6",
+                a7: "a7",
+                a8: "a8",
+                a9: "a9",
+              },
+              email: "test@test.com",
+              firstName: "Jon",
+              lastName: "Snow",
+              name: "Jon Snow",
+            }}
+            styles={{
+              height: "1000px",
+              color: "#000000",
+              textColor: "#000000",
+              primaryColor: "#000000",
+            }}
+            url="https://calendly.com/earthcollective?text_color=000000&primary_color=000000"
+            utm={{
+              utmCampaign: "Signup",
+              utmContent: "Shoe and Shirts",
+              utmMedium: "Ad",
+              utmSource: "Facebook",
+              utmTerm: "Spring",
+            }}
+          />
+        </GridRow>
       </div>
       <ResetButton onClick={reset} />
     </div>
@@ -224,18 +290,34 @@ const CheckoutForm = () => {
           }}
         />
       </fieldset>
-      <fieldset className="FormGroup box mb-1em px-1/2em">
-        <CardField
-          onChange={(e) => {
-            setError(e.error);
-            setCardComplete(e.complete);
-          }}
-        />
+      <fieldset className="FormGroup mb-1em">
+        <FormControl className="">
+          <label className="text-nav pb-1em text-left">Payment Details</label>
+          <div className="px-1/2em h-2em box rounded-lg md:ml-1/10 ">
+            <CardElement
+              id="card"
+              options={CARD_OPTIONS}
+              onChange={(e) => {
+                setError(e.error);
+                setCardComplete(e.complete);
+              }}
+            />
+          </div>
+        </FormControl>
       </fieldset>
       {error && <ErrorMessage>{error.message}</ErrorMessage>}
-      <SubmitButton processing={processing} error={error} disabled={!stripe}>
-        Pay $1
-      </SubmitButton>
+      <div className="mt-2em">
+        <SubmitButton processing={processing} error={error} disabled={!stripe}>
+          Place Order
+        </SubmitButton>
+      </div>
+      <div className="mt-2em">
+        <p>
+          By clicking “Place Order” I agree to the Waitlist Terms and Conditions set in the link
+          above.
+        </p>
+      </div>
+      <GridRow />
     </form>
   );
 };

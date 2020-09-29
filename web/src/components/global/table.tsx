@@ -28,7 +28,7 @@ export const Table = (props) => {
                           </div>
                         ) : (
                           <div
-                            style={{ minWidth: "10em" }}
+                            style={{ minWidth: "10em", maxWidth: "em" }}
                             className="flex-1 w-3/10 text-left pb-1em mb-1em border-none text-base truncate font-normal   border-b border-black"
                           >
                             <span
