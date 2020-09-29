@@ -12,7 +12,7 @@ import {
   FormErrorMessage,
   FormHelperText,
 } from "@chakra-ui/core";
-
+import axios from "axios";
 import { InlineWidget } from "react-calendly";
 
 const CARD_OPTIONS = {
@@ -192,26 +192,20 @@ const CheckoutForm = () => {
     }
     */
 
-    const payload = await stripe
-      .createToken({
-        type: "card",
-        card: elements.getElement(CardElement),
-        billing_details: billingDetails,
-      })
-      .then(({ token }) => {
-        const charge = JSON.stringify({
-          token,
-          charge: {
-            amount: 1,
-            currency: "usd",
-            email: billingDetails.email,
-            // number: this.state.number,
-          },
-        });
-        axios.post("/.netlify/functions/charge", charge).catch(function (error) {
-          console.log(error);
-        });
+    const payload = await stripe.createToken(elements.getElement("card")).then(({ token }) => {
+      const charge = JSON.stringify({
+        token,
+        charge: {
+          amount: 1,
+          currency: "usd",
+          email: billingDetails.email,
+          // number: this.state.number,
+        },
       });
+      axios.post("/.netlify/functions/charge", charge).catch(function (error) {
+        console.log(error);
+      });
+    });
   };
 
   const reset = () => {

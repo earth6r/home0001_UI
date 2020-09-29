@@ -1,4 +1,4 @@
-var stripe = require("stripe")("GATSBY_STRIPE_PUBLISHABLE_KEY");
+var stripe = require("stripe")(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
 
 module.exports.handler = (event, context, callback) => {
   const requestBody = JSON.parse(event.body);
