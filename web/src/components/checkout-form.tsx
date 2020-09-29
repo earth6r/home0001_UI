@@ -120,7 +120,15 @@ const ResetButton = ({ onClick }) => (
 
 const CheckoutForm = () => {
   const stripe = useStripe();
-  const elements = useElements();
+  const elements = useElements({
+    fonts: [
+      {
+        family: "GP",
+        src: "url(https://earth6r.com/fonts/GerstnerProgramm-Regular.woff2)",
+        weight: "400",
+      },
+    ],
+  });
 
   const [error, setError] = useState(null);
   const [cardComplete, setCardComplete] = useState(false);
@@ -293,7 +301,10 @@ const CheckoutForm = () => {
       <fieldset className="FormGroup mb-1em">
         <FormControl className="">
           <label className="text-nav pb-1em text-left">Payment Details</label>
-          <div className="px-1/2em h-2em box rounded-lg md:ml-1/10 ">
+          <div
+            style={{ paddingTop: ".45em" }}
+            className="px-1/2em h-2em box rounded-md md:ml-1/10 "
+          >
             <CardElement
               id="card"
               options={CARD_OPTIONS}
@@ -308,12 +319,12 @@ const CheckoutForm = () => {
       {error && <ErrorMessage>{error.message}</ErrorMessage>}
       <div className="mt-2em">
         <SubmitButton processing={processing} error={error} disabled={!stripe}>
-          Place Order
+          Subscribe
         </SubmitButton>
       </div>
       <div className="mt-2em">
         <p>
-          By clicking “Place Order” I agree to the Waitlist Terms and Conditions set in the link
+          By clicking “Subscribe” I agree to the Waitlist Terms and Conditions set in the link
           above.
         </p>
       </div>
