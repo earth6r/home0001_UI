@@ -18,7 +18,7 @@ const PopoverModule = (props) => {
   // console.log(logo.asset._ref);
   console.log(logo);
   return (
-    <Popover trigger="hover" usePortal={true} gutter={0}>
+    <Popover trigger="hover" usePortal={true} gutter={10}>
       <PopoverTrigger>
         {/* {logo && } */}
         {/* console.log(logo.asset._ref) */}

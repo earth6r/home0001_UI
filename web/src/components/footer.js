@@ -83,16 +83,13 @@ const Footer = ({ footerMenu }) => {
       <Modal className="rounded-md" isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent className="rounded-md">
-          <ModalHeader className="font-normal">
-            <h5 className=" text-mobileCaption md:text-desktopCaption">Newsletter</h5>
-            <br />
-            <p className="text-base">
-              Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
-              consequat.
-            </p>
+          <ModalHeader className="font-normal mb-0 pb-0">
+            <h5 className=" text-mobileCaption md:text-desktopCaption mt-1/4em uppercase">
+              Newsletter
+            </h5>
           </ModalHeader>
           <ModalCloseButton />
-          <ModalBody className="mb-1em">
+          <ModalBody className="mb-1em pt-2em">
             <MailChimpForm />
           </ModalBody>
 

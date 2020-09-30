@@ -9,6 +9,7 @@ import {
   Input,
   Button,
 } from "@chakra-ui/core";
+import GridRow from "./grid/grid-row";
 
 export default class MailChimpForm extends React.Component {
   constructor() {
@@ -29,13 +30,24 @@ export default class MailChimpForm extends React.Component {
   };
   render() {
     return this.state.result == "success" ? (
-      <div>SUCCESS</div>
-    ) : this.state.result == "error" ? (
-      <div>ERROR</div>
+      <>
+        <h3 className="text-mobileLarge md:text-desktopBody">
+          Thank you for signing up.
+          <br />
+          <span class="earth">E</span>
+        </h3>
+        <GridRow />
+        <p className="pt-1em text-mobileBody md:text-desktopCaption">
+          We will begin sharing updates on new home, new locations, and other projects as the
+          network expands.
+        </p>
+      </>
     ) : (
-      <form onSubmit={this._handleSubmit}>
+      <form className="mx-0" onSubmit={this._handleSubmit}>
         <FormControl>
-          <FormLabel htmlFor="email">Email address</FormLabel>
+          {/*<FormLabel className="text-left mx-0 px-0" htmlFor="email">
+            Email address
+    </FormLabel>*/}
           <Input
             id="outlined-email-input"
             label="Email"
@@ -45,8 +57,9 @@ export default class MailChimpForm extends React.Component {
             onChange={this.handleChange}
             type="email"
             id="email"
-            className="rounded-md"
+            className="rounded-md mx-0 w-full"
             required
+            placeholder="Email address"
             aria-describedby="email-helper-text"
           />
         </FormControl>
@@ -60,6 +73,20 @@ export default class MailChimpForm extends React.Component {
         >
           Submit
         </Button>
+        {this.state.result == "error" && (
+          <div
+            style={{ borderColor: "red" }}
+            className="mt-1em text-center pt-1/2em pb-1/4em text-red border rounded-md"
+          >
+            Wups, something went wrong. Please try again.
+          </div>
+        )}
+        {this.state.success !== "success" && (
+          <p className="pt-2em text-mobileBody md:text-desktopCaption">
+            Join for occasional updates on new home, new locations, and other projects as the
+            network expands.
+          </p>
+        )}
       </form>
     );
   }
