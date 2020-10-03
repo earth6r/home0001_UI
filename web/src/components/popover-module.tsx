@@ -31,7 +31,7 @@ const PopoverModule = (props) => {
       </PopoverTrigger>
       <PopoverContent
         bg="transparent"
-        className="border-none fixed max-w-sm md:max-w-4xl no-shadow text-mobileBody md:text-desktopBody"
+        className="border-none max-w-sm md:max-w-4xl no-shadow text-mobileBody md:text-desktopBody"
         zIndex={50}
       >
         <span className="block  ">
