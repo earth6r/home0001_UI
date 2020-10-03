@@ -121,6 +121,15 @@ module.exports = {
       primary: "#000000",
     },
     extend: {
+      keyframes: {
+        in: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+      },
+      animation: {
+        in: "in .25s linear 1s forwards",
+      },
       backgroundColor: {
         primary: "#fff",
         aside: "#f7f7f7",

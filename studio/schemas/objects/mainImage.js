@@ -24,6 +24,12 @@ export default {
         isHighlighted: true,
       },
     },
+    {
+      name: 'lead',
+      type: 'boolean',
+      title: 'Is this a lead image?',
+      default: false,
+    },
   ],
   preview: {
     select: {

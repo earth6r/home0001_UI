@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import axios from "axios";
 
 export default function CheckoutForm() {
   const [succeeded, setSucceeded] = useState(false);
@@ -14,17 +13,25 @@ export default function CheckoutForm() {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    //Earth Membership
-    axios
-      .post("/.netlify/functions/charge", {
-        body: JSON.stringify({ items: [{ id: "prod_I60qjmmPa4mkzc" }] }),
-      })
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setClientSecret(data.clientSecret);
-      });
+    if (typeof window) {
+      window
+        .fetch("/create-payment-intent", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ items: [{ id: "prod_I60qjmmPa4mkzc" }] }),
+        })
+        .then((res) => {
+          console.log(res);
+          //return res.json();
+          return res;
+        })
+        .then((data) => {
+          console.log(data);
+          setClientSecret(data.clientSecret);
+        });
+    }
   }, []);
 
   const cardStyle = {

@@ -35,6 +35,7 @@ export const Modules = ({ reactModule, type }: { type: string; reactModule: any 
         </>
       );
     case "gallery":
+      // alert(reactModule.images.length);
       return (
         <>
           <Gallery images={reactModule.images} url={reactModule.url} />

@@ -13,41 +13,17 @@ import {
   ModalCloseButton,
   useDisclosure,
 } from "@chakra-ui/core";
-/*
-
-*/
 
 const Footer = ({ footerMenu }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const query = "";
-  console.log(footerMenu);
+  // console.log(footerMenu);
   const menu = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
   return (
     <>
       <footer className="pb-1em md:pb-desktop container text-nav md:text-desktopNav uppercase -mt-1em">
         <nav className="relative">
-          <div className="mb-2em relative">
-            <a
-              target="_blank"
-              className=" text-mobileCaption md:text-desktopCaption inline-block"
-              href="https://www.instagram.com"
-              title="Earth Instagram"
-            >
-              @<span className="earth">e</span>6r
-            </a>
-            <span className="absolute bottom-0  text-mobileCaption md:text-desktopCaption left-3 inline-block">
-              &copy;2020
-            </span>
-          </div>
-          <ul className="flex flex-wrap md:flex-row relative">
-            {/*<li className="mr-1em mb-1em md:mb-0 w-full md:w-auto">
-            <small>
-              <Link to="/" className="earth">
-                E
-              </Link>
-              , &copy; {new Date().getFullYear()}.
-            </small>
-  </li>*/}
+          <ul className="flex flex-wrap md:flex-row justify-between relative">
             <li className="mr-1em">
               <button onClick={onOpen} className="uppercase" role="Open newsletter">
                 Newsletter
@@ -76,9 +52,14 @@ const Footer = ({ footerMenu }) => {
                     );
                 }
               })}
+            <li>
+              @<span className="earth">e</span>6r
+            </li>
+            {/*<li>
+              <span>&copy;2020</span>
+            </li>*/}
           </ul>
         </nav>
-        <GridRow />
       </footer>
       <Modal className="rounded-md" isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />

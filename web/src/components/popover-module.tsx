@@ -16,7 +16,7 @@ import SVG from "../components/svg";
 const PopoverModule = (props) => {
   const { title, logo, content } = props;
   // console.log(logo.asset._ref);
-  console.log(logo);
+  // console.log(logo);
   return (
     <Popover trigger="hover" usePortal={true} gutter={10}>
       <PopoverTrigger>

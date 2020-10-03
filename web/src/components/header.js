@@ -7,7 +7,7 @@ const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle }) => {
   // const containerRef = useRef(null);
   // const { height } = useDimensions(containerRef);
   const menu = mainMenu !== undefined ? mainMenu.edges[0].node.items : null;
-  console.log(mainMenu);
+  // console.log(mainMenu);
   return (
     <>
       <header className="fixed z-50 w-full">
@@ -17,7 +17,7 @@ const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle }) => {
           } flex container pb-0 w-full nav md:bg-transparent md:relative justify-between md:justify-center md:justify-between items-center content-center`}
         >
           <GridRow scroll={false} className="flex w-full justify-between md:hidden">
-            <h1 style={{ marginTop: "0.05em" }} className="pl-1/10 md:hidden logo">
+            <h1 style={{ marginTop: "0.05em" }} className="md:hidden logo">
               <Link to="/">
                 <span className="earth block text-mobileNav md:text-desktopNav">E</span>
               </Link>
@@ -47,7 +47,7 @@ const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle }) => {
                 style={{}}
                 className="relative mt-1  leading-none container p-0 m-0 md:flex w-full text-mobileNav md:text-desktopNav justify-between"
               >
-                <li className="pt-2 md:pl-1/10">
+                <li className="pt-2">
                   <h1 style={{ marginTop: "0.05em" }} className="logo ">
                     <Link onClick={onHideNav} to="/">
                       <span className="earth">E</span>

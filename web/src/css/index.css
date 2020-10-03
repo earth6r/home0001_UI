@@ -48,6 +48,11 @@ small {
   font-size: 100% !important;
 }
 
+.animate-in {
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+
 .earth {
   font-family: "Earth", "GP", Arial, Helvetica, sans-serif;
 }
