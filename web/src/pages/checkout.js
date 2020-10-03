@@ -5,7 +5,7 @@ import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import { RenderModules } from "../utils/renderModules";
 import getMemberPrice from "../utils/get-member-price";
-import CheckoutForm from "../components/checkout-form-2";
+import CheckoutForm from "../components/checkout-form";
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
