@@ -21,6 +21,7 @@
     "@sanity/default-layout": "^1.150.7",
     "@sanity/default-login": "^1.150.1",
     "@sanity/desk-tool": "^1.150.7",
+    "@sanity/production-preview": "^1.150.1",
     "@sanity/studio-hints": "^1.150.7",
     "@ssfbank/sanity-plugin-byo-table": "^2.1.1",
     "date-fns": "^1.30.1",

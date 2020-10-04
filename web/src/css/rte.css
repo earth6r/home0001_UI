@@ -6,6 +6,7 @@
 .rte ul,
 .rte ol {
   @apply max-w-4xl;
+  /* @apply pb-1em; */
 }
 
 .rte ul li > ul,
@@ -44,6 +45,7 @@
 .rte h1,
 .rte h2 {
   @apply mb-1em;
+  margin-top: -0.01em;
 }
 
 .rte h2 {

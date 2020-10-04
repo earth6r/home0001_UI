@@ -1,7 +1,7 @@
 export default {
-  name: 'mainImage',
-  type: 'image',
-  title: 'Image',
+  name: 'galleryImage',
+  type: 'galleryImage',
+  title: 'Gallery Image',
   options: {
     hotspot: true,
   },

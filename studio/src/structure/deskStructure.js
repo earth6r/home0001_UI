@@ -35,6 +35,12 @@ export const getDefaultDocumentNode = (props) => {
       S.view.component(IframePreview).title('Web preview').options({ previewURL }),
     ])
   }
+  if (schemaType == 'page') {
+    return S.document().views([
+      S.view.form(),
+      S.view.component(IframePreview).title('Web preview').options({ previewURL }),
+    ])
+  }
   return S.document().views([S.view.form()])
 }
 

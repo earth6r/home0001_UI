@@ -2,7 +2,7 @@ import React, { useRef, useLayoutEffect, useState } from "react";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 import Marker from "../icon/marker";
 
-const GridRow = ({ children, className, scroll = true, style }) => {
+const GridRow = ({ hide, children, className, scroll = true, style }) => {
   const [elementTop, setElementTop] = useState(0);
   const ref = useRef(null);
   const { scrollY } = useViewportScroll();
@@ -37,7 +37,7 @@ const GridRow = ({ children, className, scroll = true, style }) => {
           className={`grid-row py-2 md:py-1em relative text-base ${className ? className : ""}`}
         >
           {children}
-          <div className="grid-marker grid-marker-1" />
+          {hide !== 1 && <div className="grid-marker grid-marker-1" />}
           <div className="grid-marker grid-marker-2" />
           <div className="grid-marker grid-marker-3" />
         </div>

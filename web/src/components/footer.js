@@ -22,7 +22,8 @@ const Footer = ({ footerMenu }) => {
   return (
     <>
       <footer className="pb-1em md:pb-desktop container text-nav md:text-desktopNav uppercase -mt-1em">
-        <nav className="relative">
+        <GridRow />
+        <nav className="relative pt-2">
           <ul className="flex flex-wrap md:flex-row justify-between relative">
             <li className="mr-1em">
               <button onClick={onOpen} className="uppercase" role="Open newsletter">

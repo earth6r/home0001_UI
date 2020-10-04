@@ -20,7 +20,8 @@
     "@sanity/studio-hints",
     "media",
     "tabs",
-    "@ssfbank/sanity-plugin-byo-table"
+    "@ssfbank/sanity-plugin-byo-table",
+    "@sanity/production-preview"
   ],
   "parts": [
     {
@@ -42,6 +43,10 @@
     {
       "implements": "part:@sanity/default-layout/studio-hints-config",
       "path": "./src/studioHintsConfig.js"
+    },
+    {
+      "implements": "part:@sanity/production-preview/resolve-production-url",
+      "path": "./src/resolveProductionUrl.js"
     }
   ]
 }

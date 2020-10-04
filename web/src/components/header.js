@@ -16,8 +16,8 @@ const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle }) => {
             showNav ? "h-full" : ""
           } flex container pb-0 w-full nav md:bg-transparent md:relative justify-between md:justify-center md:justify-between items-center content-center`}
         >
-          <GridRow scroll={false} className="flex w-full justify-between md:hidden">
-            <h1 style={{ marginTop: "0.05em" }} className="md:hidden logo">
+          <GridRow scroll={false} hide={1} className="flex w-full justify-between md:hidden">
+            <h1 style={{ top: ".05em" }} className="md:hidden relative logo">
               <Link to="/">
                 <span className="earth block text-mobileNav md:text-desktopNav">E</span>
               </Link>
@@ -26,12 +26,12 @@ const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle }) => {
               style={{ borderColor: "#000000" }}
               className={`${
                 showNav ? "border rounded-full" : "box"
-              } lg:hidden py-0 outline-none relative w-12 z-50`}
+              } lg:hidden py-0 outline-none relative -mt-1 w-12 z-50`}
               onClick={showNav ? onHideNav : onShowNav}
               role="button"
               aria-label="Open the menu"
             >
-              <div className="px-4 flex   justify-center h-full w-full items-center absolute top-0 left-0">
+              <div className="px-4 flex justify-center h-full w-full items-center absolute top-0 left-0">
                 <Icon symbol="hamburger" />
               </div>
             </button>
@@ -48,7 +48,7 @@ const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle }) => {
                 className="relative mt-1  leading-none container p-0 m-0 md:flex w-full text-mobileNav md:text-desktopNav justify-between"
               >
                 <li className="pt-2">
-                  <h1 style={{ marginTop: "0.05em" }} className="logo ">
+                  <h1 className="logo ">
                     <Link onClick={onHideNav} to="/">
                       <span className="earth">E</span>
                     </Link>

@@ -12,6 +12,12 @@
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
+.box:hover button {
+  color: #ccc;
+  background-color: #ffffff;
+  @apply rounded-md;
+}
+
 .box-circle {
   width: 40%;
 }
