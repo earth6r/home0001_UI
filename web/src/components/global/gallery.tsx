@@ -35,6 +35,7 @@ const Gallery = (props) => {
   return (
     <div className="w-full z-30 pt-3 relative">
       <div className="-mx-mobile md:-mx-desktop relative  flex  flex-wrap justify-center">
+        {url && <CircleButton title={url.title} url={url.url} float={false} />}
         {randImages &&
           randImages.map((image, index) => {
             remainingWidth =
@@ -52,7 +53,6 @@ const Gallery = (props) => {
               />
             );
           })}
-        {url && <CircleButton title={url.title} url={url.url} float={false} />}
       </div>
 
       <>{row()}</>

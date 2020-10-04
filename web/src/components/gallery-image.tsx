@@ -77,6 +77,7 @@ export const GalleryImage = ({
         paddingLeft: `${`${randP}rem`}`,
         paddingRight: `${`${randP}rem`}`,
         paddingTop: `${`${randY}rem`}`,
+        paddingBottom: `${`${randY}rem`}`,
       }}
     >
       {fluidProps ? (
