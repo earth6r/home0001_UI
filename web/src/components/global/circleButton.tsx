@@ -13,39 +13,23 @@ const CircleButton = ({ title, url, float = true }) => {
     clamp: false,
   });
 
-  // useLayoutEffect(() => {
-  //   const element = ref.current;
-  //   setElementTop(element.offsetTop);
-  //   setRandPadding(Math.floor(Math.random() * 4));
-  // }, [ref]);
+  useLayoutEffect(() => {
+    const element = ref.current;
+    setElementTop(element.offsetTop);
+    setRandPadding(Math.floor(Math.random() * 4));
+  }, [ref]);
 
-  return (
-    <div ref={ref} className={`flex w-full justify-end`}>
-      <div className={`box box-circle w-4/10 relative z-40 ${`ml-${randPadding}/10`}`}>
-        <motion.div className="w-full h-full left-1/2 top-1/2">
-          <motion.div className="square" style={{ y }}>
-            {title && (
-              <h2 className="m-0 text-nav md:text-baseLg text-center uppercase">{title}</h2>
-            )}
-          </motion.div>
-        </motion.div>
-      </div>
-    </div>
-  );
-  /*
   return (
     <div ref={ref} className={`${!float ? "absolute right-0 bottom-4em z-20" : ""}`}>
       {float ? (
         <div className={`box-circle w-4/10 relative z-40 ${`ml-${randPadding}/10`}`}>
           <motion.div className="absolute w-full h-full left-1/2 top-1/2">
             <motion.div className="square" style={{ y }}>
-             
               {title && (
                 <h2 className="m-0 text-nav md:text-baseLg text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full">
                   {title}
                 </h2>
               )}
-    
             </motion.div>
           </motion.div>
         </div>
@@ -74,7 +58,6 @@ const CircleButton = ({ title, url, float = true }) => {
       )}
     </div>
   );
-  */
 };
 
 export default CircleButton;
