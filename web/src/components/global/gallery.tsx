@@ -21,7 +21,7 @@ const Gallery = (props) => {
   // console.log(images);
   function row() {
     for (let i = 0; i < gridLen; i++) {
-      rows.push(
+      return (
         <div
           key={`${randImages[i]._key}-grid-$`}
           style={{ top: `${(100 / images.length) * (i + 1)}%` }}
@@ -34,7 +34,7 @@ const Gallery = (props) => {
   }
   return (
     <div className="w-full z-30 pt-3 relative">
-      <div className="-mx-mobile md:-mx-desktop  flex  flex-wrap justify-center">
+      <div className="-mx-mobile md:-mx-desktop relative  flex  flex-wrap justify-center">
         {randImages &&
           randImages.map((image, index) => {
             remainingWidth =
@@ -42,7 +42,7 @@ const Gallery = (props) => {
                 ? Math.floor(Math.random() * (baseWidth - remainingWidth) + minWidth)
                 : Math.floor(Math.random() * (baseWidth - minWidth) + minWidth);
 
-            console.log(`remaining width:${remainingWidth}`);
+            // console.log(`remaining width:${remainingWidth}`);
             return (
               <GalleryImage
                 width={remainingWidth}
@@ -55,7 +55,7 @@ const Gallery = (props) => {
         {url && <CircleButton title={url.title} url={url.url} float={false} />}
       </div>
 
-      <>{rows}</>
+      <>{row()}</>
     </div>
   );
 };

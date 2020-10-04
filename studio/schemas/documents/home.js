@@ -9,21 +9,31 @@ export default {
       name: 'content',
       type: 'pageContent',
     },
+    // {
+    //   name: 'mainImage',
+    //   type: 'mainImage',
+    //   title: 'Main image',
+    // },
+    // {
+    //   name: 'categories',
+    //   type: 'array',
+    //   title: 'Categories',
+    //   of: [
+    //     {
+    //       type: 'reference',
+    //       to: {
+    //         type: 'category',
+    //       },
+    //     },
+    //   ],
+    // },
     {
-      name: 'mainImage',
-      type: 'mainImage',
-      title: 'Main image',
-    },
-    {
-      name: 'categories',
+      name: 'specSheet',
+      title: 'Specifications',
       type: 'array',
-      title: 'Categories',
       of: [
         {
-          type: 'reference',
-          to: {
-            type: 'category',
-          },
+          type: 'richTable',
         },
       ],
     },

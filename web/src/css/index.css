@@ -5,6 +5,8 @@
 @import "./nav.css";
 @import "./grid.css";
 @import "./rte.css";
+@import "/node_modules/react-grid-layout/css/styles.css";
+@import "/node_modules/react-resizable/css/styles.css";
 
 html {
   font-family: "GP", Arial, Helvetica, sans-serif;
@@ -51,6 +53,23 @@ small {
 .animate-in {
   animation-fill-mode: forwards;
   animation-delay: 1s;
+}
+
+@keyframes scaleDown {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.animate-scale-down {
+  animation: 1s scaleDown 1s forwards;
+}
+
+.animate-scale-down svg {
+  margin-left: 1px;
 }
 
 .earth {

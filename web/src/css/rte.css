@@ -2,16 +2,22 @@
   @apply text-mobileBody;
 }
 
-.rte p,
+.rte p {
+  /* @apply pb-1em; */
+}
+
 .rte ul,
 .rte ol {
-  @apply max-w-4xl;
-  /* @apply pb-1em; */
+  @apply max-w-6xl;
 }
 
 .rte ul li > ul,
 .rte ol li > ol {
   @apply py-1em;
+}
+
+.rte ul li,
+.rte ol li {
 }
 
 .rte.rte-large * {

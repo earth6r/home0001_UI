@@ -65,14 +65,6 @@ module.exports = {
         icon: `src/images/favicon.jpg`,
       },
     },
-    // {
-    //   resolve: "gatsby-source-mailchimp",
-    //   options: {
-    //     key: process.env.MAILCHIMP_API_KEY,
-    //     // replace `us20` with the value in your Mailchimp dashboard URL
-    //     rootURL: "https://us20.api.mailchimp.com/3.0",
-    //   },
-    // },
     {
       resolve: "gatsby-plugin-mailchimp",
       options: {

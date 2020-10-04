@@ -126,9 +126,17 @@ module.exports = {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
+        out: {
+          "0%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        },
       },
       animation: {
         in: "in .25s linear 1s forwards",
+        out: "out .25s linear 0s forwards",
+        out1s: "out .25s linear 1s forwards",
+        out2s: "out .25s linear 2s forwards",
+        out3s: "out .25s linear 3s forwards",
       },
       backgroundColor: {
         primary: "#fff",

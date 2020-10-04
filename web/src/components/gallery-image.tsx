@@ -52,13 +52,16 @@ export const GalleryImage = ({
 
   useEffect(() => {
     // console.log(ref.current.offsetWidth);
-    var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
-    setRandX(Math.random() * 2 * plusOrMinus);
-    // setRandY(Math.random() * 2 * plusOrMinus);
-    setRandSpeed(Math.random() * 0.2 * plusOrMinus);
-    setRandWidth(Math.floor(Math.random() * 4) + 2);
-    setRandMobileWidth(Math.floor(Math.random() * 8) + 2);
-    setRandPadding(Math.floor(Math.random() * (width / 4)));
+    if (!loaded) {
+      var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
+      setRandX(Math.random() * 2 * plusOrMinus);
+      // setRandY(Math.random() * 2 * plusOrMinus);
+      setRandSpeed(Math.random() * 0.2 * plusOrMinus);
+      setRandWidth(Math.floor(Math.random() * 4) + 2);
+      setRandMobileWidth(Math.floor(Math.random() * 8) + 2);
+      setRandPadding(Math.floor(Math.random() * (width / 4)));
+      setLoaded(true);
+    }
   }, [ref]);
   // style={{ transform: `translate(${randX}rem, ${randY}rem)` }}
   /*
