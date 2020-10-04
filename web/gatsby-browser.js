@@ -21,7 +21,6 @@ const ELEMENTS_OPTIONS = {
 };
 
 export const wrapRootElement = ({ element, props }) => {
-  console.log("call once");
   return (
     <Elements options={ELEMENTS_OPTIONS} stripe={stripePromise} {...props}>
       <CartProvider mode="checkout-session" stripe={stripePromise} currency="USD">

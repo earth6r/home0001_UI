@@ -10,7 +10,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
 import { CartProvider } from "use-shopping-cart";
-
+import LoadingScreen from "./src/components/loading-screen";
 const ELEMENTS_OPTIONS = {
   fonts: [
     {
@@ -23,6 +23,7 @@ export const wrapRootElement = ({ element, props }) => {
   return (
     <Elements options={ELEMENTS_OPTIONS} stripe={stripePromise} {...props}>
       <CartProvider mode="checkout-session" stripe={stripePromise} currency="USD">
+        <LoadingScreen />
         {element}
       </CartProvider>
     </Elements>
