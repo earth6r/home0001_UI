@@ -20,7 +20,7 @@ const CircleButton = ({ title, url, float = true }) => {
   }, [ref]);
   // top-1/2 -translate-y-1/2 right-0 z-20
   return (
-    <div ref={ref} className={`${!float ? "absolute right-0 z-20 m-2em " : "my-1/2em"}`}>
+    <div ref={ref} className={`${!float ? " right-0 z-20 m-2em " : "my-1/2em"}`}>
       {float ? (
         <div className={`box-circle right-0 w-32 h-32 md:w-40 md:h-40`}>
           <div className="">
