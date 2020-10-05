@@ -15,6 +15,9 @@ html {
 body {
   -webkit-font-smoothing: antialiased;
   margin: 0;
+  font-feature-settings: "kern" 1, "dlig" 1;
+  -webkit-font-feature-settings: "kern" 1, "dlig" 1;
+  -moz-font-feature-settings: "kern" 1, "dlig" 1;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

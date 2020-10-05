@@ -36,6 +36,7 @@ import header from './objects/header'
 import circleButton from './objects/circleButton'
 import richTableCell from './objects/cell'
 import richTableRow from './objects/row'
+import homeUnit from './objects/homeUnit'
 
 // Modules
 import accordion from './modules/accordion'
@@ -77,6 +78,7 @@ export default createSchema({
     landing,
     home,
     about,
+    homeUnit,
     checkout,
     // homes,
     // howItWorks,

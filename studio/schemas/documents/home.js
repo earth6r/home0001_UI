@@ -37,6 +37,22 @@ export default {
         },
       ],
     },
+    {
+      type: 'string',
+      name: 'unitsTitle',
+      title: 'Units Title',
+    },
+    {
+      type: 'string',
+      name: 'unitsSubtitle',
+      title: 'Units Subtitle',
+    },
+    {
+      type: 'array',
+      name: 'units',
+      title: 'Units',
+      of: [{ type: 'homeUnit' }],
+    },
   ],
   preview: {
     select: {

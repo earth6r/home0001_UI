@@ -9,11 +9,14 @@
 .rte ul,
 .rte ol {
   @apply max-w-6xl;
+  @apply pb-1em;
 }
 
 .rte ul li > ul,
 .rte ol li > ol {
-  @apply py-1em;
+  /* @apply pl-1/10; */
+  @apply pt-1em;
+  @apply pb-2em;
 }
 
 .rte ul li,

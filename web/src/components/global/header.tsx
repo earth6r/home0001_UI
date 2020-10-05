@@ -12,7 +12,7 @@ export const Header = (props) => {
         >
           {title}
           {number && (
-            <span className="text-mobileCaption md:text-desktopCaption absolute left-3">
+            <span className="text-mobileCaption md:text-desktopCaption normal-case absolute left-3">
               {number}
             </span>
           )}

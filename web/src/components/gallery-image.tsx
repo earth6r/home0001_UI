@@ -30,8 +30,8 @@ export const GalleryImage = ({
   const [loaded, setLoaded] = useState(false);
   const [randWidth, setRandWidth] = useState(0);
   const [randMobileWidth, setRandMobileWidth] = useState(0);
-  const [randX, setRandX] = useState(0);
-  // const [randY, setRandY] = useState(0);
+  const [randPullX, setRandPullX] = useState(0);
+  const [randPullY, setRandPullY] = useState(0);
   const [randSpeed, setRandSpeed] = useState(0);
   const [randPadding, setRandPadding] = useState(0);
   const ref = useRef();
@@ -39,7 +39,10 @@ export const GalleryImage = ({
   const { scrollY } = useViewportScroll();
   let fluidProps;
   let randP = Math.floor((Math.random() * width) / 2);
-  let randY = Math.random() * 10;
+  let randX = Math.random() * (width / 4);
+  let randMobileX = Math.random() * (width / 2);
+  let randY = Math.random() * 6;
+  let randMobileY = Math.random() * 20;
   let svgProps;
 
   if (imageId && !/gif/.test(imageId)) {
@@ -52,16 +55,16 @@ export const GalleryImage = ({
 
   useEffect(() => {
     // console.log(ref.current.offsetWidth);
-    if (!loaded) {
-      var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
-      setRandX(Math.random() * 2 * plusOrMinus);
-      // setRandY(Math.random() * 2 * plusOrMinus);
-      setRandSpeed(Math.random() * 0.2 * plusOrMinus);
-      setRandWidth(Math.floor(Math.random() * 4) + 2);
-      setRandMobileWidth(Math.floor(Math.random() * 8) + 2);
-      setRandPadding(Math.floor(Math.random() * (width / 4)));
-      setLoaded(true);
-    }
+
+    var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
+    setRandPullX(Math.random() * 20 * plusOrMinus);
+    setRandPullY(Math.random() * 20 * plusOrMinus);
+    setRandSpeed(Math.random() * 0.2 * plusOrMinus);
+    setRandWidth(Math.floor(Math.random() * 4) + 2);
+    setRandMobileWidth(Math.floor(Math.random() * 8) + 2);
+    setRandPadding(Math.floor(Math.random() * (width / 4)));
+    setLoaded(true);
+    console.log(randPullX);
   }, [ref]);
   // style={{ transform: `translate(${randX}rem, ${randY}rem)` }}
   /*
@@ -71,14 +74,9 @@ export const GalleryImage = ({
       */
   return (
     <figure
-      className={`w-${width}/10 mx-mobile md:mx-desktop  mb-1em`}
+      className={`w-${width}/10 px-2`}
       ref={ref}
-      style={{
-        paddingLeft: `${`${randP}rem`}`,
-        paddingRight: `${`${randP}rem`}`,
-        paddingTop: `${`${randY}rem`}`,
-        paddingBottom: `${`${randY}rem`}`,
-      }}
+      style={{ margin: `${randY}rem ${randX}rem 0` }}
     >
       {fluidProps ? (
         <motion.div>

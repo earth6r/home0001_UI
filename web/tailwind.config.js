@@ -35,9 +35,9 @@ module.exports = {
         },
       ],
       desktopLarge: [
-        "3.75rem",
+        "4.1666vw",
         {
-          lineHeight: "4.25rem",
+          lineHeight: "4.722vw",
           letterSpacing: "0rem",
         },
       ],

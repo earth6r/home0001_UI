@@ -2,8 +2,16 @@ import { graphql, StaticQuery } from "gatsby";
 import React, { useState } from "react";
 import Layout from "../components/layout";
 import { ThemeProvider } from "@chakra-ui/core";
+import { Global, css } from "@emotion/core";
 // import { theme } from "../gatsby-plugin-chakra-ui/theme";
 // import { theme } from "../lib/theme";
+
+const GlobalStyles = css`
+  .js-focus-visible :focus:not([data-focus-visible-added]) {
+    outline: none;
+    box-shadow: none;
+  }
+`;
 
 const query = graphql`
   fragment HomeLinkFragment on SanityHome {
@@ -114,6 +122,7 @@ function LayoutContainer(props) {
         // console.log(data);
         return (
           <ThemeProvider>
+            <Global styles={GlobalStyles} />
             <Layout
               {...props}
               showNav={showNav}
