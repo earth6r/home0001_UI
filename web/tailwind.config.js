@@ -38,14 +38,14 @@ module.exports = {
         "4.1666vw",
         {
           lineHeight: "4.722vw",
-          letterSpacing: "0rem",
+          letterSpacing: "-.01em",
         },
       ],
       desktopBody: [
         "1.875rem",
         {
           lineHeight: "2.5rem",
-          letterSpacing: "0rem",
+          letterSpacing: "-.005em",
         },
       ],
       desktopNav: [
@@ -195,6 +195,7 @@ module.exports = {
         "9/10": "90vw",
       },
       inset: {
+        "2": "34%",
         "3": "63.24%",
         menu: "100px",
       },

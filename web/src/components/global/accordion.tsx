@@ -21,13 +21,13 @@ export const AccordionModule = ({ data }: AccordionModuleProps) => {
   const { accordionItems } = data;
   // console.log(data);
   return (
-    <Accordion allowMultiple={false} className="max-w-4xl w-full">
+    <Accordion allowMultiple={false} className=" w-full">
       {accordionItems.length > 0 &&
         accordionItems.map((item, index) => (
           <React.Fragment key={item._key}>
             <AccordionItem
               defaultIsOpen={false}
-              className="border-none relative block box  rounded-lg"
+              className="border-none relative block box max-w-4xl lg:ml-1/10  rounded-lg"
             >
               {({ isExpanded }) => (
                 <>

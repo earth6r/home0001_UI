@@ -41,7 +41,10 @@ const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle, onLoaded }
               role="button"
               aria-label="Open the menu"
             >
-              <div className="px-4 flex justify-center h-full w-full items-center absolute top-0 left-0">
+              <div
+                style={{ marginTop: ".5px" }}
+                className="px-4 flex justify-center h-full w-full items-center absolute top-0 left-0"
+              >
                 <Icon symbol="hamburger" />
               </div>
             </button>
@@ -66,7 +69,7 @@ const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle, onLoaded }
                 </li>
 
                 {menu &&
-                  menu.map((item) => (
+                  menu.map((item, index) => (
                     <li key={item._key}>
                       <PageLink
                         className="md:pt-1/2em inline-block"
