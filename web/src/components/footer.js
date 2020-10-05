@@ -21,7 +21,7 @@ const Footer = ({ footerMenu }) => {
   const menu = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
   return (
     <>
-      <footer className="pb-1em md:pb-desktop container text-nav md:text-desktopNav uppercase -mt-1em left-0 flex flex-col-reverse md:block">
+      <footer className="pt-2em md:pt-0 pb-1em md:pb-desktop container text-nav md:text-desktopNav uppercase md:-mt-1em left-0 flex flex-col-reverse md:block">
         <GridRow />
         <nav className="relative pt-2">
           <ul className="flex flex-wrap md:flex-row md:justify-between relative">

@@ -55,9 +55,9 @@ const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle, onLoaded }
             <div className="mx-mobile md:mx-0">
               <ul
                 style={{}}
-                className="relative mt-1  leading-none container p-0 m-0 md:flex w-full text-mobileNav md:text-desktopNav justify-between"
+                className="relative mt-1  leading-none container p-0 m-0 md:flex w-full text-mobileLarge md:text-desktopNav justify-between"
               >
-                <li className="pt-2">
+                <li className="pt-1 md:pt-2">
                   <h1 className="logo ">
                     <PageLink onClick={onHideNav} to="/">
                       <span className="earth">E</span>
@@ -69,7 +69,7 @@ const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle, onLoaded }
                   menu.map((item) => (
                     <li key={item._key}>
                       <PageLink
-                        className="pt-1/2em inline-block"
+                        className="md:pt-1/2em inline-block"
                         onClick={onHideNav}
                         to={`/${item.link.content.main.slug.current}`}
                       >

@@ -83,9 +83,10 @@ const HomeTemplate = (props) => {
             size="full"
             isOpen={isOpen}
             onClose={onClose}
+            className="rounded-lg"
           >
             <ModalOverlay />
-            <ModalContent>
+            <ModalContent className="rounded-lg">
               <ModalCloseButton zIndex={10} />
               <ModalBody style={{ maxHeight: "calc(100vh - 40px)" }} className="overflow-auto">
                 {specs && specs.map((spec) => <RichTable key={spec._key} data={spec} />)}
@@ -106,11 +107,17 @@ const HomeTemplate = (props) => {
                       <>
                         <AccordionHeader className="relative flex h-2em p-0 pt-1/4em pl-1/2em border-none">
                           <h3 className="m-0 mr-1em">{item.title}</h3>
-                          {item.unit && <span className="m-0 mr-1em w-2em">{item.unit}</span>}
-                          {item.bedrooms && (
-                            <span className="m-0 mr-1em w-1em">{item.bedrooms}</span>
+                          {item.unit && (
+                            <span className="hidden md:block m-0 mr-1em w-2em">{item.unit}</span>
                           )}
-                          {item.price && <span className="m-0 mr-1em w-6em">{item.price}</span>}
+                          {item.bedrooms && (
+                            <span className="hidden md:block m-0 mr-1em w-1em">
+                              {item.bedrooms}
+                            </span>
+                          )}
+                          {item.price && (
+                            <span className="hidden md:block m-0 mr-1em w-6em">{item.price}</span>
+                          )}
                           {item.sold == 1 ? <span>Sold</span> : <span>Under offer</span>}
 
                           <div style={{ marginTop: "-.075em" }} className="right-0 absolute pr-1em">
