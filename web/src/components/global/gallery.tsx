@@ -13,6 +13,7 @@ const Gallery = (props) => {
   const randImages = images ? shuffle(images) : [];
   const justify = ["justify-start", "justifycenter", "justify-between", "justify-end"];
   let selectJustify = justify[Math.round(Math.random() * justify.length)];
+
   // const randImages = images;
   const gridLen = Math.floor(randImages.length / 2);
   let baseWidth = 6;
@@ -37,7 +38,6 @@ const Gallery = (props) => {
   return (
     <div className="w-full z-30 pt-3 relative">
       <div className={`mx-mobile md:mx-desktop relative  flex  flex-wrap ${selectJustify}`}>
-        {url && <CircleButton title={url.title} url={url.url} float={false} />}
         {randImages &&
           randImages.map((image, index) => {
             remainingWidth =
@@ -53,6 +53,13 @@ const Gallery = (props) => {
               />
             );
           })}
+        {url && (
+          <CircleButton
+            title={url.title}
+            url={url.url}
+            float={randImages.length > 2 ? false : true}
+          />
+        )}
       </div>
 
       <>{row()}</>

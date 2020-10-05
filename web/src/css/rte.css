@@ -3,6 +3,7 @@
 }
 
 .rte p {
+  @apply max-w-4xl;
   /* @apply pb-1em; */
 }
 
