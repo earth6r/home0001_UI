@@ -104,7 +104,7 @@ const HomeTemplate = (props) => {
           </Modal>
         )}
         <Accordion allowMultiple={false} className="max-w-4xl w-full">
-          {units.length > 0 &&
+          {units &&
             units.map((item, index) => (
               <React.Fragment key={item._key}>
                 <AccordionItem
