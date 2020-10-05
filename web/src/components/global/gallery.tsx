@@ -2,7 +2,8 @@
 // import Img from "gatsby-image";
 // @ts-ignore
 // import { getFluidGatsbyImage } from "gatsby-source-sanity";
-import React, { useState, useLayoutEffect, useRef } from "react";
+import React, { useState, Effect, useRef } from "react";
+import { useEffect } from "react";
 import { GalleryImage } from "../gallery-image";
 import GridRow from "../grid/grid-row";
 import CircleButton from "./circleButton";
@@ -12,7 +13,7 @@ const Gallery = (props) => {
   const { images, url } = props;
   const randImages = images ? shuffle(images) : [];
   const justify = ["justify-start", "justifycenter", "justify-between", "justify-end"];
-  let selectJustify = justify[Math.round(Math.random() * justify.length)];
+  const [direction, setDirection] = useState();
 
   // const randImages = images;
   const gridLen = Math.floor(randImages.length / 2);
@@ -35,9 +36,12 @@ const Gallery = (props) => {
       );
     }
   }
+  useEffect(() => {
+    setDirection(justify[Math.round(Math.random() * justify.length)]);
+  }, []);
   return (
     <div className="w-full z-30 pt-3 relative">
-      <div className={`mx-mobile md:mx-desktop relative  flex  flex-wrap ${selectJustify}`}>
+      <div className={`mx-mobile md:mx-desktop relative  flex  flex-wrap ${direction}`}>
         {randImages &&
           randImages.map((image, index) => {
             remainingWidth =

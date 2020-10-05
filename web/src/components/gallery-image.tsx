@@ -66,12 +66,7 @@ export const GalleryImage = ({
     setLoaded(true);
     console.log(randPullX);
   }, [ref]);
-  // style={{ transform: `translate(${randX}rem, ${randY}rem)` }}
-  /*
-  className={`${
-        randWidth !== 10 ? `w-${randWidth}/10` : "w-full"
-      } ${`md:px-${randPadding}`} mx-mobile md:mx-desktop  mb-1em`}
-      */
+
   return (
     <figure
       className={`w-${width}/10 px-2`}
@@ -79,14 +74,14 @@ export const GalleryImage = ({
       style={{ margin: `${randY}rem ${randX}rem 0` }}
     >
       {fluidProps ? (
-        <motion.div>
+        <div>
           <Img className="relative z-10" fluid={fluidProps} alt={alt} defaultFadeIn={200} />
           {caption && (
             <figcaption className="mt-3/4em text-mobileCaption md:text-desktopCaption">
               {caption}
             </figcaption>
           )}
-        </motion.div>
+        </div>
       ) : (
         <img
           alt={alt}
