@@ -50,7 +50,7 @@ const Gallery = (props) => {
                 : Math.floor(Math.random() * (baseWidth - minWidth) + minWidth);
             return (
               <GalleryImage
-                width={remainingWidth}
+                remainingWidth={remainingWidth}
                 key={image._key}
                 imageId={image.asset._id}
                 caption={image.caption}

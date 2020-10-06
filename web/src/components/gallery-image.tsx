@@ -17,6 +17,7 @@ export const GalleryImage = ({
   imageId,
   className,
   width,
+  remainingWidth,
   alt,
   src,
   caption,
@@ -38,15 +39,15 @@ export const GalleryImage = ({
   const [elementTop, setElementTop] = useState(0);
   const { scrollY } = useViewportScroll();
   let fluidProps;
-  let randP = Math.floor((Math.random() * width) / 2);
-  let randX = Math.random() * (width / 4);
-  let randMobileX = Math.random() * (width / 2);
+  let randP = Math.floor((Math.random() * remainingWidth) / 2);
+  let randX = Math.random() * (remainingWidth / 4);
+  let randMobileX = Math.random() * (remainingWidth / 2);
   let randY = Math.random() * 6;
   let randMobileY = Math.random() * 20;
   let svgProps;
 
   if (imageId && !/gif/.test(imageId)) {
-    fluidProps = getFluidGatsbyImage(imageId, { maxWidth: 2400 }, sanityConfig);
+    fluidProps = getFluidGatsbyImage(imageId, { maxWidth: width || 2400 }, sanityConfig);
   }
 
   const y = useTransform(scrollY, [elementTop, elementTop + 2], [0.1 - randSpeed, 0.2], {
@@ -62,14 +63,14 @@ export const GalleryImage = ({
     setRandSpeed(Math.random() * 0.2 * plusOrMinus);
     setRandWidth(Math.floor(Math.random() * 4) + 2);
     setRandMobileWidth(Math.floor(Math.random() * 8) + 2);
-    setRandPadding(Math.floor(Math.random() * (width / 4)));
+    setRandPadding(Math.floor(Math.random() * (remainingWidth / 4)));
     setLoaded(true);
     console.log(randPullX);
   }, [ref]);
 
   return (
     <figure
-      className={`w-${width}/10 px-2`}
+      className={`w-${remainingWidth}/10 px-2`}
       ref={ref}
       style={{ margin: `${randY}rem ${randX}rem 0` }}
     >

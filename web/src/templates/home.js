@@ -109,11 +109,17 @@ const HomeTemplate = (props) => {
               <React.Fragment key={item._key}>
                 <AccordionItem
                   defaultIsOpen={false}
-                  className="border-none relative block box rounded-lg"
+                  className={`${
+                    item.sold == 1 ? "pointer-events-none" : ""
+                  } border-none relative block box rounded-lg`}
                 >
                   {({ isExpanded }) => (
                     <>
-                      <AccordionHeader className="relative flex h-2em p-0 pt-1/4em pl-1/2em border-none">
+                      <AccordionHeader
+                        className={`${
+                          item.sold == 1 ? "opacity-25" : ""
+                        } relative flex h-2em p-0 pt-1/4em pl-1/2em border-none`}
+                      >
                         <h3 className="m-0 mr-1em">{item.title}</h3>
                         {item.unit && (
                           <span className="hidden md:hidden lg:block m-0 mr-1em w-2em">
@@ -147,17 +153,7 @@ const HomeTemplate = (props) => {
                       <AccordionPanel className="pb-1em">
                         <div>
                           {item.text && <PortableText blocks={item.text} />}
-                          <button
-                            onClick={handleToggle}
-                            className="box mb-1/2em uppercase rounded-lg w-full block text-center leading-none h-2em pt-1/4em flex items-center justify-center text-mobileBody md:text-desktopBody"
-                          >
-                            View Floorplan
-                          </button>
-                          {item.floorPlan && (
-                            <Collapse className="my-1em" isOpen={show}>
-                              <Figure node={item.floorPlan} />
-                            </Collapse>
-                          )}
+                          {item.floorPlan && <Figure node={item.floorPlan} />}
                           {item.sold !== 1 && (
                             <PageLink
                               className="box box-black rounded-lg w-full block text-center leading-none h-2em pt-1/4em flex items-center justify-center text-mobileBody md:text-desktopBody "

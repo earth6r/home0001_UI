@@ -38,8 +38,8 @@
 
 .rte a {
   will-change: color;
-  font-size: 0.85em;
-  @apply uppercase;
+  /* font-size: 0.85em; */
+  /* @apply uppercase; */
   transition: 0.125s color;
 }
 
