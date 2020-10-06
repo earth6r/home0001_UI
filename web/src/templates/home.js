@@ -116,11 +116,11 @@ const HomeTemplate = (props) => {
                   {({ isExpanded }) => (
                     <>
                       <AccordionHeader
-                        className={`${
-                          item.sold == 1 ? "opacity-25" : ""
+                        className={`${item.sold == 1 ? "opacity-25" : ""} ${
+                          isExpanded ? "text-black" : ""
                         } relative flex h-2em p-0 pt-1/4em pl-1/2em border-none`}
                       >
-                        <h3 className="m-0 mr-1em">{item.title}</h3>
+                        <h3 className={` m-0 mr-1em`}>{item.title}</h3>
                         {item.unit && (
                           <span className="hidden md:hidden lg:block m-0 mr-1em w-2em">
                             {item.unit}
@@ -146,7 +146,7 @@ const HomeTemplate = (props) => {
                           </span>
                         )}
 
-                        {item.sold == 1 && (
+                        {!item.sold && (
                           <div style={{ marginTop: "-.075em" }} className="right-0 absolute pr-1em">
                             {isExpanded ? "–" : "+"}
                           </div>
@@ -155,7 +155,11 @@ const HomeTemplate = (props) => {
                       <AccordionPanel className="pb-1em">
                         <div>
                           {item.text && <PortableText blocks={item.text} />}
-                          {item.floorPlan && <Figure node={item.floorPlan} />}
+                          {item.floorPlan && (
+                            <div className="max-w-sm mx-auto mb-2em">
+                              <Figure node={item.floorPlan} />
+                            </div>
+                          )}
                           {item.sold !== 1 && (
                             <PageLink
                               className="box box-black rounded-lg w-full block text-center leading-none h-2em pt-1/4em flex items-center justify-center text-mobileBody md:text-desktopBody "

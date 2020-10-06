@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-// import {loadStripe} from '@stripe/stripe-js';
-// import {CardElement, Elements, useElements, useStripe} from '../../src';
-// import '../styles/2-Card-Detailed.css';
+import { PageLink } from "./link";
 import { CardElement, useStripe, Elements, useElements } from "@stripe/react-stripe-js";
 import GridRow from "./grid/grid-row";
 import {
@@ -317,7 +315,7 @@ const CheckoutForm = () => {
       <div className="mt-2em">
         <p>
           "By clicking “Join Now” I agree to the
-          <Link to="/legal">Deposit Terms and Conditions</Link>."
+          <PageLink to="/legal">Deposit Terms and Conditions</PageLink>."
         </p>
       </div>
       <GridRow />
