@@ -142,13 +142,15 @@ const HomeTemplate = (props) => {
                           </span>
                         ) : (
                           <span className="left-3 absolute md:left-0 md:relative text-mobileCaption md:text-desktopBody">
-                            Under offer
+                            Available
                           </span>
                         )}
 
-                        <div style={{ marginTop: "-.075em" }} className="right-0 absolute pr-1em">
-                          {isExpanded ? "–" : "+"}
-                        </div>
+                        {item.sold == 1 && (
+                          <div style={{ marginTop: "-.075em" }} className="right-0 absolute pr-1em">
+                            {isExpanded ? "–" : "+"}
+                          </div>
+                        )}
                       </AccordionHeader>
                       <AccordionPanel className="pb-1em">
                         <div>
@@ -159,7 +161,7 @@ const HomeTemplate = (props) => {
                               className="box box-black rounded-lg w-full block text-center leading-none h-2em pt-1/4em flex items-center justify-center text-mobileBody md:text-desktopBody "
                               to={`/checkout`}
                             >
-                              Join Waitlist
+                              Reserve Now
                             </PageLink>
                           )}
                         </div>
@@ -176,7 +178,7 @@ const HomeTemplate = (props) => {
           <button
             onClick={onOpen}
             style={{ bottom: "1em" }}
-            className="-mt-40 box-circle self-end w-32 h-32 md:w-40 md:h-40 sticky text-right right-0 z-40 mr-mobile md:mr-desktop"
+            className="-mt-40 box-circle self-end w-32 h-32 md:w-40 md:h-40 text-right right-0 z-40 mr-mobile md:mr-desktop"
           >
             <div className="square  relative text-mobileCaption md:text-desktopCaption">
               <div className="background-circle" />

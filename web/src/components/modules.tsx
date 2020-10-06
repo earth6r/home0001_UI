@@ -59,7 +59,7 @@ export const Modules = ({ reactModule, type }: { type: string; reactModule: any 
     case "header":
       return <Header title={reactModule.title} number={reactModule.number} />;
     case "circleButton":
-      return <CircleButton title={reactModule.title} url={reactModule.url} />;
+      return <CircleButton title={reactModule.title} url={reactModule.url} float={false} />;
     case "richTable":
       return <RichTable data={reactModule} />;
     default:

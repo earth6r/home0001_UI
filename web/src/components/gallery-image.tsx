@@ -17,9 +17,12 @@ export const GalleryImage = ({
   imageId,
   className,
   width,
+  remainingMobileWidth,
   remainingWidth,
+  remainingMargin,
   alt,
   src,
+  order,
   caption,
 }: {
   imageId?: string;
@@ -39,10 +42,10 @@ export const GalleryImage = ({
   const [elementTop, setElementTop] = useState(0);
   const { scrollY } = useViewportScroll();
   let fluidProps;
-  let randP = Math.floor((Math.random() * remainingWidth) / 2);
+  let randP = Math.floor(Math.random() * 2);
   let randX = Math.random() * (remainingWidth / 4);
   let randMobileX = Math.random() * (remainingWidth / 2);
-  let randY = Math.random() * 6;
+  let randY = Math.random() * (6 - 2) + 2;
   let randMobileY = Math.random() * 20;
   let svgProps;
 
@@ -70,9 +73,13 @@ export const GalleryImage = ({
 
   return (
     <figure
-      className={`w-${remainingWidth}/10 px-2`}
+      className={`w-${remainingMobileWidth}/10 md:w-${remainingWidth}/10 md:py-${randP}`}
       ref={ref}
-      style={{ margin: `${randY}rem ${randX}rem 0` }}
+      style={{
+        order: `${order}`,
+        margin: `${randY}rem ${remainingMargin / 2}rem 0`,
+        // padding: `0rem ${remainingMargin}rem 0`,
+      }}
     >
       {fluidProps ? (
         <div>

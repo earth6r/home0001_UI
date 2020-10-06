@@ -10,7 +10,7 @@ export default {
     },
     {
       name: 'url',
-      title: 'Url',
+      title: 'URL',
       type: 'reference',
       to: [{ type: 'page' }, { type: 'home' }, { type: 'checkout' }],
     },

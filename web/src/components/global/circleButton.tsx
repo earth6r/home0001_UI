@@ -6,7 +6,7 @@ const CircleButton = ({ title, url, float = true }) => {
   const [elementTop, setElementTop] = useState(0);
   const ref = useRef(null);
   const { scrollY } = useViewportScroll();
-  const [randPadding, setRandPadding] = useState(0);
+  let randPadding = Math.random() * 10;
   let uri = "";
 
   const y = useTransform(scrollY, [elementTop, elementTop + 1], [0.9, 1], {
@@ -28,13 +28,15 @@ const CircleButton = ({ title, url, float = true }) => {
   useLayoutEffect(() => {
     const element = ref.current;
     setElementTop(element.offsetTop);
-    setRandPadding(Math.floor(Math.random() * 4));
   }, [ref]);
   // top-1/2 -translate-y-1/2 right-0 z-20
   return (
-    <div ref={ref} className={`${!float ? " right-0 z-20 m-2em " : "my-1/2em"}`}>
+    <div ref={ref} className={`${!float ? "right-0 ml-1em z-20 self" : ""}`}>
       {float ? (
-        <div className={`box-circle right-0 w-32 h-32 md:w-40 md:h-40`}>
+        <div
+          className={`box-circle mx-1/4em right-0 w-32 h-32 md:w-40 md:h-40 self`}
+          style={{ margin: `${randPadding} .5rem` }}
+        >
           <div className="">
             <div className="square relative">
               <div className="background-circle" />
@@ -56,9 +58,9 @@ const CircleButton = ({ title, url, float = true }) => {
           </div>
         </div>
       ) : (
-        <div className={`box-circle right-0 absolute w-32 h-32 md:w-40 md:h-40`}>
+        <div className={`box-circle relative right-0 w-32 h-32 md:w-40 md:h-40`}>
           <motion.div className="">
-            <motion.div className="square " style={{ y }}>
+            <motion.div className="square">
               <div className="background-circle" />
               {url && url.content ? (
                 <PageLink

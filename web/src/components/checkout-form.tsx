@@ -311,13 +311,13 @@ const CheckoutForm = () => {
       {error && <ErrorMessage>{error.message}</ErrorMessage>}
       <div className="mt-2em">
         <SubmitButton processing={processing} error={error} disabled={!stripe}>
-          Subscribe
+          Join Now
         </SubmitButton>
       </div>
       <div className="mt-2em">
         <p>
-          By clicking “Subscribe” I agree to the Waitlist Terms and Conditions set in the link
-          above.
+          "By clicking “Join Now” I agree to the
+          <Link to="/legal">Deposit Terms and Conditions</Link>."
         </p>
       </div>
       <GridRow />

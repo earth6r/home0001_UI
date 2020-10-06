@@ -16,8 +16,9 @@ export default {
     },
     {
       name: 'url',
-      label: 'CTA',
+      // label: 'CTA',
       type: 'circleButton',
+      title: 'Circle Button',
     },
   ],
 }
