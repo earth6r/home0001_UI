@@ -3,7 +3,8 @@ import { PageLink } from "../link";
 
 export const InternalLink = (props) => {
   const { title, link } = props;
-  let slug = link.content !== undefined ? link.content.main.slug.current : link.current;
+  let slug =
+    link !== udefined && link.content !== undefined ? link.content.main.slug.current : link.current;
   console.log(props);
   let uri = "";
   //   console.log(link);
