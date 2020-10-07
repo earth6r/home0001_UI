@@ -8,7 +8,7 @@ export const Header = (props) => {
       {title && (
         <h2
           style={{ marginLeft: ".1em" }}
-          className=" text-mobileCaption md:text-desktopCaption my-1em relative z-20"
+          className="normal-case text-mobileCaption md:text-desktopCaption my-1em relative z-20"
         >
           {title}
           {number && (
