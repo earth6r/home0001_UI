@@ -27,7 +27,7 @@ export const AccordionModule = ({ data }: AccordionModuleProps) => {
           <React.Fragment key={item._key}>
             <AccordionItem
               defaultIsOpen={false}
-              className="border-none relative block box max-w-4xl lg:ml-1/10 mb-1em rounded-lg"
+              className="border-none relative block accordion box max-w-4xl lg:ml-1/10 mb-1em rounded-lg"
             >
               {({ isExpanded }) => (
                 <>
