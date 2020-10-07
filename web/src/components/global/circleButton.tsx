@@ -45,11 +45,13 @@ const CircleButton = ({ title, url, float = true }) => {
                   className="m-0 h-full flex items-center justify-center text-nav leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full"
                   to={`${uri}/${url.content.main.slug.current}`}
                 >
-                  <h2 className="m-0 p-0 text-nav leading-none">{title}</h2>
+                  <h2 className="m-0 p-0 text-mobileNav md:text-desktopNav leading-none">
+                    {title}
+                  </h2>
                 </PageLink>
               ) : (
                 title && (
-                  <h2 className="m-0 text-nav leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full">
+                  <h2 className="m-0 leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full">
                     {title}
                   </h2>
                 )
@@ -67,11 +69,13 @@ const CircleButton = ({ title, url, float = true }) => {
                   className="m-0 h-full flex items-center justify-center text-nav leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full"
                   to={`${uri}/${url.content.main.slug.current}`}
                 >
-                  <h2 className="m-0 p-0 text-nav leading-none">{title}</h2>
+                  <h2 className="m-0 p-0 text-mobileNav md:text-desktopNav leading-none">
+                    {title}
+                  </h2>
                 </PageLink>
               ) : (
                 title && (
-                  <h2 className="m-0 text-nav leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full">
+                  <h2 className="m-0 leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full">
                     {title}
                   </h2>
                 )

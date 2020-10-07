@@ -146,7 +146,7 @@ const Gallery = (props) => {
         {/* randomly place circle image in an order between 1 and gallery image set length  */}
         {url !== undefined && randImages.length > 2 ? (
           <div
-            className="self-center"
+            className="self-center mx-auto"
             style={{
               order: `${Math.floor(Math.random() * randImages.length - 2)}`,
             }}
