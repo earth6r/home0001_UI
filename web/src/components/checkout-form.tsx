@@ -255,7 +255,7 @@ const CheckoutForm = () => {
           label="Name"
           id="name"
           type="text"
-          placeholder="Jane Doe"
+          placeholder="First Last"
           required
           autoComplete="name"
           value={billingDetails.name}
@@ -267,7 +267,7 @@ const CheckoutForm = () => {
           label="Email"
           id="email"
           type="email"
-          placeholder="janedoe@gmail.com"
+          placeholder="email@address.com"
           required
           autoComplete="email"
           value={billingDetails.email}
