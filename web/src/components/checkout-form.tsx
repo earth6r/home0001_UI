@@ -314,11 +314,10 @@ const CheckoutForm = () => {
       </div>
       <div className="mt-2em">
         <p>
-          "By clicking “Join Now” I agree to the
-          <PageLink to="/legal">Deposit Terms and Conditions</PageLink>."
+          By clicking “Join Now” I agree to the{" "}
+          <PageLink to="/legal">Deposit Terms and Conditions</PageLink>.
         </p>
       </div>
-      <GridRow />
     </form>
   );
 };

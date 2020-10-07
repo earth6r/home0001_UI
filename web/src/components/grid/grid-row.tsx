@@ -22,7 +22,7 @@ const GridRow = ({ hide, children, className, scroll = true, style }) => {
       {scroll ? (
         <div
           ref={ref}
-          className={`grid-row py-1em text-nav relative z-30 md:text-base ${
+          className={`grid-row py-1em text-nav relative z-30 md:text-base pointer-events-none ${
             className ? className : ""
           }`}
         >

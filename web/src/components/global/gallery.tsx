@@ -53,7 +53,7 @@ const Gallery = (props) => {
         <div
           key={`${randImages[i]._key}-grid-$`}
           style={{ top: `${(100 / images.length) * (i + 1)}%` }}
-          className="absolute w-full left-0 z-0"
+          className="absolute w-full pointer-events-none left-0 z-0"
         >
           <GridRow />
         </div>
