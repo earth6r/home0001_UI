@@ -14,12 +14,12 @@ const Gallery = (props) => {
   const gridLen = Math.floor(randImages.length / 2);
   let baseWidth = 8;
 
-  const maxLandscapeWidth = 5;
+  const maxLandscapeWidth = 6;
   const maxMobileLandscapeWidth = 4;
   const maxPortraitWidth = 5;
   const maxMobilePortraitWidth = 5;
 
-  const minLandscapeWidth = 3;
+  const minLandscapeWidth = 4;
   const minPortraitWidth = 3;
   const minMobileLandscapeWidth = 4;
   const minMobilePortraitWidth = 3;
@@ -71,9 +71,11 @@ const Gallery = (props) => {
             //get ratio of image
             let order = index;
             let ratio =
-              image.asset.metadata.dimensions.height > image.asset.metadata.dimensions.width
-                ? "portrait"
-                : "landscape";
+              image.asset !== undefined
+                ? image.asset.metadata.dimensions.height > image.asset.metadata.dimensions.width
+                  ? "portrait"
+                  : "landscape"
+                : "portrait";
             //get random width based on portrait vs. landscape
             remainingWidth =
               ratio == "portrait"
