@@ -58,7 +58,7 @@ export const RichTable = (props) => {
             </li>
           ))}
       </ul>
-      <div className="mx-mobile md:mx-desktop">
+      <div className="mx-mobile md:mx-desktop mb-2em">
         <GridRow />
       </div>
     </div>

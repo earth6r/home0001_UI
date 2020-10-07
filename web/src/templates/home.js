@@ -186,7 +186,7 @@ const HomeTemplate = (props) => {
           <button
             onClick={onOpen}
             style={{ bottom: "1em" }}
-            className="lg:-mt-40 lg:pt-0 pt-1em box-circle self-end w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 text-right right-0 z-40 mr-mobile md:mr-desktop"
+            className="mt-0 lg:-mt-48 lg:pt-0 pt-1em box-circle self-end w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 text-right right-0 z-40 mr-mobile md:mr-desktop"
           >
             <div className="square  relative text-mobileCaption md:text-desktopCaption">
               <div className="background-circle" />
