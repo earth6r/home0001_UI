@@ -53,6 +53,12 @@ export default {
       title: 'Units',
       of: [{ type: 'homeUnit' }],
     },
+    {
+      name: 'homeModules',
+      title: 'Additional Home Modules',
+      type: 'moduleContent',
+      // fieldset: 'modules',
+    },
   ],
   preview: {
     select: {
