@@ -88,15 +88,16 @@ const HomeTemplate = (props) => {
             closeOnOverlayClick={false}
             size="full"
             scrollBehavior="inside"
+            blockScrollOnMount={true}
             isOpen={isOpen}
             onClose={onClose}
             className="rounded-lg"
           >
             <ModalOverlay />
-            <ModalContent className="rounded-lg">
+            <ModalContent className="rounded-lg mx-mobile md:mx-desktop">
               <ModalCloseButton zIndex={10} />
               <ModalBody className="rounded-lg">
-                <h3 className="text-mobileBody md:text-desktopBody pb-2em">Specifications</h3>
+                <h3 className="text-mobileBody md:text-desktopBody pb-1em pt-1/4em">Inventory</h3>
                 <GridRow />
                 {specs && specs.map((spec) => <RichTable key={spec._key} data={spec} />)}
               </ModalBody>

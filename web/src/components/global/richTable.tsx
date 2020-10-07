@@ -35,7 +35,7 @@ export const RichTable = (props) => {
           <div className="absolute -mt-5 w-full h-20 md:h-32 md:h-18 z-0 gradient-to-b pointer-events-none top-0 left-0"></div>
         </div>
       )}
-      <ul className="w-full px-mobile md:px-desktop text-mobileCaption md:text-desktopCaption flex-1 flex flex-col md:text-base ">
+      <ul className="w-full px-mobile md:px-desktop text-mobileCaption md:text-desktopCaption flex-1 flex flex-col md:text-base md:mt-2em">
         {rows &&
           rows.map((row) => (
             <li key={`row-${row._key}`} className="flex w-full">
