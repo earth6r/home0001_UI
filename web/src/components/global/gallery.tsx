@@ -69,81 +69,85 @@ const Gallery = (props) => {
         {randImages &&
           randImages.map((image, index) => {
             //get ratio of image
-            let order = index;
-            let ratio =
-              image.asset !== undefined
-                ? image.asset.metadata.dimensions.height > image.asset.metadata.dimensions.width
-                  ? "portrait"
-                  : "landscape"
-                : "portrait";
-            //get random width based on portrait vs. landscape
-            remainingWidth =
-              ratio == "portrait"
-                ? index % 2
+            if (image.asset !== undefined) {
+              let order = index;
+              let ratio =
+                image.asset !== undefined
+                  ? image.asset.metadata.dimensions.height > image.asset.metadata.dimensions.width
+                    ? "portrait"
+                    : "landscape"
+                  : "portrait";
+              //get random width based on portrait vs. landscape
+              remainingWidth =
+                ratio == "portrait"
+                  ? index % 2
+                    ? Math.floor(
+                        Math.random() * (maxPortraitWidth - remainingWidth) + minPortraitWidth
+                      )
+                    : Math.floor(
+                        Math.random() * (maxPortraitWidth - minPortraitWidth) + minPortraitWidth
+                      )
+                  : index % 2
                   ? Math.floor(
-                      Math.random() * (maxPortraitWidth - remainingWidth) + minPortraitWidth
+                      Math.random() * (maxLandscapeWidth - remainingWidth) + minLandscapeWidth
                     )
                   : Math.floor(
-                      Math.random() * (maxPortraitWidth - minPortraitWidth) + minPortraitWidth
-                    )
-                : index % 2
-                ? Math.floor(
-                    Math.random() * (maxLandscapeWidth - remainingWidth) + minLandscapeWidth
-                  )
-                : Math.floor(
-                    Math.random() * (maxLandscapeWidth - minLandscapeWidth) + minLandscapeWidth
-                  );
+                      Math.random() * (maxLandscapeWidth - minLandscapeWidth) + minLandscapeWidth
+                    );
 
-            remainingMobileWidth =
-              ratio == "portrait"
-                ? index % 2
+              remainingMobileWidth =
+                ratio == "portrait"
+                  ? index % 2
+                    ? Math.floor(
+                        Math.random() * (maxMobilePortraitWidth - remainingMobileWidth) +
+                          minMobilePortraitWidth
+                      )
+                    : Math.floor(
+                        Math.random() * (maxMobilePortraitWidth - minMobilePortraitWidth) +
+                          minMobilePortraitWidth
+                      )
+                  : index % 2
                   ? Math.floor(
-                      Math.random() * (maxMobilePortraitWidth - remainingMobileWidth) +
-                        minMobilePortraitWidth
+                      Math.random() * (maxMobileLandscapeWidth - remainingMobileWidth) +
+                        minMobileLandscapeWidth
                     )
                   : Math.floor(
-                      Math.random() * (maxMobilePortraitWidth - minMobilePortraitWidth) +
-                        minMobilePortraitWidth
-                    )
-                : index % 2
-                ? Math.floor(
-                    Math.random() * (maxMobileLandscapeWidth - remainingMobileWidth) +
-                      minMobileLandscapeWidth
-                  )
-                : Math.floor(
-                    Math.random() * (maxMobileLandscapeWidth - minMobileLandscapeWidth) +
-                      minMobileLandscapeWidth
-                  );
+                      Math.random() * (maxMobileLandscapeWidth - minMobileLandscapeWidth) +
+                        minMobileLandscapeWidth
+                    );
 
-            remainingMargin =
-              index % 2
-                ? Math.random() * (maxMargin - remainingMargin) + minMargin
-                : Math.random() * (maxMargin - minMargin) + minMargin;
+              remainingMargin =
+                index % 2
+                  ? Math.random() * (maxMargin - remainingMargin) + minMargin
+                  : Math.random() * (maxMargin - minMargin) + minMargin;
 
-            // console.log(remainingWidth);
+              // console.log(remainingWidth);
 
-            // remainingWidth =
-            //   index % 2
-            //     ? Math.floor(Math.random() * (baseWidth - remainingWidth) + minWidth)
-            //     : Math.floor(Math.random() * (baseWidth - minWidth) + minWidth);
+              // remainingWidth =
+              //   index % 2
+              //     ? Math.floor(Math.random() * (baseWidth - remainingWidth) + minWidth)
+              //     : Math.floor(Math.random() * (baseWidth - minWidth) + minWidth);
 
-            // remainingWidth =
-            //   index % 2
-            //     ? Math.floor(Math.random() * (baseWidth - remainingWidth) + minWidth)
-            //     : Math.floor(Math.random() * (baseWidth - minWidth) + minWidth);
+              // remainingWidth =
+              //   index % 2
+              //     ? Math.floor(Math.random() * (baseWidth - remainingWidth) + minWidth)
+              //     : Math.floor(Math.random() * (baseWidth - minWidth) + minWidth);
 
-            return (
-              <GalleryImage
-                width="1600"
-                remainingWidth={remainingWidth}
-                remainingMobileWidth={remainingMobileWidth}
-                key={image._key}
-                order={order}
-                imageId={image.asset._id}
-                caption={image.caption}
-                remainingMargin={remainingMargin}
-              />
-            );
+              return (
+                <GalleryImage
+                  width="1600"
+                  remainingWidth={remainingWidth}
+                  remainingMobileWidth={remainingMobileWidth}
+                  key={image._key}
+                  order={order}
+                  imageId={image.asset._id}
+                  caption={image.caption}
+                  remainingMargin={remainingMargin}
+                />
+              );
+            } else {
+              return <></>;
+            }
           })}
         {/* randomly place circle image in an order between 1 and gallery image set length  */}
         {url !== undefined && randImages.length > 2 ? (
