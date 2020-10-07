@@ -41,6 +41,9 @@ export const GalleryImage = ({
   const ref = useRef();
   const [elementTop, setElementTop] = useState(0);
   const { scrollY } = useViewportScroll();
+  const self = ["auto", "center"];
+  const selfDirection = self[Math.round(Math.random() * self.length)];
+  const isAuto = Math.random() < 0.5 ? -1 : 1;
   let fluidProps;
   let randP = Math.floor(Math.random() * 2);
   let randX = Math.random() * (remainingWidth / 4);
@@ -73,7 +76,9 @@ export const GalleryImage = ({
 
   return (
     <figure
-      className={`w-${remainingMobileWidth}/10 md:w-${remainingWidth}/10 md:py-${randP}`}
+      className={`w-${remainingMobileWidth}/10 md:w-${remainingWidth}/10 md:py-${randP} self-${selfDirection} ${
+        isAuto ? "ml-auto" : ""
+      }`}
       ref={ref}
       style={{
         order: `${order}`,

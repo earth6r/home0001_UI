@@ -151,7 +151,9 @@ const Gallery = (props) => {
               order: `${Math.floor(Math.random() * randImages.length - 2)}`,
             }}
           >
-            {url !== undefined && <CircleButton title={url.title} url={url.url} float={true} />}
+            {url.title !== undefined && (
+              <CircleButton title={url.title} url={url.url} float={true} />
+            )}
           </div>
         ) : (
           <div
@@ -160,7 +162,9 @@ const Gallery = (props) => {
               order: `${randImages.length + 2}`,
             }}
           >
-            {url !== undefined && <CircleButton title={url.title} url={url.url} float={false} />}
+            {url !== undefined && url.title !== undefined && (
+              <CircleButton title={url.title} url={url.url} float={false} />
+            )}
           </div>
         )}
       </div>

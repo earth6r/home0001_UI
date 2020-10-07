@@ -78,7 +78,8 @@
   transition: 1s box-shadow;
 }
 
-.box-link[aria-expanded="true"]:before {
+.box.accordion button[aria-expanded="true"] {
+  color: #000000 !important;
 }
 
 @screen md {

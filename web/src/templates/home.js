@@ -36,6 +36,7 @@ export const query = graphql`
       _rawContent(resolveReferences: { maxDepth: 20 })
       _rawSpecSheet(resolveReferences: { maxDepth: 10 })
       _rawUnits(resolveReferences: { maxDepth: 10 })
+      _rawHomeModules(resolveReferences: { maxDepth: 10 })
       unitsSubtitle
       unitsTitle
     }
@@ -54,6 +55,7 @@ const HomeTemplate = (props) => {
     main: { modules, slug },
     meta,
   } = page._rawContent;
+  const homeModules = page._rawHomeModules;
   const specs = page._rawSpecSheet;
   const units = page._rawUnits;
   const unitsTitle = page.unitsTitle;
@@ -112,7 +114,7 @@ const HomeTemplate = (props) => {
                   defaultIsOpen={false}
                   className={`${
                     item.sold == 1 ? "pointer-events-none" : ""
-                  } border-none relative block box rounded-lg`}
+                  } border-none relative block box accordion rounded-lg mb-1em`}
                 >
                   {({ isExpanded }) => (
                     <>
@@ -174,7 +176,6 @@ const HomeTemplate = (props) => {
                     </>
                   )}
                 </AccordionItem>
-                <div>{index < units.length - 1 && <GridRow />}</div>
               </React.Fragment>
             ))}
         </Accordion>
@@ -192,6 +193,12 @@ const HomeTemplate = (props) => {
               </span>
             </div>
           </button>
+        )}
+        {homeModules && (
+          <div className="pt-1em flex flex-wrap w-full">
+            <GridRow />
+            {RenderModules(homeModules)}
+          </div>
         )}
       </Container>
     </Layout>
