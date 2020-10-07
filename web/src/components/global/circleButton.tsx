@@ -34,7 +34,7 @@ const CircleButton = ({ title, url, float = true }) => {
     <div ref={ref} className={`${!float ? "right-0 ml-1em z-20 self" : ""}`}>
       {float ? (
         <div
-          className={`box-circle mx-1/4em right-0 w-32 h-32 md:w-40 md:h-40 self`}
+          className={`box-circle mx-1/4em right-0 w-32 h-32 md:w-40 md:h-40 lg:w-56 lg:h-56 self`}
           style={{ margin: `${randPadding} .5rem` }}
         >
           <div className="">
@@ -58,7 +58,7 @@ const CircleButton = ({ title, url, float = true }) => {
           </div>
         </div>
       ) : (
-        <div className={`box-circle relative right-0 w-32 h-32 md:w-40 md:h-40`}>
+        <div className={`box-circle relative right-0 w-32 h-32 md:w-40 md:h-40 lg:w-56 lg:h-56`}>
           <motion.div className="">
             <motion.div className="square">
               <div className="background-circle" />
