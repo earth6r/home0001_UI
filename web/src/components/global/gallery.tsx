@@ -132,6 +132,7 @@ const Gallery = (props) => {
 
             return (
               <GalleryImage
+                width="1600"
                 remainingWidth={remainingWidth}
                 remainingMobileWidth={remainingMobileWidth}
                 key={image._key}
@@ -154,7 +155,7 @@ const Gallery = (props) => {
           </div>
         ) : (
           <div
-            className="self-center"
+            className="self-center py-1/2em md:py-1/4em"
             style={{
               order: `${randImages.length + 2}`,
             }}
