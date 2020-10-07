@@ -99,7 +99,9 @@ const HomeTemplate = (props) => {
             <ModalContent className="rounded-lg mx-mobile md:mx-desktop">
               <ModalCloseButton zIndex={10} />
               <ModalBody className="rounded-lg">
-                <h3 className="text-mobileBody md:text-desktopBody pb-1em pt-1/4em">Inventory</h3>
+                <h3 className="text-mobileBody md:text-desktopBody pb-1em pt-1/4em">
+                  Specifications
+                </h3>
                 <GridRow />
                 {specs && specs.map((spec) => <RichTable key={spec._key} data={spec} />)}
               </ModalBody>
@@ -189,7 +191,7 @@ const HomeTemplate = (props) => {
             <div className="square  relative text-mobileCaption md:text-desktopCaption">
               <div className="background-circle" />
               <span className="m-0 h-full flex items-center justify-center text-nav leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full">
-                View Spec Sheet
+                Spec Sheet
               </span>
             </div>
           </button>
