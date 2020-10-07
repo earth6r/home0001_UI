@@ -20,11 +20,12 @@
 
 .box-circle {
   width: 40%;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 .box-circle .square {
   /* backdrop-filter: blur(10px); */
-
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   cursor: pointer;
 
   /* transition: 0.5s all; */
