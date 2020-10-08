@@ -95,7 +95,7 @@ const HomeTemplate = (props) => {
             onClose={onClose}
             className="rounded-lg"
           >
-            <ModalOverlay />
+            <ModalOverlay opacity={0.75} />
             <ModalContent className="rounded-lg mx-mobile md:mx-desktop">
               <ModalCloseButton zIndex={10} />
               <ModalBody className="rounded-lg">

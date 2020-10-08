@@ -27,7 +27,7 @@ const GridRow = ({ hide, children, className, scroll = true, style }) => {
           }`}
         >
           {children}
-          <motion.div className="grid-marker grid-marker-1" />
+          {hide !== 1 && <div className="grid-marker grid-marker-1" />}
           <motion.div className="grid-marker grid-marker-2" />
           <motion.div className="grid-marker grid-marker-3" />
         </div>

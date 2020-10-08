@@ -1,14 +1,15 @@
 import { PageLink } from "../components/link";
 import React, { useState, useEffect } from "react";
 import Icon from "./icon";
-
+import CircleButton from "./global/circleButton";
 import GridRow from "./grid/grid-row";
 
-const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle, onLoaded }) => {
+const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle, onLoaded, footerMenu }) => {
   // const containerRef = useRef(null);
   // const { height } = useDimensions(containerRef);
   const [loaded, setLoaded] = useState(false);
   const menu = mainMenu !== undefined ? mainMenu.edges[0].node.items : null;
+  const menuFooter = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
   // console.log(mainMenu);
 
   useEffect(() => {
@@ -52,25 +53,36 @@ const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle, onLoaded }
 
           <nav
             className={`${
-              showNav ? "block h-full bg-white z-40" : "hidden"
+              showNav
+                ? "block z-40 bg-white box md:shadow-none transition-none rounded-lg"
+                : "hidden"
             } fixed left-0 top-0 md:relative w-full md:block text-mobileNav md:text-desktopNav`}
           >
             <div className="mx-mobile md:mx-0">
               <ul
                 style={{}}
-                className="relative mt-1  leading-none container p-0 m-0 md:flex w-full text-mobileLarge md:text-desktopNav justify-between"
+                className="flex pt-2em md:pt-0 flex-wrap relative mt-1 leading-none container p-0 m-0 md:flex md:flex-no-wrap w-full text-mobileNav md:text-desktopNav justify-center md:justify-between"
               >
-                <li className="pt-1 md:pt-2">
+                <li className="absolute md:relative left-0 top-0 pt-2">
                   <h1 className="logo ">
                     <PageLink onClick={onHideNav} to="/">
                       <span className="earth">E</span>
                     </PageLink>
                   </h1>
                 </li>
+                <li className="absolute left-0 top-0 pointer-events-none w-full md:hidden">
+                  <GridRow hide={1} />
+                </li>
+                {menu &&
+                  menu.map((item, index) => (
+                    <li className="md:hidden mt-1em mb-1/2em mx-auto" key={item._key}>
+                      <CircleButton title={item.title} url={item.link} float={true} />
+                    </li>
+                  ))}
 
                 {menu &&
                   menu.map((item, index) => (
-                    <li key={item._key}>
+                    <li className="hidden md:block" key={item._key}>
                       <PageLink
                         className="md:pt-1/2em inline-block"
                         onClick={onHideNav}
@@ -86,6 +98,12 @@ const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle, onLoaded }
           </nav>
         </div>
       </header>
+      <div
+        style={{ zIndex: "45" }}
+        className={`${
+          showNav ? " h-full bg-black opacity-75 pointer-events-auto" : "opacity-0"
+        } fixed transition-opacity duration-150 left-0 top-0  pointer-events-none w-full`}
+      ></div>
       <div className="fixed w-full h-12 md:h-18 z-30 gradient-to-b pointer-events-none top-0 left-0"></div>
     </>
   );

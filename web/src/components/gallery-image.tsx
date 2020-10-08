@@ -53,7 +53,11 @@ export const GalleryImage = ({
   let svgProps;
 
   if (imageId && !/gif/.test(imageId)) {
-    fluidProps = getFluidGatsbyImage(imageId, { maxWidth: width || 2400 }, sanityConfig);
+    fluidProps = getFluidGatsbyImage(
+      imageId,
+      { maxWidth: width || 2400, aspectRatio: 1 },
+      sanityConfig
+    );
   }
 
   const y = useTransform(scrollY, [elementTop, elementTop + 2], [0.1 - randSpeed, 0.2], {
