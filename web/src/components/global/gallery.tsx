@@ -135,7 +135,7 @@ const Gallery = (props) => {
 
               return (
                 <GalleryImage
-                  width="1600"
+                  width="1399"
                   remainingWidth={remainingWidth}
                   remainingMobileWidth={remainingMobileWidth}
                   key={image._key}
