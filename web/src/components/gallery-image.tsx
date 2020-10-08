@@ -76,7 +76,7 @@ export const GalleryImage = ({
 
   return (
     <figure
-      className={`w-${remainingMobileWidth}/10 md:w-${remainingWidth}/10 md:py-${randP} self-${selfDirection} ${
+      className={`w-${remainingMobileWidth}/20 md:w-${remainingWidth}/20 md:py-${randP} self-${selfDirection} ${
         isAuto ? "ml-auto" : ""
       }`}
       ref={ref}

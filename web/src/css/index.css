@@ -95,7 +95,25 @@ small {
   );
 }
 
-[aria-haspopup="dialog"] + section {
-  /* z-index: 999 !important; */
-  /* position: fixed; */
+@screen md {
+  .box.accordion:not(.accordion-home) {
+    box-shadow: none !important;
+    @apply pointer-events-none !important;
+    margin: 0 !important;
+    /* padding: 0 !important; */
+  }
+  .box.accordion:not(.accordion-home) button {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .box.accordion:not(.accordion-home) div {
+    height: auto !important;
+    opacity: 1 !important;
+    display: block !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+  }
+  .box.accordion:not(.accordion-home) .accordion-icon {
+    display: none !important;
+  }
 }

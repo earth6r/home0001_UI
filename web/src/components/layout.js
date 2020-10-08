@@ -11,7 +11,7 @@ const Layout = ({ mainMenu, footerMenu, children, onHideNav, onShowNav, showNav,
       onShowNav={onShowNav}
       showNav={showNav}
     />
-    <div className="container">{children}</div>
+    <div className="container pb-1/2em">{children}</div>
     <Footer footerMenu={footerMenu} />
   </div>
 );

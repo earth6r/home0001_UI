@@ -21,11 +21,8 @@ const Footer = ({ footerMenu }) => {
   const menu = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
   return (
     <>
-      <footer className="pt-4em md:pt-0 pb-1em md:pb-desktop container text-nav md:text-desktopNav flex flex-col uppercase left-0 md:block">
-        <div className="order-3 md:order-1">
-          <GridRow />
-        </div>
-        <nav className="relative pt-2 order-1 md:order-2">
+      <footer className="pt-1em md:pt-0 pb-1em md:pb-desktop container text-nav md:text-desktopNav flex flex-col uppercase left-0 md:block">
+        <nav className="relative">
           <ul className="flex flex-wrap md:flex-row md:justify-between relative">
             <li className="mr-1em">
               <button onClick={onOpen} className="uppercase" role="Open newsletter">
@@ -56,13 +53,18 @@ const Footer = ({ footerMenu }) => {
                 }
               })}
             <li>
-              @<span className="earth">e</span>6r
+              <a href="#">
+                @<span className="earth leading-none">e</span>6r
+              </a>
             </li>
             {/*<li>
               <span>&copy;2020</span>
             </li>*/}
           </ul>
         </nav>
+        <div className="md:hidden">
+          <GridRow />
+        </div>
       </footer>
       <Modal className="rounded-md" isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />

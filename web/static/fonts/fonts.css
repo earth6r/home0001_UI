@@ -18,15 +18,7 @@
   font-family: "GP";
   font-weight: 400;
   font-style: normal;
-  src: url("GerstnerProgramm-Regular.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "GP";
-  font-weight: 400;
-  font-style: italic;
-  src: url("GerstnerProgramm-Italic.woff2") format("woff2");
+  src: url("GerstnerProgrammFSL-Regular.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -34,15 +26,7 @@
   font-family: "GP";
   font-weight: bold;
   font-style: normal;
-  src: url("GerstnerProgramm-Bold.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "GP";
-  font-weight: bold;
-  font-style: italic;
-  src: url("GerstnerProgramm-BoldItalic.woff2") format("woff2");
+  src: url("GerstnerProgrammFSL-Medium.woff2") format("woff2");
   font-display: swap;
 }
 

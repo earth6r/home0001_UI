@@ -116,7 +116,7 @@ const HomeTemplate = (props) => {
                   defaultIsOpen={false}
                   className={`${
                     item.sold == 1 ? "pointer-events-none" : ""
-                  } border-none relative block box accordion rounded-lg mb-1em`}
+                  } border-none relative block box accordion accordion-home rounded-lg mb-1em`}
                 >
                   {({ isExpanded }) => (
                     <>
@@ -190,7 +190,7 @@ const HomeTemplate = (props) => {
           >
             <div className="square  relative text-mobileCaption md:text-desktopCaption">
               <div className="background-circle" />
-              <span className="m-0 h-full flex items-center justify-center text-nav leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full">
+              <span className="m-0 h-full font-bold flex items-center justify-center text-mobileNav md:text-desktopNav leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full">
                 Spec Sheet
               </span>
             </div>
@@ -202,6 +202,7 @@ const HomeTemplate = (props) => {
             {RenderModules(homeModules)}
           </div>
         )}
+        <GridRow />
       </Container>
     </Layout>
   );

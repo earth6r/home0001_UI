@@ -42,7 +42,7 @@ const PopoverModule = (props) => {
           {/* <PopoverCloseButton /> */}
           {/* {trigger && <span>{trigger}</span>} */}
           {content && (
-            <span className="box block px-1em py-1em pb-0 bg-white  text-mobileBody md:text-desktopBody">
+            <span className="box block px-1em py-1em pb-3/4em bg-white  text-mobileBody md:text-desktopBody">
               <BasePortableText blocks={content} serializers={Serializer} />
             </span>
           )}

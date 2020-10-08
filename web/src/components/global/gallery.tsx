@@ -14,18 +14,18 @@ const Gallery = (props) => {
   const gridLen = Math.floor(randImages.length / 2);
   let baseWidth = 8;
 
-  const maxLandscapeWidth = 6;
-  const maxMobileLandscapeWidth = 4;
-  const maxPortraitWidth = 5;
-  const maxMobilePortraitWidth = 5;
+  const maxLandscapeWidth = 12;
+  const maxMobileLandscapeWidth = 8;
+  const maxPortraitWidth = 10;
+  const maxMobilePortraitWidth = 10;
 
-  const minLandscapeWidth = 4;
-  const minPortraitWidth = 3;
-  const minMobileLandscapeWidth = 4;
-  const minMobilePortraitWidth = 3;
+  const minLandscapeWidth = 8;
+  const minPortraitWidth = 6;
+  const minMobileLandscapeWidth = 8;
+  const minMobilePortraitWidth = 6;
 
-  const maxMargin = 3;
-  const minMargin = 0.005;
+  const maxMargin = 4;
+  const minMargin = 0.01;
 
   let minWidth = 4;
 
@@ -163,7 +163,7 @@ const Gallery = (props) => {
           </div>
         ) : (
           <div
-            className="self-center py-1/2em md:py-1/4em"
+            className="self-center py-1em"
             style={{
               order: `${randImages.length + 2}`,
             }}

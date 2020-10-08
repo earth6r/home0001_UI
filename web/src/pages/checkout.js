@@ -6,6 +6,7 @@ import Layout from "../containers/layout";
 import { RenderModules } from "../utils/renderModules";
 import getMemberPrice from "../utils/get-member-price";
 import CheckoutForm from "../components/checkout-form";
+import GridRow from "../components/grid/grid-row";
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
@@ -62,6 +63,7 @@ const CheckoutPage = (props) => {
           price={getMemberPrice(false)}
           onSuccessfulCheckout={() => Router.push("/success")}
         />
+        <GridRow />
       </Container>
     </Layout>
   );
