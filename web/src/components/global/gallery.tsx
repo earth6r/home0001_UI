@@ -14,15 +14,21 @@ const Gallery = (props) => {
   const gridLen = Math.floor(randImages.length / 2);
   let baseWidth = 8;
 
-  const maxLandscapeWidth = 9;
-  const maxMobileLandscapeWidth = 16;
-  const maxPortraitWidth = 6;
-  const maxMobilePortraitWidth = 12;
-
+  //desktop landscape
   const minLandscapeWidth = 8;
+  const maxLandscapeWidth = 10;
+
+  //mobile landscape
+  const minMobileLandscapeWidth = 9;
+  const maxMobileLandscapeWidth = 15;
+
+  //desktop portrait
   const minPortraitWidth = 5;
-  const minMobileLandscapeWidth = 10;
-  const minMobilePortraitWidth = 8;
+  const maxPortraitWidth = 6;
+
+  //mobile portrait
+  const minMobilePortraitWidth = 7;
+  const maxMobilePortraitWidth = 9;
 
   const maxMargin = 1;
   const minMargin = 0.1;
