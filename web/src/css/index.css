@@ -59,6 +59,20 @@ small {
   animation-delay: 1s;
 }
 
+/*
+.gallery-image .gatsby-image-wrapper {
+  @apply relative !important;
+}
+.gallery-image [aria-hidden="true"] {
+  @apply hidden !important;
+}
+
+.gallery-image img {
+  @apply relative !important;
+  @apply h-auto !important;
+}
+*/
+
 @keyframes scaleDown {
   from {
     opacity: 1;

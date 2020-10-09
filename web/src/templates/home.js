@@ -126,15 +126,9 @@ const HomeTemplate = (props) => {
                         } relative flex h-2em p-0 pt-1/4em pl-1/2em border-none`}
                       >
                         <h3 className={` m-0 mr-1em`}>{item.title}</h3>
-                        {item.unit && (
-                          <span className="hidden md:hidden lg:block m-0 mr-1em w-2em">
-                            {item.unit}
-                          </span>
-                        )}
+                        {item.unit && <span className=" m-0 mr-1em w-2em">{item.unit}</span>}
                         {item.bedrooms && (
-                          <span className="hidden md:hidden lg:block m-0 mr-1em w-1em">
-                            {item.bedrooms}
-                          </span>
+                          <span className=" m-0 mr-1em w-1em">{item.bedrooms}</span>
                         )}
                         {item.price && (
                           <span className="text-mobileCaption md:text-desktopBody m-0 mr-1em w-6em">
