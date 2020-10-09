@@ -24,8 +24,8 @@ const Gallery = (props) => {
   const minMobileLandscapeWidth = 10;
   const minMobilePortraitWidth = 8;
 
-  const maxMargin = 3;
-  const minMargin = 0.01;
+  const maxMargin = 1;
+  const minMargin = 0.1;
 
   let minWidth = 4;
 
@@ -64,7 +64,7 @@ const Gallery = (props) => {
     setDirection(justify[Math.round(Math.random() * justify.length)]);
   }, []);
   return (
-    <div className="w-full z-30 pt-3 relative">
+    <div className="w-full z-30 relative">
       <div className={`mx-mobile md:mx-desktop relative flex flex-wrap ${direction}`}>
         {randImages &&
           randImages.map((image, index) => {
@@ -78,60 +78,67 @@ const Gallery = (props) => {
                     : "landscape"
                   : "portrait";
               //get random width based on portrait vs. landscape
+              // remainingWidth =
+              //   ratio == "portrait"
+              //     ? index % 2
+              //       ? Math.floor(
+              //           Math.random() * (maxPortraitWidth - remainingWidth) + minPortraitWidth
+              //         )
+              //       : Math.floor(
+              //           Math.random() * (maxPortraitWidth - minPortraitWidth) + minPortraitWidth
+              //         )
+              //     : index % 2
+              //     ? Math.floor(
+              //         Math.random() * (maxLandscapeWidth - remainingWidth) + minLandscapeWidth
+              //       )
+              //     : Math.floor(
+              //         Math.random() * (maxLandscapeWidth - minLandscapeWidth) + minLandscapeWidth
+              //       );
+
+              // remainingMobileWidth =
+              //   ratio == "portrait"
+              //     ? index % 2
+              //       ? Math.floor(
+              //           Math.random() * (maxMobilePortraitWidth - remainingMobileWidth) +
+              //             minMobilePortraitWidth
+              //         )
+              //       : Math.floor(
+              //           Math.random() * (maxMobilePortraitWidth - minMobilePortraitWidth) +
+              //             minMobilePortraitWidth
+              //         )
+              //     : index % 2
+              //     ? Math.floor(
+              //         Math.random() * (maxMobileLandscapeWidth - remainingMobileWidth) +
+              //           minMobileLandscapeWidth
+              //       )
+              //     : Math.floor(
+              //         Math.random() * (maxMobileLandscapeWidth - minMobileLandscapeWidth) +
+              //           minMobileLandscapeWidth
+              //       );
+
+              // remainingMargin =
+              //   index % 2
+              //     ? Math.random() * (maxMargin - remainingMargin) + minMargin
+              //     : Math.random() * (maxMargin - minMargin) + minMargin;
+
               remainingWidth =
                 ratio == "portrait"
-                  ? index % 2
-                    ? Math.floor(
-                        Math.random() * (maxPortraitWidth - remainingWidth) + minPortraitWidth
-                      )
-                    : Math.floor(
-                        Math.random() * (maxPortraitWidth - minPortraitWidth) + minPortraitWidth
-                      )
-                  : index % 2
                   ? Math.floor(
-                      Math.random() * (maxLandscapeWidth - remainingWidth) + minLandscapeWidth
+                      Math.random() * (maxPortraitWidth - minPortraitWidth) + minPortraitWidth
                     )
                   : Math.floor(
                       Math.random() * (maxLandscapeWidth - minLandscapeWidth) + minLandscapeWidth
                     );
-
               remainingMobileWidth =
                 ratio == "portrait"
-                  ? index % 2
-                    ? Math.floor(
-                        Math.random() * (maxMobilePortraitWidth - remainingMobileWidth) +
-                          minMobilePortraitWidth
-                      )
-                    : Math.floor(
-                        Math.random() * (maxMobilePortraitWidth - minMobilePortraitWidth) +
-                          minMobilePortraitWidth
-                      )
-                  : index % 2
                   ? Math.floor(
-                      Math.random() * (maxMobileLandscapeWidth - remainingMobileWidth) +
-                        minMobileLandscapeWidth
+                      Math.random() * (maxMobilePortraitWidth - minMobilePortraitWidth) +
+                        minMobilePortraitWidth
                     )
                   : Math.floor(
                       Math.random() * (maxMobileLandscapeWidth - minMobileLandscapeWidth) +
                         minMobileLandscapeWidth
                     );
-
-              remainingMargin =
-                index % 2
-                  ? Math.random() * (maxMargin - remainingMargin) + minMargin
-                  : Math.random() * (maxMargin - minMargin) + minMargin;
-
-              // console.log(remainingWidth);
-
-              // remainingWidth =
-              //   index % 2
-              //     ? Math.floor(Math.random() * (baseWidth - remainingWidth) + minWidth)
-              //     : Math.floor(Math.random() * (baseWidth - minWidth) + minWidth);
-
-              // remainingWidth =
-              //   index % 2
-              //     ? Math.floor(Math.random() * (baseWidth - remainingWidth) + minWidth)
-              //     : Math.floor(Math.random() * (baseWidth - minWidth) + minWidth);
 
               return (
                 <GalleryImage

@@ -41,8 +41,10 @@ export const GalleryImage = ({
   const ref = useRef();
   const [elementTop, setElementTop] = useState(0);
   const { scrollY } = useViewportScroll();
-  const self = ["auto", "center"];
-  const selfDirection = self[Math.round(Math.random() * self.length)];
+  const self = ["start", "auto", "center", "end"];
+  const selfDirection = self[Math.floor(Math.random() * self.length - 1)];
+  const margin = ["mx-auto", "ml-auto mb-auto", "mr-auto"];
+  const marginDirection = margin[Math.floor(Math.random() * margin.length - 1)];
   const isAuto = Math.random() < 0.5 ? -1 : 1;
   let fluidProps;
   let randP = Math.floor(Math.random() * 2);
@@ -81,18 +83,18 @@ export const GalleryImage = ({
   return (
     <figure
       className={`gallery-image w-${remainingMobileWidth}/20 md:w-${remainingWidth}/20 md:py-${randP} self-${selfDirection} ${
-        isAuto ? "ml-auto" : ""
+        isAuto ? `${marginDirection}` : " "
       }`}
       ref={ref}
       style={{
         order: `${order}`,
-        margin: `${randY}rem ${remainingMargin / 2}rem 0`,
+        margin: `${randY}rem ${remainingMargin / 2}rem`,
         // padding: `0rem ${remainingMargin}rem 0`,
       }}
     >
       {fluidProps ? (
         <div>
-          <Img className="relative z-10" fluid={fluidProps} alt={alt} defaultFadeIn={200} />
+          <Img className="relative z-50" fluid={fluidProps} alt={alt} defaultFadeIn={200} />
           {caption && (
             <figcaption className="mt-3/4em text-mobileCaption md:text-desktopCaption">
               {caption}

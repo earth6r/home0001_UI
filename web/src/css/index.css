@@ -109,12 +109,13 @@ small {
   );
 }
 
+/*
 @screen md {
   .box.accordion:not(.accordion-home) {
     box-shadow: none !important;
     @apply pointer-events-none !important;
     margin: 0 !important;
-    /* padding: 0 !important; */
+    
   }
   .box.accordion:not(.accordion-home) button {
     margin: 0 !important;
@@ -131,3 +132,4 @@ small {
     display: none !important;
   }
 }
+*/
