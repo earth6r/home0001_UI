@@ -20,15 +20,15 @@ const Gallery = (props) => {
 
   //mobile landscape
   const minMobileLandscapeWidth = 9;
-  const maxMobileLandscapeWidth = 15;
+  const maxMobileLandscapeWidth = 14;
 
   //desktop portrait
   const minPortraitWidth = 5;
-  const maxPortraitWidth = 6;
+  const maxPortraitWidth = 7;
 
   //mobile portrait
   const minMobilePortraitWidth = 7;
-  const maxMobilePortraitWidth = 9;
+  const maxMobilePortraitWidth = 10;
 
   const maxMargin = 1;
   const minMargin = 0.1;
@@ -165,7 +165,7 @@ const Gallery = (props) => {
         {/* randomly place circle image in an order between 1 and gallery image set length  */}
         {url !== undefined && randImages.length > 2 ? (
           <div
-            className="self-center mx-auto"
+            className="self-center mx-auto z-40"
             style={{
               order: `${Math.floor(Math.random() * randImages.length - 2)}`,
             }}
@@ -176,9 +176,9 @@ const Gallery = (props) => {
           </div>
         ) : (
           <div
-            className="self-center py-1em"
+            className="self-center py-1em mx-auto z-40"
             style={{
-              order: `${randImages.length + 2}`,
+              order: `${Math.floor(Math.random() * randImages.length)}`,
             }}
           >
             {url !== undefined && url.title !== undefined && (
