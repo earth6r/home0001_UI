@@ -28,12 +28,15 @@ const serializers = {
     partner: ({ mark, children }) => <div>partner</div>,
     internalLink: ({ mark, children }) => {
       // console.log(mark);
-      return (
-        {mark.reference && mark.reference._rawContent ? <InternalLink
-          title={mark.reference._rawContent.main.title}
-          link={mark.reference._rawContent.main.slug}
-        /> : <></>}
-      );
+      if(mark){
+        if(mark.reference && mark.reference._rawContent){
+          return <InternalLink title={mark.reference._rawContent.main.title} link={mark.reference._rawContent.main.slug} />
+        } else {
+          return <></>
+        }
+      } else {
+        return <></>
+      }
     },
   },
 };
