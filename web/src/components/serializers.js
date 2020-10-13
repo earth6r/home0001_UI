@@ -27,12 +27,12 @@ const serializers = {
   marks: {
     partner: ({ mark, children }) => <div>partner</div>,
     internalLink: ({ mark, children }) => {
-      console.log(mark);
+      // console.log(mark);
       return (
-        <InternalLink
+        {mark.reference && mark.reference._rawContent ? <InternalLink
           title={mark.reference._rawContent.main.title}
           link={mark.reference._rawContent.main.slug}
-        />
+        /> : <></>}
       );
     },
   },
