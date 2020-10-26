@@ -78,7 +78,7 @@ const Gallery = (props) => {
     setDirection(justify[Math.round(Math.random() * justify.length)]);
   }, []);
   return (
-    <div className="w-full z-30 relative">
+    <div className="w-full z-40 relative">
       <div className={`mx-mobile md:mx-desktop relative flex flex-wrap ${direction}`}>
         {randImages &&
           randImages.map((image, index) => {
