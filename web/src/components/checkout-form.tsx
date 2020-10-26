@@ -312,7 +312,7 @@ const CheckoutForm = ({ terms }) => {
       {error && <ErrorMessage>{error.message}</ErrorMessage>}
       <div className="mt-2em">
         <SubmitButton processing={processing} error={error} disabled={!stripe}>
-          <span className="md:mt-0 block leading-none">Join Now</span>
+          <span className="md:mt-0 block leading-none md:inline">Join Now</span>
         </SubmitButton>
       </div>
 

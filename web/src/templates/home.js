@@ -116,7 +116,7 @@ const HomeTemplate = (props) => {
                   defaultIsOpen={false}
                   className={`${
                     item.sold == 1 ? "pointer-events-none" : ""
-                  } border-none relative block box accordion accordion-home rounded-lg mb-1em`}
+                  } border-none relative block box accordion accordion-home rounded-md mb-1em`}
                 >
                   {({ isExpanded }) => (
                     <>
@@ -161,7 +161,7 @@ const HomeTemplate = (props) => {
                           )}
                           {item.sold !== 1 && (
                             <PageLink
-                              className="box box-black rounded-lg w-full block text-center leading-none h-2em pt-1/4em flex items-center justify-center text-mobileBody md:text-desktopBody "
+                              className="box box-black rounded-md w-full block text-center leading-none h-2em pt-1/4em flex items-center justify-center text-mobileBody md:text-desktopBody "
                               to={`/checkout`}
                             >
                               Reserve Now

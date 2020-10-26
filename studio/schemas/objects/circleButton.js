@@ -14,5 +14,18 @@ export default {
       type: 'reference',
       to: [{ type: 'page' }, { type: 'home' }, { type: 'checkout' }],
     },
+    {
+      title: 'Color',
+      name: 'color',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'White', value: 'white'},
+          {title: 'Black', value: 'black'}
+        ], // <-- predefined values
+        layout: 'radio', // <-- defaults to 'dropdown'
+        default: 'white'
+      }
+    }
   ],
 }

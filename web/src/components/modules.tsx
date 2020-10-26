@@ -65,7 +65,12 @@ export const Modules = ({ reactModule, type }: { type: string; reactModule: any 
     case "circleButton":
       return (
         <>
-          <CircleButton title={reactModule.title} url={reactModule.url} float={false} />
+          <CircleButton
+            color={reactModule.color}
+            title={reactModule.title}
+            url={reactModule.url}
+            float={false}
+          />
           <GridRow />
         </>
       );

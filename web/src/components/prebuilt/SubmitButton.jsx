@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 
 const SubmitButton = ({ disabled, children }) => (
-  <button className={`bg-black box text-white h-2em block rounded-lg`}>{children}</button>
+  <button className={`bg-black box text-white h-2em block rounded-md`}>{children}</button>
 );
 
 /*
