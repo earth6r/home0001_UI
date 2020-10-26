@@ -125,28 +125,28 @@ const HomeTemplate = (props) => {
                           isExpanded ? "text-black" : ""
                         } relative flex h-2em p-0 pt-1/4em pl-1/2em border-none`}
                       >
-                        <h3 className={` m-0 mr-1em`}>{item.title}</h3>
-                        {item.unit && <span className=" m-0 mr-1em"><span>Unit </span>{item.unit}</span>}
+                        <h3 className={` m-0 mr-1em -mt-1/4em md:mt-0`}>{item.title}</h3>
+                        {item.unit && <span className=" m-0 mr-1em -mt-1/4em md:mt-0"><span>Unit </span>{item.unit}</span>}
                         {item.bedrooms && (
-                          <span className=" m-0 mr-1em text-mobileCaption md:text-desktopBody">{item.bedrooms}</span>
+                          <span className=" m-0 mr-1em text-mobileCaption md:text-desktopBody -mt-1/4em md:mt-0">{item.bedrooms}</span>
                         )}
                         {item.price && (
-                          <span className="text-mobileCaption md:text-desktopBody text-left m-0 mr-1em">
+                          <span className="text-mobileCaption md:text-desktopBody text-left m-0 mr-1em -mt-1/4em md:mt-0">
                             {item.price}
                           </span>
                         )}
                         {item.sold == 1 ? (
-                          <span className=" md:left-0 md:relative text-mobileCaption md:text-desktopBody">
+                          <span className=" md:left-0 md:relative text-mobileCaption md:text-desktopBody -mt-1/4em md:mt-0">
                             Sold
                           </span>
                         ) : (
-                          <span className=" md:left-0 md:relative text-mobileCaption md:text-desktopBody">
+                          <span className=" md:left-0 md:relative text-mobileCaption md:text-desktopBody -mt-1/4em md:mt-0">
                             Available
                           </span>
                         )}
 
                         {!item.sold && (
-                          <div style={{ marginTop: "-.075em" }} className="right-0 absolute pr-1em">
+                          <div style={{ marginTop: "-0.15em" }} className="right-0 absolute pr-1em md:mt-0">
                             {isExpanded ? "–" : "+"}
                           </div>
                         )}
