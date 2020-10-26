@@ -17,7 +17,7 @@ const PopoverModule = (props) => {
   const { text, logo, content } = props;
   console.log(logo);
   return (
-    <Popover trigger="click" usePortal={true} gutter={10}>
+    <Popover placement="bottom" trigger="click" usePortal={true} gutter={10}>
       <PopoverTrigger>
         {text && (
           <button

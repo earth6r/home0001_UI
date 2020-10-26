@@ -100,6 +100,7 @@ const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle, onLoaded, 
       </header>
       <div
         style={{ zIndex: "45" }}
+        onClick={showNav ? onHideNav : onShowNav}
         className={`${
           showNav ? " h-full bg-black opacity-75 pointer-events-auto" : "opacity-0"
         } fixed transition-opacity duration-150 left-0 top-0  pointer-events-none w-full`}
