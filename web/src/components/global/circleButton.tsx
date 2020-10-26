@@ -1,6 +1,5 @@
 import { PageLink } from "../link";
 import React, { useRef, useLayoutEffect, useState } from "react";
-import { Frame, Color } from "framer";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 
 const CircleButton = ({ title, url, float = true }) => {
@@ -10,14 +9,7 @@ const CircleButton = ({ title, url, float = true }) => {
   let randPadding = Math.random() * 10;
   let uri = "";
 
-  const darkBlue = Color("#0055FF");
-  const blue = Color.lighten(darkBlue, 10);
-
   const y = useTransform(scrollY, [elementTop, elementTop + 1], [0.9, 1], {
-    clamp: false,
-  });
-
-  const color = useTransform(scrollY, [darkBlue, blue], [0.9, 1], {
     clamp: false,
   });
 
@@ -47,7 +39,7 @@ const CircleButton = ({ title, url, float = true }) => {
         >
           <div className="">
             <div className="square relative">
-              <motion.div className="background-circle" />
+              <div className="background-circle" />
               {url && url.content ? (
                 <PageLink
                   className="m-0 h-full flex items-center justify-center text-nav leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full"
@@ -71,7 +63,7 @@ const CircleButton = ({ title, url, float = true }) => {
         <div className={`box-circle relative right-0 w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48`}>
           <motion.div className="">
             <motion.div className="square">
-              <motion.div className="background-circle" />
+              <div className="background-circle" />
               {url && url.content ? (
                 <PageLink
                   className="m-0 h-full flex items-center justify-center text-nav leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full"
