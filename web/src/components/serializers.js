@@ -1,7 +1,8 @@
 import React from "react";
 import Figure from "./Figure";
 import PopoverModule from "./popover-module";
-import { InternalLink } from "./global/internalLink";
+// import { InternalLink } from "./global/internalLink";
+import { PageLink } from "./link";
 
 const serializers = {
   types: {
@@ -27,10 +28,10 @@ const serializers = {
   marks: {
     partner: ({ mark, children }) => <div>partner</div>,
     internalLink: ({ mark, children }) => {
-      // console.log(mark);
+      console.log(mark.reference.content.main.slug);
       if(mark){
-        if(mark.reference && mark.reference._rawContent){
-          return <InternalLink title={mark.reference._rawContent.main.title} link={mark.reference._rawContent.main.slug} />
+        if(mark.reference && mark.reference.content){
+          return <PageLink title={mark.reference.content.main.title} to={`/${mark.reference.content.main.slug.current}`}>{children}</PageLink>
         } else {
           return <></>
         }
