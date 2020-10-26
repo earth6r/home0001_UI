@@ -22,6 +22,10 @@ const Gallery = (props) => {
   const minMobileLandscapeWidth = 9;
   const maxMobileLandscapeWidth = 14;
 
+  //mobile lead landscape
+  const minMobileLeadLandscapeWidth = 17;
+  const maxMobileLeadLandscapeWidth = 19;
+
   //desktop portrait
   const minPortraitWidth = 5;
   const maxPortraitWidth = 7;
@@ -29,6 +33,10 @@ const Gallery = (props) => {
   //mobile portrait
   const minMobilePortraitWidth = 7;
   const maxMobilePortraitWidth = 10;
+
+  //mobile lead portrait
+  const minMobileLeadPortraitWidth = 14;
+  const maxMobileLeadPortraitWidth = 16;
 
   const maxMargin = 1;
   const minMargin = 0.1;
@@ -43,7 +51,7 @@ const Gallery = (props) => {
   let orders = getOrders();
   let remainingOrders = getOrders();
 
-  console.log(url);
+  console.log(props);
 
   function getOrders() {
     let temp_orders = [];
@@ -83,50 +91,6 @@ const Gallery = (props) => {
                     ? "portrait"
                     : "landscape"
                   : "portrait";
-              //get random width based on portrait vs. landscape
-              // remainingWidth =
-              //   ratio == "portrait"
-              //     ? index % 2
-              //       ? Math.floor(
-              //           Math.random() * (maxPortraitWidth - remainingWidth) + minPortraitWidth
-              //         )
-              //       : Math.floor(
-              //           Math.random() * (maxPortraitWidth - minPortraitWidth) + minPortraitWidth
-              //         )
-              //     : index % 2
-              //     ? Math.floor(
-              //         Math.random() * (maxLandscapeWidth - remainingWidth) + minLandscapeWidth
-              //       )
-              //     : Math.floor(
-              //         Math.random() * (maxLandscapeWidth - minLandscapeWidth) + minLandscapeWidth
-              //       );
-
-              // remainingMobileWidth =
-              //   ratio == "portrait"
-              //     ? index % 2
-              //       ? Math.floor(
-              //           Math.random() * (maxMobilePortraitWidth - remainingMobileWidth) +
-              //             minMobilePortraitWidth
-              //         )
-              //       : Math.floor(
-              //           Math.random() * (maxMobilePortraitWidth - minMobilePortraitWidth) +
-              //             minMobilePortraitWidth
-              //         )
-              //     : index % 2
-              //     ? Math.floor(
-              //         Math.random() * (maxMobileLandscapeWidth - remainingMobileWidth) +
-              //           minMobileLandscapeWidth
-              //       )
-              //     : Math.floor(
-              //         Math.random() * (maxMobileLandscapeWidth - minMobileLandscapeWidth) +
-              //           minMobileLandscapeWidth
-              //       );
-
-              // remainingMargin =
-              //   index % 2
-              //     ? Math.random() * (maxMargin - remainingMargin) + minMargin
-              //     : Math.random() * (maxMargin - minMargin) + minMargin;
-
               remainingWidth =
                 ratio == "portrait"
                   ? Math.floor(
@@ -135,16 +99,30 @@ const Gallery = (props) => {
                   : Math.floor(
                       Math.random() * (maxLandscapeWidth - minLandscapeWidth) + minLandscapeWidth
                     );
-              remainingMobileWidth =
-                ratio == "portrait"
-                  ? Math.floor(
-                      Math.random() * (maxMobilePortraitWidth - minMobilePortraitWidth) +
-                        minMobilePortraitWidth
-                    )
-                  : Math.floor(
-                      Math.random() * (maxMobileLandscapeWidth - minMobileLandscapeWidth) +
-                        minMobileLandscapeWidth
-                    );
+              if (!image.lead) {
+                remainingMobileWidth =
+                  ratio == "portrait"
+                    ? Math.floor(
+                        Math.random() * (maxMobilePortraitWidth - minMobilePortraitWidth) +
+                          minMobilePortraitWidth
+                      )
+                    : Math.floor(
+                        Math.random() * (maxMobileLandscapeWidth - minMobileLandscapeWidth) +
+                          minMobileLandscapeWidth
+                      );
+              } else {
+                remainingMobileWidth =
+                  ratio == "portrait"
+                    ? Math.floor(
+                        Math.random() * (maxMobileLeadPortraitWidth - minMobileLeadPortraitWidth) +
+                          minMobileLeadPortraitWidth
+                      )
+                    : Math.floor(
+                        Math.random() *
+                          (maxMobileLeadLandscapeWidth - minMobileLeadLandscapeWidth) +
+                          minMobileLeadLandscapeWidth
+                      );
+              }
 
               return (
                 <GalleryImage
@@ -155,6 +133,8 @@ const Gallery = (props) => {
                   order={order}
                   imageId={image.asset._id}
                   caption={image.caption}
+                  lead={image.lead}
+                  ratio={ratio}
                   remainingMargin={remainingMargin}
                 />
               );

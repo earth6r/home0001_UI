@@ -24,6 +24,7 @@ export const GalleryImage = ({
   src,
   order,
   caption,
+  lead,
 }: {
   imageId?: string;
   width?: number;
