@@ -8,6 +8,7 @@ import getMemberPrice from "../utils/get-member-price";
 import CheckoutForm from "../components/checkout-form";
 import GridRow from "../components/grid/grid-row";
 
+
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
     crop {
@@ -33,6 +34,7 @@ export const query = graphql`
 
   query CheckoutPageQuery {
     sanityCheckout {
+      _rawGdpr(resolveReferences: { maxDepth: 10 })
       _rawContent(resolveReferences: { maxDepth: 10 })
     }
   }
@@ -54,6 +56,10 @@ const CheckoutPage = (props) => {
     meta,
   } = data.sanityCheckout._rawContent;
 
+  const {_rawGdpr} = data.sanityCheckout;
+
+  console.log(data.sanityCheckout)
+
   return (
     <Layout>
       <SEO title={"checkout"} description={"checkout"} keywords={[]} />
@@ -61,8 +67,10 @@ const CheckoutPage = (props) => {
         <div className="flex flex-wrap">{RenderModules(modules)}</div>
         <CheckoutForm
           price={getMemberPrice(false)}
+          terms={_rawGdpr}
           onSuccessfulCheckout={() => Router.push("/success")}
         />
+        
         <GridRow />
       </Container>
     </Layout>

@@ -9,9 +9,12 @@ import {
   Button,
   FormErrorMessage,
   FormHelperText,
+  Checkbox,
+  CheckboxGroup,
 } from "@chakra-ui/core";
 import axios from "axios";
 import { InlineWidget } from "react-calendly";
+import PortableText from "./portableText";
 
 const CARD_OPTIONS = {
   iconStyle: "solid",
@@ -91,7 +94,7 @@ const ResetButton = ({ onClick }) => (
   </button>
 );
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ terms }) => {
   const stripe = useStripe();
   const elements = useElements({
     fonts: [
@@ -290,7 +293,7 @@ const CheckoutForm = () => {
       </fieldset>
       <fieldset className="FormGroup mb-1em">
         <FormControl className="">
-          <label className="text-nav pb-1em text-left">Payment Details</label>
+          <label className="text-nav md:text-desktopNav pb-1em text-left">Payment Details</label>
           <div
             style={{ paddingTop: ".45em" }}
             className="px-1/2em h-2em box rounded-md md:ml-1/10 "
@@ -312,12 +315,16 @@ const CheckoutForm = () => {
           Join Now
         </SubmitButton>
       </div>
-      <div className="mt-2em">
-        <p>
-          By clicking “Join Now” I agree to the{" "}
-          <PageLink to="/legal">Deposit Terms and Conditions</PageLink>.
-        </p>
-      </div>
+
+      {terms && (
+        <fieldset className="FormGroup pt-2em md:-ml-4">
+          <Checkbox aria-required={true} isInvalid name="gdpr">
+            <div className="md:mt-1">
+              <PortableText blocks={terms} />
+            </div>
+          </Checkbox>
+        </fieldset>
+      )}
     </form>
   );
 };

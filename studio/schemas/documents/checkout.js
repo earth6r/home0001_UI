@@ -9,36 +9,41 @@ export default {
       name: 'content',
       type: 'pageContent',
     },
-    {
-      name: 'mainImage',
-      type: 'mainImage',
-      title: 'Main image',
-    },
-    {
-      name: 'excerpt',
-      type: 'excerptPortableText',
-      title: 'Excerpt',
-      description:
-        'This ends up on summary pages, on Google, when people share your post in social media.',
-    },
-    {
-      name: 'categories',
-      type: 'array',
-      title: 'Categories',
-      of: [
-        {
-          type: 'reference',
-          to: {
-            type: 'category',
-          },
-        },
-      ],
-    },
-    {
-      name: 'body',
+   {
+      name: 'gdpr',
       type: 'bodyPortableText',
-      title: 'Body',
+      title: 'GDPR Message',
     },
+    // {
+    //   name: 'mainImage',
+    //   type: 'mainImage',
+    //   title: 'Main image',
+    // },
+    // {
+    //   name: 'excerpt',
+    //   type: 'excerptPortableText',
+    //   title: 'Excerpt',
+    //   description:
+    //     'This ends up on summary pages, on Google, when people share your post in social media.',
+    // },
+    // {
+    //   name: 'categories',
+    //   type: 'array',
+    //   title: 'Categories',
+    //   of: [
+    //     {
+    //       type: 'reference',
+    //       to: {
+    //         type: 'category',
+    //       },
+    //     },
+    //   ],
+    // },
+    // {
+    //   name: 'body',
+    //   type: 'bodyPortableText',
+    //   title: 'Body',
+    // },
   ],
   orderings: [
     {

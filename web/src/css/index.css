@@ -5,8 +5,8 @@
 @import "./nav.css";
 @import "./grid.css";
 @import "./rte.css";
-@import "/node_modules/react-grid-layout/css/styles.css";
-@import "/node_modules/react-resizable/css/styles.css";
+/* @import "/node_modules/react-grid-layout/css/styles.css"; */
+/* @import "/node_modules/react-resizable/css/styles.css"; */
 
 html {
   font-family: "GP", Arial, Helvetica, sans-serif;
@@ -72,6 +72,13 @@ small {
   @apply h-auto !important;
 }
 */
+
+@media only screen and (max-width: 768px) {
+  .gallery-image {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
 
 @keyframes scaleDown {
   from {

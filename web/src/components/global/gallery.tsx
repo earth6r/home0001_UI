@@ -176,7 +176,7 @@ const Gallery = (props) => {
           </div>
         ) : (
           <div
-            className="self-center py-1em mx-auto z-40"
+            className="self-center py-1 md:py-1em mx-auto z-40"
             style={{
               order: `${Math.floor(Math.random() * randImages.length)}`,
             }}

@@ -119,7 +119,8 @@ button[type="submit"] {
   @apply w-full h-2em font-normal block uppercase text-mobileBody;
 }
 
-form label {
+form label,
+form label * {
   @apply text-mobileNav;
   @apply uppercase;
   @apply tracking-wide;
@@ -144,7 +145,6 @@ form label {
     @apply max-w-4xl w-full;
   }
 
-  form label,
   form button,
   button[type="submit"] {
     @apply text-desktopBody;
@@ -153,6 +153,11 @@ form label {
 
   form label {
     @apply pl-1em ml-1/10;
+  }
+
+  form label,
+  form label * {
+    @apply text-desktopNav !important;
   }
 
   .rte blockquote,

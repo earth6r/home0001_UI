@@ -51,7 +51,7 @@ export const GalleryImage = ({
   let randX = Math.random() * (remainingWidth / 4);
   let randMobileX = Math.random() * (remainingWidth / 2);
   let randY = Math.random() * (6 - 2) + 2;
-  let randMobileY = Math.random() * 20;
+  let randMobileY = randY / 4;
   let svgProps;
 
   if (imageId && !/gif/.test(imageId)) {
@@ -89,7 +89,7 @@ export const GalleryImage = ({
       style={{
         order: `${order}`,
         margin: `${randY}rem ${remainingMargin / 2}rem`,
-        // padding: `0rem ${remainingMargin}rem 0`,
+        padding: `${randMobileY}rem ${remainingMargin / 2}rem`,
       }}
     >
       {fluidProps ? (
