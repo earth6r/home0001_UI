@@ -52,7 +52,11 @@ export const Modules = ({ reactModule, type }: { type: string; reactModule: any 
     case "internalLink":
       return (
         <>
-          <InternalLink title={reactModule.title} link={reactModule.link} />
+          <InternalLink
+            color={reactModule.color}
+            title={reactModule.title}
+            link={reactModule.link}
+          />
           <GridRow></GridRow>
         </>
       );

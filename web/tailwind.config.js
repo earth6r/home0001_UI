@@ -119,6 +119,7 @@ module.exports = {
     },
     textColor: {
       primary: "#000000",
+      white: "#ffffff"
     },
     extend: {
       keyframes: {

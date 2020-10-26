@@ -2,7 +2,8 @@ import React from "react";
 import { PageLink } from "../link";
 
 export const InternalLink = (props) => {
-  const { title, link } = props;
+  const { title, link, color } = props;
+  console.log(props);
   let slug =
     link !== undefined
       ? link.content !== undefined
@@ -26,7 +27,9 @@ export const InternalLink = (props) => {
       <span className="max-w-4xl block w-full md:pl-1/10">
         {title && link && (
           <PageLink
-            className="box rounded-lg w-full block text-center leading-none h-2em pt-1/4em flex items-center justify-center text-mobileBody md:text-desktopBody "
+            className={`${
+              color === "black" ? "bg-black hover:bg-black text-white" : ""
+            } box rounded-lg w-full block text-center leading-none h-2em pt-1/4em flex items-center justify-center text-mobileBody md:text-desktopBody`}
             to={`${uri}/${slug}`}
           >
             {title}
