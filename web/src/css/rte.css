@@ -121,9 +121,8 @@ button[type="submit"] {
 
 form label,
 form label * {
-  @apply text-mobileNav;
-  @apply uppercase;
-  @apply tracking-wide;
+  @apply text-mobileCaption tracking-wide uppercase;
+  margin-top: 0.05em;
   font-smoothing: none;
 }
 
