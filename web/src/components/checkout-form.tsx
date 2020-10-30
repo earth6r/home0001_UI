@@ -112,6 +112,23 @@ const CheckoutForm = ({ terms }) => {
       },
     ],
   });
+  const options = {
+    paymentRequest,
+    style: {
+      paymentRequestButton: {
+        type: "default",
+        // One of 'default', 'book', 'buy', or 'donate'
+        // Defaults to 'default'
+
+        theme: "dark",
+        // One of 'dark', 'light', or 'light-outline'
+        // Defaults to 'dark'
+
+        height: "64px",
+        // Defaults to '40px'. The width is always '100%'.
+      },
+    },
+  };
 
   const [error, setError] = useState(null);
   const [cardComplete, setCardComplete] = useState(false);
@@ -278,7 +295,11 @@ const CheckoutForm = ({ terms }) => {
     </div>
   ) : (
     <form className="Form " onSubmit={handleSubmit}>
-      {paymentRequest && <PaymentRequestButtonElement options={{ paymentRequest }} />}
+      {paymentRequest && (
+        <div className="md:ml-1/10 mb-4em">
+          <PaymentRequestButtonElement options={options} />
+        </div>
+      )}
 
       <fieldset className="FormGroup">
         <Field
@@ -345,7 +366,7 @@ const CheckoutForm = ({ terms }) => {
 
       {terms && (
         <fieldset className="FormGroup pt-2em md:-ml-4">
-          <Checkbox aria-required={true} isInvalid name="gdpr">
+          <Checkbox required={true} aria-required={true} isInvalid name="gdpr">
             <div className="md:mt-1">
               <PortableText blocks={terms} />
             </div>
