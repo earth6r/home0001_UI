@@ -1,6 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { PageLink } from "./link";
-import { CardElement, useStripe, Elements, useElements } from "@stripe/react-stripe-js";
+import {
+  CardElement,
+  useStripe,
+  Elements,
+  useElements,
+  PaymentRequestButtonElement,
+} from "@stripe/react-stripe-js";
 import GridRow from "./grid/grid-row";
 import {
   FormControl,
@@ -34,7 +40,7 @@ const CARD_OPTIONS = {
         color: "#000000",
       },
       "::placeholder": {
-        color: "rgba(0, 0, 0, .1)",
+        color: "rgba(0, 0, 0, .2)",
       },
     },
     invalid: {
@@ -96,6 +102,7 @@ const ResetButton = ({ onClick }) => (
 
 const CheckoutForm = ({ terms }) => {
   const stripe = useStripe();
+  const [paymentRequest, setPaymentRequest] = useState(null);
   const elements = useElements({
     fonts: [
       {
@@ -132,7 +139,25 @@ const CheckoutForm = ({ terms }) => {
         }
       });
     }
-  }, [elements]);
+    if (stripe) {
+      const pr = stripe.paymentRequest({
+        country: "US",
+        currency: "usd",
+        total: {
+          label: "Membership",
+          amount: 300,
+        },
+        requestPayerName: true,
+        requestPayerEmail: true,
+      });
+      // Check the availability of the Payment Request API.
+      pr.canMakePayment().then((result) => {
+        if (result) {
+          setPaymentRequest(pr);
+        }
+      });
+    }
+  }, [elements, stripe]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -172,13 +197,13 @@ const CheckoutForm = ({ terms }) => {
       const charge = JSON.stringify({
         token,
         charge: {
-          amount: 1,
+          amount: 300,
           currency: "usd",
           email: billingDetails.email,
           // number: this.state.number,
         },
       });
-      axios.post("/.netlify/functions/charge", charge).catch(function (error) {
+      axios.post("/.netlify/functions/server", charge).catch(function (error) {
         console.log(error);
       });
     });
@@ -253,6 +278,8 @@ const CheckoutForm = ({ terms }) => {
     </div>
   ) : (
     <form className="Form " onSubmit={handleSubmit}>
+      {paymentRequest && <PaymentRequestButtonElement options={{ paymentRequest }} />}
+
       <fieldset className="FormGroup">
         <Field
           label="Name"

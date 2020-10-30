@@ -99,9 +99,14 @@ export default () =>
       //   .child(S.editor().id('howItWorks').schemaType('howItWorks').documentId('howItWorks')),
       // S.divider(),
       S.listItem()
-        .title('Checkout')
-        .icon(MdPayment)
-        .child(S.editor().id('checkout').schemaType('checkout').documentId('checkout')),
+        .title('Checkouts')
+        .icon(MdFolder)
+        .schemaType('checkout')
+        .child(S.documentTypeList('checkout').title('Checkouts')),
+      // S.listItem()
+      //   .title('Checkout')
+      //   .icon(MdPayment)
+      //   .child(S.editor().id('checkout').schemaType('checkout').documentId('checkout')),
       S.divider(),
       // S.listItem()
       //   .title('About')

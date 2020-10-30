@@ -87,6 +87,51 @@ async function createSitePages(graphql, actions) {
     });
 }
 
+
+async function createSiteCheckout(graphql, actions) {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allSanityCheckout {
+        edges {
+          node {
+            id
+            content {
+              main {
+                slug {
+                  current
+                }
+              }
+            }
+            _rawGdpr(resolveReferences: { maxDepth: 10 })
+            _rawContent(resolveReferences: { maxDepth: 10 })
+          }
+        }
+      }
+    }
+  `);
+
+  if (result.errors) throw result.errors;
+
+  const pageEdges = (result.data.allSanityCheckout || {}).edges || [];
+
+  pageEdges
+    // .filter((edge) => !isFuture(edge.node.publishedAt))
+    .forEach((edge, index) => {
+      const { id } = edge.node;
+      const slug = edge.node.content.main.slug;
+      // console.log(slug);
+      // const dateSegment = format(publishedAt, "YYYY/MM");
+      const path = `/checkout/${slug.current}/`;
+
+      createPage({
+        path,
+        component: require.resolve("./src/templates/checkout.js"),
+        context: { id },
+      });
+    });
+}
+
 async function createHomes(graphql, actions) {
   const { createPage } = actions;
   const result = await graphql(`
@@ -133,5 +178,6 @@ exports.createPages = async ({ graphql, actions }) => {
   await createBlogPostPages(graphql, actions);
   await createHomes(graphql, actions);
   await createSitePages(graphql, actions);
+  await createSiteCheckout(graphql, actions);
   // await createArtistPages(graphql, actions);
 };

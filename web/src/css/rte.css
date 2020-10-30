@@ -126,6 +126,11 @@ form label * {
   font-smoothing: none;
 }
 
+input::-webkit-input-placeholder,
+input::placeholder {
+  color: rgba(0, 0, 0, 0.2) !important;
+}
+
 @screen md {
   .rte * {
     @apply text-desktopBody;
@@ -169,10 +174,6 @@ form label * {
   select {
     @apply text-desktopBody ml-1/10 w-auto h-2em !important;
     line-height: 2.5em !important;
-  }
-
-  input::-webkit-input-placeholder {
-    color: rgba(0, 0, 0, 0.1) !important;
   }
 
   .rte-large ol li,

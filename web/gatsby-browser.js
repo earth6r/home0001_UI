@@ -10,7 +10,8 @@ import React from "react";
 import "focus-visible/dist/focus-visible";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
+const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY,
+  {apiVersion: "2020-08-27"});
 import { CartProvider } from "use-shopping-cart";
 import LoadingScreen from "./src/components/loading-screen";
 const ELEMENTS_OPTIONS = {

@@ -18,6 +18,10 @@ export const InternalLink = (props) => {
         uri = "/home";
         //   alert("set home");
         break;
+      case "checkout":
+        uri = "/checkout";
+        //   alert("set home");
+        break;
       default:
         uri = "";
         break;
