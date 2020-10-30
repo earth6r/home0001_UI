@@ -8,12 +8,12 @@
 import "./src/css/index.css";
 import React from "react";
 import "focus-visible/dist/focus-visible";
+import LoadingScreen from "./src/components/loading-screen";
+
+//stripe
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY,
-  {apiVersion: "2020-08-27"});
-import { CartProvider } from "use-shopping-cart";
-import LoadingScreen from "./src/components/loading-screen";
+const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
 const ELEMENTS_OPTIONS = {
   fonts: [
     {
@@ -25,10 +25,8 @@ const ELEMENTS_OPTIONS = {
 export const wrapRootElement = ({ element, props }) => {
   return (
     <Elements options={ELEMENTS_OPTIONS} stripe={stripePromise} {...props}>
-      <CartProvider mode="checkout-session" stripe={stripePromise} currency="USD">
         <LoadingScreen />
         {element}
-      </CartProvider>
     </Elements>
   );
 };

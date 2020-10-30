@@ -1,12 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
-import { PageLink } from "./link";
-import {
-  CardElement,
-  useStripe,
-  Elements,
-  useElements,
-  PaymentRequestButtonElement,
-} from "@stripe/react-stripe-js";
+import React, { useState, useEffect } from "react";
+//stripe
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import GridRow from "./grid/grid-row";
 import {
   FormControl,
@@ -18,7 +12,8 @@ import {
   Checkbox,
   CheckboxGroup,
 } from "@chakra-ui/core";
-import axios from "axios";
+
+//calendly
 import { InlineWidget } from "react-calendly";
 import PortableText from "./portableText";
 
@@ -103,15 +98,24 @@ const ResetButton = ({ onClick }) => (
 const CheckoutForm = ({ terms }) => {
   const stripe = useStripe();
   const [paymentRequest, setPaymentRequest] = useState(null);
-  const elements = useElements({
-    fonts: [
-      {
-        family: "GP",
-        src: "url(https://earth6r.com/fonts/GerstnerProgramm-Regular.woff2)",
-        weight: "400",
-      },
-    ],
+  const [error, setError] = useState(null);
+  const [cardComplete, setCardComplete] = useState(false);
+  const [processing, setProcessing] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState(null);
+  const [billingDetails, setBillingDetails] = useState({
+    email: "",
+    phone: "",
+    name: "",
   });
+
+  const [succeeded, setSucceeded] = useState(false);
+  // const [error, setError] = useState(null);
+  // const [processing, setProcessing] = useState('');
+  const [disabled, setDisabled] = useState(true);
+  const [clientSecret, setClientSecret] = useState("");
+  // const stripe = useStripe();
+  // const elements = useElements();
+
   const options = {
     paymentRequest,
     style: {
@@ -124,38 +128,39 @@ const CheckoutForm = ({ terms }) => {
         // One of 'dark', 'light', or 'light-outline'
         // Defaults to 'dark'
 
-        height: "64px",
+        height: "60px",
         // Defaults to '40px'. The width is always '100%'.
       },
     },
   };
 
-  const [error, setError] = useState(null);
-  const [cardComplete, setCardComplete] = useState(false);
-  const [processing, setProcessing] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState(null);
-  const [billingDetails, setBillingDetails] = useState({
-    email: "",
-    phone: "",
-    name: "",
+  const elements = useElements({
+    fonts: [
+      {
+        family: "GP",
+        src: "url(https://earth6r.com/fonts/GerstnerProgramm-Regular.woff2)",
+        weight: "400",
+      },
+    ],
   });
 
   useEffect(() => {
-    if (typeof window && elements !== null) {
-      var cardElement = elements.getElement("card");
-      if (window.innerWidth <= 768) {
-        cardElement.update({ style: { base: { fontSize: "1rem" } } });
-      } else {
-        cardElement.update({ style: { base: { fontSize: "1.875rem" } } });
-      }
-      window.addEventListener("resize", function () {
-        if (window.innerWidth <= 768) {
-          cardElement.update({ style: { base: { fontSize: "1rem" } } });
-        } else {
-          cardElement.update({ style: { base: { fontSize: "1.875rem" } } });
-        }
+    // Create PaymentIntent as soon as the page loads
+    window
+      .fetch("/create-payment-intent", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ items: [{ id: "prod_I60qjmmPa4mkzc" }] }),
+      })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setClientSecret(data.clientSecret);
       });
-    }
+
     if (stripe) {
       const pr = stripe.paymentRequest({
         country: "US",
@@ -174,67 +179,30 @@ const CheckoutForm = ({ terms }) => {
         }
       });
     }
-  }, [elements, stripe]);
+  }, [stripe]);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    if (!stripe || !elements) {
-      // Stripe.js has not loaded yet. Make sure to disable
-      // form submission until Stripe.js has loaded.
-      return;
-    }
-
-    if (error) {
-      elements.getElement("card").focus();
-      return;
-    }
-
-    if (cardComplete) {
-      setProcessing(true);
-    }
-
-    /*
-    const payload = await stripe.createPaymentMethod({
-      type: "card",
-      card: elements.getElement(CardElement),
-      billing_details: billingDetails,
-    });
-
-    setProcessing(false);
-
-    if (payload.error) {
-      setError(payload.error);
-    } else {
-      setPaymentMethod(payload.paymentMethod);
-    }
-    */
-
-    const payload = await stripe.createToken(elements.getElement("card")).then(({ token }) => {
-      const charge = JSON.stringify({
-        token,
-        charge: {
-          amount: 300,
-          currency: "usd",
-          email: billingDetails.email,
-          // number: this.state.number,
-        },
-      });
-      axios.post("/.netlify/functions/server", charge).catch(function (error) {
-        console.log(error);
-      });
-    });
+  const handleChange = async (event) => {
+    // Listen for changes in the CardElement
+    // and display any errors as the customer types their card details
+    setDisabled(event.empty);
+    setError(event.error ? event.error.message : "");
   };
-
-  const reset = () => {
-    setError(null);
-    setProcessing(false);
-    setPaymentMethod(null);
-    setBillingDetails({
-      email: "",
-      phone: "",
-      name: "",
+  const handleSubmit = async (ev) => {
+    ev.preventDefault();
+    setProcessing(true);
+    const payload = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: elements.getElement(CardElement),
+      },
     });
+    if (payload.error) {
+      setError(`Payment failed ${payload.error.message}`);
+      setProcessing(false);
+    } else {
+      setError(null);
+      setProcessing(false);
+      setSucceeded(true);
+    }
   };
 
   return paymentMethod ? (
@@ -296,7 +264,7 @@ const CheckoutForm = ({ terms }) => {
   ) : (
     <form className="Form " onSubmit={handleSubmit}>
       {paymentRequest && (
-        <div className="md:ml-1/10 mb-4em">
+        <div className="md:ml-1/10 mb-2em">
           <PaymentRequestButtonElement options={options} />
         </div>
       )}
@@ -346,14 +314,7 @@ const CheckoutForm = ({ terms }) => {
             style={{ paddingTop: ".45em" }}
             className="px-1/2em h-2em box rounded-md md:ml-1/10 "
           >
-            <CardElement
-              id="card"
-              options={CARD_OPTIONS}
-              onChange={(e) => {
-                setError(e.error);
-                setCardComplete(e.complete);
-              }}
-            />
+            <CardElement id="card-element" options={CARD_OPTIONS} onChange={handleChange} />
           </div>
         </FormControl>
       </fieldset>
@@ -373,6 +334,19 @@ const CheckoutForm = ({ terms }) => {
           </Checkbox>
         </fieldset>
       )}
+
+      {/* Show any error that happens when processing the payment */}
+      {error && (
+        <div className="card-error" role="alert">
+          {error}
+        </div>
+      )}
+      {/* Show a success message upon completion */}
+      <p className={succeeded ? "result-message" : "result-message hidden"}>
+        Payment succeeded, see the result in your
+        <a href={`https://dashboard.stripe.com/test/payments`}> Stripe dashboard.</a> Refresh the
+        page to pay again.
+      </p>
     </form>
   );
 };

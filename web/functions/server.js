@@ -1,49 +1,25 @@
 const express = require("express");
 const app = express();
 const { resolve } = require("path");
-// This is your real test secret API key.
+// This is a sample test API key. Sign in to see examples pre-filled with your key.
 const stripe = require("stripe")(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
-
 app.use(express.static("."));
 app.use(express.json());
-
-const paymentIntent = await stripe.paymentIntents.create({
-  amount: 300,
-  currency: 'usd',
-  // Verify your integration in this guide by including this parameter
-  metadata: {integration_check: 'accept_a_payment'},
+const calculateOrderAmount = items => {
+  // Replace this constant with a calculation of the order's amount
+  // Calculate the order total on the server to prevent
+  // people from directly manipulating the amount on the client
+  return 1400;
+};
+app.post("/create-payment-intent", async (req, res) => {
+  const { items } = req.body;
+  // Create a PaymentIntent with the order amount and currency
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: calculateOrderAmount(items),
+    currency: "usd"
+  });
+  res.send({
+    clientSecret: paymentIntent.client_secret
+  });
 });
-
-paymentRequest.on('paymentmethod', async (ev) => {
-  // Confirm the PaymentIntent without handling potential next actions (yet).
-  const {paymentIntent, error: confirmError} = await stripe.confirmCardPayment(
-    clientSecret,
-    {payment_method: ev.paymentMethod.id},
-    {handleActions: false}
-  );
-
-  if (confirmError) {
-    // Report to the browser that the payment failed, prompting it to
-    // re-show the payment interface, or show an error message and close
-    // the payment interface.
-    ev.complete('fail');
-  } else {
-    // Report to the browser that the confirmation was successful, prompting
-    // it to close the browser payment method collection interface.
-    ev.complete('success');
-    // Check if the PaymentIntent requires any actions and if so let Stripe.js
-    // handle the flow. If using an API version older than "2019-02-11" instead
-    // instead check for: `paymentIntent.status === "requires_source_action"`.
-    if (paymentIntent.status === "requires_action") {
-      // Let Stripe.js handle the rest of the payment flow.
-      const {error} = await stripe.confirmCardPayment(clientSecret);
-      if (error) {
-        // The payment failed -- ask your customer for a new payment method.
-      } else {
-        // The payment has succeeded.
-      }
-    } else {
-      // The payment has succeeded.
-    }
-  }
-});
+app.listen(4242, () => console.log('Node server listening on port 4242!'));
