@@ -128,7 +128,7 @@ form label * {
 
 input::-webkit-input-placeholder,
 input::placeholder {
-  color: rgba(0, 0, 0, 0.2) !important;
+  color: rgba(0, 0, 0, 0.4) !important;
 }
 
 @screen md {

@@ -2,3 +2,12 @@
   from = "/*"
   to = "/"
   status = 200
+
+
+[dev]
+  publish = "public"
+  functions = "functions"
+
+[template.environment]
+GATSBY_STRIPE_PUBLISHABLE_KEY="pk_test_vQgx6A3eI1OZAkiBb90F6xyF"
+GATSBY_STRIPE_SECRET_KEY="sk_test_1x5inX2fR7wEopNNIfKTPRy3"

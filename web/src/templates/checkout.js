@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { loadStripe } from "@stripe/stripe-js";
 import { graphql } from "gatsby";
 import Container from "../components/container";
-// import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import { RenderModules } from "../utils/renderModules";
-// import { InlineWidget } from "react-calendly";
 import getMemberPrice from "../utils/get-member-price";
 import CheckoutForm from "../components/checkout-form";
+import CheckoutCreate from "../components/checkout-create";
 import GridRow from "../components/grid/grid-row";
 
+// Make sure to call `loadStripe` outside of a component’s render to avoid
+// recreating the `Stripe` object on every render.
+const stripePromise = loadStripe("pk_test_vQgx6A3eI1OZAkiBb90F6xyF");
 export const query = graphql`
   query CheckoutQuery($id: String!) {
     checkout: sanityCheckout(id: { eq: $id }) {
@@ -28,17 +31,14 @@ const CheckoutTemplate = (props) => {
     meta,
   } = page._rawContent;
   const {_rawGdpr} = data.checkout;
-  // console.log(data);
   
-
   return (
     <Layout>
-      {/*<SEO
-        title={site.title}
-        description={site.description}
-        keywords={site.keywords}
-        image={meta.openImage}
-      />*/}
+      <SEO
+        title={"EARTH Membership"}
+        description={"Join the EARTH collective"}
+        keywords={["Earth", "Membership"]}
+      />
       <Container>
         <div className="flex flex-wrap w-full">{RenderModules(modules)}</div>
         <CheckoutForm
@@ -46,6 +46,8 @@ const CheckoutTemplate = (props) => {
           terms={_rawGdpr}
           onSuccessfulCheckout={() => Router.push("/success")}
         />
+
+        {/*<CheckoutCreate stripePromise={stripePromise} />*/}
         
         <GridRow />
       </Container>
