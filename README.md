@@ -1,4 +1,4 @@
-# Earth
+# Earth - (Staging Site)
 
 _Fully customizable blog template with a React.js front-end._
 
