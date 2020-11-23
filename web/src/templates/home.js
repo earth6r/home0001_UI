@@ -159,6 +159,7 @@ const HomeTemplate = (props) => {
                               <Figure node={item.floorPlan} />
                             </div>
                           )}
+                          {item.floorPlanCaption && <div className="mb-1em" ><PortableText blocks={item.floorPlanCaption} /></div>}
                           {item.sold !== 1 && (
                             <PageLink
                               className="box box-black rounded-md w-full block text-center leading-none h-2em pt-1/4em flex items-center justify-center text-mobileBody md:text-desktopBody "
