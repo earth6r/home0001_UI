@@ -34,7 +34,7 @@ export default class MailChimpForm extends React.Component {
         <h3 className="text-mobileLarge md:text-desktopBody">
           Thank you for signing up.
           <br />
-          <span class="earth">E</span>
+          <span className="earth">E</span>
         </h3>
         <GridRow />
         <p className="pt-1em text-mobileBody md:text-desktopCaption">
