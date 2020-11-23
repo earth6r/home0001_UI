@@ -4,11 +4,12 @@ import Icon from "./icon";
 import CircleButton from "./global/circleButton";
 import GridRow from "./grid/grid-row";
 
-const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle, onLoaded, footerMenu }) => {
+const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome }) => {
   // const containerRef = useRef(null);
   // const { height } = useDimensions(containerRef);
   const [loaded, setLoaded] = useState(false);
   const menu = mainMenu !== undefined ? mainMenu.edges[0].node.items : null;
+  const submenu = subMenu !== undefined ? subMenu.edges[0].node.items : null;
   const menuFooter = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
   // console.log(mainMenu);
 
@@ -21,7 +22,30 @@ const Header = ({ mainMenu, onHideNav, onShowNav, showNav, siteTitle, onLoaded, 
 
   return (
     <>
-      <header className="fixed z-50 w-full left-0">
+      {isHome && 
+      <div className="sub-menu fixed my-10 mx-5 box px-5 top-0 right-0 z-50" >
+         <li className="hidden md:block">New York <button  onClick={showSubNav ? onHideSubNav : onShowSubNav}>{showSubNav ? "-" : "+"}</button></li>
+        {submenu &&
+          submenu.map((item, index) => (
+            <li className={`${
+          showSubNav ? " h-auto" : "h-0"
+        } hidden md:block overflow-hidden`} key={item._key}>
+            
+              <PageLink
+                className="md:pt-1/2em inline-block"
+                onClick={onHideSubNav}
+                to={item.link ? "/"+item.link.content.main.slug.current : " "}
+              >
+                {item.title} 
+              </PageLink>
+
+             
+              
+            </li>
+          ))}
+      </div>
+    }
+      <header className="fixed z-40 w-full left-0">
         <div
           className={`${
             showNav ? "h-full" : ""

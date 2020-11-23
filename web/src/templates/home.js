@@ -72,7 +72,7 @@ const HomeTemplate = (props) => {
   }
 
   return (
-    <Layout>
+    <Layout isHome={"yes"}>
       {/*<SEO
         title={site.title}
         description={site.description}
@@ -80,6 +80,7 @@ const HomeTemplate = (props) => {
         image={meta.openImage}
       />*/}
       <Container className="flex flex-col">
+        
         <div className="flex flex-wrap w-full">{RenderModules(modules)}</div>
         <>{unitsTitle && unitsSubtitle && <Header title={unitsTitle} number={unitsSubtitle} />}</>
         {specs && (
