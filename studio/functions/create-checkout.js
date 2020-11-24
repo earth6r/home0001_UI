@@ -4,10 +4,10 @@
  *
  * @see https://stripe.com/docs/payments/checkout/one-time
  */
-const stripe = require("stripe")(process.env.GATSBY_STRIPE_SECRET_KEY, {
-  apiVersion: "2020-03-02",
-  maxNetworkRetries: 2,
-});
+const stripe = require('stripe')(process.env.GATSBY_STRIPE_SECRET_KEY, {
+  apiVersion: '2020-03-02',
+  maxNetworkRetries: 2
+})
 
 /*
  * Product data can be loaded from anywhere. In this case, we’re loading it from
@@ -17,25 +17,25 @@ const stripe = require("stripe")(process.env.GATSBY_STRIPE_SECRET_KEY, {
  * The important thing is that the product info is loaded from somewhere trusted
  * so you know the pricing information is accurate.
  */
-const inventory = require("./data/products.json");
+const inventory = require('./data/products.json')
 
-exports.handler = async (event) => {
-  console.log(event.body);
+exports.handler = async event => {
+  console.log(event.body)
 
   // const { sku, quantity } = JSON.parse(event.body);
-  const sku = "DEMO001";
-  const quantity = 1;
-  const product = inventory.find((p) => p.sku === sku);
+  const sku = 'DEMO001'
+  const quantity = 1
+  const product = inventory.find(p => p.sku === sku)
 
   // ensure that the quantity is within the allowed range
-  const validatedQuantity = quantity > 0 && quantity < 11 ? quantity : 1;
+  const validatedQuantity = quantity > 0 && quantity < 11 ? quantity : 1
 
   const session = await stripe.checkout.sessions.create({
-    mode: "payment",
-    payment_method_types: ["card"],
-    billing_address_collection: "auto",
+    mode: 'payment',
+    payment_method_types: ['card'],
+    billing_address_collection: 'auto',
     shipping_address_collection: {
-      allowed_countries: ["US", "CA"],
+      allowed_countries: ['US', 'CA']
     },
 
     /*
@@ -49,16 +49,16 @@ exports.handler = async (event) => {
     line_items: [
       {
         price_data: {
-          currency: "usd",
+          currency: 'usd',
           unit_amount: product.amount,
           product_data: {
             name: product.name,
             description: product.description,
-            images: [product.image],
-          },
+            images: [product.image]
+          }
         },
-        quantity: validatedQuantity,
-      },
+        quantity: validatedQuantity
+      }
     ],
     // We are using the metadata to track which items were purchased.
     // We can access this meatadata in our webhook handler to then handle
@@ -69,17 +69,17 @@ exports.handler = async (event) => {
         {
           sku: product.sku,
           name: product.name,
-          quantity: validatedQuantity,
-        },
-      ]),
-    },
-  });
+          quantity: validatedQuantity
+        }
+      ])
+    }
+  })
 
   return {
     statusCode: 200,
     body: JSON.stringify({
       sessionId: session.id,
-      publishableKey: process.env.GATSBY_STRIPE_PUBLISHABLE_KEY,
-    }),
-  };
-};
+      publishableKey: process.env.GATSBY_STRIPE_PUBLISHABLE_KEY
+    })
+  }
+}
