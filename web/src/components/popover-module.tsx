@@ -22,7 +22,7 @@ const PopoverModule = (props) => {
         {text && (
           <button
             aria-label={`Open ${text}`}
-            className="text-mobileLarge md:text-desktopLarge box-link m-0"
+            className="text-mobileLarge md:text-desktopLarge box-link m-0 pr-5 pb-3"
           >
             {logo ? <SVG file={logo} /> : `${text}`}
           </button>
