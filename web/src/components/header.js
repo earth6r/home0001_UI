@@ -9,7 +9,7 @@ const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSu
   // const { height } = useDimensions(containerRef);
   const [loaded, setLoaded] = useState(false);
   const menu = mainMenu !== undefined ? mainMenu.edges[0].node.items : null;
-  const submenu = subMenu.edges[0] !== undefined ? subMenu.edges[0].node.items : null;
+  const submenu = subMenu && subMenu.edges[0] !== undefined ? subMenu.edges[0].node.items : null;
   const menuFooter = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
   // console.log(mainMenu);
   function makeTitle(slug) {
