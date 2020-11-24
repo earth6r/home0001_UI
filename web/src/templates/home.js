@@ -80,7 +80,7 @@ const HomeTemplate = (props) => {
         image={meta.openImage}
       />*/}
       <Container className="flex flex-col">
-        <div className="flex flex-wrap w-full">{RenderModules(modules)}</div>
+        <div className="flex flex-wrap w-full pt-12 lg:pt-10">{RenderModules(modules)}</div>
         <>{unitsTitle && unitsSubtitle && <Header title={unitsTitle} number={unitsSubtitle} />}</>
         {specs && (
           <Modal
