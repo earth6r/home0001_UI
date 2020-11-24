@@ -9,7 +9,7 @@ const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSu
   // const { height } = useDimensions(containerRef);
   const [loaded, setLoaded] = useState(false);
   const menu = mainMenu !== undefined ? mainMenu.edges[0].node.items : null;
-  const submenu = subMenu !== undefined ? subMenu.edges[0].node.items : null;
+  const submenu = subMenu.edges[0] !== undefined ? subMenu.edges[0].node.items : null;
   const menuFooter = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
   // console.log(mainMenu);
   function makeTitle(slug) {
@@ -32,7 +32,7 @@ const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSu
   
   return (
     <>
-      {isHome && 
+      {isHome && submenu && 
       <div style={{ zIndex: "51", minWidth: "25vw", borderRadius:"2em" }} className="sub-menu fixed my-10 mx-5 box px-5 py-2 top-0 right-0" >
         {submenu &&
           submenu.map((item, index) => (
