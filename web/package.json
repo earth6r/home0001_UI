@@ -5,7 +5,8 @@
   "author": "Sanity <hello@sanity.io>",
   "scripts": {
     "build": "gatsby build",
-    "build:functions": "babel --plugins transform-inline-environment-variables functions/create-checkout.js && babel --plugins transform-inline-environment-variables functions/create-payment-intent.js",
+    "xx:functions": "export $(cat .env.development | xargs) && babel --plugins transform-inline-environment-variables functions/create-checkout.js && babel --plugins transform-inline-environment-variables functions/create-payment-intent.js",
+    "build:functions": "export SITE_URL=\"$SITE_URL\" && export GATSBY_STRIPE_PUBLISHABLE_KEY=\"$GATSBY_STRIPE_PUBLISHABLE_KEY\" && export GATSBY_STRIPE_SECRET_KEY=\"$GATSBY_STRIPE_SECRET_KEY\" && babel --plugins transform-inline-environment-variables functions/create-checkout.js --out-file functions/create-checkout.js && babel --plugins transform-inline-environment-variables functions/create-payment-intent.js --out-file functions/create-payment-intent.js",
     "clean-cache": "gatsby clean",
     "dev": "npm run clean-cache && gatsby develop",
     "lint": "eslint .",
@@ -15,6 +16,8 @@
   "devDependencies": {
     "@sanity/block-content-to-react": "^2.0.7",
     "@sanity/image-url": "^0.140.19",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "date-fns": "^1.30.1",
     "dotenv": "^8.0.0",
