@@ -75,6 +75,30 @@ const query = graphql`
       }
     }
 
+    subMenu: allSanityMenus(filter: { slug: { current: { eq: "submenu" } } }) {
+      edges {
+        node {
+          items {
+            ... on SanityExternalLink {
+              _key
+              _type
+              title
+              url
+            }
+            ... on SanityInternalLink {
+              _key
+              _type
+              link {
+                ...LinkFragment
+                ...HomeLinkFragment
+              }
+              title
+            }
+          }
+        }
+      }
+    }
+
     footerMenu: allSanityMenus(filter: { slug: { current: { eq: "footer" } } }) {
       edges {
         node {
@@ -103,12 +127,21 @@ const query = graphql`
 
 function LayoutContainer(props) {
   const [showNav, setShowNav] = useState(false);
+  const [showSubNav, setShowSubNav] = useState(false);
   function handleShowNav() {
     setShowNav(true);
     // console.log("set true");
   }
   function handleHideNav() {
     setShowNav(false);
+  }
+  function handleShowSubNav() {
+    setShowSubNav(true);
+    console.log("set true");
+  }
+  function handleHideSubNav() {
+    setShowSubNav(false);
+    console.log("set false")
   }
   return (
     <StaticQuery
@@ -126,11 +159,15 @@ function LayoutContainer(props) {
             <Layout
               {...props}
               showNav={showNav}
+              showSubNav = {showSubNav}
               siteTitle={data.site.title}
               onHideNav={handleHideNav}
               onShowNav={handleShowNav}
+              onHideSubNav={handleHideSubNav}
+              onShowSubNav={handleShowSubNav}
               footerMenu={data.footerMenu}
               mainMenu={data.mainMenu}
+              subMenu={data.subMenu}
             />
           </ThemeProvider>
         );

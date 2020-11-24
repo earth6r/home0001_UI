@@ -72,7 +72,7 @@ const HomeTemplate = (props) => {
   }
 
   return (
-    <Layout>
+    <Layout isHome={slug.current}>
       {/*<SEO
         title={site.title}
         description={site.description}
