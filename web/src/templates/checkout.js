@@ -30,8 +30,9 @@ const CheckoutTemplate = (props) => {
     main: { modules, slug },
     meta,
   } = page._rawContent;
-  const {_rawGdpr} = data.checkout;
-  
+  const { _rawGdpr } = data.checkout;
+
+  console.log(stripePromise);
   return (
     <Layout>
       <SEO
@@ -41,14 +42,15 @@ const CheckoutTemplate = (props) => {
       />
       <Container>
         <div className="flex flex-wrap w-full">{RenderModules(modules)}</div>
-        <CheckoutForm
+
+        {/* <CheckoutForm
           price={getMemberPrice(false)}
           terms={_rawGdpr}
           onSuccessfulCheckout={() => Router.push("/success")}
-        />
+        /> */}
 
-        {/*<CheckoutCreate stripePromise={stripePromise} />*/}
-        
+        <CheckoutCreate stripePromise={stripePromise} />
+
         <GridRow />
       </Container>
     </Layout>
