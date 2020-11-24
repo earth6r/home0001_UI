@@ -12,6 +12,16 @@ const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSu
   const submenu = subMenu !== undefined ? subMenu.edges[0].node.items : null;
   const menuFooter = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
   // console.log(mainMenu);
+  function makeTitle(slug) {
+  var words = slug.split('-');
+
+  for (var i = 0; i < words.length; i++) {
+    var word = words[i];
+    words[i] = word.charAt(0).toUpperCase() + word.slice(1);
+  }
+
+  return words.join(' ');
+}
 
   useEffect(() => {
     // setLoaded(true);
@@ -19,22 +29,33 @@ const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSu
       setLoaded(true);
     }, 3000);
   }, []);
-
+  
   return (
     <>
       {isHome && 
-      <div className="sub-menu fixed my-10 mx-5 box px-5 top-0 right-0 z-50" >
-         <li className="hidden md:block">New York <button  onClick={showSubNav ? onHideSubNav : onShowSubNav}>{showSubNav ? "-" : "+"}</button></li>
+      <div style={{ zIndex: "51", minWidth: "25vw", borderRadius:"2em" }} className="sub-menu fixed my-10 mx-5 box px-5 py-2 top-0 right-0" >
         {submenu &&
           submenu.map((item, index) => (
+            <div>
+            {item.link && isHome == item.link.content.main.slug.current &&
+            <div className="cursor-pointer" onClick={showSubNav ? onHideSubNav : onShowSubNav}><li className="hidden md:block">{item.title} <span className="float-right">{showSubNav ? "-" : "+"}</span></li></div>
+            }
+             </div>
+            ))
+         
+        }
+         
+        {submenu &&
+          submenu.map((item, index) => (
+            <div className={`${index==submenu.length-1 ? "mb-1":""}`}>
             <li className={`${
-          showSubNav ? " h-auto" : "h-0"
+          showSubNav && item.link && isHome != item.link.content.main.slug.current ? " h-auto" : "h-0"
         } hidden md:block overflow-hidden`} key={item._key}>
             
               <PageLink
-                className="md:pt-1/2em inline-block"
+                className="md:pt-1/2em inline-block overflow-hidden"
                 onClick={onHideSubNav}
-                to={item.link ? "/"+item.link.content.main.slug.current : " "}
+                to={item.link ? "/home/"+item.link.content.main.slug.current : " "}
               >
                 {item.title} 
               </PageLink>
@@ -42,10 +63,17 @@ const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSu
              
               
             </li>
+            { !item.link &&
+              <li className={`${
+          showSubNav ? " h-auto" : "h-0"
+        } hidden md:block overflow-hidden opacity-50`}>{item.title}</li>
+            }
+          </div>
+     
           ))}
       </div>
     }
-      <header className="fixed z-40 w-full left-0">
+      <header className="fixed z-50 w-full left-0">
         <div
           className={`${
             showNav ? "h-full" : ""
