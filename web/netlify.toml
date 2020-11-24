@@ -1,2 +1,9 @@
-[dev]
+[build]
   functions = "web/functions"
+
+[dev]
+  functions = "functions"
+
+[context.staging]
+  GATSBY_STRIPE_PUBLISHABLE_KEY="pk_test_vQgx6A3eI1OZAkiBb90F6xyF"
+  GATSBY_STRIPE_SECRET_KEY="sk_test_1x5inX2fR7wEopNNIfKTPRy3"
