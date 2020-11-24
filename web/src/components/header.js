@@ -33,12 +33,12 @@ const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSu
   return (
     <>
       {isHome && submenu && 
-      <div style={{ zIndex: "51", minWidth: "25vw", borderRadius:"2em" }} className="sub-menu fixed my-10 mx-5 box px-5 py-2 top-0 right-0" >
+      <div style={{ zIndex: "51", minWidth: "30vw", width:"calc(100% - 1.5rem)", borderRadius:"22px" }} className={`${showNav ? "hidden":""} sub-menu fixed my-10 mx-3 lg:mx-5 box-menu px-5 py-2 top-0 right-0 lg:w-auto`} >
         {submenu &&
           submenu.map((item, index) => (
             <div>
             {item.link && isHome == item.link.content.main.slug.current &&
-            <div className="cursor-pointer" onClick={showSubNav ? onHideSubNav : onShowSubNav}><li className="hidden md:block">{item.title} <span className="float-right">{showSubNav ? "-" : "+"}</span></li></div>
+            <div className="cursor-pointer" onClick={showSubNav ? onHideSubNav : onShowSubNav}><li className="block">{item.title} <span className="float-right"><svg style={{top:"10px"}} className={`${showSubNav ? "flip" : ""} relative`} width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M0.969269 0.955238L1.67451 0.25L5.90593 4.48143L5.2007 5.18667L0.969269 0.955238Z" fill="black"/><path d="M5.2007 5.18667L4.49546 4.48143L8.72689 0.25L9.43212 0.955238L5.2007 5.18667Z" fill="black"/></svg></span></li></div>
             }
              </div>
             ))
@@ -47,10 +47,10 @@ const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSu
          
         {submenu &&
           submenu.map((item, index) => (
-            <div className={`${index==submenu.length-1 ? "mb-1":""}`}>
+            <div className={`${index==submenu.length-1 ? "":""}`}>
             <li className={`${
           showSubNav && item.link && isHome != item.link.content.main.slug.current ? " h-auto" : "h-0"
-        } hidden md:block overflow-hidden`} key={item._key}>
+        } block overflow-hidden`} key={item._key}>
             
               <PageLink
                 className="md:pt-1/2em inline-block overflow-hidden"

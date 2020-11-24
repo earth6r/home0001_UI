@@ -17,7 +17,15 @@
   background-color: #ffffff;
   @apply rounded-md;
 }
-
+.box-menu{
+   background: #ffffff;
+   will-change: box-shadow;
+   transition: all 0.25s !important;
+   box-shadow:6px 5px 20px rgba(158, 158, 158, 0.4), 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.box-menu:hover {
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
+}
 .box-circle {
   width: 40%;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
