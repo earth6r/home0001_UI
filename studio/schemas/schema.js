@@ -34,6 +34,7 @@ import authorReference from './objects/authorReference'
 import partnerReference from './objects/partnerReference'
 import header from './objects/header'
 import circleButton from './objects/circleButton'
+import specButton from './objects/specButton'
 import richTableCell from './objects/cell'
 import richTableRow from './objects/row'
 import homeUnit from './objects/homeUnit'
@@ -114,6 +115,7 @@ export default createSchema({
     blockText,
     header,
     circleButton,
+    specButton,
     postCategory,
     menus,
     richTable,

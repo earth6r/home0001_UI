@@ -26,6 +26,9 @@ export default {
       type: 'circleButton',
     },
     {
+      type: 'specButton',
+    },
+    {
       type: 'accordion',
     },
   ],

@@ -7,11 +7,12 @@ import { Image } from "./image";
 import GridRow from "./grid/grid-row";
 import { Header } from "./global/header";
 import CircleButton from "./global/circleButton";
+import SpecButton from "./global/specButton";
 import Gallery from "./global/gallery";
 import { InternalLink } from "./global/internalLink";
 import { RichTable } from "./global/richTable";
 
-export const Modules = ({ reactModule, type }: { type: string; reactModule: any }) => {
+export const Modules = ({ reactModule, type, specs = false }: { type: string; reactModule: any }) => {
   switch (type) {
     case "accordion":
       return (
@@ -82,6 +83,21 @@ export const Modules = ({ reactModule, type }: { type: string; reactModule: any 
             title={reactModule.title}
             url={reactModule.url}
             float={false}
+          />
+          {reactModule.callibrationMark ? 
+         <GridRow></GridRow>
+          : ""}
+        </>
+      );
+    case "specButton":
+      return (
+        <>
+          <SpecButton
+            color={reactModule.color}
+            title={reactModule.title}
+            url={reactModule.url}
+            float={false}
+            specs={specs}
           />
           {reactModule.callibrationMark ? 
          <GridRow></GridRow>
