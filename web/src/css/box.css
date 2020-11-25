@@ -17,17 +17,36 @@
   background-color: #ffffff;
   @apply rounded-md;
 }
+/* Accordion box,button, and link overrides */
+.accordion a{
+  border-bottom:2px dashed;
+}
+.accordion a.box{
+  border:none;
+}
+.accordion button a{
+  border:none;
+}
+
 .accordion.box:hover button{
   border-radius:15px;
+  color:inherit;
   }
 .accordion button{
   padding:5px 8px;
   padding-top:2px;
   color:black;
+  font-size:inherit !important;
+  line-height: 1 !important;
+}
+.accordion button.box-link:before{
+  left:-4px;
+  top:46%;
 }
 .accordion button a{
   color:black;
 }
+/* end accordion overrides */
 .box-menu{
   border-radius:15px;
    background: #ffffff;

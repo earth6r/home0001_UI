@@ -53,15 +53,7 @@ th {
 small {
   font-size: 100% !important;
 }
-.accordion a{
-  border-bottom:2px dashed;
-}
-.accordion a.box{
-  border:none;
-}
-.accordion button a{
-  border:none;
-}
+
 .animate-in {
   animation-fill-mode: forwards;
   animation-delay: 1s;
