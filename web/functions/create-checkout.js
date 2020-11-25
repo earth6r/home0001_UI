@@ -79,7 +79,7 @@ exports.handler = async (event) => {
     statusCode: 200,
     body: JSON.stringify({
       siteUrl: process.env.SITE_URL,
-      gatsbyStripeSecretKey: process.env.GATSBY_STRIPE_SECRET_KEY,
+      // gatsbyStripeSecretKey: process.env.GATSBY_STRIPE_SECRET_KEY,
       //
       //
       //
