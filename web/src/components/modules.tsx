@@ -17,21 +17,27 @@ export const Modules = ({ reactModule, type }: { type: string; reactModule: any 
       return (
         <>
           <AccordionModule data={reactModule as AccordionModuleProps["data"]} />
-          <GridRow></GridRow>
+         {reactModule.callibrationMark ? 
+         <GridRow></GridRow>
+          : <h1>NOT WORKING</h1>}
         </>
       );
     case "standardText":
       return (
         <>
           <StandardText data={reactModule as StandardTextProps["data"]} />
-          <GridRow></GridRow>
+          {reactModule.callibrationMark ? 
+         <GridRow></GridRow>
+          : <h1>NOT WORKING</h1>}
         </>
       );
     case "nestedPages":
       return (
         <>
           <NestedPages data={reactModule as NestedPagesProps["data"]} />
-          <GridRow></GridRow>
+          {reactModule.callibrationMark ? 
+         <GridRow></GridRow>
+          : <h1>NOT WORKING</h1>}
         </>
       );
     case "gallery":
@@ -39,14 +45,18 @@ export const Modules = ({ reactModule, type }: { type: string; reactModule: any 
       return (
         <>
           <Gallery images={reactModule.images} url={reactModule.url} />
-          <GridRow />
+          {reactModule.callibrationMark ? 
+         <GridRow></GridRow>
+          : <h1>NOT WORKING</h1>}
         </>
       );
     case "imageModule":
       return (
         <>
           <Image imageId={reactModule.image.asset._id} caption={reactModule.caption} />
-          <GridRow></GridRow>
+          {reactModule.callibrationMark ? 
+         <GridRow></GridRow>
+          : <h1>NOT WORKING</h1>}
         </>
       );
     case "internalLink":
@@ -57,7 +67,9 @@ export const Modules = ({ reactModule, type }: { type: string; reactModule: any 
             title={reactModule.title}
             link={reactModule.link}
           />
-          <GridRow></GridRow>
+          {reactModule.callibrationMark ? 
+         <GridRow></GridRow>
+          : <h1>NOT WORKING</h1>}
         </>
       );
     case "header":
@@ -71,7 +83,9 @@ export const Modules = ({ reactModule, type }: { type: string; reactModule: any 
             url={reactModule.url}
             float={false}
           />
-          <GridRow />
+          {reactModule.callibrationMark ? 
+         <GridRow></GridRow>
+          : <h1>NOT WORKING</h1>}
         </>
       );
     case "richTable":

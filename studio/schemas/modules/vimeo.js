@@ -13,6 +13,12 @@ export default {
   title: "Video",
   fields: [
     {
+      name: 'callibrationMark',
+      title: 'Show Callibration Marks',
+      default: true,
+      type: 'boolean',
+    },
+    {
       name: "url",
       type: "url",
       title: "Vimeo video URL",

@@ -13,6 +13,12 @@ export default {
       },
     },
     {
+      name: 'callibrationMark',
+      title: 'Show Callibration Marks',
+      default: true,
+      type: 'boolean',
+    },
+    {
       name: 'caption',
       title: 'Image Caption',
       type: 'text',
