@@ -56,6 +56,9 @@ small {
 .accordion a{
   border-bottom:2px dashed;
 }
+.accordion a.box{
+  border:none;
+}
 .accordion button a{
   border:none;
 }
