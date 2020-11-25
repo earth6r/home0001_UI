@@ -26,6 +26,13 @@ const serializers = {
     mainImage: Figure,
   },
   marks: {
+    buttonLink: ({ mark, children }) => {
+      console.log(mark);
+      console.log(children);
+      return (
+          <button className="box-menu"><a href={mark.href}>{children}</a></button>
+      );
+    },
     partner: ({ mark, children }) => <div>partner</div>,
     internalLink: ({ mark, children }) => {
       console.log(mark.reference.content.main.slug);

@@ -17,7 +17,19 @@
   background-color: #ffffff;
   @apply rounded-md;
 }
+.accordion.box:hover button{
+  border-radius:15px;
+  }
+.accordion button{
+  padding:5px 8px;
+  padding-top:2px;
+  color:black;
+}
+.accordion button a{
+  color:black;
+}
 .box-menu{
+  border-radius:15px;
    background: #ffffff;
    will-change: box-shadow;
    transition: all 0.25s !important;

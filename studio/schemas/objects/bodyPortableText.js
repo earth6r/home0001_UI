@@ -1,3 +1,5 @@
+import ButtonRenderer from './ButtonRenderer'
+
 export default {
   name: 'bodyPortableText',
   type: 'array',
@@ -59,6 +61,21 @@ export default {
                   { type: 'home' },
                   // other types you may want to link to
                 ],
+              },
+            ],
+          },
+          {
+            name: 'buttonLink',
+            type: 'object',
+            title: 'Button Link',
+             blockEditor: {
+              render: ButtonRenderer
+            },
+            fields: [
+              {
+                title: 'URL',
+                name: 'href',
+                type: 'url',
               },
             ],
           },

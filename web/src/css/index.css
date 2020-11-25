@@ -56,6 +56,9 @@ small {
 .accordion a{
   border-bottom:2px dashed;
 }
+.accordion button a{
+  border:none;
+}
 .animate-in {
   animation-fill-mode: forwards;
   animation-delay: 1s;
