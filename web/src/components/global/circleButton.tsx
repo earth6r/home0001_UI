@@ -1,6 +1,7 @@
 import { PageLink } from "../link";
 import React, { useRef, useLayoutEffect, useState } from "react";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
 const CircleButton = ({ title, url, float = true, color }) => {
   const [elementTop, setElementTop] = useState(0);
@@ -50,13 +51,13 @@ const CircleButton = ({ title, url, float = true, color }) => {
                   to={`${uri}/${url.content.main.slug.current}`}
                 >
                   <h2 className="m-0 p-0 text-mobileNav md:text-desktopNav leading-none font-bold">
-                    {title}
+                    {ReactHtmlParser(title)}
                   </h2>
                 </PageLink>
               ) : (
                 title && (
                   <h2 className="m-0 font-bold leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full">
-                    {title}
+                    {ReactHtmlParser(title)}
                   </h2>
                 )
               )}
@@ -82,7 +83,7 @@ const CircleButton = ({ title, url, float = true, color }) => {
                       color === "black" ? " text-white" : ""
                     }`}
                   >
-                    {title}
+                    {ReactHtmlParser(title)}
                   </h2>
                 </PageLink>
               ) : (
@@ -92,7 +93,7 @@ const CircleButton = ({ title, url, float = true, color }) => {
                       color === "black" ? " text-white" : ""
                     }`}
                   >
-                    {title}
+                    {ReactHtmlParser(title)}
                   </h2>
                 )
               )}
