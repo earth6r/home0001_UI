@@ -1,17 +1,15 @@
 [dev]
   functions = "web/functions"
   publish = "/web/public"
-  command = "npm run build-web"
 
 [build]
   functions = "web/functions"
   publish = "/web/public"
-  command = "npm run build-web"
 
-# [context.staging]
-#   GATSBY_STRIPE_PUBLISHABLE_KEY="pk_test_vQgx6A3eI1OZAkiBb90F6xyF"
-#   GATSBY_STRIPE_SECRET_KEY="sk_test_1x5inX2fR7wEopNNIfKTPRy3"
-#   SITE_URL="https://staging.earth6r.com/"
+[context.staging.environment]
+  GATSBY_STRIPE_PUBLISHABLE_KEY="pk_test_vQgx6A3eI1OZAkiBb90F6xyF"
+  GATSBY_STRIPE_SECRET_KEY="sk_test_1x5inX2fR7wEopNNIfKTPRy3"
+  SITE_URL="https://staging.earth6r.com/"
 
 [template.environment]
   GATSBY_STRIPE_PUBLISHABLE_KEY="pk_test_vQgx6A3eI1OZAkiBb90F6xyF"
