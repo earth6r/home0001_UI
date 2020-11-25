@@ -1,4 +1,4 @@
-import ButtonRenderer from './ButtonRenderer'
+import ButtonRenderer from './buttonRenderer'
 
 export default {
   name: 'bodyPortableText',
