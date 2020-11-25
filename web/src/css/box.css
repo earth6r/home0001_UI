@@ -31,7 +31,8 @@
 .accordion.box:hover button{
   border-radius:15px;
   color:inherit;
-  }
+}
+
 .accordion button{
   padding:5px 8px;
   padding-top:2px;
@@ -44,7 +45,10 @@
   top:46%;
 }
 .accordion button a{
-  color:black;
+  color:inherit;
+}
+.accordion .box-circle .bg-black h2{
+  color:white;
 }
 /* end accordion overrides */
 .box-menu{
