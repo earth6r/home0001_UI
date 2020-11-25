@@ -42,20 +42,11 @@ export default function CheckoutCreate({ stripePromise }) {
 
     const response = await fetch("/.netlify/functions/create-checkout", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // body: JSON.stringify(data),
     });
-
-    // {
-    //   errorType: "Error",
-    //   errorMessage: "You did not provide an API key. You need to provide your API key in the Authorization header, using Bearer auth (e.g. 'Authorization: Bearer YOUR_SECRET_KEY'). See https://stripe.com/docs/api#authentication for details, or we can help at https://support.stripe.com/.",
-    //   trace: [
-    //   "Error: You did not provide an API key. You need to provide your API key in the Authorization header, using Bearer auth (e.g. 'Authorization: Bearer YOUR_SECRET_KEY'). See https://stripe.com/docs/api#authentication for details, or we can help at https://support.stripe.com/.",
-    //   " at IncomingMessage.<anonymous> (/var/task/src/node_modules/stripe/lib/StripeResource.js:169:21)",
-    //   " at Object.onceWrapper (events.js:420:28)",
-    //   " at IncomingMessage.emit (events.js:326:22)",
-    //   " at endReadableNT (_stream_readable.js:1223:12)",
-    //   " at processTicksAndRejections (internal/process/task_queues.js:84:21)"
-    //   ]
-    //   }
 
     const { sessionId } = await response.json();
 

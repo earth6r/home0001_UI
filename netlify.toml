@@ -11,6 +11,7 @@
   functions = "web/functions"
   publish = "/web/public"
 
+# Inject ENV vars for lambdas since they don't get overridden by `[context.xxx.environemnt]` vars in the TOML files
 [context.branch-deploy]
   command = "export GATSBY_STRIPE_PUBLISHABLE_KEY=pk_test_vQgx6A3eI1OZAkiBb90F6xyF && export GATSBY_STRIPE_SECRET_KEY=sk_test_1x5inX2fR7wEopNNIfKTPRy3 && export SITE_URL=https://staging.earth6r.com/ && ./node_modules/.bin/babel --plugins transform-inline-environment-variables web/functions/create-checkout.js -o web/functions/create-checkout.js && ./node_modules/.bin/babel --plugins transform-inline-environment-variables web/functions/create-payment-intent.js -o web/functions/create-payment-intent.js && npm run build-web"
 
