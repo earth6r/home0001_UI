@@ -21,6 +21,7 @@ import home from './documents/home'
 // import howItWorks from './documents/howItWorks'
 import checkout from './documents/checkout'
 import about from './documents/about'
+import rnd from './documents/rnd'
 // import viewHomes from './documents/viewHomes'
 
 // Object types
@@ -89,6 +90,7 @@ export default createSchema({
     accordionItem,
     category,
     author,
+    rnd,
     partner,
     mainImage,
     authorReference,
