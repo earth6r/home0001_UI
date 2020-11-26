@@ -25,16 +25,14 @@ const Message = ({ message }) => (
   </section>
 );
 
-const CheckoutActions = ({ /*sku, */ message, handleClick }) => {
+const CheckoutActions = ({ checkoutId, message, handleClick }) => {
   if (message) return <Message message={message} />;
-
-  // TODO sku -> checkoutId for Coinbase
 
   return (
     <>
       <StripeCheckoutCreateButton handleClick={handleClick} />
       <CoinbaseCommerceButton
-        checkoutId="9d34a029-7038-4e8c-9fbc-3a897ddb0f46"
+        checkoutId={checkoutId} // 9d34a029-7038-4e8c-9fbc-3a897ddb0f46
         onChargeSuccess={(messageData) => navigate("/checkout/success")}
         onChargeFailure={(messageData) => navigate("/checkout/error")}
       />
@@ -42,8 +40,10 @@ const CheckoutActions = ({ /*sku, */ message, handleClick }) => {
   );
 };
 
-export default function CheckoutCreate({ sku, stripePromise }) {
+export default function CheckoutCreate({ sku, checkoutId, stripePromise }) {
   const [message, setMessage] = useState("");
+
+  console.log(sku, checkoutId);
 
   useEffect(() => {
     // Check to see if this is a redirect back from Checkout
@@ -83,5 +83,5 @@ export default function CheckoutCreate({ sku, stripePromise }) {
     }
   };
 
-  return <CheckoutActions message={message} handleClick={handleClick} />;
+  return <CheckoutActions checkoutId={checkoutId} message={message} handleClick={handleClick} />;
 }

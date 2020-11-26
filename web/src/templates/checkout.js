@@ -5,8 +5,8 @@ import Container from "../components/container";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import { RenderModules } from "../utils/renderModules";
-import getMemberPrice from "../utils/get-member-price";
-import CheckoutForm from "../components/checkout-form";
+// import getMemberPrice from "../utils/get-member-price";
+// import CheckoutForm from "../components/checkout-form";
 import CheckoutCreate from "../components/checkout-create";
 import GridRow from "../components/grid/grid-row";
 
@@ -23,8 +23,6 @@ export const query = graphql`
 `;
 
 const CheckoutTemplate = (props) => {
-  console.log("props--", props);
-
   const { path, data, errors } = props;
   const page = data && data.checkout;
   const {
@@ -32,9 +30,17 @@ const CheckoutTemplate = (props) => {
     meta,
   } = page._rawContent;
   const { _rawGdpr } = data.checkout;
-  const query = new URLSearchParams(window.location.search);
-  const sku =
-    path.replace(/(?:^\/|\/$)/g, "") === "checkout/membership" ? "MEMB123" : query.get("sku");
+  const searchParams = new URLSearchParams(window.location.search);
+
+  // TODO membership SKU/checkoutId
+  const membershipRoute = path.replace(/(?:^\/|\/$)/g, "") === "checkout/membership";
+  const sku = membershipRoute ? "MEMB123" : searchParams.get("sku");
+  const checkoutId = membershipRoute ? "ABCDEFG" : searchParams.get("checkoutId");
+
+  // const membershipRoute = path.replace(/(?:^\/|\/$)/g, "") === "checkout/membership";
+  // const { sku, checkoutId } = membershipRoute
+  //   ? { sku: "MEMB123", checkoutId: "ABCDEFG" }
+  //   : location.state;
 
   return (
     <Layout>
@@ -52,7 +58,7 @@ const CheckoutTemplate = (props) => {
           onSuccessfulCheckout={() => Router.push("/success")}
         /> */}
 
-        <CheckoutCreate sku={sku} stripePromise={stripePromise} />
+        <CheckoutCreate sku={sku} checkoutId={checkoutId} stripePromise={stripePromise} />
 
         <GridRow />
       </Container>
