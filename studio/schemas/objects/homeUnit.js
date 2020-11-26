@@ -43,5 +43,15 @@ export default {
       name: 'sold',
       type: 'boolean',
     },
+    {
+      title: 'SKU',
+      name: 'sku',
+      type: 'number'
+    },
+    {
+      title: 'Coinbase ID',
+      name: 'checkoutId',
+      type: 'string'
+    }
   ],
 }
