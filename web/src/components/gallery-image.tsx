@@ -78,7 +78,7 @@ export const GalleryImage = ({
     setRandMobileWidth(Math.floor(Math.random() * 8) + 2);
     setRandPadding(Math.floor(Math.random() * (remainingWidth / 4)));
     setLoaded(true);
-    console.log(randPullX);
+    // console.log(randPullX);
   }, [ref]);
 
   return (

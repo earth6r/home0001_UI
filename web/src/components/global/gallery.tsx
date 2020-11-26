@@ -51,7 +51,7 @@ const Gallery = (props) => {
   let orders = getOrders();
   let remainingOrders = getOrders();
 
-  console.log(props);
+  // console.log(props);
 
   function getOrders() {
     let temp_orders = [];

@@ -8,7 +8,7 @@ const serializers = {
   types: {
     authorReference: ({ node }) => <span>{node.author.name}</span>,
     partnerReference: ({ node }) => {
-      console.log(node);
+      // console.log(node);
       return (
         <React.Fragment>
           {node.partner.name && node.partner.name !== "Earth" ? (
@@ -27,23 +27,32 @@ const serializers = {
   },
   marks: {
     buttonLink: ({ mark, children }) => {
-      console.log(mark);
-      console.log(children);
+      // console.log(mark);
+      // console.log(children);
       return (
-          <button className="box-menu"><a href={mark.href}>{children}</a></button>
+        <button className="box-menu">
+          <a href={mark.href}>{children}</a>
+        </button>
       );
     },
     partner: ({ mark, children }) => <div>partner</div>,
     internalLink: ({ mark, children }) => {
-      console.log(mark.reference.content.main.slug);
-      if(mark){
-        if(mark.reference && mark.reference.content){
-          return <PageLink title={mark.reference.content.main.title} to={`/${mark.reference.content.main.slug.current}`}>{children}</PageLink>
+      // console.log(mark.reference.content.main.slug);
+      if (mark) {
+        if (mark.reference && mark.reference.content) {
+          return (
+            <PageLink
+              title={mark.reference.content.main.title}
+              to={`/${mark.reference.content.main.slug.current}`}
+            >
+              {children}
+            </PageLink>
+          );
         } else {
-          return <></>
+          return <></>;
         }
       } else {
-        return <></>
+        return <></>;
       }
     },
   },

@@ -12,7 +12,7 @@ import GridRow from "../components/grid/grid-row";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
-const stripePromise = loadStripe("pk_test_vQgx6A3eI1OZAkiBb90F6xyF");
+const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
 export const query = graphql`
   query CheckoutQuery($id: String!) {
     checkout: sanityCheckout(id: { eq: $id }) {
@@ -23,16 +23,19 @@ export const query = graphql`
 `;
 
 const CheckoutTemplate = (props) => {
-  console.log(props);
-  const { data, errors } = props;
+  console.log("props--", props);
+
+  const { path, data, errors } = props;
   const page = data && data.checkout;
   const {
     main: { modules, slug },
     meta,
   } = page._rawContent;
   const { _rawGdpr } = data.checkout;
+  const query = new URLSearchParams(window.location.search);
+  const sku =
+    path.replace(/(?:^\/|\/$)/g, "") === "checkout/membership" ? "MEMB123" : query.get("sku");
 
-  console.log(stripePromise);
   return (
     <Layout>
       <SEO
@@ -49,7 +52,7 @@ const CheckoutTemplate = (props) => {
           onSuccessfulCheckout={() => Router.push("/success")}
         /> */}
 
-        <CheckoutCreate stripePromise={stripePromise} />
+        <CheckoutCreate sku={sku} stripePromise={stripePromise} />
 
         <GridRow />
       </Container>

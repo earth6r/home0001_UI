@@ -61,7 +61,7 @@ const HomeTemplate = (props) => {
   const unitsTitle = page.unitsTitle;
   const unitsSubtitle = page.unitsSubtitle;
   console.log(page);
-  // \console.log(data);
+  // console.log(data);
 
   if (errors) {
     return (
@@ -110,71 +110,87 @@ const HomeTemplate = (props) => {
         )}
         <Accordion allowMultiple={false} className="max-w-4xl w-full">
           {units &&
-            units.map((item, index) => (
-              <React.Fragment key={item._key}>
-                <AccordionItem
-                  defaultIsOpen={false}
-                  className={`${
-                    item.sold == 1 ? "pointer-events-none" : ""
-                  } border-none relative block box accordion accordion-home rounded-md mb-1em`}
-                >
-                  {({ isExpanded }) => (
-                    <>
-                      <AccordionHeader
-                        className={`${item.sold == 1 ? "opacity-25" : ""} ${
-                          isExpanded ? "text-black" : ""
-                        } relative flex h-2em p-0 pt-1/4em pl-1/2em border-none`}
-                      >
-                        <h3 className={` m-0 mr-1em -mt-1/4em md:mt-0`}>{item.title}</h3>
-                        {item.unit && <span className=" m-0 mr-1em -mt-1/4em md:mt-0"><span>Unit </span>{item.unit}</span>}
-                        {item.bedrooms && (
-                          <span className=" m-0 mr-1em text-mobileCaption md:text-desktopBody -mt-1/4em md:mt-0">{item.bedrooms}</span>
-                        )}
-                        {item.price && (
-                          <span className="text-mobileCaption md:text-desktopBody text-left m-0 mr-1em -mt-1/4em md:mt-0">
-                            {item.price}
-                          </span>
-                        )}
-                        {item.sold == 1 ? (
-                          <span className=" md:left-0 md:relative text-mobileCaption md:text-desktopBody -mt-1/4em md:mt-0">
-                            Sold
-                          </span>
-                        ) : (
-                          <span className=" md:left-0 md:relative text-mobileCaption md:text-desktopBody -mt-1/4em md:mt-0">
-                            Available
-                          </span>
-                        )}
+            units.map((item) => {
+              return (
+                <React.Fragment key={item._key}>
+                  <AccordionItem
+                    defaultIsOpen={false}
+                    className={`${
+                      item.sold == 1 ? "pointer-events-none" : ""
+                    } border-none relative block box accordion accordion-home rounded-md mb-1em`}
+                  >
+                    {({ isExpanded }) => (
+                      <>
+                        <AccordionHeader
+                          className={`${item.sold == 1 ? "opacity-25" : ""} ${
+                            isExpanded ? "text-black" : ""
+                          } relative flex h-2em p-0 pt-1/4em pl-1/2em border-none`}
+                        >
+                          <h3 className={` m-0 mr-1em -mt-1/4em md:mt-0`}>{item.title}</h3>
+                          {item.unit && (
+                            <span className=" m-0 mr-1em -mt-1/4em md:mt-0">
+                              <span>Unit </span>
+                              {item.unit}
+                            </span>
+                          )}
+                          {item.bedrooms && (
+                            <span className=" m-0 mr-1em text-mobileCaption md:text-desktopBody -mt-1/4em md:mt-0">
+                              {item.bedrooms}
+                            </span>
+                          )}
+                          {item.price && (
+                            <span className="text-mobileCaption md:text-desktopBody text-left m-0 mr-1em -mt-1/4em md:mt-0">
+                              {item.price}
+                            </span>
+                          )}
+                          {item.sold == 1 ? (
+                            <span className=" md:left-0 md:relative text-mobileCaption md:text-desktopBody -mt-1/4em md:mt-0">
+                              Sold
+                            </span>
+                          ) : (
+                            <span className=" md:left-0 md:relative text-mobileCaption md:text-desktopBody -mt-1/4em md:mt-0">
+                              Available
+                            </span>
+                          )}
 
-                        {!item.sold && (
-                          <div style={{ marginTop: "-0.15em" }} className="right-0 absolute pr-1em md:mt-0">
-                            {isExpanded ? "–" : "+"}
-                          </div>
-                        )}
-                      </AccordionHeader>
-                      <AccordionPanel className="pb-1em">
-                        <div>
-                          {item.text && <PortableText blocks={item.text} />}
-                          {item.floorPlan && (
-                            <div className="max-w-sm mx-auto mb-2em">
-                              <Figure node={item.floorPlan} />
+                          {!item.sold && (
+                            <div
+                              style={{ marginTop: "-0.15em" }}
+                              className="right-0 absolute pr-1em md:mt-0"
+                            >
+                              {isExpanded ? "–" : "+"}
                             </div>
                           )}
-                          {item.floorPlanCaption && <div className="mb-1em" ><PortableText blocks={item.floorPlanCaption} /></div>}
-                          {item.sold !== 1 && (
-                            <PageLink
-                              className="box box-black rounded-md w-full block text-center leading-none h-2em pt-1/4em flex items-center justify-center text-mobileBody md:text-desktopBody "
-                              to={`/checkout`}
-                            >
-                              Reserve Now
-                            </PageLink>
-                          )}
-                        </div>
-                      </AccordionPanel>
-                    </>
-                  )}
-                </AccordionItem>
-              </React.Fragment>
-            ))}
+                        </AccordionHeader>
+                        <AccordionPanel className="pb-1em">
+                          <div>
+                            {item.text && <PortableText blocks={item.text} />}
+                            {item.floorPlan && (
+                              <div className="max-w-sm mx-auto mb-2em">
+                                <Figure node={item.floorPlan} />
+                              </div>
+                            )}
+                            {item.floorPlanCaption && (
+                              <div className="mb-1em">
+                                <PortableText blocks={item.floorPlanCaption} />
+                              </div>
+                            )}
+                            {item.sold !== 1 && (
+                              <PageLink
+                                className="box box-black rounded-md w-full block text-center leading-none h-2em pt-1/4em flex items-center justify-center text-mobileBody md:text-desktopBody "
+                                to={`/checkout/${slug.current}/?sku=HOME123`}
+                              >
+                                Reserve Now
+                              </PageLink>
+                            )}
+                          </div>
+                        </AccordionPanel>
+                      </>
+                    )}
+                  </AccordionItem>
+                </React.Fragment>
+              );
+            })}
         </Accordion>
 
         {specs && (

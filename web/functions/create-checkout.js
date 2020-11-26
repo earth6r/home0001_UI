@@ -20,23 +20,24 @@ const stripe = require("stripe")(process.env.GATSBY_STRIPE_SECRET_KEY, {
 const inventory = require("./data/products.json");
 
 exports.handler = async (event) => {
-  console.log(event.body);
-
-  // const { sku, quantity } = JSON.parse(event.body);
-  const sku = "DEMO001";
-  const quantity = 1;
+  const { sku, quantity } = JSON.parse(event.body);
   const product = inventory.find((p) => p.sku === sku);
 
   // ensure that the quantity is within the allowed range
-  const validatedQuantity = quantity > 0 && quantity < 11 ? quantity : 1;
+  // const validatedQuantity = quantity > 0 && quantity < 11 ? quantity : 1;
+  const validatedQuantity = 1;
 
   const session = await stripe.checkout.sessions.create({
     mode: "payment",
-    payment_method_types: ["card"],
+
+    // With Stripe Checkout, Apple Pay and Google Pay are automatically enabled.
+    // alipay, card, ideal, fpx, bacs_debit, bancontact, giropay, p24, eps, sofort, sepa_debit, or grabpay
+    payment_method_types: ["alipay", "card"],
     billing_address_collection: "auto",
-    shipping_address_collection: {
-      allowed_countries: ["US", "CA"],
-    },
+
+    // shipping_address_collection: {
+    //   allowed_countries: ["US", "CA"],
+    // },
 
     /*
      * This env var is set by Netlify and inserts the live site URL. If you want

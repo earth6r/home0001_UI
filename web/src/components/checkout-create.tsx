@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from "react";
+import { navigate } from "@reach/router";
+import CoinbaseCommerceButton from "react-coinbase-commerce";
+import "react-coinbase-commerce/dist/coinbase-commerce-button.css";
 
-const CheckoutCreateButton = ({ handleClick }) => (
+// TODO get product data
+const StripeCheckoutCreateButton = ({ handleClick }) => (
   <section>
-    <div className="product">
+    {/* <div className="product">
       <img src="https://i.imgur.com/EHyR2nP.png" alt="The cover of Stubborn Attachments" />
       <div className="description">
         <h3>Stubborn Attachments</h3>
         <h5>$20.00</h5>
       </div>
-    </div>
+    </div> */}
     <button id="checkout-button" role="link" onClick={handleClick}>
-      Checkout
+      Checkout with Stripe
     </button>
   </section>
 );
@@ -21,7 +25,24 @@ const Message = ({ message }) => (
   </section>
 );
 
-export default function CheckoutCreate({ stripePromise }) {
+const CheckoutActions = ({ /*sku, */ message, handleClick }) => {
+  if (message) return <Message message={message} />;
+
+  // TODO sku -> checkoutId for Coinbase
+
+  return (
+    <>
+      <StripeCheckoutCreateButton handleClick={handleClick} />
+      <CoinbaseCommerceButton
+        checkoutId="9d34a029-7038-4e8c-9fbc-3a897ddb0f46"
+        onChargeSuccess={(messageData) => navigate("/checkout/success")}
+        onChargeFailure={(messageData) => navigate("/checkout/error")}
+      />
+    </>
+  );
+};
+
+export default function CheckoutCreate({ sku, stripePromise }) {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
@@ -38,14 +59,14 @@ export default function CheckoutCreate({ stripePromise }) {
   }, []);
 
   const handleClick = async (event) => {
+    const data = { sku, quantity: 1 };
     const stripe = await stripePromise;
-
     const response = await fetch("/.netlify/functions/create-checkout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      // body: JSON.stringify(data),
+      body: JSON.stringify(data),
     });
 
     const { sessionId } = await response.json();
@@ -62,9 +83,5 @@ export default function CheckoutCreate({ stripePromise }) {
     }
   };
 
-  return message ? (
-    <Message message={message} />
-  ) : (
-    <CheckoutCreateButton handleClick={handleClick} />
-  );
+  return <CheckoutActions message={message} handleClick={handleClick} />;
 }
