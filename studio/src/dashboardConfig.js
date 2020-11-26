@@ -26,7 +26,7 @@ export default {
                 {
                   buildHookId: '5fbf03636132448ec5f9643f',
                   title: 'Earth Staging Website',
-                  name: 'earth-v1',
+                  name: 'earth-v1-staging',
                   apiId: '70ce073f-c55c-4a10-9731-f12d74316845',
                 },
               ],
