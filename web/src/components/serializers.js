@@ -47,15 +47,37 @@ const serializers = {
     internalLink: ({ mark, children }) => {
       // console.log(mark.reference.content.main.slug);
       if (mark) {
+        console.log(mark.reference._type)
         if (mark.reference && mark.reference.content) {
-          return (
+          if(mark.reference._type == "home"){
+            return (
             <PageLink
               title={mark.reference.content.main.title}
-              to={`/${mark.reference.content.main.slug.current}`}
+              to={`/collective/home/${mark.reference.content.main.slug.current}`}
             >
               {children}
             </PageLink>
           );
+          }else if(mark.reference._type == "checkout"){
+            return (
+            <PageLink
+              title={mark.reference.content.main.title}
+              to={`/collective/checkout/${mark.reference.content.main.slug.current}`}
+            >
+              {children}
+            </PageLink>
+          );
+          }else{
+            return (
+            <PageLink
+              title={mark.reference.content.main.title}
+              to={`/collective/${mark.reference.content.main.slug.current}`}
+            >
+              {children}
+            </PageLink>
+          );
+          }
+          
         } else {
           return <></>;
         }

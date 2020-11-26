@@ -19,11 +19,6 @@ export default {
       title: 'Additional floor plan info'
     },
     {
-      name: 'floorPlanCaption',
-      type: 'bodyPortableText',
-      title: 'Additional floor plan info'
-    },
-    {
       name: 'text',
       type: 'bodyPortableText',
       title: 'Description'
