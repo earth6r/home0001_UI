@@ -9,6 +9,12 @@ export default {
       type: 'string',
     },
     {
+      name: 'callibrationMark',
+      title: 'Show Callibration Marks',
+      default: true,
+      type: 'boolean',
+    },
+    {
       name: 'accordionItems',
       title: 'Accordion Items',
       type: 'array',

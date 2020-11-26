@@ -7,6 +7,12 @@ export default {
   hidden: true,
   fields: [
     {
+      name: 'callibrationMark',
+      title: 'Show Callibration Marks',
+      default: true,
+      type: 'boolean',
+    },
+    {
       name: 'text',
       title: 'Text',
       type: 'array',

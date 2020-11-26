@@ -7,31 +7,38 @@ import { Image } from "./image";
 import GridRow from "./grid/grid-row";
 import { Header } from "./global/header";
 import CircleButton from "./global/circleButton";
+import SpecButton from "./global/specButton";
 import Gallery from "./global/gallery";
 import { InternalLink } from "./global/internalLink";
 import { RichTable } from "./global/richTable";
 
-export const Modules = ({ reactModule, type }: { type: string; reactModule: any }) => {
+export const Modules = ({ reactModule, type, specs = false }: { type: string; reactModule: any }) => {
   switch (type) {
     case "accordion":
       return (
         <>
           <AccordionModule data={reactModule as AccordionModuleProps["data"]} />
-          <GridRow></GridRow>
+         {reactModule.callibrationMark ? 
+         <GridRow></GridRow>
+          : ""}
         </>
       );
     case "standardText":
       return (
         <>
           <StandardText data={reactModule as StandardTextProps["data"]} />
-          <GridRow></GridRow>
+          {reactModule.callibrationMark ? 
+         <GridRow></GridRow>
+          : ""}
         </>
       );
     case "nestedPages":
       return (
         <>
           <NestedPages data={reactModule as NestedPagesProps["data"]} />
-          <GridRow></GridRow>
+          {reactModule.callibrationMark ? 
+         <GridRow></GridRow>
+          : ""}
         </>
       );
     case "gallery":
@@ -39,14 +46,18 @@ export const Modules = ({ reactModule, type }: { type: string; reactModule: any 
       return (
         <>
           <Gallery images={reactModule.images} url={reactModule.url} />
-          <GridRow />
+          {reactModule.callibrationMark ? 
+         <GridRow></GridRow>
+          : ""}
         </>
       );
     case "imageModule":
       return (
         <>
           <Image imageId={reactModule.image.asset._id} caption={reactModule.caption} />
-          <GridRow></GridRow>
+          {reactModule.callibrationMark ? 
+         <GridRow></GridRow>
+          : ""}
         </>
       );
     case "internalLink":
@@ -57,7 +68,9 @@ export const Modules = ({ reactModule, type }: { type: string; reactModule: any 
             title={reactModule.title}
             link={reactModule.link}
           />
-          <GridRow></GridRow>
+          {reactModule.callibrationMark ? 
+         <GridRow></GridRow>
+          : ""}
         </>
       );
     case "header":
@@ -71,7 +84,24 @@ export const Modules = ({ reactModule, type }: { type: string; reactModule: any 
             url={reactModule.url}
             float={false}
           />
-          <GridRow />
+          {reactModule.callibrationMark ? 
+         <GridRow></GridRow>
+          : ""}
+        </>
+      );
+    case "specButton":
+      return (
+        <>
+          <SpecButton
+            color={reactModule.color}
+            title={reactModule.title}
+            url={reactModule.url}
+            float={false}
+            specs={specs}
+          />
+          {reactModule.callibrationMark ? 
+         <GridRow></GridRow>
+          : ""}
         </>
       );
     case "richTable":

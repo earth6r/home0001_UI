@@ -50,13 +50,13 @@ const CircleButton = ({ title, url, float = true, color }) => {
                   className="m-0 h-full flex items-center justify-center text-nav leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full"
                   to={`${uri}/${url.content.main.slug.current}`}
                 >
-                  <h2 className="m-0 p-0 text-mobileNav md:text-desktopNav leading-none font-bold">
+                  <h2 className={`${color === "black" ? "text-white ": ""} m-0 p-0 text-mobileNav md:text-desktopNav leading-none font-bold`}>
                     {ReactHtmlParser(title)}
                   </h2>
                 </PageLink>
               ) : (
                 title && (
-                  <h2 className="m-0 font-bold leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full">
+                  <h2 className={`${color === "black" ? "text-white ": ""}m-0 font-bold leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full`}>
                     {ReactHtmlParser(title)}
                   </h2>
                 )
@@ -80,7 +80,7 @@ const CircleButton = ({ title, url, float = true, color }) => {
                 >
                   <h2
                     className={`m-0 font-bold p-0 text-mobileNav md:text-desktopNav leading-none ${
-                      color === "black" ? " text-white" : ""
+                      color === "black" ? " text-white " : ""
                     }`}
                   >
                     {ReactHtmlParser(title)}
@@ -90,7 +90,7 @@ const CircleButton = ({ title, url, float = true, color }) => {
                 title && (
                   <h2
                     className={`m-0 font-bold leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full ${
-                      color === "black" ? " text-white" : ""
+                      color === "black" ? " text-white " : ""
                     }`}
                   >
                     {ReactHtmlParser(title)}

@@ -5,6 +5,12 @@ export default {
   hidden: true,
   fields: [
     {
+      name: 'callibrationMark',
+      title: 'Show Callibration Marks',
+      default: true,
+      type: 'boolean',
+    },
+    {
       name: 'images',
       title: 'Image',
       type: 'array',

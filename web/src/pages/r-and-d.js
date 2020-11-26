@@ -35,7 +35,7 @@ export const query = graphql`
     }
   }
 
-  query IndexPageQuery {
+  query RndQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
       description
@@ -51,7 +51,7 @@ export const query = graphql`
   }
 `;
 
-const IndexPage = (props) => {
+const Rnd = (props) => {
   const { data, errors } = props;
 
   if (errors) {
@@ -79,7 +79,7 @@ const IndexPage = (props) => {
   return (
     <Layout>
     {meta &&
-      <SEO
+    	<SEO
         title={site.title}
         description={site.description}
         keywords={site.keywords}
@@ -93,4 +93,4 @@ const IndexPage = (props) => {
   );
 };
 
-export default IndexPage;
+export default Rnd;

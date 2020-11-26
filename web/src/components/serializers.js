@@ -1,6 +1,7 @@
 import React from "react";
 import Figure from "./Figure";
 import PopoverModule from "./popover-module";
+import CircleButton from "./global/circleButton";
 // import { InternalLink } from "./global/internalLink";
 import { PageLink } from "./link";
 
@@ -33,6 +34,13 @@ const serializers = {
         <button className="box-menu">
           <a href={mark.href}>{children}</a>
         </button>
+      );
+    },
+    circleLink: ({ mark, children }) => {
+      console.log(mark);
+      console.log(children);
+      return (
+        <CircleButton title={children} url={mark.href} color={mark.color}></CircleButton>
       );
     },
     partner: ({ mark, children }) => <div>partner</div>,

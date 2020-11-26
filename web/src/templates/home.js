@@ -60,8 +60,7 @@ const HomeTemplate = (props) => {
   const units = page._rawUnits;
   const unitsTitle = page.unitsTitle;
   const unitsSubtitle = page.unitsSubtitle;
-  console.log(page);
-  // console.log(data);
+  // \console.log(data);
 
   if (errors) {
     return (
@@ -80,34 +79,9 @@ const HomeTemplate = (props) => {
         image={meta.openImage}
       />*/}
       <Container className="flex flex-col">
-        <div className="flex flex-wrap w-full pt-12 lg:pt-10">{RenderModules(modules)}</div>
+        <div className="flex flex-wrap w-full pt-12 lg:pt-10">{RenderModules(modules, specs)}</div>
         <>{unitsTitle && unitsSubtitle && <Header title={unitsTitle} number={unitsSubtitle} />}</>
-        {specs && (
-          <Modal
-            preserveScrollBarGap
-            finalFocusRef={finalRef}
-            isCentered={true}
-            closeOnOverlayClick={false}
-            size="full"
-            scrollBehavior="inside"
-            blockScrollOnMount={true}
-            isOpen={isOpen}
-            onClose={onClose}
-            className="rounded-lg"
-          >
-            <ModalOverlay opacity={0.75} />
-            <ModalContent className="rounded-lg mx-mobile md:mx-desktop">
-              <ModalCloseButton zIndex={10} />
-              <ModalBody className="rounded-lg">
-                <h3 className="text-mobileBody md:text-desktopBody pb-1em pt-1/4em">
-                  Specifications
-                </h3>
-                <GridRow />
-                {specs && specs.map((spec) => <RichTable key={spec._key} data={spec} />)}
-              </ModalBody>
-            </ModalContent>
-          </Modal>
-        )}
+
         <Accordion allowMultiple={false} className="max-w-4xl w-full">
           {units &&
             units.map((item) => {
@@ -193,24 +167,10 @@ const HomeTemplate = (props) => {
             })}
         </Accordion>
 
-        {specs && (
-          <button
-            onClick={onOpen}
-            style={{ bottom: "1em" }}
-            className="mt-0 lg:-mt-48 lg:pt-0 pt-1em box-circle self-end w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 text-right right-0 z-40 mr-mobile md:mr-desktop"
-          >
-            <div className="square  relative text-mobileCaption md:text-desktopCaption">
-              <div className="background-circle" />
-              <span className="m-0 h-full font-bold flex items-center justify-center text-mobileNav md:text-desktopNav leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full">
-                Spec Sheet
-              </span>
-            </div>
-          </button>
-        )}
         {homeModules && (
           <div className="pt-1em flex flex-wrap w-full">
             <GridRow />
-            {RenderModules(homeModules)}
+            {RenderModules(homeModules, specs)}
           </div>
         )}
         <GridRow />

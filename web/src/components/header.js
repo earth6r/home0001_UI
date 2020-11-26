@@ -36,7 +36,7 @@ const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSu
       <div style={{ zIndex: "51", minWidth: "30vw", width:"calc(100% - 1.5rem)", borderRadius:"22px" }} className={`${showNav ? "hidden":""} sub-menu fixed mt-10 lg:mt-16 mx-3 lg:mx-5 box-menu px-5 py-2 top-0 right-0 lg:w-auto`} >
         {submenu &&
           submenu.map((item, index) => (
-            <div>
+            <div key={index + "first"}>
             {item.link && isHome == item.link.content.main.slug.current &&
             <div className="cursor-pointer" onClick={showSubNav ? onHideSubNav : onShowSubNav}><li className="block">{item.title} <span className="float-right"><svg style={{top:"10px"}} className={`${showSubNav ? "flip" : ""} relative`} width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M0.969269 0.955238L1.67451 0.25L5.90593 4.48143L5.2007 5.18667L0.969269 0.955238Z" fill="black"/><path d="M5.2007 5.18667L4.49546 4.48143L8.72689 0.25L9.43212 0.955238L5.2007 5.18667Z" fill="black"/></svg></span></li></div>
             }
@@ -47,7 +47,7 @@ const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSu
          
         {submenu &&
           submenu.map((item, index) => (
-            <div className={`${index==submenu.length-1 ? "":""}`}>
+            <div key={index + "second"} className={`${index==submenu.length-1 ? "":""}`}>
             <li className={`${
           showSubNav && item.link && isHome != item.link.content.main.slug.current ? " h-auto" : "h-0"
         } block overflow-hidden`} key={item._key}>
@@ -55,7 +55,7 @@ const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSu
               <PageLink
                 className="md:pt-1/2em inline-block overflow-hidden"
                 onClick={onHideSubNav}
-                to={item.link ? "/home/"+item.link.content.main.slug.current : " "}
+                to={item.link ? "/collective/home/"+item.link.content.main.slug.current : " "}
               >
                 {item.title} 
               </PageLink>
@@ -81,7 +81,7 @@ const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSu
         >
           <GridRow scroll={false} hide={1} className="flex w-full justify-between md:hidden">
             <h1 style={{ top: ".05em" }} className="md:hidden relative logo">
-              <PageLink to="/">
+              <PageLink to="/collective">
                 <span className="earth block text-mobileNav md:text-desktopNav">E</span>
               </PageLink>
             </h1>
@@ -117,7 +117,7 @@ const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSu
               >
                 <li className="absolute md:relative left-0 top-0 pt-2">
                   <h1 className="logo ">
-                    <PageLink onClick={onHideNav} to="/">
+                    <PageLink onClick={onHideNav} to="/collective">
                       <span className="earth">E</span>
                     </PageLink>
                   </h1>
@@ -138,7 +138,7 @@ const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSu
                       <PageLink
                         className="md:pt-1/2em inline-block"
                         onClick={onHideNav}
-                        to={`/${item.link.content.main.slug.current}`}
+                        to={`/collective/${item.link.content.main.slug.current}`}
                       >
                         {item.title}
                       </PageLink>

@@ -21,6 +21,7 @@ import home from './documents/home'
 // import howItWorks from './documents/howItWorks'
 import checkout from './documents/checkout'
 import about from './documents/about'
+import rnd from './documents/rnd'
 // import viewHomes from './documents/viewHomes'
 
 // Object types
@@ -34,6 +35,7 @@ import authorReference from './objects/authorReference'
 import partnerReference from './objects/partnerReference'
 import header from './objects/header'
 import circleButton from './objects/circleButton'
+import specButton from './objects/specButton'
 import richTableCell from './objects/cell'
 import richTableRow from './objects/row'
 import homeUnit from './objects/homeUnit'
@@ -88,6 +90,7 @@ export default createSchema({
     accordionItem,
     category,
     author,
+    rnd,
     partner,
     mainImage,
     authorReference,
@@ -114,6 +117,7 @@ export default createSchema({
     blockText,
     header,
     circleButton,
+    specButton,
     postCategory,
     menus,
     richTable,
