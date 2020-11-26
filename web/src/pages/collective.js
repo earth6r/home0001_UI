@@ -35,7 +35,7 @@ export const query = graphql`
     }
   }
 
-  query HomePageQuery {
+  query CollectivePageQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
       description
@@ -51,7 +51,7 @@ export const query = graphql`
   }
 `;
 
-const HomePage = (props) => {
+const CollectivePage = (props) => {
   const { data, errors } = props;
 
   if (errors) {
@@ -91,4 +91,4 @@ const HomePage = (props) => {
   );
 };
 
-export default HomePage;
+export default CollectivePage;

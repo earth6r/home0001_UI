@@ -55,7 +55,7 @@ const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSu
               <PageLink
                 className="md:pt-1/2em inline-block overflow-hidden"
                 onClick={onHideSubNav}
-                to={item.link ? "/home/"+item.link.content.main.slug.current : " "}
+                to={item.link ? "/collective/home/"+item.link.content.main.slug.current : " "}
               >
                 {item.title} 
               </PageLink>
@@ -81,7 +81,7 @@ const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSu
         >
           <GridRow scroll={false} hide={1} className="flex w-full justify-between md:hidden">
             <h1 style={{ top: ".05em" }} className="md:hidden relative logo">
-              <PageLink to="/">
+              <PageLink to="/collective">
                 <span className="earth block text-mobileNav md:text-desktopNav">E</span>
               </PageLink>
             </h1>
@@ -117,7 +117,7 @@ const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSu
               >
                 <li className="absolute md:relative left-0 top-0 pt-2">
                   <h1 className="logo ">
-                    <PageLink onClick={onHideNav} to="/">
+                    <PageLink onClick={onHideNav} to="/collective">
                       <span className="earth">E</span>
                     </PageLink>
                   </h1>
@@ -138,7 +138,7 @@ const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSu
                       <PageLink
                         className="md:pt-1/2em inline-block"
                         onClick={onHideNav}
-                        to={`/${item.link.content.main.slug.current}`}
+                        to={`/collective/${item.link.content.main.slug.current}`}
                       >
                         {item.title}
                       </PageLink>
