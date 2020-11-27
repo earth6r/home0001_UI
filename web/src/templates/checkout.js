@@ -30,8 +30,11 @@ const CheckoutTemplate = (props) => {
     meta,
   } = page._rawContent;
   const { _rawGdpr } = data.checkout;
-  const searchParams = new URLSearchParams(window.location.search);
-
+  if(window !== undefined){
+    const searchParams = new URLSearchParams(window.location.search);
+  } else{
+    const searchParams = new URLSearchParams("");
+  }
   // TODO membership SKU/checkoutId
   const membershipRoute = path.replace(/(?:^\/|\/$)/g, "") === "checkout/membership";
   const sku = membershipRoute ? "MEMB123" : searchParams.get("sku");
