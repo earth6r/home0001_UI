@@ -32,14 +32,16 @@ const CheckoutTemplate = (props) => {
   const { _rawGdpr } = data.checkout;
   if(typeof window !== `undefined`){
     const searchParams = new URLSearchParams(window.location.search);
+    const membershipRoute = path.replace(/(?:^\/|\/$)/g, "") === "checkout/membership";
+    const sku = membershipRoute ? "MEMB123" : searchParams.get("sku");
+    const checkoutId = membershipRoute ? "ABCDEFG" : searchParams.get("checkoutId");
+
   } else{
-    const searchParams = new URLSearchParams("");
+    const sku = ""
+    const checkoutId = ""
   }
   // TODO membership SKU/checkoutId
-  const membershipRoute = path.replace(/(?:^\/|\/$)/g, "") === "checkout/membership";
-  const sku = membershipRoute ? "MEMB123" : searchParams.get("sku");
-  const checkoutId = membershipRoute ? "ABCDEFG" : searchParams.get("checkoutId");
-
+ 
   // const membershipRoute = path.replace(/(?:^\/|\/$)/g, "") === "checkout/membership";
   // const { sku, checkoutId } = membershipRoute
   //   ? { sku: "MEMB123", checkoutId: "ABCDEFG" }
