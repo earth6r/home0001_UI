@@ -46,29 +46,30 @@ const CheckoutTemplate = (props) => {
   // const { sku, checkoutId } = membershipRoute
   //   ? { sku: "MEMB123", checkoutId: "ABCDEFG" }
   //   : location.state;
+  if(typeof window !== `undefined`){
+    return (
+      <Layout>
+        <SEO
+          title={"EARTH Membership"}
+          description={"Join the EARTH collective"}
+          keywords={["Earth", "Membership"]}
+        />
+        <Container>
+          <div className="flex flex-wrap w-full">{RenderModules(modules)}</div>
 
-  return (
-    <Layout>
-      <SEO
-        title={"EARTH Membership"}
-        description={"Join the EARTH collective"}
-        keywords={["Earth", "Membership"]}
-      />
-      <Container>
-        <div className="flex flex-wrap w-full">{RenderModules(modules)}</div>
+          {/* <CheckoutForm
+            price={getMemberPrice(false)}
+            terms={_rawGdpr}
+            onSuccessfulCheckout={() => Router.push("/success")}
+          /> */}
 
-        {/* <CheckoutForm
-          price={getMemberPrice(false)}
-          terms={_rawGdpr}
-          onSuccessfulCheckout={() => Router.push("/success")}
-        /> */}
+          <CheckoutCreate sku={sku} checkoutId={checkoutId} stripePromise={stripePromise} />
 
-        <CheckoutCreate sku={sku} checkoutId={checkoutId} stripePromise={stripePromise} />
-
-        <GridRow />
-      </Container>
-    </Layout>
-  );
+          <GridRow />
+        </Container>
+      </Layout>
+    );
+  }
 };
 
 export default CheckoutTemplate;
