@@ -25,12 +25,13 @@ export const query = graphql`
 const CheckoutTemplate = (props) => {
   const { path, data, errors } = props;
   const page = data && data.checkout;
+  const ssr = typeof window !== `undefined`;
   const {
     main: { modules, slug },
     meta,
   } = page._rawContent;
   const { _rawGdpr } = data.checkout;
-  if(typeof window !== `undefined`){
+  if(ssr){
     const searchParams = new URLSearchParams(window.location.search);
     const membershipRoute = path.replace(/(?:^\/|\/$)/g, "") === "checkout/membership";
     const sku = membershipRoute ? "MEMB123" : searchParams.get("sku");
@@ -46,30 +47,30 @@ const CheckoutTemplate = (props) => {
   // const { sku, checkoutId } = membershipRoute
   //   ? { sku: "MEMB123", checkoutId: "ABCDEFG" }
   //   : location.state;
-  if(typeof window !== `undefined`){
-    return (
-      <Layout>
-        <SEO
-          title={"EARTH Membership"}
-          description={"Join the EARTH collective"}
-          keywords={["Earth", "Membership"]}
-        />
-        <Container>
-          <div className="flex flex-wrap w-full">{RenderModules(modules)}</div>
+  
+  return (
+    <Layout>
+      <SEO
+        title={"EARTH Membership"}
+        description={"Join the EARTH collective"}
+        keywords={["Earth", "Membership"]}
+      />
+      <Container>
+        <div className="flex flex-wrap w-full">{RenderModules(modules)}</div>
 
-          {/* <CheckoutForm
-            price={getMemberPrice(false)}
-            terms={_rawGdpr}
-            onSuccessfulCheckout={() => Router.push("/success")}
-          /> */}
-
+        {/* <CheckoutForm
+          price={getMemberPrice(false)}
+          terms={_rawGdpr}
+          onSuccessfulCheckout={() => Router.push("/success")}
+        /> */}
+        {ssr &&
           <CheckoutCreate sku={sku} checkoutId={checkoutId} stripePromise={stripePromise} />
-
-          <GridRow />
-        </Container>
-      </Layout>
-    );
-  }
+        }
+        
+        <GridRow />
+      </Container>
+    </Layout>
+  );
 };
 
 export default CheckoutTemplate;
