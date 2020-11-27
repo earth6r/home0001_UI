@@ -30,7 +30,7 @@ const CheckoutTemplate = (props) => {
     meta,
   } = page._rawContent;
   const { _rawGdpr } = data.checkout;
-  if(typeof window !== undefined){
+  if(typeof window !== `undefined`){
     const searchParams = new URLSearchParams(window.location.search);
   } else{
     const searchParams = new URLSearchParams("");
