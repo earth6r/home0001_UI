@@ -5,9 +5,9 @@
 
 [[redirects]]
   from = "https://homes.earth6r.com/*"
-  to = "https://earth6r.com/collective/:splat"
+  to = "/collective/:splat"
   status = 200
-  
+
 [build]
   functions = "web/functions"
   publish = "/web/public"
