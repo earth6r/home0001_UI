@@ -6,42 +6,52 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'string',
+      type: 'string'
     },
     {
       name: 'floorPlan',
       type: 'image',
-      title: 'Floor Plan',
+      title: 'Floor Plan'
     },
     {
-      name:'floorPlanCaption',
+      name: 'floorPlanCaption',
       type: 'bodyPortableText',
       title: 'Additional floor plan info'
     },
     {
       name: 'text',
       type: 'bodyPortableText',
-      title: 'Description',
+      title: 'Description'
     },
     {
       name: 'unit',
       title: 'Unit',
-      type: 'string',
+      type: 'string'
     },
     {
       name: 'bedrooms',
       title: 'Bedrooms',
-      type: 'string',
+      type: 'string'
     },
     {
       name: 'price',
       title: 'Price',
-      type: 'string',
+      type: 'string'
     },
     {
       title: 'Sold?',
       name: 'sold',
-      type: 'boolean',
+      type: 'boolean'
     },
-  ],
+    {
+      title: 'SKU',
+      name: 'sku',
+      type: 'number'
+    },
+    {
+      title: 'Coinbase ID',
+      name: 'checkoutId',
+      type: 'string'
+    }
+  ]
 }

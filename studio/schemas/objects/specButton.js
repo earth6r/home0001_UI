@@ -1,8 +1,7 @@
 export default {
-  title: 'Internal Link',
-  name: 'internalLink',
+  title: 'Spec Button',
+  name: 'specButton',
   type: 'object',
-  hidden: true,
   fields: [
     {
       name: 'callibrationMark',
@@ -12,14 +11,8 @@ export default {
     },
     {
       name: 'title',
-      title: 'Link CTA',
+      title: 'Title',
       type: 'string',
-    },
-    {
-      name: 'link',
-      title: 'Link',
-      type: 'reference',
-      to: [{ type: 'page' }, { type: 'home' }, { type: 'checkout' }],
     },
     {
       title: 'Color',

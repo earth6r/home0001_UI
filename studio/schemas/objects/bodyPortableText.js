@@ -1,3 +1,6 @@
+import ButtonRenderer from './buttonRenderer'
+import CircleRenderer from './circleRenderer'
+
 export default {
   name: 'bodyPortableText',
   type: 'array',
@@ -59,6 +62,49 @@ export default {
                   { type: 'home' },
                   // other types you may want to link to
                 ],
+              },
+            ],
+          },
+          {
+            name: 'buttonLink',
+            type: 'object',
+            title: 'Button Link',
+             blockEditor: {
+              render: ButtonRenderer
+            },
+            fields: [
+              {
+                title: 'URL',
+                name: 'href',
+                type: 'url',
+              },
+            ],
+          },
+          {
+            name: 'circleLink',
+            type: 'object',
+            title: 'Circle Button Link',
+             blockEditor: {
+              render: CircleRenderer
+            },
+            fields: [
+              {
+                title: 'URL',
+                name: 'href',
+                type: 'url',
+              },
+              {
+                title: 'Color',
+                name: 'color',
+                type: 'string',
+                options: {
+                  list: [
+                    {title: 'White', value: 'white'},
+                    {title: 'Black', value: 'black'}
+                  ], // <-- predefined values
+                  layout: 'radio', // <-- defaults to 'dropdown'
+                  default: 'white'
+                }
               },
             ],
           },

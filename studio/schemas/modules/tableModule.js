@@ -6,6 +6,12 @@ export default {
   type: 'document',
   fields: [
     {
+      name: 'callibrationMark',
+      title: 'Show Callibration Marks',
+      default: true,
+      type: 'boolean',
+    },
+    {
       name: 'title',
       type: 'string',
       title: 'Title (internal)',
