@@ -80,9 +80,6 @@ const CheckoutTemplate = (props) => {
     // since routes aren't set up for specific units. If there is
     // no unit, or the unit is unavailable, the checkout renders
     // the default membership item
-
-    console.log(homes);
-
     home = homes.find(({ units }) => {
       unit = units.find((unit) => unit.stripeSKU === sku);
       return unit;
@@ -119,8 +116,6 @@ const CheckoutTemplate = (props) => {
             />
           </>
         )}
-
-        {/*<CheckoutCreate stripePromise={stripePromise} />*/}
 
         <GridRow />
       </Container>

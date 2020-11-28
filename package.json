@@ -19,5 +19,6 @@
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "eslint-config-prettier": "^6.15.0",
     "lerna": "^3.13.1"
-  }
+  },
+  "dependencies": {}
 }

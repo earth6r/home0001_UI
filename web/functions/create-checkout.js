@@ -4,36 +4,11 @@
  *
  * @see https://stripe.com/docs/payments/checkout/one-time
  */
+const { GraphQLClient, gql } = require("graphql-request");
 const stripe = require("stripe")(process.env.GATSBY_STRIPE_SECRET_KEY, {
   apiVersion: "2020-03-02",
   maxNetworkRetries: 2,
 });
-
-/*
-
-
-https://www.sanity.io/docs/http-urls
-
-
-https://zp7mbokg.api.sanity.io/v1/data/query/production?query=*[_id == $id]&$id="myId"
-
-
-
-query MyQuery {
-  allSanityHome(filter: {units: {elemMatch: {stripeSKU: {eq: "xxxxx"}}}}) {
-    edges {
-      node {
-        id
-        units {
-          _key
-          stripeSKU
-          sold
-        }
-      }
-    }
-  }
-}
- */
 
 /*
  * Product data can be loaded from anywhere. In this case, we’re loading it from
@@ -43,11 +18,63 @@ query MyQuery {
  * The important thing is that the product info is loaded from somewhere trusted
  * so you know the pricing information is accurate.
  */
-const inventory = require("./data/products.json");
+
+// const inventory = require("./data/products.json");
+
+async function getUnitByStripeSKU(sku) {
+  if (!sku) return null;
+
+  const endpoint = process.env.SANITY_GRAPHQL_API_ENDPOINT;
+  const graphQLClient = new GraphQLClient(endpoint, {
+    headers: { authorization: `Bearer ${process.env.SANITY_READ_TOKEN}` },
+  });
+
+  const query = gql`
+    {
+      allHome {
+        units {
+          title
+          sold
+          stripeSKU
+          unit
+        }
+      }
+    }
+  `;
+
+  const response = await graphQLClient.request(query);
+  const { allHome: edges } = response;
+
+  if (!edges.length) return null;
+
+  const unit = edges
+    .reduce((acc, curr) => acc.concat(curr.units), [])
+    .find((unit) => unit.stripeSKU === sku);
+
+  return unit && !unit.sold ? unit : null;
+}
 
 exports.handler = async (event) => {
-  const { sku, quantity } = JSON.parse(event.body);
-  const product = inventory.find((p) => p.sku === sku);
+  const { sku, discount /*, quantity */ } = JSON.parse(event.body);
+  const product = await getUnitByStripeSKU(sku);
+
+  if (!product || product.sold) {
+    return {
+      statusCode: 422,
+      body: JSON.stringify({
+        message:
+          "The selected product is currently unavailable. Your card has not been charged. Please contact us for more information",
+      }),
+    };
+  }
+
+  const regularPrice = 30000;
+  const amount = discount ? 200 : regularPrice;
+  const description = `Unit ${product.unit}`;
+
+  // TODO if membership ...
+
+  // const product = inventory.find((p) => p.sku === sku);
 
   // ensure that the quantity is within the allowed range
   // const validatedQuantity = quantity > 0 && quantity < 11 ? quantity : 1;
@@ -77,11 +104,11 @@ exports.handler = async (event) => {
       {
         price_data: {
           currency: "usd",
-          unit_amount: product.amount,
+          unit_amount: amount,
           product_data: {
-            name: product.name,
-            description: product.description,
-            images: [product.image],
+            name: product.title,
+            description: description,
+            // images: [product.image],
           },
         },
         quantity: validatedQuantity,
@@ -94,8 +121,8 @@ exports.handler = async (event) => {
     metadata: {
       items: JSON.stringify([
         {
-          sku: product.sku,
-          name: product.name,
+          sku: product.stripeSKU,
+          name: product.title,
           quantity: validatedQuantity,
         },
       ]),

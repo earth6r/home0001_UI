@@ -13,7 +13,7 @@ const StripeCheckoutCreateButton = ({ handleClick }) => (
   </button>
 );
 const Message = ({ message }) => (
-  <section>
+  <section className="pt-1em">
     <p>{message}</p>
   </section>
 );
@@ -90,27 +90,45 @@ export default function CheckoutCreate({ discount, unit, sku, checkoutId, stripe
   useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
+
     if (query.get("success")) {
       setMessage("Order placed! You will receive an email confirmation.");
     }
+
     if (query.get("canceled")) {
       setMessage("Order canceled -- continue to shop around and checkout when you're ready.");
     }
   }, []);
+
   const handleClick = async (event) => {
     const stripe = await stripePromise;
+    const data = { sku, discount };
 
     const response = await fetch("/.netlify/functions/create-checkout", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
     });
 
+    console.log(response);
     const session = await response.json();
+
+    if (!response.ok) {
+      console.error(response);
+      setMessage(session.message || "An error occurred. Please contact us to resolve the issue");
+      return;
+    }
 
     // When the customer clicks on the button, redirect them to Checkout.
     const result = await stripe.redirectToCheckout({
       sessionId: session.id,
     });
+
     if (result.error) {
+      console.error(result.error);
+      setMessage(result.error.message);
       // If `redirectToCheckout` fails due to a browser or network
       // error, display the localized error message to your customer
       // using `result.error.message`.
