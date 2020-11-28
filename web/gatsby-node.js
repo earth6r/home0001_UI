@@ -175,6 +175,7 @@ async function createHomes(graphql, actions) {
 }
 
 exports.createPages = async ({ graphql, actions }) => {
+  const { createRedirect } = actions
   await createBlogPostPages(graphql, actions);
   await createHomes(graphql, actions);
   await createSitePages(graphql, actions);
