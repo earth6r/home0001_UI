@@ -14,13 +14,13 @@ export const InternalLink = (props) => {
   if (link !== undefined) {
     switch (link._type) {
       case "home":
-        uri = "/home";
+        uri = "/collective/home";
         break;
       case "checkout":
-        uri = "/checkout";
+        uri = "/collective/checkout";
         break;
       default:
-        uri = "";
+        uri = "/collective/";
         break;
     }
 

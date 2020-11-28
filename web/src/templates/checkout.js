@@ -59,37 +59,43 @@ const CheckoutTemplate = (props) => {
   console.log(props);
   const { data, errors } = props;
   const page = data && data.checkout;
+  const ssr = typeof window !== `undefined`;
   const {
     main: { modules, slug },
     meta,
   } = page._rawContent;
   const { _rawGdpr } = data.checkout;
 
-  const searchParams = new URLSearchParams(window.location.search);
+  let sku;
+  let checkoutId;
 
-  let sku = searchParams.get("sku");
-  let checkoutId = searchParams.get("checkoutId");
-  const discount = searchParams.get("discount") === "balaji";
+  if (ssr) {
+    const searchParams = new URLSearchParams(window.location.search);
 
-  const homes = (data.homes.edges || []).map(({ node }) => node);
+    sku = searchParams.get("sku");
+    checkoutId = searchParams.get("checkoutId");
+    const discount = searchParams.get("discount") === "balaji";
 
-  let home;
-  let unit;
-  if (sku) {
-    // Select the requested unit based on query string params,
-    // since routes aren't set up for specific units. If there is
-    // no unit, or the unit is unavailable, the checkout renders
-    // the default membership item
-    home = homes.find(({ units }) => {
-      unit = units.find((unit) => unit.stripeSKU === sku);
-      return unit;
-    });
-  }
+    const homes = (data.homes.edges || []).map(({ node }) => node);
 
-  // Set default membership item
-  if (!sku || !home || !unit) {
-    sku = "MEMB123";
-    checkoutId = "ABCDEFG";
+    let home;
+    let unit;
+    if (sku) {
+      // Select the requested unit based on query string params,
+      // since routes aren't set up for specific units. If there is
+      // no unit, or the unit is unavailable, the checkout renders
+      // the default membership item
+      home = homes.find(({ units }) => {
+        unit = units.find((unit) => unit.stripeSKU === sku);
+        return unit;
+      });
+    }
+
+    // Set default membership item
+    if (!sku || !home || !unit) {
+      sku = "MEMB123";
+      checkoutId = "ABCDEFG";
+    }
   }
 
   return (
@@ -102,18 +108,20 @@ const CheckoutTemplate = (props) => {
       <Container>
         <div className="flex flex-wrap w-full">{RenderModules(modules)}</div>
 
-        {unit && unit.sold ? (
-          <Unavailable />
-        ) : (
+        {ssr && (
           <>
-            <CheckoutCreate
-              home={home}
-              unit={unit}
-              sku={sku}
-              checkoutId={checkoutId}
-              discount={discount}
-              stripePromise={stripePromise}
-            />
+            {unit && unit.sold ? (
+              <Unavailable />
+            ) : (
+              <CheckoutCreate
+                home={home}
+                unit={unit}
+                sku={sku}
+                checkoutId={checkoutId}
+                discount={discount}
+                stripePromise={stripePromise}
+              />
+            )}
           </>
         )}
 
