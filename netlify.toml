@@ -1,8 +1,8 @@
 [[redirects]]
   from = "https://homes.earth6r.com/"
-  to = "https://earth6r.com/collective/"
+  to = "https://homes.com/collective/"
   force = true
-  status = 301
+  status = 200
 
 [build]
   functions = "web/functions"
