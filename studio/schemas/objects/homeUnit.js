@@ -46,7 +46,7 @@ export default {
     {
       title: 'SKU',
       name: 'sku',
-      type: 'number'
+      type: 'string'
     },
     {
       title: 'Stripe SKU',
