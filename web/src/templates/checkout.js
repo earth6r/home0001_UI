@@ -66,6 +66,8 @@ const CheckoutTemplate = (props) => {
   } = page._rawContent;
   const { _rawGdpr } = data.checkout;
 
+  let home;
+  let unit;
   let sku;
   let checkoutId;
   let discount;
@@ -94,8 +96,8 @@ const CheckoutTemplate = (props) => {
 
     // Set default membership item
     if (!sku || !home || !unit) {
-      sku = "MEMB123";
-      checkoutId = "ABCDEFG";
+      sku = "MEMB001";
+      checkoutId = "ABCDEFG"; // TODO
     }
   }
 

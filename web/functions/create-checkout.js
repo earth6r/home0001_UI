@@ -5,6 +5,7 @@
  * @see https://stripe.com/docs/payments/checkout/one-time
  */
 const { GraphQLClient, gql } = require("graphql-request");
+const imageUrlBuilder = require("@sanity/image-url");
 const stripe = require("stripe")(process.env.GATSBY_STRIPE_SECRET_KEY, {
   apiVersion: "2020-03-02",
   maxNetworkRetries: 2,
@@ -20,6 +21,19 @@ const stripe = require("stripe")(process.env.GATSBY_STRIPE_SECRET_KEY, {
  */
 
 // const inventory = require("./data/products.json");
+
+const builder = imageUrlBuilder({
+  projectId: "m8l686jf",
+  dataset: "production",
+  // projectId: process.env.GATSBY_SANITY_PROJECT_ID || "dsk3cuzk",
+  // dataset: process.env.GATSBY_SANITY_DATASET || "production",
+});
+
+const buildImageObj = (source = { asset: {} }) => ({
+  asset: { _ref: source.asset._id },
+});
+
+const imageUrlFor = (source) => builder.image(source);
 
 async function getUnitByStripeSKU(sku) {
   if (!sku) return null;
@@ -37,6 +51,11 @@ async function getUnitByStripeSKU(sku) {
           sold
           stripeSKU
           unit
+          floorPlan {
+            asset {
+              _id
+            }
+          }
         }
       }
     }
@@ -55,24 +74,38 @@ async function getUnitByStripeSKU(sku) {
 }
 
 exports.handler = async (event) => {
-  const { sku, discount /*, quantity */ } = JSON.parse(event.body);
-  const product = await getUnitByStripeSKU(sku);
+  const { sku, discount } = JSON.parse(event.body);
+  let product;
 
-  if (!product || product.sold) {
-    return {
-      statusCode: 422,
-      body: JSON.stringify({
-        message:
-          "The selected product is currently unavailable. Your card has not been charged. Please contact us for more information",
-      }),
+  // Handle memberships separately since unnecessary to check if they're available
+  if (sku === "MEMB001") {
+    product = {
+      name: "EARTH Membership",
+      description: "Join the collective",
+      image:
+        "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=600&h=600&q=80",
+      sku,
     };
+  } else {
+    product = await getUnitByStripeSKU(sku);
+
+    if (!product || product.sold) {
+      return {
+        statusCode: 422,
+        body: JSON.stringify({
+          message:
+            "The selected product is currently unavailable. Your card has not been charged. Please contact us for more information",
+        }),
+      };
+    }
+
+    product.name = product.title;
+    product.description = `Unit ${product.unit}`;
+    product.sku = product.stripeSKU;
+    product.image = imageUrlFor(buildImageObj(product.floorPlan)).height(300).auto("format").url();
   }
 
-  const regularPrice = 30000;
-  const amount = discount ? 200 : regularPrice;
-  const description = `Unit ${product.unit}`;
-
-  // TODO if membership ...
+  product.amount = discount ? 20000 : 30000;
 
   // const product = inventory.find((p) => p.sku === sku);
 
@@ -104,11 +137,11 @@ exports.handler = async (event) => {
       {
         price_data: {
           currency: "usd",
-          unit_amount: amount,
+          unit_amount: product.amount,
           product_data: {
-            name: product.title,
-            description: description,
-            // images: [product.image],
+            name: product.name,
+            description: product.description,
+            images: [product.image],
           },
         },
         quantity: validatedQuantity,
@@ -121,8 +154,8 @@ exports.handler = async (event) => {
     metadata: {
       items: JSON.stringify([
         {
-          sku: product.stripeSKU,
-          name: product.title,
+          sku: product.sku,
+          name: product.name,
           quantity: validatedQuantity,
         },
       ]),

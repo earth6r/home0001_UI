@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { navigate } from "@reach/router";
 import CoinbaseCommerceButton from "react-coinbase-commerce";
-import getMemberPrice from "../utils/get-member-price";
+// import getMemberPrice from "../utils/get-member-price";
 import "react-coinbase-commerce/dist/coinbase-commerce-button.css";
 import { imageUrlFor } from "../lib/image-url";
 import { buildImageObj } from "../lib/helpers";
@@ -112,7 +112,6 @@ export default function CheckoutCreate({ discount, unit, sku, checkoutId, stripe
       body: JSON.stringify(data),
     });
 
-    console.log(response);
     const session = await response.json();
 
     if (!response.ok) {
@@ -123,7 +122,7 @@ export default function CheckoutCreate({ discount, unit, sku, checkoutId, stripe
 
     // When the customer clicks on the button, redirect them to Checkout.
     const result = await stripe.redirectToCheckout({
-      sessionId: session.id,
+      sessionId: session.sessionId,
     });
 
     if (result.error) {
