@@ -42,7 +42,7 @@ const MembershipProductDeatils = ({ discount }) => (
 );
 
 const UnitProductDetails = ({ discount, unit }) => (
-  <div className="product pt-1em pb-1em">
+  <div className="product pt-1/2em pb-1em">
     <img
       className="pb-1em"
       src={imageUrlFor(buildImageObj(unit._rawFloorPlan))

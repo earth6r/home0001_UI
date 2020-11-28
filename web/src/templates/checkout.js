@@ -7,8 +7,6 @@ import Container from "../components/container";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import { RenderModules } from "../utils/renderModules";
-import getMemberPrice from "../utils/get-member-price";
-import CheckoutForm from "../components/checkout-form";
 import CheckoutCreate from "../components/checkout-create";
 import GridRow from "../components/grid/grid-row";
 
@@ -55,6 +53,40 @@ const Unavailable = () => (
   </div>
 );
 
+const CheckoutOptions = ({ ssr, children }) => {
+  if (!ssr) return null;
+  return <>{children}</>;
+};
+
+const CheckoutActions = ({ unit, children }) => {
+  if (unit && unit.sold) return <Unavailable />;
+  return <>{children}</>;
+};
+
+const CheckoutDescription = ({ unit, modules, children }) => {
+  if (unit) {
+    return (
+      <>
+        <div className="flex flex-wrap w-full">
+          {RenderModules([modules[0]]) /* Only render header */}
+          <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
+            <h1>Reserve unit {unit.title}</h1>
+            {/* <h1>Reserve unit 6F, Brooklyn</h1> */}
+          </div>
+        </div>
+        {children}
+      </>
+    );
+  }
+
+  return (
+    <>
+      <div className="flex flex-wrap w-full">{RenderModules(modules)}</div>
+      {children}
+    </>
+  );
+};
+
 const CheckoutTemplate = (props) => {
   console.log(props);
   const { data, errors } = props;
@@ -81,8 +113,6 @@ const CheckoutTemplate = (props) => {
 
     const homes = (data.homes.edges || []).map(({ node }) => node);
 
-    let home;
-    let unit;
     if (sku) {
       // Select the requested unit based on query string params,
       // since routes aren't set up for specific units. If there is
@@ -92,6 +122,8 @@ const CheckoutTemplate = (props) => {
         unit = units.find((unit) => unit.stripeSKU === sku);
         return unit;
       });
+
+      console.log("home", home);
     }
 
     // Set default membership item
@@ -109,13 +141,9 @@ const CheckoutTemplate = (props) => {
         keywords={["Earth", "Membership"]}
       />
       <Container>
-        <div className="flex flex-wrap w-full">{RenderModules(modules)}</div>
-
-        {ssr && (
-          <>
-            {unit && unit.sold ? (
-              <Unavailable />
-            ) : (
+        <CheckoutOptions ssr={ssr}>
+          <CheckoutActions unit={unit}>
+            <CheckoutDescription unit={unit} modules={modules}>
               <CheckoutCreate
                 home={home}
                 unit={unit}
@@ -124,9 +152,9 @@ const CheckoutTemplate = (props) => {
                 discount={discount}
                 stripePromise={stripePromise}
               />
-            )}
-          </>
-        )}
+            </CheckoutDescription>
+          </CheckoutActions>
+        </CheckoutOptions>
 
         <GridRow />
       </Container>
