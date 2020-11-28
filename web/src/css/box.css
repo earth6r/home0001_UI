@@ -19,7 +19,7 @@
 }
 /* Accordion box,button, and link overrides */
 .accordion a{
-  border-bottom:2px dashed;
+  border-bottom:2px solid;
 }
 .accordion a.box{
   border:none;
