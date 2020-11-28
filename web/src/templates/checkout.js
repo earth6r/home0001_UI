@@ -68,13 +68,14 @@ const CheckoutTemplate = (props) => {
 
   let sku;
   let checkoutId;
+  let discount;
 
   if (ssr) {
     const searchParams = new URLSearchParams(window.location.search);
 
     sku = searchParams.get("sku");
     checkoutId = searchParams.get("checkoutId");
-    const discount = searchParams.get("discount") === "balaji";
+    discount = searchParams.get("discount") === "balaji";
 
     const homes = (data.homes.edges || []).map(({ node }) => node);
 
