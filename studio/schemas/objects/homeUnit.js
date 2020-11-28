@@ -44,11 +44,6 @@ export default {
       type: 'boolean'
     },
     {
-      title: 'SKU',
-      name: 'sku',
-      type: 'string'
-    },
-    {
       title: 'Stripe SKU',
       name: 'stripeSKU',
       type: 'string'
