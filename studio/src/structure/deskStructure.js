@@ -182,6 +182,7 @@ export default () =>
             // 'howItWorks',
             'partner',
             'page',
+            'rnd',
             // 'viewHomes',
             //'artist',
             //'gallery',
