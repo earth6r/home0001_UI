@@ -180,7 +180,7 @@ exports.createPages = async ({ graphql, actions }) => {
   await createHomes(graphql, actions);
   await createSitePages(graphql, actions);
   await createSiteCheckout(graphql, actions);
-  await createRedirect({ fromPath: 'https://homes.earth6r.com/', toPath: 'https://homes.earth6r.com/collective', isPermanent: true, force: true })
+  await createRedirect({ fromPath: 'https://homes.earth6r.com/', toPath: 'https://homes.earth6r.com/collective', statusCode:200, force: true })
 
   // await createArtistPages(graphql, actions);
 };
