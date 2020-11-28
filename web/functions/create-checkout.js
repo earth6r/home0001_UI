@@ -10,6 +10,32 @@ const stripe = require("stripe")(process.env.GATSBY_STRIPE_SECRET_KEY, {
 });
 
 /*
+
+
+https://www.sanity.io/docs/http-urls
+
+
+https://zp7mbokg.api.sanity.io/v1/data/query/production?query=*[_id == $id]&$id="myId"
+
+
+
+query MyQuery {
+  allSanityHome(filter: {units: {elemMatch: {stripeSKU: {eq: "xxxxx"}}}}) {
+    edges {
+      node {
+        id
+        units {
+          _key
+          stripeSKU
+          sold
+        }
+      }
+    }
+  }
+}
+ */
+
+/*
  * Product data can be loaded from anywhere. In this case, we’re loading it from
  * a local JSON file, but this could also come from an async call to your
  * inventory management service, a database query, or some other API call.

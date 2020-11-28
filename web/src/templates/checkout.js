@@ -1,3 +1,5 @@
+// web/src/templates/checkout.js
+
 import React, { useState, useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { graphql } from "gatsby";
@@ -5,8 +7,8 @@ import Container from "../components/container";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import { RenderModules } from "../utils/renderModules";
-// import getMemberPrice from "../utils/get-member-price";
-// import CheckoutForm from "../components/checkout-form";
+import getMemberPrice from "../utils/get-member-price";
+import CheckoutForm from "../components/checkout-form";
 import CheckoutCreate from "../components/checkout-create";
 import GridRow from "../components/grid/grid-row";
 
@@ -14,33 +16,84 @@ import GridRow from "../components/grid/grid-row";
 // recreating the `Stripe` object on every render.
 const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
 export const query = graphql`
-  query CheckoutQuery($id: String!) {
+  query CheckoutAndHomes($id: String!) {
     checkout: sanityCheckout(id: { eq: $id }) {
       _rawGdpr(resolveReferences: { maxDepth: 10 })
       _rawContent(resolveReferences: { maxDepth: 20 })
     }
+
+    homes: allSanityHome {
+      edges {
+        node {
+          units {
+            stripeSKU
+            sold
+            text {
+              _rawChildren
+            }
+            title
+            bedrooms
+            checkoutId
+            price
+            _rawFloorPlan
+            _rawFloorPlanCaption
+            _rawText
+            _type
+            _key
+          }
+          unitsSubtitle
+          unitsTitle
+        }
+      }
+    }
   }
 `;
 
+const Unavailable = () => (
+  <div className="w-full relative z-20 pt-1em pb-1em">
+    <p>That unit is currently unavailable. Please select another unit</p>
+  </div>
+);
+
 const CheckoutTemplate = (props) => {
-  const { path, data, errors } = props;
+  console.log(props);
+  const { data, errors } = props;
   const page = data && data.checkout;
   const {
     main: { modules, slug },
     meta,
   } = page._rawContent;
   const { _rawGdpr } = data.checkout;
+
   const searchParams = new URLSearchParams(window.location.search);
 
-  // TODO membership SKU/checkoutId
-  const membershipRoute = path.replace(/(?:^\/|\/$)/g, "") === "checkout/membership";
-  const sku = membershipRoute ? "MEMB123" : searchParams.get("sku");
-  const checkoutId = membershipRoute ? "ABCDEFG" : searchParams.get("checkoutId");
+  let sku = searchParams.get("sku");
+  let checkoutId = searchParams.get("checkoutId");
+  const discount = searchParams.get("discount") === "balaji";
 
-  // const membershipRoute = path.replace(/(?:^\/|\/$)/g, "") === "checkout/membership";
-  // const { sku, checkoutId } = membershipRoute
-  //   ? { sku: "MEMB123", checkoutId: "ABCDEFG" }
-  //   : location.state;
+  const homes = (data.homes.edges || []).map(({ node }) => node);
+
+  let home;
+  let unit;
+  if (sku) {
+    // Select the requested unit based on query string params,
+    // since routes aren't set up for specific units. If there is
+    // no unit, or the unit is unavailable, the checkout renders
+    // the default membership item
+
+    console.log(homes);
+
+    home = homes.find(({ units }) => {
+      unit = units.find((unit) => unit.stripeSKU === sku);
+      return unit;
+    });
+  }
+
+  // Set default membership item
+  if (!sku || !home || !unit) {
+    sku = "MEMB123";
+    checkoutId = "ABCDEFG";
+  }
 
   return (
     <Layout>
@@ -52,13 +105,22 @@ const CheckoutTemplate = (props) => {
       <Container>
         <div className="flex flex-wrap w-full">{RenderModules(modules)}</div>
 
-        {/* <CheckoutForm
-          price={getMemberPrice(false)}
-          terms={_rawGdpr}
-          onSuccessfulCheckout={() => Router.push("/success")}
-        /> */}
+        {unit && unit.sold ? (
+          <Unavailable />
+        ) : (
+          <>
+            <CheckoutCreate
+              home={home}
+              unit={unit}
+              sku={sku}
+              checkoutId={checkoutId}
+              discount={discount}
+              stripePromise={stripePromise}
+            />
+          </>
+        )}
 
-        <CheckoutCreate sku={sku} checkoutId={checkoutId} stripePromise={stripePromise} />
+        {/*<CheckoutCreate stripePromise={stripePromise} />*/}
 
         <GridRow />
       </Container>

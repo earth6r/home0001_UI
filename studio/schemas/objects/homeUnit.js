@@ -19,11 +19,6 @@ export default {
       title: 'Additional floor plan info'
     },
     {
-      name: 'floorPlanCaption',
-      type: 'bodyPortableText',
-      title: 'Additional floor plan info'
-    },
-    {
       name: 'text',
       type: 'bodyPortableText',
       title: 'Description'
@@ -49,9 +44,9 @@ export default {
       type: 'boolean'
     },
     {
-      title: 'SKU',
-      name: 'sku',
-      type: 'number'
+      title: 'Stripe SKU',
+      name: 'stripeSKU',
+      type: 'string'
     },
     {
       title: 'Coinbase ID',
