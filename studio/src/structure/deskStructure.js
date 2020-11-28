@@ -108,10 +108,10 @@ export default () =>
       //   .icon(MdPayment)
       //   .child(S.editor().id('checkout').schemaType('checkout').documentId('checkout')),
       S.divider(),
-      // S.listItem()
-      //   .title('About')
-      //   .icon(MdPublic)
-      //   .child(S.editor().id('about').schemaType('about').documentId('about')),
+      S.listItem()
+        .title('R & D')
+        .icon(MdPublic)
+        .child(S.editor().id('rnd').schemaType('rnd').documentId('rnd')),
 
       // S.listItem()
       //   .title('Artists')
@@ -182,6 +182,7 @@ export default () =>
             // 'howItWorks',
             'partner',
             'page',
+            'rnd',
             // 'viewHomes',
             //'artist',
             //'gallery',
