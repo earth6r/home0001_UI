@@ -1,7 +1,6 @@
 [[redirects]]
-  from = "https://homes.earth6r.com/"
-  to = "https://earth6r.com/collective/"
-  force = true
+  from = "https://homes.earth6r.com/*"
+  to = "https://earth6r.com/collective/:splat"
   status = 200
 
 [build]
