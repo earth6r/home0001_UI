@@ -44,9 +44,9 @@ export default {
       type: 'boolean'
     },
     {
-      title: 'SKU',
-      name: 'sku',
-      type: 'number'
+      title: 'Stripe SKU',
+      name: 'stripeSKU',
+      type: 'string'
     },
     {
       title: 'Coinbase ID',
