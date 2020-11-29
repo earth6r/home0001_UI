@@ -125,7 +125,9 @@
   will-change: box-shadow;
   transition: 1s box-shadow;
 }
-
+.box.accordion .square a{
+  border:none;
+}
 .box.accordion button[aria-expanded="true"] {
   color: #000000 !important;
 }

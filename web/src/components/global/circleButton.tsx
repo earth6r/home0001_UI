@@ -17,11 +17,14 @@ const CircleButton = ({ title, url, float = true, color }) => {
   if (url !== undefined) {
     switch (url._type) {
       case "home":
-        uri = "/home";
+        uri = "/collective/home";
         //   alert("set home");
         break;
+      case "checkout":
+        uri = "/collective/checkout";
+        break;
       default:
-        uri = "";
+        uri = "/collective";
         break;
     }
   }
