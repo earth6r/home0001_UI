@@ -53,6 +53,10 @@ th {
 small {
   font-size: 100% !important;
 }
+.rte .md\:text-desktopCaption *{
+  font-size:inherit;
+  line-height:inherit;
+}
 
 .animate-in {
   animation-fill-mode: forwards;
