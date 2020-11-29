@@ -5,7 +5,7 @@ const stripe = require("stripe")(process.env.GATSBY_STRIPE_SECRET_KEY, {
 const send = require("./mailers/send");
 
 // Find your endpoint's secret in your Dashboard's webhook settings
-// stripe listen --forward-to localhost:8888/.netlify/functions/handle-purchase
+// stripe listen --forward-to localhost:8888/.netlify/functions/handle-stripe-purchase
 const endpointSecret = "whsec_Uid33Tu81tbSr4knrQyuFHXeRVb58Vk8";
 
 exports.handler = async ({ body, headers }) => {

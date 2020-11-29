@@ -75,7 +75,7 @@ const CheckoutActions = ({ unit, discount, checkoutId, message, handleClick }) =
         <ProductDetails discount={discount} unit={unit} />
         <StripeCheckoutCreateButton handleClick={handleClick} />
         <CoinbaseCommerceButton
-          checkoutId={checkoutId} // 9d34a029-7038-4e8c-9fbc-3a897ddb0f46
+          checkoutId={checkoutId}
           // checkoutId={`9d34a029-7038-4e8c-9fbc-3a897ddb0f46`}
           onChargeSuccess={(messageData) => navigate("/checkout/success")}
           onChargeFailure={(messageData) => navigate("/checkout/error")}

@@ -21,10 +21,8 @@ const stripe = require("stripe")(process.env.GATSBY_STRIPE_SECRET_KEY, {
  */
 
 const builder = imageUrlBuilder({
-  projectId: "m8l686jf",
-  dataset: "production",
-  // projectId: process.env.GATSBY_SANITY_PROJECT_ID || "dsk3cuzk",
-  // dataset: process.env.GATSBY_SANITY_DATASET || "production",
+  projectId: process.env.GATSBY_SANITY_PROJECT_ID || "m8l686jf",
+  dataset: process.env.GATSBY_SANITY_DATASET || "production",
 });
 
 const buildImageObj = (source = { asset: {} }) => ({
@@ -73,47 +71,8 @@ async function getUnitByStripeSKU(sku) {
 
 exports.handler = async (event) => {
   const { sku, discount } = JSON.parse(event.body);
+
   let product;
-
-  // const prevSession = await stripe.checkout.sessions.retrieve(
-  //   "cs_test_a16avBuli0UhFqJff8zMkWIB4gx1KCWZiMJOJeJySi3c0gZo3VemJTNZ7O"
-  // );
-
-  // const customer = await stripe.customers.retrieve("cus_ITimVU8rpIzWQr");
-
-  // console.log("customer", customer);
-
-  // {
-  //   id: 'cs_test_a16avBuli0UhFqJff8zMkWIB4gx1KCWZiMJOJeJySi3c0gZo3VemJTNZ7O',
-  //   object: 'checkout.session',
-  //   allow_promotion_codes: null,
-  //   amount_subtotal: 30000,
-  //   amount_total: 30000,
-  //   billing_address_collection: 'auto',
-  //   cancel_url: 'http://localhost:8888',
-  //   client_reference_id: null,
-  //   currency: 'usd',
-  //   customer: 'cus_ITimVU8rpIzWQr',
-  //   customer_email: null,
-  //   livemode: false,
-  //   locale: null,
-  //   metadata: {
-  //     items: '[{"sku":"MEMB001","name":"EARTH Membership","quantity":1}]'
-  //   },
-  //   mode: 'payment',
-  //   payment_intent: 'pi_1HslKBEYm5vIOkXEKUSgz4Tn',
-  //   payment_method_types: [ 'alipay', 'card' ],
-  //   payment_status: 'paid',
-  //   setup_intent: null,
-  //   shipping: null,
-  //   shipping_address_collection: null,
-  //   submit_type: null,
-  //   subscription: null,
-  //   success_url: 'http://localhost:8888/checkout/success',
-  //   total_details: { amount_discount: 0, amount_tax: 0 }
-  // }
-
-  // console.log("prevSession", prevSession);
 
   // Handle memberships separately since unnecessary to check if they're available
   if (sku === "MEMB001") {

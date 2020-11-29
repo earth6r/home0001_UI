@@ -23,7 +23,8 @@
   export EMAIL_HOST=smtp.ethereal.email && \
   export EMAIL_PORT=587 && \
   ./node_modules/.bin/babel --plugins transform-inline-environment-variables web/functions/create-checkout.js -o web/functions/create-checkout.js && \
-  ./node_modules/.bin/babel --plugins transform-inline-environment-variables web/functions/send-mail.js -o web/functions/send-mail.js && \
+  ./node_modules/.bin/babel --plugins transform-inline-environment-variables web/functions/handle-purchase.js -o web/functions/handle-purchase.js && \
+  ./node_modules/.bin/babel --plugins transform-inline-environment-variables web/functions/mailers/send.js -o web/functions/mailers/send.js && \
   npm run build-web\
 """
 
