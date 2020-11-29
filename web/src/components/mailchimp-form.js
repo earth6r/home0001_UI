@@ -1,5 +1,6 @@
 import addToMailchimp from "gatsby-plugin-mailchimp";
 import React from "react";
+import ReactHtmlParser from "react-html-parser";
 
 import {
   FormControl,
@@ -14,7 +15,7 @@ import GridRow from "./grid/grid-row";
 export default class MailChimpForm extends React.Component {
   constructor() {
     super();
-    this.state = { email: "", result: {} };
+    this.state = { email: "", result: {}, msg: "" };
   }
 
   _handleSubmit = async (e) => {
@@ -23,6 +24,7 @@ export default class MailChimpForm extends React.Component {
     const result = await addToMailchimp(this.state.email);
     console.log("result", result);
     this.setState({ result: result.result });
+    this.setState({ msg: result.msg });
   };
 
   handleChange = (event) => {
@@ -78,7 +80,7 @@ export default class MailChimpForm extends React.Component {
             style={{ borderColor: "red" }}
             className="mt-1em text-center pt-1/2em pb-1/4em text-red border rounded-md"
           >
-            Wups, something went wrong. Please try again.
+            {ReactHtmlParser(this.state.msg)}
           </div>
         )}
         {this.state.success !== "success" && (

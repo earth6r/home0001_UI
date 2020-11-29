@@ -39,9 +39,25 @@ const serializers = {
     circleLink: ({ mark, children }) => {
       console.log(mark);
       console.log(children);
-      return (
-        <CircleButton title={children} url={mark.href} color={mark.color}></CircleButton>
-      );
+        if (mark.reference) {
+          if(mark.reference._type == "home"){
+            return (
+              <CircleButton title={children} url={mark.reference} color={mark.color}></CircleButton>  
+            );
+          }else if(mark.reference._type == "checkout"){
+            return (
+              <CircleButton title={children} url={mark.reference} color={mark.color}></CircleButton> 
+            );
+          }else{
+            return (
+              <CircleButton title={children} url={mark.reference} color={mark.color}></CircleButton> 
+            );
+          }
+          
+        } else {
+          return <></>;
+        }
+      
     },
     partner: ({ mark, children }) => <div>partner</div>,
     internalLink: ({ mark, children }) => {
