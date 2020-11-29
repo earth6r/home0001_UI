@@ -24,7 +24,7 @@ const MapModule = (props) => {
         {text && (
           <span
             aria-label={`Open Map`}
-            className=""
+            className="inline-block"
           >
             {text}
           </span>
