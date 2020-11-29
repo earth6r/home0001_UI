@@ -59,6 +59,23 @@ export default {
               },
             ],
           },
+           {
+                name:'mapLink',
+                type: 'object',
+                title: 'Map Link',
+                fields: [
+                  {
+                    name: 'lat',
+                    type: 'string',
+                    title: 'latitude'
+                  },
+                  {
+                    name: 'long',
+                    type: 'string',
+                    title: 'longitude'
+                  }
+                ]
+              },
           {
             name: 'buttonLink',
             type: 'object',

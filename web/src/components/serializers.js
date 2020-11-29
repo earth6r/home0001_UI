@@ -1,6 +1,7 @@
 import React from "react";
 import Figure from "./Figure";
 import PopoverModule from "./popover-module";
+import MapModule from "./mapModule";
 import CircleButton from "./global/circleButton";
 // import { InternalLink } from "./global/internalLink";
 import { PageLink } from "./link";
@@ -57,6 +58,15 @@ const serializers = {
           return <></>;
         }
       
+    },
+    mapLink:({ mark, children }) => {
+      return (
+           <MapModule
+              text={children}
+              lat={mark.lat}
+              long={mark.long}
+            />
+      )
     },
     partner: ({ mark, children }) => <div>partner</div>,
     internalLink: ({ mark, children }) => {
