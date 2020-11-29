@@ -69,7 +69,7 @@ const serializers = {
             return (
             <PageLink
               title={mark.reference.content.main.title}
-              to={`/collective/home/${mark.reference.content.main.slug.current}`}
+              to={`/home/${mark.reference.content.main.slug.current}`}
             >
               {children}
             </PageLink>
@@ -78,7 +78,7 @@ const serializers = {
             return (
             <PageLink
               title={mark.reference.content.main.title}
-              to={`/collective/checkout/${mark.reference.content.main.slug.current}`}
+              to={`/checkout/${mark.reference.content.main.slug.current}`}
             >
               {children}
             </PageLink>
@@ -87,7 +87,7 @@ const serializers = {
             return (
             <PageLink
               title={mark.reference.content.main.title}
-              to={`/collective/${mark.reference.content.main.slug.current}`}
+              to={`/${mark.reference.content.main.slug.current}`}
             >
               {children}
             </PageLink>

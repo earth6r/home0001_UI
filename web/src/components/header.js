@@ -55,7 +55,7 @@ const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSu
               <PageLink
                 className="md:pt-1/2em inline-block overflow-hidden"
                 onClick={onHideSubNav}
-                to={item.link ? "/collective/home/"+item.link.content.main.slug.current : " "}
+                to={item.link ? "/home/"+item.link.content.main.slug.current : " "}
               >
                 {item.title} 
               </PageLink>
@@ -138,7 +138,7 @@ const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSu
                       <PageLink
                         className="md:pt-1/2em inline-block"
                         onClick={onHideNav}
-                        to={`/collective/${item.link.content.main.slug.current}`}
+                        to={`/${item.link.content.main.slug.current}`}
                       >
                         {item.title}
                       </PageLink>
