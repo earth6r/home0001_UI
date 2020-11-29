@@ -26,7 +26,7 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
     case "standardText":
       return (
         <>
-          <StandardText data={reactModule as StandardTextProps["data"]} />
+          <StandardText specs={specs} data={reactModule as StandardTextProps["data"]} />
           {reactModule.callibrationMark ? 
          <GridRow></GridRow>
           : ""}

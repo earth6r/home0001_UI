@@ -9,7 +9,7 @@ const serializers = {
   types: {
     authorReference: ({ node }) => <span>{node.author.name}</span>,
     partnerReference: ({ node }) => {
-      // console.log(node);
+
       return (
         <React.Fragment>
           {node.partner.name && node.partner.name !== "Earth" ? (
@@ -37,8 +37,7 @@ const serializers = {
       );
     },
     circleLink: ({ mark, children }) => {
-      console.log(mark);
-      console.log(children);
+
         if (mark.reference) {
           if(mark.reference._type == "home"){
             return (
