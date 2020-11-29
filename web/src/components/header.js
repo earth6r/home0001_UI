@@ -3,8 +3,9 @@ import React, { useState, useEffect } from "react";
 import Icon from "./icon";
 import CircleButton from "./global/circleButton";
 import GridRow from "./grid/grid-row";
+import ReactHtmlParser from "react-html-parser"
 
-const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome }) => {
+const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome, showThinBanner, thinBanner }) => {
   // const containerRef = useRef(null);
   // const { height } = useDimensions(containerRef);
   const [loaded, setLoaded] = useState(false);
@@ -29,9 +30,12 @@ const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSu
       setLoaded(true);
     }, 3000);
   }, []);
-  
+  console.log(showThinBanner)
   return (
     <>
+    {showThinBanner && thinBanner &&
+        <div className="fixed w-full z-50 bg-black text-white" id="thin-banner"><div className="marquee"><div className="marquee-track"><div className="marquee-content text-white">{ReactHtmlParser(thinBanner)}&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;{ReactHtmlParser(thinBanner)}&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;{ReactHtmlParser(thinBanner)}&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;{ReactHtmlParser(thinBanner)}&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;{ReactHtmlParser(thinBanner)}&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;{ReactHtmlParser(thinBanner)}&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;{ReactHtmlParser(thinBanner)}&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;{ReactHtmlParser(thinBanner)}&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;{ReactHtmlParser(thinBanner)}&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;{ReactHtmlParser(thinBanner)}</div></div></div></div>
+    }
       {isHome && submenu && 
       <div style={{ zIndex: "51", minWidth: "30vw", width:"calc(100% - 1.5rem)", borderRadius:"22px" }} className={`${showNav ? "hidden":""} sub-menu absolute mt-10 lg:mt-16 mx-3 lg:mx-5 box-menu px-5 py-2 top-0 right-0 lg:w-auto`} >
         {submenu &&
@@ -73,7 +77,7 @@ const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSu
           ))}
       </div>
     }
-      <header className="fixed z-50 w-full left-0">
+      <header className={`${showThinBanner && thinBanner ? "mt-5" : "" } fixed z-50 w-full left-0`}>
         <div
           className={`${
             showNav ? "h-full" : ""

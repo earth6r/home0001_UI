@@ -25,5 +25,15 @@ export default {
         layout: 'tags',
       },
     },
+    {
+      type: "boolean",
+      name: "showthinbanner",
+      description: "Show thin banner",
+    },
+    {
+      type: "text",
+      name: "thinbanner",
+      description: "Content for thin banner",
+    }
   ],
 }

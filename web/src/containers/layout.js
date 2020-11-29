@@ -51,6 +51,12 @@ const query = graphql`
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
     }
+    showThinBanner:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      showthinbanner
+    }
+    thinBanner:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      thinbanner
+    }
     mainMenu: allSanityMenus(filter: { slug: { current: { eq: "main" } } }) {
       edges {
         node {
@@ -126,6 +132,7 @@ const query = graphql`
 `;
 
 function LayoutContainer(props) {
+
   const [showNav, setShowNav] = useState(false);
   const [showSubNav, setShowSubNav] = useState(false);
   function handleShowNav() {
@@ -152,12 +159,14 @@ function LayoutContainer(props) {
             'Missing "Site settings". Open the Studio at http://localhost:3333 and some content in "Site settings"'
           );
         }
-        // console.log(data);
+        console.log(data);
         return (
           <ThemeProvider>
             <Global styles={GlobalStyles} />
             <Layout
               {...props}
+              showThinBanner={data.showThinBanner.showthinbanner}
+              thinBanner={data.thinBanner.thinbanner}
               showNav={showNav}
               showSubNav = {showSubNav}
               siteTitle={data.site.title}
