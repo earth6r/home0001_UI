@@ -1,0 +1,6 @@
+extends ../layouts/layout.pug
+
+block content
+  h1 Failed Purchase
+  p #{customer.email} <#{customer.email}> attempted to purchased #{product.name} (SKU #{product.sku}), but the order could not be processed.
+  p An email has been sent to the customer asking them to contact EARTH6r

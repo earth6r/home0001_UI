@@ -76,6 +76,7 @@ const CheckoutActions = ({ unit, discount, checkoutId, message, handleClick }) =
         <StripeCheckoutCreateButton handleClick={handleClick} />
         <CoinbaseCommerceButton
           checkoutId={checkoutId} // 9d34a029-7038-4e8c-9fbc-3a897ddb0f46
+          // checkoutId={`9d34a029-7038-4e8c-9fbc-3a897ddb0f46`}
           onChargeSuccess={(messageData) => navigate("/checkout/success")}
           onChargeFailure={(messageData) => navigate("/checkout/error")}
         />
@@ -96,7 +97,7 @@ export default function CheckoutCreate({ discount, unit, sku, checkoutId, stripe
     }
 
     if (query.get("canceled")) {
-      setMessage("Order canceled -- continue to shop around and checkout when you're ready.");
+      setMessage("Order canceled - continue to shop around and checkout when you're ready.");
     }
   }, []);
 

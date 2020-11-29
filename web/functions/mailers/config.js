@@ -8,13 +8,13 @@ module.exports = function (emailUsername) {
   this["checkout-success"] = function (opts) {
     return {
       templateOptions: {
-        name: opts.name,
-        email: opts.email,
+        session: opts.session,
+        customer: opts.customer,
         product: opts.product,
       },
       transporterOptions: {
         from,
-        to: opts.email,
+        to: opts.customer.email,
         subject: "Thank you for your purchase",
       },
     };
@@ -23,14 +23,44 @@ module.exports = function (emailUsername) {
   this["admin-checkout-success"] = function (opts) {
     return {
       templateOptions: {
-        name: opts.name,
-        email: opts.email,
+        session: opts.session,
+        customer: opts.customer,
         product: opts.product,
       },
       transporterOptions: {
         from,
         to: defaults.from,
         subject: "A unit has been purchased",
+      },
+    };
+  };
+
+  this["checkout-failure"] = function (opts) {
+    return {
+      templateOptions: {
+        session: opts.session,
+        customer: opts.customer,
+        product: opts.product,
+      },
+      transporterOptions: {
+        from,
+        to: opts.customer.email,
+        subject: "There was a problem with your order",
+      },
+    };
+  };
+
+  this["admin-checkout-failure"] = function (opts) {
+    return {
+      templateOptions: {
+        session: opts.session,
+        customer: opts.customer,
+        product: opts.product,
+      },
+      transporterOptions: {
+        from,
+        to: defaults.from,
+        subject: "There was a problem with an order",
       },
     };
   };

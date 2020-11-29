@@ -20,8 +20,6 @@ const stripe = require("stripe")(process.env.GATSBY_STRIPE_SECRET_KEY, {
  * so you know the pricing information is accurate.
  */
 
-// const inventory = require("./data/products.json");
-
 const builder = imageUrlBuilder({
   projectId: "m8l686jf",
   dataset: "production",
@@ -77,6 +75,46 @@ exports.handler = async (event) => {
   const { sku, discount } = JSON.parse(event.body);
   let product;
 
+  // const prevSession = await stripe.checkout.sessions.retrieve(
+  //   "cs_test_a16avBuli0UhFqJff8zMkWIB4gx1KCWZiMJOJeJySi3c0gZo3VemJTNZ7O"
+  // );
+
+  // const customer = await stripe.customers.retrieve("cus_ITimVU8rpIzWQr");
+
+  // console.log("customer", customer);
+
+  // {
+  //   id: 'cs_test_a16avBuli0UhFqJff8zMkWIB4gx1KCWZiMJOJeJySi3c0gZo3VemJTNZ7O',
+  //   object: 'checkout.session',
+  //   allow_promotion_codes: null,
+  //   amount_subtotal: 30000,
+  //   amount_total: 30000,
+  //   billing_address_collection: 'auto',
+  //   cancel_url: 'http://localhost:8888',
+  //   client_reference_id: null,
+  //   currency: 'usd',
+  //   customer: 'cus_ITimVU8rpIzWQr',
+  //   customer_email: null,
+  //   livemode: false,
+  //   locale: null,
+  //   metadata: {
+  //     items: '[{"sku":"MEMB001","name":"EARTH Membership","quantity":1}]'
+  //   },
+  //   mode: 'payment',
+  //   payment_intent: 'pi_1HslKBEYm5vIOkXEKUSgz4Tn',
+  //   payment_method_types: [ 'alipay', 'card' ],
+  //   payment_status: 'paid',
+  //   setup_intent: null,
+  //   shipping: null,
+  //   shipping_address_collection: null,
+  //   submit_type: null,
+  //   subscription: null,
+  //   success_url: 'http://localhost:8888/checkout/success',
+  //   total_details: { amount_discount: 0, amount_tax: 0 }
+  // }
+
+  // console.log("prevSession", prevSession);
+
   // Handle memberships separately since unnecessary to check if they're available
   if (sku === "MEMB001") {
     product = {
@@ -107,8 +145,6 @@ exports.handler = async (event) => {
 
   product.amount = discount ? 20000 : 30000;
 
-  // const product = inventory.find((p) => p.sku === sku);
-
   // ensure that the quantity is within the allowed range
   // const validatedQuantity = quantity > 0 && quantity < 11 ? quantity : 1;
   const validatedQuantity = 1;
@@ -132,7 +168,7 @@ exports.handler = async (event) => {
      * https://docs.netlify.com/configure-builds/environment-variables/
      */
     success_url: `${process.env.SITE_URL}/checkout/success`,
-    cancel_url: process.env.SITE_URL,
+    cancel_url: `${process.env.SITE_URL}/checkout/cancel`,
     line_items: [
       {
         price_data: {

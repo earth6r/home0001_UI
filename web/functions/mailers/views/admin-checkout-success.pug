@@ -1,0 +1,6 @@
+extends ../layouts/layout.pug
+
+block content
+  h1 New Purchase
+  p #{customer.email} <#{customer.email}> has purchased #{product.name} (SKU #{product.sku})
+  p The order total is #{session.currency.toUpperCase()} #{session.amount_total / 100}
