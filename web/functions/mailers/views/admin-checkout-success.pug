@@ -2,5 +2,9 @@ extends ../layouts/layout.pug
 
 block content
   h1 New Purchase
-  p #{customer.email} <#{customer.email}> has purchased #{product.name} (SKU #{product.sku})
+  p #{customer.email} <#{customer.email}> has purchased #{product.name}
+    if product.invoiceId
+      span #{' '}(Invoice ID #{product.invoiceId})
+    else
+      span #{' '}(SKU #{product.sku})
   p The order total is #{session.currency.toUpperCase()} #{session.amount_total / 100}

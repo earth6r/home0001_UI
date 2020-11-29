@@ -31,7 +31,7 @@ export const query = graphql`
             }
             title
             bedrooms
-            checkoutId
+            bitPayID
             price
             _rawFloorPlan
             _rawFloorPlanCaption
@@ -101,14 +101,14 @@ const CheckoutTemplate = (props) => {
   let home;
   let unit;
   let sku;
-  let checkoutId;
+  let bitPayID;
   let discount;
 
   if (ssr) {
     const searchParams = new URLSearchParams(window.location.search);
 
     sku = searchParams.get("sku");
-    checkoutId = searchParams.get("checkoutId");
+    bitPayID = searchParams.get("bitPayID");
     discount = searchParams.get("discount") === "balaji";
 
     const homes = (data.homes.edges || []).map(({ node }) => node);
@@ -129,7 +129,7 @@ const CheckoutTemplate = (props) => {
     // Set default membership item
     if (!sku || !home || !unit) {
       sku = "MEMB001";
-      checkoutId = "ABCDEFG"; // TODO
+      bitPayID = "ABCDEFG"; // TODO
     }
   }
 
@@ -148,7 +148,7 @@ const CheckoutTemplate = (props) => {
                 home={home}
                 unit={unit}
                 sku={sku}
-                checkoutId={checkoutId}
+                bitPayID={bitPayID}
                 discount={discount}
                 stripePromise={stripePromise}
               />

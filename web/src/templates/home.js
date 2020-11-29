@@ -152,7 +152,7 @@ const HomeTemplate = (props) => {
                             {item.sold !== 1 && item.stripeSKU && (
                               <PageLink
                                 className="box box-black rounded-md w-full block text-center leading-none h-2em pt-1/4em flex items-center justify-center text-mobileBody md:text-desktopBody "
-                                to={`/checkout/${slug.current}?sku=${item.stripeSKU}&checkoutId=${item.checkoutId}`}
+                                to={`/checkout/${slug.current}?sku=${item.stripeSKU}&bitPayID=${item.bitPayID}`}
                               >
                                 Reserve Now
                               </PageLink>

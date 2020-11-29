@@ -2,16 +2,30 @@ import React, { useState, useEffect } from "react";
 import { navigate } from "@reach/router";
 import CoinbaseCommerceButton from "react-coinbase-commerce";
 // import getMemberPrice from "../utils/get-member-price";
-import "react-coinbase-commerce/dist/coinbase-commerce-button.css";
+// import "react-coinbase-commerce/dist/coinbase-commerce-button.css";
 import { imageUrlFor } from "../lib/image-url";
 import { buildImageObj } from "../lib/helpers";
 
-// TODO get product data
 const StripeCheckoutCreateButton = ({ handleClick }) => (
   <button id="checkout-button" role="link" onClick={handleClick}>
     Checkout with Stripe
   </button>
 );
+
+const BitPayCheckoutButton = ({ bitPayID }) => (
+  <form action="https://test.bitpay.com/checkout" method="post">
+    <input type="hidden" name="action" value="checkout" />
+    <input type="hidden" name="posData" value="" />
+    <input
+      type="hidden"
+      name="data"
+      value={bitPayID}
+      value="8i9z07Urk0j2YyISpSvcMlpcnbPuCVN0VA5k6ZtbFu/oN/hvP+i42ilIxjZkqSTOgum96D0V4+9meApk6LJgJLxBoT9x5hawpU5BzaTshmHvIMUf77SVcq9e/UNbAq7gfaFxPgh/tcQyfcE/fw6fAaYI6PwMTqzU8ojHROTsMpuvddyPYZAJOxxSvf/YHys7H6evuDEngH7C/qDavKG0G+Gk2YrNjiPqAvSsuKZyInzZznwFvNpBOOvE7nfJKvdJxYvC3BOKO+n5t01s2W38mdIn/zOuzDTA0f0HPE3ZIqBk1HAtigHk4bAy2L0r28+2z8mt5UdUJIBhycLv9M1fthTzZtZqG8YjOIwZq59QgoVbCVq0ziNxSU9PJOTpLBox"
+    />
+    <input className="e-checkout" type="submit" value="Checkout with BitPay" />
+  </form>
+);
+
 const Message = ({ message }) => (
   <section className="pt-1em">
     <p>{message}</p>
@@ -66,7 +80,7 @@ const ProductDetails = ({ discount, unit }) => {
   return <UnitProductDetails discount={discount} unit={unit} />;
 };
 
-const CheckoutActions = ({ unit, discount, checkoutId, message, handleClick }) => {
+const CheckoutActions = ({ unit, discount, bitPayID, message, handleClick }) => {
   if (message) return <Message message={message} />;
 
   return (
@@ -74,18 +88,20 @@ const CheckoutActions = ({ unit, discount, checkoutId, message, handleClick }) =
       <section>
         <ProductDetails discount={discount} unit={unit} />
         <StripeCheckoutCreateButton handleClick={handleClick} />
-        <CoinbaseCommerceButton
-          checkoutId={checkoutId}
-          // checkoutId={`9d34a029-7038-4e8c-9fbc-3a897ddb0f46`}
-          onChargeSuccess={(messageData) => navigate("/checkout/success")}
-          onChargeFailure={(messageData) => navigate("/checkout/error")}
-        />
+        <BitPayCheckoutButton bitPayID={bitPayID} />
+
+        {/* <CoinbaseCommerceButton
+        checkoutId={checkoutId}
+        // checkoutId={`9d34a029-7038-4e8c-9fbc-3a897ddb0f46`}
+        onChargeSuccess={(messageData) => navigate("/checkout/success")}
+        onChargeFailure={(messageData) => navigate("/checkout/error")}
+        */}
       </section>
     </>
   );
 };
 
-export default function CheckoutCreate({ discount, unit, sku, checkoutId, stripePromise }) {
+export default function CheckoutCreate({ discount, unit, sku, bitPayID, stripePromise }) {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
@@ -138,7 +154,7 @@ export default function CheckoutCreate({ discount, unit, sku, checkoutId, stripe
   return (
     <CheckoutActions
       unit={unit}
-      checkoutId={checkoutId}
+      bitPayID={bitPayID}
       discount={discount}
       message={message}
       handleClick={handleClick}
