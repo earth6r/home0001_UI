@@ -89,9 +89,15 @@ export default {
             },
             fields: [
               {
-                title: 'URL',
-                name: 'href',
-                type: 'url',
+                name: 'reference',
+                type: 'reference',
+                title: 'Reference',
+                to: [
+                  { type: 'page' },
+                  { type: 'checkout' },
+                  { type: 'home' },
+                  // other types you may want to link to
+                ],
               },
               {
                 title: 'Color',
