@@ -144,12 +144,12 @@ const HomeTemplate = (props) => {
                               </div>
                             }
                             {item.floorPlan && (
-                              <div className="max-w-sm mx-auto mb-2em md:w-9/12 md:inline-block">
+                              <div className="mx-auto mb-2em md:w-9/12 md:inline-block">
                                 <Figure node={item.floorPlan} />
                               </div>
                             )}
                             {item.floorPlanCaption && (
-                              <div className="mb-1em md:text-desktopCaption">
+                              <div className="mb-1em text-right px-2 md:text-desktopCaption">
                                 <PortableText blocks={item.floorPlanCaption} />
                               </div>
                             )}
