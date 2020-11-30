@@ -28,6 +28,11 @@ const serializers = {
     mainImage: Figure,
   },
   marks: {
+    image: ({mark,children}) => {
+      return(
+        <img className="my-3" src={mark.asset.url} />
+        )
+    },
     buttonLink: ({ mark, children }) => {
       // console.log(mark);
       // console.log(children);

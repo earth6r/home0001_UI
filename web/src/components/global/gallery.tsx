@@ -86,6 +86,7 @@ const Gallery = (props) => {
       <div className={`mx-mobile md:mx-desktop relative flex flex-wrap ${direction}`}>
         {randImages &&
           randImages.map((image, index) => {
+            console.log(image)
             if(image && (image._type == "mainImage")){
             //get ratio of image
               if (image.asset !== undefined) {

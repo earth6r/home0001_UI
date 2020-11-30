@@ -32,12 +32,14 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
               {({ isExpanded }) => (
                 <>
                   <AccordionHeader>
-                    <h2 className="m-0 underline -mt-1/4em md:mt-0">{item.title}</h2>
+                    <h2 className="m-0 underline -mt-1/4em md:mt-0">{item.title}{item.flag && item.flag.length > 0}{
+                      <div style={{background: item.flagcolor ? item.flagcolor : "none"}} className="flag inline-block align-top">{item.flag}</div>
+                    }</h2>
                     <div
                       style={{ marginTop: "-.15em" }}
                       className="accordion-icon right-0 absolute pr-1em"
                     >
-        
+
                     </div>
                   </AccordionHeader>
                   <AccordionPanel className="pb-1em pl-20">

@@ -1,4 +1,5 @@
 import ButtonRenderer from './buttonRenderer'
+import ImageRenderer from './imageRenderer'
 import CircleRenderer from './circleRenderer'
 
 export default {
@@ -127,7 +128,24 @@ export default {
           },
         ],
       },
-      of: [{ type: 'partnerReference' }],
+      of: [{ type: 'partnerReference' },  {
+          type: 'image',
+          fields: [
+            {
+              type: 'text',
+              name: 'alt',
+              title: 'Alternative text',
+              description: `Some of your visitors cannot see images, 
+                be they blind, color-blind, low-sighted; 
+                alternative text is of great help for those 
+                people that can rely on it to have a good idea of 
+                what\'s on your page.`,
+              options: {
+                isHighlighted: true
+              }
+            }
+          ]
+        }],
     },
     
     // You can add additional types here. Note that you can't use

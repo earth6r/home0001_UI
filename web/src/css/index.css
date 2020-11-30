@@ -114,6 +114,12 @@ small {
   font-size:inherit;
   line-height: inherit;
 }
+.rte .article-accordion .flag{
+  font-size:12px;
+  line-height: 1;
+  padding:2px;
+  margin:0 15px;
+}
 /* end R & D*/
 @media only screen and (max-width: 768px) {
   .gallery-image {
