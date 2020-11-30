@@ -54,7 +54,7 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
       // alert(reactModule.images.length);
       return (
         <>
-          <Gallery images={reactModule.images} url={reactModule.url} />
+          <Gallery images={reactModule.images} embeds={reactModule.embeds} url={reactModule.url} />
           {reactModule.callibrationMark ? 
          <GridRow></GridRow>
           : ""}

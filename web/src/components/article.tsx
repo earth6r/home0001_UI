@@ -27,20 +27,20 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
           <React.Fragment key={item._key}>
             <AccordionItem
               defaultIsOpen={false}
-              className=""
+              className="article-accordion"
             >
               {({ isExpanded }) => (
                 <>
-                  <AccordionHeader className="">
-                    <h2 className="m-0  -mt-1/4em md:mt-0">{item.title}</h2>
+                  <AccordionHeader>
+                    <h2 className="m-0 underline -mt-1/4em md:mt-0">{item.title}</h2>
                     <div
                       style={{ marginTop: "-.15em" }}
                       className="accordion-icon right-0 absolute pr-1em"
                     >
-                      {isExpanded ? "–" : "+"}
+        
                     </div>
                   </AccordionHeader>
-                  <AccordionPanel className="pb-1em">
+                  <AccordionPanel className="pb-1em pl-20">
                     <PortableText blocks={item.text} />
                   </AccordionPanel>
                 </>

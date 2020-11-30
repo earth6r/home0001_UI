@@ -21,6 +21,16 @@ export default {
       ],
     },
     {
+      name: 'embeds',
+      title: 'Embed',
+      type: 'array',
+      of: [
+        {
+          type: 'text',
+        },
+      ],
+    },
+    {
       name: 'url',
       // label: 'CTA',
       type: 'circleButton',
