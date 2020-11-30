@@ -7,7 +7,8 @@ var shuffle = require("shuffle-array");
 
 const Gallery = (props) => {
   const { images, url, embeds } = props;
-  const randImages = images ? shuffle(images.concat(embeds)).filter(Boolean) : []; 
+  const myImages = images ? shuffle(images).filter(Boolean) : []; 
+  const randImages = embeds ? shuffle(images.concat(embeds)) : myImages;
   const justify = ["justify-start", "justify-center", "justify-between", "justify-end"];
   const [direction, setDirection] = useState();
 
@@ -64,6 +65,7 @@ const Gallery = (props) => {
 
   function row() {
     for (let i = 0; i < gridLen; i++) {
+      if(randImages[i]){
       return (
         <div
           key={`${randImages[i]._key}-grid-$`}
@@ -73,6 +75,7 @@ const Gallery = (props) => {
           <GridRow />
         </div>
       );
+    }
     }
   }
   useEffect(() => {
