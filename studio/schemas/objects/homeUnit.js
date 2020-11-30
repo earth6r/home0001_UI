@@ -49,9 +49,9 @@ export default {
       type: 'string'
     },
     {
-      title: 'Coinbase ID',
-      name: 'checkoutId',
-      type: 'string'
+      title: 'BitPay ID',
+      name: 'bitPayID',
+      type: 'text'
     }
   ]
 }
