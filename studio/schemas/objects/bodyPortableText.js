@@ -132,6 +132,11 @@ export default {
           type: 'image',
           fields: [
             {
+              type:'boolean',
+              name: 'fullwidth',
+              title: 'Should img be full width'
+            },
+            {
               type: 'text',
               name: 'alt',
               title: 'Alternative text',
