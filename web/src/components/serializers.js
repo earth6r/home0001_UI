@@ -9,6 +9,11 @@ import { PageLink } from "./link";
 const serializers = {
   types: {
     authorReference: ({ node }) => <span>{node.author.name}</span>,
+    image: ({node}) => {
+      return (
+        <img src={node.asset.url} className={`${node.fullwidth ? "w-full" : "w-6/12"} my-3`}/>
+        )
+    },
     partnerReference: ({ node }) => {
 
       return (
