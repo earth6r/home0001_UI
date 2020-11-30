@@ -7,7 +7,7 @@ var shuffle = require("shuffle-array");
 
 const Gallery = (props) => {
   const { images, url, embeds } = props;
-  const randImages = images ? shuffle(images.concat(embeds)) : [];
+  const randImages = images ? shuffle(images.concat(embeds)).filter(Boolean) : []; 
   const justify = ["justify-start", "justify-center", "justify-between", "justify-end"];
   const [direction, setDirection] = useState();
 
