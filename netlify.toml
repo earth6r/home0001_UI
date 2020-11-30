@@ -27,7 +27,7 @@
   ./node_modules/.bin/babel --plugins transform-inline-environment-variables web/functions/create-checkout.js -o web/functions/create-checkout.js && \
   ./node_modules/.bin/babel --plugins transform-inline-environment-variables web/functions/mailers/send.js -o web/functions/mailers/send.js && \
   ./node_modules/.bin/babel --plugins transform-inline-environment-variables web/functions/handle-stripe-purchase.js -o web/functions/handle-stripe-purchase.js && \
-  ./node_modules/.bin/babel --plugins transform-inline-environment-variables web/functions/mailers/handle-bitpay-purchase.js -o web/functions/mailers/handle-bitpay-purchase.js && \
+  ./node_modules/.bin/babel --plugins transform-inline-environment-variables web/functions/handle-bitpay-purchase.js -o web/functions/handle-bitpay-purchase.js && \
   npm run build-web\
 """
 

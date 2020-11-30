@@ -18,8 +18,8 @@ const fetch = require("node-fetch");
 exports.handler = async (event) => {
   console.log("event", event);
 
-  // const { id: invoiceId } = event;
-  const invoiceId = "3NaLZ4u3rqEzPq77oGTqjK";
+  const { id: invoiceId } = event;
+  // const invoiceId = "3NaLZ4u3rqEzPq77oGTqjK";
 
   const resourceURL = `${process.env.BITPAY_API_URL}/invoices`;
   const token = process.env.BITPAY_POS_TOKEN;
