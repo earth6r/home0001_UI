@@ -20,5 +20,10 @@
     "eslint-config-prettier": "^6.15.0",
     "lerna": "^3.13.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "google-map-react": "^2.1.9",
+    "google-maps-react": "^2.0.6",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
 }

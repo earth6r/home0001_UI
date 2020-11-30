@@ -138,14 +138,18 @@ const HomeTemplate = (props) => {
                         </AccordionHeader>
                         <AccordionPanel className="pb-1em">
                           <div>
-                            {item.text && <PortableText blocks={item.text} />}
+                            {item.text && 
+                              <div className="md:inline-block align-top md:text-desktopCaption md:w-3/12">
+                                <PortableText blocks={item.text} />
+                              </div>
+                            }
                             {item.floorPlan && (
-                              <div className="max-w-sm mx-auto mb-2em">
+                              <div className="mx-auto mb-2em md:w-9/12 md:inline-block">
                                 <Figure node={item.floorPlan} />
                               </div>
                             )}
                             {item.floorPlanCaption && (
-                              <div className="mb-1em">
+                              <div className="mb-1em text-right px-2 md:text-desktopCaption">
                                 <PortableText blocks={item.floorPlanCaption} />
                               </div>
                             )}

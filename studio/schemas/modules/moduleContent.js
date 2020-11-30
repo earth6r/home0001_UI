@@ -4,6 +4,9 @@ export default {
   type: 'array',
   of: [
     {
+      type: 'article',
+    },
+    {
       type: 'gallery',
     },
     {

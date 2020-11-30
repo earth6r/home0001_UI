@@ -77,7 +77,7 @@ const IndexPage = (props) => {
   }
 
   return (
-    <Layout>
+    <Layout rnd={true}>
     {meta &&
       <SEO
         title={site.title}

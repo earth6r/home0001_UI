@@ -1,6 +1,7 @@
 import React from "react";
 import Figure from "./Figure";
 import PopoverModule from "./popover-module";
+import MapModule from "./mapModule";
 import CircleButton from "./global/circleButton";
 // import { InternalLink } from "./global/internalLink";
 import { PageLink } from "./link";
@@ -9,7 +10,7 @@ const serializers = {
   types: {
     authorReference: ({ node }) => <span>{node.author.name}</span>,
     partnerReference: ({ node }) => {
-      // console.log(node);
+
       return (
         <React.Fragment>
           {node.partner.name && node.partner.name !== "Earth" ? (
@@ -37,8 +38,7 @@ const serializers = {
       );
     },
     circleLink: ({ mark, children }) => {
-      console.log(mark);
-      console.log(children);
+
         if (mark.reference) {
           if(mark.reference._type == "home"){
             return (
@@ -59,6 +59,15 @@ const serializers = {
         }
       
     },
+    mapLink:({ mark, children }) => {
+      return (
+           <MapModule
+              text={children}
+              lat={mark.lat}
+              long={mark.long}
+            />
+      )
+    },
     partner: ({ mark, children }) => <div>partner</div>,
     internalLink: ({ mark, children }) => {
       // console.log(mark.reference.content.main.slug);
@@ -69,7 +78,7 @@ const serializers = {
             return (
             <PageLink
               title={mark.reference.content.main.title}
-              to={`/collective/home/${mark.reference.content.main.slug.current}`}
+              to={`/home/${mark.reference.content.main.slug.current}`}
             >
               {children}
             </PageLink>
@@ -78,7 +87,7 @@ const serializers = {
             return (
             <PageLink
               title={mark.reference.content.main.title}
-              to={`/collective/checkout/${mark.reference.content.main.slug.current}`}
+              to={`/checkout/${mark.reference.content.main.slug.current}`}
             >
               {children}
             </PageLink>
@@ -87,7 +96,7 @@ const serializers = {
             return (
             <PageLink
               title={mark.reference.content.main.title}
-              to={`/collective/${mark.reference.content.main.slug.current}`}
+              to={`/${mark.reference.content.main.slug.current}`}
             >
               {children}
             </PageLink>

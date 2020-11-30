@@ -1,5 +1,5 @@
 import React from "react";
-
+import { ArticleModule, ArticleModuleProps } from "./article";
 import { StandardText, StandardTextProps } from "./global/standardText";
 import { NestedPages, NestedPagesProps } from "./global/nestedPages";
 import { AccordionModule } from "./global/accordion";
@@ -26,7 +26,16 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
     case "standardText":
       return (
         <>
-          <StandardText data={reactModule as StandardTextProps["data"]} />
+          <StandardText specs={specs} data={reactModule as StandardTextProps["data"]} />
+          {reactModule.callibrationMark ? 
+         <GridRow></GridRow>
+          : ""}
+        </>
+      );
+    case "article":
+      return (
+        <>
+          <ArticleModule data={reactModule as ArticleModuleProps["data"]} />
           {reactModule.callibrationMark ? 
          <GridRow></GridRow>
           : ""}
@@ -45,7 +54,7 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
       // alert(reactModule.images.length);
       return (
         <>
-          <Gallery images={reactModule.images} url={reactModule.url} />
+          <Gallery images={reactModule.images} embeds={reactModule.embeds} url={reactModule.url} />
           {reactModule.callibrationMark ? 
          <GridRow></GridRow>
           : ""}

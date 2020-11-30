@@ -53,18 +53,29 @@ export default {
             title: 'Internal link',
             fields: [
               {
-                name: 'reference',
-                type: 'reference',
-                title: 'Reference',
-                to: [
-                  { type: 'page' },
-                  { type: 'checkout' },
-                  { type: 'home' },
-                  // other types you may want to link to
-                ],
+                name: 'title',
+                title: 'Title',
+                type: 'string',
               },
             ],
           },
+           {
+                name:'mapLink',
+                type: 'object',
+                title: 'Map Link',
+                fields: [
+                  {
+                    name: 'lat',
+                    type: 'string',
+                    title: 'latitude'
+                  },
+                  {
+                    name: 'long',
+                    type: 'string',
+                    title: 'longitude'
+                  }
+                ]
+              },
           {
             name: 'buttonLink',
             type: 'object',

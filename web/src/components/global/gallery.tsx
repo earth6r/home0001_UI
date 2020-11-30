@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { GalleryImage } from "../gallery-image";
 import GridRow from "../grid/grid-row";
+import ReactHtmlParser from "react-html-parser";
 import CircleButton from "./circleButton";
 var shuffle = require("shuffle-array");
 
 const Gallery = (props) => {
-  const { images, url } = props;
-  const randImages = images ? shuffle(images) : [];
+  const { images, url, embeds } = props;
+  const randImages = images ? shuffle(images.concat(embeds)) : [];
   const justify = ["justify-start", "justify-center", "justify-between", "justify-end"];
   const [direction, setDirection] = useState();
 
@@ -82,64 +83,71 @@ const Gallery = (props) => {
       <div className={`mx-mobile md:mx-desktop relative flex flex-wrap ${direction}`}>
         {randImages &&
           randImages.map((image, index) => {
+            if(image && (image._type == "mainImage")){
             //get ratio of image
-            if (image.asset !== undefined) {
-              let order = index;
-              let ratio =
-                image.asset !== undefined
-                  ? image.asset.metadata.dimensions.height > image.asset.metadata.dimensions.width
-                    ? "portrait"
-                    : "landscape"
-                  : "portrait";
-              remainingWidth =
-                ratio == "portrait"
-                  ? Math.floor(
-                      Math.random() * (maxPortraitWidth - minPortraitWidth) + minPortraitWidth
-                    )
-                  : Math.floor(
-                      Math.random() * (maxLandscapeWidth - minLandscapeWidth) + minLandscapeWidth
-                    );
-              if (!image.lead) {
-                remainingMobileWidth =
+              if (image.asset !== undefined) {
+                let order = index;
+                let ratio =
+                  image.asset !== undefined
+                    ? image.asset.metadata.dimensions.height > image.asset.metadata.dimensions.width
+                      ? "portrait"
+                      : "landscape"
+                    : "portrait";
+                remainingWidth =
                   ratio == "portrait"
                     ? Math.floor(
-                        Math.random() * (maxMobilePortraitWidth - minMobilePortraitWidth) +
-                          minMobilePortraitWidth
+                        Math.random() * (maxPortraitWidth - minPortraitWidth) + minPortraitWidth
                       )
                     : Math.floor(
-                        Math.random() * (maxMobileLandscapeWidth - minMobileLandscapeWidth) +
-                          minMobileLandscapeWidth
+                        Math.random() * (maxLandscapeWidth - minLandscapeWidth) + minLandscapeWidth
                       );
+                if (!image.lead) {
+                  remainingMobileWidth =
+                    ratio == "portrait"
+                      ? Math.floor(
+                          Math.random() * (maxMobilePortraitWidth - minMobilePortraitWidth) +
+                            minMobilePortraitWidth
+                        )
+                      : Math.floor(
+                          Math.random() * (maxMobileLandscapeWidth - minMobileLandscapeWidth) +
+                            minMobileLandscapeWidth
+                        );
+                } else {
+                  remainingMobileWidth =
+                    ratio == "portrait"
+                      ? Math.floor(
+                          Math.random() * (maxMobileLeadPortraitWidth - minMobileLeadPortraitWidth) +
+                            minMobileLeadPortraitWidth
+                        )
+                      : Math.floor(
+                          Math.random() *
+                            (maxMobileLeadLandscapeWidth - minMobileLeadLandscapeWidth) +
+                            minMobileLeadLandscapeWidth
+                        );
+                }
+
+                return (
+                  <GalleryImage
+                    width="1399"
+                    remainingWidth={remainingWidth}
+                    remainingMobileWidth={remainingMobileWidth}
+                    key={image._key}
+                    order={order}
+                    imageId={image.asset._id}
+                    caption={image.caption}
+                    lead={image.lead}
+                    ratio={ratio}
+                    remainingMargin={remainingMargin}
+                  />
+                );
               } else {
-                remainingMobileWidth =
-                  ratio == "portrait"
-                    ? Math.floor(
-                        Math.random() * (maxMobileLeadPortraitWidth - minMobileLeadPortraitWidth) +
-                          minMobileLeadPortraitWidth
-                      )
-                    : Math.floor(
-                        Math.random() *
-                          (maxMobileLeadLandscapeWidth - minMobileLeadLandscapeWidth) +
-                          minMobileLeadLandscapeWidth
-                      );
+                return <></>;
               }
 
-              return (
-                <GalleryImage
-                  width="1399"
-                  remainingWidth={remainingWidth}
-                  remainingMobileWidth={remainingMobileWidth}
-                  key={image._key}
-                  order={order}
-                  imageId={image.asset._id}
-                  caption={image.caption}
-                  lead={image.lead}
-                  ratio={ratio}
-                  remainingMargin={remainingMargin}
-                />
-              );
             } else {
-              return <></>;
+              return(
+                <div className="gallery-image w-9/20 md:w-8/20 md:py-0 self-undefined mx-auto">{ReactHtmlParser(image)}</div>
+              )
             }
           })}
         {/* randomly place circle image in an order between 1 and gallery image set length  */}

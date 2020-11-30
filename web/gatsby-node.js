@@ -77,7 +77,7 @@ async function createSitePages(graphql, actions) {
       const slug = edge.node.content.main.slug;
       console.log(slug);
       // const dateSegment = format(publishedAt, "YYYY/MM");
-      const path = `/collective/${slug.current}/`;
+      const path = `/${slug.current}/`;
 
       createPage({
         path,
@@ -164,7 +164,7 @@ async function createHomes(graphql, actions) {
       const slug = edge.node.content.main.slug;
       // console.log(slug);
       // const dateSegment = format(publishedAt, "YYYY/MM");
-      const path = `/collective/home/${slug.current}/`;
+      const path = `/home/${slug.current}/`;
 
       createPage({
         path,

@@ -42,6 +42,8 @@ import homeUnit from './objects/homeUnit'
 
 // Modules
 import accordion from './modules/accordion'
+import article from './modules/article'
+import articleItem from './modules/articleItem'
 import accordionItem from './modules/accordionItem'
 import externalLink from './modules/externalLink'
 import internalLink from './modules/internalLink'
@@ -90,6 +92,7 @@ export default createSchema({
     accordionItem,
     category,
     author,
+    article,
     rnd,
     partner,
     mainImage,
@@ -112,6 +115,7 @@ export default createSchema({
     imageModule,
     moduleContent,
     gallery,
+    articleItem,
     metaCard,
     blockContent,
     blockText,

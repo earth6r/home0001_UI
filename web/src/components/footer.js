@@ -25,8 +25,8 @@ const Footer = ({ footerMenu }) => {
       <footer className="pt-1em md:pt-0 pb-1em md:pb-desktop container text-nav md:text-desktopNav flex flex-col uppercase left-0 md:block">
         <GridRow></GridRow>
         <nav className="relative">
-          <ul className="flex flex-wrap md:flex-row md:justify-between relative">
-            <li className="mr-1em mb-1em md:mb-0 w-full md:w-auto">
+          <ul className="flex flex-wrap md:flex-row md:justify-between justify-between  relative">
+            <li className="md:mr-1em mb-1em md:mb-0 md:w-auto">
               <button onClick={onOpen} className="uppercase" role="Open newsletter">
                 Newsletter
               </button>
@@ -36,7 +36,7 @@ const Footer = ({ footerMenu }) => {
                 switch (item._type) {
                   case "internalLink":
                     return (
-                      <li className="mr-1em" key={item._key}>
+                      <li className="md:mr-1em" key={item._key}>
                         <Link to={`/${item.link.content.main.slug.current}`}>
                           {item.link.content.main.title}
                         </Link>
