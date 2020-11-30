@@ -1,5 +1,5 @@
 import React from "react";
-
+import { ArticleModule, ArticleModuleProps } from "./article";
 import { StandardText, StandardTextProps } from "./global/standardText";
 import { NestedPages, NestedPagesProps } from "./global/nestedPages";
 import { AccordionModule } from "./global/accordion";
@@ -27,6 +27,15 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
       return (
         <>
           <StandardText specs={specs} data={reactModule as StandardTextProps["data"]} />
+          {reactModule.callibrationMark ? 
+         <GridRow></GridRow>
+          : ""}
+        </>
+      );
+    case "article":
+      return (
+        <>
+          <ArticleModule data={reactModule as ArticleModuleProps["data"]} />
           {reactModule.callibrationMark ? 
          <GridRow></GridRow>
           : ""}
