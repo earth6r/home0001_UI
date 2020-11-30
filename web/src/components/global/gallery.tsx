@@ -86,7 +86,7 @@ const Gallery = (props) => {
       <div className={`mx-mobile md:mx-desktop relative flex flex-wrap ${direction}`}>
         {randImages &&
           randImages.map((image, index) => {
-            console.log(image)
+
             if(image && (image._type == "mainImage")){
             //get ratio of image
               if (image.asset !== undefined) {
@@ -150,7 +150,7 @@ const Gallery = (props) => {
 
             } else {
               return(
-                <div className="gallery-image w-9/20 md:w-8/20 md:py-0 self-undefined mx-auto">{ReactHtmlParser(image)}</div>
+                <div key={index} className="gallery-image w-9/20 md:w-8/20 md:py-0 self-undefined mx-auto">{ReactHtmlParser(image)}</div>
               )
             }
           })}

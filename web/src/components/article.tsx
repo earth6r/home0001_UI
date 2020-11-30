@@ -15,15 +15,19 @@ import GridRow from "./grid/grid-row";
 
 export interface ArticleModuleProps {
   data: {
+    title: any;
     articleItems: any[];
   };
 }
 
 export const ArticleModule = ({ data }: AccordionModuleProps) => {
-  const { articleItems } = data;
-  // console.log(data);
+  const { articleItems, title } = data;
 
   return (
+    <>
+    {title &&
+      <div className="md:text-desktopCaption uppercase">{title}</div>
+    }
     <Accordion allowMultiple={false} className=" w-full">
       {articleItems.length > 0 &&
         articleItems.map((item, index) => (
@@ -64,5 +68,6 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
           </React.Fragment>
         ))}
     </Accordion>
+    </>
   );
 };
