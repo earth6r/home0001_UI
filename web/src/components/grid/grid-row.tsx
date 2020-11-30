@@ -2,7 +2,7 @@ import React, { useRef, useLayoutEffect, useState } from "react";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 import Marker from "../icon/marker";
 
-const GridRow = ({ hide, children, className, scroll = true, style }) => {
+const GridRow = ({ hide = 0, children, className = "", scroll = true, style = {} }) => {
   const [elementTop, setElementTop] = useState(0);
   const ref = useRef(null);
   const { scrollY } = useViewportScroll();
