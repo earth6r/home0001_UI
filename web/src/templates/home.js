@@ -85,6 +85,8 @@ const HomeTemplate = (props) => {
         <Accordion allowMultiple={false} className="max-w-4xl w-full">
           {units &&
             units.map((item) => {
+              console.log("item", item);
+
               return (
                 <React.Fragment key={item._key}>
                   <AccordionItem
@@ -138,11 +140,11 @@ const HomeTemplate = (props) => {
                         </AccordionHeader>
                         <AccordionPanel className="pb-1em">
                           <div>
-                            {item.text && 
+                            {item.text && (
                               <div className="md:inline-block align-top md:text-desktopCaption md:w-3/12">
                                 <PortableText blocks={item.text} />
                               </div>
-                            }
+                            )}
                             {item.floorPlan && (
                               <div className="mx-auto mb-2em md:w-9/12 md:inline-block">
                                 <Figure node={item.floorPlan} />
@@ -153,10 +155,12 @@ const HomeTemplate = (props) => {
                                 <PortableText blocks={item.floorPlanCaption} />
                               </div>
                             )}
-                            {item.sold !== 1 && item.stripeSKU && (
+                            {item.sold !== 1 && (
                               <PageLink
                                 className="box box-black rounded-md w-full block text-center leading-none h-2em pt-1/4em flex items-center justify-center text-mobileBody md:text-desktopBody "
-                                to={`/checkout/${slug.current}?sku=${item.stripeSKU}&bitPayID=${item.bitPayID}`}
+                                to={`/checkout/${slug.current}?sku=${
+                                  item.stripeSKU || ""
+                                }&bitPayID=${item.bitPayID || ""}`}
                               >
                                 Reserve Now
                               </PageLink>
