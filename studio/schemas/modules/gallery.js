@@ -31,6 +31,16 @@ export default {
       ],
     },
     {
+      name: 'textblocks',
+      title: 'Text Block (html)',
+      type: 'array',
+      of: [
+        {
+          type: 'text',
+        },
+      ],
+    },
+    {
       name: 'url',
       // label: 'CTA',
       type: 'circleButton',
