@@ -19,6 +19,11 @@ export default {
       type: 'string',
     },
     {
+      name: 'customslug',
+      title: 'Fill this out if you want a custom url',
+      type: 'string',
+    },
+    {
       name: 'text',
       title: 'Text',
       type: 'bodyPortableText',

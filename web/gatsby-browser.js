@@ -7,6 +7,7 @@
 // You can delete this file if you're not using it
 import "./src/css/index.css";
 import React from "react";
+import { navigate } from '@reach/router';
 import "focus-visible/dist/focus-visible";
 import LoadingScreen from "./src/components/loading-screen";
 
