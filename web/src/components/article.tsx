@@ -47,7 +47,7 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
         articleItems.map((item, index) => (
           <React.Fragment key={item._key}>
             <AccordionItem
-              defaultIsOpen={typeof window && window.location.href.includes(item.customslug) ? true : false}
+              defaultIsOpen={typeof window !== `undefined` && window.location.href.includes(item.customslug) ? true : false}
               className="article-accordion"
             >
               {({ isExpanded }) => (
