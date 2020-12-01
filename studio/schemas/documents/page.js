@@ -11,6 +11,11 @@ export default {
     {
       name: "content",
       type: "pageContent",
+    },
+    {
+      name:"isrnd",
+      type:"boolean",
+      title:"Is this an R&D subpage?"
     }
   ],
   preview: {
