@@ -5,11 +5,12 @@ import CircleButton from "./global/circleButton";
 import GridRow from "./grid/grid-row";
 import ReactHtmlParser from "react-html-parser"
 
-const HeaderRnd = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome, showThinBanner, thinBanner }) => {
+const HeaderRnd = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome, showThinBanner, thinBanner }) => {
   // const containerRef = useRef(null);
   // const { height } = useDimensions(containerRef);
+  console.log(rMenu)
   const [loaded, setLoaded] = useState(false);
-  const menu = mainMenu !== undefined ? mainMenu.edges[0].node.items : null;
+  const menu = rMenu !== undefined ? rMenu.edges[0].node.items : null;
   const submenu = subMenu && subMenu.edges[0] !== undefined ? subMenu.edges[0].node.items : null;
   const menuFooter = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
   // console.log(mainMenu);
@@ -127,7 +128,18 @@ const HeaderRnd = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onSho
                 <li className="absolute left-0 top-0 pointer-events-none w-full md:hidden">
                   <GridRow hide={1} />
                 </li>
-           
+                {menu &&
+                  menu.map((item, index) => (
+                    <li className="hidden md:block" key={item._key}>
+                      <PageLink
+                        className="md:pt-1/2em inline-block"
+                        onClick={onHideNav}
+                        to={`/${item.link.content.main.slug.current}`}
+                      >
+                        {item.title}
+                      </PageLink>
+                    </li>
+                  ))}
                     <li className="md:hidden mt-1em mb-1/2em mx-auto" >
                       <CircleButton title={"Info"} url={"/about"} float={true} />
                     </li>

@@ -5,7 +5,7 @@ import CircleButton from "./global/circleButton";
 import GridRow from "./grid/grid-row";
 import ReactHtmlParser from "react-html-parser"
 
-const Header = ({ mainMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome, showThinBanner, thinBanner }) => {
+const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome, showThinBanner, thinBanner }) => {
   // const containerRef = useRef(null);
   // const { height } = useDimensions(containerRef);
   const [loaded, setLoaded] = useState(false);

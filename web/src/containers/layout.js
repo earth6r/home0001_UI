@@ -105,6 +105,30 @@ const query = graphql`
       }
     }
 
+    rMenu: allSanityMenus(filter: { slug: { current: { eq: "rnd" } } }) {
+      edges {
+        node {
+          items {
+            ... on SanityExternalLink {
+              _key
+              _type
+              title
+              url
+            }
+            ... on SanityInternalLink {
+              _key
+              _type
+              link {
+                ...LinkFragment
+                ...HomeLinkFragment
+              }
+              title
+            }
+          }
+        }
+      }
+    }
+
     footerMenu: allSanityMenus(filter: { slug: { current: { eq: "footer" } } }) {
       edges {
         node {
@@ -176,6 +200,7 @@ function LayoutContainer(props) {
               onShowSubNav={handleShowSubNav}
               footerMenu={data.footerMenu}
               mainMenu={data.mainMenu}
+              rMenu={data.rMenu}
               subMenu={data.subMenu}
             />
           </ThemeProvider>
