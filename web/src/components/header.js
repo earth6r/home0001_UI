@@ -34,7 +34,7 @@ const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, o
   return (
     <>
     {showThinBanner && thinBanner &&
-        <div className="fixed w-full z-50 bg-black text-white" id="thin-banner"><div className="marquee"><div className="marquee-track"><div className="marquee-content text-white">{ReactHtmlParser(thinBanner)}&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;{ReactHtmlParser(thinBanner)}&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;{ReactHtmlParser(thinBanner)}&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;{ReactHtmlParser(thinBanner)}&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;{ReactHtmlParser(thinBanner)}&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;{ReactHtmlParser(thinBanner)}&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;{ReactHtmlParser(thinBanner)}&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;{ReactHtmlParser(thinBanner)}&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;{ReactHtmlParser(thinBanner)}&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;{ReactHtmlParser(thinBanner)}</div></div></div></div>
+        <div className="fixed w-full z-50" id="thin-banner"><div className="marquee"><div className="marquee-track"><div className="marquee-content">{ReactHtmlParser(thinBanner)}</div></div></div></div>
     }
       {isHome && submenu && 
       <div style={{ zIndex: "51", minWidth: "30vw", width:"calc(100% - 1.5rem)", borderRadius:"22px" }} className={`${showNav ? "hidden":""} sub-menu absolute mt-10 lg:mt-16 mx-3 lg:mx-5 box-menu px-5 py-2 top-0 right-0 lg:w-auto`} >
@@ -77,7 +77,7 @@ const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, o
           ))}
       </div>
     }
-      <header className={`${showThinBanner && thinBanner ? "mt-5" : "" } fixed z-50 w-full left-0`}>
+      <header className={`${showThinBanner && thinBanner ? "mt-8" : "" } fixed z-50 w-full left-0`}>
         <div
           className={`${
             showNav ? "h-full" : ""
@@ -161,7 +161,7 @@ const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, o
           showNav ? " h-full bg-black opacity-75 pointer-events-auto" : "opacity-0"
         } fixed transition-opacity duration-150 left-0 top-0  pointer-events-none w-full`}
       ></div>
-      <div className="fixed w-full h-12 md:h-18 z-30 gradient-to-b pointer-events-none top-0 left-0"></div>
+      <div className={`${showThinBanner && thinBanner ? "mt-8" : "" } fixed w-full h-12 md:h-18 z-30 gradient-to-b pointer-events-none top-0 left-0`}></div>
     </>
   );
 };
