@@ -56,5 +56,15 @@ export default {
       type: 'circleButton',
       title: 'Circle Button',
     },
+    {
+      name: 'blankspaces',
+      title: 'Blank Space',
+      type: 'array',
+      of: [
+        {
+          type: 'string',
+        },
+      ],
+    },
   ],
 }

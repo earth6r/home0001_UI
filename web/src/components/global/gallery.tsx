@@ -6,11 +6,12 @@ import CircleButton from "./circleButton";
 var shuffle = require("shuffle-array");
 
 const Gallery = (props) => {
-  const { images, url, embeds, textblocks, pdfs } = props;
+  const { images, blankspaces, url, embeds, textblocks, pdfs } = props;
   const myImages = images ? shuffle(images).filter(Boolean) : []; 
   const myrandImages = embeds ? shuffle(images.concat(embeds)) : myImages;
   const myImagesEmbeds = textblocks ? shuffle(myrandImages.concat(textblocks)) : myrandImages;
-  const randImages = pdfs ? shuffle(myImagesEmbeds.concat(pdfs)) : myImagesEmbeds;
+  const myrandSpaces = blankspaces ? shuffle(myImagesEmbeds.concat(blankspaces)) : myImagesEmbeds;
+  const randImages = pdfs ? shuffle(myrandSpaces.concat(pdfs)) : myrandSpaces;
   const justify = ["justify-start", "justify-center", "justify-between", "justify-end"];
   const [direction, setDirection] = useState();
 
@@ -152,11 +153,15 @@ const Gallery = (props) => {
 
             } else if(image._type == "file"){
                 return(
-                  <iframe key={image._key} src={image.asset.url} frameborder="0"></iframe>
+                  <iframe key={image._key} src={image.asset.url} frameborder="0" className="py-2"></iframe>
                 )
-            } else {
+            } else if(image._type == "string"){
               return(
-                <div key={index} className="align-middle gallery-image w-9/20 md:w-8/20 md:py-0 self-undefined mx-auto html-text">{ReactHtmlParser(image)}</div>
+                <div></div>
+              )
+            }else {
+              return(
+                <div key={index} className="align-middle gallery-image w-9/20 md:w-8/20 py-2 self-undefined mx-auto html-text">{ReactHtmlParser(image)}</div>
               )
             }
           })}
