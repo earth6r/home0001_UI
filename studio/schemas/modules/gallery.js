@@ -31,6 +31,16 @@ export default {
       ],
     },
     {
+      name: 'pdfs',
+      title: 'Pdf',
+      type: 'array',
+      of: [
+        {
+          type: 'file',
+        },
+      ],
+    },
+    {
       name: 'textblocks',
       title: 'Text Block (html)',
       type: 'array',
