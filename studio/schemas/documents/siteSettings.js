@@ -34,6 +34,11 @@ export default {
       type: "text",
       name: "thinbanner",
       description: "Content for thin banner",
+    },
+    {
+      name: 'infosection',
+      type: 'bodyPortableText',
+      title: 'Info Section for R & D site'
     }
   ],
 }

@@ -4,12 +4,24 @@ import Icon from "./icon";
 import CircleButton from "./global/circleButton";
 import GridRow from "./grid/grid-row";
 import ReactHtmlParser from "react-html-parser"
+import PortableText from "./portableText"
 
-const HeaderRnd = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome, showThinBanner, thinBanner }) => {
+const HeaderRnd = ({ mainMenu, infoSection = null, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome, showThinBanner, thinBanner }) => {
   // const containerRef = useRef(null);
   // const { height } = useDimensions(containerRef);
-  console.log(rMenu)
+  console.log(infoSection)
+  console.log("hello")
   const [loaded, setLoaded] = useState(false);
+  const [info, setInfo] = useState(false);
+  function handleShowInfo() {
+    if(info){
+      setInfo(false);
+    }else{
+      setInfo(true);
+    }
+    
+    // console.log("set true");
+  }
   const menu = rMenu !== undefined ? rMenu.edges[0].node.items : null;
   const submenu = subMenu && subMenu.edges[0] !== undefined ? subMenu.edges[0].node.items : null;
   const menuFooter = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
@@ -88,22 +100,12 @@ const HeaderRnd = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav
                 <span className="earth block text-mobileNav md:text-desktopNav">E</span>
               </PageLink>
             </h1>
-            <button
-              style={{ borderColor: "#000000" }}
-              className={`${
-                showNav ? "border rounded-full" : "box"
-              } lg:hidden py-0 outline-none relative -mt-1 w-12 z-50`}
-              onClick={showNav ? onHideNav : onShowNav}
-              role="button"
-              aria-label="Open the menu"
-            >
-              <div
-                style={{ marginTop: ".5px" }}
-                className="px-4 flex justify-center h-full w-full items-center absolute top-0 left-0"
-              >
-                <Icon symbol="hamburger" />
-              </div>
-            </button>
+            <li onClick={handleShowInfo} className="block
+            md:block cursor-pointer">
+                      <span className="uppercase md:pt-1/2em inline-block">
+                        {info && infoSection ? "Close" : "Info"}
+                      </span>
+                    </li>
           </GridRow>
 
           <nav
@@ -140,22 +142,18 @@ const HeaderRnd = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav
                       </PageLink>
                     </li>
                   ))}
-                    <li className="md:hidden mt-1em mb-1/2em mx-auto" >
+                    <li className="hidden mt-1em mb-1/2em mx-auto" >
                       <CircleButton title={"Info"} url={"/about"} float={true} />
                     </li>
 
-                    <li className="hidden md:block">
-                      <PageLink
-                        className="md:pt-1/2em inline-block"
-                        onClick={onHideNav}
-                        to={`/about`}
-                      >
-                        Info
-                      </PageLink>
+                    <li onClick={handleShowInfo} className="hidden md:block cursor-pointer">
+                      <span className="uppercase md:pt-1/2em inline-block">
+                        {info && infoSection ? "Close" : "Info"}
+                      </span>
                     </li>
                 
               </ul>
-              <GridRow />
+              <GridRow className={`${info && infoSection ? "hidden":""}`} />
             </div>
           </nav>
         </div>
@@ -165,9 +163,13 @@ const HeaderRnd = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav
         onClick={showNav ? onHideNav : onShowNav}
         className={`${
           showNav ? " h-full bg-black opacity-75 pointer-events-auto" : "opacity-0"
-        } fixed transition-opacity duration-150 left-0 top-0  pointer-events-none w-full`}
+        } fixed hidden transition-opacity duration-150 left-0 top-0  pointer-events-none w-full`}
       ></div>
-      <div className="fixed w-full h-12 md:h-18 z-30 gradient-to-b pointer-events-none top-0 left-0"></div>
+      <div style={{zIndex: "45" }} className="fixed w-full h-12 md:h-18 gradient-to-b pointer-events-none top-0 left-0"></div>
+      {infoSection && info &&
+        <div style={{zIndex: "44" }} className="fixed info-section left-0 bg-white px-6 pt-10"><PortableText blocks={infoSection} /></div>
+      }
+      
     </>
   );
 };

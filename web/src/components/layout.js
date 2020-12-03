@@ -3,7 +3,7 @@ import Header from "./header";
 import HeaderRnd from "./headerRnd";
 import Footer from "./footer";
 
-const Layout = ({ mainMenu,rMenu, rnd = false, subMenu, footerMenu, children, onHideNav, onShowNav, showNav,  onHideSubNav, onShowSubNav, showSubNav, siteTitle, isHome, thinBanner, showThinBanner }) => (
+const Layout = ({ mainMenu,infoSection, rMenu, rnd = false, subMenu, footerMenu, children, onHideNav, onShowNav, showNav,  onHideSubNav, onShowSubNav, showSubNav, siteTitle, isHome, thinBanner, showThinBanner }) => (
   <div className="flex flex-col justify-between h-full">
    {rnd ?
     (<HeaderRnd
@@ -11,6 +11,7 @@ const Layout = ({ mainMenu,rMenu, rnd = false, subMenu, footerMenu, children, on
       thinBanner={thinBanner}
       mainMenu={mainMenu}
       siteTitle={siteTitle}
+      infoSection={infoSection}
       onHideNav={onHideNav}
       onShowNav={onShowNav}
       showNav={showNav}
@@ -30,6 +31,7 @@ const Layout = ({ mainMenu,rMenu, rnd = false, subMenu, footerMenu, children, on
       onHideNav={onHideNav}
       onShowNav={onShowNav}
       showNav={showNav}
+      infoSection={infoSection}
       onHideSubNav={onHideSubNav}
       onShowSubNav={onShowSubNav}
       showSubNav={showSubNav}

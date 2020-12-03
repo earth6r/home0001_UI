@@ -46,7 +46,7 @@ const query = graphql`
       }
     }
   }
-
+ 
   query SiteTitleQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
@@ -56,6 +56,27 @@ const query = graphql`
     }
     thinBanner:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       thinbanner
+    }
+    all: allSanitySiteSettings {
+      edges {
+        node {
+          _rawInfosection(resolveReferences: { maxDepth: 20 })
+        }
+      }
+    }
+    infoSection:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      infosection {
+        _key
+        _rawChildren
+        _type
+        style
+        children {
+          _key
+          _type
+          text
+          marks
+        }
+      }
     }
     mainMenu: allSanityMenus(filter: { slug: { current: { eq: "main" } } }) {
       edges {
@@ -183,6 +204,7 @@ function LayoutContainer(props) {
             'Missing "Site settings". Open the Studio at http://localhost:3333 and some content in "Site settings"'
           );
         }
+    
         console.log(data);
         return (
           <ThemeProvider>
@@ -191,6 +213,7 @@ function LayoutContainer(props) {
               {...props}
               showThinBanner={data.showThinBanner.showthinbanner}
               thinBanner={data.thinBanner.thinbanner}
+              infoSection={data.all.edges[0].node._rawInfosection}
               showNav={showNav}
               showSubNav = {showSubNav}
               siteTitle={data.site.title}
