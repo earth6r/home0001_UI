@@ -96,7 +96,7 @@ const HeaderRnd = ({ mainMenu, infoSection = null, rMenu, subMenu, onHideNav, on
         >
           <GridRow scroll={false} hide={1} className="flex w-full justify-between md:hidden">
             <h1 style={{ top: ".05em" }} className="md:hidden relative logo">
-              <PageLink to="/collective">
+              <PageLink to="/">
                 <span className="earth block text-mobileNav md:text-desktopNav">E</span>
               </PageLink>
             </h1>
@@ -122,7 +122,7 @@ const HeaderRnd = ({ mainMenu, infoSection = null, rMenu, subMenu, onHideNav, on
               >
                 <li className="absolute md:relative left-0 top-0 pt-2">
                   <h1 className="logo ">
-                    <PageLink onClick={onHideNav} to="/collective">
+                    <PageLink onClick={onHideNav} to="/">
                       <span className="earth">E</span>
                     </PageLink>
                   </h1>

@@ -22,8 +22,10 @@ export interface ArticleModuleProps {
 }
 
 export const ArticleModule = ({ data }: AccordionModuleProps) => {
-  const { articleItems, title } = data;
+  const { articleItems, title, defaultNum, loadNum } = data;
   const [scrolled, setScrolled] = useState(true);
+  const mew = defaultNum ? defaultNum : articleItems.length;
+  const [visible, setVisible] = useState(mew);
 
   useEffect(() =>{
       if(typeof window && window.location.href.includes("?#") && scrolled){
@@ -39,16 +41,16 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
   return (
     <>
     {title &&
-      <div className="md:text-desktopCaption uppercase">{title}</div>
+      <div className="md:text-desktopCaption">{title}</div>
     }
-
     <Accordion allowMultiple={false} className=" w-full">
+
       {articleItems.length > 0 &&
         articleItems.map((item, index) => (
           <React.Fragment key={item._key}>
             <AccordionItem
               defaultIsOpen={typeof window !== `undefined` && window.location.href.includes(item.customslug) ? true : false}
-              className="article-accordion"
+              className={`${index <= visible ? "block" : "hidden"} article-accordion`}
             >
               {({ isExpanded }) => (
                 <>
@@ -62,7 +64,7 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                       style={{ marginTop: "-.15em" }}
                       className="accordion-icon mt-3 underline block relative text-left md:text-desktopCaption pr-1em"
                     >
-                      {isExpanded ? "" : "More ↓"}
+               
                     </div>
                     </>
                     }</h2>
@@ -80,9 +82,17 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                 </>
               )}
             </AccordionItem>
+
             {/*<div>{index < accordionItems.length - 1 && <GridRow></GridRow>}</div>*/}
           </React.Fragment>
         ))}
+        { (defaultNum && loadNum && (visible < articleItems.length - 1)) &&
+          <div onClick={()=> setVisible(loadNum+visible)} className="text-desktopCaption underline cursor-pointer">MORE ↓</div>
+        }
+        { (defaultNum && loadNum && (visible >= articleItems.length - 1)) &&
+          <div onClick={()=> setVisible(defaultNum)} className="text-desktopCaption underline cursor-pointer">LESS ↑</div>
+        }
+        
     </Accordion>
     </>
   );
