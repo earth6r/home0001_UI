@@ -3,6 +3,8 @@ import { GalleryImage } from "../gallery-image";
 import GridRow from "../grid/grid-row";
 import ReactHtmlParser from "react-html-parser";
 import CircleButton from "./circleButton";
+import PdfReader from "./pdfReader"
+
 var shuffle = require("shuffle-array");
 
 const Gallery = (props) => {
@@ -14,7 +16,7 @@ const Gallery = (props) => {
   const randImages = pdfs ? shuffle(myrandSpaces.concat(pdfs)) : myrandSpaces;
   const justify = ["justify-start", "justify-center", "justify-between", "justify-end"];
   const [direction, setDirection] = useState();
-
+  
   // const randImages = images;
   const gridLen = Math.floor(randImages.length / 2);
   let baseWidth = 8;
@@ -57,7 +59,10 @@ const Gallery = (props) => {
   let remainingOrders = getOrders();
 
   // console.log(props);
-
+  function showPdf(key){
+    let mykey = document.getElementById(key);
+    mykey.style.display = "block"
+  }
   function getOrders() {
     let temp_orders = [];
     for (let i = 0; i < images.length; i++) {
@@ -153,7 +158,7 @@ const Gallery = (props) => {
 
             } else if(image._type == "file"){
                 return(
-                  <iframe key={image._key} src={image.asset.url} frameborder="0" className="py-2"></iframe>
+                  <PdfReader file={image.asset.url} />
                 )
             } else if(image._type == "string"){
               return(
