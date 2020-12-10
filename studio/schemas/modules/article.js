@@ -12,6 +12,16 @@ export default {
       type: 'string',
     },
     {
+      name: 'defaultNum',
+      title: 'Default num of articles to show',
+      type: 'number'
+    },
+    {
+      name: 'loadNum',
+      title: 'num of articles to show when more is clicked',
+      type: 'number'
+    },
+    {
       name: 'callibrationMark',
       title: 'Show Callibration Marks',
       default: true,
