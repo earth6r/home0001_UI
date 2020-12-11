@@ -19,15 +19,17 @@ import SVG from "../components/svg";
 const MapModule = (props) => {
   const { text, lat, long } = props;
   return (
+    <>
+    {text}
     <Popover placement="bottom" trigger="click" usePortal={true} gutter={10}>
       <PopoverTrigger>
         {text && (
-          <span
+          <sup
             aria-label={`Open Map`}
-            className="inline-block"
+            className="inline-block map-button text-desktopCaption box-menu py-1 relative px-2"
           >
-            {text}
-          </span>
+           {"MAP"}
+          </sup>
         )}
       </PopoverTrigger>
       <PopoverContent
@@ -36,12 +38,13 @@ const MapModule = (props) => {
         zIndex={50}
       >
         <span className="block">
-        <span className="box block px-1em py-1em pb-3/4em bg-white text-mobileBody md:text-desktopBody">
+        <span className="box block px-1em py-1em bg-white text-mobileBody md:text-desktopBody">
           <MapContainer lat={lat} long={long}></MapContainer>
          </span>
         </span>
       </PopoverContent>
     </Popover>
+    </>
   );
 };
 

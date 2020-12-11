@@ -93,7 +93,11 @@ small {
 }
 
 /*end marquee*/
-
+.map-button{
+  top:-18px;
+  left:5px;
+  cursor:pointer;
+}
 .rte .md\:text-desktopCaption *{
   font-size:inherit;
   line-height:inherit;

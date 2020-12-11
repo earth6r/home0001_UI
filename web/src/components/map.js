@@ -16,7 +16,7 @@ const MapContainer = (props) => {
           bootstrapURLKeys={{ key: process.env.GATSBY_GOOGLE_MAPS }}
           options={{styles}}
           defaultCenter={{"lat":parseFloat(lat),"lng":parseFloat(long)}}
-          defaultZoom={15}
+          defaultZoom={14}
         >
             <AnyReactComponent
             lat={parseFloat(lat)}
