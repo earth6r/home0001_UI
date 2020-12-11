@@ -153,7 +153,7 @@ const HeaderRnd = ({ mainMenu, infoSection = null, rMenu, subMenu, onHideNav, on
                     </li>
                 
               </ul>
-              <GridRow className={`${info && infoSection ? "hidden":""}`} />
+              
             </div>
           </nav>
         </div>
@@ -165,7 +165,7 @@ const HeaderRnd = ({ mainMenu, infoSection = null, rMenu, subMenu, onHideNav, on
           showNav ? " h-full bg-black opacity-75 pointer-events-auto" : "opacity-0"
         } fixed hidden transition-opacity duration-150 left-0 top-0  pointer-events-none w-full`}
       ></div>
-      <div style={{zIndex: "45" }} className="fixed w-full h-12 md:h-18 gradient-to-b pointer-events-none top-0 left-0"></div>
+      <div style={{zIndex: "40" }} className="fixed w-full h-12 md:h-18 gradient-to-b pointer-events-none top-0 left-0"></div>
       {infoSection && info &&
         <div style={{zIndex: "44" }} className="fixed info-section left-0 bg-white px-6 pt-10"><PortableText blocks={infoSection} /></div>
       }

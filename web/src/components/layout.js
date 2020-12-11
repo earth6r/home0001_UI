@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./header";
 import HeaderRnd from "./headerRnd";
 import Footer from "./footer";
+import GridRow from "./grid/grid-row"
 
 const Layout = ({ mainMenu,infoSection, rMenu, rnd = false, subMenu, footerMenu, children, onHideNav, onShowNav, showNav,  onHideSubNav, onShowSubNav, showSubNav, siteTitle, isHome, thinBanner, showThinBanner }) => (
   <div className="flex flex-col justify-between h-full">
@@ -42,7 +43,10 @@ const Layout = ({ mainMenu,infoSection, rMenu, rnd = false, subMenu, footerMenu,
     />
       )
    }
-    <div className={`${showThinBanner ? "mt-8":""} container pb-1/2em`}>{children}</div>
+   <div className={`${showThinBanner && !rnd ? "mt-16":"mt-8"} container pb-1/2em absolute`} >
+   <GridRow />
+   </div>
+    <div className={`${showThinBanner && !rnd ? "mt-8":""} container pb-1/2em`}>{children}</div>
     <Footer footerMenu={footerMenu} />
   </div>
 );

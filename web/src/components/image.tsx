@@ -60,7 +60,7 @@ export const Image = ({
     <figure
       className={`${
         randWidth !== 10 ? `w-${randWidth}/10` : "w-full"
-      } ${`mx-${randPadding}/10`} md:mx-1/10  mb-1em`}
+      } ${`mx-${randPadding}/10`} md:mx-1/10  mb-1em z-40`}
       ref={ref}
     >
       {fluidProps ? (

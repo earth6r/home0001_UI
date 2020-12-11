@@ -149,7 +149,7 @@ const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, o
                     </li>
                   ))}
               </ul>
-              <GridRow />
+              
             </div>
           </nav>
         </div>
