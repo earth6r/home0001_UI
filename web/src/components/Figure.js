@@ -12,7 +12,7 @@ export default ({node}) => {
   )
   return (
     <figure>
-      <Img fluid={fluidProps} alt={node.alt} />
+      <Img fluid={fluidProps} alt={node.alt} imgStyle={{ objectFit: 'contain', maxWidth: "none" }} />
       <figcaption>{node.caption}</figcaption>
     </figure>
   )

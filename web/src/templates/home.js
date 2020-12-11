@@ -100,7 +100,7 @@ const HomeTemplate = (props) => {
                             isExpanded ? "text-black" : ""
                           } relative flex h-2em p-0 pt-1/4em pl-1/2em border-none`}
                         >
-                          <h3 className={` m-0 mr-1em -mt-1/4em md:mt-0`}>{item.title}</h3>
+                          
                           {item.unit && (
                             <span className=" m-0 mr-1em -mt-1/4em md:mt-0">
                               <span>Unit </span>
@@ -108,21 +108,21 @@ const HomeTemplate = (props) => {
                             </span>
                           )}
                           {item.bedrooms && (
-                            <span className=" m-0 mr-1em text-mobileCaption md:text-desktopBody -mt-1/4em md:mt-0">
+                            <span className=" m-0 mr-1em text-mobileCaption md:text-base -mt-1/4em md:mt-0">
                               {item.bedrooms}
                             </span>
                           )}
                           {item.price && (
-                            <span className="text-mobileCaption md:text-desktopBody text-left m-0 mr-1em -mt-1/4em md:mt-0">
+                            <span className="text-mobileCaption md:text-base text-left m-0 mr-1em -mt-1/4em md:mt-0">
                               {item.price}
                             </span>
                           )}
                           {item.sold == 1 ? (
-                            <span className=" md:left-0 md:relative text-mobileCaption md:text-desktopBody -mt-1/4em md:mt-0">
+                            <span className=" md:left-0 md:relative text-mobileCaption md:text-base -mt-1/4em md:mt-0">
                               Sold
                             </span>
                           ) : (
-                            <span className=" md:left-0 md:relative text-mobileCaption md:text-desktopBody -mt-1/4em md:mt-0">
+                            <span className=" md:left-0 md:relative text-mobileCaption md:text-base -mt-1/4em md:mt-0">
                               Available
                             </span>
                           )}
@@ -145,7 +145,7 @@ const HomeTemplate = (props) => {
                             )}
                             {item.floorPlan && (
                               <div className="mx-auto mb-2em md:w-9/12 md:inline-block">
-                                <Figure node={item.floorPlan} />
+                                <Figure className="w-full" node={item.floorPlan} />
                               </div>
                             )}
                             {item.floorPlanCaption && (
