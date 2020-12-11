@@ -21,7 +21,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/core";
 
-const SpecButton = ({ title, url, float = true, callibrationMark, specs = false }) => {
+const SpecButton = ({ title, url, color, float = true, callibrationMark, specs = false }) => {
   const [elementTop, setElementTop] = useState(0);
   const ref = useRef(null);
   const { scrollY } = useViewportScroll();
@@ -78,7 +78,7 @@ const SpecButton = ({ title, url, float = true, callibrationMark, specs = false 
         <>
           <button
             onClick={onOpen}
-            className="box box-black rounded-md w-full max-w-4xl block text-center leading-none h-2em pt-1/4em flex items-center justify-center text-mobileBody md:text-desktopBody "
+            className={`${color === "black" ? " text-white box-black" : "text-black box-white"} box rounded-md w-full max-w-4xl block text-center leading-none h-2em flex items-center justify-center text-mobileBody md:text-desktopBody `}
           >
             {title}
           </button>
