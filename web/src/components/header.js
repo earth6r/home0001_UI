@@ -60,7 +60,7 @@ const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, o
         </div></div></div></div>
     }
       {isHome && submenu && 
-      <div style={{ zIndex: "51", minWidth: "30vw", width:"calc(100% - 1.5rem)", borderRadius:"22px" }} className={`${showNav ? "hidden":""} sub-menu absolute mt-10 lg:mt-16 mx-3 lg:mx-5 box-menu px-5 py-2 top-0 right-0 lg:w-auto`} >
+      <div style={{ zIndex: "31", minWidth: "30vw", width:"calc(100% - 1.5rem)", borderRadius:"22px" }} className={`${showNav ? "hidden":""} sub-menu absolute ${showThinBanner && thinBanner ? "mt-16 lg:mt-20" : "mt-16 lg:mt-16" } mx-3 lg:mx-5 box-menu px-5 py-2 top-0 lg:w-auto`} >
         {submenu &&
           submenu.map((item, index) => (
             <div key={index + "first"}>
@@ -93,7 +93,7 @@ const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, o
             { !item.link &&
               <li className={`${
           showSubNav ? " h-auto" : "h-0"
-        } hidden md:block overflow-hidden opacity-50`}>{item.title}</li>
+        } block md:block overflow-hidden opacity-50`}><span className="block pb-1/4em md:pb-1/2em">{item.title}</span></li>
             }
           </div>
      

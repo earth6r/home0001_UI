@@ -59,7 +59,7 @@ export default class MailChimpForm extends React.Component {
             onChange={this.handleChange}
             type="email"
             id="email"
-            className="rounded-md mx-0 w-full"
+            className="rounded-md mx-0 w-full pt-0"
             required
             placeholder="Email address"
             aria-describedby="email-helper-text"

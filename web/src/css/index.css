@@ -93,6 +93,12 @@ small {
 }
 
 /*end marquee*/
+@media(min-width: 768px){
+.sub-menu{
+  right:5px;
+}
+}
+
 .map-button{
   top:-18px;
   left:5px;

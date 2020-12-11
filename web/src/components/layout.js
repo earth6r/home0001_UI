@@ -45,7 +45,7 @@ const Layout = ({ mainMenu,infoSection, rMenu, rnd = false, subMenu, footerMenu,
     />
       )
    }
-   <div className={`${showThinBanner && !rnd ? "mt-16":"mt-8"} container pb-1/2em absolute`} >
+   <div className={`${showThinBanner && !rnd ? "mt-16":"mt-8"} hidden md:block container pb-1/2em absolute`} >
    <GridRow />
    </div>
     <div className={`${showThinBanner && !rnd ? "mt-8":""} container pb-1/2em`}>{children}</div>
