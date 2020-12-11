@@ -2,6 +2,8 @@ import { Link } from "gatsby";
 import React from "react";
 import GridRow from "./grid/grid-row";
 import MailChimpForm from "./mailchimp-form";
+import instagramLogo from'./image.png';
+
 import {
   Modal,
   ModalOverlay,
@@ -47,7 +49,15 @@ const Footer = ({ footerMenu }) => {
                       <li className="mr-1em" key={item._key}>
                         {item.url !== undefined && (
                           <a href={item.url} title={item.title} target="_blank">
-                            {item.title}
+                  
+                            {item.title == "Instagram" ?
+                               <>
+                              <span className="hidden md:inline-block">{item.title}</span>
+                              <div className="md:hidden w-full pl-1" ><img className="md:hidden relative instagram-logo " src={instagramLogo}/></div>
+                              </>
+                            : 
+                            <>{item.title}</>
+                            }
                           </a>
                         )}
                       </li>
@@ -56,7 +66,7 @@ const Footer = ({ footerMenu }) => {
               })}
           </ul>
         </nav>
-        <div className="md:hidden">
+        <div className="hidden">
           <GridRow />
         </div>
       </footer>
