@@ -42,7 +42,7 @@ const Layout = ({ mainMenu,infoSection, rMenu, rnd = false, subMenu, footerMenu,
     />
       )
    }
-    <div className="container pb-1/2em">{children}</div>
+    <div className={`${showThinBanner ? "mt-8":""} container pb-1/2em`}>{children}</div>
     <Footer footerMenu={footerMenu} />
   </div>
 );
