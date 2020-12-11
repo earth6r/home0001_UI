@@ -118,6 +118,10 @@ small {
 .rte .md\:text-desktopCaption{
   font-size:10px !important;
 }
+.text-desktopCaptionSpecial *{
+  font-size:1rem;
+  line-height: 1.2;
+}
 .rte .md\:text-desktopCaption *{
   font-size:inherit;
   line-height:inherit;

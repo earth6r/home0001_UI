@@ -139,7 +139,7 @@ const HomeTemplate = (props) => {
                         <AccordionPanel className="pb-1em">
                           <div>
                             {item.text && (
-                              <div className="md:inline-block align-top md:text-desktopCaption md:w-3/12">
+                              <div className="md:inline-block align-top text-desktopCaptionSpecial md:w-3/12">
                                 <PortableText blocks={item.text} />
                               </div>
                             )}
