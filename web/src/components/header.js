@@ -49,7 +49,7 @@ const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, o
   return (
     <>
     {showThinBanner && thinBanner &&
-        <div className="fixed w-full z-50" id="thin-banner"><div className="marquee"><div className="marquee-track"><div className="marquee-content">{ReactHtmlParser(thinBanner)}
+        <div className="fixed w-full z-50" id="thin-banner"><div className="marquee"><div className="marquee-track"><div className="marquee-content ">{ReactHtmlParser(thinBanner)}
           {bannerUrl &&
             <PageLink
                   to={`${uri}/${bannerUrl.content.main.slug.current}`}

@@ -85,12 +85,18 @@ small {
   border-radius:10px;
   margin-left:5px;
   line-height: 1;
-  padding: 1px 6px 4px;
+  padding: 1px 6px 2px;
 }
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+@media(max-width: 768px){
+  .marquee-content{
+    line-height: 3;
+    font-size: 10px;
+  }
+  }
 
 /*end marquee*/
 @media(min-width: 768px){
