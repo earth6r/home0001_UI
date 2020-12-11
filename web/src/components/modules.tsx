@@ -20,7 +20,7 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
           <AccordionModule data={reactModule as AccordionModuleProps["data"]} />
          {reactModule.callibrationMark ? 
          <GridRow></GridRow>
-          : ""}
+          : <div className="w-full py-3"></div>}
         </>
       );
     case "standardText":
@@ -29,7 +29,7 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
           <StandardText specs={specs} data={reactModule as StandardTextProps["data"]} />
           {reactModule.callibrationMark ? 
          <GridRow></GridRow>
-          : ""}
+          : <div className="w-full py-3"></div>}
         </>
       );
     case "article":
@@ -38,7 +38,7 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
           <ArticleModule data={reactModule as ArticleModuleProps["data"]} />
           {reactModule.callibrationMark ? 
          <GridRow></GridRow>
-          : ""}
+          : <div className="w-full py-3"></div>}
         </>
       );
     case "nestedPages":
@@ -47,7 +47,7 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
           <NestedPages data={reactModule as NestedPagesProps["data"]} />
           {reactModule.callibrationMark ? 
          <GridRow></GridRow>
-          : ""}
+          : <div className="w-full py-3"></div>}
         </>
       );
     case "gallery":
@@ -57,7 +57,7 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
           <Gallery images={reactModule.images} pdfs={reactModule.pdfs} textblocks={reactModule.textblocks} embeds={reactModule.embeds} blankspaces={reactModule.blankspaces} url={reactModule.url} />
           {reactModule.callibrationMark ? 
          <GridRow></GridRow>
-          : ""}
+          : <div className="w-full py-3"></div>}
         </>
       );
     case "imageModule":
@@ -66,7 +66,7 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
           <Image imageId={reactModule.image.asset._id} caption={reactModule.caption} />
           {reactModule.callibrationMark ? 
          <GridRow></GridRow>
-          : ""}
+          : <div className="w-full py-3"></div>}
         </>
       );
     case "internalLink":
@@ -79,7 +79,7 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
           />
           {reactModule.callibrationMark ? 
          <GridRow></GridRow>
-          : ""}
+          : <div className="w-full py-3"></div>}
         </>
       );
     case "header":
@@ -95,7 +95,7 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
           />
           {reactModule.callibrationMark ? 
          <GridRow></GridRow>
-          : ""}
+          : <div className="w-full py-3"></div>}
         </>
       );
     case "specButton":
@@ -110,7 +110,7 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
           />
           {reactModule.callibrationMark ? 
          <GridRow></GridRow>
-          : ""}
+          : <div className="w-full py-3"></div>}
         </>
       );
     case "richTable":
