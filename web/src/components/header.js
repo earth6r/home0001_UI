@@ -109,7 +109,7 @@ const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, o
           <GridRow scroll={false} hide={1} className="flex w-full justify-between md:hidden">
             <h1 style={{ top: ".05em" }} className="md:hidden relative logo">
               <PageLink to="/collective">
-                <span className="earth block text-mobileNav md:text-desktopNav">E</span>
+                <span className="earth block text-mobileNav md:text-base">E</span>
               </PageLink>
             </h1>
             <button
@@ -135,12 +135,12 @@ const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, o
               showNav
                 ? "block z-40 bg-white box md:shadow-none transition-none rounded-lg"
                 : "hidden"
-            } fixed left-0 top-0 md:relative w-full md:block text-mobileNav md:text-desktopNav`}
+            } fixed left-0 top-0 md:relative w-full md:block text-mobileNav md:text-base`}
           >
             <div className="mx-mobile md:mx-0">
               <ul
                 style={{}}
-                className="flex pt-2em md:pt-0 flex-wrap relative mt-1 leading-none container p-0 m-0 md:flex md:flex-no-wrap w-full text-mobileNav md:text-desktopNav justify-center md:justify-between"
+                className="flex pt-2em md:pt-0 flex-wrap relative mt-1 leading-none container p-0 m-0 md:flex md:flex-no-wrap w-full text-mobileNav md:text-base justify-center md:justify-between"
               >
                 <li className="absolute md:relative left-0 top-0 pt-2">
                   <h1 className="logo ">
