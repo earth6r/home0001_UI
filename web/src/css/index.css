@@ -77,7 +77,7 @@ small {
 }
 .marquee a{
   position:relative;
-  top:-2px;
+  top:-1px;
   color:white;
   background:black;
   display:inline-block;
