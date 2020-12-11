@@ -14,5 +14,18 @@ export default {
       title: 'Title',
       type: 'string',
     },
+    {
+      title: 'Color',
+      name: 'color',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'White', value: 'white'},
+          {title: 'Black', value: 'black'}
+        ], // <-- predefined values
+        layout: 'radio', // <-- defaults to 'dropdown'
+        default: 'white'
+      }
+    }
   ],
 }
