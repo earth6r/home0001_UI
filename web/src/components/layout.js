@@ -4,7 +4,7 @@ import HeaderRnd from "./headerRnd";
 import Footer from "./footer";
 import GridRow from "./grid/grid-row"
 
-const Layout = ({ mainMenu,infoSection, rMenu, rnd = false, subMenu, footerMenu, children, onHideNav, onShowNav, showNav,  onHideSubNav, onShowSubNav, showSubNav, siteTitle, isHome, thinBanner, showThinBanner }) => (
+const Layout = ({ mainMenu,infoSection, rMenu, rnd = false, subMenu, footerMenu, children, onHideNav, onShowNav, showNav,  onHideSubNav, onShowSubNav, showSubNav, siteTitle, isHome, thinBanner, showThinBanner, bannerUrl, bannerUrlTitle }) => (
   <div className="flex flex-col justify-between h-full">
    {rnd ?
     (<HeaderRnd
@@ -35,6 +35,8 @@ const Layout = ({ mainMenu,infoSection, rMenu, rnd = false, subMenu, footerMenu,
       infoSection={infoSection}
       onHideSubNav={onHideSubNav}
       onShowSubNav={onShowSubNav}
+      bannerUrl={bannerUrl}
+      bannerUrlTitle={bannerUrlTitle}
       showSubNav={showSubNav}
       footerMenu={footerMenu}
       subMenu={subMenu}

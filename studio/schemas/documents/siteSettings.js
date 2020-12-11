@@ -35,6 +35,17 @@ export default {
       name: "thinbanner",
       description: "Content for thin banner",
     },
+     {
+      name: 'url',
+      title: 'Internal link for thin banner (leave blank if none)',
+      type: 'reference',
+      to: [{ type: 'page' }, { type: 'home' }, { type: 'checkout' }],
+    },
+    {
+      type: "text",
+      name: "bannerUrlTitle",
+      description: "text for thin banner internal url (leave blank if none)",
+    },
     {
       name: 'infosection',
       type: 'bodyPortableText',

@@ -5,7 +5,7 @@ import CircleButton from "./global/circleButton";
 import GridRow from "./grid/grid-row";
 import ReactHtmlParser from "react-html-parser"
 
-const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome, showThinBanner, thinBanner }) => {
+const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome, showThinBanner, thinBanner, bannerUrl, bannerUrlTitle }) => {
   // const containerRef = useRef(null);
   // const { height } = useDimensions(containerRef);
   const [loaded, setLoaded] = useState(false);
@@ -13,6 +13,21 @@ const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, o
   const submenu = subMenu && subMenu.edges[0] !== undefined ? subMenu.edges[0].node.items : null;
   const menuFooter = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
   // console.log(mainMenu);
+  let uri = "";
+  if (bannerUrl !== undefined && bannerUrl !== null) {
+    switch (bannerUrl._type) {
+      case "home":
+        uri = "/home";
+        //   alert("set home");
+        break;
+      case "checkout":
+        uri = "/checkout";
+        break;
+      default:
+        uri = "";
+        break;
+    }
+  }
   function makeTitle(slug) {
   var words = slug.split('-');
 
@@ -34,7 +49,15 @@ const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, o
   return (
     <>
     {showThinBanner && thinBanner &&
-        <div className="fixed w-full z-50" id="thin-banner"><div className="marquee"><div className="marquee-track"><div className="marquee-content">{ReactHtmlParser(thinBanner)}</div></div></div></div>
+        <div className="fixed w-full z-50" id="thin-banner"><div className="marquee"><div className="marquee-track"><div className="marquee-content">{ReactHtmlParser(thinBanner)}
+          {bannerUrl &&
+            <PageLink
+                  to={`${uri}/${bannerUrl.content.main.slug.current}`}
+                >
+                {bannerUrlTitle}
+            </PageLink>
+          }
+        </div></div></div></div>
     }
       {isHome && submenu && 
       <div style={{ zIndex: "51", minWidth: "30vw", width:"calc(100% - 1.5rem)", borderRadius:"22px" }} className={`${showNav ? "hidden":""} sub-menu absolute mt-10 lg:mt-16 mx-3 lg:mx-5 box-menu px-5 py-2 top-0 right-0 lg:w-auto`} >

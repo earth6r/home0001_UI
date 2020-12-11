@@ -57,6 +57,16 @@ const query = graphql`
     thinBanner:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       thinbanner
     }
+    bannerUrl:  allSanitySiteSettings {
+      edges {
+        node {
+          _rawUrl(resolveReferences: { maxDepth: 20 })
+        }
+      }
+    }
+    bannerUrlTitle:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      bannerUrlTitle
+    }
     all: allSanitySiteSettings {
       edges {
         node {
@@ -213,6 +223,8 @@ function LayoutContainer(props) {
               {...props}
               showThinBanner={data.showThinBanner.showthinbanner}
               thinBanner={data.thinBanner.thinbanner}
+              bannerUrl={data.bannerUrl.edges[0].node._rawUrl}
+              bannerUrlTitle={data.bannerUrlTitle.bannerUrlTitle}
               infoSection={data.all.edges[0].node._rawInfosection}
               showNav={showNav}
               showSubNav = {showSubNav}
