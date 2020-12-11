@@ -53,7 +53,7 @@ const Footer = ({ footerMenu }) => {
                             {item.title == "Instagram" ?
                                <>
                               <span className="hidden md:inline-block">{item.title}</span>
-                              <div className="md:hidden w-full pl-1" ><img className="md:hidden relative instagram-logo " src={instagramLogo}/></div>
+                              <div className="md:hidden w-full pl-1" >IG</div>
                               </>
                             : 
                             <>{item.title}</>
