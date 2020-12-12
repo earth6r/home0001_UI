@@ -15,12 +15,30 @@ import SVG from "../components/svg";
 
 const PopoverModule = (props) => {
   const { text, logo, content } = props;
-  console.log(logo);
+
+  const [isOpen, setIsOpen] = React.useState(false)
+  const open = () => setIsOpen(!isOpen)
+  const close = () => setIsOpen(false)
+  if(typeof window != `undefined`){
+    window.addEventListener('scroll', function (event) {
+    // Scrolling has happened...
+    let limit = document.getElementById(text+"-popover");
+    limit = limit.getBoundingClientRect().top - 100;
+
+     if(window.pageXOffset > limit && window.pageXOffset < limit + 100){
+      close()
+     }
+      
+    }, false);
+  }
+
   return (
-    <Popover placement="bottom" trigger="click" usePortal={true} gutter={10}>
+    <Popover placement="bottom" isOpen={isOpen} onClose={close} trigger="click" usePortal={true} gutter={10}>
       <PopoverTrigger>
         {text && (
           <button
+            id={text+"-popover"}
+            onClick={open}
             aria-label={`Open ${text}`}
             className="text-mobileLarge md:text-desktopLarge box-link transform md:translate-y-1 m-0 md:pr-5 md:pb-3"
           >
