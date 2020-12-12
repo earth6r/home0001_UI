@@ -32,11 +32,15 @@
   border-radius:15px;
   color:inherit;
 }
-
+.accordion button .big-text{
+  position:relative;
+  top:1px;
+}
 .accordion button{
   padding:5px 8px;
   padding-top:2px;
   color:black;
+  align-items:baseline;
   font-size:inherit !important;
   line-height: 1 !important;
 }
