@@ -108,6 +108,7 @@ small {
 .sub-menu{
   transition:2s;
   max-height:50px;
+  top:-5px;
 }
 .sub-menu.myanimate{
   animation:openAnimation;
