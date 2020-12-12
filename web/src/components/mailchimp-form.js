@@ -19,10 +19,10 @@ export default class MailChimpForm extends React.Component {
   }
 
   _handleSubmit = async (e) => {
-    console.log("handle sub");
+
     e.preventDefault();
     const result = await addToMailchimp(this.state.email);
-    console.log("result", result);
+  
     this.setState({ result: result.result });
     this.setState({ msg: result.msg });
   };

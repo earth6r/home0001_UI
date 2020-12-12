@@ -41,7 +41,7 @@ const BookingPage = (props) => {
     meta,
   } = data.allSanityLanding.edges[0].node._rawContent;
 
-  console.log(meta);
+  
 
   if (!site) {
     throw new Error(

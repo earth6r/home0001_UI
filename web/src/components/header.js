@@ -12,7 +12,7 @@ const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, o
   const menu = mainMenu !== undefined ? mainMenu.edges[0].node.items : null;
   const submenu = subMenu && subMenu.edges[0] !== undefined ? subMenu.edges[0].node.items : null;
   const menuFooter = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
-  // console.log(mainMenu);
+ 
   let currentUri = ""
   let uri = "";
   if (bannerUrl !== undefined && bannerUrl !== null) {

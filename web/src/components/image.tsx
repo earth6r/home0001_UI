@@ -48,7 +48,7 @@ export const Image = ({
   });
 
   useLayoutEffect(() => {
-    // console.log(ref.current.offsetWidth);
+
     setRandX(Math.floor(Math.random() * 4));
     setRandY(Math.floor(Math.random() * 4));
     setRandSpeed(Math.random() * (0.3 - 0.2) - 0.2);

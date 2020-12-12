@@ -39,8 +39,8 @@ const serializers = {
         )
     },
     buttonLink: ({ mark, children }) => {
-      // console.log(mark);
-      // console.log(children);
+
+
       return (
         <button className="box-menu">
           <a href={mark.href}>{children}</a>
@@ -80,9 +80,9 @@ const serializers = {
     },
     partner: ({ mark, children }) => <div>partner</div>,
     internalLink: ({ mark, children }) => {
-      // console.log(mark.reference.content.main.slug);
+      
       if (mark) {
-        console.log(mark.reference._type)
+        
         if (mark.reference && mark.reference.content) {
           if(mark.reference._type == "home"){
             return (

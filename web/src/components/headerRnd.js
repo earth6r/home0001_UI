@@ -9,8 +9,7 @@ import PortableText from "./portableText"
 const HeaderRnd = ({ mainMenu, infoSection = null, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome, showThinBanner, thinBanner }) => {
   // const containerRef = useRef(null);
   // const { height } = useDimensions(containerRef);
-  console.log(infoSection)
-  console.log("hello")
+ 
   const [loaded, setLoaded] = useState(false);
   const [info, setInfo] = useState(false);
   function handleShowInfo() {
@@ -20,7 +19,7 @@ const HeaderRnd = ({ mainMenu, infoSection = null, rMenu, subMenu, onHideNav, on
       setInfo(true);
     }
     
-    // console.log("set true");
+
   }
   const menu = rMenu !== undefined ? rMenu.edges[0].node.items : null;
   const submenu = subMenu && subMenu.edges[0] !== undefined ? subMenu.edges[0].node.items : null;
@@ -43,7 +42,7 @@ const HeaderRnd = ({ mainMenu, infoSection = null, rMenu, subMenu, onHideNav, on
       setLoaded(true);
     }, 3000);
   }, []);
-  console.log(showThinBanner)
+ 
   return (
     <>
     

@@ -60,7 +60,7 @@ const HomeTemplate = (props) => {
   const units = page._rawUnits;
   const unitsTitle = page.unitsTitle;
   const unitsSubtitle = page.unitsSubtitle;
-  // \console.log(data);
+ 
 
   if (errors) {
     return (

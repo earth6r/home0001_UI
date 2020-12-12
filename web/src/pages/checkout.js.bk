@@ -58,7 +58,7 @@ const CheckoutPage = (props) => {
 
   const {_rawGdpr} = data.sanityCheckout;
 
-  console.log(data.sanityCheckout)
+  
 
   return (
     <Layout>

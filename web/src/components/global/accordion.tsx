@@ -19,7 +19,7 @@ export interface AccordionModuleProps {
 
 export const AccordionModule = ({ data }: AccordionModuleProps) => {
   const { accordionItems } = data;
-  // console.log(data);
+
   return (
     <Accordion allowMultiple={false} className=" w-full">
       {accordionItems.length > 0 &&

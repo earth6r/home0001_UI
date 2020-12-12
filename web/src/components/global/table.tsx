@@ -4,7 +4,7 @@ import GridRow from "../grid/grid-row";
 
 export const Table = (props) => {
   const { data } = props;
-  console.log(data);
+
 
   return (
     <>

@@ -88,7 +88,7 @@ const CheckoutDescription = ({ unit, modules, children }) => {
 };
 
 const CheckoutTemplate = (props) => {
-  console.log(props);
+ 
   const { data, errors } = props;
   const page = data && data.checkout;
   const ssr = typeof window !== `undefined`;
@@ -123,7 +123,7 @@ const CheckoutTemplate = (props) => {
         return unit;
       });
 
-      console.log("home", home);
+     
     }
 
     // Set default membership item

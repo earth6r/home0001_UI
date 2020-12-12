@@ -9,7 +9,7 @@ export interface StandardTextProps {
 
 export const StandardText = ({ data }: StandardTextProps) => {
   const { text } = data;
-  // console.log(text);
+
   return (
     <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
       <PortableText blocks={text} />

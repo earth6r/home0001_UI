@@ -68,7 +68,6 @@ export const GalleryImage = ({
   });
 
   useEffect(() => {
-    // console.log(ref.current.offsetWidth);
 
     var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
     setRandPullX(Math.random() * 20 * plusOrMinus);
@@ -78,7 +77,6 @@ export const GalleryImage = ({
     setRandMobileWidth(Math.floor(Math.random() * 8) + 2);
     setRandPadding(Math.floor(Math.random() * (remainingWidth / 4)));
     setLoaded(true);
-    // console.log(randPullX);
   }, [ref]);
 
   return (

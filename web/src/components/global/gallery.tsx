@@ -58,7 +58,7 @@ const Gallery = (props) => {
   let orders = getOrders();
   let remainingOrders = getOrders();
 
-  // console.log(props);
+
   function showPdf(key){
     let mykey = document.getElementById(key);
     mykey.style.display = "block"

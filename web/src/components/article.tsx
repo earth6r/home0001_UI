@@ -33,7 +33,7 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
         navigate("#"+mySlug)
         let y = window.scrollY + 100;  //your current y position on the page
         window.scrollBy(0,y)
-        console.log('hash link')
+
         setScrolled(false)
       }
 

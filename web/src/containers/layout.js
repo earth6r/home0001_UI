@@ -192,18 +192,18 @@ function LayoutContainer(props) {
   const [showSubNav, setShowSubNav] = useState(false);
   function handleShowNav() {
     setShowNav(true);
-    // console.log("set true");
+   
   }
   function handleHideNav() {
     setShowNav(false);
   }
   function handleShowSubNav() {
     setShowSubNav(true);
-    console.log("set true");
+ 
   }
   function handleHideSubNav() {
     setShowSubNav(false);
-    console.log("set false")
+
   }
   return (
     <StaticQuery
@@ -215,7 +215,7 @@ function LayoutContainer(props) {
           );
         }
     
-        console.log(data);
+  
         return (
           <ThemeProvider>
             <Global styles={GlobalStyles} />
