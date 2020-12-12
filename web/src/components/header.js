@@ -13,6 +13,7 @@ const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, o
   const submenu = subMenu && subMenu.edges[0] !== undefined ? subMenu.edges[0].node.items : null;
   const menuFooter = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
   // console.log(mainMenu);
+  let currentUri = ""
   let uri = "";
   if (bannerUrl !== undefined && bannerUrl !== null) {
     switch (bannerUrl._type) {
@@ -38,14 +39,18 @@ const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, o
 
   return words.join(' ');
 }
-
+if(typeof window != `undefined`){
+   currentUri = window.location.href
+}
   useEffect(() => {
     // setLoaded(true);
+    currentUri = window.location.href
+
     setTimeout(function () {
       setLoaded(true);
     }, 3000);
   }, []);
-  console.log(showThinBanner)
+
   return (
     <>
     {showThinBanner && thinBanner &&
@@ -144,7 +149,7 @@ const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, o
               >
                 <li className="absolute md:relative left-0 top-0 pt-2">
                   <h1 className="logo ">
-                    <PageLink onClick={onHideNav} to="/collective">
+                    <PageLink className={`${currentUri.includes('collective') || currentUri.includes('alt') ? "current-nav-link": ""}`} onClick={onHideNav} to="/collective">
                       <span className="earth">E</span>
                     </PageLink>
                   </h1>
@@ -163,7 +168,7 @@ const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, o
                   menu.map((item, index) => (
                     <li className="hidden md:block" key={item._key}>
                       <PageLink
-                        className="md:pt-1/2em inline-block"
+                        className={`${currentUri.includes(item.link.content.main.slug.current) || (currentUri.includes('/home/') && item.link.content.main.slug.current.includes("home")) ? "current-nav-link": ""} md:pt-1/2em inline-block`} 
                         onClick={onHideNav}
                         to={`/${item.link.content.main.slug.current}`}
                       >
