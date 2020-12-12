@@ -130,6 +130,12 @@
 .box.accordion button[aria-expanded="true"] {
   color: #000000 !important;
 }
+@media(max-width:768px){
+  .box-link{
+    padding:0.07rem 0.5rem;
+    padding-bottom:0.08rem;
+  }
+}
 
 @screen md {
   .box {
