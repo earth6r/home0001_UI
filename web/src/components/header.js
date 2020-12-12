@@ -159,7 +159,7 @@ if(typeof window != `undefined`){
                 </li>
                 {menu &&
                   menu.map((item, index) => (
-                    <li className="md:hidden mt-1em mb-1/2em mx-auto" key={item._key}>
+                    <li onClick={onHideNav} className="md:hidden mt-1em mb-1/2em mx-auto" key={item._key}>
                       <CircleButton title={item.title} url={item.link} float={true} />
                     </li>
                   ))}
