@@ -11,9 +11,12 @@
 html {
   font-family: "GP", Arial, Helvetica, sans-serif;
 }
-.current-nav-link{
-  border-bottom:1px solid black ;
+@media(min-width: 768px){
+  .current-nav-link{
+    border-bottom:1px solid black ;
+  }
 }
+
 
 body {
   -webkit-font-smoothing: antialiased;
@@ -102,10 +105,26 @@ small {
   }
 
 /*end marquee*/
-@media(min-width: 768px){
 .sub-menu{
-  right:5px;
+  transition:2s;
+  max-height:50px;
 }
+.sub-menu.myanimate{
+  animation:openAnimation;
+  animation-duration: 1s;
+  overflow:hidden;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+@keyframes openAnimation {
+  from { max-height: 50px; }
+  to { max-height: 1000px; }
+}
+
+@media(min-width: 768px){
+  .sub-menu{
+    right:5px;
+  }
 }
 .instagram-logo{
   width:20px;
