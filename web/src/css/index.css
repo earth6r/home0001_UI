@@ -93,6 +93,7 @@ small {
   line-height: 1;
   padding: 1px 6px 2px;
 }
+
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -105,6 +106,20 @@ small {
   }
 
 /*end marquee*/
+/*loading animation*/
+.load-animation{
+  animation:loading;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+  transform-origin: top center;
+}
+
+@keyframes loading {
+  from { opacity: 1;  transform: scale(1); }
+  to { opacity: 0; transform: scale(0); }
+}
+/* end loading animation */
 .sub-menu{
   transition:2s;
   max-height:50px;
