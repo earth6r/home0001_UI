@@ -23,7 +23,7 @@ const PopoverModule = (props) => {
     window.addEventListener('scroll', function (event) {
     // Scrolling has happened...
     let limit = document.getElementById(text+"-popover");
-    limit = limit.getBoundingClientRect().top - 100;
+    limit = limit ? limit.getBoundingClientRect().top - 100 : null;
 
      if(window.pageXOffset > limit && window.pageXOffset < limit + 100){
       close()
