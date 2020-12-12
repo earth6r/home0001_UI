@@ -76,12 +76,14 @@ const SpecButton = ({ title, url, color, float = true, callibrationMark, specs =
         )}
       {specs && (
         <>
+          <div className="md:pl-1/10 w-full max-w-4xl">
           <button
             onClick={onOpen}
-            className={`${color === "black" ? " text-white box-black" : "text-black box-white"} box rounded-md w-full max-w-4xl block text-center leading-none h-2em flex items-center justify-center text-mobileBody md:text-desktopBody `}
+            className={`${color === "black" ? " text-white box-black" : "text-black box-white"} box rounded-md w-full block text-center leading-none h-2em flex items-center justify-center text-mobileBody md:text-desktopBody `}
           >
             {title}
           </button>
+          </div>
           {callibrationMark &&
             <GridRow/>
           }
