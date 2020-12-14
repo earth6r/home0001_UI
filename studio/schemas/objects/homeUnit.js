@@ -52,6 +52,11 @@ export default {
       title: 'BitPay ID',
       name: 'bitPayID',
       type: 'text'
+    },
+    {
+      title: 'BitPay ID Discounted',
+      name: 'bitPayIDDiscounted',
+      type: 'text'
     }
   ]
 }
