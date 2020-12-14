@@ -12,6 +12,11 @@ const StripeCheckoutCreateButton = ({ handleClick }) => (
   </button>
 );
 
+const DiscountNotice = ({ discountCode }) => {
+  if (!discountCode) return null;
+  return <p>Discount “{discountCode}” applied</p>;
+};
+
 const BitPayCheckoutButton = ({ bitPayID }) => (
   <form action={process.env.BITPAY_API_URL} method="post">
     <input type="hidden" name="action" value="checkout" />
@@ -49,18 +54,19 @@ const Price = ({ discount }) => {
   return <span>$300</span>;
 };
 
-const MembershipProductDetails = ({ discount }) => (
+const MembershipProductDetails = ({ discount, discountCode }) => (
   <div className="product pt-1em pb-1em">
     <div className="description">
       <h3>Membership</h3>
       <h5>
         <Price discount={discount} />
+        <DiscountNotice discountCode={discountCode} />
       </h5>
     </div>
   </div>
 );
 
-const UnitProductDetails = ({ discount, unit }) => (
+const UnitProductDetails = ({ discount, discountCode, unit }) => (
   <div className="product pt-1/2em pb-1em">
     <img
       className="pb-1em"
@@ -75,23 +81,24 @@ const UnitProductDetails = ({ discount, unit }) => (
       <h3>{unit.title}</h3>
       <h5>
         <Price discount={discount} />
+        <DiscountNotice discountCode={discountCode} />
       </h5>
     </div>
   </div>
 );
 
-const ProductDetails = ({ discount, unit }) => {
-  if (!unit) return <MembershipProductDetails discount={discount} />;
-  return <UnitProductDetails discount={discount} unit={unit} />;
+const ProductDetails = ({ discount, discountCode, unit }) => {
+  if (!unit) return <MembershipProductDetails discount={discount} discountCode={discountCode} />;
+  return <UnitProductDetails discount={discount} discountCode={discountCode} unit={unit} />;
 };
 
-const CheckoutActions = ({ unit, discount, bitPayID, message, handleClick }) => {
+const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, handleClick }) => {
   if (message) return <Message message={message} />;
 
   return (
     <>
       <section>
-        <ProductDetails discount={discount} unit={unit} />
+        <ProductDetails discount={discount} discountCode={discountCode} unit={unit} />
         <StripeCheckoutCreateButton handleClick={handleClick} />
         <BitPayCheckoutButton bitPayID={bitPayID} />
 
@@ -106,7 +113,14 @@ const CheckoutActions = ({ unit, discount, bitPayID, message, handleClick }) => 
   );
 };
 
-export default function CheckoutCreate({ discount, unit, sku, bitPayID, stripePromise }) {
+export default function CheckoutCreate({
+  discount,
+  discountCode,
+  unit,
+  sku,
+  bitPayID,
+  stripePromise,
+}) {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
@@ -124,7 +138,7 @@ export default function CheckoutCreate({ discount, unit, sku, bitPayID, stripePr
 
   const handleClick = async (event) => {
     const stripe = await stripePromise;
-    const data = { sku, discount };
+    const data = { sku, discount, discountCode };
 
     const response = await fetch("/.netlify/functions/create-checkout", {
       method: "POST",
@@ -161,6 +175,7 @@ export default function CheckoutCreate({ discount, unit, sku, bitPayID, stripePr
       unit={unit}
       bitPayID={bitPayID}
       discount={discount}
+      discountCode={discountCode}
       message={message}
       handleClick={handleClick}
     />

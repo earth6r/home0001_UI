@@ -146,13 +146,14 @@ const CheckoutTemplate = (props) => {
           <CheckoutActions unit={unit}>
             <CheckoutDescription unit={unit} modules={modules}>
               <PaymentContext.Consumer>
-                {({ discount }) => (
+                {({ discount, discountCode }) => (
                   <CheckoutCreate
                     home={home}
                     unit={unit}
                     sku={sku}
                     bitPayID={discount ? bitPayIDDiscounted : bitPayID}
                     discount={discount}
+                    discountCode={discountCode}
                     stripePromise={stripePromise}
                   />
                 )}
