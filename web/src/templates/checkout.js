@@ -33,6 +33,7 @@ export const query = graphql`
             title
             bedrooms
             bitPayID
+            bitPayIDDiscounted
             price
             _rawFloorPlan
             _rawFloorPlanCaption
@@ -102,6 +103,7 @@ const CheckoutTemplate = (props) => {
   let unit;
   let sku;
   let bitPayID;
+  let bitPayIDDiscounted;
 
   if (ssr) {
     const searchParams = new URLSearchParams(window.location.search);
@@ -120,6 +122,9 @@ const CheckoutTemplate = (props) => {
         unit = units.find((unit) => unit.stripeSKU === sku);
         return unit;
       });
+
+      bitPayIDDiscounted = unit.bitPayIDDiscounted;
+      console.log("bitPayIDDiscounted", bitPayIDDiscounted);
     }
 
     // Set default membership item
@@ -146,7 +151,7 @@ const CheckoutTemplate = (props) => {
                     home={home}
                     unit={unit}
                     sku={sku}
-                    bitPayID={bitPayID}
+                    bitPayID={discount ? bitPayIDDiscounted : bitPayID}
                     discount={discount}
                     stripePromise={stripePromise}
                   />
