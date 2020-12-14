@@ -9,6 +9,7 @@ import Layout from "../containers/layout";
 import { RenderModules } from "../utils/renderModules";
 import CheckoutCreate from "../components/checkout-create";
 import GridRow from "../components/grid/grid-row";
+import PaymentContext from "../lib/payment-context";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
@@ -88,7 +89,6 @@ const CheckoutDescription = ({ unit, modules, children }) => {
 };
 
 const CheckoutTemplate = (props) => {
- 
   const { data, errors } = props;
   const page = data && data.checkout;
   const ssr = typeof window !== `undefined`;
@@ -102,14 +102,12 @@ const CheckoutTemplate = (props) => {
   let unit;
   let sku;
   let bitPayID;
-  let discount;
 
   if (ssr) {
     const searchParams = new URLSearchParams(window.location.search);
 
     sku = searchParams.get("sku");
     bitPayID = searchParams.get("bitPayID");
-    discount = searchParams.get("discount") === "balaji";
 
     const homes = (data.homes.edges || []).map(({ node }) => node);
 
@@ -122,8 +120,6 @@ const CheckoutTemplate = (props) => {
         unit = units.find((unit) => unit.stripeSKU === sku);
         return unit;
       });
-
-     
     }
 
     // Set default membership item
@@ -144,14 +140,18 @@ const CheckoutTemplate = (props) => {
         <CheckoutOptions ssr={ssr}>
           <CheckoutActions unit={unit}>
             <CheckoutDescription unit={unit} modules={modules}>
-              <CheckoutCreate
-                home={home}
-                unit={unit}
-                sku={sku}
-                bitPayID={bitPayID}
-                discount={discount}
-                stripePromise={stripePromise}
-              />
+              <PaymentContext.Consumer>
+                {({ discount }) => (
+                  <CheckoutCreate
+                    home={home}
+                    unit={unit}
+                    sku={sku}
+                    bitPayID={bitPayID}
+                    discount={discount}
+                    stripePromise={stripePromise}
+                  />
+                )}
+              </PaymentContext.Consumer>
             </CheckoutDescription>
           </CheckoutActions>
         </CheckoutOptions>

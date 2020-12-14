@@ -49,7 +49,7 @@ const Price = ({ discount }) => {
   return <span>$300</span>;
 };
 
-const MembershipProductDeatils = ({ discount }) => (
+const MembershipProductDetails = ({ discount }) => (
   <div className="product pt-1em pb-1em">
     <div className="description">
       <h3>Membership</h3>
@@ -81,7 +81,7 @@ const UnitProductDetails = ({ discount, unit }) => (
 );
 
 const ProductDetails = ({ discount, unit }) => {
-  if (!unit) return <MembershipProductDeatils discount={discount} />;
+  if (!unit) return <MembershipProductDetails discount={discount} />;
   return <UnitProductDetails discount={discount} unit={unit} />;
 };
 

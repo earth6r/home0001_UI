@@ -3,20 +3,20 @@ import { GalleryImage } from "../gallery-image";
 import GridRow from "../grid/grid-row";
 import ReactHtmlParser from "react-html-parser";
 import CircleButton from "./circleButton";
-import PdfReader from "./pdfReader"
+import PdfReader from "./pdfReader";
 
 var shuffle = require("shuffle-array");
 
 const Gallery = (props) => {
   const { images, blankspaces, url, embeds, textblocks, pdfs } = props;
-  const myImages = images ? shuffle(images).filter(Boolean) : []; 
+  const myImages = images ? shuffle(images).filter(Boolean) : [];
   const myrandImages = embeds ? shuffle(images.concat(embeds)) : myImages;
   const myImagesEmbeds = textblocks ? shuffle(myrandImages.concat(textblocks)) : myrandImages;
   const myrandSpaces = blankspaces ? shuffle(myImagesEmbeds.concat(blankspaces)) : myImagesEmbeds;
   const randImages = pdfs ? shuffle(myrandSpaces.concat(pdfs)) : myrandSpaces;
   const justify = ["justify-start", "justify-center", "justify-between", "justify-end"];
   const [direction, setDirection] = useState();
-  
+
   // const randImages = images;
   const gridLen = Math.floor(randImages.length / 2);
   let baseWidth = 8;
@@ -58,10 +58,9 @@ const Gallery = (props) => {
   let orders = getOrders();
   let remainingOrders = getOrders();
 
-
-  function showPdf(key){
+  function showPdf(key) {
     let mykey = document.getElementById(key);
-    mykey.style.display = "block"
+    mykey.style.display = "block";
   }
   function getOrders() {
     let temp_orders = [];
@@ -73,17 +72,17 @@ const Gallery = (props) => {
 
   function row() {
     for (let i = 0; i < gridLen; i++) {
-      if(randImages[i]){
-      return (
-        <div
-          key={`${randImages[i]._key}-grid-$`}
-          style={{ top: `${(100 / images.length) * (i + 1)}%` }}
-          className="absolute w-full pointer-events-none left-0 z-0"
-        >
-          <GridRow />
-        </div>
-      );
-    }
+      if (randImages[i]) {
+        return (
+          <div
+            key={`${randImages[i]._key}-grid-$`}
+            style={{ top: `${(100 / images.length) * (i + 1)}%` }}
+            className="absolute w-full pointer-events-none left-0 z-0"
+          >
+            <GridRow />
+          </div>
+        );
+      }
     }
   }
   useEffect(() => {
@@ -94,9 +93,9 @@ const Gallery = (props) => {
       <div className={`mx-mobile md:mx-desktop relative flex flex-wrap ${direction}`}>
         {randImages &&
           randImages.map((image, index) => {
-             console.log(image)
-            if(image && (image._type == "mainImage")){
-            //get ratio of image
+            // console.log(image);
+            if (image && image._type == "mainImage") {
+              //get ratio of image
               if (image.asset !== undefined) {
                 let order = index;
                 let ratio =
@@ -128,7 +127,8 @@ const Gallery = (props) => {
                   remainingMobileWidth =
                     ratio == "portrait"
                       ? Math.floor(
-                          Math.random() * (maxMobileLeadPortraitWidth - minMobileLeadPortraitWidth) +
+                          Math.random() *
+                            (maxMobileLeadPortraitWidth - minMobileLeadPortraitWidth) +
                             minMobileLeadPortraitWidth
                         )
                       : Math.floor(
@@ -155,19 +155,19 @@ const Gallery = (props) => {
               } else {
                 return <></>;
               }
-
-            } else if(image._type == "file"){
-                return(
-                  <PdfReader file={image.asset.url} />
-                )
-            } else if(image._type == "string"){
-              return(
-                <div></div>
-              )
-            }else {
-              return(
-                <div key={index} className="align-middle gallery-image w-9/20 md:w-8/20 py-2 self-undefined mx-auto html-text">{ReactHtmlParser(image)}</div>
-              )
+            } else if (image._type == "file") {
+              return <PdfReader key={image._key} file={image.asset.url} />;
+            } else if (image._type == "string") {
+              return <div></div>;
+            } else {
+              return (
+                <div
+                  key={index}
+                  className="align-middle gallery-image w-9/20 md:w-8/20 py-2 self-undefined mx-auto html-text"
+                >
+                  {ReactHtmlParser(image)}
+                </div>
+              );
             }
           })}
         {/* randomly place circle image in an order between 1 and gallery image set length  */}

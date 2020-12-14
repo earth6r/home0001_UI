@@ -7,9 +7,10 @@
 // You can delete this file if you're not using it
 import "./src/css/index.css";
 import React from "react";
-import { navigate } from '@reach/router';
 import "focus-visible/dist/focus-visible";
 import LoadingScreen from "./src/components/loading-screen";
+import PaymentContext from "./src/lib/payment-context";
+import { DISCOUNT_CODES } from "./src/lib/constants";
 
 //stripe
 import { Elements } from "@stripe/react-stripe-js";
@@ -24,10 +25,15 @@ const ELEMENTS_OPTIONS = {
 };
 
 export const wrapRootElement = ({ element, props }) => {
+  const qs = new URLSearchParams(window.location.search);
+  const discount = qs.has("discount") && DISCOUNT_CODES.has(qs.get("discount"));
+
   return (
-    <Elements options={ELEMENTS_OPTIONS} stripe={stripePromise} {...props}>
+    <PaymentContext.Provider value={{ discount }}>
+      <Elements options={ELEMENTS_OPTIONS} stripe={stripePromise} {...props}>
         <LoadingScreen />
         {element}
-    </Elements>
+      </Elements>
+    </PaymentContext.Provider>
   );
 };
