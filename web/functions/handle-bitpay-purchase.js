@@ -15,13 +15,14 @@ const fetch = require("node-fetch");
 // The BitPay server expects an HTTP 200 response with an empty body. Any other HTTP response is considered by BitPay as a failed delivery.
 // The BitPay server attempts to send IPNs multiple times until the send is either successful or the BitPay server gives up.
 
+const trimSlash = (url) => url.replace(/\/+$/, "", url);
+
 exports.handler = async (event) => {
-  console.log("event", event);
+  // console.log("event", event);
 
   const { id: invoiceId } = event;
-  // const invoiceId = "3NaLZ4u3rqEzPq77oGTqjK";
 
-  const resourceURL = `${process.env.BITPAY_API_URL}/invoices`;
+  const resourceURL = `${trimSlash(process.env.BITPAY_API_URL)}/invoices`;
   const token = process.env.BITPAY_POS_TOKEN;
   const headers = {
     "x-accept-version": "2.0.0",

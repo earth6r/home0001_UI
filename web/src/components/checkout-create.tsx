@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { navigate } from "@reach/router";
-import CoinbaseCommerceButton from "react-coinbase-commerce";
+// import { navigate } from "@reach/router";
+// import CoinbaseCommerceButton from "react-coinbase-commerce";
 // import getMemberPrice from "../utils/get-member-price";
 // import "react-coinbase-commerce/dist/coinbase-commerce-button.css";
 import { imageUrlFor } from "../lib/image-url";
@@ -13,19 +13,19 @@ const StripeCheckoutCreateButton = ({ handleClick }) => (
 );
 
 const BitPayCheckoutButton = ({ bitPayID }) => (
-  <form action="https://test.bitpay.com/checkout" method="post">
+  <form action={process.env.BITPAY_API_URL} method="post">
     <input type="hidden" name="action" value="checkout" />
     <input type="hidden" name="posData" value="" />
     <input
       type="hidden"
       name="data"
-      // value={bitPayID}
+      value={bitPayID}
       //
       // localhost:
       // value="8i9z07Urk0j2YyISpSvcMlpcnbPuCVN0VA5k6ZtbFu/oN/hvP+i42ilIxjZkqSTOgum96D0V4+9meApk6LJgJLxBoT9x5hawpU5BzaTshmHvIMUf77SVcq9e/UNbAq7gfaFxPgh/tcQyfcE/fw6fAaYI6PwMTqzU8ojHROTsMpuvddyPYZAJOxxSvf/YHys7H6evuDEngH7C/qDavKG0G+Gk2YrNjiPqAvSsuKZyInzZznwFvNpBOOvE7nfJKvdJxYvC3BOKO+n5t01s2W38mdIn/zOuzDTA0f0HPE3ZIqBk1HAtigHk4bAy2L0r28+2z8mt5UdUJIBhycLv9M1fthTzZtZqG8YjOIwZq59QgoVbCVq0ziNxSU9PJOTpLBox"
       //
       // staging:
-      value="8i9z07Urk0j2YyISpSvcMlpcnbPuCVN0VA5k6ZtbFu/oN/hvP+i42ilIxjZkqSTOgum96D0V4+9meApk6LJgJIhQcDIG6ef/3W8iZTzFKz2fNfmUMKirscfXOa948zTCH7y/uZ67PlxJdirj9eDKWKs5j+5ewjMCJzt7Fb5yS4gtS3T84e8kxEDkmyqPFsELdbYoA6+XBq9Mmj+qHMviIQWobSwelJC3KfSeizqtMHLdJTUWwzx6JRue0YEB6iYy6COziLvRUP5u0hntdx7i36BbIZALJEgtBU+e82CnOwsV5q1sBezo1rYyp1r42b7BB5Bewr94dZ4NiFoPWlHwIGa03acyUQSxeA03oJ/hatKI7+ESMFHp1zqPSRQrFLyE"
+      // value="8i9z07Urk0j2YyISpSvcMlpcnbPuCVN0VA5k6ZtbFu/oN/hvP+i42ilIxjZkqSTOgum96D0V4+9meApk6LJgJIhQcDIG6ef/3W8iZTzFKz2fNfmUMKirscfXOa948zTCH7y/uZ67PlxJdirj9eDKWKs5j+5ewjMCJzt7Fb5yS4gtS3T84e8kxEDkmyqPFsELdbYoA6+XBq9Mmj+qHMviIQWobSwelJC3KfSeizqtMHLdJTUWwzx6JRue0YEB6iYy6COziLvRUP5u0hntdx7i36BbIZALJEgtBU+e82CnOwsV5q1sBezo1rYyp1r42b7BB5Bewr94dZ4NiFoPWlHwIGa03acyUQSxeA03oJ/hatKI7+ESMFHp1zqPSRQrFLyE"
     />
     <input className="e-checkout" type="submit" value="Checkout with BitPay" />
   </form>
