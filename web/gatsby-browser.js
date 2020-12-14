@@ -26,10 +26,17 @@ const ELEMENTS_OPTIONS = {
 
 export const wrapRootElement = ({ element, props }) => {
   const qs = new URLSearchParams(window.location.search);
-  const discount = qs.has("discount") && DISCOUNT_CODES.has(qs.get("discount"));
+
+  let discount = false;
+  let discountCode = "";
+
+  if (qs.has("discount") && DISCOUNT_CODES.has(qs.get("discount"))) {
+    discount = true;
+    discountCode = qs.get("discount");
+  }
 
   return (
-    <PaymentContext.Provider value={{ discount }}>
+    <PaymentContext.Provider value={{ discount, discountCode }}>
       <Elements options={ELEMENTS_OPTIONS} stripe={stripePromise} {...props}>
         <LoadingScreen />
         {element}
