@@ -239,8 +239,12 @@ small {
   
 }
 @media(max-width:768px){
+  .react-pdf__Page,.react-pdf__Page canvas{
+  max-width: calc(100vw);
+}
   .lightbox-pdf canvas{
-    transform:scale(0.5);
+    transform-origin:center center;
+    transform:scale(0.7);
   }
   .lightbox-pdf .pdf-close {
     right:50px;
