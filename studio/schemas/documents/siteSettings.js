@@ -50,6 +50,11 @@ export default {
       name: 'infosection',
       type: 'bodyPortableText',
       title: 'Info Section for R & D site'
+    },
+    {
+      name: 'infosectionBelow',
+      type: 'bodyPortableText',
+      title: '(below newsletter) Info Section for R & D site'
     }
   ],
 }
