@@ -187,7 +187,7 @@ const HeaderRnd = ({ mainMenu, infoSection = null, rMenu, subMenu, onHideNav, on
         <ModalOverlay opacity={0.75} />
         <ModalContent className="rounded-md">
           <ModalHeader className="font-normal mb-0 pb-0">
-            <div className="text-mobileCaption md:text-desktopCaption "> <PortableText blocks={infoSection} /> </div>
+            <div className="info-rd text-mobileCaption md:text-desktopCaption "> <PortableText blocks={infoSection} /> </div>
             <h5 className=" text-mobileCaption md:text-desktopCaption mt-1/4em uppercase">
               Newsletter
             </h5>

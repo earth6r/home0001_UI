@@ -286,6 +286,9 @@ small {
   line-height: 1;
 }
 /* info section R & D */
+.info-rd a{
+  text-decoration: underline;
+}
 img{
   max-width: 500px;
 }
