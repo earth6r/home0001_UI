@@ -128,13 +128,63 @@ export default {
           },
         ],
       },
-      of: [{ type: 'partnerReference' },  {
+      of: [{ type: 'partnerReference' },
+        {
+          name: 'pdf',
+          title: 'Pdf',
+          type: 'file',
+          fields: [
+            {
+              type: 'text',
+              name: 'iframeCaption',
+              title: 'Iframe Caption text',
+              description: 'caption for html iframe',
+              options: {
+                isHighlighted: true
+              }
+            }
+          ]
+        },
+        { type: 'object',
+          name: 'iframe',
+          fields: [
+            {
+              type: 'text',
+              name: 'iframeCode',
+              title: 'Iframe code',
+              description: 'code for html iframe',
+              options: {
+                isHighlighted: true
+              }
+            },
+            {
+              type: 'text',
+              name: 'iframeCaption',
+              title: 'Iframe Caption text',
+              description: 'caption for html iframe',
+              options: {
+                isHighlighted: true
+              }
+            }
+          ]
+
+        },
+        {
           type: 'image',
           fields: [
             {
               type:'boolean',
               name: 'fullwidth',
               title: 'Should img be full width'
+            },
+            {
+              type: 'text',
+              name: 'captionText',
+              title: 'Caption text',
+              description: 'caption for image',
+              options: {
+                isHighlighted: true
+              }
             },
             {
               type: 'text',
