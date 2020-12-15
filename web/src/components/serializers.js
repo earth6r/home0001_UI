@@ -5,13 +5,27 @@ import MapModule from "./mapModule";
 import CircleButton from "./global/circleButton";
 // import { InternalLink } from "./global/internalLink";
 import { PageLink } from "./link";
+import ReactHtmlParser from "react-html-parser";
 
 const serializers = {
   types: {
     authorReference: ({ node }) => <span>{node.author.name}</span>,
     image: ({node}) => {
       return (
-        <img src={node.asset.url} className={`${node.fullwidth ? "w-full" : "w-6/12"} my-3`}/>
+        <>
+        <img src={node.asset.url} altText={node.alt} className={`${node.fullwidth ? "w-full" : "w-6/12"} my-3`}/>
+        <p className="image-caption normal-case text-mobileCaption md:text-desktopCaption relative">{node.captionText}</p>
+        </>
+        )
+    },
+    iframe: ({node}) => {
+      return (
+        <>
+        <div className="internal-iframe">
+          {ReactHtmlParser(node.iframeCode)}
+        </div>
+        <p className="image-caption normal-case text-mobileCaption md:text-desktopCaption relative">{node.iframeCaption}</p>
+        </>
         )
     },
     partnerReference: ({ node }) => {

@@ -232,16 +232,16 @@ small {
   font-size:20px;
   line-height: 30px;
 }
-.gallery-image iframe{
+.gallery-image iframe, .internal-iframe iframe{
   max-width:100%;
 }
 .accordion-button{
   
 }
-p > .internal-link{
+.standard-text p a{
   border-bottom:2px solid;
 }
-h1 > .internal-link{
+.standard-text h1 > a {
   border-bottom:5px solid;
 }
 @media(max-width:768px){
