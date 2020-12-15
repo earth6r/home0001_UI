@@ -198,17 +198,30 @@ small {
 .lightbox-pdf canvas{
   display: block;
   margin:0 auto;
-  margin-top:50px;
+}
+
+.react-pdf__Page{
+  max-height: calc(100vh - 60px);
 }
 .lightbox-pdf .left-arrow{
   position: absolute;
   left:30px;
   top:50%;
 }
+.lightbox-pdf .pdf-close svg {
+  width:50px;
+  height:50px;
+
+}
+.lightbox-pdf .pdf-close svg line{
+  stroke:black;
+  stroke-width:3px;
+}
 .lightbox-pdf .pdf-close{
   top:70px;
-  right:150px;
+  right:190px;
 }
+
 .lightbox-pdf .right-arrow{
   position: absolute;
   right:30px;
@@ -218,6 +231,24 @@ small {
   border:none;
   font-size:20px;
   line-height: 30px;
+}
+.gallery-image iframe{
+  max-width:100%;
+}
+@media(max-width:768px){
+  .lightbox-pdf canvas{
+    transform:scale(0.5);
+  }
+  .lightbox-pdf .pdf-close {
+    right:50px;
+  }
+  .lightbox-pdf .pdf-close svg{
+    width:15px;
+    height:15px;
+  }
+ .lightbox-pdf .pdf-close svg line{
+  stroke-width:10px;
+ }
 }
 @media(min-width:768px){
   .px-special{
