@@ -62,11 +62,18 @@ small {
 /* FLEX GALLERY */
 .flexible-gallery{
   display: grid;
-
+  height: calc(100vw - 170px);
   grid-template-columns: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
 }
-.flexible-gallery .flex-item{
-/*  display: grid-ite;*/
+.flexible-gallery .flex-item img{
+  width:100%;
+}
+.flexible-gallery .flex-item iframe{
+  max-width:100%;
+}
+.flexible-gallery .flex-item > .overflow-hidden >.react-pdf__Document canvas{
+    width: 100% !important;
+    height: auto !important;
 }
 /* END FLEX GALLERY */
 /* MARQUEE */

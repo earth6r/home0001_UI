@@ -24,10 +24,11 @@ const FlexGallery = (props) => {
  
 
   let numbOfRows = 100/rowNum;
-  let rowStyle = numbOfRows.toString() + "%";
+  let rowStyle = 5 + "vw";
   for (var i = rowNum - 2; i >= 0; i--) {
-     rowStyle = rowStyle + " " + numbOfRows + "%"
+     rowStyle = rowStyle + " " + 5 + "vw"
    } 
+
   let gridStyle = {
     gridTemplateRows: rowStyle
   }
@@ -51,14 +52,14 @@ const FlexGallery = (props) => {
               console.log(styleObj)
               if (image.asset !== undefined) {
                 return (
-                  <img style={styleObj} className="flex-item" src={image.asset.url}/>
+                  <div className="flex-item" style={styleObj}><img src={image.asset.url}/> </div>
                 );
               } else {
                 return <></>;
               }
             } else if (image._type == "flexPdf") {
               
-              return <div style={styleObj}><PdfReader key={image._key} file={image.asset.url} /></div>;
+              return <div className="flex-item" style={styleObj}><PdfReader key={image._key} file={image.asset.url} /></div>;
             } else if (image._type == "string") {
               return <div></div>;
             } else {
@@ -68,7 +69,7 @@ const FlexGallery = (props) => {
                 <div
                   style={styleObj}
                   key={index}
-                  className="align-middle gallery-image w-9/20 md:w-8/20 py-2 self-undefined mx-auto html-text"
+                  className="flex-item html-text"
                 >
                   {ReactHtmlParser(image.embedCode)}
                 </div>
