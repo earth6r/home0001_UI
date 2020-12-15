@@ -71,7 +71,6 @@ const UnitProductDetails = ({ discount, discountCode, unit }) => (
     <img
       className="pb-1em"
       src={imageUrlFor(buildImageObj(unit._rawFloorPlan))
-        .width(600)
         .height(Math.floor((9 / 16) * 600))
         .auto("format")
         .url()}

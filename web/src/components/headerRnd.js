@@ -5,6 +5,19 @@ import CircleButton from "./global/circleButton";
 import GridRow from "./grid/grid-row";
 import ReactHtmlParser from "react-html-parser"
 import PortableText from "./portableText"
+import MailChimpForm from "./mailchimp-form";
+import instagramLogo from'./image.png';
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  Button,
+  ModalCloseButton,
+  useDisclosure,
+} from "@chakra-ui/core";
 
 const HeaderRnd = ({ mainMenu, infoSection = null, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome, showThinBanner, thinBanner }) => {
   // const containerRef = useRef(null);
@@ -12,6 +25,7 @@ const HeaderRnd = ({ mainMenu, infoSection = null, rMenu, subMenu, onHideNav, on
  
   const [loaded, setLoaded] = useState(false);
   const [info, setInfo] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
   function handleShowInfo() {
     if(info){
       setInfo(false);
@@ -99,7 +113,8 @@ const HeaderRnd = ({ mainMenu, infoSection = null, rMenu, subMenu, onHideNav, on
                 <span className="earth block text-mobileNav md:text-desktopNav">E</span>
               </PageLink>
             </h1>
-            <li onClick={handleShowInfo} className="block
+
+            <li onClick={onOpen} className="block
             md:block cursor-pointer">
                       <span className="uppercase md:pt-1/2em inline-block">
                         {info && infoSection ? "Close" : "Info"}
@@ -145,7 +160,7 @@ const HeaderRnd = ({ mainMenu, infoSection = null, rMenu, subMenu, onHideNav, on
                       <CircleButton title={"Info"} url={"/about"} float={true} />
                     </li>
 
-                    <li onClick={handleShowInfo} className="hidden md:block cursor-pointer">
+                    <li onClick={onOpen} className="hidden md:block cursor-pointer">
                       <span className="uppercase md:pt-1/2em inline-block">
                         {info && infoSection ? "Close" : "Info"}
                       </span>
@@ -164,11 +179,32 @@ const HeaderRnd = ({ mainMenu, infoSection = null, rMenu, subMenu, onHideNav, on
           showNav ? " h-full bg-black opacity-75 pointer-events-auto" : "opacity-0"
         } fixed hidden transition-opacity duration-150 left-0 top-0  pointer-events-none w-full`}
       ></div>
-      <div style={{zIndex: "40" }} className="fixed w-full h-12 md:h-18 gradient-to-b pointer-events-none top-0 left-0"></div>
+      <div style={{zIndex: "40" }} className="fixed w-full h-12 md:h-18  pointer-events-none top-0 left-0"></div>
       {infoSection && info &&
         <div style={{zIndex: "44" }} className="fixed info-section left-0 bg-white px-6 pt-10"><PortableText blocks={infoSection} /></div>
       }
-      
+      <Modal className="rounded-md" isOpen={isOpen} onClose={onClose} isCentered>
+        <ModalOverlay opacity={0.75} />
+        <ModalContent className="rounded-md">
+          <ModalHeader className="font-normal mb-0 pb-0">
+            <div className="text-mobileCaption md:text-desktopCaption "> <PortableText blocks={infoSection} /> </div>
+            <h5 className=" text-mobileCaption md:text-desktopCaption mt-1/4em uppercase">
+              Newsletter
+            </h5>
+          </ModalHeader>
+          <ModalCloseButton />
+          <ModalBody className="mb-1em pt-1/2em">
+            <MailChimpForm />
+          </ModalBody>
+
+          {/*<ModalFooter>
+            <Button mr={3} onClick={onClose}>
+              Close
+            </Button>
+            <Button variant="ghost">Secondary Action</Button>
+          </ModalFooter>*/}
+        </ModalContent>
+      </Modal>
     </>
   );
 };
