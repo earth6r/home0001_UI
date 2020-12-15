@@ -7,6 +7,9 @@ export default {
       type: 'article',
     },
     {
+      type: 'flexGallery',
+    },
+    {
       type: 'gallery',
     },
     {

@@ -59,6 +59,16 @@ th {
 small {
   font-size: 100% !important;
 }
+/* FLEX GALLERY */
+.flexible-gallery{
+  display: grid;
+
+  grid-template-columns: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
+}
+.flexible-gallery .flex-item{
+/*  display: grid-ite;*/
+}
+/* END FLEX GALLERY */
 /* MARQUEE */
 .marquee {
   position: relative;

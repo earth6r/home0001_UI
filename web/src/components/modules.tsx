@@ -9,6 +9,7 @@ import { Header } from "./global/header";
 import CircleButton from "./global/circleButton";
 import SpecButton from "./global/specButton";
 import Gallery from "./global/gallery";
+import FlexGallery from "./global/flexGallery";
 import { InternalLink } from "./global/internalLink";
 import { RichTable } from "./global/richTable";
 
@@ -55,6 +56,16 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
       return (
         <>
           <Gallery images={reactModule.images} pdfs={reactModule.pdfs} textblocks={reactModule.textblocks} embeds={reactModule.embeds} blankspaces={reactModule.blankspaces} url={reactModule.url} />
+          {reactModule.callibrationMark ? 
+         <GridRow></GridRow>
+          : <div className="w-full py-3"></div>}
+        </>
+      );
+    case "flexGallery":
+      // alert(reactModule.images.length);
+      return (
+        <>
+          <FlexGallery images={reactModule.images} rowNum={reactModule.numRows} pdfs={reactModule.pdfs} embeds={reactModule.embeds} url={reactModule.url} />
           {reactModule.callibrationMark ? 
          <GridRow></GridRow>
           : <div className="w-full py-3"></div>}

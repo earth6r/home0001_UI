@@ -31,6 +31,9 @@ import imagePortableText from './objects/imagePortableText'
 import listPortableText from './objects/listPortableText'
 import excerptPortableText from './objects/excerptPortableText'
 import mainImage from './objects/mainImage'
+import flexImage from './objects/flexImage'
+import flexEmbed from './objects/flexEmbed'
+import flexPdf from './objects/flexPdf'
 import authorReference from './objects/authorReference'
 import partnerReference from './objects/partnerReference'
 import header from './objects/header'
@@ -57,6 +60,7 @@ import imageModule from './modules/imageModule'
 import standardText from './modules/standardText'
 import moduleContent from './modules/moduleContent'
 import gallery from './modules/gallery'
+import flexGallery from './modules/flexGallery'
 import richTable from './modules/tableModule'
 
 // Tabs
@@ -96,6 +100,9 @@ export default createSchema({
     rnd,
     partner,
     mainImage,
+    flexImage,
+    flexEmbed,
+    flexPdf,
     authorReference,
     partnerReference,
     bodyPortableText,
@@ -115,6 +122,7 @@ export default createSchema({
     imageModule,
     moduleContent,
     gallery,
+    flexGallery,
     articleItem,
     metaCard,
     blockContent,
