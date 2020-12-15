@@ -96,29 +96,30 @@ const HomeTemplate = (props) => {
                     {({ isExpanded }) => (
                       <>
                         <AccordionHeader
+                          style={{paddingTop:"0.35em"}}
                           className={`${item.sold == 1 ? "opacity-25" : ""} ${
-                            isExpanded ? "text-black" : ""
-                          } relative flex h-2em p-0 pt-1/4em pl-1/2em border-none`}
+                            isExpanded ? "text-black" : "text-black"
+                          } relative flex h-2em  pl-1/2em border-none`}
                         >
                           
                           {item.unit && (
-                            <span className=" m-0 mr-1em -mt-1/4em md:mt-0">
+                            <span className=" m-0 mr-1em  md:mt-0">
                               <span>Unit </span>
                               {item.unit}
                             </span>
                           )}
                           {item.bedrooms && (
-                            <span className=" m-0 mr-1em text-mobileCaption md:text-base -mt-1/4em md:mt-0">
+                            <span className=" m-0 mr-1em text-mobileCaption md:text-base  md:mt-0">
                               {item.bedrooms}
                             </span>
                           )}
                           {item.price && (
-                            <span className="text-mobileCaption md:text-base text-left m-0 mr-1em -mt-1/4em md:mt-0">
+                            <span className="text-mobileCaption md:text-base text-left m-0 mr-1em  md:mt-0">
                               {item.price}
                             </span>
                           )}
                           {item.sold == 1 ? (
-                            <span className=" md:left-0 md:relative text-mobileCaption md:text-base -mt-1/4em md:mt-0">
+                            <span className=" md:left-0 md:relative text-mobileCaption md:text-base md:mt-0">
                               Sold
                             </span>
                           ) : (
