@@ -36,7 +36,7 @@ const PopoverModule = (props) => {
   }
 
   return (
-    <Popover placement="auto" isOpen={isOpen} onClose={close} trigger="click" usePortal={true} gutter={10}>
+    <Popover placement="" isOpen={isOpen} onClose={close} trigger="click" usePortal={true} gutter={10}>
       <PopoverTrigger>
         {text && (
           <button
@@ -52,7 +52,7 @@ const PopoverModule = (props) => {
       <PopoverContent
         id={text+'-content-popover'}
         bg="transparent"
-        className="content-popover border-none max-w-sm md:max-w-4xl no-shadow text-mobileBody p-0 md:text-desktopBody"
+        className="content-popover border-none max-w-sm md:max-w-4xl no-shadow m-2 -mt-100 ml-4 text-mobileBody p-0 md:text-desktopBody"
         zIndex={50}
       >
         <span className="block">
