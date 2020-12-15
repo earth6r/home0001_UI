@@ -238,6 +238,12 @@ small {
 .accordion-button{
   
 }
+p > .internal-link{
+  border-bottom:2px solid;
+}
+h1 > .internal-link{
+  border-bottom:5px solid;
+}
 @media(max-width:768px){
   .react-pdf__Page,.react-pdf__Page canvas{
   max-width: calc(100vw);

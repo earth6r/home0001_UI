@@ -87,6 +87,7 @@ const serializers = {
           if(mark.reference._type == "home"){
             return (
             <PageLink
+              className="internal-link"
               title={mark.reference.content.main.title}
               to={`/home/${mark.reference.content.main.slug.current}`}
             >
@@ -96,6 +97,7 @@ const serializers = {
           }else if(mark.reference._type == "checkout"){
             return (
             <PageLink
+              className="internal-link"
               title={mark.reference.content.main.title}
               to={`/checkout/${mark.reference.content.main.slug.current}`}
             >
@@ -105,6 +107,7 @@ const serializers = {
           }else{
             return (
             <PageLink
+              className="internal-link"
               title={mark.reference.content.main.title}
               to={`/${mark.reference.content.main.slug.current}`}
             >
