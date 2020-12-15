@@ -74,6 +74,13 @@ const query = graphql`
         }
       }
     }
+    belowInfo: allSanitySiteSettings {
+      edges {
+        node {
+          _rawInfosectionBelow(resolveReferences: { maxDepth: 20 })
+        }
+      }
+    }
     infoSection:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       infosection {
         _key
@@ -226,6 +233,7 @@ function LayoutContainer(props) {
               bannerUrl={data.bannerUrl.edges[0].node._rawUrl}
               bannerUrlTitle={data.bannerUrlTitle.bannerUrlTitle}
               infoSection={data.all.edges[0].node._rawInfosection}
+              infoSectionBelow={data.belowInfo.edges[0].node._rawInfosectionBelow}
               showNav={showNav}
               showSubNav = {showSubNav}
               siteTitle={data.site.title}

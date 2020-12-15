@@ -19,10 +19,9 @@ import {
   useDisclosure,
 } from "@chakra-ui/core";
 
-const HeaderRnd = ({ mainMenu, infoSection = null, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome, showThinBanner, thinBanner }) => {
+const HeaderRnd = ({ mainMenu, infoSection = null, infoSectionBelow = null, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome, showThinBanner, thinBanner }) => {
   // const containerRef = useRef(null);
   // const { height } = useDimensions(containerRef);
- 
   const [loaded, setLoaded] = useState(false);
   const [info, setInfo] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -188,15 +187,20 @@ const HeaderRnd = ({ mainMenu, infoSection = null, rMenu, subMenu, onHideNav, on
         <ModalContent className="rounded-md">
           <ModalHeader className="font-normal mb-0 pb-0">
             <div className="info-rd text-mobileCaption md:text-desktopCaption "> <PortableText blocks={infoSection} /> </div>
-            <h5 className=" text-mobileCaption md:text-desktopCaption mt-1/4em uppercase">
+            <h5 className=" text-mobileCaption md:text-desktopCaption mt-1em uppercase">
               Newsletter
             </h5>
           </ModalHeader>
           <ModalCloseButton />
-          <ModalBody className="mb-1em pt-1/2em">
+          <ModalBody className="rnd-mailchimp mb-0 pb-0 pt-1/2em">
             <MailChimpForm />
           </ModalBody>
 
+          {infoSectionBelow &&
+            <ModalHeader className="font-normal pb-1em pt-2">
+            <div className="info-rd text-mobileCaption md:text-desktopCaption "> <PortableText blocks={infoSectionBelow} /> </div>
+            </ModalHeader>
+          }
           {/*<ModalFooter>
             <Button mr={3} onClick={onClose}>
               Close
