@@ -235,6 +235,9 @@ small {
 .gallery-image iframe{
   max-width:100%;
 }
+.popover-letsgo{
+  
+}
 @media(max-width:768px){
   .lightbox-pdf canvas{
     transform:scale(0.5);
