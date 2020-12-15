@@ -136,8 +136,9 @@
 }
 @media(max-width:768px){
   .box-link{
-    padding:0.07rem 0.5rem;
-    padding-bottom:0.08rem;
+    padding:0.0rem 0.5rem;
+    padding-bottom:0.15rem;
+    top: 3px;
   }
 }
 

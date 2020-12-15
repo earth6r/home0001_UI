@@ -117,7 +117,7 @@ small {
 
 @keyframes loading {
   from { opacity: 1;  transform: scale(1); }
-  to { opacity: 0; transform: scale(0.8); }
+  to { opacity: 0; transform: scale(1); }
 }
 /* end loading animation */
 .sub-menu{
@@ -218,6 +218,21 @@ small {
   border:none;
   font-size:20px;
   line-height: 30px;
+}
+@media(min-width:768px){
+  .px-special{
+    padding:0 90px;
+  }
+}
+
+.rte.rte-large .article-accordion button{
+   padding-left:0;
+   display:inline-block;
+   width:auto;
+}
+.rte.rte-large .article-accordion button:hover{
+  color: #ccc;
+  background:inherit;
 }
 .rte.rte-large .article-accordion h2{
   font-size:30px;
