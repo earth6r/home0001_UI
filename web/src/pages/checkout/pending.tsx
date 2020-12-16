@@ -12,8 +12,6 @@ export default () => (
         Your order is currently pending. You will receive a notification once the transaction has
         been processed.
       </h1>
-
-      <CalendlyScheduler />
     </Container>
   </Layout>
 );

@@ -128,10 +128,8 @@ const CheckoutTemplate = (props) => {
     // Set default membership item
     if (!sku || !home || !unit) {
       sku = "MEMB001";
-      // TODO add generic membership id
-      // TODO add generic discounted membership id
-      bitPayID = "ABCDEFG";
-      bitPayIDDiscounted = "xxxxx";
+      bitPayID = process.env.BITPAY_MEMBERSHIP_ID_REGULAR_PRICE;
+      bitPayIDDiscounted = process.env.BITPAY_MEMBERSHIP_ID_DISCOUNTED;
     }
   }
 

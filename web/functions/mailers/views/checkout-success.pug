@@ -4,3 +4,7 @@ block content
   h1 Success!
   p Thank you for purchasing #{product.name}
   p Your order total is #{session.currency.toUpperCase()} #{session.amount_total / 100}
+
+  if metadata.postscript
+    p #{metadata.postscript}
+

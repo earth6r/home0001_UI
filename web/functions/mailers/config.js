@@ -11,6 +11,7 @@ module.exports = function (emailUsername) {
         session: opts.session,
         customer: opts.customer,
         product: opts.product,
+        metadata: opts.metadata,
       },
       transporterOptions: {
         from,
@@ -26,6 +27,7 @@ module.exports = function (emailUsername) {
         session: opts.session,
         customer: opts.customer,
         product: opts.product,
+        metadata: opts.metadata,
       },
       transporterOptions: {
         from,
@@ -41,6 +43,7 @@ module.exports = function (emailUsername) {
         session: opts.session,
         customer: opts.customer,
         product: opts.product,
+        metadata: opts.metadata,
       },
       transporterOptions: {
         from,
@@ -56,6 +59,7 @@ module.exports = function (emailUsername) {
         session: opts.session,
         customer: opts.customer,
         product: opts.product,
+        metadata: opts.metadata,
       },
       transporterOptions: {
         from,
