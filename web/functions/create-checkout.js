@@ -31,7 +31,7 @@ const buildImageObj = (source = { asset: {} }) => ({
 
 const imageUrlFor = (source) => builder.image(source);
 
-const trimSlash = (url) => url.replace(/\/+$/, "", url);
+const trimTrailingSlash = (url) => url.replace(/\/+$/, "", url);
 
 async function getUnitByStripeSKU(sku) {
   if (!sku) return null;
@@ -128,8 +128,8 @@ exports.handler = async (event) => {
      * other environment variables Netlify exposes:
      * https://docs.netlify.com/configure-builds/environment-variables/
      */
-    success_url: `${trimSlash(process.env.SITE_URL)}/checkout/success`,
-    cancel_url: `${trimSlash(process.env.SITE_URL)}/checkout/cancel`,
+    success_url: `${trimTrailingSlash(process.env.SITE_URL)}/checkout/success`,
+    cancel_url: `${trimTrailingSlash(process.env.SITE_URL)}/checkout/cancel`,
     line_items: [
       {
         price_data: {

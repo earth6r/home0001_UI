@@ -1,6 +1,6 @@
 // web/src/templates/checkout.js
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { graphql } from "gatsby";
 import Container from "../components/container";
@@ -73,7 +73,6 @@ const CheckoutDescription = ({ unit, modules, children }) => {
           {RenderModules([modules[0]]) /* Only render header */}
           <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
             <h1>Reserve unit {unit.title}</h1>
-            {/* <h1>Reserve unit 6F, Brooklyn</h1> */}
           </div>
         </div>
         {children}
@@ -124,7 +123,6 @@ const CheckoutTemplate = (props) => {
       });
 
       bitPayIDDiscounted = unit.bitPayIDDiscounted;
-      console.log("bitPayIDDiscounted", bitPayIDDiscounted);
     }
 
     // Set default membership item
