@@ -2,11 +2,21 @@ import React, { useState, useEffect } from "react";
 // import getMemberPrice from "../utils/get-member-price";
 import { imageUrlFor } from "../lib/image-url";
 import { buildImageObj } from "../lib/helpers";
+import ButtonLink from "./global/buttonLink";
+import { InternalLink } from "./global/internalLink";
+import { Link } from "gatsby";
 
-const StripeCheckoutCreateButton = ({ handleClick }) => (
-  <button id="checkout-button" role="link" onClick={handleClick}>
-    Checkout with Stripe
-  </button>
+const StripeCheckoutCreateButton = ({ handleClick, disabled }) => (
+  <ButtonLink
+    color="black"
+    disabled={disabled}
+    className="e-checkout"
+    id="checkout-button"
+    role="link"
+    onClick={handleClick}
+    type="button"
+    value="Checkout with Stripe"
+  />
 );
 
 const DiscountNotice = ({ discountCode }) => {
@@ -14,12 +24,18 @@ const DiscountNotice = ({ discountCode }) => {
   return <p>Discount “{discountCode}” applied</p>;
 };
 
-const BitPayCheckoutButton = ({ bitPayID }) => (
+const BitPayCheckoutButton = ({ bitPayID, disabled }) => (
   <form action={process.env.BITPAY_API_URL} method="post">
     <input type="hidden" name="action" value="checkout" />
     <input type="hidden" name="posData" value="" />
     <input type="hidden" name="data" value={bitPayID} />
-    <input className="e-checkout" type="submit" value="Checkout with BitPay" />
+    <ButtonLink
+      disabled={disabled}
+      color="black"
+      className="e-checkout"
+      type="submit"
+      value="Checkout with BitPay"
+    />
   </form>
 );
 
@@ -33,8 +49,7 @@ const Price = ({ discount }) => {
   if (discount)
     return (
       <span>
-        $<s>300</s>
-        <span>200</span>
+        <s>$300</s>&nbsp;<span>$200</span>
       </span>
     );
 
@@ -78,22 +93,33 @@ const ProductDetails = ({ discount, discountCode, unit }) => {
   return <UnitProductDetails discount={discount} discountCode={discountCode} unit={unit} />;
 };
 
+const CheckoutTerms = ({ disabled, handleChange }) => {
+  return (
+    <p className="-mt-4">
+      <span className="e-checkbox">
+        <input type="checkbox" value={disabled} onChange={handleChange} />
+        <span className="e-checkbox-icon"></span>
+      </span>
+      I agree to the <Link to="/legal">Deposit Terms and Conditions​</Link>
+    </p>
+  );
+};
+
 const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, handleClick }) => {
   if (message) return <Message message={message} />;
+
+  const [disabled, setDisabled] = useState(1);
+  const handleChange = () => setDisabled(1 ^ disabled);
 
   return (
     <>
       <section>
         <ProductDetails discount={discount} discountCode={discountCode} unit={unit} />
-        <StripeCheckoutCreateButton handleClick={handleClick} />
-        <BitPayCheckoutButton bitPayID={bitPayID} />
-
-        {/* <CoinbaseCommerceButton
-        checkoutId={checkoutId}
-        // checkoutId={`9d34a029-7038-4e8c-9fbc-3a897ddb0f46`}
-        onChargeSuccess={(messageData) => navigate("/checkout/success")}
-        onChargeFailure={(messageData) => navigate("/checkout/error")}
-        */}
+        <StripeCheckoutCreateButton disabled={disabled} handleClick={handleClick} />
+        <div className="py-1em">
+          <BitPayCheckoutButton disabled={disabled} bitPayID={bitPayID} />
+        </div>
+        <CheckoutTerms disabled={disabled} handleChange={handleChange} />
       </section>
     </>
   );
@@ -122,7 +148,7 @@ export default function CheckoutCreate({
     }
   }, []);
 
-  const handleClick = async (event) => {
+  const handleClick = async (/* event */) => {
     const stripe = await stripePromise;
     const data = { sku, discount, discountCode };
 

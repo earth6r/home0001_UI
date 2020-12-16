@@ -2,8 +2,33 @@ import React from "react";
 import { trimSlashes } from "../../lib/helpers";
 import { PageLink } from "../link";
 
-export const InternalLink = (props) => {
+interface Slug {
+  current: string;
+}
+
+interface Main {
+  slug: Slug;
+}
+
+interface Content {
+  main: Main;
+}
+
+interface Link {
+  _type: string;
+  content?: Content;
+  current?: string;
+}
+
+interface InternalLinkProps {
+  link: Link;
+  title?: string;
+  color?: string;
+}
+
+export const InternalLink = (props: InternalLinkProps) => {
   const { title, link, color } = props;
+
   let slug =
     link !== undefined
       ? link.content !== undefined
