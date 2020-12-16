@@ -348,6 +348,9 @@ img{
     margin-top: 0 !important;
     margin-bottom: 0 !important;
   }
+  .rte.rte-large .article-accordion h2:hover{
+    color:black;
+  }
 }
 
 @keyframes scaleDown {
