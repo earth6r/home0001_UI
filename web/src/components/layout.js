@@ -5,7 +5,7 @@ import Footer from "./footer";
 import GridRow from "./grid/grid-row"
 
 const Layout = ({ mainMenu,infoSection,infoSectionBelow, rMenu, rnd = false, subMenu, footerMenu, children, onHideNav, onShowNav, showNav,  onHideSubNav, onShowSubNav, showSubNav, siteTitle, isHome, thinBanner, showThinBanner, bannerUrl, bannerUrlTitle }) => {
-  const [scrollUp, setScrollUp] = useState(false);
+  const [scrollUp, setScrollUp] = useState(true);
   const [scrollStart, setScrollStart] = useState(0);
   return(
   <div className="flex flex-col justify-between h-full">

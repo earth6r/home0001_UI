@@ -100,7 +100,7 @@ const HeaderRnd = ({ mainMenu, scrollUp, infoSection = null, infoSectionBelow = 
           ))}
       </div>
     }
-      <header className={`${scrollUp ? "fixed" :""} md:fixed z-50 w-full left-0`}>
+      <header className={`${scrollUp ? " " :"hidden"} fixed z-50 w-full left-0`}>
         <div
           className={`${
             showNav ? "h-full" : ""
