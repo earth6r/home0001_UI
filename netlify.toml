@@ -31,3 +31,9 @@
   GATSBY_STRIPE_PUBLISHABLE_KEY="pk_test_vQgx6A3eI1OZAkiBb90F6xyF"
   GATSBY_STRIPE_SECRET_KEY="sk_test_1x5inX2fR7wEopNNIfKTPRy3"
   SITE_URL="https://staging.earth6r.com/"
+  EMAIL_USERNAME="loma.trantow78@ethereal.email"
+  EMAIL_PASSWORD="pSff3584K3u39TtGvD"
+  EMAIL_HOST="smtp.ethereal.email"
+  EMAIL_PORT=587
+  BITPAY_API_URL="https://test.bitpay.com"
+  BITPAY_POS_TOKEN="9pgZtiC9DQPXoY1mCAvnos6APVaEyDUwfJSptNoGdjiJ"

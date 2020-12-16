@@ -130,7 +130,10 @@ const CheckoutTemplate = (props) => {
     // Set default membership item
     if (!sku || !home || !unit) {
       sku = "MEMB001";
-      bitPayID = "ABCDEFG"; // TODO
+      // TODO add generic membership id
+      // TODO add generic discounted membership id
+      bitPayID = "ABCDEFG";
+      bitPayIDDiscounted = "xxxxx";
     }
   }
 
