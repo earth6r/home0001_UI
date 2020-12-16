@@ -101,6 +101,16 @@ export default {
             },
             fields: [
               {
+                name: 'homeLink',
+                title: '/collective',
+                type: 'boolean',
+              },
+              {
+                name: 'rndLink',
+                title: '/',
+                type: 'boolean',
+              },
+              {
                 name: 'reference',
                 type: 'reference',
                 title: 'Reference',

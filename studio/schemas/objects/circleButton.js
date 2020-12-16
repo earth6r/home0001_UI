@@ -15,6 +15,16 @@ export default {
       type: 'string',
     },
     {
+      name: 'homeLink',
+      title: '/collective',
+      type: 'boolean',
+    },
+    {
+      name: 'rndLink',
+      title: '/',
+      type: 'boolean',
+    },
+    {
       name: 'url',
       title: 'URL',
       type: 'reference',
