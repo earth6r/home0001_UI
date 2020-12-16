@@ -19,11 +19,39 @@ import {
   useDisclosure,
 } from "@chakra-ui/core";
 
-const HeaderRnd = ({ mainMenu, scrollUp, infoSection = null, infoSectionBelow = null, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome, showThinBanner, thinBanner }) => {
+const HeaderRnd = ({ mainMenu, infoSection = null, infoSectionBelow = null, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome, showThinBanner, thinBanner }) => {
   // const containerRef = useRef(null);
   // const { height } = useDimensions(containerRef);
   const [loaded, setLoaded] = useState(false);
   const [info, setInfo] = useState(false);
+    const [scrollUp, setScrollUp] = useState(true);
+  const [scrollStart, setScrollStart] = useState(0);
+
+// change state on scroll
+  useEffect(() => {
+
+    const handleScroll = () => {
+      const scrolly = document.getElementById("page-content-wrapper").scrollTop
+      const isScrolled = scrolly > scrollStart;
+      console.log(document.getElementById("page-content-wrapper").scrollTop)
+      if (isScrolled) {
+        setScrollUp(false);
+        setScrollStart(scrolly)
+      }else{
+        setScrollUp(true);
+        setScrollStart(scrolly)
+      }
+    };
+
+    document.getElementById("page-content-wrapper").addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      // clean up the event handler when the component unmounts
+      document.getElementById("page-content-wrapper").removeEventListener('scroll', handleScroll);
+    };
+  }, [scrollUp, scrollStart]);
+
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   function handleShowInfo() {
     if(info){
@@ -49,12 +77,7 @@ const HeaderRnd = ({ mainMenu, scrollUp, infoSection = null, infoSectionBelow = 
   return words.join(' ');
 }
 
-  useEffect(() => {
-    // setLoaded(true);
-    setTimeout(function () {
-      setLoaded(true);
-    }, 3000);
-  }, []);
+
  
   return (
     <>
@@ -100,7 +123,7 @@ const HeaderRnd = ({ mainMenu, scrollUp, infoSection = null, infoSectionBelow = 
           ))}
       </div>
     }
-      <header className={`${scrollUp ? " " :"hidden"} fixed z-50 w-full left-0`}>
+      <header className={`${scrollUp ? " " :"hidden"} md:block fixed z-50 w-full left-0`}>
         <div
           className={`${
             showNav ? "h-full" : ""
