@@ -10,6 +10,10 @@ export default {
       type: 'number',
       title: 'TotalNumber of Rows'
     },
+    { name:'numRowsMobile',
+      type: 'number',
+      title: 'Number of Rows for Mobile'
+    },
     {
       name: 'callibrationMark',
       title: 'Show Callibration Marks',

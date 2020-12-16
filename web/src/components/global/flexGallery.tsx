@@ -8,14 +8,14 @@ import PdfReader from "./pdfReader";
 var shuffle = require("shuffle-array");
 
 const FlexGallery = (props) => {
-  const { images, url, embeds, pdfs, rowNum } = props;
+  const { images, url, embeds, pdfs, rowNum, rowNumMobile } = props;
   const myImages = images ? shuffle(images).filter(Boolean) : [];
   const myrandImages = embeds ? shuffle(images.concat(embeds)) : myImages;
   const randImages = pdfs ? shuffle(myrandImages.concat(pdfs)) : myrandImages;
   const justify = ["justify-start", "justify-center", "justify-between", "justify-end"];
   const [direction, setDirection] = useState();
-  
- 
+  const [mobile, setMobile] = useState(false);
+  const myRowNum = (mobile && rowNumMobile) ? rowNumMobile : rowNum
 
   function showPdf(key) {
     let mykey = document.getElementById(key);
@@ -23,15 +23,32 @@ const FlexGallery = (props) => {
   }
  
 
-  let numbOfRows = 100/rowNum;
+  let numbOfRows = 100/myRowNum;
   let rowStyle = 5 + "vw";
-  for (var i = rowNum - 2; i >= 0; i--) {
+  for (var i = myRowNum - 2; i >= 0; i--) {
      rowStyle = rowStyle + " " + 5 + "vw"
    } 
 
   let gridStyle = {
     gridTemplateRows: rowStyle
   }
+  useEffect(() => {
+    if(typeof window != `undefined`){
+      if(window.innerWidth <= 768){
+        setMobile(true)
+      }else{
+        setMobile(false)
+      }
+      window.onresize = function(event) {
+         if(window.innerWidth <= 768){
+            setMobile(true)
+          }else{
+            setMobile(false)
+          }
+      };
+    }
+
+  })
 
   return (
     
@@ -46,13 +63,19 @@ const FlexGallery = (props) => {
                 gridRowStart: image.startRow,
                 gridRowEnd: image.endRow,
               }
+            let styleObjMobile = {
+                gridColumnStart: image.startColumnMobile,
+                gridColumnEnd: image.endColumnMobile,
+                gridRowStart: image.startRowMobile,
+                gridRowEnd: image.endRowMobile,
+              }
             if (image && image._type == "flexImage") {
               //get ratio of image
               
-              console.log(styleObj)
+
               if (image.asset !== undefined) {
                 return (
-                  <div className="flex-item" style={styleObj}><img src={image.asset.url}/> </div>
+                  <div className="flex-item" style={mobile ? styleObjMobile : styleObj}><img src={image.asset.url}/> </div>
                 );
               } else {
                 return <></>;
@@ -84,10 +107,10 @@ const FlexGallery = (props) => {
             className="self-center mx-auto z-40 sticky bottom-0 md:relative"
             style={{
         
-                gridColumnStart: url.startColumn,
-                gridColumnEnd: url.endColumn,
-                gridRowStart: url.startRow,
-                gridRowEnd: url.endRow,
+                gridColumnStart: mobile ? url.startColumnMobile : url.startColumn,
+                gridColumnEnd: mobile ? url.endColumnMobile : url.endColumn,
+                gridRowStart: mobile ? url.startRowMobile : url.startRow,
+                gridRowEnd: mobile ? url.endRowMobile : url.endRow,
               
             }}
           >
