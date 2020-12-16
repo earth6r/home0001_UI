@@ -261,6 +261,9 @@ small {
 .standard-text h1 > a {
   border-bottom:5px solid;
 }
+.e-checkbox + a{
+  border-bottom:2px solid;
+}
 @media(max-width:768px){
   .react-pdf__Page,.react-pdf__Page canvas{
   max-width: calc(100vw);
