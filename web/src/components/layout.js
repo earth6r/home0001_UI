@@ -6,6 +6,7 @@ import GridRow from "./grid/grid-row"
 
 const Layout = ({ mainMenu,infoSection,infoSectionBelow, rMenu, rnd = false, subMenu, footerMenu, children, onHideNav, onShowNav, showNav,  onHideSubNav, onShowSubNav, showSubNav, siteTitle, isHome, thinBanner, showThinBanner, bannerUrl, bannerUrlTitle }) => {
   const [scrollUp, setScrollUp] = useState(false);
+  const [scrollStart, setScrollStart] = useState(0);
   return(
   <div className="flex flex-col justify-between h-full">
    {rnd ?
@@ -52,7 +53,24 @@ const Layout = ({ mainMenu,infoSection,infoSectionBelow, rMenu, rnd = false, sub
    <div className={`${showThinBanner && !rnd ? "mt-16":"mt-8"} hidden md:block container pb-1/2em absolute`} >
    <GridRow />
    </div>
-    <div onWheel={ event => {
+    <div onTouchStart={
+      event => {
+        setScrollStart(event.changedTouches[0].screenY);
+      }
+    } onTouchEnd={
+      event=> {
+        let end = event.changedTouches[0].screenY;
+
+        if(end - scrollStart > 0)
+        {
+            setScrollUp(true)
+        }
+        else if(end - scrollStart < 0)
+        {
+            setScrollUp(false)
+        }
+      }
+    } onWheel={ event => {
    if (event.nativeEvent.wheelDelta > 0) {
      setScrollUp(true)
    } else {
