@@ -57,7 +57,7 @@ const Layout = ({ mainMenu,infoSection,infoSectionBelow, rMenu, rnd = false, sub
       event => {
         setScrollStart(event.changedTouches[0].screenY);
       }
-    } onTouchEnd={
+    } onTouchMove={
       event=> {
         let end = event.changedTouches[0].screenY;
 
@@ -76,7 +76,7 @@ const Layout = ({ mainMenu,infoSection,infoSectionBelow, rMenu, rnd = false, sub
    } else {
      setScrollUp(false)
    }
- }} className={`${showThinBanner && !rnd ? "mt-8":""} ${rnd ? "px-special" : ""} container pb-1/2em`}>{children}</div>
+ }} className={`${showThinBanner && !rnd ? "mt-8":""} ${rnd ? "px-special" : ""} container pb-1/2em overflow-x-hidden`}>{children}</div>
     {!rnd &&
       <Footer footerMenu={footerMenu} />
     }
