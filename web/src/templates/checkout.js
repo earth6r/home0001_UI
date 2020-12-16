@@ -1,8 +1,6 @@
-// web/src/templates/checkout.js
-
 import React from "react";
 import { loadStripe } from "@stripe/stripe-js";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Container from "../components/container";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
@@ -10,6 +8,7 @@ import { RenderModules } from "../utils/renderModules";
 import CheckoutCreate from "../components/checkout-create";
 import GridRow from "../components/grid/grid-row";
 import PaymentContext from "../lib/payment-context";
+import MembershipPrice from "../components/global/membershipPrice";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
@@ -55,6 +54,22 @@ const Unavailable = () => (
   </div>
 );
 
+const DiscountNotice = ({ discountCode }) => {
+  if (!discountCode) return null;
+  return <span>(Discount “{discountCode}” applied)</span>;
+};
+
+const ValueAdded = ({ discount, discountCode }) => (
+  <p>
+    MEMBERSHIP DEPOSIT: <MembershipPrice discount={discount} />{" "}
+    <DiscountNotice discountCode={discountCode} />.
+    <br />
+    Deducted from your home purchase.
+    <br />
+    Fully refundable any time, <Link to="/legal">for any reason</Link>.
+  </p>
+);
+
 const CheckoutOptions = ({ ssr, children }) => {
   if (!ssr) return null;
   return <>{children}</>;
@@ -65,15 +80,20 @@ const CheckoutActions = ({ unit, children }) => {
   return <>{children}</>;
 };
 
-const CheckoutDescription = ({ unit, modules, children }) => {
+const CheckoutDescription = ({ unit, modules, children, discount, discountCode }) => {
+  const [head, ...rest] = modules;
+
   if (unit) {
     return (
       <>
-        <div className="flex flex-wrap w-full">
-          {RenderModules([modules[0]]) /* Only render header */}
+        <div className="flex flex-wrap w-full standard-text">
+          {RenderModules([head])}
+
           <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
             <h1>Reserve unit {unit.title}</h1>
+            <ValueAdded discount={discount} discountCode={discountCode} />
           </div>
+          {RenderModules(rest)}
         </div>
         {children}
       </>
@@ -82,7 +102,15 @@ const CheckoutDescription = ({ unit, modules, children }) => {
 
   return (
     <>
-      <div className="flex flex-wrap w-full">{RenderModules(modules)}</div>
+      <div className="flex flex-wrap w-full standard-text">
+        {RenderModules([head])}
+
+        <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
+          <h1>Become a member</h1>
+          <ValueAdded discount={discount} discountCode={discountCode} />
+        </div>
+        {RenderModules(rest)}
+      </div>
       {children}
     </>
   );
@@ -143,9 +171,14 @@ const CheckoutTemplate = (props) => {
       <Container>
         <CheckoutOptions ssr={ssr}>
           <CheckoutActions unit={unit}>
-            <CheckoutDescription unit={unit} modules={modules}>
-              <PaymentContext.Consumer>
-                {({ discount, discountCode }) => (
+            <PaymentContext.Consumer>
+              {({ discount, discountCode }) => (
+                <CheckoutDescription
+                  unit={unit}
+                  modules={modules}
+                  discount={discount}
+                  discountCode={discountCode}
+                >
                   <CheckoutCreate
                     home={home}
                     unit={unit}
@@ -155,9 +188,9 @@ const CheckoutTemplate = (props) => {
                     discountCode={discountCode}
                     stripePromise={stripePromise}
                   />
-                )}
-              </PaymentContext.Consumer>
-            </CheckoutDescription>
+                </CheckoutDescription>
+              )}
+            </PaymentContext.Consumer>
           </CheckoutActions>
         </CheckoutOptions>
 

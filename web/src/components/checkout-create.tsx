@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-// import getMemberPrice from "../utils/get-member-price";
 import { imageUrlFor } from "../lib/image-url";
 import { buildImageObj } from "../lib/helpers";
 import ButtonLink from "./global/buttonLink";
-import { InternalLink } from "./global/internalLink";
 import { Link } from "gatsby";
+import { StyledPageLink } from "./global/internalLink";
 
 const StripeCheckoutCreateButton = ({ handleClick, disabled }) => (
   <ButtonLink
@@ -18,11 +17,6 @@ const StripeCheckoutCreateButton = ({ handleClick, disabled }) => (
     value="Checkout with Stripe"
   />
 );
-
-const DiscountNotice = ({ discountCode }) => {
-  if (!discountCode) return null;
-  return <p>Discount “{discountCode}” applied</p>;
-};
 
 const BitPayCheckoutButton = ({ bitPayID, disabled }) => (
   <form action={process.env.BITPAY_API_URL} method="post">
@@ -56,42 +50,40 @@ const Price = ({ discount }) => {
   return <span>$300</span>;
 };
 
-const MembershipProductDetails = ({ discount, discountCode }) => (
-  <div className="product pt-1em pb-1em">
-    <div className="description">
-      <h3>Membership</h3>
-      <h5>
-        <Price discount={discount} />
-        <DiscountNotice discountCode={discountCode} />
-      </h5>
-    </div>
-  </div>
-);
+// const MembershipProductDetails = ({ discount, discountCode }) => (
+//   <div className="product pt-1em pb-1em">
+//     <div className="description">
+//       <h3>Membership</h3>
+//       <h5>
+//         <Price discount={discount} />
+//       </h5>
+//     </div>
+//   </div>
+// );
 
-const UnitProductDetails = ({ discount, discountCode, unit }) => (
-  <div className="product pt-1/2em pb-1em">
-    <img
-      className="pb-1em"
-      src={imageUrlFor(buildImageObj(unit._rawFloorPlan))
-        .height(Math.floor((9 / 16) * 600))
-        .auto("format")
-        .url()}
-      alt={unit.title}
-    />
-    <div className="description">
-      <h3>{unit.title}</h3>
-      <h5>
-        <Price discount={discount} />
-        <DiscountNotice discountCode={discountCode} />
-      </h5>
-    </div>
-  </div>
-);
+// const UnitProductDetails = ({ discount, discountCode, unit }) => (
+//   <div className="product pt-1/2em pb-1em">
+//     <img
+//       className="pb-1em"
+//       src={imageUrlFor(buildImageObj(unit._rawFloorPlan))
+//         .height(Math.floor((9 / 16) * 600))
+//         .auto("format")
+//         .url()}
+//       alt={unit.title}
+//     />
+//     <div className="description">
+//       <h3>{unit.title}</h3>
+//       <h5>
+//         <Price discount={discount} />
+//       </h5>
+//     </div>
+//   </div>
+// );
 
-const ProductDetails = ({ discount, discountCode, unit }) => {
-  if (!unit) return <MembershipProductDetails discount={discount} discountCode={discountCode} />;
-  return <UnitProductDetails discount={discount} discountCode={discountCode} unit={unit} />;
-};
+// const ProductDetails = ({ discount, discountCode, unit }) => {
+//   if (!unit) return <MembershipProductDetails discount={discount} discountCode={discountCode} />;
+//   return <UnitProductDetails discount={discount} discountCode={discountCode} unit={unit} />;
+// };
 
 const CheckoutTerms = ({ disabled, handleChange }) => {
   return (
@@ -114,10 +106,13 @@ const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, hand
   return (
     <>
       <section>
-        <ProductDetails discount={discount} discountCode={discountCode} unit={unit} />
+        {/* <ProductDetails discount={discount} discountCode={discountCode} unit={unit} /> */}
         <StripeCheckoutCreateButton disabled={disabled} handleClick={handleClick} />
         <div className="py-1em">
           <BitPayCheckoutButton disabled={disabled} bitPayID={bitPayID} />
+        </div>
+        <div className="pb-1em">
+          <StyledPageLink color="white" slug="" uri="/homes" title="Available Homes" />
         </div>
         <CheckoutTerms disabled={disabled} handleChange={handleChange} />
       </section>
