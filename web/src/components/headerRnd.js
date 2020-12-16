@@ -32,7 +32,7 @@ const HeaderRnd = ({ mainMenu, infoSection = null, infoSectionBelow = null, rMen
 
     const handleScroll = () => {
       const scrolly = document.getElementById("page-content-wrapper").scrollTop
-      const isScrolled = scrolly > scrollStart;
+      const isScrolled = scrolly > scrollStart && scrolly > 60;
       console.log(document.getElementById("page-content-wrapper").scrollTop)
       if (isScrolled) {
         setScrollUp(false);
