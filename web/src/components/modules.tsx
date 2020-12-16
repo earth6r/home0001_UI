@@ -102,6 +102,8 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
             color={reactModule.color}
             title={reactModule.title}
             url={reactModule.url}
+            linkHome = {reactModule.homeLink}
+            linkRnd = {reactModule.rndLink}
             float={false}
           />
           {reactModule.callibrationMark ? 

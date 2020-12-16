@@ -75,18 +75,22 @@ const serializers = {
         if (mark.reference) {
           if(mark.reference._type == "home"){
             return (
-              <CircleButton title={children} url={mark.reference} color={mark.color}></CircleButton>  
+              <CircleButton linkHome={mark.homeLink} linkRnd={mark.rndLink} linkHome={mark.homeLink} linkRnd={mark.rndLink} title={children} url={mark.reference} color={mark.color}></CircleButton>  
             );
           }else if(mark.reference._type == "checkout"){
             return (
-              <CircleButton title={children} url={mark.reference} color={mark.color}></CircleButton> 
+              <CircleButton linkHome={mark.homeLink} linkRnd={mark.rndLink} title={children} url={mark.reference} color={mark.color}></CircleButton> 
             );
           }else{
             return (
-              <CircleButton title={children} url={mark.reference} color={mark.color}></CircleButton> 
+              <CircleButton linkHome={mark.homeLink} linkRnd={mark.rndLink} title={children} url={mark.reference} color={mark.color}></CircleButton> 
             );
           }
           
+        }else if(mark.homeLink || mark.rndLink){
+          return (
+              <CircleButton linkHome={mark.homeLink} linkRnd={mark.rndLink} title={children} url={mark.reference} color={mark.color}></CircleButton> 
+            );
         } else {
           return <></>;
         }
