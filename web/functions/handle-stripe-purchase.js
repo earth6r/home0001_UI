@@ -6,7 +6,7 @@ const send = require("./mailers/send");
 
 // Find your endpoint's secret in your Dashboard's webhook settings
 // stripe listen --forward-to localhost:8888/.netlify/functions/handle-stripe-purchase
-const endpointSecret = "whsec_Uid33Tu81tbSr4knrQyuFHXeRVb58Vk8";
+const endpointSecret = process.env.STRIPE_WEBHOOK_ENDPOINT_SECRET;
 
 exports.handler = async ({ body, headers }) => {
   const payload = body;
