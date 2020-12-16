@@ -70,6 +70,7 @@ small {
 }
 .flexible-gallery .flex-item iframe{
   max-width:100%;
+  max-height:100%;
 }
 .flexible-gallery .flex-item > .overflow-hidden >.react-pdf__Document canvas{
     width: 100% !important;

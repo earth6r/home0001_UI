@@ -42,9 +42,9 @@ const FlexGallery = (props) => {
             // console.log(image);
             let styleObj = {
                 gridColumnStart: image.startColumn,
-                gridColumnEnd:image.endColumn,
+                gridColumnEnd: image.endColumn,
                 gridRowStart: image.startRow,
-                gridRowEnd:image.endRow,
+                gridRowEnd: image.endRow,
               }
             if (image && image._type == "flexImage") {
               //get ratio of image
@@ -79,31 +79,23 @@ const FlexGallery = (props) => {
 
 
         {/* randomly place circle image in an order between 1 and gallery image set length  */}
-        {url !== undefined && randImages.length > 2 ? (
+     {url.title !== undefined && (
           <div
             className="self-center mx-auto z-40 sticky bottom-0 md:relative"
             style={{
-              order: `${Math.floor(Math.random() * randImages.length - 2)}`,
+        
+                gridColumnStart: url.startColumn,
+                gridColumnEnd: url.endColumn,
+                gridRowStart: url.startRow,
+                gridRowEnd: url.endRow,
+              
             }}
           >
-            {url.title !== undefined && (
-              <CircleButton title={url.title} url={url.url} float={true} />
-            )}
+            
+              <CircleButton color={url.color} title={url.title} url={url.url} float={true} />
+      
           </div>
-        ) : (
-          <div
-            className="self-center py-1 md:py-1em mx-auto z-50 sticky md:relative"
-            style={{
-              order: `${Math.floor(Math.random() * randImages.length)}`,
-              bottom: "1em",
-              top: "1em",
-            }}
-          >
-            {url !== undefined && url.title !== undefined && (
-              <CircleButton title={url.title} url={url.url} float={false} />
-            )}
-          </div>
-        )}
+             )}
 
 
 

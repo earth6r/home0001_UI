@@ -38,6 +38,7 @@ import authorReference from './objects/authorReference'
 import partnerReference from './objects/partnerReference'
 import header from './objects/header'
 import circleButton from './objects/circleButton'
+import flexCircle from './objects/flexCircle'
 import specButton from './objects/specButton'
 import richTableCell from './objects/cell'
 import richTableRow from './objects/row'
@@ -129,6 +130,7 @@ export default createSchema({
     blockText,
     header,
     circleButton,
+    flexCircle,
     specButton,
     postCategory,
     menus,
