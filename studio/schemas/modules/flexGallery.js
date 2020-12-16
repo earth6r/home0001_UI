@@ -52,7 +52,7 @@ export default {
     {
       name: 'url',
       // label: 'CTA',
-      type: 'circleButton',
+      type: 'flexCircle',
       title: 'Circle Button',
     },
   ],
