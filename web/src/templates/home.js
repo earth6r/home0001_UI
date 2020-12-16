@@ -60,7 +60,6 @@ const HomeTemplate = (props) => {
   const units = page._rawUnits;
   const unitsTitle = page.unitsTitle;
   const unitsSubtitle = page.unitsSubtitle;
- 
 
   if (errors) {
     return (
@@ -96,12 +95,11 @@ const HomeTemplate = (props) => {
                     {({ isExpanded }) => (
                       <>
                         <AccordionHeader
-                          style={{paddingTop:"0.35em"}}
+                          style={{ paddingTop: "0.35em" }}
                           className={`${item.sold == 1 ? "opacity-25" : ""} ${
                             isExpanded ? "text-black" : "text-black"
                           } relative flex h-2em  pl-1/2em border-none`}
                         >
-                          
                           {item.unit && (
                             <span className=" m-0 mr-1em  md:mt-0">
                               <span>Unit </span>
@@ -157,9 +155,9 @@ const HomeTemplate = (props) => {
                             {item.sold !== 1 && (
                               <PageLink
                                 className="box box-black rounded-md w-full block text-center leading-none h-2em pt-1/4em flex items-center justify-center text-mobileBody md:text-desktopBody "
-                                to={`/checkout/${slug.current}?sku=${
-                                  item.stripeSKU || ""
-                                }&bitPayID=${item.bitPayID || ""}`}
+                                to={`/checkout/reservation/?sku=${item.stripeSKU || ""}&bitPayID=${
+                                  item.bitPayID || ""
+                                }`}
                               >
                                 Reserve Now
                               </PageLink>
