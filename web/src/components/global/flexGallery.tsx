@@ -57,7 +57,7 @@ const FlexGallery = (props) => {
               } else {
                 return <></>;
               }
-            } else if (image._type == "flexPdf") {
+            } else if (image._type == "flexPdf" && typeof window != `undefined`) {
               
               return <div className="flex-item" style={styleObj}><PdfReader key={image._key} file={image.asset.url} /></div>;
             } else if (image._type == "string") {
