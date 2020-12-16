@@ -19,7 +19,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/core";
 
-const HeaderRnd = ({ mainMenu, infoSection = null, infoSectionBelow = null, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome, showThinBanner, thinBanner }) => {
+const HeaderRnd = ({ mainMenu, scrollUp, infoSection = null, infoSectionBelow = null, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome, showThinBanner, thinBanner }) => {
   // const containerRef = useRef(null);
   // const { height } = useDimensions(containerRef);
   const [loaded, setLoaded] = useState(false);
@@ -100,7 +100,7 @@ const HeaderRnd = ({ mainMenu, infoSection = null, infoSectionBelow = null, rMen
           ))}
       </div>
     }
-      <header className={`fixed z-50 w-full left-0`}>
+      <header className={`${scrollUp ? "fixed" :""} md:fixed z-50 w-full left-0`}>
         <div
           className={`${
             showNav ? "h-full" : ""
@@ -178,7 +178,7 @@ const HeaderRnd = ({ mainMenu, infoSection = null, infoSectionBelow = null, rMen
           showNav ? " h-full bg-black opacity-75 pointer-events-auto" : "opacity-0"
         } fixed hidden transition-opacity duration-150 left-0 top-0  pointer-events-none w-full`}
       ></div>
-      <div style={{zIndex: "40" }} className="fixed w-full h-12 md:h-18  pointer-events-none top-0 left-0"></div>
+      <div style={{zIndex: "40" }} className={`${scrollUp ? "fixed" :""} md:fixed w-full h-12 md:h-18 gradient-to-b2 pointer-events-none top-0 left-0`}></div>
       {infoSection && info &&
         <div style={{zIndex: "44" }} className="fixed info-section left-0 bg-white px-6 pt-10"><PortableText blocks={infoSection} /></div>
       }

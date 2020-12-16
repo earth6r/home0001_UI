@@ -374,7 +374,22 @@ img{
 .no-shadow {
   box-shadow: none !important; /* weird bug with popover modules */
 }
-
+.gradient-to-b2 {
+  /* background: rgb(255, 255, 255); */
+  background: transparent;
+}
+@media(max-width:768px){
+  .gradient-to-b2 {
+    /* background: rgb(255, 255, 255); */
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.95) 45%,
+      rgba(255, 255, 255, 0.98) 75%,
+      rgba(255, 255, 255, 1) 100%
+    );
+  }
+}
 .gradient-to-b {
   /* background: rgb(255, 255, 255); */
   background: linear-gradient(

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./header";
 import HeaderRnd from "./headerRnd";
 import Footer from "./footer";
 import GridRow from "./grid/grid-row"
 
-const Layout = ({ mainMenu,infoSection,infoSectionBelow, rMenu, rnd = false, subMenu, footerMenu, children, onHideNav, onShowNav, showNav,  onHideSubNav, onShowSubNav, showSubNav, siteTitle, isHome, thinBanner, showThinBanner, bannerUrl, bannerUrlTitle }) => (
+const Layout = ({ mainMenu,infoSection,infoSectionBelow, rMenu, rnd = false, subMenu, footerMenu, children, onHideNav, onShowNav, showNav,  onHideSubNav, onShowSubNav, showSubNav, siteTitle, isHome, thinBanner, showThinBanner, bannerUrl, bannerUrlTitle }) => {
+  const [scrollUp, setScrollUp] = useState(false);
+  return(
   <div className="flex flex-col justify-between h-full">
    {rnd ?
     (<HeaderRnd
@@ -24,6 +26,7 @@ const Layout = ({ mainMenu,infoSection,infoSectionBelow, rMenu, rnd = false, sub
       subMenu={subMenu}
       rMenu={rMenu}
       isHome={isHome}
+      scrollUp={scrollUp}
     />) :
     (<Header
       showThinBanner={showThinBanner}
@@ -49,11 +52,18 @@ const Layout = ({ mainMenu,infoSection,infoSectionBelow, rMenu, rnd = false, sub
    <div className={`${showThinBanner && !rnd ? "mt-16":"mt-8"} hidden md:block container pb-1/2em absolute`} >
    <GridRow />
    </div>
-    <div className={`${showThinBanner && !rnd ? "mt-8":""} ${rnd ? "px-special" : ""} container pb-1/2em`}>{children}</div>
+    <div onWheel={ event => {
+   if (event.nativeEvent.wheelDelta > 0) {
+     setScrollUp(true)
+   } else {
+     setScrollUp(false)
+   }
+ }} className={`${showThinBanner && !rnd ? "mt-8":""} ${rnd ? "px-special" : ""} container pb-1/2em`}>{children}</div>
     {!rnd &&
       <Footer footerMenu={footerMenu} />
     }
   </div>
-);
+)
+}
 
 export default Layout;
