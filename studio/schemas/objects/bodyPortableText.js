@@ -53,6 +53,27 @@ export default {
             type: 'object',
             title: 'Internal link',
             fields: [
+            {
+                name: 'homeLink',
+                title: '/collective',
+                type: 'boolean',
+              },
+              {
+                name: 'rndLink',
+                title: '/',
+                type: 'boolean',
+              },
+              {
+                name: 'reference',
+                type: 'reference',
+                title: 'Reference',
+                to: [
+                  { type: 'page' },
+                  { type: 'checkout' },
+                  { type: 'home' },
+                  // other types you may want to link to
+                ],
+              },
               {
                 name: 'title',
                 title: 'Title',

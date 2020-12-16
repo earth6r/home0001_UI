@@ -146,7 +146,27 @@ const serializers = {
         } else {
           return <></>;
         }
-      } else {
+      } else if(mark.homeLink){
+        return (
+            <PageLink
+              className="internal-link"
+              title=""
+              to={`/collective`}
+            >
+              {children}
+            </PageLink>
+          );
+      }else if(mark.rndLink){
+        return (
+            <PageLink
+              className="internal-link"
+              title=""
+              to={`/`}
+            >
+              {children}
+            </PageLink>
+          );
+      }else {
         return <></>;
       }
     },
