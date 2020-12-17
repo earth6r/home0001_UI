@@ -30,25 +30,25 @@ const HeaderRnd = ({ mainMenu, infoSection = null, infoSectionBelow = null, rMen
 // change state on scroll
   useEffect(() => {
 
-    const handleScroll = () => {
-      const scrolly = document.getElementById("page-content-wrapper").scrollTop
-      const isScrolled = scrolly > scrollStart && scrolly > 60;
-      console.log(document.getElementById("page-content-wrapper").scrollTop)
-      if (isScrolled) {
-        setScrollUp(false);
-        setScrollStart(scrolly)
-      }else{
-        setScrollUp(true);
-        setScrollStart(scrolly)
-      }
-    };
+    // const handleScroll = () => {
+    //   const scrolly = document.getElementById("page-content-wrapper").scrollTop
+    //   const isScrolled = scrolly > scrollStart && scrolly > 60;
+    //   console.log(document.getElementById("page-content-wrapper").scrollTop)
+    //   if (isScrolled) {
+    //     setScrollUp(false);
+    //     setScrollStart(scrolly)
+    //   }else{
+    //     setScrollUp(true);
+    //     setScrollStart(scrolly)
+    //   }
+    // };
 
-    document.getElementById("page-content-wrapper").addEventListener('scroll', handleScroll, { passive: true });
+    // document.getElementById("page-content-wrapper").addEventListener('scroll', handleScroll, { passive: true });
 
-    return () => {
-      // clean up the event handler when the component unmounts
-      document.getElementById("page-content-wrapper").removeEventListener('scroll', handleScroll);
-    };
+    // return () => {
+    //   // clean up the event handler when the component unmounts
+    //   document.getElementById("page-content-wrapper").removeEventListener('scroll', handleScroll);
+    // };
   }, [scrollUp, scrollStart]);
 
 
@@ -123,7 +123,7 @@ const HeaderRnd = ({ mainMenu, infoSection = null, infoSectionBelow = null, rMen
           ))}
       </div>
     }
-      <header className={`${scrollUp ? " " :"hidden"} md:block fixed z-50 w-full left-0`}>
+      <header className={`${scrollUp ? "" :""} md:block fixed z-50 w-full left-0`}>
         <div
           className={`${
             showNav ? "h-full" : ""

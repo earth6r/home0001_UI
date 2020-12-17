@@ -54,7 +54,7 @@ const Layout = ({ mainMenu,infoSection,infoSectionBelow, rMenu, rnd = false, sub
    <div className={`${showThinBanner && !rnd ? "mt-16":"mt-8"} hidden md:block container pb-1/2em absolute`} >
    <GridRow />
    </div>
-    <div id='page-content-wrapper' className={`${showThinBanner && !rnd ? "mt-8":""} ${rnd ? "px-special" : ""} container pb-1/2em overflow-x-hidden`}>{children}</div>
+    <div id='page-content-wrapper' className={`${showThinBanner && !rnd ? "mt-8":""} ${rnd ? "px-special" : ""} container pb-1/2em `}>{children}</div>
     {!rnd &&
       <Footer footerMenu={footerMenu} />
     }

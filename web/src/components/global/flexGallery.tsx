@@ -104,7 +104,7 @@ const FlexGallery = (props) => {
         {/* randomly place circle image in an order between 1 and gallery image set length  */}
      {url.title !== undefined && (
           <div
-            className="self-center mx-auto z-40 sticky bottom-0 md:relative"
+            className="self-center mx-auto z-40 bottom-0 md:relative"
             style={{
         
                 gridColumnStart: mobile ? url.startColumnMobile : url.startColumn,
