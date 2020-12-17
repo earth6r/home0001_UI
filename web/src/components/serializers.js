@@ -30,13 +30,13 @@ const serializers = {
         )
     },
     pdf: ({node}) => {
-      if(typeof window != `undefined`){
+      
      
           return(
             <div>{node.asset.url}</div>
           )
       
-      }
+      
     },
     partnerReference: ({ node }) => {
 
