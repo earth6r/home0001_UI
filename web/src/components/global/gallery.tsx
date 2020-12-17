@@ -11,7 +11,7 @@ const Gallery = (props) => {
   const { images, blankspaces, url, embeds, textblocks, pdfs } = props;
   const myImages = images ? shuffle(images).filter(Boolean) : [];
   const myrandImages = embeds ? shuffle(images.concat(embeds)) : myImages;
-  const myImagesEzmbeds = textblocks ? shuffle(myrandImages.concat(textblocks)) : myrandImages;
+  const myImagesEmbeds = textblocks ? shuffle(myrandImages.concat(textblocks)) : myrandImages;
   const myrandSpaces = blankspaces ? shuffle(myImagesEmbeds.concat(blankspaces)) : myImagesEmbeds;
   const randImages = pdfs ? shuffle(myrandSpaces.concat(pdfs)) : myrandSpaces;
   const justify = ["justify-start", "justify-center", "justify-between", "justify-end"];

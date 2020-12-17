@@ -5,7 +5,7 @@ import MapModule from "./mapModule";
 import CircleButton from "./global/circleButton";
 // import { InternalLink } from "./global/internalLink";
 import { PageLink } from "./link";
-// import PdfReader from "./global/pdfReader";
+import PdfReader from "./global/pdfReader";
 import ReactHtmlParser from "react-html-parser";
 
 const serializers = {
