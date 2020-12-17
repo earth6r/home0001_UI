@@ -156,7 +156,7 @@ const Gallery = (props) => {
                 return <></>;
               }
             } else if (image._type == "file" && typeof window != `undefined`) {
-              return return <PdfReader key={image._key} file={image.asset.url} />;
+              return <PdfReader key={image._key} file={image.asset.url} />;
             } else if (image._type == "string") {
               return <div></div>;
             } else {

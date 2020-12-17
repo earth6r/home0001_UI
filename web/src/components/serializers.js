@@ -34,7 +34,7 @@ const serializers = {
      
           return(
           <>
-
+            <PdfReader file={node.asset.url} />
         <p className="image-caption normal-case text-mobileCaption md:text-desktopCaption relative">{node.iframeCaption}</p>
         </>
           )
