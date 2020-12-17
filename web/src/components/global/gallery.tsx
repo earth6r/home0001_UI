@@ -3,7 +3,7 @@ import { GalleryImage } from "../gallery-image";
 import GridRow from "../grid/grid-row";
 import ReactHtmlParser from "react-html-parser";
 import CircleButton from "./circleButton";
-// import PdfReader from "./pdfReader";
+import PdfReader from "./pdfReader";
 
 var shuffle = require("shuffle-array");
 
@@ -11,7 +11,7 @@ const Gallery = (props) => {
   const { images, blankspaces, url, embeds, textblocks, pdfs } = props;
   const myImages = images ? shuffle(images).filter(Boolean) : [];
   const myrandImages = embeds ? shuffle(images.concat(embeds)) : myImages;
-  const myImagesEmbeds = textblocks ? shuffle(myrandImages.concat(textblocks)) : myrandImages;
+  const myImagesEzmbeds = textblocks ? shuffle(myrandImages.concat(textblocks)) : myrandImages;
   const myrandSpaces = blankspaces ? shuffle(myImagesEmbeds.concat(blankspaces)) : myImagesEmbeds;
   const randImages = pdfs ? shuffle(myrandSpaces.concat(pdfs)) : myrandSpaces;
   const justify = ["justify-start", "justify-center", "justify-between", "justify-end"];
@@ -156,7 +156,7 @@ const Gallery = (props) => {
                 return <></>;
               }
             } else if (image._type == "file" && typeof window != `undefined`) {
-              return (<div></div>)
+              return return <PdfReader key={image._key} file={image.asset.url} />;
             } else if (image._type == "string") {
               return <div></div>;
             } else {
