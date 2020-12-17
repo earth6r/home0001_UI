@@ -16,6 +16,17 @@ html {
     border-bottom:1px solid black ;
   }
 }
+.earth-svg{
+  display: inline-block;
+  padding-bottom:2px;
+}
+.earth-svg svg{
+  height: 0.7em;
+    width: auto;
+    position: relative;
+    top: 3px;
+    left:1px;
+}
 .circle-width{
   width: 30vw;
 }
