@@ -33,7 +33,7 @@ const serializers = {
       if(typeof window != `undefined`){
      
           return(
-            <div></div>
+            <div>{node.asset.url}</div>
           )
       
       }

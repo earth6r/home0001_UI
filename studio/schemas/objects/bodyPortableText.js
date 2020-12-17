@@ -160,22 +160,6 @@ export default {
         ],
       },
       of: [{ type: 'partnerReference' },
-        {
-          name: 'pdf',
-          title: 'Pdf',
-          type: 'file',
-          fields: [
-            {
-              type: 'text',
-              name: 'iframeCaption',
-              title: 'Iframe Caption text',
-              description: 'caption for html iframe',
-              options: {
-                isHighlighted: true
-              }
-            }
-          ]
-        },
         { type: 'object',
           name: 'iframe',
           fields: [
