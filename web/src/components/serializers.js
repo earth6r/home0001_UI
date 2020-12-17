@@ -5,7 +5,7 @@ import MapModule from "./mapModule";
 import CircleButton from "./global/circleButton";
 // import { InternalLink } from "./global/internalLink";
 import { PageLink } from "./link";
-import PdfReader from "./global/pdfReader";
+// import PdfReader from "./global/pdfReader";
 import ReactHtmlParser from "react-html-parser";
 
 const serializers = {
@@ -31,18 +31,10 @@ const serializers = {
     },
     pdf: ({node}) => {
       if(typeof window != `undefined`){
-        if(true == false){
-          return (
-        <>
-        <PdfReader file={node.asset.url} />
-        <p className="image-caption normal-case text-mobileCaption md:text-desktopCaption relative">{node.iframeCaption}</p>
-        </>
-        )
-        }else{
+     
           return(
             <div></div>
           )
-        }
       
       }
     },

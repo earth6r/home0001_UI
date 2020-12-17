@@ -3,7 +3,7 @@ import { GalleryImage } from "../gallery-image";
 import GridRow from "../grid/grid-row";
 import ReactHtmlParser from "react-html-parser";
 import CircleButton from "./circleButton";
-import PdfReader from "./pdfReader";
+// import PdfReader from "./pdfReader";
 
 var shuffle = require("shuffle-array");
 
@@ -82,7 +82,7 @@ const FlexGallery = (props) => {
               }
             } else if (image._type == "flexPdf" && typeof window != `undefined`) {
               
-              return <div className="flex-item" style={styleObj}><PdfReader key={image._key} file={image.asset.url} /></div>;
+              return <div className="flex-item" style={styleObj}>PDF READER TEMPORARY DISABLED</div>;
             } else if (image._type == "string") {
               return <div></div>;
             } else {

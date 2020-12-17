@@ -3,7 +3,7 @@ import { GalleryImage } from "../gallery-image";
 import GridRow from "../grid/grid-row";
 import ReactHtmlParser from "react-html-parser";
 import CircleButton from "./circleButton";
-import PdfReader from "./pdfReader";
+// import PdfReader from "./pdfReader";
 
 var shuffle = require("shuffle-array");
 
@@ -156,7 +156,7 @@ const Gallery = (props) => {
                 return <></>;
               }
             } else if (image._type == "file" && typeof window != `undefined`) {
-              return <PdfReader key={image._key} file={image.asset.url} />;
+              return (<div></div>)
             } else if (image._type == "string") {
               return <div></div>;
             } else {
