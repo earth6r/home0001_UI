@@ -44,7 +44,7 @@ const PdfReader = ({ file }) => {
 	                     {pageNumber < numPages &&
 	                     <div className=" inline-block cursor-pointer right-arrow" onClick={()=>setPageNumber(pageNumber+1)}>→</div>
 	                 	}
-	                 	<div onClick={()=> setShowPdf(false)} className="pdf-close cursor-pointer uppercase text-desktopCaption underline fixed"><svg viewBox="0 0 72.18 72.18"><defs></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><line class="cls-1" x1="0.71" y1="71.47" x2="71.47" y2="0.71"/><line class="cls-1" x1="71.47" y1="71.47" x2="0.71" y2="0.71"/></g></g></svg></div>
+	                 	<div onClick={()=> setShowPdf(false)} className="pdf-close cursor-pointer uppercase text-desktopCaption underline fixed"><svg viewBox="0 0 72.18 72.18"><defs></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><line className="cls-1" x1="0.71" y1="71.47" x2="71.47" y2="0.71"/><line className="cls-1" x1="71.47" y1="71.47" x2="0.71" y2="0.71"/></g></g></svg></div>
 	                    </div>
                    }
                   

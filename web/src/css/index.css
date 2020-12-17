@@ -16,7 +16,14 @@ html {
     border-bottom:1px solid black ;
   }
 }
-
+.circle-width{
+  width: 30vw;
+}
+@media(min-width: 768px){
+  .circle-width{
+    width: 12vw;
+  }
+}
 
 body {
   -webkit-font-smoothing: antialiased;

@@ -46,7 +46,7 @@ const CircleButton = ({ title, url, linkHome, linkRnd, float = true, color }) =>
     <div ref={ref} className={`${!float ? "right-0 ml-1em z-20 self" : ""}`}>
       {float ? (
         <div
-          className={`box-circle mx-1/4em right-0 w-32 h-32 md:w-40 md:h-48 lg:w-48 lg:h-48 self`}
+          className={`box-circle mx-1/4em right-0 circle-width self`}
           style={{ margin: `${randPadding} .5rem` }}
         >
           <div className="">
