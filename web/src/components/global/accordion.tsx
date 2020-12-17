@@ -31,7 +31,7 @@ export const AccordionModule = ({ data }: AccordionModuleProps) => {
             >
               {({ isExpanded }) => (
                 <>
-                  <AccordionHeader className="accordion relative  h-2em p-0 pt-1/4em pl-1/2em border-none">
+                  <AccordionHeader className="accordion relative  h-2em p-0 pt-3/4em md:pt-1/4em pl-1/2em border-none">
                     <h2 className="m-0  -mt-1/4em md:mt-0">{item.title}</h2>
                     <div
                       style={{ marginTop: "-.15em" }}

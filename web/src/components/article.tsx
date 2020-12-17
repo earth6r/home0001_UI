@@ -56,7 +56,7 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                 <>
 
                   <AccordionHeader id={item._key}>
-                    <h2 className="m-0 underline text-left normal-case -mt-1/4em md:mt-0">{item.title}{item.flag && item.flag.length > 0}{
+                    <h2 className="m-0 relative underline text-left normal-case -mt-1/4em md:mt-0">{item.title}{item.flag && item.flag.length > 0}{
                       <>
                       <div style={{background: item.flagcolor ? item.flagcolor : "none"}} className="flag inline-block align-top">{item.flag}</div>
 

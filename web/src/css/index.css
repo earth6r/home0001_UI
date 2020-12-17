@@ -136,10 +136,20 @@ small {
 }
 @media(max-width: 768px){
   .marquee-content{
-    line-height: 3;
-    font-size: 10px;
+    font-size: 13px;
+    line-height: 1.7;
+    padding-bottom: 3px;
+    max-width: 350px;
+    height: 47px;
   }
+  .marquee-track{
+    white-space: break-spaces;
   }
+  .marquee{
+    height:auto;
+  }
+
+}
 
 /*end marquee*/
 /*loading animation*/
@@ -287,6 +297,9 @@ small {
   .react-pdf__Page,.react-pdf__Page canvas{
   max-width: calc(100vw);
 }
+.standard-text h1 > a {
+  border-bottom:2px solid;
+}
   .lightbox-pdf canvas{
     transform-origin:center center;
     transform:scale(0.7);
@@ -370,6 +383,13 @@ img{
     margin-top: 0 !important;
     margin-bottom: 0 !important;
   }
+
+  .rte .article-accordion .flag{
+  margin:0;
+  right:0;
+  top:-15px;
+  position: absolute;
+}
   .rte.rte-large .article-accordion h2:hover{
     color:black;
   }
