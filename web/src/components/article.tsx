@@ -33,6 +33,11 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
         setVisible(true)
         let mySlug = window.location.href.split("?#")[1];
         navigate("#"+mySlug)
+        let el = document.getElementById(mySlug + "-h2");
+        if(el){
+          el.click()
+        }
+        
         let y = window.scrollY + 90;  //your current y position on the page
         window.scrollBy(0,y)
 
@@ -40,6 +45,7 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
       }
 
   })
+  
   return (
     <>
     {title &&
@@ -51,14 +57,14 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
         articleItems.map((item, index) => (
           <React.Fragment key={item._key}>
             <AccordionItem
-              defaultIsOpen={typeof window !== `undefined` && window.location.href.includes(item.customslug) ? true : false}
+              defaultIsOpen={typeof window !== `undefined` && window.location.href.includes(item.customslug) ? false : false}
               className={`${index <= visible ? "block" : "hidden"} article-accordion`}
             >
               {({ isExpanded }) => (
                 <>
 
                   <AccordionHeader id={item._key}>
-                    <h2 className="m-0 relative underline text-left normal-case -mt-1/4em md:mt-0">{item.title}{item.flag && item.flag.length > 0}{
+                    <h2 id={item.customslug + "-h2"} className="m-0 relative underline text-left normal-case -mt-1/4em md:mt-0">{item.title}{item.flag && item.flag.length > 0}{
                       <>
                       <div style={{background: item.flagcolor ? item.flagcolor : "none"}} className="flag inline-block align-top">{item.flag}</div>
 
