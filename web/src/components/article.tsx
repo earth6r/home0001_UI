@@ -33,7 +33,7 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
         setVisible(true)
         let mySlug = window.location.href.split("?#")[1];
         navigate("#"+mySlug)
-        let y = window.scrollY + 100;  //your current y position on the page
+        let y = window.scrollY + 90;  //your current y position on the page
         window.scrollBy(0,y)
 
         setScrolled(false)
