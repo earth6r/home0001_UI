@@ -148,7 +148,7 @@ input[type="checkbox"]:active {
 
 input[type="checkbox"]:checked + span:before {
   content: "✔";
-
+  font-family:"Courier";
   display: flex;
   justify-content: center;
   align-items: center;
