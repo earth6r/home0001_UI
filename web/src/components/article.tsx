@@ -24,11 +24,13 @@ export interface ArticleModuleProps {
 export const ArticleModule = ({ data }: AccordionModuleProps) => {
   const { articleItems, title, defaultNum, loadNum } = data;
   const [scrolled, setScrolled] = useState(true);
+  const [openArticle, setOpenArticle] = useState(false);
   const mew = defaultNum ? defaultNum : articleItems.length;
   const [visible, setVisible] = useState(mew);
 
   useEffect(() =>{
       if(typeof window && window.location.href.includes("?#") && scrolled){
+        setVisible(true)
         let mySlug = window.location.href.split("?#")[1];
         navigate("#"+mySlug)
         let y = window.scrollY + 100;  //your current y position on the page
