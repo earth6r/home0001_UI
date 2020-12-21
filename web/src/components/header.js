@@ -128,7 +128,7 @@ if(typeof window != `undefined`){
               style={{ borderColor: "#000000" }}
               className={`${
                 showNav ? "border rounded-full" : "box"
-              } lg:hidden py-0 outline-none relative -mt-1 w-12 z-50`}
+              } lg:hidden py-0 outline-none relative -mt-1 w-12 z-50 py-3`}
               onClick={showNav ? onHideNav : onShowNav}
               role="button"
               aria-label="Open the menu"

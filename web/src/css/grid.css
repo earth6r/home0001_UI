@@ -40,7 +40,8 @@
   @apply block;
   @apply absolute;
   @apply pointer-events-none;
-  @apply top-1/2;
+/*  @apply top-1/2;*/
+  top:45%;
   @apply transform;
   /* @apply z-30; */
   @apply -translate-y-1/2;
@@ -51,13 +52,41 @@
 }
 .grid-marker-1 {
   @apply left-0;
+  top: 55.5%;
 }
 .grid-marker-2 {
-  left: 63.24%;
+  left: 64%;
 }
 .grid-marker-3 {
   left: 34%;
 }
+
+.grid-marker:before {
+  /*content: "H";*/
+  content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 23.58 33.4' height='10' width='10'><g id='Layer_2' data-name='Layer 2'><g id='Layer_1-2' data-name='Layer 1'><line stroke='black' stroke-width='4' class='cls-1' x1='21.08' y1='0.01' x2='20.96' y2='33.39'/><line stroke='black' stroke-width='4' class='cls-1' y1='16.61' x2='21.08' y2='16.61'/></g></g></svg>");
+  height: 11px;
+  width: 9.5px;
+  font-weight:bold;
+  font-family:inherit;
+}
+
+
+.grid-marker-1:before {
+  @apply transform;
+  @apply -translate-y-1/2 rotate-180;
+  @apply block;
+  @apply mt-5;
+}
+
+@screen md {
+
+  .grid-marker {
+    /* @apply -mt-1; */
+    top:50%;
+  }
+  .grid-marker-1{
+    top:50%;
+  }
 
 .grid-marker:before {
   /*content: "H";*/
@@ -68,18 +97,9 @@
   font-family:inherit;
 }
 
-.grid-marker-1:before {
-  @apply transform;
-  @apply -translate-y-1/2 rotate-180;
-  @apply block;
-  @apply mt-5;
+.grid-marker-2 {
+  left: 63.24%;
 }
-
-@screen md {
-  .grid-marker {
-    /* @apply -mt-1; */
-  }
-
   .grid-marker-1:before {
     top: 0.05em;
     @apply relative;
