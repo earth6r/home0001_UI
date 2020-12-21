@@ -29,7 +29,7 @@ const CircleButton = ({ title, url, linkHome, linkRnd, float = true, color }) =>
         break;
     }
   }
-  console.log(linkHome)
+
  if(linkHome){
     myUrl = "/collective"
   }else if(linkRnd){
