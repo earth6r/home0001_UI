@@ -76,7 +76,7 @@ const CircleButton = ({ title, url, linkHome, linkRnd, float = true, color }) =>
           </div>
         </div>
       ) : (
-        <div className={`box-circle relative right-0 w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48`}>
+        <div className={`box-circle mx-1/4em right-0 circle-width relative`}>
           <motion.div className="">
             <motion.div className="square">
               <div
