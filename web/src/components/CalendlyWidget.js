@@ -1,14 +1,17 @@
 import React from "react";
 import { CalendlyEventListener, PopupText } from "react-calendly";
+import { navigate } from "@reach/router";
 
 const CalendlyWidget = () => {
   const date = new Date();
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
 
+  // https://calendly.stoplight.io/docs/embed-api-docs/docs/C-Notifying-the-parent-window.md
   const handleEventScheduled = (e) => {
     console.log("EventScheduled", e);
-    // https://calendly.stoplight.io/docs/embed-api-docs/docs/C-Notifying-the-parent-window.md
+
+    navigate("/scheduled");
   };
 
   return (
