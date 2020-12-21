@@ -16,7 +16,7 @@ module.exports = function (emailUsername) {
       transporterOptions: {
         from,
         to: opts.customer.email,
-        subject: "Thank you for your purchase",
+        subject: "On EARTH",
       },
     };
   };
@@ -32,7 +32,7 @@ module.exports = function (emailUsername) {
       transporterOptions: {
         from,
         to: defaults.from,
-        subject: "A unit has been purchased",
+        subject: "A transaction has been successfully completed",
       },
     };
   };
@@ -48,7 +48,7 @@ module.exports = function (emailUsername) {
       transporterOptions: {
         from,
         to: opts.customer.email,
-        subject: "There was a problem with your order",
+        subject: "Payment Failed",
       },
     };
   };
@@ -64,7 +64,7 @@ module.exports = function (emailUsername) {
       transporterOptions: {
         from,
         to: defaults.from,
-        subject: "There was a problem with an order",
+        subject: "A transaction has failed",
       },
     };
   };

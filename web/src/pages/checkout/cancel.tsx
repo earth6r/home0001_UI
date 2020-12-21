@@ -7,10 +7,7 @@ export default () => (
   <Layout>
     <SEO title={"cancel"} description={"cancel"} keywords={[]} />
     <Container>
-      <h1>Purchase cancelled.</h1>
-
-
+      <p>Your purchase has been cancelled.</p>
     </Container>
   </Layout>
-
 );

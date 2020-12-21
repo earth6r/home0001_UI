@@ -1,38 +1,64 @@
 import React, { useState } from "react";
 import CalendlyWidget from "./CalendlyWidget";
 
+const BuyLaterMessage = () => (
+  <p>
+    Thank you. We’ll keep you updated as new homes and new locations become available. When you’re
+    ready to buy, write us to reserve a home and schedule consultations with our team to secure
+    financing and complete your purchase.
+  </p>
+);
+
+const ButtonWrapper = ({ children }) => (
+  <p style={{ display: "flex", justifyContent: "space-between" }}>{children}</p>
+);
+
 const CalendlyScheduler = () => {
   const [state, setState] = useState({
-    selected: false,
-    selection: -1,
+    location: -1,
+    timeFrame: -1,
   });
 
-  const handleClick = (selection) => () =>
-    setState({
-      selected: true,
-      selection,
-    });
+  const handleClick = (name) => (selected) => () => setState({ ...state, [name]: selected });
 
-  const { selected, selection } = state;
+  const handleLocationClick = handleClick("location");
+  const handleTimeFrameClick = handleClick("timeFrame");
 
-  return (
-    <>
-      <p>Will you be purchasing a home right away?</p>
+  const { location, timeFrame } = state;
 
-      {selected === false ? (
+  if (location < 0) {
+    return (
+      <ButtonWrapper>
         <>
-          <button onClick={handleClick(1)}>Yes</button>
+          <button onClick={handleLocationClick(1)}>New York</button>
           <br />
-          <button onClick={handleClick(0)}>No</button>
+          <button onClick={handleLocationClick(1)}>Los Angeles</button>
+          <br />
+          <button onClick={handleLocationClick(0)}>Other</button>
         </>
-      ) : (
-        <p>
-          {selection === 1 && <CalendlyWidget />}
-          {selection === 0 && <span>We'll be in touch!</span>}
-        </p>
-      )}
-    </>
-  );
+      </ButtonWrapper>
+    );
+  }
+
+  if (timeFrame < 0) {
+    return (
+      <ButtonWrapper>
+        <>
+          <button onClick={handleTimeFrameClick(1)}>This year</button>
+          <br />
+          <button onClick={handleTimeFrameClick(1)}>Next year</button>
+          <br />
+          <button onClick={handleTimeFrameClick(0)}>Don’t know</button>
+        </>
+      </ButtonWrapper>
+    );
+  }
+
+  if (location === 0 || timeFrame === 0) {
+    return <BuyLaterMessage />;
+  }
+
+  return <CalendlyWidget />;
 };
 
 export default CalendlyScheduler;

@@ -36,11 +36,7 @@ exports.handler = async (event) => {
     const { data } = await response.json();
     const { status, buyerProvidedEmail, itemDesc, price, currency } = data;
 
-    const postscript = `Please follow the link below to complete your purchase<br/>${trimTrailingSlash(
-      process.env.SITE_URL
-    )}/checkout/success`;
-
-    const metadata = { postscript };
+    const metadata = {};
     const session = { currency, amount_total: price * 100, metadata };
     const customer = { email: buyerProvidedEmail };
     const product = { name: itemDesc, invoiceId };

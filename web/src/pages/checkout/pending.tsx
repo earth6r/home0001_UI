@@ -2,16 +2,22 @@ import * as React from "react";
 import Container from "../../components/container";
 import SEO from "../../components/seo";
 import Layout from "../../containers/layout";
-import CalendlyScheduler from "../../components/CalendlyScheduler";
+import { Link } from "gatsby";
 
 export default () => (
   <Layout>
     <SEO title={"pending"} description={"pending"} keywords={[]} />
     <Container>
-      <h1>
-        Your order is currently pending. You will receive a notification once the transaction has
-        been processed.
-      </h1>
+      <div className="standard-text">
+        <p>
+          Thank you. Your order is currently pending. If you completed the checkout process, you
+          will receive a notification once the transaction has been processed.
+          <br />
+          <br />
+          If you closed the checkout before you finished and you need to start the process over
+          again, <Link to="/checkout/membership">click here</Link> to return to the checkout page.
+        </p>
+      </div>
     </Container>
   </Layout>
 );

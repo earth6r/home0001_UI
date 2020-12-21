@@ -1,3 +1,4 @@
+import { Link } from "gatsby";
 import * as React from "react";
 import Container from "../../components/container";
 import SEO from "../../components/seo";
@@ -6,7 +7,13 @@ export default () => (
   <Layout>
     <SEO title={"error"} description={"error"} keywords={[]} />
     <Container>
-      <h1>There was an error processing your payment</h1>
+      <div className="standard-text">
+        <p>There was an error processing your payment.</p>
+        <p>
+          If you'd like to start the checkout process over again,{" "}
+          <Link to="/checkout/membership">click here</Link> to return to the checkout page.
+        </p>
+      </div>
     </Container>
   </Layout>
 );
