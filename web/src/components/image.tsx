@@ -64,7 +64,7 @@ export const Image = ({
       ref={ref}
     >
       {fluidProps ? (
-        <motion.div style={{ y }}>
+        <motion.div style={{  }}>
           <Img className="relative z-20" fluid={fluidProps} alt={alt} defaultFadeIn={200} />
           {caption && <figcaption className="mt-1 text-sm">{caption}</figcaption>}
         </motion.div>

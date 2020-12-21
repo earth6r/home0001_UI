@@ -144,7 +144,7 @@ const HeaderRnd = ({ mainMenu, infoSection = null, infoSectionBelow = null, rMen
 
             <li onClick={onOpen} className="block
             md:block cursor-pointer">
-                      <span className="uppercase md:pt-1/2em inline-block">
+                      <span className="uppercase relative info-menu-mobile md:pt-1/2em inline-block">
                         {info && infoSection ? "Close" : "Info"}
                       </span>
                     </li>
@@ -213,7 +213,7 @@ const HeaderRnd = ({ mainMenu, infoSection = null, infoSectionBelow = null, rMen
           showNav ? " h-full bg-black opacity-75 pointer-events-auto" : "opacity-0"
         } fixed hidden transition-opacity duration-150 left-0 top-0  pointer-events-none w-full`}
       ></div>
-      <div style={{zIndex: "40" }} className={`${scrollUp ? "fixed" :""} md:fixed w-full h-12 md:h-18 gradient-to-b2 pointer-events-none top-0 left-0`}></div>
+      <div style={{zIndex: "40" }} className={`${scrollUp ? "fixed" :""} md:fixed w-full h-12 md:h-18 pointer-events-none top-0 left-0`}></div>
       {infoSection && info &&
         <div style={{zIndex: "44" }} className="fixed info-section left-0 bg-white px-6 pt-10"><PortableText blocks={infoSection} /></div>
       }

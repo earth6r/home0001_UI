@@ -135,6 +135,9 @@ small {
   to { transform: translateX(-50%); }
 }
 @media(max-width: 768px){
+  .info-menu-mobile{
+    top:-3px;
+  }
   .marquee-content{
     font-size: 15px;
     line-height: 1.4;
