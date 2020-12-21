@@ -136,11 +136,12 @@ small {
 }
 @media(max-width: 768px){
   .marquee-content{
-    font-size: 13px;
-    line-height: 1.7;
+    font-size: 15px;
+    line-height: 1.4;
     padding-bottom: 3px;
     max-width: 350px;
     height: 47px;
+    margin:0 auto;
   }
   .marquee-track{
     white-space: break-spaces;
