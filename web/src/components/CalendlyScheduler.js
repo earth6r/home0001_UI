@@ -34,7 +34,8 @@ const CalendlyScheduler = () => {
           <br />
           <button onClick={handleLocationClick(1)}>Los Angeles</button>
           <br />
-          <button onClick={handleLocationClick(0)}>Other</button>
+          <input className="py-0 -ml-1/4em px-1" placeholder={"other"} type="text"/>
+          <button className="-ml-24 px-1" onClick={handleLocationClick(0)}>→</button>
         </>
       </ButtonWrapper>
     );

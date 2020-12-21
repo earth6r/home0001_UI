@@ -9,8 +9,9 @@ export default () => (
     <SEO title={"pending"} description={"pending"} keywords={[]} />
     <Container>
       <div className="standard-text">
+        <h1>Thank you. Your order is currently pending.</h1>
         <p>
-          Thank you. Your order is currently pending. If you completed the checkout process, you
+          If you completed the checkout process, you
           will receive a notification once the transaction has been processed.
           <br />
           <br />

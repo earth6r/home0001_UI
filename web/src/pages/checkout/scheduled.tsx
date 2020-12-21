@@ -7,7 +7,7 @@ export default () => (
   <Layout>
     <SEO title={"Scheduled"} description={""} keywords={[]} />
     <Container>
-      <p>Thank you.</p>
+      <h1>Thank you.</h1>
 
       <p>
         We're excited to speak with you and learn more about what you're looking for — where you
