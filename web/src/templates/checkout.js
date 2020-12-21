@@ -82,7 +82,7 @@ const CheckoutActions = ({ unit, children }) => {
 
 const CheckoutDescription = ({ unit, modules, children, discount, discountCode }) => {
   const [head, ...rest] = modules;
-
+  console.log(head, rest)
   if (unit) {
     return (
       <>
@@ -104,6 +104,7 @@ const CheckoutDescription = ({ unit, modules, children, discount, discountCode }
     <>
       <div className="flex flex-wrap w-full standard-text">
         {RenderModules([head])}
+
 
         <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
           <h1>Become a member</h1>
