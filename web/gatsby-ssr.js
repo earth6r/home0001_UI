@@ -21,6 +21,9 @@ const ELEMENTS_OPTIONS = {
     },
   ],
 };
+export const replaceRenderer = ({ replaceBodyHTMLString }) => {
+  replaceBodyHTMLString('<div id="___gatsby"></div>');
+};
 
 export const wrapRootElement = ({ element, props }) => {
   return (
@@ -30,3 +33,4 @@ export const wrapRootElement = ({ element, props }) => {
     </Elements>
   );
 };
+
