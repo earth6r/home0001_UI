@@ -25,8 +25,6 @@ export const useIsClient = () => {
   return { isClient, key };
 };
 
-
-
 const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
 export const query = graphql`
   query CheckoutAndHomes($id: String!) {
@@ -114,8 +112,8 @@ const CheckoutDescription = ({ unit, modules, children, discount, discountCode }
       </>
     );
   }
-const { isClient, key } = useIsClient();
- if ( !isClient ) return null;
+  const { isClient, key } = useIsClient();
+  if (!isClient) return null;
   return (
     <>
       <div className="flex flex-wrap w-full standard-text">
