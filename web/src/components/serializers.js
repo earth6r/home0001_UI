@@ -15,7 +15,7 @@ const serializers = {
       return (
         <>
         <img src={node.asset.url} altText={node.alt} className={`${node.fullwidth ? "w-full" : "w-6/12"} my-3`}/>
-        <p className="image-caption normal-case text-mobileCaption md:text-desktopCaption relative">{node.captionText}</p>
+        <span className="block image-caption normal-case text-mobileCaption md:text-desktopCaption relative">{node.captionText}</span>
         </>
         )
     },
@@ -25,7 +25,7 @@ const serializers = {
         <div className="internal-iframe">
           {ReactHtmlParser(node.iframeCode)}
         </div>
-        <p className="image-caption normal-case text-mobileCaption md:text-desktopCaption relative">{node.iframeCaption}</p>
+        <span className="block image-caption normal-case text-mobileCaption md:text-desktopCaption relative">{node.iframeCaption}</span>
         </>
         )
     },
@@ -35,7 +35,7 @@ const serializers = {
           return(
           <>
             <PdfReader file={node.asset.url} />
-        <p className="image-caption normal-case text-mobileCaption md:text-desktopCaption relative">{node.iframeCaption}</p>
+        <span className="block image-caption normal-case text-mobileCaption md:text-desktopCaption relative">{node.iframeCaption}</span>
         </>
           )
       
