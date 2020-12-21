@@ -112,7 +112,7 @@ const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, hand
           <BitPayCheckoutButton disabled={disabled} bitPayID={bitPayID} />
         </div>
         <div className="pb-1em">
-          <StyledPageLink color="white" slug="" uri="/homes" title="Available Homes" />
+          <StyledPageLink color="white" slug="" uri="https://staging.earth6r.com/homes" title="Available Homes" />
         </div>
         <CheckoutTerms disabled={disabled} handleChange={handleChange} />
       </section>
