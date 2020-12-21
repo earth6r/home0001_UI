@@ -30,6 +30,9 @@ html {
 .circle-width{
   width: 30vw;
 }
+.circle-width h2{
+  max-width: 190px;
+}
 @media(min-width: 768px){
   .circle-width{
     width: 12vw;
