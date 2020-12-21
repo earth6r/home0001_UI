@@ -19,7 +19,7 @@ const StripeCheckoutCreateButton = ({ handleClick, disabled }) => (
 );
 
 const BitPayCheckoutButton = ({ bitPayID, disabled }) => (
-  <form action={process.env.BITPAY_API_URL} method="post">
+  <form action={process.env.GATSBY_BITPAY_API_URL} method="post">
     <input type="hidden" name="action" value="checkout" />
     <input type="hidden" name="posData" value="" />
     <input type="hidden" name="data" value={bitPayID} />

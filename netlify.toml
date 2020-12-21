@@ -18,8 +18,8 @@
   export EMAIL_PASSWORD=pSff3584K3u39TtGvD && \
   export EMAIL_HOST=smtp.ethereal.email && \
   export EMAIL_PORT=587 && \
-  export BITPAY_POS_TOKEN=2GW2QCUEU8Vm9aNzTCZwhKSXPH2c3XcQGZdbN3dbWYUv && \
-  export BITPAY_API_URL=https://test.bitpay.com && \
+  export GATSBY_BITPAY_POS_TOKEN=2GW2QCUEU8Vm9aNzTCZwhKSXPH2c3XcQGZdbN3dbWYUv && \
+  export GATSBY_BITPAY_API_URL=https://test.bitpay.com && \
   export STRIPE_WEBHOOK_ENDPOINT_SECRET=whsec_Uid33Tu81tbSr4knrQyuFHXeRVb58Vk8 && \
   ./node_modules/.bin/babel --plugins transform-inline-environment-variables web/functions/create-checkout.js -o web/functions/create-checkout.js && \
   ./node_modules/.bin/babel --plugins transform-inline-environment-variables web/functions/mailers/send.js -o web/functions/mailers/send.js && \

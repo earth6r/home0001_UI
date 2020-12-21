@@ -22,8 +22,8 @@ exports.handler = async (event) => {
 
   const { id: invoiceId } = event;
 
-  const resourceURL = `${trimTrailingSlash(process.env.BITPAY_API_URL)}/invoices`;
-  const token = process.env.BITPAY_POS_TOKEN;
+  const resourceURL = `${trimTrailingSlash(process.env.GATSBY_BITPAY_API_URL)}/invoices`;
+  const token = process.env.GATSBY_BITPAY_POS_TOKEN;
   const headers = {
     "x-accept-version": "2.0.0",
     "Content-Type": "application/json",
