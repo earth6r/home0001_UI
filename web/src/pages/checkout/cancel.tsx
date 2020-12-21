@@ -6,7 +6,7 @@ import Layout from "../../containers/layout";
 export default () =>{
 	
     if(typeof window != `undefined`){
-    	window.location.href = '/membership'
+    	//window.location.href = '/checkout/membership'
     }
 
 return (
