@@ -19,7 +19,7 @@ const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
 const ELEMENTS_OPTIONS = {
   fonts: [
     {
-      cssSrc: "https://earth6r.com/fonts/GerstnerProgramm-Regular.woff2",
+      // cssSrc: "https://earth6r.com/fonts/GerstnerProgramm-Regular.woff2",
     },
   ],
 };
