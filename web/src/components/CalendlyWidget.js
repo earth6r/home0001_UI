@@ -9,9 +9,9 @@ const CalendlyWidget = () => {
 
   // https://calendly.stoplight.io/docs/embed-api-docs/docs/C-Notifying-the-parent-window.md
   const handleEventScheduled = (e) => {
-    console.log("EventScheduled", e);
+    // console.log("EventScheduled", e);
 
-    navigate("/scheduled");
+    navigate("/checkout/scheduled");
   };
 
   return (
