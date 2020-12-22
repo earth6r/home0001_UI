@@ -9,9 +9,9 @@ export default () => (
     <SEO title={"success"} description={"success"} keywords={[]} />
     <Container>
       <h1>
-        Deposit received – thank you. 
+        Deposit received – thank you. Next, let us know a bit more about what you’re looking for.
       </h1>
-      <p>Next, let us know a bit more about what you’re looking for.</p>
+
 
       <CalendlyScheduler />
     </Container>

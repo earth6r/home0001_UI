@@ -28,8 +28,9 @@ const CalendlyScheduler = () => {
 
   if (location < 0) {
     return (
+      <>
+      <div className="block w-full mb-1em">Where would you like to own a home?</div>
       <ButtonWrapper>
-        <>
           <button onClick={handleLocationClick(1)}>New York</button>
           <br />
           <button onClick={handleLocationClick(1)}>Los Angeles</button>
@@ -38,22 +39,25 @@ const CalendlyScheduler = () => {
           <input className="py-0 -ml-1/4em px-1" placeholder={"other"} type="text"/>
           <button className="absolute arrow-input-checkout px-1" onClick={handleLocationClick(0)}>→</button>
           </div>
-        </>
-      </ButtonWrapper>
+      </ButtonWrapper> 
+      </>
     );
   }
 
   if (timeFrame < 0) {
     return (
+     <>
+    <div className="block w-full mb-1em">When would you like to buy?</div>
       <ButtonWrapper>
-        <>
+       
           <button onClick={handleTimeFrameClick(1)}>This year</button>
           <br />
           <button onClick={handleTimeFrameClick(1)}>Next year</button>
           <br />
           <button onClick={handleTimeFrameClick(0)}>Don’t know</button>
-        </>
+        
       </ButtonWrapper>
+      </>
     );
   }
 
