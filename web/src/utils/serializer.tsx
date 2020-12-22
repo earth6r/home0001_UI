@@ -20,6 +20,11 @@ const CodeSnippet = ({ code }: { code: [] }) => {
 export const Serializer = {
   types: {
     partner: (props: { children: any }) => <CodeSnippet code={props.children} />,
+    image: ({node}) => {
+      return (
+        <img src={node.asset.url} className={`${node.fullwidth ? "w-full" : "w-6/12"} my-3`}/>
+        )
+    },
   },
   marks: {
     tick: (props: { children: any }) => <span className="tick">{props.children}</span>,

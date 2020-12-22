@@ -10,6 +10,7 @@ export const PageLink = (props: {
   onMouseLeave?: () => void;
   onMouseOver?: () => void;
   children?: any;
+  state?: any;
 }) => (
   <Link
     type={props.type}
@@ -20,6 +21,7 @@ export const PageLink = (props: {
     onMouseLeave={props.onMouseLeave}
     onMouseOver={props.onMouseOver}
     to={props.to}
+    state={props.state}
   >
     {props.children}
   </Link>

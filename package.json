@@ -15,9 +15,18 @@
   },
   "devDependencies": {
     "@sanity/cli": "^1.149.13",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-inline-environment-variables": "^0.4.3",
+    "eslint-config-prettier": "^6.15.0",
     "lerna": "^3.13.1"
   },
   "dependencies": {
-    "gatsby-plugin-netlify": "^2.6.0"
+    "gatsby-plugin-netlify": "^2.6.0",
+    "gatsby-plugin-intercom-spa": "^0.2.0",
+    "google-map-react": "^2.1.9",
+    "google-maps-react": "^2.0.6",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-pdf": "^5.1.0"
   }
 }

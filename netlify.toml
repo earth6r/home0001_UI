@@ -1,3 +1,14 @@
+[[redirects]]
+  from = "/checkout/cancel"
+  to = "/checkout/membership"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/checkout/membership/homes"
+  to = "/homes"
+  status = 301
+  force = false
 
 [build]
   functions = "web/functions"
@@ -7,11 +18,37 @@
   functions = "web/functions"
   publish = "/web/public"
 
-# Inject ENV vars for lambdas since they don't get overridden by `[context.xxx.environemnt]` vars in the TOML files
+# Inject ENV vars for lambdas since they don't get overridden by
+# `[context.xxx.environemnt]` vars in the TOML files
 [context.branch-deploy]
-  command = "export GATSBY_STRIPE_PUBLISHABLE_KEY=pk_test_vQgx6A3eI1OZAkiBb90F6xyF && export GATSBY_STRIPE_SECRET_KEY=sk_test_1x5inX2fR7wEopNNIfKTPRy3 && export SITE_URL=https://staging.earth6r.com/ && ./node_modules/.bin/babel --plugins transform-inline-environment-variables web/functions/create-checkout.js -o web/functions/create-checkout.js && ./node_modules/.bin/babel --plugins transform-inline-environment-variables web/functions/create-payment-intent.js -o web/functions/create-payment-intent.js && npm run build-web"
+  command = """\
+  export GATSBY_STRIPE_PUBLISHABLE_KEY=pk_test_vQgx6A3eI1OZAkiBb90F6xyF && \
+  export GATSBY_STRIPE_SECRET_KEY=sk_test_1x5inX2fR7wEopNNIfKTPRy3 && \
+  export SITE_URL=https://staging.earth6r.com/ && \
+  export EMAIL_USERNAME=loma.trantow78@ethereal.email && \
+  export EMAIL_PASSWORD=pSff3584K3u39TtGvD && \
+  export EMAIL_HOST=smtp.ethereal.email && \
+  export EMAIL_PORT=587 && \
+  export GATSBY_BITPAY_POS_TOKEN=2GW2QCUEU8Vm9aNzTCZwhKSXPH2c3XcQGZdbN3dbWYUv && \
+  export GATSBY_BITPAY_API_URL=https://test.bitpay.com && \
+  export STRIPE_WEBHOOK_ENDPOINT_SECRET=whsec_6ddd4gWKaGEk7WRFkxPg2jrMsADJW6wT && \
+  ./node_modules/.bin/babel --plugins transform-inline-environment-variables web/functions/create-checkout.js -o web/functions/create-checkout.js && \
+  ./node_modules/.bin/babel --plugins transform-inline-environment-variables web/functions/mailers/send.js -o web/functions/mailers/send.js && \
+  ./node_modules/.bin/babel --plugins transform-inline-environment-variables web/functions/handle-stripe-purchase.js -o web/functions/handle-stripe-purchase.js && \
+  ./node_modules/.bin/babel --plugins transform-inline-environment-variables web/functions/handle-bitpay-purchase.js -o web/functions/handle-bitpay-purchase.js && \
+  npm run build-web\
+"""
 
 [context.branch-deploy.environment]
   GATSBY_STRIPE_PUBLISHABLE_KEY="pk_test_vQgx6A3eI1OZAkiBb90F6xyF"
   GATSBY_STRIPE_SECRET_KEY="sk_test_1x5inX2fR7wEopNNIfKTPRy3"
   SITE_URL="https://staging.earth6r.com/"
+  EMAIL_USERNAME="loma.trantow78@ethereal.email"
+  EMAIL_PASSWORD="pSff3584K3u39TtGvD"
+  EMAIL_HOST="smtp.ethereal.email"
+  EMAIL_PORT="587"
+  GATSBY_BITPAY_API_URL="https://test.bitpay.com"
+  GATSBY_BITPAY_POS_TOKEN="9pgZtiC9DQPXoY1mCAvnos6APVaEyDUwfJSptNoGdjiJ"
+  GATSBY_BITPAY_MEMBERSHIP_ID_REGULAR_PRICE="l/CnnFYlET61gGwW5MWXJga4vf/TT5UlCWV9+n27Kw5Y44AdbkqiGvc7I1z+XhRrldV2Bd4pA4a1speCeFw3o8/fS0yO10NvOMIB7rYv3bLTexLZXp3qIvQfyk+b0j+UpnxxpNN1swG9hVg2KWRaCtRpHPJnXiIHHamH1KaZukf4g4CQS3p5SNyVEDqTA3vUzJntR0dhim8KnUU6JI6f8vucL9vxFAkmgNaTa43JsJ7UuKkhOv2+EOE+k2TWFZEp/4OxIrTNH4HdrQBxMPhAedEVewqcbwQxeRRz6SQhsVdWKefecf0O3ss6oGyLzm4Ya+03+glqshRLYEX04ZRCzz/fffxZO0vStSx6+SYRYFPHyCTgmj/xiF8D5JDR9uT71x17olcKjn/hVQ5Lj19Egg=="
+  GATSBY_BITPAY_MEMBERSHIP_ID_DISCOUNTED="l/CnnFYlET61gGwW5MWXJga4vf/TT5UlCWV9+n27Kw5Y44AdbkqiGvc7I1z+XhRrldV2Bd4pA4a1speCeFw3o2CFGlISmkxgyCCC8H/ZLctcFYGbHfVa0PlwVsmd2d75av1rOlPLqLzC9Z/YZBZZlB1BzJW0xdccWen0ljkDaErdnb3efIlBcopdNDiVYCDYK8KcKgc9SAwtwsbfanr/FwQ65UQl3QH6EV8AtMlAv6u3PYy9470x1fk8bGkCFumM47WVxjLTfTLct38ksIRRGone/hfHXtHw/8xv2l6bSc9mT1odfmomhrIpkN9O2Xem/bsUzqR4bezversqFeWfmxzFcH0br9J8FyrvXZLoR57zz0j6DDAf/YS+5e9HZxbzn3dasSFTjjlcohyKZMlVPg=="
+  STRIPE_WEBHOOK_ENDPOINT_SECRET="whsec_6ddd4gWKaGEk7WRFkxPg2jrMsADJW6wT"

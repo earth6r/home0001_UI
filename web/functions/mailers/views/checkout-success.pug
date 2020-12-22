@@ -1,0 +1,8 @@
+extends ../layouts/layout.pug
+
+block content
+  h1 Deposit received — thank you.
+  p You are now a member — part of the collective. We’ll keep you updated as new homes and new locations become available. When you’re ready, schedule a consultation with our team to ask questions, make plans, secure financing and complete your purchase.
+
+  if metadata.postscript
+    p #{metadata.postscript}

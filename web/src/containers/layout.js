@@ -46,12 +46,104 @@ const query = graphql`
       }
     }
   }
-
+ 
   query SiteTitleQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
     }
+    showThinBanner:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      showthinbanner
+    }
+    thinBanner:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      thinbanner
+    }
+    bannerUrl:  allSanitySiteSettings {
+      edges {
+        node {
+          _rawUrl(resolveReferences: { maxDepth: 20 })
+        }
+      }
+    }
+    bannerUrlTitle:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      bannerUrlTitle
+    }
+    all: allSanitySiteSettings {
+      edges {
+        node {
+          _rawInfosection(resolveReferences: { maxDepth: 20 })
+        }
+      }
+    }
+    belowInfo: allSanitySiteSettings {
+      edges {
+        node {
+          _rawInfosectionBelow(resolveReferences: { maxDepth: 20 })
+        }
+      }
+    }
+    infoSection:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      infosection {
+        _key
+        _rawChildren
+        _type
+        style
+        children {
+          _key
+          _type
+          text
+          marks
+        }
+      }
+    }
     mainMenu: allSanityMenus(filter: { slug: { current: { eq: "main" } } }) {
+      edges {
+        node {
+          items {
+            ... on SanityExternalLink {
+              _key
+              _type
+              title
+              url
+            }
+            ... on SanityInternalLink {
+              _key
+              _type
+              link {
+                ...LinkFragment
+                ...HomeLinkFragment
+              }
+              title
+            }
+          }
+        }
+      }
+    }
+
+    subMenu: allSanityMenus(filter: { slug: { current: { eq: "submenu" } } }) {
+      edges {
+        node {
+          items {
+            ... on SanityExternalLink {
+              _key
+              _type
+              title
+              url
+            }
+            ... on SanityInternalLink {
+              _key
+              _type
+              link {
+                ...LinkFragment
+                ...HomeLinkFragment
+              }
+              title
+            }
+          }
+        }
+      }
+    }
+
+    rMenu: allSanityMenus(filter: { slug: { current: { eq: "rnd" } } }) {
       edges {
         node {
           items {
@@ -102,13 +194,23 @@ const query = graphql`
 `;
 
 function LayoutContainer(props) {
+
   const [showNav, setShowNav] = useState(false);
+  const [showSubNav, setShowSubNav] = useState(false);
   function handleShowNav() {
     setShowNav(true);
-    // console.log("set true");
+   
   }
   function handleHideNav() {
     setShowNav(false);
+  }
+  function handleShowSubNav() {
+    setShowSubNav(true);
+ 
+  }
+  function handleHideSubNav() {
+    setShowSubNav(false);
+
   }
   return (
     <StaticQuery
@@ -119,18 +221,30 @@ function LayoutContainer(props) {
             'Missing "Site settings". Open the Studio at http://localhost:3333 and some content in "Site settings"'
           );
         }
-        // console.log(data);
+    
+  
         return (
           <ThemeProvider>
             <Global styles={GlobalStyles} />
             <Layout
               {...props}
+              showThinBanner={data.showThinBanner.showthinbanner}
+              thinBanner={data.thinBanner.thinbanner}
+              bannerUrl={data.bannerUrl.edges[0].node._rawUrl}
+              bannerUrlTitle={data.bannerUrlTitle.bannerUrlTitle}
+              infoSection={data.all.edges[0].node._rawInfosection}
+              infoSectionBelow={data.belowInfo.edges[0].node._rawInfosectionBelow}
               showNav={showNav}
+              showSubNav = {showSubNav}
               siteTitle={data.site.title}
               onHideNav={handleHideNav}
               onShowNav={handleShowNav}
+              onHideSubNav={handleHideSubNav}
+              onShowSubNav={handleShowSubNav}
               footerMenu={data.footerMenu}
               mainMenu={data.mainMenu}
+              rMenu={data.rMenu}
+              subMenu={data.subMenu}
             />
           </ThemeProvider>
         );

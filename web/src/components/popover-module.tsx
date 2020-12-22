@@ -15,22 +15,44 @@ import SVG from "../components/svg";
 
 const PopoverModule = (props) => {
   const { text, logo, content } = props;
-  console.log(logo);
+
+  const [isOpen, setIsOpen] = React.useState(false)
+  const open = () => setIsOpen(!isOpen)
+  const close = () => setIsOpen(false)
+  if(typeof window != `undefined`){
+    // window.addEventListener('scroll', function (event) {
+    // Scrolling has happened...
+    let limit = document.getElementById(text+"-popover");
+    limit = limit ? limit.getBoundingClientRect().top - 100 : null;
+     //transform: translate3d(372px, 1000px, 0px) !important;
+     // let pop = document.getElementByClass('content-popover');
+     
+     // pop.style.tranform = "translate3d(372px, " + limit + ", 0px) !important"
+     // if(window.pageXOffset > limit && window.pageXOffset < limit + 100){
+     //  close()
+     // }
+      
+    // }, false);
+  }
+
   return (
-    <Popover placement="bottom" trigger="click" usePortal={true} gutter={10}>
+    <Popover placement="" isOpen={isOpen} onClose={close} trigger="click" usePortal={true} gutter={10}>
       <PopoverTrigger>
         {text && (
           <button
+            id={text+"-popover"}
+            onClick={open}
             aria-label={`Open ${text}`}
-            className="text-mobileLarge md:text-desktopLarge font-bold box-link m-0"
+            className="text-mobileLarge md:text-desktopLarge box-link transform md:translate-y-1 m-0 md:pr-5 md:pb-3"
           >
             {logo ? <SVG file={logo} /> : `${text}`}
           </button>
         )}
       </PopoverTrigger>
       <PopoverContent
+        id={text+'-content-popover'}
         bg="transparent"
-        className="border-none max-w-sm md:max-w-4xl no-shadow text-mobileBody p-0 md:text-desktopBody"
+        className="content-popover border-none max-w-sm md:max-w-4xl no-shadow m-2 -mt-100 ml-4 text-mobileBody p-0 md:text-desktopBody"
         zIndex={50}
       >
         <span className="block">

@@ -11,6 +11,7 @@ export const query = graphql`
   query PageQuery($id: String!) {
     page: sanityPage(id: { eq: $id }) {
       _rawContent(resolveReferences: { maxDepth: 20 })
+      isrnd
     }
   }
 `;
@@ -22,10 +23,10 @@ const PageTemplate = (props) => {
     main: { modules, slug },
     meta,
   } = page._rawContent;
-  // console.log(data);
+  const isrnd = page.isrnd;
 
   return (
-    <Layout>
+    <Layout rnd={isrnd}>
       {/*<SEO
         title={site.title}
         description={site.description}

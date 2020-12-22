@@ -143,7 +143,7 @@ const CheckoutForm = ({ terms }) => {
     fonts: [
       {
         family: "GP",
-        src: "url(https://earth6r.com/fonts/GerstnerProgramm-Regular.woff2)",
+        // src: "url(https://earth6r.com/fonts/GerstnerProgramm-Regular.woff2)",
         weight: "400",
       },
     ],

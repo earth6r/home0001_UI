@@ -17,7 +17,54 @@
   background-color: #ffffff;
   @apply rounded-md;
 }
+/* Accordion box,button, and link overrides */
+.accordion a{
+  border-bottom:2px solid;
+}
+.accordion a.box{
+  border:none;
+}
+.accordion button a{
+  border:none;
+}
 
+.accordion.box:hover button{
+  border-radius:15px;
+  color:inherit;
+}
+.accordion button .big-text{
+  position:relative;
+  top:1px;
+}
+.accordion button{
+  padding:5px 8px;
+  padding-top:2px;
+  color:black;
+  align-items:baseline;
+  font-size:inherit !important;
+  line-height: 1 !important;
+}
+.accordion button.box-link:before{
+  left:-4px;
+  top:46%;
+}
+.accordion button a{
+  color:inherit;
+}
+.accordion .box-circle .bg-black h2{
+  color:white;
+}
+/* end accordion overrides */
+.box-menu{
+  border-radius:15px;
+   background: #ffffff;
+   will-change: box-shadow;
+   transition: all 0.25s !important;
+   box-shadow:6px 5px 20px rgba(158, 158, 158, 0.4), 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.box-menu:hover {
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
+}
 .box-circle {
   width: 40%;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
@@ -36,7 +83,6 @@
   background: rgba(255, 255, 255, 1);
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.8);
   border-radius: 9999px;
-  @apply animate-pulse;
   transition: 0.25s box-shadow;
   transition-property: box-shadow, background-color;
 }
@@ -82,9 +128,18 @@
   will-change: box-shadow;
   transition: 1s box-shadow;
 }
-
+.box.accordion .square a{
+  border:none;
+}
 .box.accordion button[aria-expanded="true"] {
   color: #000000 !important;
+}
+@media(max-width:768px){
+  .box-link{
+    padding:0.0rem 0.5rem;
+    padding-bottom:0.15rem;
+    top: 3px;
+  }
 }
 
 @screen md {

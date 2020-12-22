@@ -2,6 +2,8 @@ import { Link } from "gatsby";
 import React from "react";
 import GridRow from "./grid/grid-row";
 import MailChimpForm from "./mailchimp-form";
+import instagramLogo from'./image.png';
+
 import {
   Modal,
   ModalOverlay,
@@ -17,14 +19,16 @@ import {
 const Footer = ({ footerMenu }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const query = "";
-  // console.log(footerMenu);
+  
   const menu = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
   return (
     <>
+
       <footer className="pt-1em md:pt-0 pb-1em md:pb-desktop container text-nav md:text-desktopNav flex flex-col uppercase left-0 md:block">
+        <GridRow></GridRow>
         <nav className="relative">
-          <ul className="flex flex-wrap md:flex-row md:justify-between relative">
-            <li className="mr-1em mb-1em md:mb-0 w-full md:w-auto">
+          <ul className="flex flex-wrap md:flex-row md:justify-between justify-between  relative">
+            <li className="md:mr-1em mb-1em md:mb-0 md:w-auto">
               <button onClick={onOpen} className="uppercase" role="Open newsletter">
                 Newsletter
               </button>
@@ -34,7 +38,7 @@ const Footer = ({ footerMenu }) => {
                 switch (item._type) {
                   case "internalLink":
                     return (
-                      <li className="mr-1em" key={item._key}>
+                      <li className="md:mr-1em" key={item._key}>
                         <Link to={`/${item.link.content.main.slug.current}`}>
                           {item.link.content.main.title}
                         </Link>
@@ -45,7 +49,15 @@ const Footer = ({ footerMenu }) => {
                       <li className="mr-1em" key={item._key}>
                         {item.url !== undefined && (
                           <a href={item.url} title={item.title} target="_blank">
-                            {item.title}
+                  
+                            {item.title == "Instagram" ?
+                               <>
+                              <span className="hidden md:inline-block">{item.title}</span>
+                              <div className="md:hidden w-full pl-1" >IG</div>
+                              </>
+                            : 
+                            <>{item.title}</>
+                            }
                           </a>
                         )}
                       </li>
@@ -54,7 +66,7 @@ const Footer = ({ footerMenu }) => {
               })}
           </ul>
         </nav>
-        <div className="md:hidden">
+        <div className="hidden">
           <GridRow />
         </div>
       </footer>

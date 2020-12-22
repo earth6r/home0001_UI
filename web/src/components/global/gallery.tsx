@@ -1,12 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
 import { GalleryImage } from "../gallery-image";
 import GridRow from "../grid/grid-row";
+import ReactHtmlParser from "react-html-parser";
 import CircleButton from "./circleButton";
+import PdfReader from "./pdfReader";
+
 var shuffle = require("shuffle-array");
 
 const Gallery = (props) => {
-  const { images, url } = props;
-  const randImages = images ? shuffle(images) : [];
+  const { images, blankspaces, url, embeds, textblocks, pdfs } = props;
+  const myImages = images ? shuffle(images).filter(Boolean) : [];
+  const myrandImages = embeds ? shuffle(images.concat(embeds)) : myImages;
+  const myImagesEmbeds = textblocks ? shuffle(myrandImages.concat(textblocks)) : myrandImages;
+  const myrandSpaces = blankspaces ? shuffle(myImagesEmbeds.concat(blankspaces)) : myImagesEmbeds;
+  const randImages = pdfs ? shuffle(myrandSpaces.concat(pdfs)) : myrandSpaces;
   const justify = ["justify-start", "justify-center", "justify-between", "justify-end"];
   const [direction, setDirection] = useState();
 
@@ -51,8 +58,10 @@ const Gallery = (props) => {
   let orders = getOrders();
   let remainingOrders = getOrders();
 
-  console.log(props);
-
+  function showPdf(key) {
+    let mykey = document.getElementById(key);
+    mykey.style.display = "block";
+  }
   function getOrders() {
     let temp_orders = [];
     for (let i = 0; i < images.length; i++) {
@@ -63,15 +72,17 @@ const Gallery = (props) => {
 
   function row() {
     for (let i = 0; i < gridLen; i++) {
-      return (
-        <div
-          key={`${randImages[i]._key}-grid-$`}
-          style={{ top: `${(100 / images.length) * (i + 1)}%` }}
-          className="absolute w-full pointer-events-none left-0 z-0"
-        >
-          <GridRow />
-        </div>
-      );
+      if (randImages[i]) {
+        return (
+          <div
+            key={`${randImages[i]._key}-grid-$`}
+            style={{ top: `${(100 / images.length) * (i + 1)}%` }}
+            className="absolute w-full pointer-events-none left-0 z-0"
+          >
+            <GridRow />
+          </div>
+        );
+      }
     }
   }
   useEffect(() => {
@@ -82,70 +93,87 @@ const Gallery = (props) => {
       <div className={`mx-mobile md:mx-desktop relative flex flex-wrap ${direction}`}>
         {randImages &&
           randImages.map((image, index) => {
-            //get ratio of image
-            if (image.asset !== undefined) {
-              let order = index;
-              let ratio =
-                image.asset !== undefined
-                  ? image.asset.metadata.dimensions.height > image.asset.metadata.dimensions.width
-                    ? "portrait"
-                    : "landscape"
-                  : "portrait";
-              remainingWidth =
-                ratio == "portrait"
-                  ? Math.floor(
-                      Math.random() * (maxPortraitWidth - minPortraitWidth) + minPortraitWidth
-                    )
-                  : Math.floor(
-                      Math.random() * (maxLandscapeWidth - minLandscapeWidth) + minLandscapeWidth
-                    );
-              if (!image.lead) {
-                remainingMobileWidth =
+            // console.log(image);
+            if (image && image._type == "mainImage") {
+              //get ratio of image
+              if (image.asset !== undefined) {
+                let order = index;
+                let ratio =
+                  image.asset !== undefined
+                    ? image.asset.metadata.dimensions.height > image.asset.metadata.dimensions.width
+                      ? "portrait"
+                      : "landscape"
+                    : "portrait";
+                remainingWidth =
                   ratio == "portrait"
                     ? Math.floor(
-                        Math.random() * (maxMobilePortraitWidth - minMobilePortraitWidth) +
-                          minMobilePortraitWidth
+                        Math.random() * (maxPortraitWidth - minPortraitWidth) + minPortraitWidth
                       )
                     : Math.floor(
-                        Math.random() * (maxMobileLandscapeWidth - minMobileLandscapeWidth) +
-                          minMobileLandscapeWidth
+                        Math.random() * (maxLandscapeWidth - minLandscapeWidth) + minLandscapeWidth
                       );
-              } else {
-                remainingMobileWidth =
-                  ratio == "portrait"
-                    ? Math.floor(
-                        Math.random() * (maxMobileLeadPortraitWidth - minMobileLeadPortraitWidth) +
-                          minMobileLeadPortraitWidth
-                      )
-                    : Math.floor(
-                        Math.random() *
-                          (maxMobileLeadLandscapeWidth - minMobileLeadLandscapeWidth) +
-                          minMobileLeadLandscapeWidth
-                      );
-              }
+                if (!image.lead) {
+                  remainingMobileWidth =
+                    ratio == "portrait"
+                      ? Math.floor(
+                          Math.random() * (maxMobilePortraitWidth - minMobilePortraitWidth) +
+                            minMobilePortraitWidth
+                        )
+                      : Math.floor(
+                          Math.random() * (maxMobileLandscapeWidth - minMobileLandscapeWidth) +
+                            minMobileLandscapeWidth
+                        );
+                } else {
+                  remainingMobileWidth =
+                    ratio == "portrait"
+                      ? Math.floor(
+                          Math.random() *
+                            (maxMobileLeadPortraitWidth - minMobileLeadPortraitWidth) +
+                            minMobileLeadPortraitWidth
+                        )
+                      : Math.floor(
+                          Math.random() *
+                            (maxMobileLeadLandscapeWidth - minMobileLeadLandscapeWidth) +
+                            minMobileLeadLandscapeWidth
+                        );
+                }
 
-              return (
-                <GalleryImage
-                  width="1399"
-                  remainingWidth={remainingWidth}
-                  remainingMobileWidth={remainingMobileWidth}
-                  key={image._key}
-                  order={order}
-                  imageId={image.asset._id}
-                  caption={image.caption}
-                  lead={image.lead}
-                  ratio={ratio}
-                  remainingMargin={remainingMargin}
-                />
-              );
+                return (
+                  <GalleryImage
+                    width="1399"
+                    remainingWidth={remainingWidth}
+                    remainingMobileWidth={remainingMobileWidth}
+                    key={image._key}
+                    order={order}
+                    imageId={image.asset._id}
+                    caption={image.caption}
+                    lead={image.lead}
+                    ratio={ratio}
+                    remainingMargin={remainingMargin}
+                  />
+                );
+              } else {
+                return <></>;
+              }
+            } else if (image._type == "file" && typeof window != `undefined`) {
+              return <PdfReader key={image._key} file={image.asset.url} />;
+            } else if (image._type == "string") {
+              return <div></div>;
             } else {
-              return <></>;
+              return (
+                <div
+                  key={index}
+                  className="align-middle gallery-image w-9/20 md:w-8/20 py-2 self-undefined mx-auto html-text"
+                >
+                  {ReactHtmlParser(image)}
+                </div>
+              );
             }
           })}
         {/* randomly place circle image in an order between 1 and gallery image set length  */}
         {url !== undefined && randImages.length > 2 ? (
           <div
-            className="self-center mx-auto z-40 sticky bottom-0 md:relative"
+            className="self-center mx-auto z-40  bottom-0 md:relative"
             style={{
               order: `${Math.floor(Math.random() * randImages.length - 2)}`,
             }}
@@ -156,7 +184,7 @@ const Gallery = (props) => {
           </div>
         ) : (
           <div
-            className="self-center py-1 md:py-1em mx-auto z-50 sticky md:relative"
+            className="self-center py-1 md:py-1em mx-auto z-50  md:relative"
             style={{
               order: `${Math.floor(Math.random() * randImages.length)}`,
               bottom: "1em",

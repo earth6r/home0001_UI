@@ -41,7 +41,7 @@ export const query = graphql`
       description
       keywords
     }
-    allSanityLanding {
+    allSanityRnd {
       edges {
         node {
           _rawContent(resolveReferences: { maxDepth: 20 })
@@ -66,9 +66,9 @@ const IndexPage = (props) => {
   const {
     main: { modules, slug },
     meta,
-  } = data.allSanityLanding.edges[0].node._rawContent;
+  } = data.allSanityRnd.edges[0].node._rawContent;
 
-  console.log(meta);
+ 
 
   if (!site) {
     throw new Error(
@@ -77,13 +77,15 @@ const IndexPage = (props) => {
   }
 
   return (
-    <Layout>
+    <Layout rnd={true}>
+    {meta &&
       <SEO
         title={site.title}
         description={site.description}
         keywords={site.keywords}
         image={meta.openImage}
       />
+    }
       <Container className="rte-large">
         <div className="flex flex-wrap">{RenderModules(modules)}</div>
       </Container>

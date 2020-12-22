@@ -27,6 +27,14 @@ module.exports = {
       },
     },
     {
+    resolve: 'gatsby-plugin-intercom-spa',
+      options: {
+        appId: process.env.INTERCOM_APP_ID,
+        include_in_development: true,
+        delay_timeout: 0
+      },
+    },
+    {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         custom: {

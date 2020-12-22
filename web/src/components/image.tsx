@@ -48,7 +48,7 @@ export const Image = ({
   });
 
   useLayoutEffect(() => {
-    // console.log(ref.current.offsetWidth);
+
     setRandX(Math.floor(Math.random() * 4));
     setRandY(Math.floor(Math.random() * 4));
     setRandSpeed(Math.random() * (0.3 - 0.2) - 0.2);
@@ -60,11 +60,11 @@ export const Image = ({
     <figure
       className={`${
         randWidth !== 10 ? `w-${randWidth}/10` : "w-full"
-      } ${`mx-${randPadding}/10`} md:mx-1/10  mb-1em`}
+      } ${`mx-${randPadding}/10`} md:mx-1/10  mb-1em z-40`}
       ref={ref}
     >
       {fluidProps ? (
-        <motion.div style={{ y }}>
+        <motion.div style={{  }}>
           <Img className="relative z-20" fluid={fluidProps} alt={alt} defaultFadeIn={200} />
           {caption && <figcaption className="mt-1 text-sm">{caption}</figcaption>}
         </motion.div>
