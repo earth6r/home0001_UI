@@ -38,7 +38,7 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
           el.click()
         }
         
-        let y = window.scrollY + 90;  //your current y position on the page
+        let y = window.scrollY - 50;  //your current y position on the page
         window.scrollBy(0,y)
 
         setScrolled(false)
@@ -64,6 +64,7 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                 <>
 
                   <AccordionHeader id={item._key}>
+                  <div id={item.customslug}></div>
                     <h2 id={item.customslug + "-h2"} className="m-0 relative underline text-left normal-case -mt-1/4em md:mt-0">{item.title}{item.flag && item.flag.length > 0}{
                       <>
                       <div style={{background: item.flagcolor ? item.flagcolor : "none"}} className="flag inline-block align-top">{item.flag}</div>
@@ -76,7 +77,7 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                     </div>
                     </>
                     }</h2>
-                    <div id={item.customslug}></div>
+                    
                   </AccordionHeader>
                   
                   <AccordionPanel className="pb-1em md:pl-16 md:pr-40 md:w-3/4 ">

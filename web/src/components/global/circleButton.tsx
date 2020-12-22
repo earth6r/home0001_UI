@@ -61,7 +61,7 @@ const CircleButton = ({ title, url, linkHome, linkRnd, float = true, color }) =>
                   className="m-0 h-full flex items-center justify-center text-nav leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full"
                   to={`${myUrl}`}
                 >
-                  <h2 className={`${color === "black" ? "text-white ": ""} m-0 p-0 text-mobileNav md:text-desktopNav leading-none font-bold`}>
+                  <h2 className={`${color === "black" ? "text-white ": ""} m-0 p-0 leading-none font-bold`}>
                     {ReactHtmlParser(title)}
                   </h2>
                 </PageLink>
@@ -90,7 +90,7 @@ const CircleButton = ({ title, url, linkHome, linkRnd, float = true, color }) =>
                   to={`${myUrl}`}
                 >
                   <h2
-                    className={`m-0 font-bold p-0 text-mobileNav md:text-desktopNav leading-none ${
+                    className={`m-0 font-bold p-0  leading-none ${
                       color === "black" ? " text-white " : ""
                     }`}
                   >

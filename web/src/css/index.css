@@ -27,17 +27,7 @@ html {
     top: 3px;
     left:1px;
 }
-.circle-width{
-  width: 30vw;
-}
-.circle-width h2{
-  max-width: 190px;
-}
-@media(min-width: 768px){
-  .circle-width{
-    width: 12vw;
-  }
-}
+
 
 body {
   -webkit-font-smoothing: antialiased;
@@ -486,3 +476,18 @@ img{
   }
 }
 */
+.circle-width{
+  width: 30vw;
+}
+.circle-width h2, .rte.rte-large .circle-width h2{
+  max-width: 190px;
+  font-size:3vw;
+}
+@media(min-width: 768px){
+  .circle-width{
+    width: 12vw;
+  }
+  .circle-width h2, .rte.rte-large .circle-width h2{
+    font-size:1.1vw;
+  }
+}
