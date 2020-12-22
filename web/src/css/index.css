@@ -90,6 +90,10 @@ small {
   width:100%;
   max-width: none;
 }
+.arrow-input-checkout{
+  top:10px;
+  right:5px;
+}
 .flexible-gallery .flex-item iframe{
   max-width:100%;
   max-height:100%;
@@ -139,6 +143,10 @@ small {
   to { transform: translateX(-50%); }
 }
 @media(max-width: 768px){
+  .arrow-input-checkout{
+    top:7px;
+    right:5px;
+  }
   .info-menu-mobile{
     top:-3px;
   }
