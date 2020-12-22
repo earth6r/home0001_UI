@@ -4,6 +4,12 @@
   status = 301
   force = false
 
+[[redirects]]
+  from = "/checkout/membership/homes"
+  to = "/homes"
+  status = 301
+  force = false
+
 [build]
   functions = "web/functions"
   publish = "/web/public"
