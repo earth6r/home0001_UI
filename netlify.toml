@@ -10,6 +10,12 @@
   status = 301
   force = false
 
+[[redirects]]
+  from = "https://earth6r.com/collective"
+  to = "https://homes.earth6r.com/"
+  status = 301
+  force = false
+
 [build]
   functions = "web/functions"
   publish = "/web/public"
