@@ -4,11 +4,17 @@
   status = 301
   force = false
 
-# [[redirects]]
-#   from = "/collective"
-#   to = "https://homes.earth6r.com/collective"
-#   status = 301
-#   force = false
+[[redirects]]
+  from = "/collective"
+  to = "https://earth6r.com"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/"
+  to = "https://earth6r.com"
+  status = 301
+  force = false
 
 [build]
   functions = "web/functions"

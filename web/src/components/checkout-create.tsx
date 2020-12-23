@@ -14,7 +14,7 @@ const StripeCheckoutCreateButton = ({ handleClick, disabled }) => (
     role="link"
     onClick={handleClick}
     type="button"
-    value="Checkout with Stripe"
+    value="Checkout"
   />
 );
 
