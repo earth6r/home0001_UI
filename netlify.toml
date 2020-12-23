@@ -6,8 +6,8 @@
 
 [[redirects]]
   from = "/collective"
-  to = "https://earth6r.com"
-  status = 301
+  to = "/"
+  status = 200
   force = false
 
 [[redirects]]
