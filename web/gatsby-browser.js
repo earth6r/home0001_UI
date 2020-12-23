@@ -11,6 +11,7 @@ import "focus-visible/dist/focus-visible";
 import LoadingScreen from "./src/components/loading-screen";
 import PaymentContext from "./src/lib/payment-context";
 import { DISCOUNT_CODES } from "./src/lib/constants";
+import { trimSlashes } from "./src/lib/helpers";
 
 //stripe
 import { Elements } from "@stripe/react-stripe-js";
@@ -34,6 +35,19 @@ export const wrapRootElement = ({ element, props }) => {
     discount = true;
     discountCode = qs.get("discount");
   }
+
+  // Handle redirects
+  const { host } = window.location;
+  const pathname = trimSlashes(window.location.pathname);
+  const title = document.getElementsByTagName("title")[0].innerText;
+
+  // if (host === "homes.earth6r.com" && pathname === "collective") {
+  //   window.location.host = "https://earth6r.com";
+  // } else if (host === "earth6r.com" && pathname === "") {
+  //   window.location.host = "https://homes.earth6r.com";
+  // }
+
+  // window.history.replaceState({}, title, "https://earth6r.com");
 
   return (
     <PaymentContext.Provider value={{ discount, discountCode }}>

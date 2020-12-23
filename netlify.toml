@@ -8,13 +8,7 @@
   from = "/"
   to = "/collective"
   status = 200
-  force = false
-
-[[redirects]]
-  from = "/"
-  to = "https://earth6r.com"
-  status = 301
-  force = false
+  force = true
 
 [build]
   functions = "web/functions"
