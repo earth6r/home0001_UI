@@ -84,7 +84,7 @@ const ValueAdded = ({ discount, discountCode }) => (
 );
 
 const CheckoutOptions = ({ ssr, children }) => {
-  if (!ssr) return null;
+  if (ssr) return null;
   return <>{children}</>;
 };
 
@@ -133,7 +133,7 @@ const CheckoutDescription = ({ unit, modules, children, discount, discountCode }
 const CheckoutTemplate = (props) => {
   const { data, errors } = props;
   const page = data && data.checkout;
-  const ssr = typeof window !== `undefined`;
+  const ssr = typeof window === "undefined";
   const {
     main: { modules, slug },
     meta,
@@ -146,7 +146,7 @@ const CheckoutTemplate = (props) => {
   let bitPayID;
   let bitPayIDDiscounted;
 
-  if (ssr) {
+  if (!ssr) {
     const searchParams = new URLSearchParams(window.location.search);
 
     sku = searchParams.get("sku");

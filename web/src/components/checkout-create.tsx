@@ -76,8 +76,16 @@ const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, hand
         {/* <div className="py-1em">
           <BitPayCheckoutButton disabled={disabled} bitPayID={bitPayID} />
         </div> */}
+
         <div className="py-1em">
-          <StyledPageLink color="white" slug="" uri="/homes" title="Available Homes" />
+          <span className="max-w-4xl block w-full md:pl-1/10">
+            <Link
+              className="box rounded-md w-full block text-center leading-none h-2em  flex items-center justify-center text-mobileBody md:text-desktopBody uppercase"
+              to="/homes"
+            >
+              <span className="-mt-1/4em md:mt-0">Available Homes</span>
+            </Link>
+          </span>
         </div>
         <CheckoutTerms disabled={disabled} handleChange={handleChange} />
       </section>
