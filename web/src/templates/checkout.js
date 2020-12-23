@@ -12,8 +12,8 @@ import MembershipPrice from "../components/global/membershipPrice";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
-
 const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
+
 export const query = graphql`
   query CheckoutAndHomes($id: String!) {
     checkout: sanityCheckout(id: { eq: $id }) {
@@ -71,8 +71,8 @@ const ValueAdded = ({ discount, discountCode }) => (
   </p>
 );
 
-const CheckoutOptions = ({ ssr, children }) => {
-  if (ssr) return null;
+const CheckoutOptions = ({ /*ssr, */ children }) => {
+  // if (ssr) return null;
   return <>{children}</>;
 };
 
@@ -170,7 +170,7 @@ const CheckoutTemplate = (props) => {
         keywords={["Earth", "Membership"]}
       />
       <Container>
-        <CheckoutOptions ssr={ssr}>
+        <CheckoutOptions>
           <CheckoutActions unit={unit}>
             <PaymentContext.Consumer>
               {({ discount, discountCode }) => (
