@@ -47,7 +47,7 @@ const ELEMENTS_OPTIONS = {
 export const wrapRootElement = ({ element, props }) => {
   return (
     <Elements options={ELEMENTS_OPTIONS} stripe={stripePromise} {...props}>
-      <LoadingScreen animate={false} />
+      <LoadingScreen />
       {element}
     </Elements>
   );
