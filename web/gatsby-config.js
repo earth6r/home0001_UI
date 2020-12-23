@@ -31,7 +31,7 @@ module.exports = {
       options: {
         appId: process.env.INTERCOM_APP_ID,
         include_in_development: true,
-        delay_timeout: 0
+        delay_timeout: 1000
       },
     },
     {
