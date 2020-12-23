@@ -12,18 +12,6 @@ import MembershipPrice from "../components/global/membershipPrice";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
-import { useState, useEffect } from "react";
-
-export const useIsClient = () => {
-  const [isClient, setClient] = useState(false);
-  const key = isClient ? "client" : "server";
-
-  useEffect(() => {
-    setClient(true);
-  }, []);
-
-  return { isClient, key };
-};
 
 const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
 export const query = graphql`
@@ -112,8 +100,7 @@ const CheckoutDescription = ({ unit, modules, children, discount, discountCode }
       </>
     );
   }
-  const { isClient, key } = useIsClient();
-  if (!isClient) return null;
+
   return (
     <>
       <div className="flex flex-wrap w-full standard-text">
