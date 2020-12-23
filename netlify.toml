@@ -5,8 +5,8 @@
   force = false
 
 [[redirects]]
-  from = "/collective"
-  to = "/"
+  from = "/"
+  to = "/collective"
   status = 200
   force = false
 
