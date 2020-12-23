@@ -41,13 +41,11 @@ export const wrapRootElement = ({ element, props }) => {
   const pathname = trimSlashes(window.location.pathname);
   const title = document.getElementsByTagName("title")[0].innerText;
 
-  // if (host === "homes.earth6r.com" && pathname === "collective") {
-  //   window.location.host = "https://earth6r.com";
-  // } else if (host === "earth6r.com" && pathname === "") {
-  //   window.location.host = "https://homes.earth6r.com";
-  // }
-
-  // window.history.replaceState({}, title, "https://earth6r.com");
+  if (host === "homes.earth6r.com" && pathname === "collective") {
+    window.history.replaceState({}, title, "");
+  } else if (host === "earth6r.com" && pathname !== "") {
+    window.location.host = `https://homes.earth6r.com/${pathname}`;
+  }
 
   return (
     <PaymentContext.Provider value={{ discount, discountCode }}>
