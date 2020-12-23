@@ -1,10 +1,4 @@
 [[redirects]]
-  from = "/checkout/cancel"
-  to = "/checkout/membership"
-  status = 301
-  force = false
-
-[[redirects]]
   from = "/checkout/membership/homes"
   to = "/homes"
   status = 301

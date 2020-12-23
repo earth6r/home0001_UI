@@ -81,9 +81,9 @@ exports.handler = async (event) => {
     product = {
       name: "EARTH Membership",
       description: "Join the collective",
-      image:
-        "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=600&h=600&q=80",
       sku,
+      // image:
+      //   "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=600&h=600&q=80",
     };
   } else {
     product = await getUnitByStripeSKU(sku);
@@ -129,7 +129,7 @@ exports.handler = async (event) => {
      * https://docs.netlify.com/configure-builds/environment-variables/
      */
     success_url: `${trimTrailingSlash(process.env.SITE_URL)}/checkout/success`,
-    cancel_url: `${trimTrailingSlash(process.env.SITE_URL)}/checkout/cancel`,
+    cancel_url: `${trimTrailingSlash(process.env.SITE_URL)}/checkout/membership`,
     line_items: [
       {
         price_data: {
