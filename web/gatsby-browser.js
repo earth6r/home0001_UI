@@ -42,9 +42,9 @@ export const wrapRootElement = ({ element, props }) => {
   const title = document.getElementsByTagName("title")[0].innerText;
 
   if (host === "homes.earth6r.com" && pathname === "collective") {
-    window.history.replaceState({}, title, "");
+    window.history.replaceState({}, title, "/");
   } else if (host === "earth6r.com" && pathname !== "") {
-    window.location.host = `https://homes.earth6r.com/${pathname}`;
+    window.location.replace(`https://homes.earth6r.com/${pathname}`);
   }
 
   return (
