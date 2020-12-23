@@ -37,20 +37,26 @@ export const wrapRootElement = ({ element, props }) => {
   }
 
   // Handle redirects
-  const { host } = window.location;
+  const { host, search } = window.location;
   const pathname = trimSlashes(window.location.pathname);
   const title = document.getElementsByTagName("title")[0].innerText;
 
+  let animate = true;
+
   if (host === "homes.earth6r.com" && pathname === "collective") {
     window.history.replaceState({}, title, "/");
+  } else if (host === "homes.earth6r.com" && pathname === "") {
+    animate = false;
+    window.location.replace(`https://earth6r.com`);
   } else if (host === "earth6r.com" && pathname !== "") {
-    window.location.replace(`https://homes.earth6r.com/${pathname}`);
+    animate = false;
+    window.location.replace(`https://homes.earth6r.com/${pathname}${search}`);
   }
 
   return (
     <PaymentContext.Provider value={{ discount, discountCode }}>
       <Elements options={ELEMENTS_OPTIONS} stripe={stripePromise} {...props}>
-        <LoadingScreen />
+        <LoadingScreen animate={animate} />
         {element}
       </Elements>
     </PaymentContext.Provider>
