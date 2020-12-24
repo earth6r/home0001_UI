@@ -7,7 +7,9 @@
 @import "./rte.css";
 /* @import "/node_modules/react-grid-layout/css/styles.css"; */
 /* @import "/node_modules/react-resizable/css/styles.css"; */
-
+figure img{
+  object-fit: contain !important;
+}
 html {
   font-family: "GP", Arial, Helvetica, sans-serif;
 }
