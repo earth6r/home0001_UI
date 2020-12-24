@@ -7,12 +7,12 @@ export default ({node}) => {
   if (!node || !node.asset || !node.asset._id) { return null }
   const fluidProps = getFluidGatsbyImage(
     node.asset._id,
-    // {maxWidth: 675},
+    {maxWidth: 675},
     clientConfig.sanity
   )
   return (
     <figure>
-      <Img fluid={fluidProps} alt={node.alt} objectFit="contain" imgStyle={{ objectFit: 'contain', maxWidth: "none" }} />
+      <Img fluid={fluidProps} alt={node.alt} objectFit="contain" objectPosition="50% 50%" imgStyle={{ objectFit: 'contain', maxWidth: "none" }} />
       <figcaption>{node.caption}</figcaption>
     </figure>
   )
