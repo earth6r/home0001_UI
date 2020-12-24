@@ -28,6 +28,7 @@
   export EMAIL_USERNAME=loma.trantow78@ethereal.email && \
   export EMAIL_PASSWORD=pSff3584K3u39TtGvD && \
   export EMAIL_HOST=smtp.ethereal.email && \
+  export INTERCOM_APP_ID=utnfnkyr && \
   export EMAIL_PORT=587 && \
   export GATSBY_BITPAY_POS_TOKEN=2GW2QCUEU8Vm9aNzTCZwhKSXPH2c3XcQGZdbN3dbWYUv && \
   export GATSBY_BITPAY_API_URL=https://test.bitpay.com && \
