@@ -183,7 +183,7 @@ if(typeof window != `undefined`){
                   menu.map((item, index) => (
                     <li className="hidden md:block" key={item._key}>
                       <PageLink
-                        className={`${currentUri.includes(item.link.content.main.slug.current) || (currentUri.includes('/home/') && item.link.content.main.slug.current.includes("home")) ? "current-nav-link": " "} md:pt-1/2em inline-block`} 
+                        className={`${currentUri.includes(item.link.content.main.slug.current) || (currentUri.includes('/home/') && item.link.content.main.slug.current.includes("home")) ? "current-nav-link "+item.link.content.main.slug.current : " "} md:pt-1/2em inline-block`} 
                         onClick={onHideNav}
                         to={`/${item.link.content.main.slug.current}`}
                       >
@@ -204,7 +204,7 @@ if(typeof window != `undefined`){
           showNav ? " h-full bg-black opacity-75 pointer-events-auto" : "opacity-0"
         } fixed transition-opacity duration-150 left-0 top-0  pointer-events-none w-full`}
       ></div>
-      <div className={`${showThinBanner && thinBanner ? "mt-8 md:mt-8" : "" } fixed w-full h-12 md:h-18 z-30 gradient-to-b pointer-events-none top-0 left-0`}></div>
+      <div className={`${showThinBanner && thinBanner ? "mt-8 md:mt-8" : "" } fixed w-full h-12 md:h-18 z-30 gradient-to-b3 pointer-events-none top-0 left-0`}></div>
     </>
   );
 };
