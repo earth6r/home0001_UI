@@ -51,10 +51,10 @@ const Layout = ({ mainMenu,infoSection,infoSectionBelow, rMenu, rnd = false, sub
     />
       )
    }
-   <div className={`${showThinBanner && !rnd ? "mt-16":"mt-8"} hidden md:block container pb-1/2em absolute`} >
+   <div className={`${showThinBanner && !rnd ? "mt-8 md:mt-16":"mt-8"} hidden md:block container pb-1/2em absolute`} >
    <GridRow />
    </div>
-    <div id='page-content-wrapper' className={`${showThinBanner && !rnd ? "mt-12 md:mt-8":""} ${rnd ? "px-special" : ""} container pb-1/2em `}>{children}</div>
+    <div id='page-content-wrapper' className={`${showThinBanner && !rnd ? "mt-8 md:mt-12 md:mt-8":""} ${rnd ? "px-special" : ""} container pb-1/2em `}>{children}</div>
     {!rnd &&
       <Footer footerMenu={footerMenu} />
     }

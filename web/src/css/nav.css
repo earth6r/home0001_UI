@@ -8,3 +8,6 @@
   -moz-transform:rotate(180deg);
   -o-transform:rotate(180deg);
 }
+.gradient-to-b3{
+	background: linear-gradient(0deg,hsla(0,0%,100%,0),hsla(0,0%,100%,.55) 20%, hsla(0,0%,100%,.75) 40%,hsla(0,0%,100%,.96) 75%,hsla(0,0%,100%,.99));
+}
