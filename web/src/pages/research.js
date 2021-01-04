@@ -35,13 +35,13 @@ export const query = graphql`
     }
   }
 
-  query CollectivePageQuery {
+  query IndexPageQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
       description
       keywords
     }
-    allSanityLanding {
+    allSanityRnd {
       edges {
         node {
           _rawContent(resolveReferences: { maxDepth: 20 })
@@ -51,7 +51,7 @@ export const query = graphql`
   }
 `;
 
-const CollectivePage = (props) => {
+const IndexPage = (props) => {
   const { data, errors } = props;
 
   if (errors) {
@@ -66,9 +66,9 @@ const CollectivePage = (props) => {
   const {
     main: { modules, slug },
     meta,
-  } = data.allSanityLanding.edges[0].node._rawContent;
+  } = data.allSanityRnd.edges[0].node._rawContent;
 
-  
+ 
 
   if (!site) {
     throw new Error(
@@ -77,13 +77,15 @@ const CollectivePage = (props) => {
   }
 
   return (
-    <Layout>
+    <Layout rnd={true}>
+    {meta &&
       <SEO
         title={site.title}
         description={site.description}
         keywords={site.keywords}
         image={meta.openImage}
       />
+    }
       <Container className="rte-large">
         <div className="flex flex-wrap">{RenderModules(modules)}</div>
       </Container>
@@ -91,4 +93,4 @@ const CollectivePage = (props) => {
   );
 };
 
-export default CollectivePage;
+export default IndexPage;
