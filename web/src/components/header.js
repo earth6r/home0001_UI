@@ -113,7 +113,7 @@ if(typeof window != `undefined`){
         >
           <GridRow scroll={false} hide={1} className="flex w-full justify-between md:hidden">
             <h1 style={{ top: ".05em" }} className="md:hidden relative logo">
-              <PageLink to="/collective">
+              <PageLink to="/">
                 <span className="earth-svg block text-mobileNav md:text-base">
 <svg viewBox="0 0 45 11" fill="none">
 <path d="M0 0H7.4747V1.25196H1.52952V4.65937H7.2752V5.91134H1.52952V9.68014H7.621V10.9321H0V0Z" fill="black"/>
@@ -156,7 +156,7 @@ if(typeof window != `undefined`){
               >
                 <li className="absolute md:relative left-0 top-0 pt-2">
                   <h1 className="logo ">
-                    <PageLink className={`${currentUri.includes('collective') || currentUri.includes('alt') ? "current-nav-link": ""}`} onClick={onHideNav} to="/collective">
+                    <PageLink className={`${currentUri.includes('collective') || currentUri.includes('alt') ? "current-nav-link": ""}`} onClick={onHideNav} to="/">
                       <span className="earth-svg">
 <svg viewBox="0 0 45 11" fill="none">
 <path d="M0 0H7.4747V1.25196H1.52952V4.65937H7.2752V5.91134H1.52952V9.68014H7.621V10.9321H0V0Z" fill="black"/>
