@@ -43,15 +43,15 @@ export const wrapRootElement = ({ element, props }) => {
 
   let animate = true;
 
-  if (host === "homes.earth6r.com" && pathname === "collective") {
-    window.history.replaceState({}, title, "/");
-  } else if (host === "homes.earth6r.com" && pathname === "") {
-    animate = false;
-    window.location.replace(`https://homes.earth6r.com/collective`);
-  } else if (host === "earth6r.com" && pathname !== "") {
-    animate = false;
-    window.location.replace(`https://homes.earth6r.com/${pathname}${search}`);
-  }
+  // if (host === "homes.earth6r.com" && pathname === "collective") {
+  //   window.history.replaceState({}, title, "/");
+  // } else if (host === "homes.earth6r.com" && pathname === "") {
+  //   animate = false;
+  //   window.location.replace(`https://homes.earth6r.com/collective`);
+  // } else if (host === "earth6r.com" && pathname !== "") {
+  //   animate = false;
+  //   window.location.replace(`https://homes.earth6r.com/${pathname}${search}`);
+  // }
 
   return (
     <PaymentContext.Provider value={{ discount, discountCode }}>

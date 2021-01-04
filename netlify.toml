@@ -4,11 +4,6 @@
   status = 301
   force = false
 
-# [[redirects]]
-#   from = "/"
-#   to = "/collective"
-#   status = 200
-#   force = false
 
 [build]
   functions = "web/functions"
