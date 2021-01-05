@@ -35,18 +35,26 @@ const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, o
   for (var i = 0; i < words.length; i++) {
     var word = words[i];
     words[i] = word.charAt(0).toUpperCase() + word.slice(1);
+
   }
 
   return words.join(' ');
 }
 if(typeof window != `undefined`){
    currentUri = window.location.href.split("http://")[1]
-   currentUri = currentUri.slice(0, -1)
+   let stringLength = currentUri.length
+   if(currentUri && currentUri.charAt(stringLength - 1) =="/"){
+    currentUri = currentUri.slice(0, -1)
+   }
+   
 }
   useEffect(() => {
     // setLoaded(true);
     currentUri = window.location.href.split("http://")[1]
+    let stringLength = currentUri.length
+    if(currentUri && currentUri.charAt(stringLength - 1) =="/"){
     currentUri = currentUri.slice(0, -1)
+   }
     console.log(currentUri)
     setTimeout(function () {
       setLoaded(true);
@@ -185,7 +193,7 @@ if(typeof window != `undefined`){
                   menu.map((item, index) => (
                     <li className="hidden md:block" key={item._key}>
                       <PageLink
-                        className={`${currentUri.includes(item.link.content.main.slug.current) || (currentUri.includes('/home/') && item.link.content.main.slug.current.includes("home")) ? "current-nav-link "+item.link.content.main.slug.current : " "} md:pt-1/2em inline-block`} 
+                        className={`${currentUri.includes(item.link.content.main.slug.current) || (currentUri.includes('home') && item.link.content.main.slug.current.includes("home")) ? "current-nav-link "+item.link.content.main.slug.current : " "} md:pt-1/2em inline-block`} 
                         onClick={onHideNav}
                         to={`/${item.link.content.main.slug.current}`}
                       >
