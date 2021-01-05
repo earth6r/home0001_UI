@@ -199,7 +199,7 @@ if(typeof window != `undefined`){
                   menu.map((item, index) => (
                     <li className="hidden md:block" key={item._key}>
                       <PageLink
-                        className={`${currentUri.includes(item.link.content.main.slug.current) || (currentUri.includes('home') && item.link.content.main.slug.current.includes("home")) ? "current-nav-link "+item.link.content.main.slug.current : " "} md:pt-1/2em inline-block`} 
+                        className={`${currentUri.includes(item.link.content.main.slug.current) || (currentUri && currentUri.includes('home') && item.link.content.main.slug.current.includes("home")) ? "current-nav-link "+item.link.content.main.slug.current : " "} md:pt-1/2em inline-block`} 
                         onClick={onHideNav}
                         to={`/${item.link.content.main.slug.current}`}
                       >
