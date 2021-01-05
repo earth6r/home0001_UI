@@ -42,19 +42,25 @@ const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, o
 }
 if(typeof window != `undefined`){
    currentUri = window.location.href.split("http://")[1]
-   let stringLength = currentUri.length
-   if(currentUri && currentUri.charAt(stringLength - 1) =="/"){
-    currentUri = currentUri.slice(0, -1)
+   if(currentUri){
+    let stringLength = currentUri.length
+     if(currentUri.charAt(stringLength - 1) =="/"){
+      currentUri = currentUri.slice(0, -1)
+     }
    }
+   
    
 }
   useEffect(() => {
     // setLoaded(true);
     currentUri = window.location.href.split("http://")[1]
     let stringLength = currentUri.length
-    if(currentUri && currentUri.charAt(stringLength - 1) =="/"){
-    currentUri = currentUri.slice(0, -1)
-   }
+    if(currentUri){
+       if(currentUri.charAt(stringLength - 1) =="/"){
+        currentUri = currentUri.slice(0, -1)
+       }
+    }
+   
     console.log(currentUri)
     setTimeout(function () {
       setLoaded(true);
