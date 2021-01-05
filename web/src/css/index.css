@@ -339,7 +339,7 @@ small {
 }
 .accordion h2.title{
   font-size:0.9rem;
-  line-height: 0.6;
+  line-height: 0;
 }
 .accordion-icon{
   margin-top: -6px;
