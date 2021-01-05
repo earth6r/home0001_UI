@@ -156,7 +156,7 @@ if(typeof window != `undefined`){
               >
                 <li className="absolute md:relative left-0 top-0 pt-2">
                   <h1 className="logo ">
-                    <PageLink className={`${currentUri.slice(0, -1).includes('/')  ? "": "current-nav-link"}`} onClick={onHideNav} to="/">
+                    <PageLink className={`${currentUri && currentUri.slice(0, -1).includes('/')  ? "": "current-nav-link"}`} onClick={onHideNav} to="/">
                       <span className="earth-svg">
 <svg viewBox="0 0 45 11" fill="none">
 <path d="M0 0H7.4747V1.25196H1.52952V4.65937H7.2752V5.91134H1.52952V9.68014H7.621V10.9321H0V0Z" fill="black"/>
