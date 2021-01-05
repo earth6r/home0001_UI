@@ -40,12 +40,12 @@ const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, o
   return words.join(' ');
 }
 if(typeof window != `undefined`){
-   currentUri = window.location.href
+   currentUri = window.location.href.split("http://")[1]
 }
   useEffect(() => {
     // setLoaded(true);
-    currentUri = window.location.href
-
+    currentUri = window.location.href.split("http://")[1]
+    console.log(currentUri)
     setTimeout(function () {
       setLoaded(true);
     }, 3000);
@@ -143,7 +143,7 @@ if(typeof window != `undefined`){
           </GridRow>
 
           <nav
-            className={`${showThinBanner && thinBanner ? "mt-8 md:mt-0" : "" } ${
+            className={`${showThinBanner && thinBanner ? "mt-special-nav md:mt-0" : "" } ${
               showNav
                 ? "block z-40 bg-white box md:shadow-none transition-none rounded-lg"
                 : "hidden"
@@ -156,7 +156,7 @@ if(typeof window != `undefined`){
               >
                 <li className="absolute md:relative left-0 top-0 pt-2">
                   <h1 className="logo ">
-                    <PageLink className={`${currentUri.includes('collective') || currentUri.includes('alt') ? "current-nav-link": ""}`} onClick={onHideNav} to="/">
+                    <PageLink className={`${currentUri.slice(0, -1).includes('/')  ? "": "current-nav-link"}`} onClick={onHideNav} to="/">
                       <span className="earth-svg">
 <svg viewBox="0 0 45 11" fill="none">
 <path d="M0 0H7.4747V1.25196H1.52952V4.65937H7.2752V5.91134H1.52952V9.68014H7.621V10.9321H0V0Z" fill="black"/>
@@ -204,7 +204,7 @@ if(typeof window != `undefined`){
           showNav ? " h-full bg-black opacity-75 pointer-events-auto" : "opacity-0"
         } fixed transition-opacity duration-150 left-0 top-0  pointer-events-none w-full`}
       ></div>
-      <div className={`${showThinBanner && thinBanner ? "mt-8 md:mt-8" : "" } fixed w-full h-12 md:h-18 z-30 gradient-to-b3 pointer-events-none top-0 left-0`}></div>
+      <div className={`${showThinBanner && thinBanner ? "mt-6 md:mt-8" : "" } fixed w-full h-12 md:h-18 z-30 gradient-to-b3 pointer-events-none top-0 left-0`}></div>
     </>
   );
 };

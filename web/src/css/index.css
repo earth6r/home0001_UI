@@ -256,6 +256,7 @@ small {
 .r-d-menu{
   background: white;
   border-bottom:1px solid black;
+  height:33px;
 }
 }
 .lightbox-pdf{
@@ -332,8 +333,13 @@ small {
   .react-pdf__Page,.react-pdf__Page canvas{
   max-width: calc(100vw);
 }
+.mt-special-nav{
+      margin-top: 27px !important;
+
+}
 .accordion h2.title{
   font-size:0.9rem;
+  line-height: 0.6;
 }
 .accordion-icon{
   margin-top: -6px;
@@ -473,12 +479,16 @@ img{
 }
 .floor-plan .gatsby-image-wrapper{
   width:100%;
-  max-height:400px;
+  max-height:40vw;
 }
 .floor-plan .gatsby-image-wrapper img{
   object-position: center right !important;
 }
 @media(max-width:768px){
+  .floor-plan .gatsby-image-wrapper{
+  width:100%;
+  max-height:400px;
+}
   .floor-plan .gatsby-image-wrapper img{
   object-position: center left !important;
 }

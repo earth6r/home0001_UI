@@ -143,13 +143,13 @@ const HomeTemplate = (props) => {
                               </div>
                             )}
                             {item.floorPlan && (
-                              <div className="mb-1/2em text-left md:text-right floor-plan md:inline-block">
+                              <div className="mb-1/2em mt-8 md:mt-0 text-left md:text-right floor-plan md:inline-block">
                                 <Figure className="" node={item.floorPlan} />
 
                               </div>
                             )}
                             {item.floorPlanCaption && (
-                              <div className="mb-1em text-left md:text-right px-2 floor-plan-cap md:text-desktopCaption">
+                              <div className="mb-1em text-left md:text-right px-2 floor-plan-cap md:text-desktopCaption mt-8">
                                 <PortableText blocks={item.floorPlanCaption} />
                               </div>
                             )}
