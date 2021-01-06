@@ -42,6 +42,9 @@ const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, o
 }
 if(typeof window != `undefined`){
    currentUri = window.location.href.split("http://")[1]
+   if(!currentUri){
+      currentUri = window.location.href.split("https://")[1]
+    }
    if(currentUri){
     let stringLength = currentUri.length
      if(currentUri.charAt(stringLength - 1) =="/"){
@@ -54,6 +57,9 @@ if(typeof window != `undefined`){
   useEffect(() => {
     // setLoaded(true);
     currentUri = window.location.href.split("http://")[1]
+    if(!currentUri){
+      currentUri = window.location.href.split("https://")[1]
+    }
     
     if(currentUri){
       let stringLength = currentUri.length
