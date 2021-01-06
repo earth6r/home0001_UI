@@ -4,9 +4,7 @@ import { StandardText, StandardTextProps } from "./global/standardText";
 import { NestedPages, NestedPagesProps } from "./global/nestedPages";
 import { AccordionModule } from "./global/accordion";
 import { Image } from "./image";
-import { PaneModules } from "./paneModules";
 import GridRow from "./grid/grid-row";
-import { RenderPaneModules } from "../utils/renderPaneModules";
 import { Header } from "./global/header";
 import CircleButton from "./global/circleButton";
 import SpecButton from "./global/specButton";
@@ -15,7 +13,7 @@ import FlexGallery from "./global/flexGallery";
 import { InternalLink } from "./global/internalLink";
 import { RichTable } from "./global/richTable";
 
-export const Modules = ({ reactModule, type, specs = false }: { type: string; reactModule: any }) => {
+export const PaneModules = ({ reactModule, type, specs = false }: { type: string; reactModule: any }) => {
   switch (type) {
     case "accordion":
       return (
@@ -72,14 +70,6 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
          <GridRow></GridRow>
           : <div className="w-full py-3"></div>}
         </>
-      );
-    case "pane":
-      // alert(reactModule.images.length);
-      return (
-        <div className="pane display-flex">
-        <div style={{background:reactModule.color}} className="pane-color"></div>
-         {RenderPaneModules(reactModule.modules)}
-        </div>
       );
     case "imageModule":
       return (

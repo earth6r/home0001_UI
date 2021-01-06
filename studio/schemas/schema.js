@@ -43,6 +43,7 @@ import specButton from './objects/specButton'
 import richTableCell from './objects/cell'
 import richTableRow from './objects/row'
 import homeUnit from './objects/homeUnit'
+import pane from './objects/pane'
 
 // Modules
 import accordion from './modules/accordion'
@@ -60,6 +61,7 @@ import pageModule from './modules/pageModule'
 import imageModule from './modules/imageModule'
 import standardText from './modules/standardText'
 import moduleContent from './modules/moduleContent'
+import paneContent from './modules/paneContent'
 import gallery from './modules/gallery'
 import flexGallery from './modules/flexGallery'
 import richTable from './modules/tableModule'
@@ -119,6 +121,8 @@ export default createSchema({
     pageModule,
     nestedPages,
     social,
+    pane,
+    paneContent,
     standardText,
     imageModule,
     moduleContent,
