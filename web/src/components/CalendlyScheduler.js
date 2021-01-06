@@ -30,16 +30,16 @@ const CalendlyScheduler = () => {
     return (
       <>
       <div className="block w-full mb-1em">Where would you like to own a home?</div>
-      <ButtonWrapper>
-          <button onClick={handleLocationClick(1)}>New York</button>
-          <br />
-          <button onClick={handleLocationClick(1)}>Los Angeles</button>
-          <br />
-          <div className="relative">
-          <input className="py-0 -ml-1/4em px-1" placeholder={"other"} type="text"/>
+
+          <button className="md:inline-block md:mr-24" onClick={handleLocationClick(1)}>New York</button>
+     
+          <button className="md:inline-block md:mr-24" onClick={handleLocationClick(1)}>Los Angeles</button>
+ 
+          <div className="relative w-auto mt-6 md:mt-0 md:inline-block md:mr-24">
+          <input className="w-full md:w-auto py-0 -ml-1/4em px-1" placeholder={"other"} type="text"/>
           <button className="absolute arrow-input-checkout px-1" onClick={handleLocationClick(0)}>→</button>
           </div>
-      </ButtonWrapper> 
+
       </>
     );
   }
@@ -48,15 +48,15 @@ const CalendlyScheduler = () => {
     return (
      <>
     <div className="block w-full mb-1em">When would you like to buy?</div>
-      <ButtonWrapper>
+  
        
-          <button onClick={handleTimeFrameClick(1)}>This year</button>
-          <br />
-          <button onClick={handleTimeFrameClick(1)}>Next year</button>
-          <br />
-          <button onClick={handleTimeFrameClick(0)}>Don’t know</button>
+          <button className="inline-block mr-24 pt-2" onClick={handleTimeFrameClick(1)}>This year</button>
+         
+          <button className="inline-block mr-24 pt-2" onClick={handleTimeFrameClick(0)}>Next year</button>
+     
+          <button className="inline-block mr-24 pt-2" onClick={handleTimeFrameClick(0)}>Don’t know</button>
         
-      </ButtonWrapper>
+
       </>
     );
   }
