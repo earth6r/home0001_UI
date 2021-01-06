@@ -12,8 +12,23 @@ html {
   font-family: "GP", Arial, Helvetica, sans-serif;
 }
 @media(min-width: 768px){
-  .current-nav-link{
-    border-bottom:1px solid black ;
+  .logo .current-nav-link::after{
+    width: 105%;
+  }
+  .current-nav-link.homes::after{
+    width:101%;
+  }
+  .current-nav-link.about::after{
+    left:-1px;
+  }
+  .current-nav-link::after{
+    content: "";
+    width: 100%;
+    height: 4px;
+    position: relative;
+    top: -4px;
+    display: block;
+    box-shadow: 0 2.5px 0px -1px black;
   }
 }
 .earth-svg{
@@ -141,11 +156,9 @@ small {
     top:-3px;
   }
   .marquee-content{
-    font-size: 15px;
+    font-size: 10px;
     line-height: 1.4;
-    padding-bottom: 3px;
-    max-width: 350px;
-    height: 47px;
+    padding: 6px 0;
     margin:0 auto;
   }
   .marquee-track{
@@ -236,6 +249,14 @@ small {
 }
 */
 /* R & D*/
+
+@media(max-width:768px){
+.r-d-menu{
+  background: white;
+  border-bottom:1px solid black;
+  height:33px;
+}
+}
 .lightbox-pdf{
   position: fixed;
   top:0;
@@ -290,6 +311,7 @@ small {
 .accordion-button{
   
 }
+
 .standard-text p a{
   border-bottom:2px solid;
 }
@@ -299,9 +321,26 @@ small {
 .e-checkbox + a{
   border-bottom:2px solid;
 }
+.accordion-icon{
+  margin-top:-1px;
+}
+.accordion button{
+  line-height:1.1 !important;
+}
 @media(max-width:768px){
   .react-pdf__Page,.react-pdf__Page canvas{
   max-width: calc(100vw);
+}
+.mt-special-nav{
+      margin-top: 27px !important;
+
+}
+.accordion h2.title{
+  font-size:0.9rem;
+  line-height: 0.6;
+}
+.accordion-icon{
+  margin-top: -6px;
 }
 .standard-text h1 > a {
   border-bottom:2px solid;
@@ -429,7 +468,28 @@ img{
   /* background: rgb(255, 255, 255); */
   background: transparent;
 }
+.floor-plan{
+  width:75%;
+  
+}
+.floor-plan-cap{
+  line-height: 1.2;
+}
+.floor-plan .gatsby-image-wrapper{
+  width:100%;
+  max-height:40vw;
+}
+.floor-plan .gatsby-image-wrapper img{
+  object-position: center right !important;
+}
 @media(max-width:768px){
+  .floor-plan .gatsby-image-wrapper{
+  width:100%;
+  max-height:400px;
+}
+  .floor-plan .gatsby-image-wrapper img{
+  object-position: center left !important;
+}
   .gradient-to-b2 {
     /* background: rgb(255, 255, 255); */
     background: linear-gradient(

@@ -123,7 +123,7 @@ const HeaderRnd = ({ mainMenu, infoSection = null, infoSectionBelow = null, rMen
           ))}
       </div>
     }
-      <header className={`${scrollUp ? "" :""} md:block fixed z-50 w-full left-0`}>
+      <header className={`${scrollUp ? "" :""}r-d-menu md:block fixed z-50 w-full left-0`}>
         <div
           className={`${
             showNav ? "h-full" : ""

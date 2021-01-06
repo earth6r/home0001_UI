@@ -143,18 +143,19 @@ const HomeTemplate = (props) => {
                               </div>
                             )}
                             {item.floorPlan && (
-                              <div className="mx-auto mb-2em md:w-9/12 md:inline-block">
-                                <Figure className="w-full" node={item.floorPlan} />
+                              <div className="mb-1/2em mt-8 md:mt-0 text-left md:text-right floor-plan md:inline-block">
+                                <Figure className="" node={item.floorPlan} />
+
                               </div>
                             )}
                             {item.floorPlanCaption && (
-                              <div className="mb-1em text-right px-2 md:text-desktopCaption">
+                              <div className="mb-1em text-left md:text-right px-2 floor-plan-cap md:text-desktopCaption mt-8">
                                 <PortableText blocks={item.floorPlanCaption} />
                               </div>
                             )}
                             {item.sold !== 1 && (
                               <PageLink
-                                className="box box-black rounded-md w-full block text-center leading-none h-2em pt-1/4em flex items-center justify-center text-mobileBody md:text-desktopBody "
+                                className="box mt-2em box-black rounded-md w-full block text-center leading-none h-2em pt-1/4em flex items-center justify-center text-mobileBody md:text-desktopBody "
                                 to={`/checkout/reservation/?sku=${item.stripeSKU || ""}&bitPayID=${
                                   item.bitPayID || ""
                                 }`}
