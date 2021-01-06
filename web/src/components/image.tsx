@@ -59,18 +59,19 @@ export const Image = ({
   return (
     <figure
       className={`${
-        randWidth !== 10 ? `w-${randWidth}/10` : "w-full"
-      } ${`mx-${randPadding}/10`} md:mx-1/10  mb-1em z-40`}
+        randWidth !== 10 ? `w-${4}/10` : "w-full"
+      } ${`mx-${3}/10`} md:mx-1/10  mb-1em z-40`}
       ref={ref}
     >
       {fluidProps ? (
         <motion.div style={{  }}>
-          <Img className="relative z-20" fluid={fluidProps} alt={alt} defaultFadeIn={200} />
+          <Img className="relative z-20" fluid={fluidProps} alt={alt} imgStyle={{ objectFit: 'contain', maxWidth: "none" }} defaultFadeIn={200} />
           {caption && <figcaption className="mt-1 text-sm">{caption}</figcaption>}
         </motion.div>
       ) : (
         <img
           alt={alt}
+          imgStyle={{ objectFit: 'contain', maxWidth: "none" }}
           src={src ? src : undefined}
           className={cx("x y block", {
             "is-loaded": loaded,

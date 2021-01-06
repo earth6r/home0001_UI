@@ -87,7 +87,6 @@ async function createSitePages(graphql, actions) {
     });
 }
 
-
 async function createSiteCheckout(graphql, actions) {
   const { createPage } = actions;
   const result = await graphql(`
@@ -175,12 +174,12 @@ async function createHomes(graphql, actions) {
 }
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createRedirect } = actions
+  // const { createRedirect } = actions
   await createBlogPostPages(graphql, actions);
   await createHomes(graphql, actions);
   await createSitePages(graphql, actions);
   await createSiteCheckout(graphql, actions);
-  await createRedirect({ fromPath: 'https://homes.earth6r.com/', toPath: 'https://homes.earth6r.com/collective', statusCode:200, force: true })
+  // await createRedirect({ fromPath: 'https://homes.earth6r.com/', toPath: 'https://homes.earth6r.com/collective', statusCode:200, force: true })
 
   // await createArtistPages(graphql, actions);
 };

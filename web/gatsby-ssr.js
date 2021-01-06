@@ -7,7 +7,7 @@
 // You can delete this file if you're not using it
 import "./src/css/index.css";
 import React from "react";
-import { withPrefix } from 'gatsby'
+// import { withPrefix } from "gatsby";
 import "focus-visible/dist/focus-visible";
 import LoadingScreen from "./src/components/loading-screen";
 
@@ -23,25 +23,27 @@ const ELEMENTS_OPTIONS = {
     },
   ],
 };
-export const onRenderBody = ({ setPostBodyComponents }) => {
-  setPostBodyComponents([
-    <script src={withPrefix('js/replace.js')} key="replaceURL" />
-  ])
-}
 
-export const onPreRenderHTML = ({ getPostBodyComponents, replacePostBodyComponents }) => {
-  let postBodyComponents = getPostBodyComponents()
-  postBodyComponents.sort((a, b) => {
-    if (a.key === 'replaceURL') {
-      return 1
-    }
-    if (b.key === 'replaceURL') {
-      return -1
-    }
-    return 0
-  })
-  replacePostBodyComponents(postBodyComponents)
-}
+// export const onRenderBody = ({ setPostBodyComponents }) => {
+//   setPostBodyComponents([
+//     <script src={withPrefix('js/replace.js')} key="replaceURL" />
+//   ])
+// }
+
+// export const onPreRenderHTML = ({ getPostBodyComponents, replacePostBodyComponents }) => {
+//   let postBodyComponents = getPostBodyComponents()
+//   postBodyComponents.sort((a, b) => {
+//     if (a.key === 'replaceURL') {
+//       return 1
+//     }
+//     if (b.key === 'replaceURL') {
+//       return -1
+//     }
+//     return 0
+//   })
+//   replacePostBodyComponents(postBodyComponents)
+// }
+
 export const wrapRootElement = ({ element, props }) => {
   return (
     <Elements options={ELEMENTS_OPTIONS} stripe={stripePromise} {...props}>
@@ -50,4 +52,3 @@ export const wrapRootElement = ({ element, props }) => {
     </Elements>
   );
 };
-

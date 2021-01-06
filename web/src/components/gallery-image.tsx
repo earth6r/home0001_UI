@@ -93,7 +93,7 @@ export const GalleryImage = ({
     >
       {fluidProps ? (
         <div>
-          <Img className="relative z-50" fluid={fluidProps} alt={alt} defaultFadeIn={200} />
+          <Img className="relative z-50" fluid={fluidProps} alt={alt} defaultFadeIn={200} imgStyle={{ objectFit: 'contain', maxWidth: "none" }} />
           {caption && (
             <figcaption className="mt-3/4em text-mobileCaption md:text-desktopCaption">
               {caption}
@@ -103,6 +103,7 @@ export const GalleryImage = ({
       ) : (
         <img
           alt={alt}
+          imgStyle={{ objectFit: 'contain', maxWidth: "none" }}
           src={src ? src : undefined}
           className={cx("x y block", {
             "is-loaded": loaded,

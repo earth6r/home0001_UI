@@ -1,3 +1,3 @@
 window.onload = () => {
-	window.history.replaceState({}, '', '/')
-}
+  window.history.replaceState({}, "", "/");
+};

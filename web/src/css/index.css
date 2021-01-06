@@ -7,7 +7,9 @@
 @import "./rte.css";
 /* @import "/node_modules/react-grid-layout/css/styles.css"; */
 /* @import "/node_modules/react-resizable/css/styles.css"; */
-
+figure img{
+  object-fit: contain !important;
+}
 html {
   font-family: "GP", Arial, Helvetica, sans-serif;
 }
@@ -337,10 +339,10 @@ small {
 }
 .accordion h2.title{
   font-size:0.9rem;
-  line-height: 0.6;
+  line-height: 0;
 }
 .accordion-icon{
-  margin-top: -6px;
+  margin-top: -14px;
 }
 .standard-text h1 > a {
   border-bottom:2px solid;

@@ -12,20 +12,8 @@ import MembershipPrice from "../components/global/membershipPrice";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
-import { useState, useEffect } from "react";
-
-export const useIsClient = () => {
-  const [isClient, setClient] = useState(false);
-  const key = isClient ? "client" : "server";
-
-  useEffect(() => {
-    setClient(true);
-  }, []);
-
-  return { isClient, key };
-};
-
 const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
+
 export const query = graphql`
   query CheckoutAndHomes($id: String!) {
     checkout: sanityCheckout(id: { eq: $id }) {
@@ -83,8 +71,8 @@ const ValueAdded = ({ discount, discountCode }) => (
   </p>
 );
 
-const CheckoutOptions = ({ ssr, children }) => {
-  if (!ssr) return null;
+const CheckoutOptions = ({ /*ssr, */ children }) => {
+  // if (ssr) return null;
   return <>{children}</>;
 };
 
@@ -112,8 +100,7 @@ const CheckoutDescription = ({ unit, modules, children, discount, discountCode }
       </>
     );
   }
-  const { isClient, key } = useIsClient();
-  if (!isClient) return null;
+
   return (
     <>
       <div className="flex flex-wrap w-full standard-text">
@@ -133,7 +120,7 @@ const CheckoutDescription = ({ unit, modules, children, discount, discountCode }
 const CheckoutTemplate = (props) => {
   const { data, errors } = props;
   const page = data && data.checkout;
-  const ssr = typeof window !== `undefined`;
+  const ssr = typeof window === "undefined";
   const {
     main: { modules, slug },
     meta,
@@ -146,7 +133,7 @@ const CheckoutTemplate = (props) => {
   let bitPayID;
   let bitPayIDDiscounted;
 
-  if (ssr) {
+  if (!ssr) {
     const searchParams = new URLSearchParams(window.location.search);
 
     sku = searchParams.get("sku");
@@ -183,7 +170,7 @@ const CheckoutTemplate = (props) => {
         keywords={["Earth", "Membership"]}
       />
       <Container>
-        <CheckoutOptions ssr={ssr}>
+        <CheckoutOptions>
           <CheckoutActions unit={unit}>
             <PaymentContext.Consumer>
               {({ discount, discountCode }) => (

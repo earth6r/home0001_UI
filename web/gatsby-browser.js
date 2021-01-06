@@ -11,6 +11,7 @@ import "focus-visible/dist/focus-visible";
 import LoadingScreen from "./src/components/loading-screen";
 import PaymentContext from "./src/lib/payment-context";
 import { DISCOUNT_CODES } from "./src/lib/constants";
+import { trimSlashes } from "./src/lib/helpers";
 
 //stripe
 import { Elements } from "@stripe/react-stripe-js";
@@ -35,10 +36,27 @@ export const wrapRootElement = ({ element, props }) => {
     discountCode = qs.get("discount");
   }
 
+  // Handle redirects
+  const { host, search } = window.location;
+  const pathname = trimSlashes(window.location.pathname);
+  const title = document.getElementsByTagName("title")[0].innerText;
+
+  let animate = true;
+
+  // if (host === "homes.earth6r.com" && pathname === "collective") {
+  //   window.history.replaceState({}, title, "/");
+  // } else if (host === "homes.earth6r.com" && pathname === "") {
+  //   animate = false;
+  //   window.location.replace(`https://homes.earth6r.com/collective`);
+  // } else if (host === "earth6r.com" && pathname !== "") {
+  //   animate = false;
+  //   window.location.replace(`https://homes.earth6r.com/${pathname}${search}`);
+  // }
+
   return (
     <PaymentContext.Provider value={{ discount, discountCode }}>
       <Elements options={ELEMENTS_OPTIONS} stripe={stripePromise} {...props}>
-        <LoadingScreen />
+        <LoadingScreen animate={animate} />
         {element}
       </Elements>
     </PaymentContext.Provider>
