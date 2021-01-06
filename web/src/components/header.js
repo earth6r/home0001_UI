@@ -54,8 +54,9 @@ if(typeof window != `undefined`){
   useEffect(() => {
     // setLoaded(true);
     currentUri = window.location.href.split("http://")[1]
-    let stringLength = currentUri.length
+    
     if(currentUri){
+      let stringLength = currentUri.length
        if(currentUri.charAt(stringLength - 1) =="/"){
         currentUri = currentUri.slice(0, -1)
        }
