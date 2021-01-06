@@ -115,7 +115,7 @@ exports.handler = async (event) => {
 
     // With Stripe Checkout, Apple Pay and Google Pay are automatically enabled.
     // alipay, card, ideal, fpx, bacs_debit, bancontact, giropay, p24, eps, sofort, sepa_debit, or grabpay
-    payment_method_types: ["alipay", "card"],
+    payment_method_types: ["card"],
     billing_address_collection: "auto",
 
     // shipping_address_collection: {
