@@ -1,6 +1,6 @@
 export default {
-  title: 'Module Content',
-  name: 'moduleContent',
+  title: 'Pane Content',
+  name: 'paneContent',
   type: 'array',
   of: [
     {
@@ -8,9 +8,6 @@ export default {
     },
     {
       type: 'flexGallery',
-    },
-    {
-      type: 'pane',
     },
     {
       type: 'gallery',
