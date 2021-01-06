@@ -35,16 +35,39 @@ const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, o
   for (var i = 0; i < words.length; i++) {
     var word = words[i];
     words[i] = word.charAt(0).toUpperCase() + word.slice(1);
+
   }
 
   return words.join(' ');
 }
 if(typeof window != `undefined`){
    currentUri = window.location.href.split("http://")[1]
+   if(!currentUri){
+      currentUri = window.location.href.split("https://")[1]
+    }
+   if(currentUri){
+    let stringLength = currentUri.length
+     if(currentUri.charAt(stringLength - 1) =="/"){
+      currentUri = currentUri.slice(0, -1)
+     }
+   }
+   
+   
 }
   useEffect(() => {
     // setLoaded(true);
     currentUri = window.location.href.split("http://")[1]
+    if(!currentUri){
+      currentUri = window.location.href.split("https://")[1]
+    }
+    
+    if(currentUri){
+      let stringLength = currentUri.length
+       if(currentUri.charAt(stringLength - 1) =="/"){
+        currentUri = currentUri.slice(0, -1)
+       }
+    }
+   
     console.log(currentUri)
     setTimeout(function () {
       setLoaded(true);
@@ -156,7 +179,7 @@ if(typeof window != `undefined`){
               >
                 <li className="absolute md:relative left-0 top-0 pt-2">
                   <h1 className="logo ">
-                    <PageLink className={`${currentUri.slice(0, -1).includes('/')  ? "": "current-nav-link"}`} onClick={onHideNav} to="/">
+                    <PageLink className={`${currentUri && currentUri.includes('/')  ? "": "current-nav-link"}`} onClick={onHideNav} to="/">
                       <span className="earth-svg">
 <svg viewBox="0 0 45 11" fill="none">
 <path d="M0 0H7.4747V1.25196H1.52952V4.65937H7.2752V5.91134H1.52952V9.68014H7.621V10.9321H0V0Z" fill="black"/>
@@ -183,7 +206,7 @@ if(typeof window != `undefined`){
                   menu.map((item, index) => (
                     <li className="hidden md:block" key={item._key}>
                       <PageLink
-                        className={`${currentUri.includes(item.link.content.main.slug.current) || (currentUri.includes('/home/') && item.link.content.main.slug.current.includes("home")) ? "current-nav-link "+item.link.content.main.slug.current : " "} md:pt-1/2em inline-block`} 
+                        className={`${currentUri && currentUri.includes(item.link.content.main.slug.current) || (currentUri && currentUri.includes('home') && item.link.content.main.slug.current.includes("home")) ? "current-nav-link "+item.link.content.main.slug.current : " "} md:pt-1/2em inline-block`} 
                         onClick={onHideNav}
                         to={`/${item.link.content.main.slug.current}`}
                       >
