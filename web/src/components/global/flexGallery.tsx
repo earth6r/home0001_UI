@@ -65,7 +65,7 @@ const FlexGallery = (props) => {
 
   return (
     
-    <div style={gridStyle} className="w-full z-40 relative flexible-gallery">
+    <div style={gridStyle} className="w-full z-40 relative mb-4 flexible-gallery">
 
         {randImages &&
           randImages.map((image, index) => {
