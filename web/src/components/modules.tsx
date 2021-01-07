@@ -76,7 +76,7 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
     case "pane":
       // alert(reactModule.images.length);
       return (
-        <div className="pane display-flex -mt-4">
+        <div className="pane display-flex">
         <div style={{background:reactModule.color}} className="pane-color"></div>
          {RenderPaneModules(reactModule.modules)}
         </div>
