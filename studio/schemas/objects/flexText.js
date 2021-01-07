@@ -1,11 +1,19 @@
 export default {
-  name: 'flexImage',
-  type: 'image',
-  title: 'Image',
+  name: 'flexText',
+  type: 'object',
+  title: 'Text',
   options: {
     hotspot: true,
   },
   fields:[
+  			{
+              name: 'text',
+              type: 'bodyPortableText',
+              title: 'text',
+              options: {
+                isHighlighted: true,
+              },
+            },
             {name:'startColumn',
               type: 'number',
               description: "starting column",
@@ -73,39 +81,6 @@ export default {
     options: {
       isHighlighted: true,
     },
-  },
-            {
-              name: 'caption',
-              type: 'string',
-              title: 'Caption',
-              options: {
-                isHighlighted: true,
-              },
-            },{
-              name: 'link',
-              title: 'Link',
-              type: 'reference',
-              options: {
-                        isHighlighted: true,
-                      },
-              to: [{ type: 'page' }, { type: 'home' }, { type: 'checkout' }],
-            },
-            {
-              name: 'alt',
-              type: 'string',
-              title: 'Alternative text',
-              description: 'Important for SEO and accessiblity.',
-              validation: (Rule) => Rule.error('You have to fill out the alternative text.').required(),
-              options: {
-                isHighlighted: true,
-              },
-            },
-            {
-              title: 'Lead Image?',
-              name: 'lead',
-              type: 'boolean',
-              options: {
-                isHighlighted: true,
-              }
-            }]
+  }
+            ]
 }

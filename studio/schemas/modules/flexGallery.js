@@ -43,6 +43,16 @@ export default {
       ],
     },
     {
+      name: 'texts',
+      title: 'Text',
+      type: 'array',
+      of: [
+        {
+          type: 'flexText',
+        },
+      ],
+    },
+    {
       name: 'pdfs',
       title: 'Pdf',
       type: 'array',
