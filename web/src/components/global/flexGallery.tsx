@@ -3,15 +3,28 @@ import { GalleryImage } from "../gallery-image";
 import GridRow from "../grid/grid-row";
 import ReactHtmlParser from "react-html-parser";
 import CircleButton from "./circleButton";
+import PortableText from "../portableText";
 import PdfReader from "./pdfReader";
+import clientConfig from '../../../client-config'
+import imageUrlBuilder from '@sanity/image-url'
+import { PageLink } from "../link";
+// Get a pre-configured url-builder from your sanity client
+const builder = imageUrlBuilder(clientConfig.sanity)
 
+// Then we like to make a simple function like this that gives the
+// builder an image and returns the builder for you to specify additional
+// parameters:
+function urlFor(source) {
+  return builder.image(source)
+}
 var shuffle = require("shuffle-array");
 
 const FlexGallery = (props) => {
-  const { images, url, embeds, pdfs, rowNum, rowNumMobile } = props;
+  const { images, url, embeds, pdfs, rowNum, rowNumMobile, texts } = props;
   const myImages = images ? shuffle(images).filter(Boolean) : [];
-  const myrandImages = embeds ? shuffle(images.concat(embeds)) : myImages;
-  const randImages = pdfs ? shuffle(myrandImages.concat(pdfs)) : myrandImages;
+  const myrandImages = embeds ? shuffle(myImages.concat(embeds)) : myImages;
+  const randImages2 = pdfs ? shuffle(myrandImages.concat(pdfs)) : myrandImages;
+  const randImages = texts ? shuffle(randImages2.concat(texts)) : randImages2;
   const justify = ["justify-start", "justify-center", "justify-between", "justify-end"];
   const [direction, setDirection] = useState();
   const [mobile, setMobile] = useState(false);
@@ -74,18 +87,60 @@ const FlexGallery = (props) => {
               
 
               if (image.asset !== undefined) {
+      
+                if(image.link){
+                  let link = image.link.content.main.slug.current;
+                  let uri = ""
+
+                  switch (image.link._type) {
+                     case "home":
+                      uri = "/home";
+                      //   alert("set home");
+                      break;
+                    case "checkout":
+                      uri = "/checkout";
+                      break;
+                    default:
+                      uri = "";
+                      break;
+                  }
+                  console.log(image.link)
                 return (
-                  <div className="flex-item" style={mobile ? styleObjMobile : styleObj}><img src={image.asset.url}/> </div>
+                  <div className="flex-item" style={mobile ? styleObjMobile : styleObj}>
+                   <PageLink
+                      className="internal-link"
+                      to={uri +"/" + link}
+                    >
+                    <img src={urlFor(image)}/> {image.caption && <span className="mt-1 text-sm">{image.caption}</span>}
+                    </PageLink>
+                  </div>
+                
                 );
+                }else{
+                  return (
+                    
+                  <div className="flex-item" style={mobile ? styleObjMobile : styleObj}>
+
+                      <img src={urlFor(image)}/> {image.caption && <span className="mt-1 text-sm">{image.caption}</span>}
+        
+                  </div>
+                
+                );
+                }
+                
               } else {
                 return <></>;
               }
             } else if (image._type == "flexPdf" && typeof window != `undefined`) {
               
               return <div className="flex-item" style={styleObj}><PdfReader key={image._key} file={image.asset.url} /></div>;
-            } else if (image._type == "string") {
-              return <div></div>;
-            } else {
+            } else if (image._type == "flexText"){
+              return(
+                <div className="flex-item" style={styleObj}>
+                  <PortableText blocks={image.text} />
+                </div>
+                )
+            }else {
               
               return (
 
@@ -102,7 +157,7 @@ const FlexGallery = (props) => {
 
 
         {/* randomly place circle image in an order between 1 and gallery image set length  */}
-     {url.title !== undefined && (
+     {url !== undefined && url.title && (
           <div
             className="self-center mx-auto z-40 bottom-0 md:relative"
             style={{
