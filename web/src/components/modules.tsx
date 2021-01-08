@@ -74,10 +74,19 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
         </>
       );
     case "pane":
+    console.log(reactModule.color)
       // alert(reactModule.images.length);
+      let paneStyle = {
+        minHeight: "calc(100vh - " + reactModule.offset + "px)"
+      }
+      let paneColorStyle = {
+        background: reactModule.color, 
+        minHeight: "calc(100vh + " + reactModule.offset + "px)", 
+        top: "-"+ reactModule.offset+"px"
+      } 
       return (
-        <div className="pane display-flex -mt-4">
-        <div style={{background:reactModule.color}} className="pane-color"></div>
+        <div style={paneStyle} className="pane display-flex mb-4">
+        <div style={paneColorStyle} className="pane-color"></div>
          {RenderPaneModules(reactModule.modules)}
         </div>
       );
