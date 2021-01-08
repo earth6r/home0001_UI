@@ -3,8 +3,13 @@ export default {
   name: 'pane',
   type: 'object',
   fields: [
+  {
+    name:'offset',
+    title:'offset in pixels(i.e. 112)',
+    type: 'number',
+  },
     {name:'color',
-     title: 'Flag Color Hex (#ffffff)',
+     title: ' Color Hex (#ffffff)',
      type: 'string'
   	},
   {

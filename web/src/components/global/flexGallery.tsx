@@ -65,6 +65,7 @@ const FlexGallery = (props) => {
 
   return (
     
+
     <div style={gridStyle} className="w-full z-40 relative mb-4 flexible-gallery">
 
         {randImages &&
@@ -106,7 +107,7 @@ const FlexGallery = (props) => {
                   }
                   console.log(image.link)
                 return (
-                  <div className="flex-item" style={mobile ? styleObjMobile : styleObj}>
+                  <div key={image.id} className="flex-item" style={mobile ? styleObjMobile : styleObj}>
                    <PageLink
                       className="internal-link"
                       to={uri +"/" + link}
@@ -119,7 +120,7 @@ const FlexGallery = (props) => {
                 }else{
                   return (
                     
-                  <div className="flex-item" style={mobile ? styleObjMobile : styleObj}>
+                  <div key={image.id} className="flex-item" style={mobile ? styleObjMobile : styleObj}>
 
                       <img src={urlFor(image)}/> {image.caption && <span className="mt-1 text-sm">{image.caption}</span>}
         
@@ -133,10 +134,10 @@ const FlexGallery = (props) => {
               }
             } else if (image._type == "flexPdf" && typeof window != `undefined`) {
               
-              return <div className="flex-item" style={styleObj}><PdfReader key={image._key} file={image.asset.url} /></div>;
+              return <div key={image.id} className="flex-item" style={styleObj}><PdfReader key={image._key} file={image.asset.url} /></div>;
             } else if (image._type == "flexText"){
               return(
-                <div className="flex-item" style={styleObj}>
+                <div key={image.id} className="flex-item" style={styleObj}>
                   <PortableText blocks={image.text} />
                 </div>
                 )
@@ -159,6 +160,7 @@ const FlexGallery = (props) => {
         {/* randomly place circle image in an order between 1 and gallery image set length  */}
      {url !== undefined && url.title && (
           <div
+          key={30}
             className="self-center mx-auto z-40 bottom-0 md:relative"
             style={{
         
