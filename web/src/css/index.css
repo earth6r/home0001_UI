@@ -13,6 +13,13 @@ figure img{
 html {
   font-family: "GP", Arial, Helvetica, sans-serif;
 }
+#checkout-button-1{
+  width:120px;
+}
+#checkout-button-2{
+  width:150px;
+  text-align:left;
+}
 @media(min-width: 768px){
   .logo .current-nav-link::after{
     width: 105%;

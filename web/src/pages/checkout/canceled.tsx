@@ -1,15 +1,26 @@
 import * as React from "react";
+import { Link } from "gatsby";
+import Container from "../../components/container";
+import SEO from "../../components/seo";
+import Layout from "../../containers/layout";
 
-export default () => (
-  <div
-    style={{
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-    }}
-  >
-    <h1>Purchase Canceled!</h1>
-    <h5>override me as im not pretty...</h5>
-    <h5>To do that you have to shadow me in your site, or theme.</h5>
-  </div>
-);
+export default () =>{
+  
+    if(typeof window != `undefined`){
+      //window.location.href = '/checkout/membership'
+    }
+
+return (
+  <Layout>
+    <SEO title={"error"} description={"error"} keywords={[]} />
+    <Container>
+      <div className="standard-text">
+        <h1>Your payment was cancelled.</h1>
+        <p>
+          If you'd like to start the checkout process over again,{" "}
+          <Link to="/checkout/membership">click here</Link> to return to the checkout page.
+        </p>
+      </div>
+    </Container>
+  </Layout>
+)}
