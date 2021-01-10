@@ -50,9 +50,9 @@ const CalendlyScheduler = () => {
     <div className="block w-full mb-1em">When would you like to buy?</div>
   
        
-          <button className="inline-block mr-24 pt-2" onClick={handleTimeFrameClick(1)}>This year</button>
+          <button id="checkout-button-1" className="inline-block mr-24 pt-2" onClick={handleTimeFrameClick(1)}>This year</button>
          
-          <button className="inline-block mr-24 pt-2" onClick={handleTimeFrameClick(0)}>Next year</button>
+          <button id="checkout-button-2" className="inline-block mr-24 pt-2" onClick={handleTimeFrameClick(0)}>Next year</button>
      
           <button className="inline-block mr-24 pt-2" onClick={handleTimeFrameClick(0)}>Don’t know</button>
         
