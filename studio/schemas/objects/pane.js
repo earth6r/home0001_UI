@@ -8,6 +8,11 @@ export default {
     title:'offset in pixels(i.e. 112)',
     type: 'number',
   },
+  {
+    name:'mobileOffset',
+    title:'mobile offset in pixels(i.e. 112)',
+    type: 'number',
+  },
     {name:'color',
      title: ' Color Hex (#ffffff)',
      type: 'string'

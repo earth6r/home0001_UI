@@ -76,13 +76,20 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
     case "pane":
     console.log(reactModule.color)
       // alert(reactModule.images.length);
+      let offset = reactModule.offset
+      if(typeof window != `undefined`){
+        if(window.innerWidth <= 768){
+          offset = reactModule.mobileOffset;
+        }
+      }
+   
       let paneStyle = {
-        minHeight: "calc(100vh - " + reactModule.offset + "px)"
+        minHeight: "calc(100vh - " + offset + "px)"
       }
       let paneColorStyle = {
         background: reactModule.color, 
-        minHeight: "calc(100vh + " + reactModule.offset + "px)", 
-        top: "-"+ reactModule.offset+"px"
+        minHeight: "calc(100vh + " + offset + "px)", 
+        top: "-"+ offset+"px"
       } 
       return (
         <div style={paneStyle} className="pane display-flex mb-4">
