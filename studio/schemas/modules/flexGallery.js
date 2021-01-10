@@ -62,12 +62,15 @@ export default {
         },
       ],
     },
-   
     {
-      name: 'url',
-      // label: 'CTA',
-      type: 'flexCircle',
-      title: 'Circle Button',
-    },
+      name: 'circleButtons',
+      title: 'circleButton',
+      type: 'array',
+      of: [
+        {
+          type: 'flexCircle',
+        },
+      ],
+    }
   ],
 }

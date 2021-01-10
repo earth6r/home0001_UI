@@ -20,11 +20,12 @@ function urlFor(source) {
 var shuffle = require("shuffle-array");
 
 const FlexGallery = (props) => {
-  const { images, url, embeds, pdfs, rowNum, rowNumMobile, texts } = props;
+  const { images, circleButtons, embeds, pdfs, rowNum, rowNumMobile, texts } = props;
   const myImages = images ? shuffle(images).filter(Boolean) : [];
   const myrandImages = embeds ? shuffle(myImages.concat(embeds)) : myImages;
   const randImages2 = pdfs ? shuffle(myrandImages.concat(pdfs)) : myrandImages;
-  const randImages = texts ? shuffle(randImages2.concat(texts)) : randImages2;
+  const randImages3 = texts ? shuffle(randImages2.concat(texts)) : randImages2;
+  const randImages = circleButtons ? shuffle(randImages3.concat(circleButtons)) : randImages3;
   const justify = ["justify-start", "justify-center", "justify-between", "justify-end"];
   const [direction, setDirection] = useState();
   const [mobile, setMobile] = useState(false);
@@ -141,7 +142,30 @@ const FlexGallery = (props) => {
                   <PortableText blocks={image.text} />
                 </div>
                 )
-            }else {
+            } else if (image._type == "flexCircle"){
+              return(
+                <>
+                {image !== undefined && image.title && (
+          <div
+          key={30}
+            className="self-center mx-auto z-40 bottom-0 md:relative"
+            style={{
+        
+                gridColumnStart: mobile ? image.startColumnMobile : image.startColumn,
+                gridColumnEnd: mobile ? image.endColumnMobile : image.endColumn,
+                gridRowStart: mobile ? image.startRowMobile : image.startRow,
+                gridRowEnd: mobile ? image.endRowMobile : image.endRow,
+              
+            }}
+          >
+            
+              <CircleButton color={image.color} title={image.title} url={image.url} float={true} />
+      
+          </div>
+             )}
+                </>
+              )
+            } else {
               
               return (
 
@@ -158,24 +182,7 @@ const FlexGallery = (props) => {
 
 
         {/* randomly place circle image in an order between 1 and gallery image set length  */}
-     {url !== undefined && url.title && (
-          <div
-          key={30}
-            className="self-center mx-auto z-40 bottom-0 md:relative"
-            style={{
-        
-                gridColumnStart: mobile ? url.startColumnMobile : url.startColumn,
-                gridColumnEnd: mobile ? url.endColumnMobile : url.endColumn,
-                gridRowStart: mobile ? url.startRowMobile : url.startRow,
-                gridRowEnd: mobile ? url.endRowMobile : url.endRow,
-              
-            }}
-          >
-            
-              <CircleButton color={url.color} title={url.title} url={url.url} float={true} />
-      
-          </div>
-             )}
+     
 
 
 
