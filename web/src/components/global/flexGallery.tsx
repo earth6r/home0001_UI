@@ -62,7 +62,7 @@ const FlexGallery = (props) => {
           }
       };
     }
-    console.log(mobile)
+    
 
   })
 
@@ -72,7 +72,7 @@ const FlexGallery = (props) => {
 
         {randImages &&
           randImages.map((image, index) => {
-            // console.log(image);
+            console.log(image);
             let styleObj = {
                 gridColumnStart: image.startColumn,
                 gridColumnEnd: image.endColumn,
