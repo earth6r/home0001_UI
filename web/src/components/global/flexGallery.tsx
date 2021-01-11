@@ -38,9 +38,9 @@ const [isClient, setClient] = useState(false);
  
 
   let numbOfRows = 100/myRowNum;
-  let rowStyle = 5 + "vw";
+  let rowStyle = 1 + "vw";
   for (var i = myRowNum - 2; i >= 0; i--) {
-     rowStyle = rowStyle + " " + 5 + "vw"
+     rowStyle = rowStyle + " " + 1 + "vw"
    } 
 
   let gridStyle = {
