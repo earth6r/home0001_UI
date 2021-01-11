@@ -30,7 +30,7 @@ const FlexGallery = (props) => {
   const [direction, setDirection] = useState();
   const [mobile, setMobile] = useState(false);
   const myRowNum = (mobile && rowNumMobile) ? rowNumMobile : rowNum
-
+const [isClient, setClient] = useState(false);
   function showPdf(key) {
     let mykey = document.getElementById(key);
     mykey.style.display = "block";
@@ -38,15 +38,16 @@ const FlexGallery = (props) => {
  
 
   let numbOfRows = 100/myRowNum;
-  let rowStyle = 5 + "vw";
+  let rowStyle = 1 + "vw";
   for (var i = myRowNum - 2; i >= 0; i--) {
-     rowStyle = rowStyle + " " + 5 + "vw"
+     rowStyle = rowStyle + " " + 1 + "vw"
    } 
 
   let gridStyle = {
     gridTemplateRows: rowStyle
   }
   useEffect(() => {
+    setClient(true)
     if(typeof window != `undefined`){
       if(window.innerWidth <= 768){
         setMobile(true)
@@ -62,8 +63,9 @@ const FlexGallery = (props) => {
       };
     }
 
-  })
 
+  })
+  if ( !isClient ) return null;
   return (
     
 
@@ -113,7 +115,7 @@ const FlexGallery = (props) => {
                       className="internal-link"
                       to={uri +"/" + link}
                     >
-                    <img src={urlFor(image)}/> {image.caption && <span className="mt-1 text-sm">{image.caption}</span>}
+                    <img src={urlFor(image)}/> {image.caption && <span className="mt-1 block text-sm">{image.caption}</span>}
                     </PageLink>
                   </div>
                 
@@ -123,7 +125,7 @@ const FlexGallery = (props) => {
                     
                   <div key={image.id} className="flex-item" style={mobile ? styleObjMobile : styleObj}>
 
-                      <img src={urlFor(image)}/> {image.caption && <span className="mt-1 text-sm">{image.caption}</span>}
+                      <img src={urlFor(image)}/> {image.caption && <span className="mt-1 block text-sm">{image.caption}</span>}
         
                   </div>
                 
@@ -135,10 +137,10 @@ const FlexGallery = (props) => {
               }
             } else if (image._type == "flexPdf" && typeof window != `undefined`) {
               
-              return <div key={image.id} className="flex-item" style={styleObj}><PdfReader key={image._key} file={image.asset.url} /></div>;
+              return <div key={image.id} className="flex-item" style={mobile ? styleObjMobile : styleObj}><PdfReader key={image._key} file={image.asset.url} /></div>;
             } else if (image._type == "flexText"){
               return(
-                <div key={image.id} className="flex-item" style={styleObj}>
+                <div key={image.id} className="flex-item" style={mobile ? styleObjMobile : styleObj}>
                   <PortableText blocks={image.text} />
                 </div>
                 )
@@ -170,7 +172,7 @@ const FlexGallery = (props) => {
               return (
 
                 <div
-                  style={styleObj}
+                  style={mobile ? styleObjMobile : styleObj}
                   key={index}
                   className="flex-item html-text"
                 >
