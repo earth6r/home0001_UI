@@ -47,6 +47,7 @@ const FlexGallery = (props) => {
     gridTemplateRows: rowStyle
   }
   useEffect(() => {
+
     if(typeof window != `undefined`){
       if(window.innerWidth <= 768){
         setMobile(true)
@@ -61,6 +62,7 @@ const FlexGallery = (props) => {
           }
       };
     }
+    console.log(mobile)
 
   })
 
