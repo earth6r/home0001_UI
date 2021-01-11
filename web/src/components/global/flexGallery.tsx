@@ -8,6 +8,7 @@ import PdfReader from "./pdfReader";
 import clientConfig from '../../../client-config'
 import imageUrlBuilder from '@sanity/image-url'
 import { PageLink } from "../link";
+
 // Get a pre-configured url-builder from your sanity client
 const builder = imageUrlBuilder(clientConfig.sanity)
 
@@ -30,6 +31,7 @@ const FlexGallery = (props) => {
   const [direction, setDirection] = useState();
   const [mobile, setMobile] = useState(false);
   const myRowNum = (mobile && rowNumMobile) ? rowNumMobile : rowNum
+  const [isClient, setClient] = useState(false);
 
   function showPdf(key) {
     let mykey = document.getElementById(key);
@@ -47,7 +49,7 @@ const FlexGallery = (props) => {
     gridTemplateRows: rowStyle
   }
   useEffect(() => {
-
+    setClient(true);
     if(typeof window != `undefined`){
       if(window.innerWidth <= 768){
         setMobile(true)
@@ -65,9 +67,9 @@ const FlexGallery = (props) => {
 
 
   })
-
+  if ( !isClient ) return null;
   return (
-    
+ 
     <div key={2} style={gridStyle} className="w-full z-40 relative flexible-gallery mb-4">
 
         {randImages &&
