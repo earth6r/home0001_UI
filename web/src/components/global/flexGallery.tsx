@@ -136,10 +136,10 @@ const [isClient, setClient] = useState(false);
               }
             } else if (image._type == "flexPdf" && typeof window != `undefined`) {
               
-              return <div key={image.id} className="flex-item" style={styleObj}><PdfReader key={image._key} file={image.asset.url} /></div>;
+              return <div key={image.id} className="flex-item" style={mobile ? styleObjMobile : styleObj}><PdfReader key={image._key} file={image.asset.url} /></div>;
             } else if (image._type == "flexText"){
               return(
-                <div key={image.id} className="flex-item" style={styleObj}>
+                <div key={image.id} className="flex-item" style={mobile ? styleObjMobile : styleObj}>
                   <PortableText blocks={image.text} />
                 </div>
                 )
@@ -171,7 +171,7 @@ const [isClient, setClient] = useState(false);
               return (
 
                 <div
-                  style={styleObj}
+                  style={mobile ? styleObjMobile : styleObj}
                   key={index}
                   className="flex-item html-text"
                 >
