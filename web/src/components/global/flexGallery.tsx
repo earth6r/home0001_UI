@@ -114,7 +114,7 @@ const [isClient, setClient] = useState(false);
                       className="internal-link"
                       to={uri +"/" + link}
                     >
-                    <img src={urlFor(image)}/> {image.caption && <span className="mt-1 text-sm">{image.caption}</span>}
+                    <img src={urlFor(image)}/> {image.caption && <span className="mt-1 block text-sm">{image.caption}</span>}
                     </PageLink>
                   </div>
                 
@@ -124,7 +124,7 @@ const [isClient, setClient] = useState(false);
                     
                   <div key={image.id} className="flex-item" style={mobile ? styleObjMobile : styleObj}>
 
-                      <img src={urlFor(image)}/> {image.caption && <span className="mt-1 text-sm">{image.caption}</span>}
+                      <img src={urlFor(image)}/> {image.caption && <span className="mt-1 block text-sm">{image.caption}</span>}
         
                   </div>
                 
