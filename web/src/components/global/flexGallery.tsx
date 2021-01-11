@@ -62,7 +62,7 @@ const FlexGallery = (props) => {
           }
       };
     }
-    
+
 
   })
 
@@ -73,7 +73,10 @@ const FlexGallery = (props) => {
         {randImages &&
           randImages.map((image, index) => {
             console.log(image);
-            let styleObj = {
+            
+            if (image && image._type == "flexImage") {
+              //get ratio of image
+              let styleObj = {
                 gridColumnStart: image.startColumn,
                 gridColumnEnd: image.endColumn,
                 gridRowStart: image.startRow,
@@ -85,9 +88,6 @@ const FlexGallery = (props) => {
                 gridRowStart: image.startRowMobile,
                 gridRowEnd: image.endRowMobile,
               }
-            if (image && image._type == "flexImage") {
-              //get ratio of image
-              
 
               if (image.asset !== undefined) {
       
@@ -135,20 +135,55 @@ const FlexGallery = (props) => {
                 return <></>;
               }
             } else if (image._type == "flexPdf" && typeof window != `undefined`) {
-              
+              let styleObj = {
+                gridColumnStart: image.startColumn,
+                gridColumnEnd: image.endColumn,
+                gridRowStart: image.startRow,
+                gridRowEnd: image.endRow,
+              }
+            let styleObjMobile = {
+                gridColumnStart: image.startColumnMobile,
+                gridColumnEnd: image.endColumnMobile,
+                gridRowStart: image.startRowMobile,
+                gridRowEnd: image.endRowMobile,
+              }
               return <div key={image.id} className="flex-item" style={styleObj}><PdfReader key={image._key} file={image.asset.url} /></div>;
             } else if (image._type == "flexText"){
+              let styleObj = {
+                gridColumnStart: image.startColumn,
+                gridColumnEnd: image.endColumn,
+                gridRowStart: image.startRow,
+                gridRowEnd: image.endRow,
+              }
+            let styleObjMobile = {
+                gridColumnStart: image.startColumnMobile,
+                gridColumnEnd: image.endColumnMobile,
+                gridRowStart: image.startRowMobile,
+                gridRowEnd: image.endRowMobile,
+              }
               return(
                 <div key={image.id} className="flex-item" style={styleObj}>
                   <PortableText blocks={image.text} />
                 </div>
                 )
             } else if (image._type == "flexCircle"){
+              let styleObj = {
+                gridColumnStart: image.startColumn,
+                gridColumnEnd: image.endColumn,
+                gridRowStart: image.startRow,
+                gridRowEnd: image.endRow,
+              }
+            let styleObjMobile = {
+                gridColumnStart: image.startColumnMobile,
+                gridColumnEnd: image.endColumnMobile,
+                gridRowStart: image.startRowMobile,
+                gridRowEnd: image.endRowMobile,
+              }
               return(
                 <>
                 {image !== undefined && image.title && (
           <div
-          key={30}
+          key={image.id}
             className="self-center mx-auto z-40 bottom-0 md:relative"
             style={{
         
