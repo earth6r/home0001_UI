@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ArticleModule, ArticleModuleProps } from "./article";
 import { StandardText, StandardTextProps } from "./global/standardText";
 import { NestedPages, NestedPagesProps } from "./global/nestedPages";
@@ -16,6 +16,11 @@ import { InternalLink } from "./global/internalLink";
 import { RichTable } from "./global/richTable";
 
 export const Modules = ({ reactModule, type, specs = false }: { type: string; reactModule: any }) => {
+ const [isClient, setClient] = useState(false);
+ useEffect(() => {
+    setClient(true)
+  })
+  if ( !isClient ) return null;
   switch (type) {
     case "accordion":
       return (
