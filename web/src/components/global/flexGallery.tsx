@@ -70,7 +70,7 @@ const [isClient, setClient] = useState(false);
   if ( !isClient ) return null;
   return (
     
-    <div key={2} style={gridStyle} className="w-full z-40 relative flexible-gallery mb-4">
+    <div key={2} style={gridStyle} className="w-full relative flexible-gallery mb-4">
 
         {randImages &&
           randImages.map((image, index) => {
@@ -111,12 +111,12 @@ const [isClient, setClient] = useState(false);
                   }
                   console.log(image.link)
                 return (
-                  <div key={image.id} className="flex-item" style={mobile ? styleObjMobile : styleObj}>
+                  <div key={image.id} className="flex-item z-20" style={mobile ? styleObjMobile : styleObj}>
                    <PageLink
                       className="internal-link"
                       to={uri +"/" + link}
                     >
-                    <img src={urlFor(image)}/> {image.caption && <span className="mt-1 block text-sm">{image.caption}</span>}
+                    <img className="z-40 relative" src={urlFor(image)}/> {image.caption && <span className="mt-1 relative z-20 block text-sm">{image.caption}</span>}
                     </PageLink>
                   </div>
                 
@@ -126,7 +126,7 @@ const [isClient, setClient] = useState(false);
                     
                   <div key={image.id} className="flex-item" style={mobile ? styleObjMobile : styleObj}>
 
-                      <img src={urlFor(image)}/> {image.caption && <span className="mt-1 block text-sm">{image.caption}</span>}
+                      <img className="z-40 relative" src={urlFor(image)}/> {image.caption && <span className="mt-1 block text-sm z-20 relative">{image.caption}</span>}
         
                   </div>
                 
@@ -138,10 +138,10 @@ const [isClient, setClient] = useState(false);
               }
             } else if (image._type == "flexPdf" && typeof window != `undefined`) {
               
-              return <div key={image.id} className="flex-item" style={mobile ? styleObjMobile : styleObj}><PdfReader key={image._key} file={image.asset.url} /></div>;
+              return <div key={image.id} className="flex-item relative z-20" style={mobile ? styleObjMobile : styleObj}><PdfReader key={image._key} file={image.asset.url} /></div>;
             } else if (image._type == "flexText"){
               return(
-                <div key={image.id} className="flex-item" style={mobile ? styleObjMobile : styleObj}>
+                <div key={image.id} className="flex-item relative z-20" style={mobile ? styleObjMobile : styleObj}>
                   <PortableText blocks={image.text} />
                 </div>
                 )
@@ -151,7 +151,7 @@ const [isClient, setClient] = useState(false);
                 {image !== undefined && image.title && (
           <div
           key={30}
-            className="self-center mx-auto z-40 bottom-0 md:relative"
+            className="self-center mx-auto z-20 bottom-0 md:relative"
             style={{
         
                 gridColumnStart: mobile ? image.startColumnMobile : image.startColumn,
@@ -201,7 +201,7 @@ const [isClient, setClient] = useState(false);
                       <PageLink
                         className={`${
                           color === "black" ? "bg-black hover:bg-black text-white" : ""
-                        } box rounded-md w-full block text-center leading-none h-2em  flex items-center justify-center text-mobileBody md:text-desktopBody uppercase`}
+                        } box rounded-md w-full block text-center leading-none h-2em  flex items-center justify-center text-mobileBody md:text-desktopBody z-20 relative uppercase`}
                         to={`${trimSlashes(uri)}/${slug}`}
                       >
                         <span className="-mt-1/4em md:mt-0">{title}</span>
@@ -225,7 +225,7 @@ const [isClient, setClient] = useState(false);
                 <div
                   style={mobile ? styleObjMobile : styleObj}
                   key={index}
-                  className="flex-item html-text"
+                  className="flex-item html-text z-20 relative"
                 >
                   {ReactHtmlParser(image.embedCode)}
                 </div>
