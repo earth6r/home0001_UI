@@ -70,12 +70,8 @@ const [isClient, setClient] = useState(false);
   if ( !isClient ) return null;
   return (
     
-<<<<<<< HEAD
 
-    <div style={gridStyle} className="w-full z-40 relative mb-4 flexible-gallery">
-=======
     <div key={2} style={gridStyle} className="w-full relative flexible-gallery mb-4">
->>>>>>> staging
 
         {randImages &&
           randImages.map((image, index) => {
