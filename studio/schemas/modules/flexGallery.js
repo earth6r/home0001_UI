@@ -53,6 +53,16 @@ export default {
       ],
     },
     {
+      name: 'squares',
+      title: 'Square Button',
+      type: 'array',
+      of: [
+        {
+          type: 'flexSquare',
+        },
+      ],
+    },
+    {
       name: 'pdfs',
       title: 'Pdf',
       type: 'array',

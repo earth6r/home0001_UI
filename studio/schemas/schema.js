@@ -33,6 +33,7 @@ import excerptPortableText from './objects/excerptPortableText'
 import mainImage from './objects/mainImage'
 import flexImage from './objects/flexImage'
 import flexEmbed from './objects/flexEmbed'
+import flexSquare from './objects/flexSquare'
 import flexText from './objects/flexText'
 import flexPdf from './objects/flexPdf'
 import authorReference from './objects/authorReference'
@@ -107,6 +108,7 @@ export default createSchema({
     flexImage,
     flexEmbed,
     flexText,
+    flexSquare,
     flexPdf,
     authorReference,
     partnerReference,

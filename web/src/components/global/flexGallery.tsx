@@ -8,6 +8,7 @@ import PdfReader from "./pdfReader";
 import clientConfig from '../../../client-config'
 import imageUrlBuilder from '@sanity/image-url'
 import { PageLink } from "../link";
+import { trimSlashes } from "../../lib/helpers";
 // Get a pre-configured url-builder from your sanity client
 const builder = imageUrlBuilder(clientConfig.sanity)
 
@@ -20,12 +21,13 @@ function urlFor(source) {
 var shuffle = require("shuffle-array");
 
 const FlexGallery = (props) => {
-  const { images, circleButtons, embeds, pdfs, rowNum, rowNumMobile, texts } = props;
+  const { images, circleButtons, embeds, squares, pdfs, rowNum, rowNumMobile, texts } = props;
   const myImages = images ? shuffle(images).filter(Boolean) : [];
   const myrandImages = embeds ? shuffle(myImages.concat(embeds)) : myImages;
   const randImages2 = pdfs ? shuffle(myrandImages.concat(pdfs)) : myrandImages;
   const randImages3 = texts ? shuffle(randImages2.concat(texts)) : randImages2;
-  const randImages = circleButtons ? shuffle(randImages3.concat(circleButtons)) : randImages3;
+  const randImages4 = squares ? shuffle(randImages3.concat(squares)) : randImages3;
+  const randImages = circleButtons ? shuffle(randImages4.concat(circleButtons)) : randImages4;
   const justify = ["justify-start", "justify-center", "justify-between", "justify-end"];
   const [direction, setDirection] = useState();
   const [mobile, setMobile] = useState(false);
@@ -167,7 +169,57 @@ const [isClient, setClient] = useState(false);
              )}
                 </>
               )
-            } else {
+            } else if (image._type == "flexSquare"){
+
+              
+                const title = image.title;
+                const color = image.color;
+                const link = image.link
+
+                let slug =
+                  link !== undefined
+                    ? link.content !== undefined
+                      ? link.content.main.slug.current
+                      : link.current
+                    : null;
+
+                let uri = "";
+                if (link !== undefined && title) {
+                  switch (link._type) {
+                    case "home":
+                      uri = "/home";
+                      break;
+                    case "checkout":
+                      uri = "/checkout";
+                      break;
+                    default:
+                      uri = "/";
+                      break;
+                  }
+
+                  return (
+                    <span style={mobile ? styleObjMobile : styleObj} className="flex-item block md:pl-1/10">
+                      <PageLink
+                        className={`${
+                          color === "black" ? "bg-black hover:bg-black text-white" : ""
+                        } box rounded-md w-full block text-center leading-none h-2em  flex items-center justify-center text-mobileBody md:text-desktopBody uppercase`}
+                        to={`${trimSlashes(uri)}/${slug}`}
+                      >
+                        <span className="-mt-1/4em md:mt-0">{title}</span>
+                      </PageLink>
+                    </span>
+                    )
+                } else {
+                  return <></>;
+                }
+
+
+
+
+
+
+
+            }else {
               
               return (
 
