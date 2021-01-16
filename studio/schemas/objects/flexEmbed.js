@@ -130,6 +130,9 @@ export default {
       title: 'Show Callibration Marks',
       default: false,
       type: 'boolean',
+      options: {
+                isHighlighted: true,
+              }
     }
             ]
 }
