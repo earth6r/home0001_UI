@@ -263,7 +263,7 @@ small {
 }
 /* end loading animation */
 .sub-menu{
-  transition:2s;
+  transition:1s;
   top:-5px;
 }
 .sub-menu.myanimate{
@@ -276,9 +276,9 @@ small {
 }
 .sub-menu.noanimate{
   animation:closeAnimation;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   overflow:hidden;
-  transition:2s;
+  transition:1s;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
 }
@@ -287,7 +287,7 @@ small {
   to { max-height: 1000px; height:auto; }
 }
 @keyframes closeAnimation {
-  from { max-height: 1000px; height:auto; }
+  from { max-height: 500px; height:auto; }
   to { max-height: 40px; }
 }
 
@@ -305,6 +305,7 @@ small {
 .map-button{
   top:-18px;
   left:5px;
+  z-index: 1;
   cursor:pointer;
 }
 .rte .md\:text-desktopCaption{
