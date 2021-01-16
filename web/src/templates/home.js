@@ -101,27 +101,27 @@ const HomeTemplate = (props) => {
                           } relative flex h-2em  pl-1/2em border-none`}
                         >
                           {item.unit && (
-                            <span className=" m-0 mr-1em  md:mt-0">
+                            <span className="w-1/6 text-left m-0  md:mt-0">
                               <span>Unit </span>
                               {item.unit}
                             </span>
                           )}
                           {item.bedrooms && (
-                            <span className=" m-0 mr-1em text-mobileCaption md:text-base  md:mt-0">
+                            <span className="w-1/12 text-left m-0  text-mobileCaption md:text-base  md:mt-0">
                               {item.bedrooms}
                             </span>
                           )}
                           {item.price && (
-                            <span className="text-mobileCaption md:text-base text-left m-0 mr-1em  md:mt-0">
+                            <span className="w-1/6 text-left text-mobileCaption md:text-base text-left m-0  md:mt-0">
                               {item.price}
                             </span>
                           )}
                           {item.sold == 1 ? (
-                            <span className=" md:left-0 md:relative text-mobileCaption md:text-base md:mt-0">
+                            <span className="w-1/6 text-left md:left-0 md:relative text-mobileCaption md:text-base md:mt-0">
                               Sold
                             </span>
                           ) : (
-                            <span className=" md:left-0 md:relative text-mobileCaption md:text-base -mt-1/4em md:mt-0">
+                            <span className="w-1/6 text-left md:left-0 md:relative text-mobileCaption md:text-base -mt-1/4em md:mt-0">
                               Available
                             </span>
                           )}
@@ -143,19 +143,19 @@ const HomeTemplate = (props) => {
                               </div>
                             )}
                             {item.floorPlan && (
-                              <div className="mb-1/2em mt-8 md:mt-0 text-left md:text-right floor-plan md:inline-block">
+                              <div className="mb-0 mt-8 md:mt-0 text-left md:text-right floor-plan md:inline-block">
                                 <Figure className="" node={item.floorPlan} />
 
                               </div>
                             )}
                             {item.floorPlanCaption && (
-                              <div className="mb-1em text-left md:text-right px-2 floor-plan-cap md:text-desktopCaption mt-8">
+                              <div className="mb-1em text-left md:text-right px-2 floor-plan-cap md:text-desktopCaption mt-0">
                                 <PortableText blocks={item.floorPlanCaption} />
                               </div>
                             )}
                             {item.sold !== 1 && (
                               <PageLink
-                                className="box mt-2em box-black rounded-md w-full block text-center leading-none h-2em pt-1/4em flex items-center justify-center text-mobileBody md:text-desktopBody "
+                                className="box mt-2em box-black rounded-md w-full block text-center leading-none h-2em flex items-center justify-center text-mobileBody md:text-desktopBody "
                                 to={`/checkout/reservation/?sku=${item.stripeSKU || ""}&bitPayID=${
                                   item.bitPayID || ""
                                 }`}
