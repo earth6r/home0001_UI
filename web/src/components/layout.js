@@ -8,6 +8,31 @@ const Layout = ({ mainMenu,infoSection,newsletter,infoSectionBelow, rMenu, rnd =
 
 
     
+ const [isClient, setClient] = useState(false);
+ useEffect(() => {
+    setClient(true)
+    if(typeof window != `undefined`){
+      document.addEventListener('scroll', function(){
+       if(document.documentElement.scrollHeight - document.documentElement.scrollTop < 940){
+          let el =document.getElementsByClassName("intercom-lightweight-app-launcher")[0]
+          // el.style.position = "relative"
+          if(el){
+            el.style.marginBottom = "65px"
+          }
+       }else{
+        
+          let el =document.getElementsByClassName("intercom-lightweight-app-launcher")[0]
+          // el.style.position = "relative"
+          if(el){
+            el.style.marginBottom = "0"
+          }
+       
+       }
+
+      });
+    }
+  })
+  if ( !isClient ) return null;
 
   return(
   <div className="flex flex-col justify-between h-full">
