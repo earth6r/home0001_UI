@@ -72,7 +72,7 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
       // alert(reactModule.images.length);
       return (
         <>
-          <FlexGallery squares={reactModule.squares}  images={reactModule.images} rowNum={reactModule.numRows} rowNumMobile={reactModule.numRowsMobile} pdfs={reactModule.pdfs} texts={reactModule.texts} embeds={reactModule.embeds} circleButtons={reactModule.circleButtons} />
+          <FlexGallery squares={reactModule.squares}  images={reactModule.images} rowNum={reactModule.numRows} rowNumMobile={reactModule.numRowsMobile} rowNumTablet={reactModule.numRowsTablet} pdfs={reactModule.pdfs} texts={reactModule.texts} embeds={reactModule.embeds} circleButtons={reactModule.circleButtons} />
           {reactModule.callibrationMark ? 
          <GridRow></GridRow>
           : <div className="w-full py-3"></div>}

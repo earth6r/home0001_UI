@@ -1,5 +1,7 @@
 .rte {
   @apply text-mobileBody;
+  font-size: 4.1666vw;
+    line-height: 4.722vw;
 }
 
 .rte p {
@@ -189,10 +191,18 @@ input::-webkit-input-placeholder,
 input::placeholder {
   color: rgba(0, 0, 0, 0.4) !important;
 }
-
+@screen lg{
+  .rte * {
+    @apply text-desktopBody;
+    font-size: 1.8vw;
+    line-height: 2.5vw;
+  }
+}
 @screen md {
   .rte * {
     @apply text-desktopBody;
+    font-size: 2.5vw;
+    line-height: 3.2vw;
   }
 
   .rte.rte-large * {
