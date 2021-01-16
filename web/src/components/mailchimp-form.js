@@ -1,7 +1,7 @@
 import addToMailchimp from "gatsby-plugin-mailchimp";
 import React from "react";
 import ReactHtmlParser from "react-html-parser";
-
+import PortableText from "./portableText"
 import {
   FormControl,
   FormLabel,
@@ -31,6 +31,7 @@ export default class MailChimpForm extends React.Component {
     this.setState({ email: event.target.value });
   };
   render() {
+    const {newsletter} = this.props
     return this.state.result == "success" ? (
       <>
         <h3 className="text-mobileLarge md:text-desktopBody">
@@ -85,8 +86,7 @@ export default class MailChimpForm extends React.Component {
         )}
         {this.state.success !== "success" && (
           <p className="pt-2em text-mobileBody md:text-desktopCaption">
-            Join for occasional updates on new home, new locations, and other projects as the
-            network expands.
+          <PortableText blocks={newsletter} />
           </p>
         )}
       </form>

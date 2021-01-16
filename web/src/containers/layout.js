@@ -95,6 +95,20 @@ const query = graphql`
         }
       }
     }
+    newsletter:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      newsletterText {
+        _key
+        _rawChildren
+        _type
+        style
+        children {
+          _key
+          _type
+          text
+          marks
+        }
+      }
+    }
     mainMenu: allSanityMenus(filter: { slug: { current: { eq: "main" } } }) {
       edges {
         node {
@@ -221,7 +235,7 @@ function LayoutContainer(props) {
             'Missing "Site settings". Open the Studio at http://localhost:3333 and some content in "Site settings"'
           );
         }
-    
+         console.log(data.newsletter)
   
         return (
           <ThemeProvider>
@@ -234,6 +248,7 @@ function LayoutContainer(props) {
               bannerUrlTitle={data.bannerUrlTitle.bannerUrlTitle}
               infoSection={data.all.edges[0].node._rawInfosection}
               infoSectionBelow={data.belowInfo.edges[0].node._rawInfosectionBelow}
+              newsletter={data.newsletter.newsletterText}
               showNav={showNav}
               showSubNav = {showSubNav}
               siteTitle={data.site.title}

@@ -95,6 +95,12 @@ export default {
         layout: 'radio', // <-- defaults to 'dropdown'
         default: 'white'
       }
+    },
+    {
+      name: 'callibrationMark',
+      title: 'Show Callibration Marks',
+      default: false,
+      type: 'boolean',
     }
   ],
 }

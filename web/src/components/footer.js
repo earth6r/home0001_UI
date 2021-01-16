@@ -16,10 +16,10 @@ import {
   useDisclosure,
 } from "@chakra-ui/core";
 
-const Footer = ({ footerMenu }) => {
+const Footer = ({ footerMenu, newsletter }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const query = "";
-  
+   
   const menu = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
   return (
     <>
@@ -80,7 +80,7 @@ const Footer = ({ footerMenu }) => {
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody className="mb-1em pt-2em">
-            <MailChimpForm />
+            <MailChimpForm newsletter={newsletter} />
           </ModalBody>
 
           {/*<ModalFooter>

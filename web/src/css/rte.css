@@ -76,6 +76,7 @@
 .rte ul li {
   /* counter-increment: rte-list; */
   @apply pl-1/10 relative;
+  padding-bottom:0.3em;
 }
 
 .rte ul:not(.table) li:before {

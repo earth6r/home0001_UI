@@ -90,5 +90,11 @@ export default {
                 isHighlighted: true,
               },
             },
+            {
+      name: 'callibrationMark',
+      title: 'Show Callibration Marks',
+      default: false,
+      type: 'boolean',
+    }
             ]
 }
