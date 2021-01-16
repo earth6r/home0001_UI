@@ -9,12 +9,12 @@ const StripeCheckoutCreateButton = ({ handleClick, disabled }) => (
   <ButtonLink
     color="black"
     disabled={disabled}
-    className="e-checkout"
+    className="e-checkout special-stripe"
     id="checkout-button"
     role="link"
     onClick={handleClick}
     type="button"
-    value="Checkout"
+    value=" "
   />
 );
 
@@ -26,9 +26,9 @@ const BitPayCheckoutButton = ({ bitPayID, disabled }) => (
     <ButtonLink
       disabled={disabled}
       color="black"
-      className="e-checkout"
+      className="e-checkout special-bitcoin"
       type="submit"
-      value="Checkout with BitPay"
+      value=" "
     />
   </form>
 );
