@@ -53,7 +53,7 @@ const serializers = {
               content={node.partner.bio}
             />
           ) : (
-            <span className="earth-svg m-0">
+            <span className="earth-svg m-0 mr-1">
 <svg className="m-0" viewBox="0 0 45 11" fill="none">
 <path d="M0 0H7.4747V1.25196H1.52952V4.65937H7.2752V5.91134H1.52952V9.68014H7.621V10.9321H0V0Z" fill="black"/>
 <path d="M12.4756 0H14.4574L18.7799 10.9321H17.1174L15.8672 7.67957H11.0259L9.78899 10.9321H8.12646L12.4756 0ZM15.415 6.45342L13.4465 1.29068L11.4914 6.45342H15.415Z" fill="black"/>

@@ -23,7 +23,7 @@ const ButtonLink = ({ color, className, type, value, disabled, ...rest }: Button
   const classNames = `${colorClassName} ${customClassNames} box rounded-md w-full block text-center leading-none h-2em  flex items-center justify-center text-mobileBody md:text-desktopBody`;
 
   return (
-    <span className="max-w-4xl block w-full md:pl-1/10">
+    <span className="max-w-2xl block w-full">
       <input className={classNames} type={type} value={value} disabled={buttonDisabled} {...rest} />
     </span>
   );
