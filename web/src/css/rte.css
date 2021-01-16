@@ -26,11 +26,13 @@
 .rte ol li {
 }
 .partner-ref-link{
-   padding: 0 0.25em;
-    padding-right: 0.35em;
-    padding-bottom: 0.1em;
+        padding: 0 0.25em;
+    padding-right: 0.3em;
+    margin-bottom: 0 !important;
+    padding-bottom: 0.05em;
     line-height: 1.4em !important;
-    top:0;
+    top: 0;
+    font-size: 4.1666vw;
     transform: translateY(0em);
 }
 .rte.rte-large * {
@@ -204,7 +206,11 @@ input::placeholder {
 
 @screen md {
   .partner-ref-link{
-    transform: translateY(8%);
+     padding: 0 0.25em;
+    padding-right: 0.35em;
+    margin-bottom:0 !important;
+    padding-bottom: 0.1em;
+    transform: translateY(0%);
 }
   .rte * {
     @apply text-desktopBody;
@@ -258,6 +264,13 @@ input::placeholder {
   }
 }
 @screen lg{
+    .partner-ref-link{
+       padding: 0 0.25em;
+    padding-right: 0.35em;
+    margin-bottom:0 !important;
+    padding-bottom: 0.1em;
+    transform: translateY(8%);
+}
   .rte * {
     @apply text-desktopBody;
     font-size: 1.8vw;
