@@ -56,7 +56,7 @@ const Unavailable = () => (
 );
 
 const DiscountNotice = ({ discountCode }) => {
-  // if (!discountCode) return null;
+  if (!discountCode) return null;
   return (<div className="discount-container mb-1">
     <div className="spring-green-line"></div>
     <span className="spring-green">$300</span>
@@ -97,8 +97,9 @@ const CheckoutDescription = ({ unit, modules, children, discount, discountCode }
           {RenderModules([head])}
 
           <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
-            <h1>Reserve unit {unit.title}</h1>
+            
             <ValueAdded discount={discount} discountCode={discountCode} />
+            <p>Reserve unit: <br></br>{unit.title}</p>
           </div>
 
         </div>

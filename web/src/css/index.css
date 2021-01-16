@@ -13,6 +13,24 @@ figure img{
 .spring-green{
   color:#66ff00;
 }
+.special-bitcoin{
+  background-image: url(./bit-icons-01.png);
+  background-size: 55%;
+  background-repeat:no-repeat;
+  background-position:center center;
+}
+.special-stripe{
+  background-image: url(./stripe-icons-01.png);
+  background-size: 85%;
+  background-repeat:no-repeat;
+  background-position:center center;
+}
+.special-stripe[disabled]{
+  background-image: url(./stripe-icons2-01.png);
+}
+.bit-stripe[disabled]{
+  background-image: url(./bit-icons2-01.png);
+}
 .discount-container{
   margin-bottom:0;
   display: inline-block;
@@ -187,6 +205,9 @@ small {
     top:7px;
     right:5px;
   }
+  .spring-green-line{
+  height:4px;
+}
   .info-menu-mobile{
     top:-3px;
   }
