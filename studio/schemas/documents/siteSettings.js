@@ -47,6 +47,11 @@ export default {
       description: "text for thin banner internal url (leave blank if none)",
     },
     {
+      name: 'newsletterText',
+      type: 'bodyPortableText',
+      title: 'Newsletter text for homes site'
+    },
+    {
       name: 'infosection',
       type: 'bodyPortableText',
       title: 'Info Section for R & D site'

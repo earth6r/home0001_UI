@@ -4,7 +4,7 @@ import HeaderRnd from "./headerRnd";
 import Footer from "./footer";
 import GridRow from "./grid/grid-row"
 
-const Layout = ({ mainMenu,infoSection,infoSectionBelow, rMenu, rnd = false, subMenu, footerMenu, children, onHideNav, onShowNav, showNav,  onHideSubNav, onShowSubNav, showSubNav, siteTitle, isHome, thinBanner, showThinBanner, bannerUrl, bannerUrlTitle }) => {
+const Layout = ({ mainMenu,infoSection,newsletter,infoSectionBelow, rMenu, rnd = false, subMenu, footerMenu, children, onHideNav, onShowNav, showNav,  onHideSubNav, onShowSubNav, showSubNav, siteTitle, isHome, thinBanner, showThinBanner, bannerUrl, bannerUrlTitle }) => {
 
 
     
@@ -56,7 +56,7 @@ const Layout = ({ mainMenu,infoSection,infoSectionBelow, rMenu, rnd = false, sub
    </div>
     <div id='page-content-wrapper' className={`${showThinBanner && !rnd ? "mt-8 md:mt-12 md:mt-8":""} ${rnd ? "px-special" : ""} container pb-1/2em `}>{children}</div>
     {!rnd &&
-      <Footer footerMenu={footerMenu} />
+      <Footer newsletter={newsletter} footerMenu={footerMenu} />
     }
   </div>
 )

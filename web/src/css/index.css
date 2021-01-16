@@ -13,6 +13,9 @@ figure img{
 html {
   font-family: "GP", Arial, Helvetica, sans-serif;
 }
+h6{
+  opacity: 0.5;
+}
 #checkout-button-1{
   width:120px;
 }

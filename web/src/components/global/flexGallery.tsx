@@ -112,9 +112,9 @@ const [isClient, setClient] = useState(false);
                   }
                   console.log(image.link)
                 return (
-                  <div key={image.id} className="flex-item z-20" style={mobile ? styleObjMobile : styleObj}>
+                  <div key={image.id} className="flex-item" style={mobile ? styleObjMobile : styleObj}>
                    <PageLink
-                      className="internal-link"
+                      className="internal-link z-40 relative"
                       to={uri +"/" + link}
                     >
                     <img className="z-40 relative" src={urlFor(image)}/> {image.caption && <span className="mt-1 relative z-20 block text-sm">{image.caption}</span>}
@@ -232,11 +232,16 @@ const [isClient, setClient] = useState(false);
                 </div>
               );
             }
-          })}
+
+            {image.callibrationMark &&
+              <GridRow/>
+            }
+          })
+
+        }
 
 
-        {/* randomly place circle image in an order between 1 and gallery image set length  */}
-     
+      
 
 
 
