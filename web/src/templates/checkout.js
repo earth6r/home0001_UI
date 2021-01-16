@@ -57,22 +57,22 @@ const Unavailable = () => (
 
 const DiscountNotice = ({ discountCode }) => {
   // if (!discountCode) return null;
-  return (<div className="discount-container">
+  return (<div className="discount-container mb-1">
     <div className="spring-green-line"></div>
-    <span className="spring-green">${discountCode}</span>
+    <span className="spring-green">$300</span>
     </div>)
 };
 
 const ValueAdded = ({ discount, discountCode }) => (
   <>
-    <h1>MEMBERSHIP DEPOSIT: <MembershipPrice discount={discount} />{" "}
+    <h1 className="mb-0">Membership Deposit: <MembershipPrice discount={discount} />{" "}
     <DiscountNotice discountCode={discountCode} />
     <br />
     </h1>
     <p>
     Deducted from your home purchase.
     <br />
-    Fully refundable any time, <Link to="/legal">for any reason</Link>.
+    Fully refundable any time, for any reason.
   </p>
   </>
 );
@@ -100,7 +100,7 @@ const CheckoutDescription = ({ unit, modules, children, discount, discountCode }
             <h1>Reserve unit {unit.title}</h1>
             <ValueAdded discount={discount} discountCode={discountCode} />
           </div>
-          {RenderModules(rest)}
+
         </div>
         {children}
       </>
@@ -116,6 +116,33 @@ const CheckoutDescription = ({ unit, modules, children, discount, discountCode }
    
           <ValueAdded discount={discount} discountCode={discountCode} />
         </div>
+
+      </div>
+      {children}
+    </>
+  );
+};
+
+const CheckoutModules = ({ unit, modules, children, discount, discountCode }) => {
+  const [head, ...rest] = modules;
+
+  if (unit) {
+    return (
+      <>
+        <div className="flex flex-wrap w-full standard-text">
+          {RenderModules(rest)}
+        </div>
+        {children}
+      </>
+    );
+  }
+
+  return (
+    <>
+      <div className="flex flex-wrap w-full standard-text">
+        
+
+       
         {RenderModules(rest)}
       </div>
       {children}
@@ -180,13 +207,17 @@ const CheckoutTemplate = (props) => {
           <CheckoutActions unit={unit}>
             <PaymentContext.Consumer>
               {({ discount, discountCode }) => (
+              <>
                 <CheckoutDescription
                   unit={unit}
                   modules={modules}
                   discount={discount}
                   discountCode={discountCode}
                 >
-                  <CheckoutCreate
+                  
+
+                </CheckoutDescription>
+                <CheckoutCreate
                     home={home}
                     unit={unit}
                     sku={sku}
@@ -195,7 +226,16 @@ const CheckoutTemplate = (props) => {
                     discountCode={discountCode}
                     stripePromise={stripePromise}
                   />
-                </CheckoutDescription>
+                <CheckoutModules
+                  unit={unit}
+                  modules={modules}
+                  discount={discount}
+                  discountCode={discountCode}
+                >
+                  
+
+                </CheckoutModules>
+                </>
               )}
             </PaymentContext.Consumer>
           </CheckoutActions>

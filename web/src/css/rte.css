@@ -120,7 +120,8 @@ select {
 }
 
 .rte [disabled] {
-  color: #ccc !important;
+  filter: grayscale(1);
+  background: #ccc !important;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5) !important;
   pointer-events: none !important;
   cursor: auto !important;
@@ -144,28 +145,30 @@ input[type="checkbox"]:focus,
 input[type="checkbox"]:active {
   -webkit-appearance: none;
 
-  width: 2em !important;
-  height: 2em !important;
+  width: 0.5em !important;
+  height: 0.5em !important;
   cursor: pointer;
   display: inline-block;
-
-  top: 0.5em;
+  border-radius: 2px;
+  top: -0.05em;
+  padding:0.3em;
   position: relative;
-  margin-right: 1em;
-
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5) !important;
+  margin-right: 0.3em;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5) !important;
 }
-
+.e-checkbox-icon{
+  font-size: 0.05em;
+}
 input[type="checkbox"]:checked + span:before {
-  content: url("data:image/svg+xml;charset=UTF-8, <svg width='45px' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 53.96 55.93'><defs></defs><g id='Layer_2' data-name='Layer 2'><g id='Layer_1-2' data-name='Layer 1'><polyline stroke='black' stroke-width='3px' fill='none' class='cls-1' points='1.13 11.65 12.6 24.77 33.91 1'/></g></g></svg>");
+  content: url("data:image/svg+xml;charset=UTF-8, <svg width='23px' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 53.96 55.93'><defs></defs><g id='Layer_2' data-name='Layer 2'><g id='Layer_1-2' data-name='Layer 1'><polyline stroke='black' stroke-width='3px' fill='none' class='cls-1' points='1.13 11.65 12.6 24.77 33.91 1'/></g></g></svg>");
   font-family: "Courier";
   display: flex;
   justify-content: center;
   align-items: center;
-  left: -40px;
-  bottom: -15px;
-  width: 2.5em;
-  height: 4em;
+  left: -11px;
+  position:relative;
+  bottom: -16px;
+  height: auto;
 }
 
 input:focus {
@@ -245,7 +248,7 @@ input::placeholder {
   input,
   textarea,
   select {
-    @apply text-desktopBody ml-1/10 w-auto h-2em !important;
+    @apply text-desktopBody w-auto h-2em !important;
     line-height: 2.5em !important;
   }
 

@@ -14,6 +14,7 @@ figure img{
   color:#66ff00;
 }
 .discount-container{
+  margin-bottom:0;
   display: inline-block;
   position: relative;
 }
