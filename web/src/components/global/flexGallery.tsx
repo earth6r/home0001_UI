@@ -21,13 +21,14 @@ function urlFor(source) {
 var shuffle = require("shuffle-array");
 
 const FlexGallery = (props) => {
-  const { images, circleButtons, embeds, squares, pdfs, rowNum, rowNumMobile, rowNumTablet, texts } = props;
+  const { images, circleButtons, embeds, squares, pdfs, rowNum, callibrationMarks, rowNumMobile, rowNumTablet, texts } = props;
   const myImages = images ? shuffle(images).filter(Boolean) : [];
   const myrandImages = embeds ? shuffle(myImages.concat(embeds)) : myImages;
   const randImages2 = pdfs ? shuffle(myrandImages.concat(pdfs)) : myrandImages;
   const randImages3 = texts ? shuffle(randImages2.concat(texts)) : randImages2;
   const randImages4 = squares ? shuffle(randImages3.concat(squares)) : randImages3;
-  const randImages = circleButtons ? shuffle(randImages4.concat(circleButtons)) : randImages4;
+  const randImages5 = callibrationMarks ? shuffle(randImages4.concat(callibrationMarks)) : randImages4;
+  const randImages = circleButtons ? shuffle(randImages5.concat(circleButtons)) : randImages5;
   const justify = ["justify-start", "justify-center", "justify-between", "justify-end"];
   const [direction, setDirection] = useState();
   const [mobile, setMobile] = useState(false);
@@ -179,6 +180,23 @@ const [isClient, setClient] = useState(false);
              )}
                 </>
               )
+            } else if(image._type == "flexCallibration"){
+              let styleObj = {
+                gridColumnStart: 1,
+                gridColumnEnd: 40,
+                gridRowStart: image.startRow,
+              }
+            let styleObjMobile = {
+                gridColumnStart: 1,
+                gridColumnEnd: 40,
+                gridRowStart: image.startRowMobile,
+              }
+            let styleObjTablet = {
+                gridColumnStart: 1,
+                gridColumnEnd: 40,
+                gridRowStart: image.startRowTablet,
+              }
+             return( <div className="flex-item" style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}> <GridRow /></div> )
             } else if (image._type == "flexSquare"){
 
               
@@ -243,9 +261,7 @@ const [isClient, setClient] = useState(false);
               );
             }
 
-            {image.callibrationMark &&
-              <GridRow/>
-            }
+           
           })
 
         }

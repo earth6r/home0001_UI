@@ -85,6 +85,16 @@ export default {
           type: 'flexCircle',
         },
       ],
+    },
+    {
+      name: 'callibrationMarks',
+      title: 'Callibration Marks',
+      type: 'array',
+      of: [
+        {
+          type: 'flexCallibration',
+        },
+      ],
     }
   ],
 }
