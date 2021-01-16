@@ -10,6 +10,22 @@
 figure img{
   object-fit: contain !important;
 }
+.spring-green{
+  color:#66ff00;
+}
+.discount-container{
+  display: inline-block;
+  position: relative;
+}
+.spring-green-line{
+  height:8px;
+  background:#66ff00;
+  width: 2.55em;
+    left: -2.65em;
+    top: 0.55em;
+  position:absolute;
+  display:inline-block;
+}
 html {
   font-family: "GP", Arial, Helvetica, sans-serif;
 }

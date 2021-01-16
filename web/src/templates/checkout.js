@@ -56,19 +56,25 @@ const Unavailable = () => (
 );
 
 const DiscountNotice = ({ discountCode }) => {
-  if (!discountCode) return null;
-  return <span>(Discount “{discountCode}” applied)</span>;
+  // if (!discountCode) return null;
+  return (<div className="discount-container">
+    <div className="spring-green-line"></div>
+    <span className="spring-green">${discountCode}</span>
+    </div>)
 };
 
 const ValueAdded = ({ discount, discountCode }) => (
-  <p>
-    MEMBERSHIP DEPOSIT: <MembershipPrice discount={discount} />{" "}
-    <DiscountNotice discountCode={discountCode} />.
+  <>
+    <h1>MEMBERSHIP DEPOSIT: <MembershipPrice discount={discount} />{" "}
+    <DiscountNotice discountCode={discountCode} />
     <br />
+    </h1>
+    <p>
     Deducted from your home purchase.
     <br />
     Fully refundable any time, <Link to="/legal">for any reason</Link>.
   </p>
+  </>
 );
 
 const CheckoutOptions = ({ /*ssr, */ children }) => {
@@ -107,7 +113,7 @@ const CheckoutDescription = ({ unit, modules, children, discount, discountCode }
         {RenderModules([head])}
 
         <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
-          <h1>Become a member</h1>
+   
           <ValueAdded discount={discount} discountCode={discountCode} />
         </div>
         {RenderModules(rest)}

@@ -3,10 +3,10 @@ import React from "react";
 const MembershipPrice = ({ discount }) =>
   discount ? (
     <>
-      <s>$300</s> $200
+      <>$400</> 
     </>
   ) : (
-    <>$300</>
+    <>$400</>
   );
 
 export default MembershipPrice;
