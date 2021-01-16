@@ -25,7 +25,14 @@
 .rte ul li,
 .rte ol li {
 }
-
+.partner-ref-link{
+   padding: 0 0.25em;
+    padding-right: 0.35em;
+    padding-bottom: 0.1em;
+    line-height: 1.4em !important;
+    top:0;
+    transform: translateY(0em);
+}
 .rte.rte-large * {
   @apply text-mobileLarge;
 }
@@ -191,14 +198,11 @@ input::-webkit-input-placeholder,
 input::placeholder {
   color: rgba(0, 0, 0, 0.4) !important;
 }
-@screen lg{
-  .rte * {
-    @apply text-desktopBody;
-    font-size: 1.8vw;
-    line-height: 2.5vw;
-  }
-}
+
 @screen md {
+  .partner-ref-link{
+    transform: translateY(8%);
+}
   .rte * {
     @apply text-desktopBody;
     font-size: 2.5vw;
@@ -248,5 +252,12 @@ input::placeholder {
   .rte-large ol li,
   .rte-large ul li {
     @apply text-desktopBody;
+  }
+}
+@screen lg{
+  .rte * {
+    @apply text-desktopBody;
+    font-size: 1.8vw;
+    line-height: 2.5vw;
   }
 }

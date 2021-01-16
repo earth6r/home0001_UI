@@ -43,7 +43,7 @@ const PopoverModule = (props) => {
             id={text+"-popover"}
             onClick={open}
             aria-label={`Open ${text}`}
-            className="text-mobileLarge md:text-desktopLarge box-link transform md:translate-y-1 m-0 md:pr-5 md:pb-3"
+            className="box-link partner-ref-link"
           >
             {logo ? <SVG file={logo} /> : `${text}`}
           </button>
