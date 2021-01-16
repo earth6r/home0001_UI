@@ -74,6 +74,41 @@ export default {
       isHighlighted: true,
     },
   },
+
+{name:'startColumnTablet',
+    type: 'number',
+    description: "starting column for tablet",
+    title: 'starting column tablet (between 1- 20)',
+    options: {
+      isHighlighted: true,
+    },
+    validation: Rule => Rule.max(20).warning('We use a 20 column system on the site')
+  },
+  {name:'endColumnTablet',
+    type: 'number',
+    description: "ending column for tablet",
+    title: 'ending column tablet (between 1- 20)',
+    options: {
+      isHighlighted: true,
+    },
+    validation: Rule => Rule.max(20).warning('We use a 20 column system on the site')
+  },
+  {name:'startRowTablet',
+    type: 'number',
+    description: "starting row for tablet",
+    title: 'starting Row tablet',
+    options: {
+      isHighlighted: true,
+    },
+  },
+  {name:'endRowTablet',
+    type: 'number',
+    description: "ending row for tablet",
+    title: 'ending Row tablet',
+    options: {
+      isHighlighted: true,
+    },
+  },
             {
               name: 'caption',
               type: 'string',

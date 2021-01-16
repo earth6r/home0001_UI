@@ -14,6 +14,10 @@ export default {
       type: 'number',
       title: 'Number of Rows for Mobile'
     },
+    { name:'numRowsTablet',
+      type: 'number',
+      title: 'Number of Rows for Tablet'
+    },
     {
       name: 'callibrationMark',
       title: 'Show Callibration Marks',

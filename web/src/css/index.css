@@ -617,9 +617,18 @@ img{
 }
 @media(min-width: 768px){
   .circle-width{
+    width: 17vw;
+  }
+  .circle-width h2, .rte.rte-large .circle-width h2{
+    font-size:1.9vw;
+  }
+}
+@media(min-width: 1024px){
+  .circle-width{
     width: 12vw;
   }
   .circle-width h2, .rte.rte-large .circle-width h2{
     font-size:1.1vw;
   }
 }
+
