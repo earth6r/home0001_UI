@@ -50,6 +50,22 @@ const [isClient, setClient] = useState(false);
   let gridStyle = {
     gridTemplateRows: rowStyle
   }
+  let handleWindowResize = function(event) {
+
+         if(window.innerWidth <= 768){
+            setMobile(true)
+
+          }else{
+            setMobile(false)
+          }
+          if(window.innerWidth > 768 && window.innerWidth <= 1024){
+            setTablet(true)
+            
+          }else{
+            setTablet(false)
+          }
+          console.log(tablet)
+      };
   useEffect(() => {
     setClient(true)
     if(typeof window != `undefined`){
@@ -63,25 +79,17 @@ const [isClient, setClient] = useState(false);
       }else{
         setTablet(false)
       }
-      window.onresize = function(event) {
-         if(window.innerWidth <= 768){
-            setMobile(true)
-          }else{
-            setMobile(false)
-          }
-          if(window.innerWidth > 768 && window.innerWidth <= 1024){
-            setTablet(true)
-          }else{
-            setTablet(false)
-          }
-      };
+      window.addEventListener("resize", handleWindowResize);
+      
     }
 
 
   })
   if ( !isClient ) return null;
+ 
   return (
-    
+    <>
+   
     <div key={2} style={gridStyle} className="w-full relative flexible-gallery mb-4">
 
         {randImages &&
@@ -105,6 +113,7 @@ const [isClient, setClient] = useState(false);
                 gridRowStart: image.startRowTablet,
                 gridRowEnd: image.endRowTablet,
               }
+
             if (image && image._type == "flexImage") {
               //get ratio of image
               
@@ -129,7 +138,7 @@ const [isClient, setClient] = useState(false);
                   }
                   console.log(image.link)
                 return (
-                  <div key={image.id} className="flex-item" style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}>
+                  <div key={image._key} className="flex-item" style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}>
                    <PageLink
                       className="internal-link z-40 relative"
                       to={uri +"/" + link}
@@ -142,7 +151,7 @@ const [isClient, setClient] = useState(false);
                 }else{
                   return (
                     
-                  <div key={image.id} className="flex-item" style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}>
+                  <div key={image._key} className="flex-item" style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}>
 
                       <img className="z-40 relative" src={urlFor(image)}/> {image.caption && <span className="mt-1 block text-sm z-20 relative">{image.caption}</span>}
         
@@ -156,10 +165,10 @@ const [isClient, setClient] = useState(false);
               }
             } else if (image._type == "flexPdf" && typeof window != `undefined`) {
               
-              return <div key={image.id} className="flex-item relative z-20" style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}><PdfReader key={image._key} file={image.asset.url} /></div>;
+              return <div key={image._key} className="flex-item relative z-20" style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}><PdfReader key={image._key} file={image.asset.url} /></div>;
             } else if (image._type == "flexText"){
               return(
-                <div key={image.id} className="flex-item relative z-20" style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}>
+                <div key={image._key} className="flex-item relative z-20" style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}>
                   <PortableText blocks={image.text} />
                 </div>
                 )
@@ -168,7 +177,7 @@ const [isClient, setClient] = useState(false);
                 <>
                 {image !== undefined && image.title && (
           <div
-          key={30}
+          key={image._key}
             className="self-center mx-auto z-20 bottom-0 md:relative"
             style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}
           >
@@ -195,7 +204,7 @@ const [isClient, setClient] = useState(false);
                 gridColumnEnd: 40,
                 gridRowStart: image.startRowTablet,
               }
-             return( <div className="flex-item" style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}> <GridRow /></div> )
+             return( <div key={image._key} className="flex-item" style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}> <GridRow /></div> )
             } else if (image._type == "flexSquare"){
 
               
@@ -225,7 +234,7 @@ const [isClient, setClient] = useState(false);
                   }
 
                   return (
-                    <span style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)} className="flex-item block md:pl-1/10">
+                    <span key={image._key} style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)} className="flex-item block md:pl-1/10">
                       <PageLink
                         className={`${
                           color === "black" ? "bg-black hover:bg-black text-white" : ""
@@ -252,7 +261,7 @@ const [isClient, setClient] = useState(false);
 
                 <div
                   style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}
-                  key={index}
+                  key={image._key}
                   className="flex-item html-text z-20 relative"
                 >
                   {ReactHtmlParser(image.embedCode)}
@@ -271,6 +280,7 @@ const [isClient, setClient] = useState(false);
 
 
     </div>
+    </>
   );
 };
 

@@ -79,7 +79,7 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
         </>
       );
     case "pane":
-    console.log(reactModule.color)
+
       // alert(reactModule.images.length);
       let offset = reactModule.offset
       if(typeof window != `undefined`){
