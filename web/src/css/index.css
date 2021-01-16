@@ -13,6 +13,12 @@ figure img{
 html {
   font-family: "GP", Arial, Helvetica, sans-serif;
 }
+.click-area{
+  background: transparent;
+  width:100vw;
+  height:100vh;
+  position: fixed;
+}
 h6{
   opacity: 0.5;
 }
@@ -241,19 +247,31 @@ small {
 /* end loading animation */
 .sub-menu{
   transition:2s;
-  max-height:50px;
   top:-5px;
 }
 .sub-menu.myanimate{
   animation:openAnimation;
   animation-duration: 1s;
   overflow:hidden;
+  transition:2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+.sub-menu.noanimate{
+  animation:closeAnimation;
+  animation-duration: 1s;
+  overflow:hidden;
+  transition:2s;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
 }
 @keyframes openAnimation {
-  from { max-height: 50px; }
-  to { max-height: 1000px; }
+  from { max-height: 40px; }
+  to { max-height: 1000px; height:auto; }
+}
+@keyframes closeAnimation {
+  from { max-height: 1000px; height:auto; }
+  to { max-height: 40px; }
 }
 
 @media(min-width: 768px){

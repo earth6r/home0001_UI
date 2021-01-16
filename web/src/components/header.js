@@ -88,7 +88,7 @@ if(typeof window != `undefined`){
         </div></div></div></div>
     }
       {isHome && submenu && 
-      <div style={{ zIndex: "31", minWidth: "30vw", width:"calc(100% - 1.5rem)", borderRadius:"22px" }} className={`${showNav ? "hidden":""} ${showSubNav ? "myanimate":""} sub-menu absolute ${showThinBanner && thinBanner ? "mt-20 md:mt-20 lg:mt-24" : "mt-16 lg:mt-20" } mx-3 lg:mx-5 box-menu px-5 py-2 lg:w-auto`} >
+      <div style={{ zIndex: "31", minWidth: "30vw", width:"calc(100% - 1.5rem)", borderRadius:"22px" }} className={`${showNav ? "hidden":""} ${showSubNav ? "myanimate":"noanimate"} sub-menu absolute ${showThinBanner && thinBanner ? "mt-20 md:mt-20 lg:mt-24" : "mt-16 lg:mt-20" } mx-3 lg:mx-5 box-menu px-5 py-2 lg:w-auto`} >
         {submenu &&
           submenu.map((item, index) => (
             <div key={index + "first"}>
@@ -104,7 +104,7 @@ if(typeof window != `undefined`){
           submenu.map((item, index) => (
             <div key={index + "second"} className={`${index==submenu.length-1 ? "":""}`}>
             <li className={`${
-          showSubNav && item.link && isHome != item.link.content.main.slug.current ? " h-auto" : "h-0"
+            item.link && isHome != item.link.content.main.slug.current ? " h-auto" : "h-0"
         } block overflow-hidden`} key={item._key}>
             
               <PageLink
@@ -120,14 +120,23 @@ if(typeof window != `undefined`){
             </li>
             { !item.link &&
               <li className={`${
-          showSubNav ? " h-auto" : "h-0"
-        } block md:block overflow-hidden opacity-50`}><span className="block pb-1/4em md:pb-1/2em">{item.title}</span></li>
+          showSubNav ? " h-auto" : "h-auto"
+        } block md:block overflow-hidden opacity-50`}><span className="block md:pt-1/2em pb-1/4em md:pb-1/2em">{item.title}</span></li>
             }
           </div>
      
-          ))}
+          ))
+
+        }
+
+
       </div>
     }
+{submenu && showSubNav &&
+
+            <div onClick={onHideSubNav} className="click-area z-30"></div>
+
+        }
       <header className={`${showThinBanner && thinBanner ? "mt-8 md:mt-8" : "" } fixed z-50 w-full left-0`}>
         <div
           className={`${
