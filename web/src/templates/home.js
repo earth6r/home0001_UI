@@ -179,7 +179,7 @@ const HomeTemplate = (props) => {
             {RenderModules(homeModules, specs)}
           </div>
         )}
-        <GridRow />
+
       </Container>
     </Layout>
   );
