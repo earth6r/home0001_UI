@@ -149,7 +149,7 @@ const HomeTemplate = (props) => {
                               </div>
                             )}
                             {item.floorPlanCaption && (
-                              <div className="mb-1em text-left md:text-right px-2 floor-plan-cap md:text-desktopCaption mt-0">
+                              <div className="mb-1em text-left md:text-right px-2 floor-plan-cap text-desktopCaptionSpecial mt-0">
                                 <PortableText blocks={item.floorPlanCaption} />
                               </div>
                             )}
