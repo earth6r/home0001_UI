@@ -53,7 +53,6 @@ const SpecButton = ({ title, url, color, float = true, callibrationMark, specs =
             preserveScrollBarGap
             finalFocusRef={finalRef}
             isCentered={true}
-            closeOnOverlayClick={false}
             size="full"
             scrollBehavior="inside"
             blockScrollOnMount={true}
@@ -61,7 +60,7 @@ const SpecButton = ({ title, url, color, float = true, callibrationMark, specs =
             onClose={onClose}
             className="rounded-lg"
           >
-            <ModalOverlay opacity={0.75} />
+            <ModalOverlay onClick={onClose} opacity={0.75} />
             <ModalContent className="rounded-lg mx-mobile md:mx-desktop">
               <ModalCloseButton zIndex={10} />
               <ModalBody className="rounded-lg">
