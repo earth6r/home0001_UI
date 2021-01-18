@@ -14,7 +14,7 @@ figure img{
   color:#66ff00;
 }
 .special-bitcoin{
-  background-image: url(./bit-icons-01.png);
+  background-image: url("./bit-icons-01.png");
   background-size: 55%;
   background-repeat:no-repeat;
   background-position:center center;
