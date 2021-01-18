@@ -267,7 +267,7 @@ input::placeholder {
 @screen lg{
     .partner-ref-link.box-link:before{
       padding:0;
-      transform: translateY(-48%);
+      transform: translateY(-0.7em);
       height: 1.35em;
     }
     .partner-ref-link{
