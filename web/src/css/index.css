@@ -298,10 +298,16 @@ small {
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
 }
-.sub-menu.noanimate >div{
+.sub-menu > div{
   pointer-events: none;
 }
-.sub-menu.noanimate >div:first-child{
+.sub-menu > div:first-child{
+  pointer-events: auto;
+}
+.sub-menu.myanimate >div{
+  pointer-events: auto;
+}
+.sub-menu.myanimate >div:first-child{
   pointer-events: auto;
 }
 .sub-menu.noanimate{
