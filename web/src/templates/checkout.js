@@ -242,7 +242,6 @@ const CheckoutTemplate = (props) => {
           </CheckoutActions>
         </CheckoutOptions>
 
-        <GridRow />
       </Container>
     </Layout>
   );
