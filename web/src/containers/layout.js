@@ -210,7 +210,7 @@ const query = graphql`
 function LayoutContainer(props) {
 
   const [showNav, setShowNav] = useState(false);
-  const [showSubNav, setShowSubNav] = useState(false);
+  const [showSubNav, setShowSubNav] = useState(0);
   function handleShowNav() {
     setShowNav(true);
    
@@ -219,11 +219,11 @@ function LayoutContainer(props) {
     setShowNav(false);
   }
   function handleShowSubNav() {
-    setShowSubNav(true);
+    setShowSubNav(1);
  
   }
   function handleHideSubNav() {
-    setShowSubNav(false);
+    setShowSubNav(2);
 
   }
   return (
