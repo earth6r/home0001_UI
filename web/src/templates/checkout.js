@@ -56,10 +56,15 @@ const Unavailable = () => (
 );
 
 const DiscountNotice = ({ discountCode }) => {
-  if (!discountCode) return null;
+  if (!discountCode || discountCode !== "balaji") return (
+    <div className="discount-container mb-1">
+      <div className="spring-green-line"></div>
+      <span className="spring-green">$300</span>
+    </div>
+    );
   return (<div className="discount-container mb-1">
     <div className="spring-green-line"></div>
-    <span className="spring-green">$300</span>
+    <span className="spring-green">$200</span>
     </div>)
 };
 
