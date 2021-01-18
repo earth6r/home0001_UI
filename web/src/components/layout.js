@@ -19,6 +19,20 @@ const Layout = ({ mainMenu,infoSection,newsletter,infoSectionBelow, rMenu, rnd =
           if(el){
             el.style.marginBottom = "65px"
           }
+
+
+
+          let el2 =document.getElementsByClassName("intercom-launcher-frame")[0]
+          // el.style.position = "relative"
+          if(el2){
+            el2.style.marginBottom = "65px"
+          }
+           let el3 =document.getElementsByClassName("intercom-messenger-frame")[0]
+          // el.style.position = "relative"
+          if(el3){
+            el3.style.marginBottom = "65px"
+          }
+
        }else{
         
           let el =document.getElementsByClassName("intercom-lightweight-app-launcher")[0]
@@ -26,9 +40,20 @@ const Layout = ({ mainMenu,infoSection,newsletter,infoSectionBelow, rMenu, rnd =
           if(el){
             el.style.marginBottom = "0"
           }
+           let el2 =document.getElementsByClassName("intercom-launcher-frame")[0]
+          // el.style.position = "relative"
+          if(el2){
+            el2.style.marginBottom = "0"
+          }
+           let el3 =document.getElementsByClassName("intercom-messenger-frame")[0]
+          // el.style.position = "relative"
+          if(el3){
+            el3.style.marginBottom = "0"
+          }
+
        
        }
-
+    
       });
     }
   })
