@@ -33,6 +33,14 @@ const Layout = ({ mainMenu,infoSection,newsletter,infoSectionBelow, rMenu, rnd =
             el3.style.marginBottom = "65px"
           }
 
+           let el4 =document.getElementsByClassName("intercom-launcher-discovery-frame")[0]
+          // el.style.position = "relative"
+          if(el4){
+            el4.style.marginBottom = "65px"
+          }
+
+          
+
        }else{
         
           let el =document.getElementsByClassName("intercom-lightweight-app-launcher")[0]
@@ -49,6 +57,11 @@ const Layout = ({ mainMenu,infoSection,newsletter,infoSectionBelow, rMenu, rnd =
           // el.style.position = "relative"
           if(el3){
             el3.style.marginBottom = "0"
+          }
+           let el4 =document.getElementsByClassName("intercom-launcher-discovery-frame")[0]
+          // el.style.position = "relative"
+          if(el4){
+            el4.style.marginBottom = "0"
           }
 
        
