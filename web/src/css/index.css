@@ -284,9 +284,12 @@ small {
 }
 /* end loading animation */
 .sub-menu{
-  transition:1s;
+
   top:-5px;
+  max-height:40px;
+  overflow:hidden;
 }
+
 .sub-menu.myanimate{
   animation:openAnimation;
   animation-duration: 1s;
@@ -294,6 +297,12 @@ small {
   transition:2s;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
+}
+.sub-menu.noanimate >div{
+  pointer-events: none;
+}
+.sub-menu.noanimate >div:first-child{
+  pointer-events: auto;
 }
 .sub-menu.noanimate{
   animation:closeAnimation;

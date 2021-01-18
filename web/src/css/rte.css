@@ -24,6 +24,7 @@
 
 .rte ul li,
 .rte ol li {
+  padding-bottom:0.3em;
 }
 .partner-ref-link{
         padding: 0 0.25em;

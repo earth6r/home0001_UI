@@ -88,12 +88,12 @@ if(typeof window != `undefined`){
         </div></div></div></div>
     }
       {isHome && submenu && 
-      <div style={{ zIndex: "31", minWidth: "30vw", width:"calc(100% - 1.5rem)", borderRadius:"22px" }} className={`${showNav ? "hidden":""} ${showSubNav ? "myanimate":"noanimate"} sub-menu absolute ${showThinBanner && thinBanner ? "mt-20 md:mt-20 lg:mt-24" : "mt-16 lg:mt-20" } mx-3 lg:mx-5 box-menu px-5 py-2 lg:w-auto`} >
+      <div id="sub-menu" style={{ zIndex: "31", minWidth: "30vw", width:"calc(100% - 1.5rem)", borderRadius:"22px" }} className={`${showNav ? "hidden":""} ${showSubNav == 1 ? "myanimate":""} ${showSubNav == 2 ? "noanimate":""} sub-menu absolute ${showThinBanner && thinBanner ? "mt-20 md:mt-20 lg:mt-24" : "mt-16 lg:mt-20" } mx-3 lg:mx-5 box-menu px-5 py-2 lg:w-auto`} >
         {submenu &&
           submenu.map((item, index) => (
             <div key={index + "first"}>
             {item.link && isHome == item.link.content.main.slug.current &&
-            <div className="cursor-pointer" onClick={showSubNav ? onHideSubNav : onShowSubNav}><li className="block">{item.title} <span className="float-right"><svg style={{top:"10px"}} className={`${showSubNav ? "flip" : ""} relative`} width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M0.969269 0.955238L1.67451 0.25L5.90593 4.48143L5.2007 5.18667L0.969269 0.955238Z" fill="black"/><path d="M5.2007 5.18667L4.49546 4.48143L8.72689 0.25L9.43212 0.955238L5.2007 5.18667Z" fill="black"/></svg></span></li></div>
+            <div className="cursor-pointer" onClick={showSubNav == 1 ? onHideSubNav : onShowSubNav}><li className="block">{item.title} <span className="float-right"><svg style={{top:"10px"}} className={`${showSubNav == 1 ? "flip" : ""} relative`} width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M0.969269 0.955238L1.67451 0.25L5.90593 4.48143L5.2007 5.18667L0.969269 0.955238Z" fill="black"/><path d="M5.2007 5.18667L4.49546 4.48143L8.72689 0.25L9.43212 0.955238L5.2007 5.18667Z" fill="black"/></svg></span></li></div>
             }
              </div>
             ))
@@ -120,7 +120,7 @@ if(typeof window != `undefined`){
             </li>
             { !item.link &&
               <li className={`${
-          showSubNav ? " h-auto" : "h-auto"
+          showSubNav == 1 ? " h-auto" : "h-auto"
         } block md:block overflow-hidden opacity-50`}><span className="block md:pt-1/2em pb-1/4em md:pb-1/2em">{item.title}</span></li>
             }
           </div>

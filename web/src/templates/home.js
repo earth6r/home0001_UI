@@ -101,18 +101,18 @@ const HomeTemplate = (props) => {
                           } relative flex h-2em  pl-1/2em border-none`}
                         >
                           {item.unit && (
-                            <span className="w-1/6 text-left m-0  md:mt-0">
+                            <span className="w-1/4 text-left m-0  md:mt-0">
                               <span>Unit </span>
                               {item.unit}
                             </span>
                           )}
                           {item.bedrooms && (
-                            <span className="w-1/12 text-left m-0  text-mobileCaption md:text-base  md:mt-0">
+                            <span className="w-1/6 text-left m-0  text-mobileCaption md:text-base  md:mt-0">
                               {item.bedrooms}
                             </span>
                           )}
                           {item.price && (
-                            <span className="w-1/6 text-left text-mobileCaption md:text-base text-left m-0  md:mt-0">
+                            <span className="w-1/5 text-left text-mobileCaption md:text-base text-left m-0  md:mt-0">
                               {item.price}
                             </span>
                           )}
