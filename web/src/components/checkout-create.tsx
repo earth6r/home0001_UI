@@ -3,11 +3,16 @@ import { imageUrlFor } from "../lib/image-url";
 import { buildImageObj } from "../lib/helpers";
 import ButtonLink from "./global/buttonLink";
 import { Link } from "gatsby";
+import bitIcons from "./images/bit-icons-01.png"
+import bitDisabled from "./images/bit-icons2-01.png"
+import stripeIcons from "./images/stripe-icons-01.png"
+import stripeDisabled from "./images/stripe-icons2-01.png"
 import { StyledPageLink } from "./global/internalLink";
 
 const StripeCheckoutCreateButton = ({ handleClick, disabled }) => (
   <ButtonLink
     color="black"
+    style={{ backgroundImage: `url(${disabled ? stripeDisabled : stripeIcons})`}}
     disabled={disabled}
     className="e-checkout special-stripe"
     id="checkout-button"
@@ -24,6 +29,7 @@ const BitPayCheckoutButton = ({ bitPayID, disabled }) => (
     <input type="hidden" name="posData" value="" />
     <input type="hidden" name="data" value={bitPayID} />
     <ButtonLink
+      style={{ backgroundImage: `url(${disabled ? bitDisabled : bitIcons})`}}
       disabled={disabled}
       color="black"
       className="e-checkout special-bitcoin"
