@@ -10,9 +10,10 @@ import stripeDisabled from "./images/stripe-icons2-01.png"
 import { StyledPageLink } from "./global/internalLink";
 
 const StripeCheckoutCreateButton = ({ handleClick, disabled }) => (
+  <div className="stripe-button">
+  <img src={disabled ? stripeDisabled : stripeIcons} />
   <ButtonLink
     color="black"
-    style={{ backgroundImage: `url(${disabled ? stripeDisabled : stripeIcons})`}}
     disabled={disabled}
     className="e-checkout special-stripe"
     id="checkout-button"
@@ -21,6 +22,7 @@ const StripeCheckoutCreateButton = ({ handleClick, disabled }) => (
     type="button"
     value=" "
   />
+  </div>
 );
 
 const BitPayCheckoutButton = ({ bitPayID, disabled }) => (
@@ -28,14 +30,16 @@ const BitPayCheckoutButton = ({ bitPayID, disabled }) => (
     <input type="hidden" name="action" value="checkout" />
     <input type="hidden" name="posData" value="" />
     <input type="hidden" name="data" value={bitPayID} />
+    <div className="stripe-button">
+    <img src={disabled ? bitDisabled : bitIcons} />
     <ButtonLink
-      style={{ backgroundImage: `url(${disabled ? bitDisabled : bitIcons})`}}
       disabled={disabled}
       color="black"
       className="e-checkout special-bitcoin"
       type="submit"
       value=" "
     />
+    </div>
   </form>
 );
 
