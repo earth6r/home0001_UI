@@ -14,23 +14,43 @@ figure img{
   color:#66ff00;
 }
 .special-bitcoin{
-  background-image: url("./bit-icons-01.png");
+/*  background-image: url("./bit-icons-01.png");*/
   background-size: 55%;
   background-repeat:no-repeat;
   background-position:center center;
 }
-
+.stripe-button, .bit-button{
+  position:relative;
+}
+.stripe-button img, .bit-button img{
+  position:absolute;
+  height:135px;
+  top: 50%;
+  left:120px;
+  z-index: 2;
+  transform: translate(0%, -50%);
+}
+@media(max-width:768px){
+  .stripe-button img, .bit-button img{
+    height:80px;
+    position:absolute;
+    top: 50%;
+    left: 20px;
+    z-index: 2;
+    transform: translate(0%, -50%);
+  }
+}
 .special-stripe{
-  background-image: url(./stripe-icons-01.png);
+/*  background-image: url(./stripe-icons-01.png);*/
   background-size: 85%;
   background-repeat:no-repeat;
   background-position:center center;
 }
 .special-stripe[disabled]{
-  background-image: url(./stripe-icons2-01.png);
+/*  background-image: url(./stripe-icons2-01.png);*/
 }
 .bit-stripe[disabled]{
-  background-image: url(./bit-icons2-01.png);
+/*  background-image: url(./bit-icons2-01.png);*/
 }
 .discount-container{
   margin-bottom:0;
