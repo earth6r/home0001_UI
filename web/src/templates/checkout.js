@@ -68,12 +68,15 @@ const DiscountNotice = ({ discountCode }) => {
     </div>)
 };
 
-const ValueAdded = ({ discount, discountCode }) => (
+const ValueAdded = ({ discount, discountCode, unitTitle }) => (
   <>
     <h1 className="mb-0">Membership Deposit: <MembershipPrice discount={discount} />{" "}
     <DiscountNotice discountCode={discountCode} />
     <br />
     </h1>
+    {unitTitle &&
+      <p className="mb-0">Reserve unit {unitTitle}</p>
+    }
     <p>
     Deducted from your home purchase.
     <br />
@@ -103,8 +106,8 @@ const CheckoutDescription = ({ unit, modules, children, discount, discountCode }
 
           <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
             
-            <ValueAdded discount={discount} discountCode={discountCode} />
-            <p>Reserve unit: <br></br>{unit.title}</p>
+            <ValueAdded unitTitle={unit.title} discount={discount} discountCode={discountCode} />
+            
           </div>
 
         </div>
