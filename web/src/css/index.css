@@ -19,6 +19,7 @@ figure img{
   background-repeat:no-repeat;
   background-position:center center;
 }
+
 .special-stripe{
   background-image: url(./stripe-icons-01.png);
   background-size: 85%;

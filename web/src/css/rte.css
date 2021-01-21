@@ -11,7 +11,7 @@
 
 .rte ul,
 .rte ol {
-  @apply max-w-6xl;
+/*  @apply max-w-6xl;*/
   @apply pb-1em;
 }
 
