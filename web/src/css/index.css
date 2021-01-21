@@ -86,6 +86,7 @@ h6{
   text-align:left;
 }
 @media(min-width: 768px){
+
   .logo .current-nav-link::after{
     width: 105%;
   }
@@ -226,6 +227,20 @@ small {
     top:7px;
     right:5px;
   }
+   .discount-container{
+
+
+  }
+
+.spring-green {
+    color: #66ff00;
+    position: relative;
+
+  }
+  .spring-green-line {
+   
+  }
+
   .spring-green-line{
   height:4px;
 }
@@ -273,6 +288,9 @@ small {
  align-items:center;
 }
 @media(max-width:768px){
+  .membership-deposit{
+    max-width:300px;
+  }
   .pane-color{
    width:calc(100% + (0.625rem * 2));
    left:0;
@@ -307,7 +325,7 @@ small {
 .sub-menu{
 
   top:-5px;
-  max-height:40px;
+  max-height:38px;
   overflow:hidden;
 }
 
@@ -340,12 +358,12 @@ small {
   animation-iteration-count: 1;
 }
 @keyframes openAnimation {
-  from { max-height: 40px; }
+  from { max-height: 38px; }
   to { max-height: 1000px; height:auto; }
 }
 @keyframes closeAnimation {
   from { max-height: 500px; height:auto; }
-  to { max-height: 40px; }
+  to { max-height: 38px; }
 }
 
 @media(min-width: 768px){
@@ -402,6 +420,9 @@ small {
   background: white;
   border-bottom:1px solid black;
   height:33px;
+}
+.map-button{
+      top: -1.5px;
 }
 }
 .lightbox-pdf{
@@ -475,6 +496,11 @@ small {
   line-height:1.1 !important;
 }
 @media(max-width:768px){
+
+  .e-checkbox + a{
+    display: inline-block;
+  border-bottom:1px solid;
+  }
   .react-pdf__Page,.react-pdf__Page canvas{
   max-width: calc(100vw);
 }

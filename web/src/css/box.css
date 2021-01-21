@@ -21,6 +21,8 @@
 .accordion a{
   border-bottom:2px solid;
 }
+
+
 .accordion a.box{
   border:none;
 }
@@ -135,6 +137,12 @@
   color: #000000 !important;
 }
 @media(max-width:768px){
+
+  .accordion a{
+    display: inline-block;
+  border-bottom:1px solid;
+}
+
   .box-link{
     padding:0.0rem 0.5rem;
     padding-bottom:0.15rem;

@@ -37,7 +37,7 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
           <StandardText className="standard-text" specs={specs} data={reactModule as StandardTextProps["data"]} />
           {reactModule.callibrationMark ? 
          <GridRow></GridRow>
-          : <div className="w-full py-3"></div>}
+          :""}
         </>
       );
     case "article":

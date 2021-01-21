@@ -70,7 +70,7 @@ const DiscountNotice = ({ discountCode }) => {
 
 const ValueAdded = ({ discount, discountCode, unitTitle }) => (
   <>
-    <h1 className="mb-0">Membership Deposit: <MembershipPrice discount={discount} />{" "}
+    <h1 className="membership-deposit mb-0">Membership Deposit: <MembershipPrice discount={discount} />{" "}
     <DiscountNotice discountCode={discountCode} />
     <br />
     </h1>
