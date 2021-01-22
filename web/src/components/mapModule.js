@@ -34,7 +34,7 @@ const MapModule = (props) => {
       </PopoverTrigger>
       <PopoverContent
         bg="transparent"
-        className="border-none ml-64 max-w-sm md:max-w-2xl hidden md:block no-shadow text-mobileBody p-0 md:text-desktopBody"
+        className="border-none md:ml-64 max-w-1xl md:max-w-2xl md:block no-shadow text-mobileBody p-0 md:text-desktopBody"
         zIndex={50}
       >
         <span className="block">

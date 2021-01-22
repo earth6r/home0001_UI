@@ -228,6 +228,9 @@ small {
     top:7px;
     right:5px;
   }
+  .map-module-wrapper{
+    max-height:400px;
+  }
   .floor-plan-cap.text-desktopCaptionSpecial *{
     font-size: 10px;
     text-align: left;

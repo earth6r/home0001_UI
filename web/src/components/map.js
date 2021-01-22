@@ -11,7 +11,7 @@ const AnyReactComponent = ({ text }) => <MdPlace style={{transform:"scale(5)"}}>
 const MapContainer = (props) => {
     const {lat, long } = props;
     return (
-      <div style={{ height: '600px', width: '100%' }}>
+      <div className="map-module-wrapper" style={{ height: '600px', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.GATSBY_GOOGLE_MAPS }}
           options={{styles}}
