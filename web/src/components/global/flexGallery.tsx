@@ -52,13 +52,13 @@ const [isClient, setClient] = useState(false);
   }
   let handleWindowResize = function(event) {
 
-         if(window.innerWidth <= 768){
+         if(window.innerWidth <= 767){
             setMobile(true)
 
           }else{
             setMobile(false)
           }
-          if(window.innerWidth > 768 && window.innerWidth <= 1024){
+          if(window.innerWidth > 767 && window.innerWidth <= 1024){
             setTablet(true)
             
           }else{
@@ -69,12 +69,12 @@ const [isClient, setClient] = useState(false);
   useEffect(() => {
     setClient(true)
     if(typeof window != `undefined`){
-      if(window.innerWidth <= 768){
+      if(window.innerWidth <= 767){
         setMobile(true)
       }else{
         setMobile(false)
       }
-      if(window.innerWidth > 768 && window.innerWidth <= 1024){
+      if(window.innerWidth > 767 && window.innerWidth <= 1024){
         setTablet(true)
       }else{
         setTablet(false)

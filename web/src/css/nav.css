@@ -11,3 +11,8 @@
 .gradient-to-b3{
 	background: linear-gradient(0deg,hsla(0,0%,100%,0),hsla(0,0%,100%,.55) 20%, hsla(0,0%,100%,.75) 40%,hsla(0,0%,100%,.96) 75%,hsla(0,0%,100%,.99));
 }
+@media(max-width: 1024px){
+  .gradient-to-b3.top-0{
+    top:-5px !important;
+  }
+}
