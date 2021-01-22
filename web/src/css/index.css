@@ -223,15 +223,25 @@ small {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
-@media(max-width: 768px){
+@media(max-width: 767px){
   .arrow-input-checkout{
     top:7px;
     right:5px;
   }
-   .discount-container{
-
+  .floor-plan-cap.text-desktopCaptionSpecial *{
+    font-size: 10px;
+    text-align: left;
+  }
+  #page-content-wrapper .earth-svg{
+    top: -1px;
+    position: relative;
 
   }
+   .discount-container{
+  }
+
+
+  
 
 .spring-green {
     color: #66ff00;
@@ -597,7 +607,7 @@ img{
   to { transform: translateY(0); }
 }
 /* end R & D*/
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .gallery-image {
     margin-top: 0 !important;
     margin-bottom: 0 !important;

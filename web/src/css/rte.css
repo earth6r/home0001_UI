@@ -32,7 +32,7 @@
     margin-bottom: 0 !important;
     padding-bottom: 0.05em;
     line-height: 1.4em !important;
-    top: 0;
+    top: -1px;
     font-size: 4.1666vw;
     transform: translateY(0em);
 }

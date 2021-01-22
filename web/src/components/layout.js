@@ -12,10 +12,48 @@ const Layout = ({ mainMenu,infoSection,newsletter,infoSectionBelow, rMenu, rnd =
  useEffect(() => {
     setClient(true)
     if(typeof window != `undefined`){
+
+      if(window.innerHeight - document.documentElement.scrollHeight == 0){
+          
+
+          let el =document.getElementsByClassName("intercom-lightweight-app-launcher")
+
+          for (var i = el.length - 1; i >= 0; i--) {
+            el[i].style.marginBottom = "65px"
+          }
+
+          let el2 =document.getElementsByClassName("intercom-launcher-frame")
+          // el.style.position = "relative"
+          for (var i = el2.length - 1; i >= 0; i--) {
+            el2[i].style.marginBottom = "65px"
+          }
+           let el3 =document.getElementsByClassName("intercom-messenger-frame")
+          // el.style.position = "relative"
+         
+          for (var i = el3.length - 1; i >= 0; i--) {
+            el3[i].style.marginBottom = "65px"
+          }
+
+           let el4 =document.getElementsByClassName("intercom-launcher-discovery-frame")
+          // el.style.position = "relative"
+          for (var i = el4.length - 1; i >= 0; i--) {
+            el4[i].style.marginBottom = "65px"
+          }
+
+             let el5 =document.getElementById("intercom-frame")
+          // el.style.position = "relative"
+          if(el5){
+            el5.style.marginBottom = "65px"
+          }
+
+          
+
+       }
       document.addEventListener('scroll', function(){
         let footer = document.getElementById('footer').scrollHeight
-        console.log(document.documentElement.scrollHeight - document.documentElement.clientHeight)
-       if((document.documentElement.scrollHeight - document.documentElement.scrollTop - 900) <= footer){
+        console.log(document.documentElement.scrollHeight - document.documentElement.scrollTop)
+    
+       if( (window.innerWidth <= 768 && (document.documentElement.scrollHeight - document.documentElement.scrollTop - 1024) <= footer) || (window.innerWidth > 768 && (document.documentElement.scrollHeight - document.documentElement.scrollTop - 866) <= footer) ){
           
 
           let el =document.getElementsByClassName("intercom-lightweight-app-launcher")
