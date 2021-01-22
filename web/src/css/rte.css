@@ -138,7 +138,7 @@ select {
   position: absolute;
   left:0;
   top:0;
-  pointer-events: none;
+/*  pointer-events: none;*/
 }
 
 input[type="checkbox"],
@@ -160,7 +160,7 @@ input[type="checkbox"]:active {
 .e-checkbox-icon{
   font-size: 0.05em;
 }
-input[type="checkbox"]:checked + span:before {
+input[type="checkbox"]:checked:before {
   content: url("data:image/svg+xml;charset=UTF-8, <svg width='23px' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 53.96 55.93'><defs></defs><g id='Layer_2' data-name='Layer 2'><g id='Layer_1-2' data-name='Layer 1'><polyline stroke='black' stroke-width='3px' fill='none' class='cls-1' points='1.13 11.65 12.6 24.77 33.91 1'/></g></g></svg>");
   font-family: "Courier";
   display: block;
@@ -170,14 +170,14 @@ input[type="checkbox"]:checked + span:before {
   position:absolute;
   bottom: 0;
   height: auto;
-  left: 0.1em;
-    top: 0.3em;
+  left: 1px;
+  top: -18px;
 }
 @media(max-width:768px){
-   input[type="checkbox"]:checked + span:before {
+   input[type="checkbox"]:checked:before {
     content: url("data:image/svg+xml;charset=UTF-8, <svg width='12px' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 53.96 55.93'><defs></defs><g id='Layer_2' data-name='Layer 2'><g id='Layer_1-2' data-name='Layer 1'><polyline stroke='black' stroke-width='3px' fill='none' class='cls-1' points='1.13 11.65 12.6 24.77 33.91 1'/></g></g></svg>");
-    top: 7.5em;
-    left: 1.5em;
+    left: 1px;
+    top: -10px;
   }
 }
 

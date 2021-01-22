@@ -64,8 +64,8 @@ const CheckoutTerms = ({ disabled, handleChange }) => {
   return (
     <p className="mt-10">
       <span className="e-checkbox">
-        <input type="checkbox" value={disabled} onChange={handleChange} />
-        <span className="e-checkbox-icon"></span>
+        <input className="e-checkbox-icon" type="checkbox" value={disabled} onChange={handleChange} />
+       
       </span>
       I agree to the <Link to="/legal">Deposit Terms and Conditions​</Link>
     </p>
@@ -85,7 +85,7 @@ const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, hand
         {/* <ProductDetails discount={discount} discountCode={discountCode} unit={unit} /> */}
         <StripeCheckoutCreateButton disabled={disabled} handleClick={handleClick} />
         <div className="py-1em">
-          <BitPayCheckoutButton disabled={disabled} bitPayID={bitPayID} />
+        {/*<BitPayCheckoutButton disabled={disabled} bitPayID={bitPayID} />*/}  
         </div> 
 
         {/*<div className="py-1em">

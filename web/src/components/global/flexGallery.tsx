@@ -33,7 +33,7 @@ const FlexGallery = (props) => {
   const [direction, setDirection] = useState();
   const [mobile, setMobile] = useState(false);
   const [tablet, setTablet] = useState(false);
-  const myRowNum = (mobile && rowNumMobile) ? rowNumMobile : rowNum
+  const myRowNum = (mobile && rowNumMobile) ? rowNumMobile : ((tablet && rowNumTablet) ? rowNumTablet : rowNum)
 const [isClient, setClient] = useState(false);
   function showPdf(key) {
     let mykey = document.getElementById(key);

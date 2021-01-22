@@ -26,6 +26,7 @@ figure img{
   position:absolute;
   height:135px;
   top: 50%;
+  pointer-events: none;
   left:120px;
   z-index: 2;
   transform: translate(0%, -50%);

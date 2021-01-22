@@ -84,7 +84,7 @@ const CollectivePage = (props) => {
         keywords={site.keywords}
         image={meta.openImage}
       />
-      <Container className="rte-large">
+      <Container className="">
         <div className="flex flex-wrap">{RenderModules(modules)}</div>
       </Container>
     </Layout>

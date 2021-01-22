@@ -15,7 +15,7 @@ const Layout = ({ mainMenu,infoSection,newsletter,infoSectionBelow, rMenu, rnd =
       document.addEventListener('scroll', function(){
         let footer = document.getElementById('footer').scrollHeight
         console.log(document.documentElement.scrollHeight - document.documentElement.clientHeight)
-       if((document.documentElement.scrollHeight - document.documentElement.scrollTop - 866) <= footer){
+       if((document.documentElement.scrollHeight - document.documentElement.scrollTop - 900) <= footer){
           
 
           let el =document.getElementsByClassName("intercom-lightweight-app-launcher")
