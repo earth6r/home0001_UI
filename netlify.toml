@@ -4,6 +4,11 @@
   status = 301
   force = false
 
+[[redirects]]
+  from = "https://earth6r.com"
+  to = "https://xn--80age8aya.xn--90ae"
+  status = 301
+  force = false
 
 [build]
   functions = "web/functions"
