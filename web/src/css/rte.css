@@ -175,10 +175,25 @@ input[type="checkbox"]:checked:before {
 }
 @media(max-width:768px){
    input[type="checkbox"]:checked:before {
-    content: url("data:image/svg+xml;charset=UTF-8, <svg width='12px' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 53.96 55.93'><defs></defs><g id='Layer_2' data-name='Layer 2'><g id='Layer_1-2' data-name='Layer 1'><polyline stroke='black' stroke-width='3px' fill='none' class='cls-1' points='1.13 11.65 12.6 24.77 33.91 1'/></g></g></svg>");
-    left: 1px;
-    top: -10px;
+
+    top: 0px;
   }
+  input[type="checkbox"],
+input[type="checkbox"]:focus,
+input[type="checkbox"]:active {
+  -webkit-appearance: none;
+
+  width: 1em !important;
+  height: 1em !important;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 2px;
+  top: -0.05em;
+  padding:0.3em;
+  position: relative;
+  margin-right: 0.3em;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5) !important;
+}
 }
 
 input:focus {
