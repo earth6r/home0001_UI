@@ -7,7 +7,7 @@
 [[redirects]]
   from = "https://earth6r.com"
   to = "https://xn--80age8aya.xn--90ae"
-  status = 301
+  status = 200
   force = false
 
 [build]
