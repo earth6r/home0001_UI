@@ -12,7 +12,7 @@ export const RichTable = (props) => {
   return (
     <div className="relative z-0 w-screen pb-1em -mx-mobile md:-mx-desktop flex flex-col">
       {props.data.title && (
-        <div className="sticky top-0">
+        <div className="top-0">
           <div className="relative z-10 px-mobile md:px-desktop md:overflow-x-hidden">
             <h6 className="text-mobileBody md:text-desktopBody">{props.data.title}</h6>
             <ul className="flex justify-between w-full pt-1/2em">
@@ -32,7 +32,7 @@ export const RichTable = (props) => {
                 ))}
             </ul>
           </div>
-          <div className="absolute -mt-5 w-full h-20 md:h-32 md:h-18 z-0 gradient-to-b pointer-events-none top-0 left-0"></div>
+          <div className="absolute -mt-5 w-full h-20 md:h-32 md:h-18 z-0 pointer-events-none top-0 left-0"></div>
         </div>
       )}
       <ul className="w-full px-mobile md:px-desktop text-mobileCaption md:text-desktopCaption flex-1 flex flex-col md:text-base md:mt-2em">

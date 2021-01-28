@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import Header from "./header";
 import HeaderRnd from "./headerRnd";
 import Footer from "./footer";
@@ -6,16 +6,23 @@ import GridRow from "./grid/grid-row"
 
 const Layout = ({ mainMenu,infoSection,newsletter,infoSectionBelow, rMenu, rnd = false, subMenu, footerMenu, children, onHideNav, onShowNav, showNav,  onHideSubNav, onShowSubNav, showSubNav, siteTitle, isHome, thinBanner, showThinBanner, bannerUrl, bannerUrlTitle }) => {
 
-
+  const myRef = useRef({
+    location: null,
+  })
     
  const [isClient, setClient] = useState(false);
  useEffect(() => {
+    
+
+
     setClient(true)
     if(typeof window != `undefined`){
-
-      if(window.innerHeight - document.documentElement.scrollHeight == 0){
+       
+      
+      if( document.getElementById("page-content-wrapper") && (document.getElementById("page-content-wrapper").scrollHeight > 100) && (document.getElementById("page-content-wrapper").scrollHeight - window.innerHeight <= 0)){
           
-
+           console.log('hey')
+           console.log(document.getElementById("page-content-wrapper").scrollHeight)
           let el =document.getElementsByClassName("intercom-lightweight-app-launcher")
 
           for (var i = el.length - 1; i >= 0; i--) {
@@ -48,12 +55,41 @@ const Layout = ({ mainMenu,infoSection,newsletter,infoSectionBelow, rMenu, rnd =
 
           
 
+       }else {
+        let el =document.getElementsByClassName("intercom-lightweight-app-launcher")
+
+          for (var i = el.length - 1; i >= 0; i--) {
+            el[i].style.marginBottom = "0px"
+          }
+
+          let el2 =document.getElementsByClassName("intercom-launcher-frame")
+          // el.style.position = "relative"
+          for (var i = el2.length - 1; i >= 0; i--) {
+            el2[i].style.marginBottom = "0px"
+          }
+           let el3 =document.getElementsByClassName("intercom-messenger-frame")
+          // el.style.position = "relative"
+         
+          for (var i = el3.length - 1; i >= 0; i--) {
+            el3[i].style.marginBottom = "0px"
+          }
+
+           let el4 =document.getElementsByClassName("intercom-launcher-discovery-frame")
+          // el.style.position = "relative"
+          for (var i = el4.length - 1; i >= 0; i--) {
+            el4[i].style.marginBottom = "0px"
+          }
+
+             let el5 =document.getElementById("intercom-frame")
+          // el.style.position = "relative"
+          if(el5){
+            el5.style.marginBottom = "0px"
+          }
        }
       document.addEventListener('scroll', function(){
         let footer = document.getElementById('footer').scrollHeight
-        console.log(document.documentElement.scrollHeight - document.documentElement.scrollTop)
-    
-       if( (window.innerWidth <= 768 && (document.documentElement.scrollHeight - document.documentElement.scrollTop - 1024) <= footer) || (window.innerWidth > 768 && (document.documentElement.scrollHeight - document.documentElement.scrollTop - 866) <= footer) ){
+        
+       if( (window.innerWidth <= 768 && (document.documentElement.scrollHeight - document.documentElement.scrollTop - 1024) <= footer) || (window.innerWidth > 768 && (document.documentElement.scrollHeight - document.documentElement.scrollTop - 800) <= footer) ){
           
 
           let el =document.getElementsByClassName("intercom-lightweight-app-launcher")

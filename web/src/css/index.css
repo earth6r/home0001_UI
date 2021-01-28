@@ -435,6 +435,9 @@ small {
   border-bottom:1px solid black;
   height:33px;
 }
+.floor-plan-cap br{
+  display:none;
+}
 .map-button{
       top: -1.5px;
 }
