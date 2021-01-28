@@ -5,8 +5,8 @@ import ButtonLink from "./global/buttonLink";
 import { Link } from "gatsby";
 import bitIcons from "./images/bit-icons-01.png"
 import bitDisabled from "./images/bit-icons2-01.png"
-import stripeIcons from "./images/stripe-icons-01.png"
-import stripeDisabled from "./images/stripe-icons2-01.png"
+import stripeIcons from "./images/color.svg"
+import stripeDisabled from "./images/stripe-icons2-01.svg"
 import { StyledPageLink } from "./global/internalLink";
 
 const StripeCheckoutCreateButton = ({ handleClick, disabled }) => (
