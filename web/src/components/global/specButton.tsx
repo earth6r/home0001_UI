@@ -61,7 +61,7 @@ const SpecButton = ({ title, url, color, float = true, callibrationMark, specs =
             className="rounded-lg"
           >
             <ModalOverlay onClick={onClose} opacity={0.75} />
-            <ModalContent className="rounded-lg mx-mobile md:mx-desktop">
+            <ModalContent className="rounded-lg mx-mobile max-w-special md:mx-desktop">
               <ModalCloseButton zIndex={10} />
               <ModalBody className="rounded-lg">
                 <h3 className="text-mobileBody md:text-desktopBody pb-1em pt-1/4em">
