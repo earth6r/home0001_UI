@@ -27,10 +27,11 @@ figure img{
   height:135px;
   top: 50%;
   pointer-events: none;
-  left:90px;
+  left:85px;
   z-index: 2;
   transform: translate(0%, -50%);
 }
+
 @media(max-width:767px){
   .stripe-button img, .bit-button img{
     height:15px;
@@ -87,7 +88,9 @@ h6{
   text-align:left;
 }
 @media(min-width: 768px){
-
+.max-w-special{
+  max-width:calc(100% - 8rem) !important;
+}
   .logo .current-nav-link::after{
     width: 105%;
   }
