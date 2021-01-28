@@ -8,15 +8,18 @@ export default {
   fields: [
   { name:'numRows',
       type: 'number',
-      title: 'TotalNumber of Rows'
+      title: 'TotalNumber of Rows',
+      validation: Rule => Rule.max(5000).warning('you should make multiple galleries')
     },
     { name:'numRowsMobile',
       type: 'number',
-      title: 'Number of Rows for Mobile'
+      title: 'Number of Rows for Mobile',
+      validation: Rule => Rule.max(5000).warning('you should make multiple galleries')
     },
     { name:'numRowsTablet',
       type: 'number',
-      title: 'Number of Rows for Tablet'
+      title: 'Number of Rows for Tablet',
+      validation: Rule => Rule.max(5000).warning('you should make multiple galleries')
     },
     {
       name: 'callibrationMark',
