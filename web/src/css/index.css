@@ -27,16 +27,16 @@ figure img{
   height:135px;
   top: 50%;
   pointer-events: none;
-  left:120px;
+  left:90px;
   z-index: 2;
   transform: translate(0%, -50%);
 }
 @media(max-width:767px){
   .stripe-button img, .bit-button img{
-    height:80px;
+    height:15px;
     position:absolute;
     top: 50%;
-    left: 20px;
+    left: calc(50% - 115px);
     z-index: 2;
     transform: translate(0%, -50%);
   }
