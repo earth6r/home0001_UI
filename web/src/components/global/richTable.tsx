@@ -22,7 +22,7 @@ export const RichTable = (props) => {
                 headerRow.map((head, index) => {
                   let currentHeader = index;
                   return(
-                  <ul className={`inline-block align-top w-1/2 ${
+                  <ul className={`mb-4 md:mb-0 inline-block align-top w-1/2 ${
                       index == headerRow.length - 1 ? "min-w-0 md:text-right md:w-2em" : " md:flex-1"
                     } md:w-auto `}>
                   <li
