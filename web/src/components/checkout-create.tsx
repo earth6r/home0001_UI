@@ -67,7 +67,7 @@ const CheckoutTerms = ({ disabled, handleChange }) => {
         <input className="e-checkbox-icon" type="checkbox" value={disabled} onChange={handleChange} />
        
       </span>
-      I agree to the <Link to="/legal">Deposit Terms and Conditions​</Link>
+      I agree to the <a target="_blank" href="/legal">Deposit Terms and Conditions​</a>
     </p>
   );
 };
