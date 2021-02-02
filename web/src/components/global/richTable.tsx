@@ -5,18 +5,21 @@ import { Grid } from "@chakra-ui/core";
 
 export const RichTable = (props) => {
   const { headerRow, rows } = props.data;
-  console.log(headerRow)
+  console.log(props.data)
 
   // const layout = ["4em", "4em", "4em"]
 
   return (
-
-
+<>
+    <h3 className="text-mobileBody md:text-desktopBody pb-1em pt-1/4em">
+                  {props.data.title}
+                </h3>
+                <GridRow />
     <div className="relative z-0 w-screen pb-1em -mx-mobile md:-mx-desktop flex flex-col">
       {props.data.title && (
         <div className="top-0">
           <div className="relative z-10 px-mobile md:px-desktop md:overflow-x-hidden">
-            <h6 className="text-mobileBody md:text-desktopBody">{props.data.title}</h6>
+          
             <div className="md:flex justify-between w-full pt-1/2em">
               {headerRow &&
                 headerRow.map((head, index) => {
@@ -70,6 +73,6 @@ export const RichTable = (props) => {
         <GridRow />
       </div>
     </div>
-
+</>
   );
 };

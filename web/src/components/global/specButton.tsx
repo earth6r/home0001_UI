@@ -64,10 +64,7 @@ const SpecButton = ({ title, url, color, float = true, callibrationMark, specs =
             <ModalContent className="rounded-lg mx-mobile max-w-special md:mx-desktop">
               <ModalCloseButton zIndex={10} />
               <ModalBody className="rounded-lg">
-                <h3 className="text-mobileBody md:text-desktopBody pb-1em pt-1/4em">
-                  Specifications
-                </h3>
-                <GridRow />
+                
                 {specs && specs.map((spec) => <RichTable key={spec._key} data={spec} />)}
               </ModalBody>
             </ModalContent>
