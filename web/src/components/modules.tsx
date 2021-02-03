@@ -87,18 +87,23 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
           offset = reactModule.mobileOffset;
         }
       }
-   
+      let paneColor = reactModule.color ? reactModule.color : "#ffffff";
       let paneStyle = {
         minHeight: "calc(100vh - " + offset + "px)"
       }
       let paneColorStyle = {
-        background: reactModule.color, 
+        background: paneColor, 
         minHeight: "calc(100vh + " + offset + "px)", 
         top: "-"+ offset+"px"
       } 
+      let paneGradient = {
+       background: "linear-gradient(0deg,"+paneColor+"00 0%,"+ paneColor +"55 20%," +paneColor+"75 40%,"+paneColor+"96 75%,"+paneColor+"99 100%)"
+      }
       return (
         <div style={paneStyle} className="pane display-flex mb-4">
-        <div style={paneColorStyle} className="pane-color"></div>
+        
+        <div style={paneColorStyle} className="pane-color"> </div>
+        <div style={paneColorStyle} className="pane-container"><div className="sticky-pane-gradient-container sticky top-0"><div style={paneGradient} className="sticky-pane-gradient w-full h-12 md:h-20 mt-36    pointer-events-none top-0 left-0"></div></div></div> 
          {RenderPaneModules(reactModule.modules)}
         </div>
       );
