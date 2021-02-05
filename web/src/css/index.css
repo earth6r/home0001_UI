@@ -206,7 +206,7 @@ form .earth-svg svg{
 }
 .flex-item .drop-shadow{
   box-shadow: 0px 1px 11px rgb(0 0 0 / 30%);
-  transition: 0.7s;
+  transition: 0.1s;
 }
 .flex-item:hover .drop-shadow{
   box-shadow:0px 1px 5px rgb(0 0 0 / 40%);
