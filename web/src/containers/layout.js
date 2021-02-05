@@ -95,6 +95,12 @@ const query = graphql`
         }
       }
     }
+    pillColor:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      pillColor
+    }
+    strikeColor:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      strikeColor 
+    }
     newsletter:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       newsletterText {
         _key
@@ -236,7 +242,7 @@ function LayoutContainer(props) {
           );
         }
 
-  
+       console.log(data.strikeColor.strikeColor)
         return (
           <ThemeProvider>
             <Global styles={GlobalStyles} />
@@ -252,6 +258,8 @@ function LayoutContainer(props) {
               showNav={showNav}
               showSubNav = {showSubNav}
               siteTitle={data.site.title}
+              pillColor={data.pillColor.pillColor}
+              strikeColor={data.strikeColor.strikeColor}
               onHideNav={handleHideNav}
               onShowNav={handleShowNav}
               onHideSubNav={handleHideSubNav}

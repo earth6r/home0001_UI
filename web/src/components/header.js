@@ -5,7 +5,7 @@ import CircleButton from "./global/circleButton";
 import GridRow from "./grid/grid-row";
 import ReactHtmlParser from "react-html-parser"
 
-const Header = ({ mainMenu, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome, showThinBanner, thinBanner, bannerUrl, bannerUrlTitle }) => {
+const Header = ({ mainMenu, rMenu, pillColor, strikeColor, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome, showThinBanner, thinBanner, bannerUrl, bannerUrlTitle }) => {
   // const containerRef = useRef(null);
   // const { height } = useDimensions(containerRef);
   const [loaded, setLoaded] = useState(false);
@@ -73,13 +73,17 @@ if(typeof window != `undefined`){
       setLoaded(true);
     }, 3000);
   }, []);
-
+  let buttonStyle = {
+    background: pillColor
+  }
+  console.log(buttonStyle)
   return (
     <>
     {showThinBanner && thinBanner &&
         <div className="fixed w-full z-50" id="thin-banner"><div className="marquee"><div className="marquee-track"><div className="marquee-content ">{ReactHtmlParser(thinBanner)}
           {bannerUrl &&
             <PageLink
+                  style={buttonStyle}
                   to={`${uri}/${bannerUrl.content.main.slug.current}`}
                 >
                 {bannerUrlTitle}

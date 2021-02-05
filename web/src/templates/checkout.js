@@ -20,7 +20,9 @@ export const query = graphql`
       _rawGdpr(resolveReferences: { maxDepth: 10 })
       _rawContent(resolveReferences: { maxDepth: 20 })
     }
-
+    strikeColor:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      strikeColor 
+    }
     homes: allSanityHome {
       edges {
         node {
@@ -55,11 +57,12 @@ const Unavailable = () => (
   </div>
 );
 
-const DiscountNotice = ({ discountCode }) => {
+const DiscountNotice = ({ discountCode, color }) => {
+
   if (!discountCode || discountCode !== "balaji") return (
     <div className="discount-container mb-1">
-      <div className="spring-green-line"></div>
-      <span className="spring-green">$300</span>
+      <div style={{background: color}} className="spring-green-line"></div>
+      <span style={{color:color}} className="spring-green">$300</span>
     </div>
     );
   return (<div className="discount-container mb-1">
@@ -68,10 +71,10 @@ const DiscountNotice = ({ discountCode }) => {
     </div>)
 };
 
-const ValueAdded = ({ discount, discountCode, unitTitle }) => (
+const ValueAdded = ({ discount, discountCode, unitTitle, color }) => (
   <>
     <h1 className="membership-deposit mb-2">Membership Deposit: <MembershipPrice discount={discount} />{" "}
-    <DiscountNotice discountCode={discountCode} />
+    <DiscountNotice color={color} discountCode={discountCode} />
     <br />
     </h1>
     {unitTitle &&
@@ -95,7 +98,7 @@ const CheckoutActions = ({ unit, children }) => {
   return <>{children}</>;
 };
 
-const CheckoutDescription = ({ unit, modules, children, discount, discountCode }) => {
+const CheckoutDescription = ({ unit, modules, children,color, discount, discountCode }) => {
   const [head, ...rest] = modules;
 
   if (unit) {
@@ -106,7 +109,7 @@ const CheckoutDescription = ({ unit, modules, children, discount, discountCode }
 
           <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
             
-            <ValueAdded unitTitle={unit.title} discount={discount} discountCode={discountCode} />
+            <ValueAdded color={color} unitTitle={unit.title} discount={discount} discountCode={discountCode} />
             
           </div>
 
@@ -123,7 +126,7 @@ const CheckoutDescription = ({ unit, modules, children, discount, discountCode }
 
         <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
    
-          <ValueAdded discount={discount} discountCode={discountCode} />
+          <ValueAdded discount={discount} color={color} discountCode={discountCode} />
         </div>
 
       </div>
@@ -162,6 +165,7 @@ const CheckoutModules = ({ unit, modules, children, discount, discountCode }) =>
 const CheckoutTemplate = (props) => {
   const { data, errors } = props;
   const page = data && data.checkout;
+  const color = data.strikeColor.strikeColor
   const ssr = typeof window === "undefined";
   const {
     main: { modules, slug },
@@ -219,6 +223,7 @@ const CheckoutTemplate = (props) => {
               <>
                 <CheckoutDescription
                   unit={unit}
+                  color={color}
                   modules={modules}
                   discount={discount}
                   discountCode={discountCode}

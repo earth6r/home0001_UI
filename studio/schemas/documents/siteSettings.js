@@ -60,6 +60,16 @@ export default {
       name: 'infosectionBelow',
       type: 'bodyPortableText',
       title: '(below newsletter) Info Section for R & D site'
+    },
+    {
+      name: 'pillColor',
+      type: 'string',
+      title: 'color of the button in the thin banner'
+    },
+     {
+      name: 'strikeColor',
+      type: 'string',
+      title: 'color of the discount strikethrough'
     }
   ],
 }

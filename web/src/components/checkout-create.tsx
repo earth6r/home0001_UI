@@ -49,7 +49,7 @@ const Message = ({ message }) => (
   </section>
 );
 
-const Price = ({ discount }) => {
+const Price = ({ discount, color }) => {
   if (discount)
     return (
       <span>

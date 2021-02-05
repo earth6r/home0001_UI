@@ -4,7 +4,7 @@ import HeaderRnd from "./headerRnd";
 import Footer from "./footer";
 import GridRow from "./grid/grid-row"
 
-const Layout = ({ mainMenu,infoSection,newsletter,infoSectionBelow, rMenu, rnd = false, subMenu, footerMenu, children, onHideNav, onShowNav, showNav,  onHideSubNav, onShowSubNav, showSubNav, siteTitle, isHome, thinBanner, showThinBanner, bannerUrl, bannerUrlTitle }) => {
+const Layout = ({ mainMenu,infoSection,newsletter,strikeColor,pillColor,infoSectionBelow, rMenu, rnd = false, subMenu, footerMenu, children, onHideNav, onShowNav, showNav,  onHideSubNav, onShowSubNav, showSubNav, siteTitle, isHome, thinBanner, showThinBanner, bannerUrl, bannerUrlTitle }) => {
 
   const myRef = useRef({
     location: null,
@@ -190,6 +190,8 @@ const Layout = ({ mainMenu,infoSection,newsletter,infoSectionBelow, rMenu, rnd =
       onHideNav={onHideNav}
       onShowNav={onShowNav}
       showNav={showNav}
+      pillColor = {pillColor}
+      strikeColor = {strikeColor}
       infoSection={infoSection}
       onHideSubNav={onHideSubNav}
       onShowSubNav={onShowSubNav}

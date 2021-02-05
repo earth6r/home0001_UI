@@ -14,6 +14,7 @@ export const PageLink = (props: {
 }) => (
   <Link
     type={props.type}
+    style={props.style}
     className={props.className}
     activeClassName="active"
     onClick={props.onClick}
