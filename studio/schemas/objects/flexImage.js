@@ -41,74 +41,74 @@ export default {
               },
             },
               {name:'startColumnMobile',
-    type: 'number',
-    description: "starting column for mobile",
-    title: 'starting column mobile (between 1- 20)',
-    options: {
-      isHighlighted: true,
-    },
-    validation: Rule => Rule.max(20).warning('We use a 20 column system on the site')
-  },
-  {name:'endColumnMobile',
-    type: 'number',
-    description: "ending column for mobile",
-    title: 'ending column mobile (between 1- 20)',
-    options: {
-      isHighlighted: true,
-    },
-    validation: Rule => Rule.max(20).warning('We use a 20 column system on the site')
-  },
-  {name:'startRowMobile',
-    type: 'number',
-    description: "starting row for mobile",
-    title: 'starting Row mobile',
-    options: {
-      isHighlighted: true,
-    },
-  },
-  {name:'endRowMobile',
-    type: 'number',
-    description: "ending row for mobile",
-    title: 'ending Row Mobile',
-    options: {
-      isHighlighted: true,
-    },
-  },
-  
-{name:'startColumnTablet',
-    type: 'number',
-    description: "starting column for tablet",
-    title: 'starting column tablet (between 1- 20)',
-    options: {
-      isHighlighted: true,
-    },
-    validation: Rule => Rule.max(20).warning('We use a 20 column system on the site')
-  },
-  {name:'endColumnTablet',
-    type: 'number',
-    description: "ending column for tablet",
-    title: 'ending column tablet (between 1- 20)',
-    options: {
-      isHighlighted: true,
-    },
-    validation: Rule => Rule.max(20).warning('We use a 20 column system on the site')
-  },
-  {name:'startRowTablet',
-    type: 'number',
-    description: "starting row for tablet",
-    title: 'starting Row tablet',
-    options: {
-      isHighlighted: true,
-    },
-  },
-  {name:'endRowTablet',
-    type: 'number',
-    description: "ending row for tablet",
-    title: 'ending Row tablet',
-    options: {
-      isHighlighted: true,
-    },
-  },
+              type: 'number',
+              description: "starting column for mobile",
+              title: 'starting column mobile (between 1- 20)',
+              options: {
+                isHighlighted: true,
+              },
+              validation: Rule => Rule.max(20).warning('We use a 20 column system on the site')
+            },
+            {name:'endColumnMobile',
+              type: 'number',
+              description: "ending column for mobile",
+              title: 'ending column mobile (between 1- 20)',
+              options: {
+                isHighlighted: true,
+              },
+              validation: Rule => Rule.max(20).warning('We use a 20 column system on the site')
+            },
+            {name:'startRowMobile',
+              type: 'number',
+              description: "starting row for mobile",
+              title: 'starting Row mobile',
+              options: {
+                isHighlighted: true,
+              },
+            },
+            {name:'endRowMobile',
+              type: 'number',
+              description: "ending row for mobile",
+              title: 'ending Row Mobile',
+              options: {
+                isHighlighted: true,
+              },
+            },
+            
+          {name:'startColumnTablet',
+              type: 'number',
+              description: "starting column for tablet",
+              title: 'starting column tablet (between 1- 20)',
+              options: {
+                isHighlighted: true,
+              },
+              validation: Rule => Rule.max(20).warning('We use a 20 column system on the site')
+            },
+            {name:'endColumnTablet',
+              type: 'number',
+              description: "ending column for tablet",
+              title: 'ending column tablet (between 1- 20)',
+              options: {
+                isHighlighted: true,
+              },
+              validation: Rule => Rule.max(20).warning('We use a 20 column system on the site')
+            },
+            {name:'startRowTablet',
+              type: 'number',
+              description: "starting row for tablet",
+              title: 'starting Row tablet',
+              options: {
+                isHighlighted: true,
+              },
+            },
+            {name:'endRowTablet',
+              type: 'number',
+              description: "ending row for tablet",
+              title: 'ending Row tablet',
+              options: {
+                isHighlighted: true,
+              },
+            },
 
             {
               name: 'caption',
@@ -135,6 +135,22 @@ export default {
               options: {
                 isHighlighted: true,
               },
+            },
+            {
+              title: 'Drop Shadow?',
+              name: 'dropShadow',
+              type: 'boolean',
+              options: {
+                isHighlighted: true,
+              }
+            },
+            {
+              name: 'hoverImage',
+              type: 'image',
+              title: 'Hover Image (optional)',
+              options: {
+                isHighlighted: true,
+              }
             },
             {
               title: 'Lead Image?',

@@ -138,10 +138,12 @@ const [isClient, setClient] = useState(false);
                 return (
                   <div key={image._key} className="flex-item" style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}>
                    <PageLink
-                      className="internal-link z-40 relative"
+                      className="internal-link z-40 block relative"
                       to={uri +"/" + link}
                     >
-                    <img className="z-40 relative" src={urlFor(image)}/> {image.caption && <span className="mt-1 relative z-20 block text-sm">{image.caption}</span>}
+                    <img className={`${image.dropShadow ? "drop-shadow" : ""} ${image.hoverImage ? "hover-hide" : ""} z-40 relative`} src={urlFor(image)}/> {image.caption && <span className="mt-1 relative z-20 block text-sm">{image.caption}</span>}  
+                    {image.hoverImage &&
+                      <img className={`${image.dropShadow ? "drop-shadow" : ""} hover-image`} src={urlFor(image.hoverImage)}/>}
                     </PageLink>
                   </div>
                 
@@ -151,7 +153,7 @@ const [isClient, setClient] = useState(false);
                     
                   <div key={image._key} className="flex-item" style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}>
 
-                      <img className="z-40 relative" src={urlFor(image)}/> {image.caption && <span className="mt-1 block text-sm z-20 relative">{image.caption}</span>}
+                      <img className={`${image.dropShadow ? "drop-shadow" : ""} z-40 relative`} src={urlFor(image)}/> {image.caption && <span className="mt-1 block text-sm z-20 relative">{image.caption}</span>}
         
                   </div>
                 
