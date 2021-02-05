@@ -5,6 +5,11 @@ export default {
   name: 'richTable',
   type: 'document',
   fields: [
+  {
+      name: 'internalTitle',
+      title: 'Title for Internal Use',
+      type: 'string',
+    },
     {
       name: 'callibrationMark',
       title: 'Show Callibration Marks',
@@ -39,7 +44,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'internalTitle',
     },
   },
 }

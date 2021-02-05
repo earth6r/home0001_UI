@@ -3,6 +3,11 @@ export default {
   name: 'accordion',
   type: 'object',
   fields: [
+   {
+      name: 'internalTitle',
+      title: 'Title for Internal Use',
+      type: 'string',
+    },
     {
       name: 'title',
       title: 'Title (optional)',
@@ -21,4 +26,9 @@ export default {
       of: [{ type: 'accordionItem' }],
     },
   ],
+  preview: {
+    select: {
+      title: "internalTitle"
+    }
+  }
 }

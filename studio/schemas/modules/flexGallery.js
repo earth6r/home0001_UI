@@ -6,6 +6,11 @@ export default {
   type: 'object',
   hidden: true,
   fields: [
+  {
+      name: 'internalTitle',
+      title: 'Title for Internal Use',
+      type: 'string',
+    },
   { name:'numRows',
       type: 'number',
       title: 'TotalNumber of Rows',
@@ -100,4 +105,9 @@ export default {
       ],
     }
   ],
+  preview: {
+    select: {
+      title: "internalTitle"
+    }
+  }
 }

@@ -6,6 +6,11 @@ export default {
   type: 'object',
   hidden: true,
   fields: [
+  {
+      name: 'internalTitle',
+      title: 'Title for Internal Use',
+      type: 'string',
+    },
     {
       name: 'title',
       title: 'Title (optional)',
@@ -36,12 +41,7 @@ export default {
   ],
   preview: {
     select: {
-      title: '',
-    },
-    prepare(selection) {
-      return Object.assign({}, selection, {
-        title: 'Articles',
-      })
+      title: 'internalTitle',
     },
   },
 }

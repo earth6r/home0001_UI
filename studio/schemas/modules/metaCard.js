@@ -4,6 +4,11 @@ export default {
   type: 'object',
   // hidden: true,
   fieldsets: [
+  {
+      name: 'internalTitle',
+      title: 'Title for Internal Use',
+      type: 'string',
+    },
     {
       name: 'opengraph',
       title: 'Open Graph Protocol',
@@ -81,5 +86,10 @@ export default {
       type: 'text',
       fieldset: 'twitter'
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: "internalTitle"
+    }
+  }
 }

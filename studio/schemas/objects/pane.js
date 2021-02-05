@@ -3,6 +3,11 @@ export default {
   name: 'pane',
   type: 'object',
   fields: [
+{
+      name: 'internalTitle',
+      title: 'Title for Internal Use',
+      type: 'string',
+    },
   {
     name:'offset',
     title:'offset in pixels(i.e. 112)',
@@ -34,4 +39,9 @@ export default {
       },
     },
   ],
+  preview: {
+    select: {
+      title: "internalTitle"
+    }
+  }
 }

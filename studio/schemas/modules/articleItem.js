@@ -3,6 +3,11 @@ export default {
   name: 'articleItem',
   type: 'object',
   fields: [
+  {
+      name: 'internalTitle',
+      title: 'Title for Internal Use',
+      type: 'string',
+    },
     {
       name: 'title',
       title: 'Article Title',
@@ -29,4 +34,9 @@ export default {
       type: 'bodyPortableText',
     },
   ],
+  preview: {
+    select: {
+      title: "internalTitle"
+    }
+  }
 }

@@ -4,6 +4,11 @@ export default {
   type: 'object',
   hidden: true,
   fields: [
+  {
+      name: 'internalTitle',
+      title: 'Title for Internal Use',
+      type: 'string',
+    },
     {
       name: 'title',
       title: 'Link CTA',
@@ -17,4 +22,9 @@ export default {
         'There is no `link` validation on this so please type accurate urls with https://, mailto:, tel: etc.',
     },
   ],
+  preview: {
+    select: {
+      title: "internalTitle"
+    }
+  }
 }

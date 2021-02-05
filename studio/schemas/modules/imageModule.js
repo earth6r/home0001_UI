@@ -4,6 +4,11 @@ export default {
   type: 'object',
   hidden: true,
   fields: [
+  {
+      name: 'internalTitle',
+      title: 'Title for Internal Use',
+      type: 'string',
+    },
     {
       name: 'image',
       title: 'Image',
@@ -38,4 +43,9 @@ export default {
       },
     },
   ],
+  preview: {
+    select: {
+      title: "internalTitle"
+    }
+  }
 }

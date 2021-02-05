@@ -6,6 +6,11 @@ export default {
   type: 'object',
   hidden: true,
   fields: [
+{
+      name: 'internalTitle',
+      title: 'Title for Internal Use',
+      type: 'string',
+    },
     {
       name: 'callibrationMark',
       title: 'Show Callibration Marks',
@@ -109,7 +114,7 @@ export default {
   ],
   preview: {
     select: {
-      title: '',
+      title: 'internalLink',
     },
     prepare(selection) {
       return Object.assign({}, selection, {
