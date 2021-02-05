@@ -3,8 +3,8 @@ import { imageUrlFor } from "../lib/image-url";
 import { buildImageObj } from "../lib/helpers";
 import ButtonLink from "./global/buttonLink";
 import { Link } from "gatsby";
-import bitIcons from "./images/bit-icons-01.png"
-import bitDisabled from "./images/bit-icons2-01.png"
+import bitIcons from "./images/bit-icons-02.svg"
+import bitDisabled from "./images/bit-icons-01.svg"
 import stripeIcons from "./images/color.svg"
 import stripeDisabled from "./images/stripe-icons2-01.svg"
 import { StyledPageLink } from "./global/internalLink";
@@ -30,7 +30,7 @@ const BitPayCheckoutButton = ({ bitPayID, disabled }) => (
     <input type="hidden" name="action" value="checkout" />
     <input type="hidden" name="posData" value="" />
     <input type="hidden" name="data" value={bitPayID} />
-    <div className="stripe-button">
+    <div className="stripe-button bit-button">
     <img src={disabled ? bitDisabled : bitIcons} />
     <ButtonLink
       disabled={disabled}
@@ -85,7 +85,7 @@ const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, hand
         {/* <ProductDetails discount={discount} discountCode={discountCode} unit={unit} /> */}
         <StripeCheckoutCreateButton disabled={disabled} handleClick={handleClick} />
         <div className="py-1em">
-        {/*<BitPayCheckoutButton disabled={disabled} bitPayID={bitPayID} />*/}  
+        <BitPayCheckoutButton disabled={disabled} bitPayID={bitPayID} /> 
         </div> 
 
         {/*<div className="py-1em">
