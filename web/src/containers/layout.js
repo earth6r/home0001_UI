@@ -71,6 +71,7 @@ const query = graphql`
       edges {
         node {
           _rawInfosection(resolveReferences: { maxDepth: 20 })
+          _rawNewsletterText(resolveReferences: { maxDepth: 20 })
         }
       }
     }
@@ -254,7 +255,7 @@ function LayoutContainer(props) {
               bannerUrlTitle={data.bannerUrlTitle.bannerUrlTitle}
               infoSection={data.all.edges[0].node._rawInfosection}
               infoSectionBelow={data.belowInfo.edges[0].node._rawInfosectionBelow}
-              newsletter={data.newsletter.newsletterText}
+              newsletter={data.all.edges[0].node._rawNewsletterText}
               showNav={showNav}
               showSubNav = {showSubNav}
               siteTitle={data.site.title}

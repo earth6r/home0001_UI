@@ -92,7 +92,7 @@ if(typeof window != `undefined`){
         </div></div></div></div>
     }
       {isHome && submenu && 
-      <div id="sub-menu" style={{ zIndex: "31", minWidth: "30vw", width:"calc(100% - 1.5rem)", borderRadius:"22px" }} className={`${showNav ? "hidden":""} ${showSubNav == 1 ? "myanimate":""} ${showSubNav == 2 ? "noanimate":""} sub-menu absolute ${showThinBanner && thinBanner ? "mt-20 md:mt-20 lg:mt-24" : "mt-16 lg:mt-20" } mx-3 lg:mx-5 box-menu px-5 py-2 lg:w-auto`} >
+      <div id="sub-menu" style={{ zIndex: "41", minWidth: "30vw", width:"calc(100% - 1.5rem)", borderRadius:"22px" }} className={`${showNav ? "hidden":""} ${showSubNav == 1 ? "myanimate":""} ${showSubNav == 2 ? "noanimate":""} sub-menu absolute ${showThinBanner && thinBanner ? "mt-20 md:mt-20 lg:mt-24" : "mt-16 lg:mt-20" } mx-3 lg:mx-5 box-menu px-5 py-2 lg:w-auto`} >
         {submenu &&
           submenu.map((item, index) => (
             <>

@@ -87,8 +87,11 @@ const Layout = ({ mainMenu,infoSection,newsletter,strikeColor,pillColor,infoSect
           }
        }
       document.addEventListener('scroll', function(){
-        let footer = document.getElementById('footer').scrollHeight
-        
+        let footer = document.getElementById('footer')
+        if(footer){
+          footer = footer.scrollHeight
+
+        }        
        if( (window.innerWidth <= 768 && (document.documentElement.scrollHeight - document.documentElement.scrollTop - 1024) <= footer) || (window.innerWidth > 768 && (document.documentElement.scrollHeight - document.documentElement.scrollTop - 800) <= footer) ){
           
 

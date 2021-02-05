@@ -30,8 +30,10 @@ export default class MailChimpForm extends React.Component {
   handleChange = (event) => {
     this.setState({ email: event.target.value });
   };
+
   render() {
     const {newsletter} = this.props
+    console.log(newsletter[0])
     return this.state.result == "success" ? (
       <>
         <h3 className="text-mobileLarge md:text-desktopBody">
@@ -86,7 +88,7 @@ export default class MailChimpForm extends React.Component {
         )}
         {this.state.success !== "success" && (
           <p className="pt-2em text-mobileBody md:text-desktopCaption">
-          <PortableText blocks={newsletter} />
+             <PortableText blocks={newsletter} />
           </p>
         )}
       </form>

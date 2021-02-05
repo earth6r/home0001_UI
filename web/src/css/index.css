@@ -201,9 +201,12 @@ small {
   left:0;
   opacity:1;
 }
+form .earth-svg svg{
+  top:2px;
+}
 .flex-item .drop-shadow{
   box-shadow: 0px 1px 11px rgb(0 0 0 / 30%);
-  transition:box-shadow 0.7s;
+  transition: 0.7s;
 }
 .flex-item:hover .drop-shadow{
   box-shadow:0px 1px 5px rgb(0 0 0 / 40%);
