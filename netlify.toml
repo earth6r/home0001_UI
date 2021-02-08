@@ -5,8 +5,8 @@
   force = false
 
 [[redirects]]
-  from = "https://earth6r.com/*"
-  to = "https://еагтн.бг/*"
+  from = "https://earth6r.com"
+  to = "https://еагтн.бг"
   status = 301
   force = true
 
