@@ -10,6 +10,12 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "https://homes.earth6r.com"
+  to = "https://homes.xn--80age8aya.xn--90ae"
+  status = 301
+  force = true
+
 [build]
   functions = "web/functions"
   publish = "/web/public"
