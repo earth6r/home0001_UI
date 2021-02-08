@@ -5,10 +5,10 @@
   force = false
 
 [[redirects]]
-  from = "https://earth6r.com/*"
-  to = "https://еагтн.бг/*"
+  from = "https://earth6r.com"
+  to = "https://xn--80age8aya.xn--90ae"
   status = 301
-  force = false
+  force = true
 
 [build]
   functions = "web/functions"
