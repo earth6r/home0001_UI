@@ -8,7 +8,7 @@
   from = "https://earth6r.com/*"
   to = "https://еагтн.бг/*"
   status = 301
-  force = false
+  force = true
 
 [build]
   functions = "web/functions"
