@@ -15,7 +15,7 @@
   to = "https://homes.xn--80age8aya.xn--90ae"
   status = 301
   force = true
-
+  
 [build]
   functions = "web/functions"
   publish = "/web/public"
