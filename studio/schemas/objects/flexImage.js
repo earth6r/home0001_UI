@@ -160,5 +160,11 @@ export default {
                 isHighlighted: true,
               }
             }
-      ]
+      ],
+        preview: {
+          select: {
+            title: 'alt',
+            media: 'asset' // Use the userPortait image field as thumbnail
+          }
+        }
 }
