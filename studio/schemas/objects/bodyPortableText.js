@@ -232,6 +232,39 @@ export default {
               }
             }
           ]
+        },
+         { type: 'object',
+          name: 'priceBreakdownLine',
+          fields: [
+            {
+              type: 'text',
+              name: 'left',
+              title: 'left Column',
+              description: 'left',
+              options: {
+                isHighlighted: true
+              }
+            },
+            {
+              type: 'text',
+              name: 'right',
+              title: 'right Column',
+              description: 'right',
+              options: {
+                isHighlighted: true
+              }
+            },
+            {
+              type: 'boolean',
+              name: 'border',
+              title: 'border',
+              description: 'border bottom',
+              options: {
+                isHighlighted: true
+              }
+            }
+          ]
+
         }],
     },
     

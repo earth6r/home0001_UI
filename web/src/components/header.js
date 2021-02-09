@@ -45,6 +45,9 @@ if(typeof window != `undefined`){
    if(!currentUri){
       currentUri = window.location.href.split("https://")[1]
     }
+  if(currentUri && currentUri.includes("homes.")){
+    currentUri = currentUri.split("homes.")[1];
+  }
    if(currentUri){
     let stringLength = currentUri.length
      if(currentUri.charAt(stringLength - 1) =="/"){

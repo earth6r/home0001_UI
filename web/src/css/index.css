@@ -19,6 +19,15 @@ figure img{
   background-repeat:no-repeat;
   background-position:center center;
 }
+.price-before:after{
+  content:"$";
+  position: absolute;
+  right: 0;
+  display: inline-block;
+}
+.border-price{
+  border-bottom:1px solid black;
+}
 .stripe-button, .bit-button{
   position:relative;
 }
@@ -39,6 +48,12 @@ figure img{
   left:195px;
   z-index: 2;
   transform: translate(0%, -50%);
+}
+.price-breakdown-line .price-before{
+   padding-left:1em;
+}
+.price-breakdown-line:last-child .price-before{
+   padding-left:0px;
 }
 
 @media(max-width:767px){
