@@ -15,7 +15,7 @@
   to = "https://homes.xn--80age8aya.xn--90ae"
   status = 301
   force = true
-  
+
 [build]
   functions = "web/functions"
   publish = "/web/public"
@@ -36,7 +36,7 @@
   export EMAIL_HOST=smtp.ethereal.email && \
   export INTERCOM_APP_ID=utnfnkyr && \
   export EMAIL_PORT=587 && \
-  export GATSBY_BITPAY_POS_TOKEN=2GW2QCUEU8Vm9aNzTCZwhKSXPH2c3XcQGZdbN3dbWYUv && \
+  export GATSBY_BITPAY_POS_TOKEN=9pgZtiC9DQPXoY1mCAvnos6APVaEyDUwfJSptNoGdjiJ && \
   export GATSBY_BITPAY_API_URL=https://test.bitpay.com && \
   export STRIPE_WEBHOOK_ENDPOINT_SECRET=whsec_6ddd4gWKaGEk7WRFkxPg2jrMsADJW6wT && \
   ./node_modules/.bin/babel --plugins transform-inline-environment-variables web/functions/create-checkout.js -o web/functions/create-checkout.js && \

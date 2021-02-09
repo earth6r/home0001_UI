@@ -1,6 +1,5 @@
 const nodemailer = require("nodemailer");
 const pug = require("pug");
-const fs = require("fs");
 const config = require("./config")(process.env.EMAIL_USERNAME);
 
 const layout = `
