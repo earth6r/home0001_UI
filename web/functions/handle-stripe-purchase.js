@@ -37,7 +37,7 @@ exports.handler = async ({ body, headers }) => {
 
       const { customer: id, metadata } = session;
       const customer = await stripe.customers.retrieve(id);
-      const data = { session, customer, product: JSON.parse(metadata.items)[0] };
+      const data = { session, customer, product: JSON.parse(metadata.items)[0], metadata: {} };
 
       // Save an order in your database, marked as 'awaiting payment'
       // createOrder(session);
@@ -82,7 +82,7 @@ exports.handler = async ({ body, headers }) => {
       // Send an email to the customer asking them to retry their order
       const { customer: id, metadata } = session;
       const customer = await stripe.customers.retrieve(id);
-      const data = { session, customer, product: JSON.parse(metadata.items)[0] };
+      const data = { session, customer, product: JSON.parse(metadata.items)[0], metadata: {} };
 
       send({ action: "admin-checkout-failure", data });
       send({ action: "checkout-failure", data });
