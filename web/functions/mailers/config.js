@@ -69,6 +69,38 @@ module.exports = function (emailUsername) {
     };
   };
 
+  this["admin-schedule-success"] = function (opts) {
+    return {
+      templateOptions: {
+        session: opts.session,
+        customer: opts.customer,
+        product: opts.product,
+        metadata: opts.metadata,
+      },
+      transporterOptions: {
+        from,
+        to: defaults.from,
+        subject: "An event has been scheduled",
+      },
+    };
+  };
+
+  this["schedule-success"] = function (opts) {
+    return {
+      templateOptions: {
+        session: opts.session,
+        customer: opts.customer,
+        product: opts.product,
+        metadata: opts.metadata,
+      },
+      transporterOptions: {
+        from,
+        to: opts.customer.email,
+        subject: "Your meeting with EARTH",
+      },
+    };
+  };
+
   return function (action) {
     return this[action];
   };

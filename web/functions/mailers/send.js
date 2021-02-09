@@ -65,6 +65,12 @@ const views = {
     if metadata.postscript
       p #{metadata.postscript}
 `,
+  "schedule-success": `
+    p Your meeting has been scheduled.
+`,
+  "admin-schedule-success": `
+    p A meeting has been scheduled with #{customer.name} <#{customer.email}>.
+`,
 };
 
 module.exports = async function send(event) {
