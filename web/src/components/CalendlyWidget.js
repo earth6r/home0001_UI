@@ -7,6 +7,7 @@ const CalendlyWidget = () => {
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
 
+  // https://help.calendly.com/hc/en-us/articles/223195488-Webhooks
   // https://calendly.stoplight.io/docs/embed-api-docs/docs/C-Notifying-the-parent-window.md
   const handleEventScheduled = (e) => {
     // console.log("EventScheduled", e);

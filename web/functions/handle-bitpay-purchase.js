@@ -41,10 +41,10 @@ exports.handler = async (event) => {
     )}/checkout/success`;
 
     const metadata = { postscript };
-    const session = { currency, amount_total: price * 100, metadata };
+    const session = { currency, amount_total: price * 100 };
     const customer = { email: buyerProvidedEmail };
     const product = { name: itemDesc, invoiceId };
-    const emailData = { session, customer, product, metadata: {} };
+    const emailData = { session, customer, product, metadata };
 
     // if (status === "confirmed" || status === "complete") {
     // TODO should probably be "complete", but that takes ca. 1 hour, and checking for both will fire the email twice

@@ -1,6 +1,5 @@
 const nodemailer = require("nodemailer");
 const pug = require("pug");
-const fs = require("fs");
 const config = require("./config")(process.env.EMAIL_USERNAME);
 
 const layout = `
@@ -64,6 +63,12 @@ const views = {
 
     if metadata.postscript
       p #{metadata.postscript}
+`,
+  "schedule-success": `
+    p Your meeting has been scheduled.
+`,
+  "admin-schedule-success": `
+    p A meeting has been scheduled with #{customer.name} <#{customer.email}>.
 `,
 };
 
