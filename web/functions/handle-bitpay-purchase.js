@@ -44,22 +44,48 @@ exports.handler = async (event) => {
     const session = { currency, amount_total: price * 100, metadata };
     const customer = { email: buyerProvidedEmail };
     const product = { name: itemDesc, invoiceId };
-    const emailData = { session, customer, product };
+    const emailData = { session, customer, product, metadata: {} };
 
     // if (status === "confirmed" || status === "complete") {
     // TODO should probably be "complete", but that takes ca. 1 hour, and checking for both will fire the email twice
     if (status === "confirmed") {
-      send({ action: "admin-checkout-success", data: emailData });
-      send({ action: "checkout-success", data: emailData });
+      try {
+        emailResponse = await send({ action: "admin-checkout-success", data: emailData });
+        if (emailResponse.ok !== true) throw emailResponse.error;
+
+        emailResponse = await send({ action: "checkout-success", data: emailData });
+        if (emailResponse.ok !== true) throw emailResponse.error;
+      } catch (err) {
+        return {
+          statusCode: 500,
+          body: JSON.stringify({
+            ok: false,
+            message: err.message,
+          }),
+        };
+      }
     }
 
     if (status === "expired" || status === "invalid") {
-      send({ action: "admin-checkout-failure", data: emailData });
-      send({ action: "checkout-failure", data: emailData });
+      try {
+        emailResponse = await send({ action: "admin-checkout-failure", data: emailData });
+        if (emailResponse.ok !== true) throw emailResponse.error;
+
+        emailResponse = await send({ action: "checkout-failure", data: emailData });
+        if (emailResponse.ok !== true) throw emailResponse.error;
+      } catch (err) {
+        return {
+          statusCode: 500,
+          body: JSON.stringify({
+            ok: false,
+            message: err.message,
+          }),
+        };
+      }
     }
   } catch (err) {
     return {
-      statusCode: 400,
+      statusCode: 500,
       body: `Webook Error: ${err.message}`,
     };
   }
