@@ -147,12 +147,12 @@ input[type="checkbox"]:focus,
 input[type="checkbox"]:active {
   -webkit-appearance: none;
 
-  width: 0.5em !important;
-  height: 0.5em !important;
-  cursor: pointer;
-  display: inline-block;
-  border-radius: 2px;
-  top: -0.05em;
+    width: 0.8em !important;
+    height: 0.8em !important;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 2px;
+    top: 0.05em;
   padding:0.3em;
   position: relative;
   margin-right: 0.3em;
@@ -176,12 +176,12 @@ input[type="checkbox"]:checked {
   input[type="checkbox"]:focus,
   input[type="checkbox"]:active {
     -webkit-appearance: none;
-    width: 13px !important;
-    height: 13px !important;
+        width: 18px !important;
+    height: 18px !important;
     cursor: pointer;
     display: inline-block;
     border-radius: 2px;
-    top: 0.1em;
+    top: 0.2em;
     left:0.1em;
     padding:0.3em;
     position: relative;
