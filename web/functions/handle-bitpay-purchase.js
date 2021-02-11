@@ -18,9 +18,9 @@ const fetch = require("node-fetch");
 const trimTrailingSlash = (url) => url.replace(/\/+$/, "", url);
 
 exports.handler = async (event) => {
-  // console.log("event", event);
-
-  const { id: invoiceId } = event;
+  // Use the ID of the initial webhook event to request additional data about the invoice
+  // const { id: invoiceId } = event;
+  const invoiceId = "CsLhEQqDDQbJJXoa7Uj5F7";
 
   const resourceURL = `${trimTrailingSlash(process.env.GATSBY_BITPAY_API_URL)}/invoices`;
   const token = process.env.GATSBY_BITPAY_POS_TOKEN;
@@ -30,64 +30,75 @@ exports.handler = async (event) => {
   };
 
   const url = `${resourceURL}/${invoiceId}?token=${token}`;
+  let data = {};
 
   try {
     const response = await fetch(url, { method: "GET", headers });
-    const { data } = await response.json();
-    const { status, buyerProvidedEmail, itemDesc, price, currency } = data;
-
-    const postscript = `Please follow the link below to complete your purchase<br/>${trimTrailingSlash(
-      process.env.SITE_URL
-    )}/checkout/success`;
-
-    const metadata = { postscript };
-    const session = { currency, amount_total: price * 100 };
-    const customer = { email: buyerProvidedEmail };
-    const product = { name: itemDesc, invoiceId };
-    const emailData = { session, customer, product, metadata };
-
-    // if (status === "confirmed" || status === "complete") {
-    // TODO should probably be "complete", but that takes ca. 1 hour, and checking for both will fire the email twice
-    if (status === "confirmed") {
-      try {
-        emailResponse = await send({ action: "admin-checkout-success", data: emailData });
-        if (emailResponse.ok !== true) throw emailResponse.error;
-
-        emailResponse = await send({ action: "checkout-success", data: emailData });
-        if (emailResponse.ok !== true) throw emailResponse.error;
-      } catch (err) {
-        return {
-          statusCode: 500,
-          body: JSON.stringify({
-            ok: false,
-            message: err.message,
-          }),
-        };
-      }
-    }
-
-    if (status === "expired" || status === "invalid") {
-      try {
-        emailResponse = await send({ action: "admin-checkout-failure", data: emailData });
-        if (emailResponse.ok !== true) throw emailResponse.error;
-
-        emailResponse = await send({ action: "checkout-failure", data: emailData });
-        if (emailResponse.ok !== true) throw emailResponse.error;
-      } catch (err) {
-        return {
-          statusCode: 500,
-          body: JSON.stringify({
-            ok: false,
-            message: err.message,
-          }),
-        };
-      }
-    }
+    ({ data } = await response.json());
   } catch (err) {
     return {
       statusCode: 500,
-      body: `Webook Error: ${err.message}`,
+      body: err.message,
     };
+  }
+
+  const { status, buyerProvidedEmail, itemDesc, price, currency } = data;
+
+  const metadata = {};
+  const session = { currency, amount_total: price * 100 };
+  const customer = { email: buyerProvidedEmail };
+  const product = { name: itemDesc, invoiceId };
+  const emailData = { session, customer, product, metadata };
+
+  // Send two success emails - one for confirmation and another for completion.
+  if (status === "confirmed") {
+    try {
+      emailResponse = await send({ action: "admin-checkout-confirmed", data: emailData });
+      if (emailResponse.ok !== true) throw emailResponse.error;
+
+      emailResponse = await send({ action: "checkout-confirmed", data: emailData });
+      if (emailResponse.ok !== true) throw emailResponse.error;
+    } catch (err) {
+      return {
+        statusCode: 500,
+        body: JSON.stringify({
+          ok: false,
+          message: err.message,
+        }),
+      };
+    }
+  } else if (status === "complete") {
+    try {
+      emailResponse = await send({ action: "admin-checkout-confirmed", data: emailData });
+      if (emailResponse.ok !== true) throw emailResponse.error;
+
+      emailResponse = await send({ action: "checkout-confirmed", data: emailData });
+      if (emailResponse.ok !== true) throw emailResponse.error;
+    } catch (err) {
+      return {
+        statusCode: 500,
+        body: JSON.stringify({
+          ok: false,
+          message: err.message,
+        }),
+      };
+    }
+  } else if (status === "expired" || status === "invalid") {
+    try {
+      emailResponse = await send({ action: "admin-checkout-failure", data: emailData });
+      if (emailResponse.ok !== true) throw emailResponse.error;
+
+      emailResponse = await send({ action: "checkout-failure", data: emailData });
+      if (emailResponse.ok !== true) throw emailResponse.error;
+    } catch (err) {
+      return {
+        statusCode: 500,
+        body: JSON.stringify({
+          ok: false,
+          message: err.message,
+        }),
+      };
+    }
   }
 
   return {
