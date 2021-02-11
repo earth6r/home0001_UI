@@ -101,6 +101,70 @@ module.exports = function (emailUsername) {
     };
   };
 
+  this["checkout-confirmed"] = function (opts) {
+    return {
+      templateOptions: {
+        session: opts.session,
+        customer: opts.customer,
+        product: opts.product,
+        metadata: opts.metadata,
+      },
+      transporterOptions: {
+        from,
+        to: opts.customer.email,
+        subject: "On EARTH",
+      },
+    };
+  };
+
+  this["admin-checkout-confirmed"] = function (opts) {
+    return {
+      templateOptions: {
+        session: opts.session,
+        customer: opts.customer,
+        product: opts.product,
+        metadata: opts.metadata,
+      },
+      transporterOptions: {
+        from,
+        to: defaults.from,
+        subject: "A transaction has been confirmed",
+      },
+    };
+  };
+
+  this["checkout-completed"] = function (opts) {
+    return {
+      templateOptions: {
+        session: opts.session,
+        customer: opts.customer,
+        product: opts.product,
+        metadata: opts.metadata,
+      },
+      transporterOptions: {
+        from,
+        to: opts.customer.email,
+        subject: "On EARTH",
+      },
+    };
+  };
+
+  this["admin-checkout-completed"] = function (opts) {
+    return {
+      templateOptions: {
+        session: opts.session,
+        customer: opts.customer,
+        product: opts.product,
+        metadata: opts.metadata,
+      },
+      transporterOptions: {
+        from,
+        to: defaults.from,
+        subject: "A transaction has been completed",
+      },
+    };
+  };
+
   return function (action) {
     return this[action];
   };

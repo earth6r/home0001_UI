@@ -2,6 +2,8 @@ const nodemailer = require("nodemailer");
 const pug = require("pug");
 const config = require("./config")(process.env.EMAIL_USERNAME);
 
+const trimTrailingSlash = (url) => url.replace(/\/+$/, "", url);
+
 const layout = `
 <!DOCTYPE html>
 html(lang="en")
@@ -28,6 +30,7 @@ html(lang="en")
   body
 `;
 
+// prettier-ignore
 const views = {
   "admin-checkout-failure": `
     h1 Failed Purchase
@@ -50,6 +53,24 @@ const views = {
         span #{' '}(SKU #{product.sku})
     p The order total is #{session.currency.toUpperCase()} #{session.amount_total / 100}
 `,
+  "admin-checkout-confirmed": `
+    h1 New Purchase Confirmation (BitPay)
+    p #{customer.email} <#{customer.email}> has been confirmed for their purchase of #{product.name}
+      if product.invoiceId
+        span #{' '}(Invoice ID #{product.invoiceId})
+      else
+        span #{' '}(SKU #{product.sku})
+    p The order total is #{session.currency.toUpperCase()} #{session.amount_total / 100}
+`,
+  "admin-checkout-completed": `
+    h1 New Purchase Completed (BitPay)
+    p #{customer.email} <#{customer.email}> has been completed their purchase of #{product.name}
+      if product.invoiceId
+        span #{' '}(Invoice ID #{product.invoiceId})
+      else
+        span #{' '}(SKU #{product.sku})
+    p The order total is #{session.currency.toUpperCase()} #{session.amount_total / 100}
+`,
   "checkout-failure": `
     p We were unable to process your payment for your EARTH membership. Please take a moment to complete the checkout process again and double-check your billing information.
     p Click
@@ -60,9 +81,21 @@ const views = {
   "checkout-success": `
     h1 Deposit received — thank you.
     p You are now a member — part of the collective. We’ll keep you updated as new homes and new locations become available. When you’re ready, schedule a consultation with our team to ask questions, make plans, secure financing and complete your purchase.
-
-    if metadata.postscript
-      p #{metadata.postscript}
+`,
+  "checkout-confirmed": `
+    h1 Your deposit has been confirmed — thank you.
+    p You are now a member — part of the collective. We’ll keep you updated as new homes and new locations become available. When you’re ready, schedule a consultation with our team to ask questions, make plans, secure financing and complete your purchase.
+    p Please follow the link below to complete your purchase.
+      br
+      br
+      a(href="${trimTrailingSlash(process.env.SITE_URL)}/checkout/success") ${trimTrailingSlash(process.env.SITE_URL)}/checkout/success
+`,
+  "checkout-completed": `
+    h1 Your transaction has been verified, and is now complete.
+    p If you haven’t already, please follow the link below to complete your purchase.
+      br
+      br
+      a(href="${trimTrailingSlash(process.env.SITE_URL)}/checkout/success") ${trimTrailingSlash(process.env.SITE_URL)}/checkout/success
 `,
   "schedule-success": `
     p Your meeting has been scheduled.

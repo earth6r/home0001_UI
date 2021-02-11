@@ -3,7 +3,14 @@ const send = require("./mailers/send");
 /**
  *
  * type Event = {
- *  action: 'checkout-success' | 'admin-checkout-success' | 'checkout-failure' | 'admin-checkout-failure'
+ *  action: 'checkout-success'
+ *        | 'admin-checkout-success'
+ *        | 'checkout-failure'
+ *        | 'admin-checkout-failure'
+ *        | 'checkout-confirmed'
+ *        | 'admin-checkout-confirmed'
+ *        | 'checkout-completed'
+ *        | 'admin-checkout-completed'
  *  data: {}
  * }
  */
