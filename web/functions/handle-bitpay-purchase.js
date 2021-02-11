@@ -19,8 +19,7 @@ const trimTrailingSlash = (url) => url.replace(/\/+$/, "", url);
 
 exports.handler = async (event) => {
   // Use the ID of the initial webhook event to request additional data about the invoice
-  // const { id: invoiceId } = event;
-  const invoiceId = "CsLhEQqDDQbJJXoa7Uj5F7";
+  const { id: invoiceId } = event;
 
   const resourceURL = `${trimTrailingSlash(process.env.GATSBY_BITPAY_API_URL)}/invoices`;
   const token = process.env.GATSBY_BITPAY_POS_TOKEN;
