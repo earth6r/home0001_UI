@@ -24,7 +24,7 @@ const serializers = {
       return (
         <div className={`${node.border ? "border-price" : ""} price-breakdown-line`}>
         <span className="w-3/4 inline-block price-before relative">{node.left}</span>
-        <span className="w-1/4 inline-block text-right relative">{node.right}</span>
+        <span className="w-1/4 inline-block text-left relative">{node.right}</span>
         </div>
         )
     },
