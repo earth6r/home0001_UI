@@ -20,19 +20,16 @@ const PageTemplate = (props) => {
   const { data, errors } = props;
   const page = data && data.page;
   const {
-    main: { modules, slug },
+    main: { modules, slug,title },
     meta,
   } = page._rawContent;
   const isrnd = page.isrnd;
 
   return (
     <Layout rnd={isrnd}>
-      {/*<SEO
-        title={site.title}
-        description={site.description}
-        keywords={site.keywords}
-        image={meta.openImage}
-      />*/}
+      <SEO
+        title={title + " | EARTH"}
+      />
       <Container>
         <div className="flex flex-wrap w-full">{RenderModules(modules)}</div>
       </Container>
