@@ -14,8 +14,10 @@ export const RichTable = (props) => {
     <h3 className="text-mobileBody md:text-desktopBody pb-1em pt-1/4em">
                   {props.data.title}
                 </h3>
-                <GridRow />
-    <div className="relative z-0 w-screen pb-1em -mx-mobile md:-mx-desktop flex flex-col">
+      <div className="w-full">
+        <GridRow />
+      </div>
+    <div className="relative z-0 pb-1em w-full flex flex-col">
       {props.data.title && (
         <div className="top-0">
           <div className="relative z-10 px-mobile md:px-desktop md:overflow-x-hidden">
@@ -24,16 +26,17 @@ export const RichTable = (props) => {
               {headerRow &&
                 headerRow.map((head, index) => {
                   let currentHeader = index;
+                  if(head.length > 0){
                   return(
                   <ul className={`mb-4 md:mb-0 inline-block align-top w-1/2 ${
-                      index == headerRow.length - 1 ? "min-w-0 md:text-right md:w-2em" : " md:flex-1"
+                      index == headerRow.length - 1 ? "md:flex-1" : " md:flex-1"
                     } md:w-auto `}>
                   <li
                     key={`header-${head}-${index}`}
                     style={{ minWidth: "16em" }}
                     className="font-normal inline-block text-mobileCaption md:text-desktopCaption uppercase pb-1em relative"
                   >
-                    <span className={`${index == headerRow.length - 1 ? "absolute right-0" : ""}`}>
+                    <span className={`${index == headerRow.length - 1 ? "" : ""}`}>
                       {head}
                     </span>
                   </li>
@@ -62,16 +65,15 @@ export const RichTable = (props) => {
                   ))}
                   </ul>
                   
-                )})}
+                )}})}
+
                 </div>
      
           </div>
           <div className="absolute -mt-5 w-full h-20 md:h-32 md:h-18 z-0 pointer-events-none top-0 left-0"></div>
         </div>
       )}
-      <div className="mx-mobile md:mx-desktop md:mb-2em">
-        <GridRow />
-      </div>
+    
     </div>
 </>
   );

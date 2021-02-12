@@ -66,6 +66,9 @@ const SpecButton = ({ title, url, color, float = true, callibrationMark, specs =
               <ModalBody className="rounded-lg">
                 
                 {specs && specs.map((spec) => <RichTable key={spec._key} data={spec} />)}
+                <div className="w-full">
+        <GridRow />
+      </div>
               </ModalBody>
             </ModalContent>
           </Modal>
