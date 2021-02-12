@@ -64,7 +64,7 @@ const CollectivePage = (props) => {
 
   const site = (data || {}).site;
   const {
-    main: { modules, slug },
+    main: { modules, slug, title },
     meta,
   } = data.allSanityLanding.edges[0].node._rawContent;
 
@@ -75,11 +75,15 @@ const CollectivePage = (props) => {
       'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
     );
   }
+  let myTitle = title + " | ";
+  if(title == "Landing"){
+    myTitle = ""
+  }
 
   return (
     <Layout>
       <SEO
-        title={site.title}
+        title={myTitle + site.title}
         description={site.description}
         keywords={site.keywords}
         image={meta.openImage}

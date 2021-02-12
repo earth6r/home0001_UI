@@ -71,9 +71,7 @@ const HomeTemplate = (props) => {
 
   return (
     <Layout isHome={slug.current}>
-      <SEO
-        title={unitsTitle}
-      />
+
       <Container className="flex flex-col">
         <div className="flex flex-wrap w-full pt-12 lg:pt-10">{RenderModules(modules, specs)}</div>
         <>{unitsTitle && unitsSubtitle && <Header title={unitsTitle} number={unitsSubtitle} />}</>
