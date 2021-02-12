@@ -11,12 +11,14 @@ const AnyReactComponent = ({ text }) => <MdPlace style={{transform:"scale(5)"}}>
 const MapContainer = (props) => {
 
     const {lat, long } = props;
+    let center = {"lat":parseFloat(lat),"lng":parseFloat(long)};
     let zoomLevel = 14;
     let myclass = ""
     if(lat <= 22 && lat >=20){
       if(long <= -87 && long >= -89){
-        zoomLevel = 12;
+        zoomLevel = 13;
         myclass = "mexico"
+        let center = {"lat":(parseFloat(lat) - 50),"lng":parseFloat(long)};
       }
     }
     return (
@@ -24,8 +26,8 @@ const MapContainer = (props) => {
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.GATSBY_GOOGLE_MAPS }}
           options={{styles}}
-          defaultCenter={{"lat":parseFloat(lat),"lng":parseFloat(long)}}
-          defaultZoom={14}
+          defaultCenter={center}
+          defaultZoom={zoomLevel}
         >
             <AnyReactComponent
             lat={parseFloat(lat)}
