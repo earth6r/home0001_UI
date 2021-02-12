@@ -15,7 +15,7 @@ const MapContainer = (props) => {
     let myclass = ""
     if(lat <= 22 && lat >=20){
       if(long <= -87 && long >= -89){
-        zoomLevel = 13;
+        zoomLevel = 12;
         myclass = "mexico"
       }
     }
