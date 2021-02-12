@@ -418,10 +418,7 @@ export default [
                 "visibility": "on"
             },
             {
-                "saturation": "-100"
-            },
-            {
-                "lightness": "71"
+                "color": "#aeccff"
             }
         ]
     }

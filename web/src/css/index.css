@@ -13,6 +13,13 @@ figure img{
 .spring-green{
   color:#66ff00;
 }
+.map-module-wrapper{
+  filter:grayscale(1);
+}
+.map-module-wrapper.mexico{
+  filter:none;
+}
+
 .special-bitcoin{
 /*  background-image: url("./bit-icons-01.png");*/
   background-size: 55%;

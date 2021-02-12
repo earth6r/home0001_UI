@@ -9,9 +9,18 @@ import {
 const AnyReactComponent = ({ text }) => <MdPlace style={{transform:"scale(5)"}}></MdPlace>;
 
 const MapContainer = (props) => {
+
     const {lat, long } = props;
+    let zoomLevel = 14;
+    let myclass = ""
+    if(lat <= 22 && lat >=20){
+      if(long <= -87 && long >= -89){
+        zoomLevel = 13;
+        myclass = "mexico"
+      }
+    }
     return (
-      <div className="map-module-wrapper" style={{ height: '600px', width: '100%' }}>
+      <div className={`map-module-wrapper ${myclass}`} style={{ height: '600px', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.GATSBY_GOOGLE_MAPS }}
           options={{styles}}
