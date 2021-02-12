@@ -18,7 +18,6 @@ const MapContainer = (props) => {
       if(long <= -87 && long >= -89){
         zoomLevel = 13;
         myclass = "mexico"
-        let center = {"lat":(parseFloat(lat) - 50),"lng":parseFloat(long)};
       }
     }
     return (
