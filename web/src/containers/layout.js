@@ -243,7 +243,7 @@ function LayoutContainer(props) {
           );
         }
 
-       console.log(data.strikeColor.strikeColor)
+
         return (
           <ThemeProvider>
             <Global styles={GlobalStyles} />
