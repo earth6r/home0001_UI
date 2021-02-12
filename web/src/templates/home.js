@@ -52,7 +52,7 @@ const HomeTemplate = (props) => {
   const { data, errors } = props;
   const page = data && data.page;
   const {
-    main: { modules, slug },
+    main: { modules, slug, title },
     meta,
   } = page._rawContent;
   const homeModules = page._rawHomeModules;
@@ -72,7 +72,7 @@ const HomeTemplate = (props) => {
   return (
     <Layout isHome={slug.current}>
       <SEO
-        title={unitsTitle + " | EARTH"}
+        title={title + " | EARTH"}
       />
       <Container className="flex flex-col">
         <div className="flex flex-wrap w-full pt-12 lg:pt-10">{RenderModules(modules, specs)}</div>

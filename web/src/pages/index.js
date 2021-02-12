@@ -79,7 +79,8 @@ const CollectivePage = (props) => {
   if(title == "Landing"){
     myTitle = ""
   }
-
+  console.log(myTitle)
+    
   return (
     <Layout>
       <SEO
