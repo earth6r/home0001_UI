@@ -19,6 +19,12 @@ figure img{
 .map-module-wrapper.mexico{
   filter:none;
 }
+.w-price{
+  width: 69%;
+}
+.w-price-1{
+  width:31%;
+}
 
 .special-bitcoin{
 /*  background-image: url("./bit-icons-01.png");*/
