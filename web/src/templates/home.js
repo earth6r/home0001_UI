@@ -72,7 +72,7 @@ const HomeTemplate = (props) => {
   return (
     <Layout isHome={slug.current}>
       <SEO
-        title={title + " | EARTH"}
+        title={title}
       />
       <Container className="flex flex-col">
         <div className="flex flex-wrap w-full pt-12 lg:pt-10">{RenderModules(modules, specs)}</div>

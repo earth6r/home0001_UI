@@ -14,7 +14,7 @@ export const RichTable = (props) => {
     <h3 className="text-mobileBody md:text-desktopBody pb-1em pt-1/4em">
                   {props.data.title}
                 </h3>
-      <div className="w-full">
+      <div className="w-full ">
         <GridRow />
       </div>
     <div className="relative z-0 pb-1em w-full flex flex-col">

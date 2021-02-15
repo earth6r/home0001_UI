@@ -28,7 +28,7 @@ const PageTemplate = (props) => {
   return (
     <Layout rnd={isrnd}>
       <SEO
-        title={title + " | EARTH"}
+        title={title}
       />
       <Container>
         <div className="flex flex-wrap w-full">{RenderModules(modules)}</div>

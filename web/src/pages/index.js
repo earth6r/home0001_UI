@@ -84,7 +84,7 @@ const CollectivePage = (props) => {
   return (
     <Layout>
       <SEO
-        title={myTitle + site.title}
+        title={myTitle}
         description={site.description}
         keywords={site.keywords}
         image={meta.openImage}
