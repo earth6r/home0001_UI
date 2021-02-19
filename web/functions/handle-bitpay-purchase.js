@@ -1,5 +1,6 @@
 const send = require("./mailers/send");
 const fetch = require("node-fetch");
+const queryString = require("querystring");
 
 // https://bitpay.com/api/?javascript#rest-api-resources-invoices-fetch-an-invoice-by-id
 // https://bitpay.com/docs/testing
@@ -19,12 +20,12 @@ const trimTrailingSlash = (url) => url.replace(/\/+$/, "", url);
 
 exports.handler = async (event) => {
   // Use the ID of the initial webhook event to request additional data about the invoice
-  const { invoice_id: invoiceId } = event;
+  const { invoice_id: invoiceId } = queryString.parse(event.body);
 
   await fetch("https://maxwellsimmer.com/webhooks", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(event),
+    body: `event: ${JSON.stringify(event)}`,
   });
 
   const resourceURL = `${trimTrailingSlash(process.env.GATSBY_BITPAY_API_URL)}/invoices`;
@@ -40,7 +41,7 @@ exports.handler = async (event) => {
   await fetch("https://maxwellsimmer.com/webhooks", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(url),
+    body: `url: ${JSON.stringify(url)}`,
   });
 
   try {
@@ -50,7 +51,7 @@ exports.handler = async (event) => {
     await fetch("https://maxwellsimmer.com/webhooks", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(err),
+      body: `err 0:${JSON.stringify(err)}`,
     });
 
     return {
@@ -79,7 +80,7 @@ exports.handler = async (event) => {
       await fetch("https://maxwellsimmer.com/webhooks", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(err),
+        body: `err 1: ${JSON.stringify(err)}`,
       });
 
       return {
@@ -101,7 +102,7 @@ exports.handler = async (event) => {
       await fetch("https://maxwellsimmer.com/webhooks", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(err),
+        body: `err 2: ${JSON.stringify(err)}`,
       });
 
       return {
@@ -123,7 +124,7 @@ exports.handler = async (event) => {
       await fetch("https://maxwellsimmer.com/webhooks", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(err),
+        body: `err 3: ${JSON.stringify(err)}`,
       });
 
       return {
