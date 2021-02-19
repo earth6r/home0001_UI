@@ -15,7 +15,7 @@ const serializers = {
     image: ({node}) => {
       return (
         <>
-        <img src={node.asset.url} altText={node.alt} className={`${node.fullwidth ? "w-full" : "w-6/12"} my-3`}/>
+        <div className={`${node.fullwidth ? "w-full" : "w-6/12"} my-3 inline-block`}><Figure node={node} altText={node.alt} /></div>
         <span className="block image-caption normal-case text-mobileCaption md:text-desktopCaption relative">{node.captionText}</span>
         </>
         )
