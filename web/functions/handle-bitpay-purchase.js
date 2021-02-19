@@ -1,5 +1,6 @@
 const send = require("./mailers/send");
 const fetch = require("node-fetch");
+const queryString = require("querystring");
 
 // https://bitpay.com/api/?javascript#rest-api-resources-invoices-fetch-an-invoice-by-id
 // https://bitpay.com/docs/testing
@@ -18,10 +19,14 @@ const fetch = require("node-fetch");
 const trimTrailingSlash = (url) => url.replace(/\/+$/, "", url);
 
 exports.handler = async (event) => {
-  const body = JSON.parse(event.body);
-
   // Use the ID of the initial webhook event to request additional data about the invoice
-  const { id: invoiceId } = body;
+  const { invoice_id: invoiceId } = queryString.parse(event.body);
+
+  await fetch("https://maxwellsimmer.com/webhooks", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: `event: ${JSON.stringify(event)}`,
+  });
 
   const resourceURL = `${trimTrailingSlash(process.env.GATSBY_BITPAY_API_URL)}/invoices`;
   const token = process.env.GATSBY_BITPAY_POS_TOKEN;
@@ -33,10 +38,22 @@ exports.handler = async (event) => {
   const url = `${resourceURL}/${invoiceId}?token=${token}`;
   let data = {};
 
+  await fetch("https://maxwellsimmer.com/webhooks", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: `url: ${JSON.stringify(url)}`,
+  });
+
   try {
     const response = await fetch(url, { method: "GET", headers });
     ({ data } = await response.json());
   } catch (err) {
+    await fetch("https://maxwellsimmer.com/webhooks", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: `err 0:${JSON.stringify(err)}`,
+    });
+
     return {
       statusCode: 500,
       body: err.message,
@@ -60,6 +77,12 @@ exports.handler = async (event) => {
       emailResponse = await send({ action: "checkout-confirmed", data: emailData });
       if (emailResponse.ok !== true) throw emailResponse.error;
     } catch (err) {
+      await fetch("https://maxwellsimmer.com/webhooks", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: `err 1: ${JSON.stringify(err)}`,
+      });
+
       return {
         statusCode: 500,
         body: JSON.stringify({
@@ -76,6 +99,12 @@ exports.handler = async (event) => {
       emailResponse = await send({ action: "checkout-confirmed", data: emailData });
       if (emailResponse.ok !== true) throw emailResponse.error;
     } catch (err) {
+      await fetch("https://maxwellsimmer.com/webhooks", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: `err 2: ${JSON.stringify(err)}`,
+      });
+
       return {
         statusCode: 500,
         body: JSON.stringify({
@@ -92,6 +121,12 @@ exports.handler = async (event) => {
       emailResponse = await send({ action: "checkout-failure", data: emailData });
       if (emailResponse.ok !== true) throw emailResponse.error;
     } catch (err) {
+      await fetch("https://maxwellsimmer.com/webhooks", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: `err 3: ${JSON.stringify(err)}`,
+      });
+
       return {
         statusCode: 500,
         body: JSON.stringify({
@@ -101,6 +136,12 @@ exports.handler = async (event) => {
       };
     }
   }
+
+  await fetch("https://maxwellsimmer.com/webhooks", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ ok: true }),
+  });
 
   return {
     statusCode: 200,

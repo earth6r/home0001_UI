@@ -69,6 +69,7 @@
     "nodemailer": "^6.4.16",
     "npm": "^6.14.8",
     "pug": "^3.0.0",
+    "querystring": "^0.2.0",
     "react-calendly": "^1.1.1",
     "react-hook-form": "^6.8.5",
     "react-html-parser": "^2.0.2",
