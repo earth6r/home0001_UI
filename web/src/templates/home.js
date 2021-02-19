@@ -135,12 +135,12 @@ const HomeTemplate = (props) => {
                         <AccordionPanel className="pb-1em">
                           <div>
                             {item.text && (
-                              <div className="md:inline-block big-text align-top text-desktopCaptionSpecial md:w-3/12">
+                              <div className="md:inline-block big-text align-top text-desktopCaptionSpecial md:w-4/12">
                                 <PortableText blocks={item.text} />
                               </div>
                             )}
                             {item.floorPlan && (
-                              <div className="mb-0 mt-8 md:mt-0 text-left md:text-right floor-plan md:inline-block">
+                              <div className="mb-0 mt-8 md:mt-0 text-left md:text-right floor-plan md:inline-block md:w-8/12">
                                 <Figure className="" node={item.floorPlan} />
 
                               </div>
