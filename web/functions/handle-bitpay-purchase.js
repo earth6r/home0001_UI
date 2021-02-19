@@ -18,10 +18,8 @@ const fetch = require("node-fetch");
 const trimTrailingSlash = (url) => url.replace(/\/+$/, "", url);
 
 exports.handler = async (event) => {
-  const body = JSON.parse(event.body);
-
   // Use the ID of the initial webhook event to request additional data about the invoice
-  const { id: invoiceId } = body;
+  const { invoice_id: invoiceId } = event;
 
   const resourceURL = `${trimTrailingSlash(process.env.GATSBY_BITPAY_API_URL)}/invoices`;
   const token = process.env.GATSBY_BITPAY_POS_TOKEN;
