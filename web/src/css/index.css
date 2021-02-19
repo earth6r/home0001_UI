@@ -236,11 +236,11 @@ small {
 form .earth-svg svg{
   top:2px;
 }
-.flex-item .drop-shadow{
+.flex-item .drop-shadow {
   box-shadow: 0px 1px 11px rgb(0 0 0 / 30%);
   transition: 0.1s;
 }
-.flex-item:hover .drop-shadow{
+.flex-item:hover .drop-shadow {
   box-shadow:0px 1px 5px rgb(0 0 0 / 40%);
 }
 .flexible-gallery .flex-item img{
