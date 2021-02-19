@@ -261,6 +261,17 @@ form .earth-svg svg{
   .flex-item:hover .drop-shadow{
     box-shadow:0px 1px 11px rgb(0 0 0 / 30%);
   }
+
+  .flex-item a:active .hover-hide{
+    opacity: 0;
+  }
+
+  .flex-item a:active .hover-image{
+    opacity:1;
+  }
+  .flex-item a:active .drop-shadow{
+    box-shadow:0px 1px 5px rgb(0 0 0 / 40%);
+  }
 }
 .arrow-input-checkout{
   top:10px;
