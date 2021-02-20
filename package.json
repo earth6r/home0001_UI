@@ -24,6 +24,7 @@
     "@sanity/image-url": "^0.140.19",
     "gatsby-plugin-intercom-spa": "^0.2.0",
     "gatsby-plugin-netlify": "^2.6.0",
+    "gatsby-plugin-sanity-image": "^0.4.2",
     "google-map-react": "^2.1.9",
     "google-maps-react": "^2.0.6",
     "react": "^17.0.1",
