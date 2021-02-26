@@ -74,6 +74,9 @@ exports.handler = async (event) => {
 
       emailResponse = await send({ action: "checkout-completed", data: emailData });
       if (emailResponse.ok !== true) throw emailResponse.error;
+
+      emailResponse = await send({ action: "checkout-receipt", data: emailData });
+      if (emailResponse.ok !== true) throw emailResponse.error;
     } catch (err) {
       return {
         statusCode: 500,

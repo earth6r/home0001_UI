@@ -94,6 +94,16 @@ const views = {
       br
       a(href="${trimTrailingSlash(process.env.SITE_URL)}/checkout/success") Schedule a consultation
 `,
+  "checkout-receipt": `
+    h1 Deposit received — thank you.
+    p Your payment's been verified. Please save this email for your records.
+
+    if product.invoiceId
+      p Receipt #{product.invoiceId}
+
+    p The deposit amount is #{session.currency.toUpperCase()} #{session.amount_total / 100}
+    p If you have any questions, feel free to reply to this email and we'll get right back to you.
+`,
   "schedule-success": `
     p Your meeting has been scheduled.
 `,
