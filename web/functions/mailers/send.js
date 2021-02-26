@@ -143,12 +143,20 @@ module.exports = async function send(event) {
     // console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 
+    const etherealTestEnv = /ethereal/.test(process.env.EMAIL_HOST);
+
+    const body = JSON.stringify(
+      etherealTestEnv
+        ? {
+            messageId: info.messageId,
+            previewURL: nodemailer.getTestMessageUrl(info),
+          }
+        : {}
+    );
+
     return {
       ok: true,
-      body: JSON.stringify({
-        messageId: info.messageId,
-        previewURL: nodemailer.getTestMessageUrl(info),
-      }),
+      body,
     };
   } catch (err) {
     return {
