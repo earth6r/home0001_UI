@@ -64,7 +64,7 @@ const views = {
 `,
   "admin-checkout-completed": `
     h1 New Purchase Completed (BitPay)
-    p #{customer.email} <#{customer.email}> has been completed their purchase of #{product.name}
+    p #{customer.email} <#{customer.email}> has completed their purchase of #{product.name}
       if product.invoiceId
         span #{' '}(Invoice ID #{product.invoiceId})
       else
