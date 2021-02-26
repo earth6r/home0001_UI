@@ -83,19 +83,16 @@ const views = {
     p You are now a member — part of the collective. We’ll keep you updated as new homes and new locations become available. When you’re ready, schedule a consultation with our team to ask questions, make plans, secure financing and complete your purchase.
 `,
   "checkout-confirmed": `
-    h1 Your deposit has been confirmed — thank you.
-    p You are now a member — part of the collective. We’ll keep you updated as new homes and new locations become available. When you’re ready, schedule a consultation with our team to ask questions, make plans, secure financing and complete your purchase.
-    p Please follow the link below to complete your purchase.
-      br
-      br
-      a(href="${trimTrailingSlash(process.env.SITE_URL)}/checkout/success") ${trimTrailingSlash(process.env.SITE_URL)}/checkout/success
+    h1 Welcome to Earth.
+    p Your deposit is currently pending. You'll soon be a member — part of the collective. Once your payment is verified, you'll receive a confirmation email with your receipt. You can expect confirmation within the next six hours. We'll keep you posted.
 `,
   "checkout-completed": `
     h1 Your transaction has been verified, and is now complete.
-    p If you haven’t already, please follow the link below to complete your purchase.
+    p You are now a member — part of the collective. We’ll keep you updated as new homes and new locations become available. When you’re ready, schedule a consultation with our team to ask questions, make plans, secure financing and complete your purchase.
+    p You can follow the link below to connect with our team.
       br
       br
-      a(href="${trimTrailingSlash(process.env.SITE_URL)}/checkout/success") ${trimTrailingSlash(process.env.SITE_URL)}/checkout/success
+      a(href="${trimTrailingSlash(process.env.SITE_URL)}/checkout/success") Schedule a consultation
 `,
   "schedule-success": `
     p Your meeting has been scheduled.
