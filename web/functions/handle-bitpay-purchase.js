@@ -21,6 +21,7 @@ const trimTrailingSlash = (url) => url.replace(/\/+$/, "", url);
 exports.handler = async (event) => {
   // Use the ID of the initial webhook event to request additional data about the invoice
   const { invoice_id: invoiceId } = queryString.parse(event.body);
+  // const invoiceId = "8GRQZzVQF97iYDppryFAPX";
 
   const resourceURL = `${trimTrailingSlash(process.env.GATSBY_BITPAY_API_URL)}/invoices`;
   const token = process.env.GATSBY_BITPAY_POS_TOKEN;
@@ -54,10 +55,10 @@ exports.handler = async (event) => {
   if (status === "confirmed") {
     try {
       emailResponse = await send({ action: "admin-checkout-confirmed", data: emailData });
-      // if (emailResponse.ok !== true) throw emailResponse.error;
+      if (emailResponse.ok !== true) throw emailResponse.error;
 
       emailResponse = await send({ action: "checkout-confirmed", data: emailData });
-      // if (emailResponse.ok !== true) throw emailResponse.error;
+      if (emailResponse.ok !== true) throw emailResponse.error;
     } catch (err) {
       return {
         statusCode: 500,
@@ -70,13 +71,13 @@ exports.handler = async (event) => {
   } else if (status === "complete") {
     try {
       emailResponse = await send({ action: "admin-checkout-completed", data: emailData });
-      // if (emailResponse.ok !== true) throw emailResponse.error;
+      if (emailResponse.ok !== true) throw emailResponse.error;
 
       emailResponse = await send({ action: "checkout-completed", data: emailData });
-      // if (emailResponse.ok !== true) throw emailResponse.error;
+      if (emailResponse.ok !== true) throw emailResponse.error;
 
       emailResponse = await send({ action: "checkout-receipt", data: emailData });
-      // if (emailResponse.ok !== true) throw emailResponse.error;
+      if (emailResponse.ok !== true) throw emailResponse.error;
     } catch (err) {
       return {
         statusCode: 500,
@@ -89,10 +90,10 @@ exports.handler = async (event) => {
   } else if (status === "expired" || status === "invalid") {
     try {
       emailResponse = await send({ action: "admin-checkout-failure", data: emailData });
-      // if (emailResponse.ok !== true) throw emailResponse.error;
+      if (emailResponse.ok !== true) throw emailResponse.error;
 
       emailResponse = await send({ action: "checkout-failure", data: emailData });
-      // if (emailResponse.ok !== true) throw emailResponse.error;
+      if (emailResponse.ok !== true) throw emailResponse.error;
     } catch (err) {
       return {
         statusCode: 500,

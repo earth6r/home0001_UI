@@ -149,6 +149,22 @@ module.exports = function (emailUsername) {
     };
   };
 
+  this["checkout-receipt"] = function (opts) {
+    return {
+      templateOptions: {
+        session: opts.session,
+        customer: opts.customer,
+        product: opts.product,
+        metadata: opts.metadata,
+      },
+      transporterOptions: {
+        from,
+        to: opts.customer.email,
+        subject: "Your deposit has been received",
+      },
+    };
+  };
+
   this["admin-checkout-completed"] = function (opts) {
     return {
       templateOptions: {
