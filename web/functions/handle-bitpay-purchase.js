@@ -54,10 +54,10 @@ exports.handler = async (event) => {
   if (status === "confirmed") {
     try {
       emailResponse = await send({ action: "admin-checkout-confirmed", data: emailData });
-      if (emailResponse.ok !== true) throw emailResponse.error;
+      // if (emailResponse.ok !== true) throw emailResponse.error;
 
       emailResponse = await send({ action: "checkout-confirmed", data: emailData });
-      if (emailResponse.ok !== true) throw emailResponse.error;
+      // if (emailResponse.ok !== true) throw emailResponse.error;
     } catch (err) {
       return {
         statusCode: 500,
@@ -70,13 +70,13 @@ exports.handler = async (event) => {
   } else if (status === "complete") {
     try {
       emailResponse = await send({ action: "admin-checkout-completed", data: emailData });
-      if (emailResponse.ok !== true) throw emailResponse.error;
+      // if (emailResponse.ok !== true) throw emailResponse.error;
 
       emailResponse = await send({ action: "checkout-completed", data: emailData });
-      if (emailResponse.ok !== true) throw emailResponse.error;
+      // if (emailResponse.ok !== true) throw emailResponse.error;
 
       emailResponse = await send({ action: "checkout-receipt", data: emailData });
-      if (emailResponse.ok !== true) throw emailResponse.error;
+      // if (emailResponse.ok !== true) throw emailResponse.error;
     } catch (err) {
       return {
         statusCode: 500,
@@ -89,10 +89,10 @@ exports.handler = async (event) => {
   } else if (status === "expired" || status === "invalid") {
     try {
       emailResponse = await send({ action: "admin-checkout-failure", data: emailData });
-      if (emailResponse.ok !== true) throw emailResponse.error;
+      // if (emailResponse.ok !== true) throw emailResponse.error;
 
       emailResponse = await send({ action: "checkout-failure", data: emailData });
-      if (emailResponse.ok !== true) throw emailResponse.error;
+      // if (emailResponse.ok !== true) throw emailResponse.error;
     } catch (err) {
       return {
         statusCode: 500,

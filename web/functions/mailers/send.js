@@ -35,7 +35,7 @@ const views = {
   "admin-checkout-failure": `
     h1 Failed Purchase
 
-    p #{customer.email} <#{customer.email}> attempted to purchased #{product.name}
+    p #{customer.email} &lt;#{customer.email}&gt; attempted to purchased #{product.name}
       if product.sku
         span #{' '}(SKU #{product.sku})
       else
@@ -46,7 +46,7 @@ const views = {
 `,
   "admin-checkout-success": `
     h1 New Purchase
-    p #{customer.email} <#{customer.email}> has purchased #{product.name}
+    p #{customer.email} &lt;#{customer.email}&gt; has purchased #{product.name}
       if product.invoiceId
         span #{' '}(Invoice ID #{product.invoiceId})
       else
@@ -55,7 +55,7 @@ const views = {
 `,
   "admin-checkout-confirmed": `
     h1 New Purchase Confirmation (BitPay)
-    p #{customer.email} <#{customer.email}> has been confirmed for their purchase of #{product.name}
+    p #{customer.email} &lt;#{customer.email}&gt; has been confirmed for their purchase of #{product.name}
       if product.invoiceId
         span #{' '}(Invoice ID #{product.invoiceId})
       else
@@ -64,7 +64,7 @@ const views = {
 `,
   "admin-checkout-completed": `
     h1 New Purchase Completed (BitPay)
-    p #{customer.email} <#{customer.email}> has completed their purchase of #{product.name}
+    p #{customer.email} &lt;#{customer.email}&gt; has completed their purchase of #{product.name}
       if product.invoiceId
         span #{' '}(Invoice ID #{product.invoiceId})
       else
@@ -108,7 +108,7 @@ const views = {
     p Your meeting has been scheduled.
 `,
   "admin-schedule-success": `
-    p A meeting has been scheduled with #{customer.name} <#{customer.email}>.
+    p A meeting has been scheduled with #{customer.name} &lt;#{customer.email}&gt;.
 `,
 };
 
