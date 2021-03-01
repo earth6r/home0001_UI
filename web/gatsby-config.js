@@ -61,6 +61,12 @@ module.exports = {
         sv: process.env.HOTJAR_SNIPPET_VERSION,
       },
     },
+    {
+    resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: "1778055882368765",
+      },
+    },
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
