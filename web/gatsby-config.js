@@ -8,6 +8,16 @@ const tailwindConfig = require("./tailwind.config.js");
 
 module.exports = {
   plugins: [
+     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: "UA-190900607-1",
+        // Defines where to place the tracking script - `true` in the head and `false` in the body
+        head: true,
+        anonymize: true,
+      },
+    },
     `gatsby-plugin-netlify`,
     `gatsby-plugin-typescript`,
     {
@@ -78,23 +88,6 @@ module.exports = {
         theme_color: `#ffffff`,
         display: `minimal-ui`,
         icon: `src/images/favicon.jpg`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        // The property ID; the tracking code won't be generated without it
-        trackingId: "UA-190900607-1",
-        // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: false,
-        anonymize: true,
-        // Delays sending pageview hits on route update (in milliseconds)
-        pageTransitionDelay: 0,
-        // Set Variation ID. 0 for original 1,2,3....
-        // Defers execution of google analytics script after page load
-        // Any additional optional fields
-        sampleRate: 5,
-        siteSpeedSampleRate: 10,
       },
     },
     {
