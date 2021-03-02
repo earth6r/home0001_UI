@@ -84,9 +84,10 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // The property ID; the tracking code won't be generated without it
-        trackingId: "G-CYYWFS9136",
+        trackingId: "UA-190900607-1",
         // Defines where to place the tracking script - `true` in the head and `false` in the body
         head: false,
+        anonymize: true,
         // Delays sending pageview hits on route update (in milliseconds)
         pageTransitionDelay: 0,
         // Set Variation ID. 0 for original 1,2,3....
