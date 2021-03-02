@@ -81,6 +81,23 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: "G-CYYWFS9136",
+        // Defines where to place the tracking script - `true` in the head and `false` in the body
+        head: false,
+        // Delays sending pageview hits on route update (in milliseconds)
+        pageTransitionDelay: 0,
+        // Set Variation ID. 0 for original 1,2,3....
+        variationId: "0",
+        // Defers execution of google analytics script after page load
+        // Any additional optional fields
+        sampleRate: 5,
+        siteSpeedSampleRate: 10,
+      },
+    },
+    {
       resolve: "gatsby-plugin-mailchimp",
       options: {
         endpoint: process.env.MAILCHIMP_ENDPOINT, // string; add your MC list endpoint here; see instructions below

@@ -10,6 +10,7 @@
 figure img{
   object-fit: contain !important;
 }
+
 .spring-green{
   color:#66ff00;
 }
@@ -326,6 +327,9 @@ form .earth-svg svg{
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+ .floor-plan img{
+    float:right;
+  }
 @media(max-width: 767px){
   .arrow-input-checkout{
     top:7px;
@@ -333,6 +337,9 @@ form .earth-svg svg{
   }
   .map-module-wrapper{
     max-height:400px;
+  }
+  .floor-plan img{
+    float:none;
   }
   .floor-plan-cap.text-desktopCaptionSpecial *{
     font-size: 10px;
