@@ -340,6 +340,7 @@ form .earth-svg svg{
   }
   .floor-plan img{
     float:none;
+    max-width: 100%;
   }
   .floor-plan-cap.text-desktopCaptionSpecial *{
     font-size: 10px;
