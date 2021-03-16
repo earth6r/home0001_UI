@@ -70,6 +70,16 @@ export default {
       name: 'strikeColor',
       type: 'string',
       title: 'color of the discount strikethrough'
-    }
+    },
+    {
+      name: 'discountCodes',
+      type: 'array',
+      title: 'discount codes',
+      description: 'Add discount codes.',
+      of: [{ type: 'string' }],
+      options: {
+        layout: 'tags',
+      },
+    },
   ],
 }
