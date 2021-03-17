@@ -73,8 +73,22 @@ figure img{
 .price-breakdown-line:last-child .price-before{
    padding-left:0px;
 }
-
+.homes-accordion-header-small{
+    position:relative;
+    top:-3px;
+  }
 @media(max-width:767px){
+  .homes-accordion-header-plus{
+    padding-top:0.2em;
+  }
+  .homes-accordion-header-small{
+    position:relative;
+    top:1px;
+  }
+  .homes-accordion-header-main{
+    position:relative;
+    top:2px;
+  }
   .stripe-button img, .stripe-button.bit-button img{
     height:15px;
     position:absolute;
