@@ -1,0 +1,21 @@
+.map-module-wrapper{
+  filter:grayscale(1);
+}
+.map-module-wrapper.mexico{
+  filter:none;
+}
+.map-button{
+  top:-18px;
+  left:5px;
+  z-index: 1;
+  cursor:pointer;
+}
+@media(max-width:767px){
+	.map-module-wrapper{
+	    max-height:400px;
+	  }
+
+	.map-button{
+	      top: -1.5px;
+	}
+}

@@ -1,0 +1,123 @@
+.spring-green{
+  color:#66ff00;
+}
+
+.special-bitcoin{
+/*  background-image: url("./bit-icons-01.png");*/
+  background-size: 55%;
+  background-repeat:no-repeat;
+  background-position:center center;
+}
+
+.stripe-button, .bit-button{
+  position:relative;
+}
+.stripe-button img, .bit-button img{
+  position:absolute;
+  height:135px;
+  top: 50%;
+  pointer-events: none;
+  left:85px;
+  z-index: 2;
+  transform: translate(0%, -50%);
+}
+.stripe-button.bit-button img{
+  position:absolute;
+  height:42px;
+  top: 50%;
+  pointer-events: none;
+  left:195px;
+  z-index: 2;
+  transform: translate(0%, -50%);
+}
+
+.special-stripe{
+/*  background-image: url(./stripe-icons-01.png);*/
+  background-size: 85%;
+  background-repeat:no-repeat;
+  background-position:center center;
+}
+.special-stripe[disabled]{
+/*  background-image: url(./stripe-icons2-01.png);*/
+}
+.bit-stripe[disabled]{
+/*  background-image: url(./bit-icons2-01.png);*/
+}
+.discount-container{
+  margin-bottom:0;
+  display: inline-block;
+  position: relative;
+}
+.spring-green-line{
+  height:8px;
+  background:#66ff00;
+  width: 2.55em;
+    left: -2.65em;
+    top: 0.55em;
+  position:absolute;
+  display:inline-block;
+}
+
+.click-area{
+  background: transparent;
+  width:100vw;
+  height:100vh;
+  position: fixed;
+}
+.arrow-input-checkout{
+  top:10px;
+  right:5px;
+}
+#checkout-button-1{
+  width:120px;
+}
+#checkout-button-2{
+  width:150px;
+  text-align:left;
+}
+.e-checkbox + a{
+  border-bottom:2px solid;
+}
+@media(max-width:767px){
+    .e-checkbox + a{
+    display: inline-block;
+  border-bottom:1px solid;
+  }
+  
+  .stripe-button img, .stripe-button.bit-button img{
+    height:15px;
+    position:absolute;
+    top: 50%;
+    left: calc(50% - 115px);
+    z-index: 2;
+    transform: translate(0%, -50%);
+  }
+  .stripe-button.bit-button img{
+    height:20px;
+    position:absolute;
+    top: 50%;
+    left: calc(50% - 72px);
+    z-index: 2;
+    transform: translate(0%, -50%);
+  }
+  .arrow-input-checkout{
+    top:7px;
+    right:5px;
+  }
+  .spring-green {
+    color: #66ff00;
+    position: relative;
+
+  }
+
+
+  .spring-green-line{
+  height:4px;
+}
+.membership-deposit{
+    max-width:300px;
+  }
+  .floor-plan-cap br{
+  display:none;
+}
+}
