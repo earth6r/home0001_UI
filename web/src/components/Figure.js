@@ -88,11 +88,11 @@ const Figure = ({node}) => {
   const fluidProps = getFixedProps({assetId: node.asset, crop: node.crop},
     {maxWidth: 2048, fit: 'none', quality: 90}
   )
-  console.log(fluidProps)
+
 
   return (
     <figure>
-      <img src={fluidProps.src} alt={node.alt} srcSet={fluidProps.srcSet} srcWebp={fluidProps.srcWebp} srcSetWebp={fluidProps.srcSetWebp} />
+      <img src={fluidProps.src} alt={node.alt} srcSet={fluidProps.srcSet.split('1024w,')[1]} srcWebp={fluidProps.srcWebp} srcSetWebp={fluidProps.srcSetWebp} />
 
     </figure>
   )
