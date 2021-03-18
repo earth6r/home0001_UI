@@ -93,7 +93,7 @@ const Figure = ({node}) => {
   return (
     <figure>
       <img src={fluidProps.src} alt={node.alt} srcSet={fluidProps.srcSet} srcWebp={fluidProps.srcWebp} srcSetWebp={fluidProps.srcSetWebp} />
-      <figcaption>{node.caption}</figcaption>
+
     </figure>
   )
 }
