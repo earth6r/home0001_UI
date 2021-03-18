@@ -1,5 +1,8 @@
 module.exports = {
-  purge: [],
+  purge: [
+    './src/**/*.tsx',
+    './src/**/*.js',
+    ],
   important: true,
   theme: {
     inset: {

@@ -26,7 +26,7 @@ function getFixedWithCrop({ assetId, fixed, crop }) {
 
   // rect=x,y,width,height
   // (each is in absolute PX, that's why we refer to width and height)
-  const cropQueryStr = `&rect=${Math.floor(left * width)},${Math.floor(
+  const cropQueryStr = `?&rect=${Math.floor(left * width)},${Math.floor(
     top * height,
   )},${effectiveWidth},${effectiveHeight}`;
 
