@@ -153,6 +153,30 @@ export default {
               }
             },
             {
+              title: 'Hide on Mobile?',
+              name: 'hideMobile',
+              type: 'boolean',
+              options: {
+                isHighlighted: true,
+              }
+            },
+            {
+              title: 'Hide on Tablet?',
+              name: 'hideTablet',
+              type: 'boolean',
+              options: {
+                isHighlighted: true,
+              }
+            },
+            {
+              title: 'Hide on Desktop?',
+              name: 'hideDesktop',
+              type: 'boolean',
+              options: {
+                isHighlighted: true,
+              }
+            },
+            {
               title: 'Lead Image?',
               name: 'lead',
               type: 'boolean',
