@@ -140,8 +140,14 @@ const HomeTemplate = (props) => {
                               </div>
                             )}
                             {item.floorPlan && (
-                              <div className="mb-0 mt-8 md:mt-0 text-left md:text-right floor-plan md:inline-block md:w-8/12">
+                              <div className={`${item.floorPlanMobile ? "hidden" : "inline-block"} mb-0 mt-8 md:mt-0 text-left md:text-right floor-plan md:inline-block md:w-8/12`}>
                                 <Figure className="" node={item.floorPlan} />
+
+                              </div>
+                            )}
+                            {item.floorPlanMobile && (
+                              <div className="mb-0 mt-8 md:mt-0 text-left md:text-right floor-plan inline-block md:hidden md:w-8/12">
+                                <Figure className="" node={item.floorPlanMobile} />
 
                               </div>
                             )}

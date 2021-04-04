@@ -14,6 +14,11 @@ export default {
       title: 'Floor Plan'
     },
     {
+      name: 'floorPlanMobile',
+      type: 'image',
+      title: 'Floor Plan (for Mobile)'
+    },
+    {
       name: 'floorPlanCaption',
       type: 'bodyPortableText',
       title: 'Additional floor plan info'
