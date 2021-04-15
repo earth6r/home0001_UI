@@ -23,6 +23,9 @@ export const query = graphql`
     strikeColor:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       strikeColor 
     }
+    discountCodes:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      discountCodes 
+    }
     homes: allSanityHome {
       edges {
         node {
@@ -57,24 +60,37 @@ const Unavailable = () => (
   </div>
 );
 
-const DiscountNotice = ({ discountCode, color }) => {
+const DiscountNotice = ({ discountCode, color, codes }) => {
+  let hasCode = false;
+  let discount = false;
 
-  if (!discountCode || discountCode !== "balaji") return (
+  if(typeof window != `undefined`){
+     discount = window.location.href.split('discount=')[1];
+  }
+
+  for (var i = codes.length - 1; i >= 0; i--) {
+    if (discount == codes[i]){
+      hasCode = true;
+    }
+  }
+  if ((discountCode !== "balaji" && !hasCode)) return (
     <div className="discount-container mb-1">
       <div style={{background: color}} className="spring-green-line"></div>
       <span style={{color:color}} className="spring-green">$300</span>
     </div>
     );
   return (<div className="discount-container mb-1">
-    <div className="spring-green-line"></div>
-    <span className="spring-green">$200</span>
+    <div style={{background: color}} className="spring-green-line"></div>
+    <span style={{color:color}} className="spring-green">$200</span>
     </div>)
 };
 
-const ValueAdded = ({ discount, discountCode, unitTitle, color }) => (
+const ValueAdded = ({ discount, codes, discountCode, unitTitle, color }) => {
+
+  return(
   <>
     <h1 className="membership-deposit mb-2">Membership Deposit: <MembershipPrice discount={discount} />{" "}
-    <DiscountNotice color={color} discountCode={discountCode} />
+    <DiscountNotice codes={codes} color={color} discountCode={discountCode} />
     <br />
     </h1>
     {unitTitle &&
@@ -86,7 +102,7 @@ const ValueAdded = ({ discount, discountCode, unitTitle, color }) => (
     Fully refundable any time, for any reason.
   </p>
   </>
-);
+)};
 
 const CheckoutOptions = ({ /*ssr, */ children }) => {
   // if (ssr) return null;
@@ -98,10 +114,11 @@ const CheckoutActions = ({ unit, children }) => {
   return <>{children}</>;
 };
 
-const CheckoutDescription = ({ unit, modules, children,color, discount, discountCode }) => {
+const CheckoutDescription = ({ unit,codes, modules, children,color, discount, discountCode }) => {
   const [head, ...rest] = modules;
-
+ 
   if (unit) {
+
     return (
       <>
         <div className="flex flex-wrap w-full standard-text">
@@ -109,7 +126,7 @@ const CheckoutDescription = ({ unit, modules, children,color, discount, discount
 
           <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
             
-            <ValueAdded color={color} unitTitle={unit.title} discount={discount} discountCode={discountCode} />
+            <ValueAdded codes={codes} color={color} unitTitle={unit.title} discount={discount} discountCode={discountCode} />
             
           </div>
 
@@ -126,7 +143,7 @@ const CheckoutDescription = ({ unit, modules, children,color, discount, discount
 
         <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
    
-          <ValueAdded discount={discount} color={color} discountCode={discountCode} />
+          <ValueAdded codes={codes} discount={discount} color={color} discountCode={discountCode} />
         </div>
 
       </div>
@@ -166,6 +183,8 @@ const CheckoutTemplate = (props) => {
   const { data, errors } = props;
   const page = data && data.checkout;
   const color = data.strikeColor.strikeColor
+  const discountCodes = data.discountCodes.discountCodes
+
   const ssr = typeof window === "undefined";
   const {
     main: { modules, slug },
@@ -208,6 +227,9 @@ const CheckoutTemplate = (props) => {
     }
   }
 
+
+  
+
   return (
     <Layout>
       <SEO
@@ -219,11 +241,24 @@ const CheckoutTemplate = (props) => {
         <CheckoutOptions>
           <CheckoutActions unit={unit}>
             <PaymentContext.Consumer>
-              {({ discount, discountCode }) => (
+              {({ discount, discountCode }) => {
+                let test;
+
+                if(typeof window != `undefined`){
+                   test = window.location.href.split('discount=')[1];
+                }
+
+                for (var i = discountCodes.length - 1; i >= 0; i--) {
+                  if (test == discountCodes[i]){
+                    discount = true;
+                  }
+                }
+                return (
               <>
                 <CheckoutDescription
                   unit={unit}
                   color={color}
+                  codes={discountCodes}
                   modules={modules}
                   discount={discount}
                   discountCode={discountCode}
@@ -237,6 +272,7 @@ const CheckoutTemplate = (props) => {
                     sku={sku}
                     bitPayID={discount ? bitPayIDDiscounted : bitPayID}
                     discount={discount}
+                    codes={discountCodes}
                     discountCode={discountCode}
                     stripePromise={stripePromise}
                   />
@@ -250,7 +286,8 @@ const CheckoutTemplate = (props) => {
 
                 </CheckoutModules>
                 </>
-              )}
+              )
+              }}
             </PaymentContext.Consumer>
           </CheckoutActions>
         </CheckoutOptions>

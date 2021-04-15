@@ -1,0 +1,141 @@
+/* R & D*/
+
+@media(max-width:767px){
+  .r-d-menu{
+    background: white;
+    border-bottom:1px solid black;
+    height:33px;
+  }
+}
+.lightbox-pdf{
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 900;
+  background: white;
+  width: 100vw;
+  height:100vh;
+  overflow-y: scroll;
+  
+}
+.lightbox-pdf canvas{
+  display: block;
+  margin:0 auto;
+}
+
+.react-pdf__Page{
+  max-height: calc(100vh - 60px);
+}
+.lightbox-pdf .left-arrow{
+  position: absolute;
+  left:30px;
+  top:50%;
+}
+.lightbox-pdf .pdf-close svg {
+  width:50px;
+  height:50px;
+
+}
+.lightbox-pdf .pdf-close svg line{
+  stroke:black;
+  stroke-width:3px;
+}
+.lightbox-pdf .pdf-close{
+  top:70px;
+  right:190px;
+}
+
+.lightbox-pdf .right-arrow{
+  position: absolute;
+  right:30px;
+  top:50%;
+}
+.rte.rte-large .article-accordion{
+  border:none;
+  font-size:20px;
+  line-height: 30px;
+}
+.gallery-image iframe, .internal-iframe iframe{
+  max-width:100%;
+}
+
+
+.standard-text p a{
+  border-bottom:2px solid;
+}
+.standard-text h1 > a {
+  border-bottom:5px solid;
+}
+
+
+@media(max-width:767px){
+
+
+  .react-pdf__Page,.react-pdf__Page canvas{
+    max-width: calc(100vw);
+  }
+  .mt-special-nav{
+        margin-top: 27px !important;
+
+  }
+
+  .standard-text h1 > a {
+    border-bottom:2px solid;
+  }
+  .lightbox-pdf canvas{
+    transform-origin:center center;
+    transform:scale(0.7);
+  }
+  .lightbox-pdf .pdf-close {
+    right:50px;
+  }
+  .lightbox-pdf .pdf-close svg{
+    width:15px;
+    height:15px;
+  }
+   .lightbox-pdf .pdf-close svg line{
+    stroke-width:10px;
+   }
+}
+@media(min-width:768px){
+  .px-special{
+    padding:0 85px;
+  }
+}
+
+
+.rte .html-text{
+  font-size:18px;
+  line-height: 1;
+}
+/* info section R & D */
+.info-rd a{
+  margin-bottom: 1.5rem;
+  text-decoration: underline;
+}
+.rnd-mailchimp input, .rnd-mailchimp button{
+  font-size: .875rem !important;
+  padding: 1.5em 0.5em !important;
+  display: flex !important;
+}
+.rnd-mailchimp form button,.rnd-mailchimp button[type="submit"]{
+  display:flex;
+}
+.rnd-mailchimp form p{
+  display:none;
+  padding: 1.5em 0.5em !important;
+}
+img{
+  max-width: 500px;
+}
+.info-section{
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.6);
+  animation:slide;
+  animation-iteration-count: 1;
+  animation-duration:0.2s;
+}
+@keyframes slide {
+  from { transform: translateY(-500px); }
+  to { transform: translateY(0); }
+}
+/* end R & D*/

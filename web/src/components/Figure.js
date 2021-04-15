@@ -26,7 +26,7 @@ function getFixedWithCrop({ assetId, fixed, crop }) {
 
   // rect=x,y,width,height
   // (each is in absolute PX, that's why we refer to width and height)
-  const cropQueryStr = `&rect=${Math.floor(left * width)},${Math.floor(
+  const cropQueryStr = `?&rect=${Math.floor(left * width)},${Math.floor(
     top * height,
   )},${effectiveWidth},${effectiveHeight}`;
 
@@ -88,12 +88,12 @@ const Figure = ({node}) => {
   const fluidProps = getFixedProps({assetId: node.asset, crop: node.crop},
     {maxWidth: 2048, fit: 'none', quality: 90}
   )
-  console.log(fluidProps)
+
 
   return (
     <figure>
-      <img src={fluidProps.src} alt={node.alt} srcSet={fluidProps.srcSet} srcWebp={fluidProps.srcWebp} srcSetWebp={fluidProps.srcSetWebp} />
-      <figcaption>{node.caption}</figcaption>
+      <img src={fluidProps.src} alt={node.alt} srcSet={fluidProps.srcSet.split('1024w,')[1]} srcWebp={fluidProps.srcWebp} srcSetWebp={fluidProps.srcSetWebp} />
+
     </figure>
   )
 }

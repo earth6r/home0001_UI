@@ -108,6 +108,7 @@ export default function CheckoutCreate({
   discountCode,
   unit,
   sku,
+  codes,
   bitPayID,
   stripePromise,
 }) {
@@ -164,6 +165,7 @@ export default function CheckoutCreate({
     <CheckoutActions
       bitPayID={bitPayID}
       unit={unit}
+      codes={codes}
       discount={discount}
       discountCode={discountCode}
       message={message}

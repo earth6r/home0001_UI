@@ -98,27 +98,27 @@ const HomeTemplate = (props) => {
                           } relative flex h-2em  pl-1/2em border-none`}
                         >
                           {item.unit && (
-                            <span className="w-1/4 text-left m-0  md:mt-0">
+                            <span className="w-1/4 text-left m-0  md:mt-0 homes-accordion-header-main">
                               <span>Unit </span>
                               {item.unit}
                             </span>
                           )}
                           {item.bedrooms && (
-                            <span className="w-1/6 text-left m-0  text-mobileCaption md:text-base  md:mt-0">
+                            <span className="w-1/6 text-left m-0  text-mobileCaption md:text-base  md:mt-0 homes-accordion-header-small">
                               {item.bedrooms}
                             </span>
                           )}
                           {item.price && (
-                            <span className="w-1/5 text-left text-mobileCaption md:text-base text-left m-0  md:mt-0">
+                            <span className="w-1/5 text-left text-mobileCaption md:text-base text-left m-0  md:mt-0 homes-accordion-header-small">
                               {item.price}
                             </span>
                           )}
                           {item.sold == 1 ? (
-                            <span className="w-1/6 text-left md:left-0 md:relative text-mobileCaption md:text-base md:mt-0">
+                            <span className="w-1/6 text-left md:left-0 md:relative text-mobileCaption md:text-base md:mt-0 homes-accordion-header-small">
                               Sold
                             </span>
                           ) : (
-                            <span className="w-1/6 text-left md:left-0 md:relative text-mobileCaption md:text-base -mt-1/4em md:mt-0">
+                            <span className="w-1/6 text-left md:left-0 md:relative text-mobileCaption md:text-base -mt-1/4em md:mt-0 homes-accordion-header-small">
                               Available
                             </span>
                           )}
@@ -126,7 +126,7 @@ const HomeTemplate = (props) => {
                           {!item.sold && (
                             <div
                               style={{ marginTop: "-0.15em" }}
-                              className="right-0 absolute pr-1em md:mt-0"
+                              className="right-0 absolute pr-1em md:mt-0 homes-accordion-header-plus"
                             >
                               {isExpanded ? "–" : "+"}
                             </div>
@@ -140,8 +140,14 @@ const HomeTemplate = (props) => {
                               </div>
                             )}
                             {item.floorPlan && (
-                              <div className="mb-0 mt-8 md:mt-0 text-left md:text-right floor-plan md:inline-block md:w-8/12">
+                              <div className={`${item.floorPlanMobile ? "hidden" : "inline-block"} mb-0 mt-8 md:mt-0 text-left md:text-right floor-plan md:inline-block md:w-8/12`}>
                                 <Figure className="" node={item.floorPlan} />
+
+                              </div>
+                            )}
+                            {item.floorPlanMobile && (
+                              <div className="mb-0 mt-8 md:mt-0 text-left md:text-right floor-plan inline-block md:hidden md:w-8/12">
+                                <Figure className="" node={item.floorPlanMobile} />
 
                               </div>
                             )}

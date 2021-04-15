@@ -1,0 +1,169 @@
+
+.accordion a{
+  border-bottom:2px solid;
+}
+
+.accordion a.box{
+  border:none;
+}
+.accordion button a{
+  border:none;
+}
+
+.accordion.box:hover button{
+  border-radius:15px;
+  color:inherit;
+}
+.accordion button .big-text{
+  position:relative;
+  top:1px;
+}
+.accordion button{
+  padding:5px 8px;
+  padding-top:2px;
+  color:black;
+  align-items:baseline;
+  font-size:inherit !important;
+  line-height: 1 !important;
+}
+.accordion button.box-link:before{
+  left:-4px;
+  top:46%;
+}
+.accordion button a{
+  color:inherit;
+}
+.accordion .box-circle .bg-black h2{
+  color:white;
+}
+
+.homes-accordion-header-small{
+  position:relative;
+  top:-3px;
+}
+.w-price{
+  width: 69%;
+}
+
+.w-price-1{
+  width:31%;
+}
+
+
+
+.price-before:after{
+  content:"$";
+  position: absolute;
+  right: 0;
+  display: inline-block;
+}
+.border-price{
+  border-bottom:1px solid black;
+}
+
+.price-breakdown-line .price-before{
+   padding-left:1em;
+}
+.price-breakdown-line:last-child .price-before{
+   padding-left:0px;
+}
+ .floor-plan img{
+    float:right;
+  }
+.accordion-icon{
+  margin-top:-1px;
+}
+.accordion button{
+  line-height:1.1 !important;
+}
+.rte.rte-large .article-accordion button{
+   padding-left:0;
+   display:inline-block;
+   width:auto;
+}
+.rte.rte-large .article-accordion button:hover{
+  color: #ccc;
+  background:inherit;
+}
+.rte.rte-large .article-accordion h2{
+  font-size:30px;
+}
+.rte.rte-large .article-accordion *{
+  font-size:inherit;
+  line-height: inherit;
+}
+.rte .article-accordion .flag{
+  font-size:12px;
+  line-height: 1;
+  padding:2px;
+  margin:0 15px;
+}
+.floor-plan{
+  width:75%;
+  
+}
+.floor-plan-cap{
+  line-height: 1.2;
+}
+.floor-plan .gatsby-image-wrapper{
+  width:100%;
+  max-height:500px;
+}
+@media(max-height:900px){
+  .floor-plan .gatsby-image-wrapper{
+    width:100%;
+    max-height:400px;
+  }
+}
+.floor-plan .gatsby-image-wrapper img{
+  object-position: center right !important;
+}
+@media(max-width:767px){
+  .floor-plan .gatsby-image-wrapper{
+  width:100%;
+  max-height:400px;
+}
+  .floor-plan .gatsby-image-wrapper img{
+  object-position: center left !important;
+}
+
+  .accordion a{
+    display: inline-block;
+    border-bottom:1px solid;
+  }
+  .accordion h2.title{
+  font-size:0.9rem;
+  line-height: 0;
+}
+.accordion-icon{
+  margin-top: -14px;
+}
+  .homes-accordion-header-plus{
+    padding-top:0.2em;
+  }
+  .homes-accordion-header-small{
+    position:relative;
+    top:1px;
+  }
+  .homes-accordion-header-main{
+    position:relative;
+    top:2px;
+  }
+   .floor-plan img{
+    float:none;
+    max-width: 100%;
+  }
+  .floor-plan-cap.text-desktopCaptionSpecial *{
+    font-size: 10px;
+    text-align: left;
+  }
+    .rte .article-accordion .flag{
+  margin:0;
+  right:0;
+  top:-15px;
+  position: absolute;
+}
+  .rte.rte-large .article-accordion h2:hover{
+    color:black;
+  }
+}

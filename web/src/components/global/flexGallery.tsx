@@ -138,7 +138,7 @@ const [isClient, setClient] = useState(false);
                   }
                   console.log(image.link)
                 return (
-                  <div key={image._key} className="flex-item" style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}>
+                  <div key={image._key} className={`${image.hideDesktop ? "lg:hidden ": ""} ${image.hideTablet ? "md:hidden lg:block ": ""} ${image.hideMobile ? "hidden md:block ": ""} flex-item`} style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}>
                    <PageLink
                       className="internal-link z-40 block relative"
                       to={uri +"/" + link}
@@ -154,7 +154,7 @@ const [isClient, setClient] = useState(false);
                 }else{
                   return (
                     
-                  <div key={image._key} className="flex-item" style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}>
+                  <div key={image._key} className={`${image.hideDesktop ? "lg:hidden ": ""} ${image.hideTablet ? "md:hidden lg:block ": ""} ${image.hideMobile ? "hidden md:block ": ""} flex-item`} style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}>
 
                       <div className={`${image.dropShadow ? "drop-shadow" : ""} z-40 relative`} ><Figure node={image}/></div> {image.caption && <span className="mt-1 block text-sm z-20 relative">{image.caption}</span>}
         
