@@ -68,7 +68,9 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
                   : []
               )
               .concat(meta)}
-          />
+          >
+<script src="https://dev.visualwebsiteoptimizer.com/lib/559509.js"></script>
+          </Helmet>
         );
       }}
     />
