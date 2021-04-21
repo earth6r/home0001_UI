@@ -101,7 +101,6 @@ module.exports = {
       resolve: 'gatsby-plugin-mixpanel',
       options: {
         apiToken: 'beeb628c3b05d44857c2d630022e5239', // required
-        api_host: 'https://api-eu.mixpanel.com',
       },
     },
   ],
