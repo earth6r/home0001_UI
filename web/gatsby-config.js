@@ -6,9 +6,6 @@ const clientConfig = require("./client-config");
 const isProd = process.env.NODE_ENV === "production";
 const tailwindConfig = require("./tailwind.config.js");
 
-var mixpanel = require('mixpanel-browser');
-mixpanel.init("beeb628c3b05d44857c2d630022e5239", { "api_host": "https://api-eu.mixpanel.com" }, "");
-
 module.exports = {
   plugins: [
      {
@@ -98,6 +95,13 @@ module.exports = {
       options: {
         endpoint: process.env.MAILCHIMP_ENDPOINT, // string; add your MC list endpoint here; see instructions below
         timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-mixpanel',
+      options: {
+        apiToken: 'beeb628c3b05d44857c2d630022e5239', // required
+        api_host: 'https://api-eu.mixpanel.com',
       },
     },
   ],
