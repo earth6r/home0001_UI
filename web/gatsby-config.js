@@ -6,6 +6,9 @@ const clientConfig = require("./client-config");
 const isProd = process.env.NODE_ENV === "production";
 const tailwindConfig = require("./tailwind.config.js");
 
+var mixpanel = require('mixpanel-browser');
+mixpanel.init("beeb628c3b05d44857c2d630022e5239", { "api_host": "https://api-eu.mixpanel.com" }, "");
+
 module.exports = {
   plugins: [
      {
