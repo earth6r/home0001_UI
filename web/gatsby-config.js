@@ -97,11 +97,5 @@ module.exports = {
         timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
       },
     },
-    {
-      resolve: 'gatsby-plugin-mixpanel',
-      options: {
-        apiToken: 'beeb628c3b05d44857c2d630022e5239', // required
-      },
-    },
   ],
 };
