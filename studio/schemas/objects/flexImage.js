@@ -145,6 +145,14 @@ export default {
               }
             },
             {
+              title: 'Border?',
+              name: 'border',
+              type: 'boolean',
+              options: {
+                isHighlighted: true,
+              }
+            },
+            {
               name: 'hoverImage',
               type: 'image',
               title: 'Hover Image (optional)',
