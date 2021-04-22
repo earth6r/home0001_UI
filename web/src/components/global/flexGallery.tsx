@@ -144,9 +144,9 @@ const [isClient, setClient] = useState(false);
                       to={uri +"/" + link}
                     >
 
-                    <div className={`${image.dropShadow ? "drop-shadow" : ""} ${image.hoverImage ? "hover-hide" : ""} z-40 relative inline-block w-full`}><Figure node={image}/></div> {image.caption && <span className="mt-1 relative z-20 block text-sm">{image.caption}</span>}  
+                    <div className={`${image.dropShadow ? "drop-shadow" : ""} ${image.border ? " border-img" : ""} ${image.hoverImage ? "hover-hide" : ""} z-40 relative inline-block w-full`}><Figure node={image}/></div> {image.caption && <span className="mt-1 relative z-20 block text-sm">{image.caption}</span>}  
                     {image.hoverImage &&
-                     <div className={`${image.dropShadow ? "drop-shadow" : ""} hover-image w-full inline-block`}> <Figure node={image.hoverImage}/></div>}
+                     <div className={`${image.dropShadow ? "drop-shadow" : ""} ${image.border ? " border-img" : ""} hover-image w-full inline-block`}> <Figure node={image.hoverImage}/></div>}
                     </PageLink>
                   </div>
                 
@@ -156,7 +156,7 @@ const [isClient, setClient] = useState(false);
                     
                   <div key={image._key} className={`${image.hideDesktop ? "lg:hidden ": ""} ${image.hideTablet ? "md:hidden lg:block ": ""} ${image.hideMobile ? "hidden md:block ": ""} flex-item`} style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}>
 
-                      <div className={`${image.dropShadow ? "drop-shadow" : ""} z-40 relative`} ><Figure node={image}/></div> {image.caption && <span className="mt-1 block text-sm z-20 relative">{image.caption}</span>}
+                      <div className={`${image.dropShadow ? "drop-shadow" : ""} ${image.border ? " border-img" : ""} z-40 relative`} ><Figure node={image}/></div> {image.caption && <span className="mt-1 block text-sm z-20 relative">{image.caption}</span>}
         
                   </div>
                 
