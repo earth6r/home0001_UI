@@ -11,7 +11,7 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
       query={detailsQuery}
       render={(data) => {
         const metaDescription = description || (data.site && data.site.description) || "";
-        const siteTitle = (data.site && data.site.title) || "";
+        const siteTitle = (data.site && data.site.title) || "EARTH";
         const siteAuthor = (data.site && data.site.author && data.site.author.name) || "";
         const metaImage =
           image && image.asset ? imageUrlFor(buildImageObj(image)).width(1200).url() : "";
@@ -86,7 +86,7 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
           </script>
 
           <meta property="og:url" content="https://homes.xn--80age8aya.xn--90ae/" />
-          <meta property="og:image" content={metaImage} />
+
           <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         
           </Helmet>
