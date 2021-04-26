@@ -85,8 +85,8 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
           `}
           </script>
 
-
-
+          <meta property="og:url" content={"https://homes.xn--80age8aya.xn--90ae/"} />
+          <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
           </Helmet>
         );
       }}
