@@ -11,7 +11,7 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
       query={detailsQuery}
       render={(data) => {
         const metaDescription = description || (data.site && data.site.description) || "";
-        const siteTitle = "EARTH";
+        const siteTitle = (data.site && data.site.title) || "EARTH";
         const siteAuthor = (data.site && data.site.author && data.site.author.name) || "";
         const metaImage =
           image && image.asset ? imageUrlFor(buildImageObj(image)).width(1200).url() : "";
@@ -28,7 +28,7 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
               },
               {
                 property: "og:title",
-                content: title,
+                content: "EARTH",
               },
               {
                 property: "og:description",
