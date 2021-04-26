@@ -11,7 +11,7 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
       query={detailsQuery}
       render={(data) => {
         const metaDescription = description || (data.site && data.site.description) || "";
-        const siteTitle = (data.site && data.site.title) || "EARTH";
+        const siteTitle = "EARTH";
         const siteAuthor = (data.site && data.site.author && data.site.author.name) || "";
         const metaImage =
           image && image.asset ? imageUrlFor(buildImageObj(image)).width(1200).url() : "";
@@ -41,6 +41,10 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
               {
                 property: "og:image",
                 content: metaImage,
+              },
+              {
+                property: "og:url",
+                content: "https://earth6r.com",
               },
               {
                 name: "twitter:card",
@@ -84,8 +88,6 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
           window.settings_timer=setTimeout(function () {_vwo_code.finish() },settings_tolerance);var a=d.createElement('style'),b=hide_element?hide_element+'{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}':'',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&f='+(+is_spa)+'&r='+Math.random());return settings_timer; }};window._vwo_settings_timer = code.init(); return code; }());
           `}
           </script>
-
-          <meta property="og:url" content="https://homes.xn--80age8aya.xn--90ae/" />
 
           <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         
