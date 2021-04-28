@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 import { imageUrlFor } from "../lib/image-url";
 import { buildImageObj } from "../lib/helpers";
@@ -87,6 +87,7 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
           window.settings_timer=setTimeout(function () {_vwo_code.finish() },settings_tolerance);var a=d.createElement('style'),b=hide_element?hide_element+'{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}':'',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&f='+(+is_spa)+'&r='+Math.random());return settings_timer; }};window._vwo_settings_timer = code.init(); return code; }());
           `}
           </script>
+
           <meta property="og:title" content="EARTH" />
           <meta property="og:url" content="https://earth6r.com" />
           <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
