@@ -20,6 +20,7 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
           <Helmet
             htmlAttributes={{ lang }}
             title={title}
+            defer={false}
             titleTemplate={title === siteTitle ? "%s" : `%s | ${siteTitle}`}
             meta={[
               {
@@ -41,6 +42,10 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
               {
                 property: "og:image",
                 content: metaImage,
+              },
+              {
+                property: "og:url",
+                content: "https://earth6r.com",
               },
               {
                 name: "twitter:card",
