@@ -75,12 +75,12 @@ const DiscountNotice = ({ discountCode, color, codes }) => {
   }
   if ((discountCode !== "balaji" && !hasCode)) return (
     <div className="discount-container mb-1">
-      <div className="">$300</div>
+      <div className="">$100</div>
       
     </div>
     );
   return (<div className="discount-container mb-1">
-    <div className="">$200</div>
+    <div className="">$100</div>
     
     </div>)
 };
@@ -97,8 +97,8 @@ const ValueAdded = ({ discount, codes, discountCode, unitTitle, color }) => {
       <p className="mb-0">Reserve unit {unitTitle}</p>
     }
     <p>
-    Deducted from your home purchase.
-    <br />
+
+
     Fully refundable any time, for any reason.
   </p>
   </>

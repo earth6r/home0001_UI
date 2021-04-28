@@ -159,7 +159,7 @@ const HomeTemplate = (props) => {
                             {item.sold !== 1 && (
                               <PageLink
                                 className="box mt-2em box-black rounded-md w-full block text-center leading-none h-2em flex items-center justify-center text-mobileBody md:text-desktopBody "
-                                to={`/checkout/membership`}
+                                to={`/checkout/membership-6`}
                               >
                                 Join the Waitlist
                               </PageLink>
