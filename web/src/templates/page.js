@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Container from "../components/container";
+import CalendlyContact from "../components/CalendlyContact";
 // import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
@@ -24,7 +25,7 @@ const PageTemplate = (props) => {
     meta,
   } = page._rawContent;
   const isrnd = page.isrnd;
-
+  console.log(page._rawContent.main.title)
   return (
     <Layout rnd={isrnd}>
       <SEO
@@ -33,6 +34,9 @@ const PageTemplate = (props) => {
       <Container>
         <div className="flex flex-wrap w-full">{RenderModules(modules)}</div>
       </Container>
+      {page._rawContent.main.title == "Contact" &&
+       <CalendlyContact/>
+      }
     </Layout>
   );
 };
