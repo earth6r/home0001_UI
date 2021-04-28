@@ -28,7 +28,7 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
               },
               {
                 property: `og:title`,
-                content: `EARTH`,
+                content: `EARTH is a distributed housing collective.`,
               },
               {
                 property: "og:description",
@@ -41,10 +41,6 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
               {
                 property: "og:image",
                 content: metaImage,
-              },
-              {
-                property: "og:url",
-                content: "https://earth6r.com",
               },
               {
                 name: "twitter:card",
@@ -89,7 +85,6 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
           </script>
 
           <meta property="og:title" content="EARTH" />
-          <meta property="og:url" content="https://earth6r.com" />
           <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
           
           </Helmet>
