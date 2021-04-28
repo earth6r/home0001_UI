@@ -27,8 +27,8 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
                 content: metaDescription,
               },
               {
-                property: "og:title",
-                content: "EARTH",
+                property: `og:title`,
+                content: `EARTH`,
               },
               {
                 property: "og:description",
@@ -62,8 +62,7 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
                 name: "twitter:description",
                 content: metaDescription,
               },
-            ]
-              .concat(
+            ].concat(
                 keywords && keywords.length > 0
                   ? {
                       name: "keywords",
@@ -90,7 +89,8 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
           </script>
 
           <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        
+          <meta property="og:title" content="EARTH" />
+          <meta property="og:url" content="https://earth6r.com" />
           </Helmet>
         );
       }}
