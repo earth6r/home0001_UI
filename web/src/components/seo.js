@@ -15,12 +15,12 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
         const siteAuthor = (data.site && data.site.author && data.site.author.name) || "";
         const metaImage =
           image && image.asset ? imageUrlFor(buildImageObj(image)).width(1200).url() : "";
-
+        console.log(title, siteTitle)
         return (
           <Helmet
             htmlAttributes={{ lang }}
-            title={title}
-            titleTemplate={title === siteTitle ? "%s" : `%s | ${siteTitle}`}
+            title={title === "" ? `Home` : `${title}`}
+            titleTemplate={title === `EARTH` ? `EARTH` : `%s | ${siteTitle}`}
             meta={[
               {
                 name: "description",
