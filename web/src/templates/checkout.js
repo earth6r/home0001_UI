@@ -75,13 +75,13 @@ const DiscountNotice = ({ discountCode, color, codes }) => {
   }
   if ((discountCode !== "balaji" && !hasCode)) return (
     <div className="discount-container mb-1">
-      <div style={{background: color}} className="spring-green-line"></div>
-      <span style={{color:color}} className="spring-green">$300</span>
+      <div className="">$300</div>
+      
     </div>
     );
   return (<div className="discount-container mb-1">
-    <div style={{background: color}} className="spring-green-line"></div>
-    <span style={{color:color}} className="spring-green">$200</span>
+    <div className="">$200</div>
+    
     </div>)
 };
 
@@ -89,7 +89,7 @@ const ValueAdded = ({ discount, codes, discountCode, unitTitle, color }) => {
 
   return(
   <>
-    <h1 className="membership-deposit mb-2">Membership Deposit: <MembershipPrice discount={discount} />{" "}
+    <h1 className="membership-deposit mb-2">Membership Deposit: {" "}
     <DiscountNotice codes={codes} color={color} discountCode={discountCode} />
     <br />
     </h1>
