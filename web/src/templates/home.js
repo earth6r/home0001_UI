@@ -119,7 +119,7 @@ const HomeTemplate = (props) => {
                             </span>
                           ) : (
                             <span className="w-1/6 text-left md:left-0 md:relative text-mobileCaption md:text-base -mt-1/4em md:mt-0 homes-accordion-header-small">
-                              Available
+                              Coming Soon
                             </span>
                           )}
 
@@ -159,11 +159,9 @@ const HomeTemplate = (props) => {
                             {item.sold !== 1 && (
                               <PageLink
                                 className="box mt-2em box-black rounded-md w-full block text-center leading-none h-2em flex items-center justify-center text-mobileBody md:text-desktopBody "
-                                to={`/checkout/reservation/?sku=${item.stripeSKU || ""}&bitPayID=${
-                                  item.bitPayID || ""
-                                }`}
+                                to={`/checkout/membership`}
                               >
-                                Reserve Now
+                                Join the Waitlist
                               </PageLink>
                             )}
                           </div>
