@@ -74,11 +74,20 @@
     line-height: 1.4;
     padding: 6px 0;
     margin:0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 0 10px;
+    align-items: center;
   }
+ #thin-banner-wrapper{
+  display: inline-block;
+  max-width: 50%;
+ }
   .marquee-content span{
-    max-width: 50%;
+    
     text-align:left;
-    display: inline-block;
+    display: block;
     vertical-align: top;
   }
   .marquee-special-break{
@@ -87,7 +96,7 @@
   .marquee-content a{
     display: inline-block;
     vertical-align: top;
-    top:5px;
+    top:0px;
     margin-left:0;
   }
   .marquee-track{

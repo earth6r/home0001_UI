@@ -83,7 +83,7 @@ if(typeof window != `undefined`){
   return (
     <>
     {showThinBanner && thinBanner &&
-        <div className="fixed w-full z-50" id="thin-banner"><div className="marquee"><div className="marquee-track"><div className="marquee-content ">{ReactHtmlParser(thinBanner)}
+        <div className="fixed w-full z-50" id="thin-banner"><div className="marquee"><div className="marquee-track"><div className="marquee-content "><span id='thin-banner-wrapper'>{ReactHtmlParser(thinBanner)}</span>
           {bannerUrl &&
             <PageLink
                   style={buttonStyle}
@@ -245,7 +245,7 @@ if(typeof window != `undefined`){
           showNav ? " h-full bg-black opacity-75 pointer-events-auto" : "opacity-0"
         } fixed transition-opacity duration-150 left-0 top-0  pointer-events-none w-full`}
       ></div>
-      <div className={`${showThinBanner && thinBanner ? "mt-6 md:mt-12" : "" } fixed w-full h-12 md:h-18 z-30 gradient-to-b3 pointer-events-none top-0 left-0`}></div>
+      <div className={`${showThinBanner && thinBanner ? "mt-12 md:mt-12" : "" } fixed w-full h-12 md:h-18 z-30 gradient-to-b3 pointer-events-none top-0 left-0`}></div>
     </>
   );
 };

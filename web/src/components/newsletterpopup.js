@@ -24,8 +24,10 @@ const NewsletterPopup = ({ newsletter }) => {
   return (
     <>
     {isOpen &&
-        <div className="newsletter-popup rounded-md bottom-0 w-full md:max-w-md left-0 fixed md:ml-10 py-4 px-8 top-auto bg-white ">
-          <ModalHeader className="font-normal mb-0 pl-0 pb-0">
+      <>
+        <div className="newsletter-popup rounded-md  w-full md:max-w-md fixed md:display-block py-4 md:m-auto px-8 bg-white ">
+        
+          <ModalHeader className="newsletter-popup-inner font-normal mb-0 pl-0 pb-0">
             <h5 className=" text-mobileCaption md:text-desktopCaption mt-1/4em uppercase">
               Newsletter
             </h5>
@@ -36,8 +38,11 @@ const NewsletterPopup = ({ newsletter }) => {
             <MailChimpForm newsletter={newsletter} />
           </div>
 
+
     
         </div>
+        <div className="newsletter-popup-overlay" onClick={onClose}></div>
+        </>
        }
     </>
   );
