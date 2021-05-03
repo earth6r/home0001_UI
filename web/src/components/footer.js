@@ -2,6 +2,7 @@ import { Link } from "gatsby";
 import React from "react";
 import GridRow from "./grid/grid-row";
 import MailChimpForm from "./mailchimp-form";
+import NewsletterPopup from "./newsletterpopup";
 import instagramLogo from'./image.png';
 
 import {
@@ -91,6 +92,7 @@ const Footer = ({ footerMenu, newsletter }) => {
           </ModalFooter>*/}
         </ModalContent>
       </Modal>
+      <NewsletterPopup newsletter={newsletter}/>
     </>
   );
 };
