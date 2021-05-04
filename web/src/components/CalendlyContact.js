@@ -16,17 +16,17 @@ const CalendlyContact = () => {
   };
 
   return (
-    <div className="standard-text">
-    <br/><br/>
+    <div className="standard-text calendly-contact">
       <p>
         <CalendlyEventListener onEventScheduled={handleEventScheduled}>
-         Want to know more? {" "}
+         Or, {" "}
           <PopupText
-            text="Schedule a convenient time for a phone consultation with a member of the collective."
+            text="schedule a call"
             url={`https://calendly.com/earthcollective/first-call-with-earth?back=0&month=${year}-${month}&text_color=000000&primary_color=000000`}
-          />
+          /> with a member of the collective.
         </CalendlyEventListener>
       </p>
+      <br/>
     </div>
   );
 };

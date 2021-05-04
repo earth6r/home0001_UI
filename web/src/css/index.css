@@ -138,7 +138,9 @@ small {
 }
 
 /*NEWSLETTER POPUP*/
-
+.calendly-contact{
+  margin-top: -0.75em;
+}
 @keyframes slideInFromBottom {
   0% {
     transform: translateY(100%);
