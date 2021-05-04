@@ -118,7 +118,7 @@ const HomeTemplate = (props) => {
                               Sold
                             </span>
                           ) : (
-                            <span className="w-1/6 text-left md:left-0 md:relative text-mobileCaption md:text-base -mt-1/4em md:mt-0 homes-accordion-header-small">
+                            <span className="w-1/5 text-left md:left-0 md:relative text-mobileCaption md:text-base -mt-1/4em md:mt-0 homes-accordion-header-small">
                               Coming Soon
                             </span>
                           )}
