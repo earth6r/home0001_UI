@@ -104,7 +104,7 @@ exports.handler = async (event) => {
     product.image = imageUrlFor(buildImageObj(product.floorPlan)).height(300).auto("format").url();
   }
 
-  product.amount = discount ? 20000 : 30000;
+  product.amount = discount ? 10000 : 10000;
 
   // ensure that the quantity is within the allowed range
   // const validatedQuantity = quantity > 0 && quantity < 11 ? quantity : 1;
