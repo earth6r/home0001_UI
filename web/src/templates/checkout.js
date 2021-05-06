@@ -221,7 +221,7 @@ const CheckoutTemplate = (props) => {
 
     // Set default membership item
     if (!sku || !home || !unit) {
-      sku = "MEMB001";
+      sku = "prod_I60qjmmPa4mkzc";
       bitPayID = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_REGULAR_PRICE;
       bitPayIDDiscounted = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_DISCOUNTED;
     }
