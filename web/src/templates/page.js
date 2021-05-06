@@ -25,17 +25,27 @@ const PageTemplate = (props) => {
     meta,
   } = page._rawContent;
   const isrnd = page.isrnd;
+  console.log(modules[0])
   console.log(page._rawContent.main.title)
   return (
     <Layout rnd={isrnd}>
       <SEO
         title={title}
       />
-      <Container>
+      
+      {page._rawContent.main.title == "Contact" ?
+       
+       <Container>
+     
+        <div className="flex flex-wrap w-full">
+        {RenderModules([modules[0],modules[1]])}
+          <CalendlyContact/>
+        {RenderModules(modules.slice(2,modules.length))}
+        </div>
+      </Container>
+      : <Container>
         <div className="flex flex-wrap w-full">{RenderModules(modules)}</div>
       </Container>
-      {page._rawContent.main.title == "Contact" &&
-       <CalendlyContact/>
       }
     </Layout>
   );
