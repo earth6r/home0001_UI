@@ -80,7 +80,7 @@ exports.handler = async (event) => {
   if (sku === "MEMB001") {
     product = {
       name: "EARTH Membership",
-      description: "Join the collective",
+      description: "Fully refundable any time, for any reason.",
       sku,
       // image:
       //   "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=600&h=600&q=80",
