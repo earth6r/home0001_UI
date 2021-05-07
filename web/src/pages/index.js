@@ -61,12 +61,17 @@ const CollectivePage = (props) => {
       </Layout>
     );
   }
-
+  let currentLanding;
+  data.allSanityLanding.edges.forEach((landing)=>{
+    if(landing.node._rawContent.main.title == "Landing"){
+      currentLanding = landing;
+    }
+  })
   const site = (data || {}).site;
   const {
     main: { modules, slug, title },
     meta,
-  } = data.allSanityLanding.edges[0].node._rawContent;
+  } = currentLanding.node._rawContent;
 
   
 

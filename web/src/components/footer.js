@@ -38,8 +38,6 @@ const Footer = ({ footerMenu, newsletter }) => {
               menu.map((item) => {
                 switch (item._type) {
                   case "internalLink":
-                    console.log("AARATI")
-                    console.log(item)
                     if(item.link){
                         return (
                       
