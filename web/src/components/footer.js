@@ -38,7 +38,11 @@ const Footer = ({ footerMenu, newsletter }) => {
               menu.map((item) => {
                 switch (item._type) {
                   case "internalLink":
-                    return (
+                    console.log("AARATI")
+                    console.log(item)
+                    if(item.link){
+                        return (
+                      
                       <li className="md:mr-1em" key={item._key}>
                       {item.link &&
                         <Link to={`/${item.link.content.main.slug.current}`}>
@@ -46,7 +50,22 @@ const Footer = ({ footerMenu, newsletter }) => {
                         </Link>
                       }
                       </li>
+                    
                     );
+                    }else{
+                      return (
+                      
+                      <li className="md:mr-1em" key={item._key}>
+                  
+                        <span>
+                          {item.title}
+                        </span>
+                      
+                      </li>
+                    
+                    );
+                    }
+                    
                   case "externalLink":
                     return (
                       <li className="mr-1em" key={item._key}>
