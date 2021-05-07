@@ -77,10 +77,10 @@ export default () =>
         .schemaType('post')
         .child(S.documentTypeList('post').title('Blog posts')),
       S.divider(),
-      S.listItem()
-        .title('Landing')
-        .icon(MdDashboard)
-        .child(S.editor().id('landing').schemaType('landing').documentId('landing')),
+      // S.listItem()
+      //   .title('Landing')
+      //   .icon(MdDashboard)
+      //   .child(S.editor().id('landing').schemaType('landing').documentId('landing')),
       // S.divider(),
       // S.listItem()
       //   .title('View Homes')
@@ -174,7 +174,6 @@ export default () =>
         (listItem) =>
           ![
             'category',
-            'landing',
             'home',
             'about',
             'checkout',
