@@ -40,9 +40,11 @@ const Footer = ({ footerMenu, newsletter }) => {
                   case "internalLink":
                     return (
                       <li className="md:mr-1em" key={item._key}>
+                      {item.link &&
                         <Link to={`/${item.link.content.main.slug.current}`}>
                           {item.link.content.main.title}
                         </Link>
+                      }
                       </li>
                     );
                   case "externalLink":
