@@ -70,7 +70,7 @@
     top:-3px;
   }
   .marquee-content{
-/*    font-size: 10px;*/
+ /*   font-size: 13px;*/
     line-height: 1.4;
     padding: 6px 0;
     margin:0 auto;
@@ -107,6 +107,11 @@
     height:auto;
   }
 
+}
+@media(max-width: 569px){
+.marquee-content{
+    font-size: 13px;
+  }
 }
 /* end thin banner */
 

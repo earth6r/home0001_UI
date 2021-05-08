@@ -133,10 +133,10 @@
   }
   .accordion h2.title{
   font-size:0.9rem;
-  line-height: 0;
+  line-height: 1;
 }
 .accordion-icon{
-  margin-top: -14px;
+  margin-top: -4px;
 }
   .homes-accordion-header-plus{
     padding-top:0.2em;
