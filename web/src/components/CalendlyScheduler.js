@@ -99,7 +99,7 @@ const CalendlyScheduler = () => {
     return <BuyLaterMessage />;
   }
 
-  return <CalendlyWidget />;
+  return <BuyLaterMessage />;
 };
 
 export default CalendlyScheduler;
