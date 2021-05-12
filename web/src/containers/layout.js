@@ -242,14 +242,13 @@ function LayoutContainer(props) {
             'Missing "Site settings". Open the Studio at http://localhost:3333 and some content in "Site settings"'
           );
         }
-
-
+    
         return (
           <ThemeProvider>
             <Global styles={GlobalStyles} />
             <Layout
               {...props}
-              showThinBanner={data.showThinBanner.showthinbanner}
+              showThinBanner={props.isCheckout ? false : data.showThinBanner.showthinbanner}
               thinBanner={data.thinBanner.thinbanner}
               bannerUrl={data.bannerUrl.edges[0].node._rawUrl}
               bannerUrlTitle={data.bannerUrlTitle.bannerUrlTitle}

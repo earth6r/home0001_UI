@@ -231,7 +231,7 @@ const CheckoutTemplate = (props) => {
   
 
   return (
-    <Layout>
+    <Layout isCheckout={true}>
       <SEO
         title={"EARTH Membership"}
         description={"Join the EARTH collective"}
