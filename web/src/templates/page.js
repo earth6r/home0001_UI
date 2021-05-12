@@ -28,7 +28,7 @@ const PageTemplate = (props) => {
   console.log(modules[0])
   console.log(page._rawContent.main.title)
   return (
-    <Layout rnd={isrnd}>
+    <Layout showPopupNewsletter={true} rnd={isrnd}>
       <SEO
         title={title}
       />

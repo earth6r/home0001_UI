@@ -205,7 +205,7 @@ const CollectivePage = (props) => {
 
     
   return (
-    <Layout>
+    <Layout showPopupNewsletter={true}>
       <SEO
         title={myTitle}
         description={site.description}

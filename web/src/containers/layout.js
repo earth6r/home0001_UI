@@ -248,6 +248,7 @@ function LayoutContainer(props) {
             <Global styles={GlobalStyles} />
             <Layout
               {...props}
+              showPopupNewsletter = {props.showPopupNewsletter}
               showThinBanner={props.isCheckout ? false : data.showThinBanner.showthinbanner}
               thinBanner={data.thinBanner.thinbanner}
               bannerUrl={data.bannerUrl.edges[0].node._rawUrl}

@@ -4,7 +4,7 @@ import HeaderRnd from "./headerRnd";
 import Footer from "./footer";
 import GridRow from "./grid/grid-row"
 
-const Layout = ({ mainMenu,infoSection,newsletter,strikeColor,pillColor,infoSectionBelow, rMenu, rnd = false, subMenu, footerMenu, children, onHideNav, onShowNav, showNav,  onHideSubNav, onShowSubNav, showSubNav, siteTitle, isHome, thinBanner, showThinBanner, bannerUrl, bannerUrlTitle }) => {
+const Layout = ({ mainMenu,infoSection,newsletter,strikeColor,pillColor,infoSectionBelow,showPopupNewsletter, rMenu, rnd = false, subMenu, footerMenu, children, onHideNav, onShowNav, showNav,  onHideSubNav, onShowSubNav, showSubNav, siteTitle, isHome, thinBanner, showThinBanner, bannerUrl, bannerUrlTitle }) => {
 
   const myRef = useRef({
     location: null,
@@ -142,7 +142,7 @@ const Layout = ({ mainMenu,infoSection,newsletter,strikeColor,pillColor,infoSect
    </div>
     <div id='page-content-wrapper' className={`${showThinBanner && !rnd ? "mt-16 md:mt-12 md:mt-16":"mt-8"} ${rnd ? "px-special" : ""} container pb-1 `}>{children}</div>
     {!rnd &&
-      <Footer newsletter={newsletter} footerMenu={footerMenu} />
+      <Footer showPopupNewsletter={showPopupNewsletter} newsletter={newsletter} footerMenu={footerMenu} />
     }
   </div>
 )

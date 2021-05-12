@@ -17,7 +17,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/core";
 
-const Footer = ({ footerMenu, newsletter }) => {
+const Footer = ({ footerMenu, newsletter, showPopupNewsletter }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const query = "";
    
@@ -111,7 +111,9 @@ const Footer = ({ footerMenu, newsletter }) => {
           </ModalFooter>*/}
         </ModalContent>
       </Modal>
+      {showPopupNewsletter &&
       <NewsletterPopup newsletter={newsletter}/>
+       }
     </>
   );
 };
