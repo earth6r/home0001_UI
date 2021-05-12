@@ -27,7 +27,7 @@ const GridRow = ({ hide = 0, children, className = "", scroll = true, style = {}
           }`}
         >
           {children}
-          {hide !== 1 && <div className="grid-marker grid-marker-1" />}
+          {hide !== 1 && <div className="grid-marker grid-marker-1 opacity-0" />}
           <motion.div className="grid-marker opacity-0 grid-marker-2" />
           <motion.div className="grid-marker opacity-0 grid-marker-3" />
         </div>
@@ -37,7 +37,7 @@ const GridRow = ({ hide = 0, children, className = "", scroll = true, style = {}
           className={`grid-row py-2 md:py-1em relative text-base ${className ? className : ""}`}
         >
           {children}
-          {hide !== 1 && <div className="grid-marker grid-marker-1" />}
+          {hide !== 1 && <div className="grid-marker grid-marker-1 opacity-0" />}
           <div className="grid-marker opacity-0 grid-marker-2" />
           <div className="grid-marker opacity-0 grid-marker-3" />
         </div>
