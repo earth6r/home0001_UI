@@ -8,7 +8,7 @@
   background-repeat:no-repeat;
   background-position:center center;
 }
-
+/* pay language 14px and terms matches*/
 .stripe-button, .bit-button{
   position:relative;
 }
@@ -18,7 +18,7 @@
   top: 50%;
   pointer-events: none;
   left:auto;
-  right:10px;
+  right:16px;
   z-index: 2;
   transform: translate(0%, -50%);
 }
@@ -41,7 +41,7 @@
 }
 .option-button-checkout{
   text-transform: none;
-  color:slategray;
+
   padding:0.75rem 0;
   padding-left:40px;
   line-height: 0.1;
@@ -55,7 +55,7 @@
   top: 50%;
   pointer-events: none;
   left:auto;
-  right:10px;
+  right:16px;
   z-index: 2;
   transform: translate(0%, -50%);
 }
@@ -107,14 +107,26 @@
 .e-checkbox + a{
   border-bottom:2px solid;
 }
+.terms-agreement{
+  text-transform: none;
+  margin-left:0;
+  padding-left:0;
+}
+.terms-agreement a{
+  text-transform: none;
+  border-bottom:1px solid;
+}
 @media(max-width:767px){
     .e-checkbox + a{
     display: inline-block;
   border-bottom:1px solid;
   }
+  .option-button-checkout, .terms-agreement{
+    font-size:14px;
+  }
   .stripe-button input[type=radio]{
 
-  height:2.2rem !important;
+  height:3rem !important;
 
 }
   
