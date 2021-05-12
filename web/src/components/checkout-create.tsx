@@ -14,7 +14,7 @@ const StripeCheckoutCreateButton = ({ handleClick, disabled }) => (
 
   
   <span id="checkout-button" role="link" onClick={handleClick} className="max-w-2xl block w-full">
-      <input className="e-checkout special-stripe text-center bg-black hover:bg-black text-white box rounded-md w-full block leading-none h-3em md:h-2em justify-center text-mobileBody md:text-desktopBody" type="submit" value="Continue" />
+      <input className="e-checkout relative special-stripe text-center bg-white text-black  box rounded-md w-full block leading-none h-3em md:h-2em justify-center text-mobileBody md:text-desktopBody" type="submit" value="Continue to Payment" />
     </span>
   </div>
 );
@@ -28,7 +28,7 @@ const DisabledButton = () => {
 
     
     <span id="checkout-button" role="link" onClick={clickHandler} className="max-w-2xl block w-full">
-        <input className="e-checkout special-stripe text-center bg-black hover:bg-black text-white box rounded-md w-full block leading-none h-3em md:h-2em justify-center text-mobileBody md:text-desktopBody" type="submit" value="Continue" />
+        <input className="e-checkout relative special-stripe text-center bg-white text-black box rounded-md w-full block leading-none h-3em md:h-2em justify-center text-mobileBody md:text-desktopBody" type="submit" value="Continue to Payment" />
       </span>
   </div>
 )};
@@ -41,7 +41,7 @@ const BitPayCheckoutButton = ({ bitPayID, disabled }) => (
     <div className="stripe-button bit-button">
 
     <span className="max-w-2xl block w-full">
-      <input className="e-checkout special-bitcoin text-center bg-black hover:bg-black text-white box rounded-md w-full block leading-none h-3em md:h-2em    justify-center text-mobileBody md:text-desktopBody" type="submit" value="Continue" />
+      <input className="e-checkout relative special-bitcoin text-center bg-white text-black box rounded-md w-full block leading-none h-3em md:h-2em    justify-center text-mobileBody md:text-desktopBody" type="submit" value="Continue to Payment" />
     </span>
   
     </div>
@@ -73,7 +73,7 @@ const CheckoutTerms = ({ disabled, handleChange }) => {
        
       </span>
       
-     <label htmlFor="agree-to-terms" className="terms-agreement"> I agree to the <a target="_blank" href="/deposit-tc/">Deposit Terms and Conditions​</a></label>
+     <label htmlFor="agree-to-terms" className="terms-agreement text-white relative"> I agree to the <a target="_blank" href="/deposit-tc/">Deposit Terms and Conditions​</a></label>
  
     </form>
   );
@@ -105,17 +105,17 @@ const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, hand
     <>
       <section className="mb-10 md:mb-20">
         <form>
-        <div className="stripe-button max-w-2xl py-1em block w-full">
+        <div className="stripe-button max-w-2xl py-2 block w-full">
           <img src={stripeIcons} />
           <span id="checkout-button" role="link" onClick={handleStripe} className="relative text-gray-700 max-w-2xl block w-full">
-            <input checked={showStripe ? true :  false} id="stripe-radio" type="radio" className="absolute bg-none"/><label htmlFor="stripe-radio" className="e-checkout option-button-checkout special-stripe text-left bg-white hover:bg-white text-gray-700 box rounded-md w-full block h-2rem justify-center">pay with card</label>
+            <input checked={showStripe ? true :  false} id="stripe-radio" type="radio" className="absolute bg-none"/><label htmlFor="stripe-radio" className="e-checkout option-button-checkout special-stripe text-left bg-white text-black hover:bg-white text-gray-700 box rounded-none w-full block h-2rem justify-center">pay with card</label>
           </span>
         </div>
 
         <div className="stripe-button bit-button max-w-2xl block w-full">
           <img src={bitIcons} />
           <span onClick={handleBit} className="max-w-2xl block w-full relative text-gray-700">
-            <input id="bit-radio" type="radio" className="absolute bg-none"/><label htmlFor="bit-radio" className="e-checkout option-button-checkout special-bitcoin text-left bg-white hover:bg-white text-gray-700 box rounded-md w-full block h-2rem justify-center ">pay with crypto</label>
+            <input id="bit-radio" type="radio" className="absolute bg-none"/><label htmlFor="bit-radio" className="e-checkout option-button-checkout special-bitcoin text-left bg-white text-black hover:bg-white text-gray-700 box w-full block h-2rem rounded-none justify-center ">pay with crypto</label>
           </span>
         </div>
         </form>
@@ -130,6 +130,7 @@ const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, hand
           }
           </>
         }
+
         {disabled ?
           <DisabledButton/>
           : ""
