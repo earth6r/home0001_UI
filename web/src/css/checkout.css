@@ -14,7 +14,7 @@
 }
 .stripe-button img, .bit-button img{
   position:absolute;
-  height:20px;
+  height:25px;
   top: 50%;
   pointer-events: none;
   left:auto;
@@ -51,7 +51,7 @@
 
 .stripe-button.bit-button img{
   position:absolute;
-  height:20px;
+  height:25px;
   top: 50%;
   pointer-events: none;
   left:auto;
@@ -119,7 +119,7 @@
 }
   
   .stripe-button img, .stripe-button.bit-button img{
-    height:15px;
+    height:20px;
     position:absolute;
     top: 50%;
   /*  left: calc(50% - 115px);*/
@@ -127,7 +127,7 @@
     transform: translate(0%, -50%);
   }
   .stripe-button.bit-button img{
-    height:20px;
+    height:25px;
     position:absolute;
     top: 50%;
 /*    left: calc(50% - 72px);*/
