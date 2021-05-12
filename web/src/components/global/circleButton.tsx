@@ -58,7 +58,7 @@ const CircleButton = ({ title, url, linkHome, linkRnd, float = true, color }) =>
               />
               {myUrl  ? (
                 <PageLink
-                  className="m-0 h-full flex items-center justify-center text-nav leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full"
+                  className="m-0 h-full flex items-center justify-center text-nav leading-none text-center top-1/2 uppercase absolute px-1em md:px-1/2em transform -translate-y-1/2 w-full"
                   to={`${myUrl}`}
                 >
                   <h2 className={`${color === "black" ? "text-white ": ""} m-0 p-0 leading-none font-bold`}>
@@ -67,7 +67,7 @@ const CircleButton = ({ title, url, linkHome, linkRnd, float = true, color }) =>
                 </PageLink>
               ) : (
                 title && (
-                  <h2 className={`${color === "black" ? "text-white ": ""}m-0 font-bold leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full`}>
+                  <h2 className={`${color === "black" ? "text-white ": ""}m-0 font-bold leading-none text-center top-1/2 uppercase absolute px-1em md:px-1/2em transform -translate-y-1/2 w-full`}>
                     {ReactHtmlParser(title)}
                   </h2>
                 )
@@ -86,7 +86,7 @@ const CircleButton = ({ title, url, linkHome, linkRnd, float = true, color }) =>
               />
               {url && url.content ? (
                 <PageLink
-                  className="m-0 h-full flex items-center justify-center text-nav leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full"
+                  className="m-0 h-full flex items-center justify-center text-nav leading-none text-center top-1/2 uppercase absolute px-1em md:px-1/2em transform -translate-y-1/2 w-full"
                   to={`${myUrl}`}
                 >
                   <h2
@@ -100,7 +100,7 @@ const CircleButton = ({ title, url, linkHome, linkRnd, float = true, color }) =>
               ) : (
                 title && (
                   <h2
-                    className={`m-0 font-bold leading-none text-center top-1/2 uppercase absolute px-2em md:px-1/2em transform -translate-y-1/2 w-full ${
+                    className={`m-0 font-bold leading-none text-center top-1/2 uppercase absolute px-1em md:px-1/2em transform -translate-y-1/2 w-full ${
                       color === "black" ? " text-white " : ""
                     }`}
                   >

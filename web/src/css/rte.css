@@ -173,6 +173,10 @@ input[type="checkbox"]:checked {
 
     top: 1px;
   }
+  .rte {
+  
+    line-height: 1.4;
+}
   input[type="checkbox"],
   input[type="checkbox"]:focus,
   input[type="checkbox"]:active {
