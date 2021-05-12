@@ -121,7 +121,7 @@
     display: inline-block;
   border-bottom:1px solid;
   }
-  .option-button-checkout, .terms-agreement{
+  .option-button-checkout, .terms-agreement, .terms-agreement a{
     font-size:14px;
   }
   .stripe-button input[type=radio]{
