@@ -14,19 +14,48 @@
 }
 .stripe-button img, .bit-button img{
   position:absolute;
-  height:35px;
+  height:20px;
   top: 50%;
   pointer-events: none;
-  left:70px;
+  left:auto;
+  right:10px;
   z-index: 2;
   transform: translate(0%, -50%);
 }
+#terms.alert::after{
+  content:"* ";
+  color:#a40000;
+  margin-left:5px;
+  display: inline-block;
+}
+#terms.alert{
+  color:#a40000;
+}
+.stripe-button input[type=radio]{
+  box-shadow:none;
+  vertical-align: middle;
+  height:60px !important;
+  left:15px;
+  top:4px;
+  filter: grayscale(1) contrast(2);
+}
+.option-button-checkout{
+  text-transform: none;
+  color:slategray;
+  padding:0.75rem 0;
+  padding-left:40px;
+  line-height: 0.1;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .stripe-button.bit-button img{
   position:absolute;
-  height:42px;
+  height:20px;
   top: 50%;
   pointer-events: none;
-  left:195px;
+  left:auto;
+  right:10px;
   z-index: 2;
   transform: translate(0%, -50%);
 }
@@ -83,12 +112,17 @@
     display: inline-block;
   border-bottom:1px solid;
   }
+  .stripe-button input[type=radio]{
+
+  height:2.2rem !important;
+
+}
   
   .stripe-button img, .stripe-button.bit-button img{
     height:15px;
     position:absolute;
     top: 50%;
-    left: calc(50% - 115px);
+  /*  left: calc(50% - 115px);*/
     z-index: 2;
     transform: translate(0%, -50%);
   }
@@ -96,7 +130,7 @@
     height:20px;
     position:absolute;
     top: 50%;
-    left: calc(50% - 72px);
+/*    left: calc(50% - 72px);*/
     z-index: 2;
     transform: translate(0%, -50%);
   }

@@ -10,35 +10,40 @@ import stripeDisabled from "./images/stripe-icons2-01.svg"
 import { StyledPageLink } from "./global/internalLink";
 
 const StripeCheckoutCreateButton = ({ handleClick, disabled }) => (
-  <div className="stripe-button">
-  <img src={disabled ? stripeDisabled : stripeIcons} />
-  <ButtonLink
-    color="black"
-    disabled={disabled}
-    className="e-checkout special-stripe"
-    id="checkout-button"
-    role="link"
-    onClick={handleClick}
-    type="button"
-    value=" "
-  />
+  <div className="stripe-button max-w-2xl block w-full">
+
+  
+  <span id="checkout-button" role="link" onClick={handleClick} className="max-w-2xl block w-full">
+      <input className="e-checkout special-stripe text-center bg-black hover:bg-black text-white box rounded-md w-full block leading-none h-3em md:h-2em justify-center text-mobileBody md:text-desktopBody" type="submit" value="Continue" />
+    </span>
   </div>
 );
 
+const DisabledButton = () => {
+  const clickHandler = () => {
+   document.getElementById('terms').classList.add("alert");
+  }
+  return(
+  <div className="disabled-button max-w-2xl block w-full">
+
+    
+    <span id="checkout-button" role="link" onClick={clickHandler} className="max-w-2xl block w-full">
+        <input className="e-checkout special-stripe text-center bg-black hover:bg-black text-white box rounded-md w-full block leading-none h-3em md:h-2em justify-center text-mobileBody md:text-desktopBody" type="submit" value="Continue" />
+      </span>
+  </div>
+)};
+
 const BitPayCheckoutButton = ({ bitPayID, disabled }) => (
-  <form action={process.env.GATSBY_BITPAY_API_URL} method="post">
+  <form className="max-w-2xl block w-full" action={process.env.GATSBY_BITPAY_API_URL} method="post">
     <input type="hidden" name="action" value="checkout" />
     <input type="hidden" name="posData" value="" />
     <input type="hidden" name="data" value={bitPayID} />
     <div className="stripe-button bit-button">
-    <img src={disabled ? bitDisabled : bitIcons} />
-    <ButtonLink
-      disabled={disabled}
-      color="black"
-      className="e-checkout special-bitcoin"
-      type="submit"
-      value=" "
-    />
+
+    <span className="max-w-2xl block w-full">
+      <input className="e-checkout special-bitcoin text-center bg-black hover:bg-black text-white box rounded-md w-full block leading-none h-3em md:h-2em    justify-center text-mobileBody md:text-desktopBody" type="submit" value="Continue" />
+    </span>
+  
     </div>
   </form>
 );
@@ -62,7 +67,7 @@ const Price = ({ discount, color }) => {
 
 const CheckoutTerms = ({ disabled, handleChange }) => {
   return (
-    <p className="mt-10">
+    <p id='terms' className="mt-10">
       <span className="e-checkbox">
         <input className="e-checkbox-icon" type="checkbox" value={disabled} onChange={handleChange} />
        
@@ -75,18 +80,64 @@ const CheckoutTerms = ({ disabled, handleChange }) => {
 const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, handleClick }) => {
   if (message) return <Message message={message} />;
 
+  const [showStripe, setShowStripe] = useState(1);
+  const handleStripe = () => {
+    setShowStripe(1)
+    console.log(showStripe)
+    document.getElementById("bit-radio").checked = false;
+  }
+  const handleBit = () => {
+    setShowStripe(0)
+    document.getElementById("stripe-radio").checked = false;
+  }
   const [disabled, setDisabled] = useState(1);
-  const handleChange = () => setDisabled(1 ^ disabled);
+  const handleChange = () => {
+    setDisabled(1 ^ disabled);
+   
+    document.getElementById('terms').classList.remove('alert')
+    
+    
+  } 
 
   return (
     <>
       <section className="mb-10 md:mb-20">
-      <CheckoutTerms disabled={disabled} handleChange={handleChange} />
-        {/* <ProductDetails discount={discount} discountCode={discountCode} unit={unit} /> */}
-        <StripeCheckoutCreateButton disabled={disabled} handleClick={handleClick} />
-        <div className="py-1em">
-        <BitPayCheckoutButton disabled={disabled} bitPayID={bitPayID} /> 
-        </div> 
+        <form>
+        <div className="stripe-button max-w-2xl py-1em block w-full">
+          <img src={stripeIcons} />
+          <span id="checkout-button" role="link" onClick={handleStripe} className="relative text-gray-700 max-w-2xl block w-full">
+            <input checked={true} id="stripe-radio" type="radio" className="absolute bg-none"/><label htmlFor="stripe-radio" className="e-checkout option-button-checkout special-stripe text-left bg-white hover:bg-white text-gray-700 box rounded-md w-full block h-2rem justify-center">pay with card</label>
+          </span>
+        </div>
+
+        <div className="stripe-button bit-button max-w-2xl block w-full">
+          <img src={bitIcons} />
+          <span onClick={handleBit} className="max-w-2xl block w-full relative text-gray-700">
+            <input id="bit-radio" type="radio" className="absolute bg-none"/><label htmlFor="bit-radio" className="e-checkout option-button-checkout special-bitcoin text-left bg-white hover:bg-white text-gray-700 box rounded-md w-full block h-2rem justify-center ">pay with crypto</label>
+          </span>
+        </div>
+        </form>
+
+        <CheckoutTerms disabled={disabled} handleChange={handleChange} /> 
+        { !disabled &&
+          <>
+          {showStripe ?
+           <StripeCheckoutCreateButton disabled={disabled} handleClick={handleClick} />
+           :
+           <BitPayCheckoutButton disabled={disabled} bitPayID={bitPayID} /> 
+          }
+          </>
+        }
+        {disabled ?
+          <DisabledButton/>
+          : ""
+        }
+ 
+            
+        
+       
+        
+         
 
         {/*<div className="py-1em">
           <span className="max-w-4xl block w-full md:pl-1/10">
