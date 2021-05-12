@@ -106,7 +106,7 @@ const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, hand
         <div className="stripe-button max-w-2xl py-1em block w-full">
           <img src={stripeIcons} />
           <span id="checkout-button" role="link" onClick={handleStripe} className="relative text-gray-700 max-w-2xl block w-full">
-            <input checked={true} id="stripe-radio" type="radio" className="absolute bg-none"/><label htmlFor="stripe-radio" className="e-checkout option-button-checkout special-stripe text-left bg-white hover:bg-white text-gray-700 box rounded-md w-full block h-2rem justify-center">pay with card</label>
+            <input checked={showStripe ? true :  false} id="stripe-radio" type="radio" className="absolute bg-none"/><label htmlFor="stripe-radio" className="e-checkout option-button-checkout special-stripe text-left bg-white hover:bg-white text-gray-700 box rounded-md w-full block h-2rem justify-center">pay with card</label>
           </span>
         </div>
 
