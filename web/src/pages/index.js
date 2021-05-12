@@ -216,7 +216,7 @@ const CollectivePage = (props) => {
         <div className="flex flex-wrap">{RenderModules(modules)}</div>
       </Container>
       { title == "Landing" &&
-        <Container className="mb-4 md:mb-0">
+        <Container className="mb-4 md:mb-0 pb-20">
         <CheckoutOptions>
           <CheckoutActions unit={null}>
             <PaymentContext.Consumer>
