@@ -237,7 +237,7 @@ const CheckoutTemplate = (props) => {
         description={"Join the EARTH collective"}
         keywords={["Earth", "Membership"]}
       />
-      <Container className="bg-black home-deposit-module">
+      <Container className="home-deposit-module">
         <CheckoutOptions>
           <CheckoutActions unit={unit}>
             <PaymentContext.Consumer>
