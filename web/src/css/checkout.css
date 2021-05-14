@@ -57,6 +57,9 @@ text-transform: none;
 .black-header{
   color:white;
 }
+.black-header .bg-white {
+  color:black;
+}
 .membership-page-module{
   top:-2rem;
 }
