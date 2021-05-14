@@ -161,8 +161,8 @@ const ValueAdded = ({ discount,whatsIncluded, depositCounter, codes, discountCod
             >
               {({ isExpanded }) => (
                 <>
-                  <AccordionHeader className=" relative h-2em p-0 pt-3/4em md:pt-1/4em border-none">
-                    <h2 className="m-0 -mt-1/4em md:mt-0 ">{"What's included?"}</h2>
+                  <AccordionHeader className=" relative py-6 border-none">
+                    <h2 className="m-0 -mt-1/4em md:mt-0">{"What's included?"}</h2>
                     <div
                       
                       className="accordion-icon right-0 absolute pr-1em"

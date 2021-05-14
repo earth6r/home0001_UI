@@ -217,15 +217,15 @@ label.terms-agreement{
 
   .stripe-button input[type=radio]:checked::before{
   content:"◉";
-  line-height: 3;
+  line-height: 48px;
   left:115px;
-  top:7px;
+  top:0px;
   font-size:12px;
 }
 .stripe-button input[type=radio]::before{
   content:"○";
   position:absolute;
-  line-height: 2.2;
+  line-height: 48px;
   left:115px;
   font-size:20px;
 }
