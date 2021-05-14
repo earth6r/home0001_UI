@@ -37,7 +37,23 @@
   height:60px !important;
   left:15px;
   top:4px;
-  filter: grayscale(1) contrast(2);
+  border:1px solid black;
+  filter: none;
+  left:-100px;
+  overflow:visible;
+  position:relative;
+}
+.stripe-button input[type=radio]:checked::before{
+  content:"◉";
+  font-size:1vw;
+  line-height: 3.7;
+  left:115px;
+}
+.stripe-button input[type=radio]::before{
+  content:"○";
+  position:absolute;
+  line-height: 1.8;
+  left:115px;
 }
 .option-button-checkout{
   text-transform: none;
@@ -117,6 +133,22 @@
   border-bottom:1px solid;
 }
 @media(max-width:767px){
+
+  .stripe-button input[type=radio]:checked::before{
+  content:"◉";
+  line-height: 3;
+  left:115px;
+  top:7px;
+  font-size:12px;
+}
+.stripe-button input[type=radio]::before{
+  content:"○";
+  position:absolute;
+  line-height: 2.2;
+  left:115px;
+  font-size:20px;
+}
+
     .e-checkbox + a{
     display: inline-block;
   border-bottom:1px solid;
@@ -131,7 +163,7 @@
 }
   
   .stripe-button img, .stripe-button.bit-button img{
-    height:20px;
+    height:14px;
     position:absolute;
     top: 50%;
   /*  left: calc(50% - 115px);*/
@@ -139,7 +171,7 @@
     transform: translate(0%, -50%);
   }
   .stripe-button.bit-button img{
-    height:25px;
+    height:14px;
     position:absolute;
     top: 50%;
 /*    left: calc(50% - 72px);*/
@@ -158,12 +190,12 @@
 
 
   .spring-green-line{
-  height:4px;
-}
-.membership-deposit{
-    max-width:300px;
+    height:4px;
   }
-  .floor-plan-cap br{
-  display:none;
-}
+  .membership-deposit{
+      max-width:300px;
+    }
+    .floor-plan-cap br{
+    display:none;
+  }
 }
