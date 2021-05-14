@@ -247,7 +247,7 @@ label.terms-agreement{
 }
   
   .stripe-button img, .stripe-button.bit-button img{
-    height:14px;
+    height:18px;
     position:absolute;
     top: 50%;
   /*  left: calc(50% - 115px);*/
@@ -255,9 +255,9 @@ label.terms-agreement{
     transform: translate(0%, -50%);
   }
   .stripe-button.bit-button img{
-    height:14px;
+    height:18px;
     position:absolute;
-    top: 50%;
+    top: calc(50% + 3px);
 /*    left: calc(50% - 72px);*/
     z-index: 2;
     transform: translate(0%, -50%);

@@ -181,8 +181,8 @@ input[type="checkbox"]:checked {
   input[type="checkbox"]:focus,
   input[type="checkbox"]:active {
     -webkit-appearance: none;
-        width: 18px !important;
-    height: 18px !important;
+        width: 16px !important;
+    height: 16px !important;
     cursor: pointer;
     display: inline-block;
     border-radius: 2px;
