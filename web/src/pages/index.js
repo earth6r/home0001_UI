@@ -14,6 +14,23 @@ import PaymentContext from "../lib/payment-context";
 import MembershipPrice from "../components/global/membershipPrice";
 import CheckoutCreate from "../components/checkout-create";
 import { loadStripe } from "@stripe/stripe-js";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionHeader,
+  AccordionPanel,
+  AccordionIcon,
+  AccordionButton,
+  Modal,
+  Collapse,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+} from "@chakra-ui/core";
 // import { InlineWidget } from "react-calendly";
 
 export const query = graphql`
@@ -76,19 +93,62 @@ const DiscountNotice = ({ discountCode, color, codes }) => {
 
 const ValueAdded = ({ discount, codes, discountCode, unitTitle, color }) => {
 
+  
   return(
   <>
-    <h1 className="membership-deposit mb-2">Membership Deposit: {" "}
-    <DiscountNotice codes={codes} color={color} discountCode={discountCode} />
+    <h1 className="membership-deposit mb-2">Hold your spot.
     <br />
     </h1>
+  
+    <div id='spots-remaining-count'>
+   <span> Spots remaining:</span> 107
+    </div>
+
+
+
+
+      <Accordion className="max-w-2xl my-20 w-full deposit-accordion" allowToggle allowMultiple>
+  
+              <AccordionItem
+
+              defaultIsOpen={false}
+              className="border-none relative block accordion max-w-2xl"
+            >
+              {({ isExpanded }) => (
+                <>
+                  <AccordionHeader className=" relative h-2em p-0 pt-3/4em md:pt-1/4em border-none">
+                    <h2 className="m-0 -mt-1/4em md:mt-0 ">{"What's included?"}</h2>
+                    <div
+                      
+                      className="accordion-icon right-0 absolute pr-1em"
+                    >
+                      {isExpanded ? "–" : "+"}
+                    </div>
+                  </AccordionHeader>
+                  <AccordionPanel className="pb-1em">
+                    <span>lorem</span>
+                  </AccordionPanel>
+                </>
+              )}
+            </AccordionItem>
+        </Accordion>
+
+
+
+
+ <div id='deposit-text-span'>
+   <span> Membership Deposit:</span> <DiscountNotice codes={codes} color={color} discountCode={discountCode} />
+    </div>
+
+     <div className="mb-8" id='refundable-text-span'>
+        Fully refundable any time, for any reason.
+    </div>
     {unitTitle &&
       <p className="mb-0">Reserve unit {unitTitle}</p>
     }
     <p>
 
 
-    Fully refundable any time, for any reason.
   </p>
   </>
 )};

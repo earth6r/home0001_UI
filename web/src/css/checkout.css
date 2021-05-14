@@ -16,6 +16,13 @@
 .home-deposit-module *{
   color:white;
 }
+.stripe-button, .bit-button{
+  color:black;
+}
+.special-bitcoin{
+color:black;
+text-transform: none;
+}
 .home-deposit-module::before{
   background: #171717;
   content:"";
@@ -38,7 +45,7 @@
   background:#171717;
 }
 .home-deposit-module label{
-  color:black;
+  color:white;
 }
 .home-deposit-module .special-stripe{
   color:black;
@@ -59,7 +66,17 @@
 .gradient-to-black{
   background: linear-gradient(0deg,hsla(0,0%,9%,0),hsla(0,0%,9%,.55) 20%, hsla(0,0%,9%,.75) 40%,hsla(0,0%,9%,.96) 75%,hsla(0,0%,9%,.99));
 }
-
+.deposit-accordion *{
+   background: transparent;
+   text-transform: none;
+}
+.rte .deposit-accordion h2{
+text-transform: none;
+}
+.deposit-accordion {
+  border-top: 1px solid #FFFFFFBF;
+  border-bottom: 1px solid #FFFFFFBF;
+}
 .stripe-button img, .bit-button img{
   position:absolute;
   height:25px;
@@ -70,14 +87,25 @@
   z-index: 2;
   transform: translate(0%, -50%);
 }
+#refundable-text-span, .home-deposit-module #spots-remaining-count span{
+  color:#FFFFFFBF;
+}
+#deposit-text-span .discount-container{
+  color:white;
+}
+
 #terms.alert::after{
   content:"* ";
-  color:#a40000;
+  color:#fff;
+  position: relative;
   margin-left:5px;
   display: inline-block;
 }
-#terms.alert{
-  color:#a40000;
+#terms.alert *{
+  color:#fff;
+}
+.white-box{
+  box-shadow: 0px 0px 10px rgb(255 255 255 / 50%)
 }
 .stripe-button input[type=radio]{
   box-shadow:none;
@@ -93,19 +121,22 @@
 }
 .stripe-button input[type=radio]:checked::before{
   content:"◉";
+  color:white;
   font-size:16px;
   line-height: 3.7;
   left:115px;
 }
 .stripe-button input[type=radio]::before{
   content:"○";
+  color:#FFFFFFBF;
   position:absolute;
   line-height: 1.8;
   left:115px;
 }
 .option-button-checkout{
   text-transform: none;
-
+  background: transparent;
+  border:1px solid #FFFFFFBF;
   padding:0.75rem 0;
   padding-left:40px;
   line-height: 0.1;
@@ -171,13 +202,15 @@
 .e-checkbox + a{
   border-bottom:2px solid;
 }
-.terms-agreement{
+label.terms-agreement{
   text-transform: none;
   margin-left:0;
   padding-left:0;
+  color:#FFFFFFBF;
 }
 .terms-agreement a{
   text-transform: none;
+  color:#FFFFFFBF;
   border-bottom:1px solid;
 }
 @media(max-width:767px){
