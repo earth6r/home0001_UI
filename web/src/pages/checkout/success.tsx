@@ -9,7 +9,7 @@ export default () => (
     <SEO title={"success"} description={"success"} keywords={[]} />
     <Container>
       <h1>
-        Deposit received – thank you. Next, let us know a bit more about what you’re looking for.
+        Deposit received – thank you.
       </h1>
 
 
