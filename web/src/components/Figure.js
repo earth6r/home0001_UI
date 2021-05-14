@@ -84,7 +84,7 @@ if(assetId == "image-1603581fb45c036e5ad0501587769b03b1ef9ecc-1485x1707-jpg"){
 const Figure = ({node}) => {
 
   if (!node || !node.asset || !node.asset._id) { return null }
-  console.log(node.asset._id, node.alt)
+
   const fluidProps = getFixedProps({assetId: node.asset, crop: node.crop},
     {maxWidth: 768, fit: 'none', quality: 90}
   )

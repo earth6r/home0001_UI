@@ -5,7 +5,7 @@ import CircleButton from "./global/circleButton";
 import GridRow from "./grid/grid-row";
 import ReactHtmlParser from "react-html-parser"
 
-const Header = ({ mainMenu, rMenu, pillColor, strikeColor, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome, showThinBanner, thinBanner, bannerUrl, bannerUrlTitle }) => {
+const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome, showThinBanner, thinBanner, bannerUrl, bannerUrlTitle }) => {
   // const containerRef = useRef(null);
   // const { height } = useDimensions(containerRef);
   const [loaded, setLoaded] = useState(false);
@@ -146,7 +146,7 @@ if(typeof window != `undefined`){
             <div onClick={onHideSubNav} className="click-area z-30"></div>
 
         }
-      <header className={`${showThinBanner && thinBanner ? "mt-16 md:mt-8" : "" } fixed z-50 w-full left-0`}>
+      <header className={`${showThinBanner && thinBanner ? "mt-16 md:mt-8" : "" } ${blackHeader ? "black-header ":""} fixed z-50 w-full left-0`}>
         <div
           className={`${
             showNav ? "h-full" : ""
@@ -245,7 +245,7 @@ if(typeof window != `undefined`){
           showNav ? " h-full bg-black opacity-75 pointer-events-auto" : "opacity-0"
         } fixed transition-opacity duration-150 left-0 top-0  pointer-events-none w-full`}
       ></div>
-      <div className={`${showThinBanner && thinBanner ? "mt-12 md:mt-12" : "" } fixed w-full h-12 md:h-18 z-30 gradient-to-b3 pointer-events-none top-0 left-0`}></div>
+      <div className={`${showThinBanner && thinBanner ? "mt-12 md:mt-12" : "" } fixed w-full h-12 md:h-18 z-30 ${blackHeader ? "gradient-to-black ":"gradient-to-b3 "} pointer-events-none top-0 left-0`}></div>
     </>
   );
 };

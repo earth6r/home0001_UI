@@ -4,7 +4,7 @@ import HeaderRnd from "./headerRnd";
 import Footer from "./footer";
 import GridRow from "./grid/grid-row"
 
-const Layout = ({ mainMenu,infoSection,newsletter,strikeColor,pillColor,infoSectionBelow,showPopupNewsletter, rMenu, rnd = false, subMenu, footerMenu, children, onHideNav, onShowNav, showNav,  onHideSubNav, onShowSubNav, showSubNav, siteTitle, isHome, thinBanner, showThinBanner, bannerUrl, bannerUrlTitle }) => {
+const Layout = ({ mainMenu,infoSection,blackHeader, newsletter,strikeColor,pillColor,infoSectionBelow,showPopupNewsletter, blackFooter, rMenu, rnd = false, subMenu, footerMenu, children, onHideNav, onShowNav, showNav,  onHideSubNav, onShowSubNav, showSubNav, siteTitle, isHome, thinBanner, showThinBanner, bannerUrl, bannerUrlTitle }) => {
 
   const myRef = useRef({
     location: null,
@@ -117,6 +117,7 @@ const Layout = ({ mainMenu,infoSection,newsletter,strikeColor,pillColor,infoSect
     (<Header
       showThinBanner={showThinBanner}
       thinBanner={thinBanner}
+      blackHeader={blackHeader}
       mainMenu={mainMenu}
       siteTitle={siteTitle}
       onHideNav={onHideNav}
@@ -140,9 +141,9 @@ const Layout = ({ mainMenu,infoSection,newsletter,strikeColor,pillColor,infoSect
    <div className={`${showThinBanner && !rnd ? "mt-16 md:mt-20":"mt-8"} hidden md:block container pb-1/2em absolute`} >
    <GridRow />
    </div>
-    <div id='page-content-wrapper' className={`${showThinBanner && !rnd ? "mt-16 md:mt-12 md:mt-16":"mt-8"} ${rnd ? "px-special" : ""} container pb-1 `}>{children}</div>
+    <div id='page-content-wrapper' className={`${showThinBanner && !rnd ? "mt-16 md:mt-12 md:mt-16":"mt-8"} ${blackHeader ? " dark-theme ":""} ${rnd ? "px-special" : ""} container pb-0 `}>{children}</div>
     {!rnd &&
-      <Footer showPopupNewsletter={showPopupNewsletter} newsletter={newsletter} footerMenu={footerMenu} />
+      <Footer blackFooter={blackFooter} showPopupNewsletter={showPopupNewsletter} newsletter={newsletter} footerMenu={footerMenu} />
     }
   </div>
 )

@@ -7,6 +7,7 @@ import {
 } from "../lib/helpers";
 import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
+import PortableText from "../components/portableText";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import { RenderModules } from "../utils/renderModules";
@@ -14,6 +15,24 @@ import PaymentContext from "../lib/payment-context";
 import MembershipPrice from "../components/global/membershipPrice";
 import CheckoutCreate from "../components/checkout-create";
 import { loadStripe } from "@stripe/stripe-js";
+import Figure from "../components/Figure";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionHeader,
+  AccordionPanel,
+  AccordionIcon,
+  AccordionButton,
+  Modal,
+  Collapse,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+} from "@chakra-ui/core";
 // import { InlineWidget } from "react-calendly";
 
 export const query = graphql`
@@ -45,6 +64,49 @@ export const query = graphql`
       description
       keywords
     }
+    depositCounter:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      depositCounter 
+    }
+    whatsIncluded:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      whatsIncluded {
+        _key
+        _rawChildren
+        _type
+        style
+        children {
+          _key
+          _type
+          text
+          marks
+        }
+      }
+    }
+    depositBlockImage:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      depositBlockImage {
+        _key
+        _rawAsset
+        _rawCrop
+        _rawHotspot
+        _type
+        asset{
+          assetId
+          url
+          _id
+        }
+        crop{
+          bottom
+          left
+          right
+          top
+        }
+        hotspot{
+          height
+          width
+          x
+          y
+        }
+      }
+    }
     allSanityLanding {
       edges {
         node {
@@ -74,21 +136,64 @@ const DiscountNotice = ({ discountCode, color, codes }) => {
 
 };
 
-const ValueAdded = ({ discount, codes, discountCode, unitTitle, color }) => {
+const ValueAdded = ({ discount,whatsIncluded, depositCounter, codes, discountCode, unitTitle, color }) => {
 
+  
   return(
   <>
-    <h1 className="membership-deposit mb-2">Membership Deposit: {" "}
-    <DiscountNotice codes={codes} color={color} discountCode={discountCode} />
+    <h1 className="membership-deposit mb-2">Hold your spot.
     <br />
     </h1>
+  
+    <div id='spots-remaining-count'>
+   <span> Spots remaining:</span> {depositCounter}
+    </div>
+
+
+
+
+      <Accordion className="max-w-2xl my-20 w-full deposit-accordion" allowToggle allowMultiple>
+  
+              <AccordionItem
+
+              defaultIsOpen={false}
+              className="border-none relative block accordion max-w-2xl"
+            >
+              {({ isExpanded }) => (
+                <>
+                  <AccordionHeader className=" relative py-6 border-none">
+                    <h2 className="m-0 -mt-1/4em md:mt-0">{"What's included?"}</h2>
+                    <div
+                      
+                      className="accordion-icon right-0 absolute pr-1em"
+                    >
+                      {isExpanded ? "–" : "+"}
+                    </div>
+                  </AccordionHeader>
+                  <AccordionPanel className="pb-1em">
+                    <PortableText blocks={whatsIncluded} />
+                  </AccordionPanel>
+                </>
+              )}
+            </AccordionItem>
+        </Accordion>
+
+
+
+
+ <div id='deposit-text-span'>
+   <span> Membership Deposit:</span> <DiscountNotice codes={codes} color={color} discountCode={discountCode} />
+    </div>
+
+     <div className="mb-8" id='refundable-text-span'>
+        Fully refundable any time, for any reason.
+    </div>
     {unitTitle &&
       <p className="mb-0">Reserve unit {unitTitle}</p>
     }
     <p>
 
 
-    Fully refundable any time, for any reason.
   </p>
   </>
 )};
@@ -103,7 +208,7 @@ const CheckoutActions = ({ unit, children }) => {
   return <>{children}</>;
 };
 
-const CheckoutDescription = ({ unit,codes, modules, children,color, discount, discountCode }) => {
+const CheckoutDescription = ({ unit,whatsIncluded, depositCounter, codes, modules, children,color, discount, discountCode }) => {
   const [head, ...rest] = modules;
  
   if (unit) {
@@ -115,11 +220,12 @@ const CheckoutDescription = ({ unit,codes, modules, children,color, discount, di
 
           <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
             
-            <ValueAdded codes={codes} color={color} unitTitle={unit.title} discount={discount} discountCode={discountCode} />
+            <ValueAdded whatsIncluded={whatsIncluded} depositCounter={depositCounter} codes={codes} color={color} unitTitle={unit.title} discount={discount} discountCode={discountCode} />
             
           </div>
-
+          
         </div>
+        
         {children}
       </>
     );
@@ -132,10 +238,11 @@ const CheckoutDescription = ({ unit,codes, modules, children,color, discount, di
 
         <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
    
-          <ValueAdded codes={codes} discount={discount} color={color} discountCode={discountCode} />
+          <ValueAdded whatsIncluded={whatsIncluded} depositCounter={depositCounter} codes={codes} discount={discount} color={color} discountCode={discountCode} />
         </div>
-
+        
       </div>
+      
       {children}
     </>
   );
@@ -170,6 +277,9 @@ const CheckoutModules = ({ unit, modules, children, discount, discountCode }) =>
 const CollectivePage = (props) => {
   const { data, errors } = props;
   let sku = "MEMB001";
+  const whatsIncluded = data.whatsIncluded.whatsIncluded
+  const depositCounter = data.depositCounter.depositCounter
+  const depositBlockImage = data.depositBlockImage.depositBlockImage
   let bitPayID = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_REGULAR_PRICE;
   let bitPayIDDiscounted = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_DISCOUNTED;
   if (errors) {
@@ -205,7 +315,7 @@ const CollectivePage = (props) => {
 
     
   return (
-    <Layout showPopupNewsletter={true}>
+    <Layout blackHeader={false} blackFooter={title == "Landing" ? true : false} showPopupNewsletter={true}>
       <SEO
         title={myTitle}
         description={site.description}
@@ -216,7 +326,8 @@ const CollectivePage = (props) => {
         <div className="flex flex-wrap">{RenderModules(modules)}</div>
       </Container>
       { title == "Landing" &&
-        <Container className="mb-4 md:mb-0 pb-20">
+        <Container className="pb-4 mt-8 home-deposit-module home-deposit-module-scroll md:mb-0">
+        <div className="w-full md:inline-block md:w-3/6">
         <CheckoutOptions>
           <CheckoutActions unit={null}>
             <PaymentContext.Consumer>
@@ -230,6 +341,8 @@ const CollectivePage = (props) => {
                   unit={null}
                   color={null}
                   codes={null}
+                  whatsIncluded={whatsIncluded}
+                  depositCounter={depositCounter}
                   modules={modules}
                   discount={null}
                   discountCode={null}
@@ -256,13 +369,17 @@ const CollectivePage = (props) => {
                   
 
                 </CheckoutModules>
+
                 </>
               )
               }}
             </PaymentContext.Consumer>
           </CheckoutActions>
         </CheckoutOptions>
-
+        </div>
+        <div className="w-3/6 max-w-3xl pl-2 mt-6 align-top hidden lg:inline-block relative">
+                    <Figure node={depositBlockImage}/>
+                </div>
       </Container>
     }
     </Layout>
