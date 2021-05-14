@@ -45,7 +45,7 @@
 }
 .stripe-button input[type=radio]:checked::before{
   content:"◉";
-  font-size:1vw;
+  font-size:16px;
   line-height: 3.7;
   left:115px;
 }
