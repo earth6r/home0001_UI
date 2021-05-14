@@ -7,7 +7,9 @@ import Layout from "../containers/layout";
 import { RenderModules } from "../utils/renderModules";
 import CheckoutCreate from "../components/checkout-create";
 import GridRow from "../components/grid/grid-row";
+import PortableText from "../components/portableText";
 import PaymentContext from "../lib/payment-context";
+import Figure from "../components/Figure";
 import MembershipPrice from "../components/global/membershipPrice";
 import {
   Accordion,
@@ -38,6 +40,49 @@ export const query = graphql`
     }
     strikeColor:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       strikeColor 
+    }
+    depositCounter:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      depositCounter 
+    }
+    whatsIncluded:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      whatsIncluded {
+        _key
+        _rawChildren
+        _type
+        style
+        children {
+          _key
+          _type
+          text
+          marks
+        }
+      }
+    }
+    depositBlockImage:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      depositBlockImage {
+        _key
+        _rawAsset
+        _rawCrop
+        _rawHotspot
+        _type
+        asset{
+          assetId
+          url
+          _id
+        }
+        crop{
+          bottom
+          left
+          right
+          top
+        }
+        hotspot{
+          height
+          width
+          x
+          y
+        }
+      }
     }
     discountCodes:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       discountCodes 
@@ -101,7 +146,7 @@ const DiscountNotice = ({ discountCode, color, codes }) => {
     </div>)
 };
 
-const ValueAdded = ({ discount, codes, discountCode, unitTitle, color }) => {
+const ValueAdded = ({ discount, whatsIncluded, depositCounter, codes, discountCode, unitTitle, color }) => {
 
   return(
   <>
@@ -110,7 +155,7 @@ const ValueAdded = ({ discount, codes, discountCode, unitTitle, color }) => {
     </h1>
   
     <div id='spots-remaining-count'>
-   <span> Spots remaining:</span> 107
+   <span> Spots remaining:</span> {depositCounter}
     </div>
 
 
@@ -135,7 +180,7 @@ const ValueAdded = ({ discount, codes, discountCode, unitTitle, color }) => {
                     </div>
                   </AccordionHeader>
                   <AccordionPanel className="pb-1em">
-                    <span>lorem</span>
+                    <PortableText blocks={whatsIncluded} />
                   </AccordionPanel>
                 </>
               )}
@@ -172,7 +217,7 @@ const CheckoutActions = ({ unit, children }) => {
   return <>{children}</>;
 };
 
-const CheckoutDescription = ({ unit,codes, modules, children,color, discount, discountCode }) => {
+const CheckoutDescription = ({ unit, codes,depositCounter, whatsIncluded,  modules, children,color, discount, discountCode }) => {
   const [head, ...rest] = modules;
  
   if (unit) {
@@ -184,12 +229,12 @@ const CheckoutDescription = ({ unit,codes, modules, children,color, discount, di
 
           <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
             
-            <ValueAdded codes={codes} color={color} unitTitle={unit.title} discount={discount} discountCode={discountCode} />
+            <ValueAdded  whatsIncluded={whatsIncluded} depositCounter={depositCounter} codes={codes} color={color} unitTitle={unit.title} discount={discount} discountCode={discountCode} />
             
           </div>
 
         </div>
-        {children}
+
       </>
     );
   }
@@ -201,11 +246,11 @@ const CheckoutDescription = ({ unit,codes, modules, children,color, discount, di
 
         <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
    
-          <ValueAdded codes={codes} discount={discount} color={color} discountCode={discountCode} />
+          <ValueAdded whatsIncluded={whatsIncluded} depositCounter={depositCounter} codes={codes} discount={discount} color={color} discountCode={discountCode} />
         </div>
 
       </div>
-      {children}
+      
     </>
   );
 };
@@ -217,7 +262,7 @@ const CheckoutModules = ({ unit, modules, children, discount, discountCode }) =>
     return (
       <>
         <div className="flex flex-wrap w-full standard-text">
-          {RenderModules(rest)}
+
         </div>
         {children}
       </>
@@ -230,7 +275,7 @@ const CheckoutModules = ({ unit, modules, children, discount, discountCode }) =>
         
 
        
-        {RenderModules(rest)}
+       
       </div>
       {children}
     </>
@@ -241,8 +286,12 @@ const CheckoutTemplate = (props) => {
   const { data, errors } = props;
   const page = data && data.checkout;
   const color = data.strikeColor.strikeColor
+  const whatsIncluded = data.whatsIncluded.whatsIncluded
+  const depositCounter = data.depositCounter.depositCounter
+  const depositBlockImage = data.depositBlockImage.depositBlockImage
   const discountCodes = data.discountCodes.discountCodes
-
+   console.log("AARATI")
+   console.log(depositBlockImage)
   const ssr = typeof window === "undefined";
   const {
     main: { modules, slug },
@@ -297,6 +346,7 @@ const CheckoutTemplate = (props) => {
       />
       <Container className="home-deposit-module membership-page-module pt-8">
       <div className="pt-8"></div>
+      <div className="w-full md:inline-block md:w-3/6">
         <CheckoutOptions>
           <CheckoutActions unit={unit}>
             <PaymentContext.Consumer>
@@ -317,6 +367,8 @@ const CheckoutTemplate = (props) => {
                 <CheckoutDescription
                   unit={unit}
                   color={color}
+                  whatsIncluded={whatsIncluded}
+                  depositCounter={depositCounter}
                   codes={discountCodes}
                   modules={modules}
                   discount={discount}
@@ -350,7 +402,10 @@ const CheckoutTemplate = (props) => {
             </PaymentContext.Consumer>
           </CheckoutActions>
         </CheckoutOptions>
-
+        </div>
+       <div className="w-3/6 max-w-3xl pl-2 mt-6 align-top hidden lg:inline-block relative">
+                    <Figure node={depositBlockImage}/>
+                </div>
       </Container>
     </Layout>
   );
