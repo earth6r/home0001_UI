@@ -81,5 +81,20 @@ export default {
         layout: 'tags',
       },
     },
+    {
+      name: 'whatsIncluded',
+      type: 'bodyPortableText',
+      title: 'whats included description'
+    },
+    {
+      type: "text",
+      name: "depositCounter",
+      description: "spots left",
+    },
+    {
+      name: 'depositBlockImage',
+      type: 'image',
+      title: 'Deposit Block Image',
+    },
   ],
 }
