@@ -231,13 +231,14 @@ const CheckoutTemplate = (props) => {
   
 
   return (
-    <Layout blackFooter={true} showPopupNewsletter={false} isCheckout={true}>
+    <Layout blackHeader={true} blackFooter={true} showPopupNewsletter={false} isCheckout={true}>
       <SEO
         title={"EARTH Membership"}
         description={"Join the EARTH collective"}
         keywords={["Earth", "Membership"]}
       />
-      <Container className="home-deposit-module">
+      <Container className="home-deposit-module membership-page-module pt-8">
+      <div className="pt-8"></div>
         <CheckoutOptions>
           <CheckoutActions unit={unit}>
             <PaymentContext.Consumer>

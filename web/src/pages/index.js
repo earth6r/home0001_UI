@@ -205,7 +205,7 @@ const CollectivePage = (props) => {
 
     
   return (
-    <Layout blackFooter={title == "Landing" ? true : false} showPopupNewsletter={true}>
+    <Layout blackHeader={false} blackFooter={title == "Landing" ? true : false} showPopupNewsletter={true}>
       <SEO
         title={myTitle}
         description={site.description}
@@ -216,7 +216,7 @@ const CollectivePage = (props) => {
         <div className="flex flex-wrap">{RenderModules(modules)}</div>
       </Container>
       { title == "Landing" &&
-        <Container className="pb-4 home-deposit-module md:mb-0">
+        <Container className="pb-4 mt-8 home-deposit-module home-deposit-module-scroll md:mb-0">
         <CheckoutOptions>
           <CheckoutActions unit={null}>
             <PaymentContext.Consumer>

@@ -31,6 +31,12 @@
   background: #171717;
   position: relative;
 }
+.home-deposit-module-scroll{
+  z-index: 99;
+}
+.dark-theme{
+  background:#171717;
+}
 .home-deposit-module label{
   color:black;
 }
@@ -38,6 +44,22 @@
   color:black;
   text-transform: none;
 }
+.black-footer{
+  background: #171717;
+}
+.black-header{
+  color:white;
+}
+.membership-page-module{
+  top:-2rem;
+}
+.black-header .logo {
+  filter:invert(1);
+}
+.gradient-to-black{
+  background: linear-gradient(0deg,hsla(0,0%,9%,0),hsla(0,0%,9%,.55) 20%, hsla(0,0%,9%,.75) 40%,hsla(0,0%,9%,.96) 75%,hsla(0,0%,9%,.99));
+}
+
 .stripe-button img, .bit-button img{
   position:absolute;
   height:25px;
