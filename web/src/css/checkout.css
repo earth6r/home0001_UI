@@ -224,6 +224,7 @@ label.terms-agreement{
 }
 .stripe-button input[type=radio]::before{
   content:"○";
+  top:0;
   position:absolute;
   line-height: 48px;
   left:115px;
