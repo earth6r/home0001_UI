@@ -9,7 +9,7 @@ import "./src/css/index.css";
 import React from "react";
 // import { withPrefix } from "gatsby";
 import "focus-visible/dist/focus-visible";
-import LoadingScreen from "./src/components/loading-screen";
+// import LoadingScreen from "./src/components/loading-screen";
 
 //stripe
 import { Elements } from "@stripe/react-stripe-js";
