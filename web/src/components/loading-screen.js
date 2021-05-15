@@ -1,12 +1,12 @@
-// import React from "react";
-// import LogoIcon from "./icon/logo";
+ import React from "react";
+ import LogoIcon from "./icon/logo";
 
-// const LoadingScreen = ({ animate }) => {
-//  return (
-//    <div
-//      style={{ zIndex: "9999" }}
-//      className="w-full pointer-events-none fixed top-0 left-0 h-screen"
-//    >
+ const LoadingScreen = ({ animate }) => {
+  return (
+    <div
+      style={{ zIndex: "9999" }}
+      className="w-full pointer-events-none fixed top-0 left-0 h-screen"
+    >
 //      <div
 //        className={`${
 //          animate !== false ? "load-animation" : ""
@@ -20,8 +20,8 @@
 //          animate !== false ? "animate-out1s" : ""
 //        } w-full pointer-events-none absolute top-0 left-0 h-screen bg-white z-0`}
 //      ></div>
-//    </div>
-//  );
-// };
+    </div>
+  );
+ };
 
-// export default LoadingScreen;
+ export default LoadingScreen;
