@@ -56,7 +56,7 @@ export const wrapRootElement = ({ element, props }) => {
   return (
     <PaymentContext.Provider value={{ discount, discountCode }}>
       <Elements options={ELEMENTS_OPTIONS} stripe={stripePromise} {...props}>
-        <LoadingScreen animate={animate} />
+  //      <LoadingScreen animate={animate} />
         {element}
       </Elements>
     </PaymentContext.Provider>
