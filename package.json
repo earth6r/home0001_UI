@@ -24,6 +24,7 @@
     "@sanity/image-url": "^0.140.19",
     "gatsby-plugin-facebook-pixel": "^1.0.5",
     "gatsby-plugin-google-analytics": "^3.0.0",
+    "gatsby-plugin-google-gtag": "^3.5.0",
     "gatsby-plugin-intercom-spa": "^0.2.0",
     "gatsby-plugin-netlify": "^2.6.0",
     "gatsby-plugin-sanity-image": "^0.4.2",

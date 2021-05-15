@@ -99,13 +99,13 @@ text-transform: none;
 
 #terms.alert::after{
   content:"* ";
-  color:#fff;
+  color:#FF3131;
   position: relative;
   margin-left:5px;
   display: inline-block;
 }
 #terms.alert *{
-  color:#fff;
+  color:#FF3131;
 }
 .white-box{
   box-shadow: 0px 0px 10px rgb(255 255 255 / 50%)
