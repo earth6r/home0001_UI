@@ -8,7 +8,6 @@
 import "./src/css/index.css";
 import React from "react";
 import "focus-visible/dist/focus-visible";
-import LoadingScreen from "./src/components/loading-screen";
 import PaymentContext from "./src/lib/payment-context";
 import { DISCOUNT_CODES } from "./src/lib/constants";
 import { trimSlashes } from "./src/lib/helpers";
@@ -56,7 +55,6 @@ export const wrapRootElement = ({ element, props }) => {
   return (
     <PaymentContext.Provider value={{ discount, discountCode }}>
       <Elements options={ELEMENTS_OPTIONS} stripe={stripePromise} {...props}>
-        <LoadingScreen animate={animate} />
         {element}
       </Elements>
     </PaymentContext.Provider>
