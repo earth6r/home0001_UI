@@ -185,7 +185,7 @@ const [isClient, setClient] = useState(false);
             style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}
           >
             
-              <CircleButton color={image.color} title={image.title} url={image.url} float={true} />
+              <CircleButton textColor={image.customCircleTextColor} customColor={image.customCircleColor} color={image.color} title={image.title} url={image.url} float={true} />
       
           </div>
              )}

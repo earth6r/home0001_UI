@@ -101,6 +101,8 @@ export const PaneModules = ({ reactModule, type, specs = false }: { type: string
           <CircleButton
             color={reactModule.color}
             title={reactModule.title}
+            textColor={reactModule.customCircleTextColor}
+            customColor={reactModule.customCircleColor}
             url={reactModule.url}
             linkHome = {reactModule.homeLink}
             linkRnd = {reactModule.rndLink}

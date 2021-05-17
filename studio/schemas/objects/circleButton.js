@@ -42,6 +42,16 @@ export default {
         layout: 'radio', // <-- defaults to 'dropdown'
         default: 'white'
       }
+    },
+    {
+      name: 'customCircleTextColor',
+      title: 'custom text color (#ffff)',
+      type: 'string',
+    },
+    {
+      name: 'customCircleColor',
+      title: 'custom color (#ffff)',
+      type: 'string',
     }
   ],
 }

@@ -17,6 +17,7 @@ import { RichTable } from "./global/richTable";
 
 export const Modules = ({ reactModule, type, specs = false }: { type: string; reactModule: any }) => {
  const [isClient, setClient] = useState(false);
+ 
  useEffect(() => {
     setClient(true)
   })
@@ -135,6 +136,8 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
         <>
           <CircleButton
             color={reactModule.color}
+            textColor={reactModule.customCircleTextColor}
+            customColor={reactModule.customCircleColor}
             title={reactModule.title}
             url={reactModule.url}
             linkHome = {reactModule.homeLink}
