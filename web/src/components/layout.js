@@ -24,7 +24,7 @@ const Layout = ({ mainMenu,infoSection,blackHeader, newsletter,strikeColor,pillC
      document.addEventListener('scroll',function(){
       let myel = document.getElementById("page-content-wrapper");
       
-        console.log(isBottom(myel))
+    
         if(isBottom(myel)){
           let el =document.getElementsByClassName("intercom-lightweight-app-launcher")
 

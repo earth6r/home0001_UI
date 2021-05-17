@@ -50,7 +50,7 @@ const PaymentRequest = () => {
     });
     if (response.error) {
       // Report to the browser that the payment failed.
-      console.log(response.error);
+
       event.complete("fail");
     } else {
       // Report to the browser that the confirmation was successful, prompting
@@ -61,7 +61,7 @@ const PaymentRequest = () => {
         response.paymentIntent.client_secret
       );
       if (error) {
-        console.log(error);
+
         return;
       }
       if (paymentIntent.status === "succeeded") {

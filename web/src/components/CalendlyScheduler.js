@@ -29,9 +29,9 @@ const CalendlyScheduler = () => {
       }
       setState({ where: place});
       state.where = place
-      console.log(state["where"])
+
       setState({ ...state, ["location"]: selected });
-      console.log(state["location"])
+    
 
   } 
 
@@ -39,7 +39,7 @@ const CalendlyScheduler = () => {
     setState({ 'timeFrame': selected });
     const where = state["where"]
 
-    console.log(where)
+  
 
       const scriptURL = 'https://script.google.com/macros/s/AKfycby6f4PHMOLNcPB3B86JBOHgnSpNvNQYPHBw9UexuuoY2K5-ffG0624BWVvi5LFv2P-b5Q/exec'
       let formData = new FormData();

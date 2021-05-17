@@ -66,7 +66,7 @@ const [isClient, setClient] = useState(false);
           }else{
             setTablet(false)
           }
-          console.log(tablet)
+     
       };
   useEffect(() => {
     setClient(true)
@@ -136,7 +136,6 @@ const [isClient, setClient] = useState(false);
                       uri = "";
                       break;
                   }
-                  console.log(image.link)
                 return (
                   <div key={image._key} className={`${image.hideDesktop ? "lg:hidden ": ""} ${image.hideTablet ? "md:hidden lg:block ": ""} ${image.hideMobile ? "hidden md:block ": ""} flex-item`} style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}>
                    <PageLink
@@ -164,7 +163,7 @@ const [isClient, setClient] = useState(false);
                 }
                 
               } else {
-                return <></>;
+                return <div key={image._key}></div>;
               }
             } else if (image._type == "flexPdf" && typeof window != `undefined`) {
               
@@ -177,19 +176,19 @@ const [isClient, setClient] = useState(false);
                 )
             } else if (image._type == "flexCircle"){
               return(
-                <>
-                {image !== undefined && image.title && (
+                
+                
           <div
           key={image._key}
             className="self-center mx-auto z-20 bottom-0 md:relative"
             style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}
           >
-            
+         {image !== undefined && image.title && (   
               <CircleButton textColor={image.customCircleTextColor} customColor={image.customCircleColor} color={image.color} title={image.title} url={image.url} float={true} />
-      
+      )}
           </div>
-             )}
-                </>
+             
+          
               )
             } else if(image._type == "flexCallibration"){
               let styleObj = {

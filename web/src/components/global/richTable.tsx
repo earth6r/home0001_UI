@@ -5,7 +5,7 @@ import { Grid } from "@chakra-ui/core";
 
 export const RichTable = (props) => {
   const { headerRow, rows } = props.data;
-  console.log(props.data)
+ 
 
   // const layout = ["4em", "4em", "4em"]
 

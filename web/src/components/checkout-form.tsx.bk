@@ -47,7 +47,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
         amount: price * 100,
       });
 
-      console.log(clientSecret);
+      
 
       const paymentMethodReq = await stripe.createPaymentMethod({
         type: "card",
@@ -55,7 +55,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
         billing_details: billingDetails,
       });
 
-      console.log(paymentMethodReq);
+      
 
       if (paymentMethodReq.error) {
         setCheckoutError(paymentMethodReq.error.message);
