@@ -1,7 +1,7 @@
-import React from "react";
-import LogoIcon from "./icon/logo";
+ import React from "react";
+ import LogoIcon from "./icon/logo";
 
-const LoadingScreen = ({ animate }) => {
+ const LoadingScreen = ({ animate }) => {
   return (
     <div
       style={{ zIndex: "9999" }}
@@ -22,6 +22,6 @@ const LoadingScreen = ({ animate }) => {
       ></div> */}
     </div>
   );
-};
+ };
 
-export default LoadingScreen;
+ export default LoadingScreen;
