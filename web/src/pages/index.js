@@ -129,7 +129,7 @@ const DiscountNotice = ({ discountCode, color, codes }) => {
   
   return (
     <div className="discount-container mb-1">
-      <div className="">$100</div>
+      <div className="">$100 USD</div>
       
     </div>
     );
