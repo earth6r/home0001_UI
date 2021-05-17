@@ -42,7 +42,7 @@ function getFixedWithCrop({ assetId, fixed, crop }) {
         .map((declaration) => {
           // And get their URLs for further modification
           const [url, multiplier] = declaration.split(' ');
-         console.log(url.split('?')[0])
+
 
           return `${url.split('?')[0]+"?"}${cropQueryStr} ${multiplier}`;
         })
@@ -66,10 +66,10 @@ function getFixedWithCrop({ assetId, fixed, crop }) {
 
 export const getFixedProps = ({ assetId, crop }, options) => {
    
-  let fixed = getFluidGatsbyImage(assetId, {maxWidth: 1024}, clientConfig.sanity);
+  let fixed = getFluidGatsbyImage(assetId, {maxWidth: 900}, clientConfig.sanity);
   // If we have a crop, let's add it to every URL in the fixed object
 if(assetId == "image-1603581fb45c036e5ad0501587769b03b1ef9ecc-1485x1707-jpg"){
-  console.log("hi", crop)
+
 }
   if (crop && crop.top != `undefined`) {
     
@@ -86,13 +86,13 @@ const Figure = ({node}) => {
   if (!node || !node.asset || !node.asset._id) { return null }
 
   const fluidProps = getFixedProps({assetId: node.asset, crop: node.crop},
-    {maxWidth: 768, fit: 'none', quality: 90}
+    {maxWidth: 500, fit: 'none'}
   )
 
 
   return (
     <figure>
-      <img src={fluidProps.src} alt={node.alt} srcSet={fluidProps.srcSet} srcwebp={fluidProps.srcWebp} srcSetWebp={fluidProps.srcSetWebp} />
+      <img src={fluidProps.src} alt={node.alt} srcSet={fluidProps.srcSet} srcwebp={fluidProps.srcWebp} srcsetwebp={fluidProps.srcSetWebp} />
 
     </figure>
   )

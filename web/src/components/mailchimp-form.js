@@ -33,7 +33,7 @@ export default class MailChimpForm extends React.Component {
 
   render() {
     const {newsletter} = this.props
-    console.log(newsletter[0])
+
     return this.state.result == "success" ? (
       <>
         <h3 className="text-mobileLarge md:text-desktopBody">
@@ -87,9 +87,9 @@ export default class MailChimpForm extends React.Component {
           </div>
         )}
         {this.state.success !== "success" && (
-          <p className="pt-2em text-mobileBody md:text-desktopCaption">
+          <div className="pt-2em text-mobileBody md:text-desktopCaption">
              <PortableText blocks={newsletter} />
-          </p>
+          </div>
         )}
       </form>
     );

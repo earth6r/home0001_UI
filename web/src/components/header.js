@@ -71,7 +71,7 @@ if(typeof window != `undefined`){
        }
     }
    
-    console.log(currentUri)
+
     setTimeout(function () {
       setLoaded(true);
     }, 3000);
@@ -79,7 +79,7 @@ if(typeof window != `undefined`){
   let buttonStyle = {
     background: pillColor
   }
-  console.log(buttonStyle)
+
   return (
     <>
     {showThinBanner && thinBanner &&
