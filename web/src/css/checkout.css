@@ -125,16 +125,17 @@ text-transform: none;
 .stripe-button input[type=radio]:checked::before{
   content:"◉";
   color:white;
-  font-size:16px;
-  line-height: 3.7;
-  left:115px;
+  font-size: 23px;
+  line-height: 2.6;
+  left: 111px;
 }
 .stripe-button input[type=radio]::before{
   content:"○";
   color:#FFFFFFBF;
   position:absolute;
-  line-height: 1.8;
-  left:115px;
+  line-height: 1.1;
+  left: 109px;
+  font-size: 47px;
 }
 .option-button-checkout{
   text-transform: none;
@@ -207,7 +208,7 @@ text-transform: none;
 }
 label.terms-agreement{
   text-transform: none;
-  margin-left:0;
+  margin-left:20px;
   padding-left:0;
   color:#FFFFFFBF;
 }
@@ -220,18 +221,21 @@ label.terms-agreement{
 
   .stripe-button input[type=radio]:checked::before{
   content:"◉";
-  line-height: 48px;
+  line-height: 51px;
   left:115px;
   top:0px;
-  font-size:12px;
+  font-size:18px;
+}
+label.terms-agreement{
+  margin-left:10px;
 }
 .stripe-button input[type=radio]::before{
   content:"○";
   top:0;
   position:absolute;
-  line-height: 48px;
-  left:115px;
-  font-size:20px;
+  line-height: 43px;
+  left:112px;
+  font-size:40px;
 }
 
     .e-checkbox + a{
