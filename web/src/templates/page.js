@@ -39,7 +39,7 @@ const PageTemplate = (props) => {
      
         <div className="flex flex-wrap w-full">
         {RenderModules([modules[0],modules[1]])}
-          <CalendlyContact/>
+         <div className="standard-text calendly-contact">Or,&nbsp;<a href="/checkout/membership">become a member</a>&nbsp;to schedule a call with us.</div>
         {RenderModules(modules.slice(2,modules.length))}
         </div>
       </Container>
