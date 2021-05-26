@@ -66,7 +66,7 @@ function getFixedWithCrop({ assetId, fixed, crop }) {
 
 export const getFixedProps = ({ assetId, crop }, options) => {
    
-  let fixed = getFluidGatsbyImage(assetId, {maxWidth: 1024}, clientConfig.sanity);
+  let fixed = getFluidGatsbyImage(assetId, {maxWidth: 768}, clientConfig.sanity);
   // If we have a crop, let's add it to every URL in the fixed object
 if(assetId == "image-1603581fb45c036e5ad0501587769b03b1ef9ecc-1485x1707-jpg"){
   console.log("hi", crop)
@@ -92,7 +92,7 @@ const Figure = ({node}) => {
 
   return (
     <figure>
-      <img src={fluidProps.src} alt={node.alt} srcSet={fluidProps.srcSet} srcwebp={fluidProps.srcWebp} srcSetWebp={fluidProps.srcSetWebp} />
+      <img src={fluidProps.src} alt={node.alt} srcSet={fluidProps.srcSet} srcwebp={fluidProps.srcWebp} srcsetwebp={fluidProps.srcSetWebp} />
 
     </figure>
   )

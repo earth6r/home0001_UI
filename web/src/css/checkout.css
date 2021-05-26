@@ -73,6 +73,12 @@ text-transform: none;
    background: transparent;
    text-transform: none;
 }
+.deposit-accordion svg{
+        top: -3px;
+    vertical-align: middle;
+    position: relative;
+    display: inline-block;
+}
 .rte .deposit-accordion h2{
 text-transform: none;
 }
@@ -217,8 +223,26 @@ label.terms-agreement{
   color:#FFFFFFBF;
   border-bottom:1px solid;
 }
+#thin-minus{
+  height:1px;
+  width: 23px;
+  vertical-align: middle;
+  background: white;
+  display: inline-block;
+}
 @media(max-width:767px){
-
+.deposit-accordion svg{
+      top: -1px;
+      width:15px;
+    position: relative;
+}
+#thin-minus{
+  height:1px;
+  width: 12px;
+  vertical-align: middle;
+  background: white;
+  display: inline-block;
+}
   .stripe-button input[type=radio]:checked::before{
   content:"◉";
   line-height: 51px;

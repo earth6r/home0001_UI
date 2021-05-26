@@ -167,7 +167,13 @@ const ValueAdded = ({ discount,whatsIncluded, depositCounter, codes, discountCod
                       
                       className="accordion-icon right-0 absolute pr-1em"
                     >
-                      {isExpanded ? "–" : "+"}
+                      {isExpanded ? 
+                       <span id='thin-minus'></span>
+                        : 
+                        <svg width="22" height="21" viewBox="0 0 22 21" fill="none">
+                        <path d="M10.7243 0V10.5M10.7243 21V10.5M10.7243 10.5H21.1322M10.7243 10.5H0.316406" stroke="white"/>
+                        </svg>
+                      }
                     </div>
                   </AccordionHeader>
                   <AccordionPanel className="pb-1em">

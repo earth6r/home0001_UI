@@ -23,14 +23,15 @@ function urlFor(source) {
 var shuffle = require("shuffle-array");
 
 const FlexGallery = (props) => {
-  const { images, circleButtons, embeds, squares, pdfs, rowNum, callibrationMarks, rowNumMobile, rowNumTablet, texts } = props;
+  const { images, circleButtons, embeds, squares, pdfs, rowNum, edges, callibrationMarks, rowNumMobile, rowNumTablet, texts } = props;
   const myImages = images ? shuffle(images).filter(Boolean) : [];
   const myrandImages = embeds ? shuffle(myImages.concat(embeds)) : myImages;
   const randImages2 = pdfs ? shuffle(myrandImages.concat(pdfs)) : myrandImages;
   const randImages3 = texts ? shuffle(randImages2.concat(texts)) : randImages2;
   const randImages4 = squares ? shuffle(randImages3.concat(squares)) : randImages3;
   const randImages5 = callibrationMarks ? shuffle(randImages4.concat(callibrationMarks)) : randImages4;
-  const randImages = circleButtons ? shuffle(randImages5.concat(circleButtons)) : randImages5;
+  const randImages6 = circleButtons ? shuffle(randImages5.concat(circleButtons)) : randImages5;
+  const randImages = edges ? shuffle(randImages6.concat(edges)) : randImages6;
   const justify = ["justify-start", "justify-center", "justify-between", "justify-end"];
   const [direction, setDirection] = useState();
   const [mobile, setMobile] = useState(false);
@@ -95,9 +96,10 @@ const [isClient, setClient] = useState(false);
         {randImages &&
           randImages.map((image, index) => {
             // console.log(image);
+          
             let styleObj = {
-                gridColumnStart: image.startColumn,
-                gridColumnEnd: image.endColumn,
+                gridColumnStart: image._type == "flexEdgetoEdge" ? 1 : image.startColumn,
+                gridColumnEnd: image._type == "flexEdgetoEdge" ? 999 : image.endColumn,
                 gridRowStart: image.startRow,
                 gridRowEnd: image.endRow,
               }
@@ -113,6 +115,8 @@ const [isClient, setClient] = useState(false);
                 gridRowStart: image.startRowTablet,
                 gridRowEnd: image.endRowTablet,
               }
+          
+            
 
             if (image && image._type == "flexImage") {
               //get ratio of image
@@ -166,13 +170,18 @@ const [isClient, setClient] = useState(false);
               } else {
                 return <></>;
               }
-            } else if (image._type == "flexPdf" && typeof window != `undefined`) {
+            }else if(image._type == "flexEdgetoEdge"){
+              return(<div key={image._key} className="flex-item edge-to-edge" style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}>
+                <Figure node={image}/> 
+              </div>)
+
+            }else if (image._type == "flexPdf" && typeof window != `undefined`) {
               
               return <div key={image._key} className="flex-item relative z-20" style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}><PdfReader key={image._key} file={image.asset.url} /></div>;
             } else if (image._type == "flexText"){
               return(
-                <div key={image._key} className="flex-item relative z-20" style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}>
-                  <PortableText blocks={image.text} />
+                <div key={image._key} className="flex-item flex-text relative z-20" style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}>
+                 <div style={{color:`${image.color ? image.color : "inherit" }`}}> <PortableText blocks={image.text} /></div>
                 </div>
                 )
             } else if (image._type == "flexCircle"){

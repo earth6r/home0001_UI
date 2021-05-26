@@ -32,6 +32,7 @@ import listPortableText from './objects/listPortableText'
 import excerptPortableText from './objects/excerptPortableText'
 import mainImage from './objects/mainImage'
 import flexImage from './objects/flexImage'
+import flexEdgetoEdge from './objects/flexEdgetoEdge'
 import flexEmbed from './objects/flexEmbed'
 import flexCallibration from './objects/flexCallibration'
 import flexSquare from './objects/flexSquare'
@@ -107,6 +108,7 @@ export default createSchema({
     partner,
     mainImage,
     flexImage,
+    flexEdgetoEdge,
     flexEmbed,
     flexCallibration,
     flexText,

@@ -14,6 +14,14 @@ export default {
                 isHighlighted: true,
               },
             },
+            {
+              name: 'color',
+              type: 'string',
+              title: 'text color',
+              options: {
+                isHighlighted: true,
+              },
+            },
             {name:'startColumn',
               type: 'number',
               description: "starting column",
