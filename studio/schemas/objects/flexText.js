@@ -124,6 +124,14 @@ export default {
     options: {
       isHighlighted: true,
     },
-  }
+  },
+  {
+              title: 'Goes over image?',
+              name: 'highZindex',
+              type: 'boolean',
+              options: {
+                isHighlighted: true,
+              }
+            },
             ]
 }
