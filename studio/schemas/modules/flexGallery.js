@@ -45,6 +45,18 @@ export default {
       ],
     },
     {
+      name: 'edges',
+      title: 'Edge to Edge Images',
+      type: 'array',
+      of: [
+        {
+          type: 'flexEdgetoEdge',
+          
+          
+        },
+      ],
+    },
+    {
       name: 'embeds',
       title: 'Embed',
       type: 'array',
