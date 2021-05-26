@@ -56,8 +56,8 @@ form .earth-svg svg{
 }
 @media(max-width:767px){
   .flexible-gallery .flex-item.edge-to-edge.up-to-nav{
-  top:-0rem;
-}
+    top:-0rem;
+  }
   .flex-item:hover .hover-hide{
     opacity: 1;
     -webkit-backface-visibility: hidden;

@@ -74,7 +74,7 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
 
           <meta property="og:title" content="EARTH" />
           <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-          
+          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
           </Helmet>
         );
       }}
