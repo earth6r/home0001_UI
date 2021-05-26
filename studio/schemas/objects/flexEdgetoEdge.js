@@ -89,6 +89,14 @@ export default {
                 isHighlighted: true,
               }
             },
+            {
+              title: 'Top of page (pulls up to nav)?',
+              name: 'upToNav',
+              type: 'boolean',
+              options: {
+                isHighlighted: true,
+              }
+            },
       ],
         preview: {
           select: {

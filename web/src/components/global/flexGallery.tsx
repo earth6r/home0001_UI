@@ -171,7 +171,7 @@ const [isClient, setClient] = useState(false);
                 return <></>;
               }
             }else if(image._type == "flexEdgetoEdge"){
-              return(<div key={image._key} className="flex-item edge-to-edge" style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}>
+              return(<div key={image._key} className={`${image.upToNav ? "up-to-nav " : ""} flex-item edge-to-edge`} style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}>
                 <Figure node={image}/> 
               </div>)
 
@@ -180,7 +180,7 @@ const [isClient, setClient] = useState(false);
               return <div key={image._key} className="flex-item relative z-20" style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}><PdfReader key={image._key} file={image.asset.url} /></div>;
             } else if (image._type == "flexText"){
               return(
-                <div key={image._key} className="flex-item flex-text relative z-20" style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}>
+                <div key={image._key} className={`${image.highZindex ? "high-z-index ":"z-20 "} flex-item flex-text relative`} style={mobile ? styleObjMobile : (tablet ? styleObjTablet :styleObj)}>
                  <div style={{color:`${image.color ? image.color : "inherit" }`}}> <PortableText blocks={image.text} /></div>
                 </div>
                 )

@@ -21,7 +21,15 @@
 /* edge to edge image support */
 .flex-item.edge-to-edge{
   left:0;
-
+  position: relative;
+  z-index: 30;
+}
+.flex-item.high-z-index{
+  z-index: 31;
+  position: relative;
+}
+.flexible-gallery .flex-item.edge-to-edge.up-to-nav{
+  top:-1.2rem;
 }
 .flexible-gallery .flex-item.edge-to-edge img{
   display: block;
@@ -47,6 +55,9 @@ form .earth-svg svg{
   max-width: none;
 }
 @media(max-width:767px){
+  .flexible-gallery .flex-item.edge-to-edge.up-to-nav{
+  top:-0rem;
+}
   .flex-item:hover .hover-hide{
     opacity: 1;
     -webkit-backface-visibility: hidden;
