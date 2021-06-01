@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect }  from "react";
 import { graphql } from "gatsby";
 import {
   mapEdgesToNodes,
@@ -137,8 +137,14 @@ const DiscountNotice = ({ discountCode, color, codes }) => {
 };
 
 const ValueAdded = ({ discount,whatsIncluded, depositCounter, codes, discountCode, unitTitle, color }) => {
-
-  
+const [showRefund, setShowRefund] = useState(0);
+const handleRefund = () => {
+  if(showRefund){
+    setShowRefund(0) 
+  } else{ 
+    setShowRefund(1)
+  }
+}
   return(
   <>
     <h1 className="membership-deposit mb-2">Hold your spot.
@@ -192,7 +198,7 @@ const ValueAdded = ({ discount,whatsIncluded, depositCounter, codes, discountCod
     </div>
 
      <div className="mb-8" id='refundable-text-span'>
-        Fully refundable any time, for any reason.
+        Fully refundable any time, for any reason. <span onClick={handleRefund} id='question-trigger'>?</span>
     </div>
     {unitTitle &&
       <p className="mb-0">Reserve unit {unitTitle}</p>
@@ -201,6 +207,16 @@ const ValueAdded = ({ discount,whatsIncluded, depositCounter, codes, discountCod
 
 
   </p>
+  {showRefund ?
+    <div className="rounded-lg p-5 white-bg absolute" id='refund-message'>
+    <span className="absolute inline-block right-0 mr-1" onClick={handleRefund} id='close-refund'>
+      <svg width="22" height="21" viewBox="0 0 22 21" fill="none">
+        <path d="M10.7243 0V10.5M10.7243 21V10.5M10.7243 10.5H21.1322M10.7243 10.5H0.316406" stroke="white"/>
+      </svg>
+    </span>
+     <p className="text-black">If you change your mind for any reason, just email us and we'll refund your deposit within 14 days of your request, no questions asked. </p>
+    </div>
+  : ""}
   </>
 )};
 
