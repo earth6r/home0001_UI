@@ -208,14 +208,18 @@ const handleRefund = () => {
 
   </p>
   {showRefund ?
-    <div className="rounded-lg p-5 white-bg absolute" id='refund-message'>
-    <span className="absolute inline-block right-0 mr-1" onClick={handleRefund} id='close-refund'>
-      <svg width="22" height="21" viewBox="0 0 22 21" fill="none">
-        <path d="M10.7243 0V10.5M10.7243 21V10.5M10.7243 10.5H21.1322M10.7243 10.5H0.316406" stroke="white"/>
-      </svg>
-    </span>
-     <p className="text-black">If you change your mind for any reason, just email us and we'll refund your deposit within 14 days of your request, no questions asked. </p>
-    </div>
+     <>
+        <div className="refund-popup rounded-md  w-full md:max-w-md fixed md:display-block py-4 md:m-auto px-8 bg-white">  
+          <button onClick={handleRefund} aria-label="Close" type="button" className="refund-close">
+          <svg viewBox="0 0 24 24" focusable="false" role="presentation" aria-hidden="true"><path fill="currentColor" d="M.439,21.44a1.5,1.5,0,0,0,2.122,2.121L11.823,14.3a.25.25,0,0,1,.354,0l9.262,9.263a1.5,1.5,0,1,0,2.122-2.121L14.3,12.177a.25.25,0,0,1,0-.354l9.263-9.262A1.5,1.5,0,0,0,21.439.44L12.177,9.7a.25.25,0,0,1-.354,0L2.561.44A1.5,1.5,0,0,0,.439,2.561L9.7,11.823a.25.25,0,0,1,0,.354Z"></path></svg></button>
+          <div className="mb-0 pt-0">
+            <p className="text-black">If you change your mind for any reason, just email us and we'll refund your deposit within 14 days of your request, no questions asked. </p>
+          </div>
+        </div>
+        <div className="refund-popup-overlay" onClick={handleRefund}></div>
+        </>
+
+
   : ""}
   </>
 )};
