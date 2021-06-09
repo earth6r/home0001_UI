@@ -9,6 +9,7 @@ Deployed from [sanity.io/create](https://www.sanity.io/create/?template=sanity-i
 - A blazing fast blog with [Gatsby.js](https://gatsbyjs.org)
 - Structured content using [Sanity.io](https://www.sanity.io)
 - Global deployment on [Netlify](https://netlify.com)
+- Frontend automated testing from [Ghostinspector](https://www.ghostinspector.com/)
 
 ## Quick start
 
