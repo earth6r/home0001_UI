@@ -8,11 +8,12 @@ import bitDisabled from "./images/bit-icons-01.svg"
 import stripeIcons from "./images/color.svg"
 import stripeDisabled from "./images/stripe-icons2-01.svg"
 import { StyledPageLink } from "./global/internalLink";
+import ReactGA from 'react-ga';
 
 const StripeCheckoutCreateButton = ({ handleClick, disabled }) => (
   <div className="stripe-button max-w-2xl block w-full">
 
-  
+
   <span id="checkout-button" role="link" onClick={handleClick} className="max-w-2xl block w-full">
       <input className="e-checkout relative special-stripe text-center bg-white text-black  white-box rounded-full w-full block leading-none h-3em md:h-2em justify-center text-mobileBody md:text-desktopBody" type="submit" value="Join Now" />
     </span>
@@ -26,7 +27,7 @@ const DisabledButton = () => {
   return(
   <div className="disabled-button max-w-2xl block w-full">
 
-    
+
     <span id="checkout-button" role="link" onClick={clickHandler} className="max-w-2xl block w-full">
         <input className="e-checkout relative special-stripe text-center bg-white text-black white-box rounded-full w-full block leading-none h-3em md:h-2em justify-center text-mobileBody md:text-desktopBody" type="submit" value="Join Now" />
       </span>
@@ -43,7 +44,7 @@ const BitPayCheckoutButton = ({ bitPayID, disabled }) => (
     <span className="max-w-2xl block w-full">
       <input className="e-checkout relative special-bitcoin text-center bg-white text-black white-box rounded-full w-full block leading-none h-3em md:h-2em    justify-center text-mobileBody md:text-desktopBody" type="submit" value="Join Now" />
     </span>
-  
+
     </div>
   </form>
 );
@@ -70,11 +71,11 @@ const CheckoutTerms = ({ disabled, handleChange }) => {
     <form id='terms' className="mt-8 mb-4 pb-1em">
       <span className="e-checkbox">
         <input id='agree-to-terms' className="e-checkbox-icon" type="checkbox" value={disabled} onChange={handleChange} />
-       
+
       </span>
-      
+
      <label htmlFor="agree-to-terms" className="terms-agreement relative"> I agree to the <a target="_blank" href="/deposit-tc/">Deposit Terms and Conditions​</a></label>
- 
+
     </form>
   );
 };
@@ -95,11 +96,11 @@ const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, hand
   const [disabled, setDisabled] = useState(1);
   const handleChange = () => {
     setDisabled(1 ^ disabled);
-   
+
     document.getElementById('terms').classList.remove('alert')
-    
-    
-  } 
+
+
+  }
 
   return (
     <>
@@ -120,13 +121,13 @@ const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, hand
         </div>
         </form>
 
-        <CheckoutTerms disabled={disabled} handleChange={handleChange} /> 
+        <CheckoutTerms disabled={disabled} handleChange={handleChange} />
         { !disabled &&
           <>
           {showStripe ?
            <StripeCheckoutCreateButton disabled={disabled} handleClick={handleClick} />
            :
-           <BitPayCheckoutButton disabled={disabled} bitPayID={bitPayID} /> 
+           <BitPayCheckoutButton disabled={disabled} bitPayID={bitPayID} />
           }
           </>
         }
@@ -135,12 +136,12 @@ const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, hand
           <DisabledButton/>
           : ""
         }
- 
-            
-        
-       
-        
-         
+
+
+
+
+
+
 
         {/*<div className="py-1em">
           <span className="max-w-4xl block w-full md:pl-1/10">
@@ -182,6 +183,13 @@ export default function CheckoutCreate({
   }, []);
 
   const handleClick = async (/* event */) => {
+    // Collect CTA analytics
+    ReactGA.event({
+      category: 'Conversion',
+      action: 'Initiated',
+      label: window.location.search || "",
+    })
+
     const stripe = await stripePromise;
     const data = { sku, discount, discountCode };
 

@@ -4,12 +4,15 @@ import { Helmet } from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 import { imageUrlFor } from "../lib/image-url";
 import { buildImageObj } from "../lib/helpers";
+import ReactGA from 'react-ga';
 
 function SEO({ description, lang, meta, keywords, title, image = null }) {
   return (
     <StaticQuery
       query={detailsQuery}
       render={(data) => {
+        ReactGA.initialize('UA-133011720-1');
+        ReactGA.pageview(window.location.pathname + window.location.search);
         const metaDescription = description || (data.site && data.site.description) || "";
         const siteTitle = (data.site && data.site.title) || "";
         const siteAuthor = (data.site && data.site.author && data.site.author.name) || "";
@@ -69,12 +72,11 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
               .concat(meta)}
           >
 
-      
           <script src="https://www.googleoptimize.com/optimize.js?id=OPT-MWRZP22"></script>
 
           <meta property="og:title" content="EARTH" />
           <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-          
+
           </Helmet>
         );
       }}
