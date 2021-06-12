@@ -9,7 +9,7 @@ export default () => {
   // Collect CTA analytics
   ReactGA.event({
     category: 'Conversion',
-    action: 'Completed',
+    action: 'Stripe Completed',
     label: window.location.search || "",
   });
 
