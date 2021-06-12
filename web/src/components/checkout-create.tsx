@@ -34,7 +34,7 @@ const DisabledButton = () => {
   </div>
 )};
 
-const BitPayCheckoutButton = ({ bitPayID, disabled }) => (
+const BitPayCheckoutButton = ({ bitPayID, disabled, onClick }) => (
   <form className="max-w-2xl block w-full" action={process.env.GATSBY_BITPAY_API_URL} method="post">
     <input type="hidden" name="action" value="checkout" />
     <input type="hidden" name="posData" value="" />
@@ -42,7 +42,7 @@ const BitPayCheckoutButton = ({ bitPayID, disabled }) => (
     <div className="stripe-button bit-button">
 
     <span className="max-w-2xl block w-full">
-      <input className="e-checkout relative special-bitcoin text-center bg-white text-black white-box rounded-full w-full block leading-none h-3em md:h-2em    justify-center text-mobileBody md:text-desktopBody" type="submit" value="Join Now" />
+      <input onClick={onClick} className="e-checkout relative special-bitcoin text-center bg-white text-black white-box rounded-full w-full block leading-none h-3em md:h-2em justify-center text-mobileBody md:text-desktopBody" type="submit" value="Join Now" />
     </span>
 
     </div>
@@ -80,7 +80,7 @@ const CheckoutTerms = ({ disabled, handleChange }) => {
   );
 };
 
-const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, handleClick }) => {
+const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, handleStripeClick, handleBitpayClick }) => {
   if (message) return <Message message={message} />;
 
   const [showStripe, setShowStripe] = useState(1);
@@ -125,9 +125,9 @@ const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, hand
         { !disabled &&
           <>
           {showStripe ?
-           <StripeCheckoutCreateButton disabled={disabled} handleClick={handleClick} />
+           <StripeCheckoutCreateButton disabled={disabled} handleClick={handleStripeClick} />
            :
-           <BitPayCheckoutButton disabled={disabled} bitPayID={bitPayID} />
+           <BitPayCheckoutButton disabled={disabled} bitPayID={bitPayID} onClick={handleBitpayClick}/>
           }
           </>
         }
@@ -182,11 +182,20 @@ export default function CheckoutCreate({
     }
   }, []);
 
-  const handleClick = async (/* event */) => {
+  const handleBitpayClick = () => {
     // Collect CTA analytics
     ReactGA.event({
       category: 'Conversion',
-      action: 'Initiated',
+      action: 'Bitpay Initiated',
+      label: window.location.search || "",
+    })
+  }
+
+  const handleStripeClick = async (/* event */) => {
+    // Collect CTA analytics
+    ReactGA.event({
+      category: 'Conversion',
+      action: 'Stripe Initiated',
       label: window.location.search || "",
     })
 
@@ -231,7 +240,8 @@ export default function CheckoutCreate({
       discount={discount}
       discountCode={discountCode}
       message={message}
-      handleClick={handleClick}
+      handleStripeClick={handleStripeClick}
+      handleBitpayClick={handleBitpayClick}
     />
   );
 }
