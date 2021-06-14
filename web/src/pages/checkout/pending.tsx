@@ -10,7 +10,7 @@ export default () => {
   ReactGA.event({
     category: 'Conversion',
     action: 'Bitpay Pending',
-    label: window.location.search || "",
+    label: typeof window != `undefined` && window.location.search ? window.location.search : "",
   });
 
   return (
