@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect }  from "react";
 import { graphql } from "gatsby";
 import {
   mapEdgesToNodes,
@@ -137,8 +137,14 @@ const DiscountNotice = ({ discountCode, color, codes }) => {
 };
 
 const ValueAdded = ({ discount,whatsIncluded, depositCounter, codes, discountCode, unitTitle, color }) => {
-
-  
+const [showRefund, setShowRefund] = useState(0);
+const handleRefund = () => {
+  if(showRefund){
+    setShowRefund(0) 
+  } else{ 
+    setShowRefund(1)
+  }
+}
   return(
   <>
     <h1 className="membership-deposit mb-2">Hold your spot.
@@ -167,7 +173,13 @@ const ValueAdded = ({ discount,whatsIncluded, depositCounter, codes, discountCod
                       
                       className="accordion-icon right-0 absolute pr-1em"
                     >
-                      {isExpanded ? "–" : "+"}
+                      {isExpanded ? 
+                       <span id='thin-minus'></span>
+                        : 
+                        <svg width="22" height="21" viewBox="0 0 22 21" fill="none">
+                        <path d="M10.7243 0V10.5M10.7243 21V10.5M10.7243 10.5H21.1322M10.7243 10.5H0.316406" stroke="white"/>
+                        </svg>
+                      }
                     </div>
                   </AccordionHeader>
                   <AccordionPanel className="pb-1em">
@@ -186,7 +198,7 @@ const ValueAdded = ({ discount,whatsIncluded, depositCounter, codes, discountCod
     </div>
 
      <div className="mb-8" id='refundable-text-span'>
-        Fully refundable any time, for any reason.
+        Fully refundable any time, for any reason. <span onClick={handleRefund} id='question-trigger'>?</span>
     </div>
     {unitTitle &&
       <p className="mb-0">Reserve unit {unitTitle}</p>
@@ -195,6 +207,20 @@ const ValueAdded = ({ discount,whatsIncluded, depositCounter, codes, discountCod
 
 
   </p>
+  {showRefund ?
+     <>
+        <div className="refund-popup rounded-md  w-full md:max-w-md fixed md:display-block py-4 md:m-auto px-8 bg-white">  
+          <button onClick={handleRefund} aria-label="Close" type="button" className="refund-close">
+          <svg viewBox="0 0 24 24" focusable="false" role="presentation" aria-hidden="true"><path fill="currentColor" d="M.439,21.44a1.5,1.5,0,0,0,2.122,2.121L11.823,14.3a.25.25,0,0,1,.354,0l9.262,9.263a1.5,1.5,0,1,0,2.122-2.121L14.3,12.177a.25.25,0,0,1,0-.354l9.263-9.262A1.5,1.5,0,0,0,21.439.44L12.177,9.7a.25.25,0,0,1-.354,0L2.561.44A1.5,1.5,0,0,0,.439,2.561L9.7,11.823a.25.25,0,0,1,0,.354Z"></path></svg></button>
+          <div className="mb-0 pt-0">
+            <p className="text-black">If you change your mind for any reason, just email us and we'll refund your deposit within 14 days of your request, no questions asked. </p>
+          </div>
+        </div>
+        <div className="refund-popup-overlay" onClick={handleRefund}></div>
+        </>
+
+
+  : ""}
   </>
 )};
 
@@ -326,7 +352,7 @@ const CollectivePage = (props) => {
         <div className="flex flex-wrap">{RenderModules(modules)}</div>
       </Container>
       { title == "Landing" &&
-        <Container className="pb-4 mt-8 home-deposit-module home-deposit-module-scroll md:mb-0">
+        <Container className="pb-24 px-2 mt-8 home-deposit-module home-deposit-module-scroll md:mb-0">
         <div className="w-full md:inline-block md:w-3/6">
         <CheckoutOptions>
           <CheckoutActions unit={null}>

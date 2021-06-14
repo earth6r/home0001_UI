@@ -24,6 +24,7 @@ module.exports = {
         token: process.env.SANITY_READ_TOKEN,
         watchMode: !isProd,
         overlayDrafts: !isProd,
+        useCdn: true
       },
     },
     {

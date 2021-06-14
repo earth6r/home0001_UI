@@ -1,7 +1,7 @@
 .rte {
   @apply text-mobileBody;
-  font-size: 4.1666vw;
-    line-height: 4.722vw;
+  font-size: 18px;
+    line-height: 22.5px;
 }
 
 .rte p {
@@ -37,11 +37,15 @@
     transform: translateY(0em);
 }
 .rte.rte-large * {
-  @apply text-mobileLarge;
+  font-size:4.5vw;
+  letter-spacing: -0.01em;
+  line-height: 6vw;
 }
 
 .rte h1 {
-  @apply text-mobileLarge;
+  font-size:40px;
+  letter-spacing: -0.01em;
+  line-height: 44px;
 }
 
 .rte p:not(:last-child) {
@@ -146,7 +150,7 @@ input[type="checkbox"],
 input[type="checkbox"]:focus,
 input[type="checkbox"]:active {
   -webkit-appearance: none;
-
+left:12px;
     width: 0.6em !important;
     height: 0.6em !important;
     cursor: pointer;
@@ -187,7 +191,7 @@ input[type="checkbox"]:checked {
     display: inline-block;
     border-radius: 2px;
     top: 0.2em;
-    left:0.1em;
+    left:0.3em;
     padding:0.3em;
     position: relative;
     margin-right: 0.3em;
@@ -236,8 +240,9 @@ input::placeholder {
 }
   .rte * {
     @apply text-desktopBody;
-    font-size: 2.5vw;
-    line-height: 3.2vw;
+    font-size: 1.7vw;
+    line-height: 2.4vw;
+    letter-spacing: 0.01em;
   }
 
   .rte.rte-large * {
@@ -246,7 +251,9 @@ input::placeholder {
 
   .rte h1,
   .rte h1 * {
-    @apply text-desktopLarge mb-1/2em;
+    font-size:4.5vw;
+    letter-spacing: -0.01em;
+    line-height: 6vw;
   }
 
   .rte form {
@@ -298,9 +305,16 @@ input::placeholder {
     padding-bottom: 0.1em;
     transform: translateY(0%);
 }
+.rte h1,
+  .rte h1 * {
+    font-size:4.5vw;
+    line-height:6vw;
+    letter-spacing: -0.01em;
+  }
   .rte * {
     @apply text-desktopBody;
-    font-size: 1.8vw;
-    line-height: 2.5vw;
+    font-size: 1.7vw;
+    line-height: 2.4vw;
+    letter-spacing: 0.01em;
   }
 }

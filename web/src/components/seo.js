@@ -18,7 +18,7 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
         const siteAuthor = (data.site && data.site.author && data.site.author.name) || "";
         const metaImage =
           image && image.asset ? imageUrlFor(buildImageObj(image)).width(1200).url() : "";
-
+        console.log(title, siteTitle)
         return (
           <Helmet
             htmlAttributes={{ lang }}
@@ -76,7 +76,7 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
 
           <meta property="og:title" content="EARTH" />
           <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
+          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
           </Helmet>
         );
       }}
