@@ -8,16 +8,6 @@ const tailwindConfig = require("./tailwind.config.js");
 
 module.exports = {
   plugins: [
-     {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        // The property ID; the tracking code won't be generated without it
-        trackingId: "UA-190900607-1",
-        // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: true,
-        anonymize: true,
-      },
-    },
     `gatsby-plugin-netlify`,
     `gatsby-plugin-typescript`,
     {
@@ -99,15 +89,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-gtag`,
-      options: {
-        // You can add multiple tracking ids and a pageview event will be fired for all of them.
-        trackingIds: [
-          "G-70W92XYTX9", // Google Analytics / GA
-        ],
-      },
-    },
-    {
       resolve: `gatsby-plugin-segment-js`,
       options: {
         // your segment write key for your production environment
@@ -124,7 +105,7 @@ module.exports = {
         // track the page change, to implement this, make sure your `trackPage` property is set to `true`
         trackPageDelay: 50,
 
-       
+
 
         // boolean (defaults to false); whether to delay load Segment
         // ADVANCED FEATURE: only use if you leverage client-side routing (ie, Gatsby <Link>)
