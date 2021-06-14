@@ -128,7 +128,7 @@ exports.handler = async (event) => {
      * other environment variables Netlify exposes:
      * https://docs.netlify.com/configure-builds/environment-variables/
      */
-    success_url: `${trimTrailingSlash(process.env.SITE_URL)}/checkout/success?${window.location.search}`,
+    success_url: `${trimTrailingSlash(process.env.SITE_URL)}/checkout/success?`,
     cancel_url: `${trimTrailingSlash(process.env.SITE_URL)}/checkout/membership`,
     line_items: [
       {
