@@ -10,7 +10,7 @@ export default () => {
   ReactGA.event({
     category: 'Conversion',
     action: 'Stripe Completed',
-    label: window.location.search || "",
+    label: typeof window != `undefined` && window.location.search ? window.location.search : "",
   });
 
   return (
