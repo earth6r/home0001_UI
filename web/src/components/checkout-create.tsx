@@ -108,14 +108,14 @@ const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, hand
         <div className="stripe-button max-w-2xl py-2 block w-full">
           <img src={stripeIcons} />
           <span id="checkout-button" role="link" onClick={handleStripe} className="relative text-gray-700 max-w-2xl block w-full">
-            <input defaultChecked={showStripe ? true :  false} id="stripe-radio" type="radio" className="absolute bg-none"/><label htmlFor="stripe-radio" className="e-checkout rounded-md option-button-checkout special-stripe text-left text-white  box rounded-none w-full block h-2rem justify-center">pay with card</label>
+            <input defaultChecked={showStripe ? true :  false} id="stripe-radio" type="radio" className="absolute bg-none"/><label htmlFor="stripe-radio" className="e-checkout rounded-md option-button-checkout special-stripe text-left text-white  box rounded-none w-full block h-2rem justify-center">Pay with card</label>
           </span>
         </div>
 
         <div className="stripe-button pt-2 bit-button max-w-2xl block w-full">
           <img src={bitIcons} />
           <span onClick={handleBit} className="max-w-2xl block w-full relative text-gray-700">
-            <input id="bit-radio" type="radio" className="absolute bg-none"/><label htmlFor="bit-radio" className="e-checkout option-button-checkout special-bitcoin rounded-md text-left text-white text-gray-700 box w-full block h-2rem rounded-none justify-center ">pay with crypto</label>
+            <input id="bit-radio" type="radio" className="absolute bg-none"/><label htmlFor="bit-radio" className="e-checkout option-button-checkout special-bitcoin rounded-md text-left text-white text-gray-700 box w-full block h-2rem rounded-none justify-center ">Pay with crypto</label>
           </span>
         </div>
         </form>

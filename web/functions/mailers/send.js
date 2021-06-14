@@ -92,7 +92,7 @@ const views = {
     p You can follow the link below to connect with our team.
       br
       br
-      a(href="${trimTrailingSlash(process.env.SITE_URL)}/checkout/success") Schedule a consultation
+      a(href="https://calendly.com/earthcollective/first-call-with-earth") Schedule a consultation
 `,
   "checkout-receipt": `
     h1 Deposit received — thank you.

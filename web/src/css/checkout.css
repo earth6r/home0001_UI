@@ -1,7 +1,37 @@
 .spring-green{
   color:#66ff00;
 }
+#question-trigger{
+  display: inline-block;
+  background: white;
+  color:#808080;
+  font-size:18px;
+  padding:5px 5px;
+  position: relative;
+  left:5px;
+  bottom:5px;
+  cursor:pointer;
+  line-height: 0.5;
+  border-radius:50px; 
+}
+.home-deposit-module  #refund-message *{
+  color:black;
+    stroke: black;
 
+}
+.home-deposit-module  #refund-message #close-refund svg{
+  width:50px;
+  transform:rotate(45deg);
+  cursor: pointer;
+}
+.home-deposit-module  #refund-message p{
+  max-width: calc(100% - 30px);
+}
+.home-deposit-module  #refund-message {
+  background: white;
+  box-shadow: 0px 0px 12px 4px rgba(255, 255, 255, 0.65);
+  margin-top:-150px;
+}
 .special-bitcoin{
 /*  background-image: url("./bit-icons-01.png");*/
   background-size: 55%;
@@ -73,6 +103,12 @@ text-transform: none;
    background: transparent;
    text-transform: none;
 }
+.deposit-accordion svg{
+        top: -3px;
+    vertical-align: middle;
+    position: relative;
+    display: inline-block;
+}
 .rte .deposit-accordion h2{
 text-transform: none;
 }
@@ -125,16 +161,17 @@ text-transform: none;
 .stripe-button input[type=radio]:checked::before{
   content:"◉";
   color:white;
-  font-size:16px;
-  line-height: 3.7;
-  left:115px;
+  font-size: 23px;
+  line-height: 2.6;
+  left: 111px;
 }
 .stripe-button input[type=radio]::before{
   content:"○";
   color:#FFFFFFBF;
   position:absolute;
-  line-height: 1.8;
-  left:115px;
+  line-height: 1.1;
+  left: 109px;
+  font-size: 47px;
 }
 .option-button-checkout{
   text-transform: none;
@@ -207,7 +244,7 @@ text-transform: none;
 }
 label.terms-agreement{
   text-transform: none;
-  margin-left:0;
+  margin-left:20px;
   padding-left:0;
   color:#FFFFFFBF;
 }
@@ -216,22 +253,160 @@ label.terms-agreement{
   color:#FFFFFFBF;
   border-bottom:1px solid;
 }
-@media(max-width:767px){
+#thin-minus{
+  height:1px;
+  width: 23px;
+  vertical-align: middle;
+  background: white;
+  display: inline-block;
+}
 
+
+/*REFUND POPUP*/
+.calendly-contact{
+  margin-top: -0.75em;
+}
+@keyframes slideInFromBottomRefund {
+  0% {
+    transform: translateY(100%);
+    visibility: visible;
+  }
+  100% {
+    transform: translateY(0);
+    visibility: visible;
+  }
+}
+
+@keyframes appearFromZeroRefund {
+  0% {
+   opacity: 0;
+   visibility: hidden;
+  }
+  100% {
+   opacity: 1;
+   visibility: visible;
+  }
+}
+.refund-popup-inner{
+  z-index: 9999;
+}
+.refund-popup{
+  opacity: 0;
+  top: calc(50% - 10rem);
+  left:calc(50% - 14rem);
+  visibility: hidden;
+  animation: 1s ease-out 1s 1 appearFromZeroRefund;
+  z-index: 9999999999;
+  animation-fill-mode: forwards;
+  box-shadow: 0px 1px 11px rgb(0 0 0 / 60%);
+}
+.refund-popup-overlay{
+  display: block;
+  content:" ";
+  position: fixed;
+  left:0;
+  top:0;
+  width: 100vw;
+  height:100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 100;
+  visibility: hidden;
+  opacity: 0;
+  animation: 1s ease-out 1s 1 forwards appearFromZeroRefund;
+}
+.refund-close{
+  outline: none;
+  width: 32px;
+  height: 32px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  position: absolute;
+  top: 8px;
+  right: 2px;
+}
+.refund-popup button[type="submit"]{
+  line-height:0.2em !important;
+}
+.home-deposit-module .refund-popup *{
+  color:black;
+}
+.refund-close svg{
+  width: 12px;
+    height: 12px;
+    color: currentColor;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+
+@media(max-width: 767px){
+  .refund-popup{
+    opacity: 1;
+    visibility: hidden;
+    left:0;
+    top:auto;
+    bottom:0;
+    animation: 1s ease-out 1s 1 forwards slideInFromBottomRefund;
+  }
+  .refund-popup-overlay{
+    display: none;
+  }
+}
+/* END REFUND POPUP*/
+@media(max-width:767px){
+  .home-deposit-module  #refund-message {
+    margin-top:0;
+  }
+.deposit-accordion svg{
+      top: -1px;
+      width:15px;
+    position: relative;
+}
+#thin-minus{
+  height:1px;
+  width: 12px;
+  vertical-align: middle;
+  background: white;
+  display: inline-block;
+}
   .stripe-button input[type=radio]:checked::before{
   content:"◉";
-  line-height: 48px;
+  line-height: 51px;
   left:115px;
   top:0px;
-  font-size:12px;
+  font-size:18px;
+}
+label.terms-agreement{
+  margin-left:10px;
 }
 .stripe-button input[type=radio]::before{
   content:"○";
   top:0;
   position:absolute;
-  line-height: 48px;
-  left:115px;
-  font-size:20px;
+  line-height: 43px;
+  left:112px;
+  font-size:40px;
 }
 
     .e-checkbox + a{

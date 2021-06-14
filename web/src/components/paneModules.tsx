@@ -65,7 +65,7 @@ export const PaneModules = ({ reactModule, type, specs = false }: { type: string
       // alert(reactModule.images.length);
       return (
         <>
-          <FlexGallery squares={reactModule.squares} images={reactModule.images} callibrationMarks={reactModule.callibrationMarks} rowNum={reactModule.numRows} rowNumTablet={reactModule.numRowsTablet} rowNumMobile={reactModule.numRowsMobile} pdfs={reactModule.pdfs} embeds={reactModule.embeds} circleButtons={reactModule.circleButtons} />
+          <FlexGallery squares={reactModule.squares} images={reactModule.images} callibrationMarks={reactModule.callibrationMarks} rowNum={reactModule.numRows} rowNumTablet={reactModule.numRowsTablet} rowNumMobile={reactModule.numRowsMobile} pdfs={reactModule.pdfs} embeds={reactModule.embeds} edges={reactModule.edges} circleButtons={reactModule.circleButtons} />
           {reactModule.callibrationMark ? 
          <GridRow></GridRow>
           : <div className="w-full py-3"></div>}
