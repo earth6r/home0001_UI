@@ -129,7 +129,7 @@ exports.handler = async (event) => {
      * https://docs.netlify.com/configure-builds/environment-variables/
      */
     success_url: `${trimTrailingSlash(process.env.SITE_URL)}/checkout/success?${window.location.search}`,
-    cancel_url: `${trimTrailingSlash(process.env.SITE_URL)}/checkout/membership?${window.location.search}`,
+    cancel_url: `${trimTrailingSlash(process.env.SITE_URL)}/checkout/membership?test`,
     line_items: [
       {
         price_data: {
