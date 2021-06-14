@@ -1,7 +1,7 @@
 .rte {
   @apply text-mobileBody;
-  font-size: 18px;
-    line-height: 22.5px;
+  font-size: 4.1666vw;
+    line-height: 4.722vw;
 }
 
 .rte p {
@@ -37,15 +37,11 @@
     transform: translateY(0em);
 }
 .rte.rte-large * {
-  font-size:4.5vw;
-  letter-spacing: -0.01em;
-  line-height: 6vw;
+  @apply text-mobileLarge;
 }
 
 .rte h1 {
-  font-size:40px;
-  letter-spacing: -0.01em;
-  line-height: 44px;
+  @apply text-mobileLarge;
 }
 
 .rte p:not(:last-child) {
@@ -70,7 +66,7 @@
 
 .rte h1,
 .rte h2 {
-  margin-bottom:0.2em;
+  @apply mb-1em;
   margin-top: -0.01em;
 }
 
@@ -239,23 +235,19 @@ input::placeholder {
     transform: translateY(0%);
 }
   .rte * {
-/*    @apply text-desktopBody;*/
-   /* font-size: 1.7vw;
-    line-height: 2.4vw;*/
-    font-size: 18px;
-    line-height: 22.5px;
-    letter-spacing: 0.01em;
+    @apply text-desktopBody;
+    font-size: 2.5vw;
+    line-height: 3.2vw;
   }
+
 
   .rte.rte-large * {
     @apply text-desktopLarge max-w-none;
   }
 
-  .rte h1,
+.rte h1,
   .rte h1 * {
-    font-size:4.5vw;
-    letter-spacing: -0.01em;
-    line-height: 6vw;
+    @apply text-desktopLarge mb-1/2em;
   }
 
   .rte form {
@@ -307,16 +299,15 @@ input::placeholder {
     padding-bottom: 0.1em;
     transform: translateY(0%);
  }
-.rte h1,
+/*.rte h1,
   .rte h1 * {
     font-size:4.5vw;
     line-height:6vw;
     letter-spacing: -0.01em;
-  }
-  .rte * {
+  }*/
+   .rte * {
     @apply text-desktopBody;
-    font-size: 1.7vw;
-    line-height: 2.4vw;
-    letter-spacing: 0.01em;
+    font-size: 1.8vw;
+    line-height: 2.5vw;
   }
 }
