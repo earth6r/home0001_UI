@@ -8,6 +8,16 @@ const tailwindConfig = require("./tailwind.config.js");
 
 module.exports = {
   plugins: [
+     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: "UA-190900607-1",
+        // Defines where to place the tracking script - `true` in the head and `false` in the body
+        head: true,
+        anonymize: true,
+      },
+    },
     `gatsby-plugin-netlify`,
     `gatsby-plugin-typescript`,
     {
@@ -86,6 +96,15 @@ module.exports = {
       options: {
         endpoint: process.env.MAILCHIMP_ENDPOINT, // string; add your MC list endpoint here; see instructions below
         timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [
+          "G-70W92XYTX9", // Google Analytics / GA
+        ],
       },
     },
     {

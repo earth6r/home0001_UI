@@ -3,15 +3,15 @@ import Container from "../../components/container";
 import SEO from "../../components/seo";
 import Layout from "../../containers/layout";
 import { Link } from "gatsby";
-import ReactGA from 'react-ga';
+// import ReactGA from 'react-ga';
 
 export default () => {
   // Collect CTA analytics
-  ReactGA.event({
-    category: 'Conversion',
-    action: 'Bitpay Pending',
-    label: typeof window != `undefined` && window.location.search ? window.location.search : "",
-  });
+  // ReactGA.event({
+  //   category: 'Conversion',
+  //   action: 'Bitpay Pending',
+  //   label: typeof window != `undefined` && window.location.search ? window.location.search : "",
+  // });
 
   return (
     <Layout>
