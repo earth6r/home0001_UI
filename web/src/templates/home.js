@@ -11,6 +11,7 @@ import GridRow from "../components/grid/grid-row";
 import { RichTable } from "../components/global/richTable";
 import Figure from "../components/Figure";
 import { Header } from "../components/global/header";
+import  DepositBlock  from "../components/DepositBlock";
 import PaymentContext from "../lib/payment-context";
 import MembershipPrice from "../components/global/membershipPrice";
 import CheckoutCreate from "../components/checkout-create";
@@ -44,7 +45,7 @@ export const query = graphql`
       unitsSubtitle
       unitsTitle
     }
-       depositCounter:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+    depositCounter:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       depositCounter 
     }
     whatsIncluded:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
@@ -277,10 +278,7 @@ const HomeTemplate = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = useRef();
   const { data, errors } = props;
-  let sku = "MEMB001";
-  const whatsIncluded = data.whatsIncluded.whatsIncluded
-  const depositCounter = data.depositCounter.depositCounter
-  const depositBlockImage = data.depositBlockImage.depositBlockImage
+ 
   let bitPayID = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_REGULAR_PRICE;
   let bitPayIDDiscounted = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_DISCOUNTED;
   const page = data && data.page;
@@ -413,63 +411,8 @@ const HomeTemplate = (props) => {
             {RenderModules(homeModules, specs)}
           </div>
         )}
-
       </Container>
-      <Container className="pb-24 px-2 mt-8 home-deposit-module home-deposit-module-scroll md:mb-0">
-        <div className="w-full md:inline-block md:w-3/6">
-        <CheckoutOptions>
-          <CheckoutActions unit={null}>
-            <PaymentContext.Consumer>
-              {({ discount, discountCode }) => {
-                
-
-                
-                return (
-              <>
-                <CheckoutDescription
-                  unit={null}
-                  color={null}
-                  codes={null}
-                  whatsIncluded={whatsIncluded}
-                  depositCounter={depositCounter}
-                  modules={modules}
-                  discount={null}
-                  discountCode={null}
-                >
-                  
-
-                </CheckoutDescription>
-                <CheckoutCreate
-                    home={null}
-                    unit={null}
-                    sku={sku}
-                    bitPayID={bitPayID}
-                    discount={null}
-                    codes={null}
-                    discountCode={null}
-                    stripePromise={stripePromise}
-                  />
-                <CheckoutModules
-                  unit={null}
-                  modules={modules}
-                  discount={null}
-                  discountCode={null}
-                >
-                  
-
-                </CheckoutModules>
-
-                </>
-              )
-              }}
-            </PaymentContext.Consumer>
-          </CheckoutActions>
-        </CheckoutOptions>
-        </div>
-        <div className="w-3/6 max-w-3xl pl-2 mt-6 align-top hidden lg:inline-block relative">
-                    <Figure node={depositBlockImage}/>
-                </div>
-      </Container>
+      <DepositBlock></DepositBlock>
     </Layout>
   );
 };

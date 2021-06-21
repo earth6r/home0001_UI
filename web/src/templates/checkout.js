@@ -8,6 +8,7 @@ import { RenderModules } from "../utils/renderModules";
 import CheckoutCreate from "../components/checkout-create";
 import GridRow from "../components/grid/grid-row";
 import PortableText from "../components/portableText";
+import DepositBlock from "../components/DepositBlock"
 import PaymentContext from "../lib/payment-context";
 import Figure from "../components/Figure";
 import MembershipPrice from "../components/global/membershipPrice";
@@ -367,69 +368,7 @@ const CheckoutTemplate = (props) => {
         description={"Join the EARTH collective"}
         keywords={["Earth", "Membership"]}
       />
-      <Container className="home-deposit-module membership-page-module pt-8">
-      <div className="pt-8"></div>
-      <div className="w-full md:inline-block md:w-3/6">
-        <CheckoutOptions>
-          <CheckoutActions unit={unit}>
-            <PaymentContext.Consumer>
-              {({ discount, discountCode }) => {
-                let test;
-
-                if(typeof window != `undefined`){
-                   test = window.location.href.split('discount=')[1];
-                }
-
-                for (var i = discountCodes.length - 1; i >= 0; i--) {
-                  if (test == discountCodes[i]){
-                    discount = true;
-                  }
-                }
-                return (
-              <>
-                <CheckoutDescription
-                  unit={unit}
-                  color={color}
-                  whatsIncluded={whatsIncluded}
-                  depositCounter={depositCounter}
-                  codes={discountCodes}
-                  modules={modules}
-                  discount={discount}
-                  discountCode={discountCode}
-                >
-                  
-
-                </CheckoutDescription>
-                <CheckoutCreate
-                    home={home}
-                    unit={unit}
-                    sku={sku}
-                    bitPayID={discount ? bitPayIDDiscounted : bitPayID}
-                    discount={discount}
-                    codes={discountCodes}
-                    discountCode={discountCode}
-                    stripePromise={stripePromise}
-                  />
-                <CheckoutModules
-                  unit={unit}
-                  modules={modules}
-                  discount={discount}
-                  discountCode={discountCode}
-                >
-                  
-
-                </CheckoutModules>
-                </>
-              )
-              }}
-            </PaymentContext.Consumer>
-          </CheckoutActions>
-        </CheckoutOptions>
-        </div>
-       <div className="w-3/6 max-w-3xl pl-2 mt-6 align-top hidden lg:inline-block relative">
-                    <Figure node={depositBlockImage}/>
-                </div>
-      </Container>
+      <DepositBlock depositPage={true}></DepositBlock>
     </Layout>
   );
 };

@@ -1,29 +1,26 @@
-import React, { useState, useEffect }  from "react";
-import { graphql } from "gatsby";
-import {
-  mapEdgesToNodes,
-  filterOutDocsWithoutSlugs,
-  filterOutDocsPublishedInTheFuture,
-} from "../lib/helpers";
-import Container from "../components/container";
-import GraphQLErrorList from "../components/graphql-error-list";
-import PortableText from "../components/portableText";
-import SEO from "../components/seo";
-import DepositBlock from "../components/DepositBlock"
+import React, { useRef, useState } from "react";
+import { StaticQuery, graphql } from "gatsby";
+import Container from "./container";
+import GraphQLErrorList from "./graphql-error-list";
+import SEO from "./seo";
 import Layout from "../containers/layout";
 import { RenderModules } from "../utils/renderModules";
+import PortableText from "./portableText";
+import { PageLink } from "./link";
+import GridRow from "./grid/grid-row";
+import { RichTable } from "./global/richTable";
+import Figure from "./Figure";
+import { Header } from "./global/header";
 import PaymentContext from "../lib/payment-context";
-import MembershipPrice from "../components/global/membershipPrice";
-import CheckoutCreate from "../components/checkout-create";
+import MembershipPrice from "./global/membershipPrice";
+import CheckoutCreate from "./checkout-create";
 import { loadStripe } from "@stripe/stripe-js";
-import Figure from "../components/Figure";
 import {
   Accordion,
   AccordionItem,
   AccordionHeader,
   AccordionPanel,
   AccordionIcon,
-  AccordionButton,
   Modal,
   Collapse,
   ModalOverlay,
@@ -34,38 +31,10 @@ import {
   ModalCloseButton,
   useDisclosure,
 } from "@chakra-ui/core";
-// import { InlineWidget } from "react-calendly";
 
 export const query = graphql`
-  fragment SanityImage on SanityMainImage {
-    crop {
-      _key
-      _type
-      top
-      bottom
-      left
-      right
-    }
-    hotspot {
-      _key
-      _type
-      x
-      y
-      height
-      width
-    }
-    asset {
-      _id
-    }
-  }
-
-  query CollectivePageQuery {
-    site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
-      title
-      description
-      keywords
-    }
-    depositCounter:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+  query DepositQuery {
+  	depositCounter:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       depositCounter 
     }
     whatsIncluded:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
@@ -108,16 +77,9 @@ export const query = graphql`
         }
       }
     }
-    allSanityLanding {
-      edges {
-        node {
-          _rawContent(resolveReferences: { maxDepth: 20 })
-        }
-      }
-    }
   }
-
 `;
+
 
 const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
 const Unavailable = () => (
@@ -301,62 +263,83 @@ const CheckoutModules = ({ unit, modules, children, discount, discountCode }) =>
     </>
   );
 };
-const CollectivePage = (props) => {
-  const { data, errors } = props;
-  let sku = "MEMB001";
-  const whatsIncluded = data.whatsIncluded.whatsIncluded
-  const depositCounter = data.depositCounter.depositCounter
-  const depositBlockImage = data.depositBlockImage.depositBlockImage
-  let bitPayID = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_REGULAR_PRICE;
-  let bitPayIDDiscounted = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_DISCOUNTED;
-  if (errors) {
-    return (
-      <Layout>
-        <GraphQLErrorList errors={errors} />
-      </Layout>
-    );
-  }
-  let currentLanding;
-  data.allSanityLanding.edges.forEach((landing)=>{
-    if(landing.node._rawContent.main.title == "Landing"){
-      currentLanding = landing;
-    }
-  })
-  const site = (data || {}).site;
-  const {
-    main: { modules, slug, title },
-    meta,
-  } = currentLanding.node._rawContent;
 
-  
+const DepositBlock = (props) => {
+	const {depositPage} = props
+  return(
+<StaticQuery
+      query={query}
+      render={data => {
+      	  let sku = "MEMB001";
+		  const whatsIncluded = data.whatsIncluded.whatsIncluded
+		  const depositCounter = data.depositCounter.depositCounter
+		  const depositBlockImage = data.depositBlockImage.depositBlockImage
+		  let bitPayID = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_REGULAR_PRICE;
+		  let bitPayIDDiscounted = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_DISCOUNTED;
+      	return(
+         <Container className={` home-deposit-module ${depositPage ? " membership-page-module pt-8" : " pb-24 px-2 mt-8 md:mb-0"}`}>
+	        <div className="w-full md:inline-block md:w-3/6">
+	        {depositPage &&
+	        	<div className="pt-8"></div>
+	        }
+	        <CheckoutOptions>
+	          <CheckoutActions unit={null}>
+	            <PaymentContext.Consumer>
+	              {({ discount, discountCode }) => {
+	                
 
-  if (!site) {
-    throw new Error(
-      'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
-    );
-  }
-  let myTitle = title + " | ";
-  if(title == "Landing"){
-    myTitle = ""
-  }
+	                
+	                return (
+	              <>
+	                <CheckoutDescription
+	                  unit={null}
+	                  color={null}
+	                  codes={null}
+	                  whatsIncluded={whatsIncluded}
+	                  depositCounter={depositCounter}
+	                  modules={[0]}
+	                  discount={null}
+	                  discountCode={null}
+	                >
+	                  
 
-    
-  return (
-    <Layout blackHeader={false} blackFooter={title == "Landing" ? true : false} showPopupNewsletter={true}>
-      <SEO
-        title={myTitle}
-        description={site.description}
-        keywords={site.keywords}
-        image={meta.openImage}
+	                </CheckoutDescription>
+	                <CheckoutCreate
+	                    home={null}
+	                    unit={null}
+	                    sku={sku}
+	                    bitPayID={bitPayID}
+	                    discount={null}
+	                    codes={null}
+	                    discountCode={null}
+	                    stripePromise={stripePromise}
+	                  />
+	                <CheckoutModules
+	                  unit={null}
+	                  modules={[0]}
+	                  discount={null}
+	                  discountCode={null}
+	                >
+	                  
+
+	                </CheckoutModules>
+
+	                </>
+	              )
+	              }}
+	            </PaymentContext.Consumer>
+	          </CheckoutActions>
+	        </CheckoutOptions>
+	        </div>
+	        <div className="w-3/6 max-w-3xl pl-2 mt-6 align-top hidden lg:inline-block relative">
+	                    <Figure node={depositBlockImage}/>
+	                </div>
+	      </Container>
+      	)}}
       />
-      <Container className="">
-        <div className="flex flex-wrap">{RenderModules(modules)}</div>
-      </Container>
-      { title == "Landing" &&
-        <DepositBlock></DepositBlock>
-    }
-    </Layout>
-  );
+)
+
+
 };
 
-export default CollectivePage;
+export default DepositBlock;
