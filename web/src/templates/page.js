@@ -25,8 +25,7 @@ const PageTemplate = (props) => {
     meta,
   } = page._rawContent;
   const isrnd = page.isrnd;
-  console.log(modules[0])
-  console.log(page._rawContent.main.title)
+
   return (
     <Layout showPopupNewsletter={true} rnd={isrnd}>
       <SEO

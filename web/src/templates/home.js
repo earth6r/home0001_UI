@@ -11,7 +11,10 @@ import GridRow from "../components/grid/grid-row";
 import { RichTable } from "../components/global/richTable";
 import Figure from "../components/Figure";
 import { Header } from "../components/global/header";
-
+import PaymentContext from "../lib/payment-context";
+import MembershipPrice from "../components/global/membershipPrice";
+import CheckoutCreate from "../components/checkout-create";
+import { loadStripe } from "@stripe/stripe-js";
 import {
   Accordion,
   AccordionItem,
@@ -32,6 +35,7 @@ import {
 
 export const query = graphql`
   query HomeQuery($id: String!) {
+ 
     page: sanityHome(id: { eq: $id }) {
       _rawContent(resolveReferences: { maxDepth: 20 })
       _rawSpecSheet(resolveReferences: { maxDepth: 10 })
@@ -40,16 +44,245 @@ export const query = graphql`
       unitsSubtitle
       unitsTitle
     }
+       depositCounter:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      depositCounter 
+    }
+    whatsIncluded:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      whatsIncluded {
+        _key
+        _rawChildren
+        _type
+        style
+        children {
+          _key
+          _type
+          text
+          marks
+        }
+      }
+    }
+    depositBlockImage:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      depositBlockImage {
+        _key
+        _rawAsset
+        _rawCrop
+        _rawHotspot
+        _type
+        asset{
+          assetId
+          url
+          _id
+        }
+        crop{
+          bottom
+          left
+          right
+          top
+        }
+        hotspot{
+          height
+          width
+          x
+          y
+        }
+      }
+    }
   }
 `;
+const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
+const Unavailable = () => (
+  <div className="w-full relative z-20 pt-1em pb-1em">
+    <p>That unit is currently unavailable. Please select another unit</p>
+  </div>
+);
 
+const DiscountNotice = ({ discountCode, color, codes }) => {
+  
+  return (
+    <div className="discount-container mb-1">
+      <div className="">$100 USD</div>
+      
+    </div>
+    );
+
+};
+
+const ValueAdded = ({ discount,whatsIncluded, depositCounter, codes, discountCode, unitTitle, color }) => {
+const [showRefund, setShowRefund] = useState(0);
+const handleRefund = () => {
+  if(showRefund){
+    setShowRefund(0) 
+  } else{ 
+    setShowRefund(1)
+  }
+}
+  return(
+  <>
+    <h1 className="membership-deposit mb-2">Hold your spot.
+    <br />
+    </h1>
+  
+    <div id='spots-remaining-count'>
+   <span> Spots remaining:</span> {depositCounter}
+    </div>
+
+
+
+
+      <Accordion className="max-w-2xl my-20 w-full deposit-accordion" allowToggle allowMultiple>
+  
+              <AccordionItem
+
+              defaultIsOpen={false}
+              className="border-none relative block accordion max-w-2xl"
+            >
+              {({ isExpanded }) => (
+                <>
+                  <AccordionHeader className=" relative py-6 border-none">
+                    <h2 className="m-0 -mt-1/4em md:mt-0">{"What's included?"}</h2>
+                    <div
+                      
+                      className="accordion-icon right-0 absolute pr-1em"
+                    >
+                      {isExpanded ? 
+                       <span id='thin-minus'></span>
+                        : 
+                        <svg width="22" height="21" viewBox="0 0 22 21" fill="none">
+                        <path d="M10.7243 0V10.5M10.7243 21V10.5M10.7243 10.5H21.1322M10.7243 10.5H0.316406" stroke="white"/>
+                        </svg>
+                      }
+                    </div>
+                  </AccordionHeader>
+                  <AccordionPanel className="pb-1em">
+                    <PortableText blocks={whatsIncluded} />
+                  </AccordionPanel>
+                </>
+              )}
+            </AccordionItem>
+        </Accordion>
+
+
+
+
+ <div id='deposit-text-span'>
+   <span> Membership Deposit:</span> <DiscountNotice codes={codes} color={color} discountCode={discountCode} />
+    </div>
+
+     <div className="mb-8" id='refundable-text-span'>
+        Fully refundable any time, for any reason. <span onClick={handleRefund} id='question-trigger'>?</span>
+    </div>
+    {unitTitle &&
+      <p className="mb-0">Reserve unit {unitTitle}</p>
+    }
+    <p>
+
+
+  </p>
+  {showRefund ?
+     <>
+        <div className="refund-popup rounded-md  w-full md:max-w-md fixed md:display-block py-4 md:m-auto px-8 bg-white">  
+          <button onClick={handleRefund} aria-label="Close" type="button" className="refund-close">
+          <svg viewBox="0 0 24 24" focusable="false" role="presentation" aria-hidden="true"><path fill="currentColor" d="M.439,21.44a1.5,1.5,0,0,0,2.122,2.121L11.823,14.3a.25.25,0,0,1,.354,0l9.262,9.263a1.5,1.5,0,1,0,2.122-2.121L14.3,12.177a.25.25,0,0,1,0-.354l9.263-9.262A1.5,1.5,0,0,0,21.439.44L12.177,9.7a.25.25,0,0,1-.354,0L2.561.44A1.5,1.5,0,0,0,.439,2.561L9.7,11.823a.25.25,0,0,1,0,.354Z"></path></svg></button>
+          <div className="mb-0 pt-0">
+            <p className="text-black">If you change your mind for any reason, just email us and we'll refund your deposit within 14 days of your request, no questions asked. </p>
+          </div>
+        </div>
+        <div className="refund-popup-overlay" onClick={handleRefund}></div>
+        </>
+
+
+  : ""}
+  </>
+)};
+
+const CheckoutOptions = ({ /*ssr, */ children }) => {
+  // if (ssr) return null;
+  return <>{children}</>;
+};
+
+const CheckoutActions = ({ unit, children }) => {
+  if (unit && unit.sold) return <Unavailable />;
+  return <>{children}</>;
+};
+
+const CheckoutDescription = ({ unit,whatsIncluded, depositCounter, codes, modules, children,color, discount, discountCode }) => {
+  const [head, ...rest] = modules;
+ 
+  if (unit) {
+
+    return (
+      <>
+        <div className="flex flex-wrap w-full standard-text">
+          {RenderModules([head])}
+
+          <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
+            
+            <ValueAdded whatsIncluded={whatsIncluded} depositCounter={depositCounter} codes={codes} color={color} unitTitle={unit.title} discount={discount} discountCode={discountCode} />
+            
+          </div>
+          
+        </div>
+        
+        {children}
+      </>
+    );
+  }
+
+  return (
+    <>
+      <div className="flex flex-wrap w-full standard-text">
+        {RenderModules([head])}
+
+        <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
+   
+          <ValueAdded whatsIncluded={whatsIncluded} depositCounter={depositCounter} codes={codes} discount={discount} color={color} discountCode={discountCode} />
+        </div>
+        
+      </div>
+      
+      {children}
+    </>
+  );
+};
+
+const CheckoutModules = ({ unit, modules, children, discount, discountCode }) => {
+  const [head, ...rest] = modules;
+
+  if (unit) {
+    return (
+      <>
+        <div className="flex flex-wrap w-full standard-text">
+          {RenderModules(rest)}
+        </div>
+        {children}
+      </>
+    );
+  }
+
+  return (
+    <>
+      <div className="flex flex-wrap w-full standard-text">
+        
+
+       
+
+      </div>
+      {children}
+    </>
+  );
+};
 const HomeTemplate = (props) => {
   const [show, setShow] = useState(false);
   const handleToggle = () => setShow(!show);
-
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = useRef();
   const { data, errors } = props;
+  let sku = "MEMB001";
+  const whatsIncluded = data.whatsIncluded.whatsIncluded
+  const depositCounter = data.depositCounter.depositCounter
+  const depositBlockImage = data.depositBlockImage.depositBlockImage
+  let bitPayID = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_REGULAR_PRICE;
+  let bitPayIDDiscounted = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_DISCOUNTED;
   const page = data && data.page;
   const {
     main: { modules, slug, title },
@@ -70,12 +303,12 @@ const HomeTemplate = (props) => {
   }
 
   return (
-    <Layout showPopupNewsletter={true} isHome={slug.current}>
+    <Layout blackFooter={true} showPopupNewsletter={true} isHome={slug.current}>
       <SEO
         title={title}
       />
       <Container className="flex flex-col">
-        <div className="flex flex-wrap w-full pt-12 lg:pt-10">{RenderModules(modules, specs)}</div>
+        <div className="flex flex-wrap w-full ">{RenderModules(modules, specs)}</div>
         <>{unitsTitle && unitsSubtitle && <Header title={unitsTitle} number={unitsSubtitle} />}</>
 
         <Accordion allowMultiple={false} className="max-w-4xl w-full">
@@ -181,6 +414,61 @@ const HomeTemplate = (props) => {
           </div>
         )}
 
+      </Container>
+      <Container className="pb-24 px-2 mt-8 home-deposit-module home-deposit-module-scroll md:mb-0">
+        <div className="w-full md:inline-block md:w-3/6">
+        <CheckoutOptions>
+          <CheckoutActions unit={null}>
+            <PaymentContext.Consumer>
+              {({ discount, discountCode }) => {
+                
+
+                
+                return (
+              <>
+                <CheckoutDescription
+                  unit={null}
+                  color={null}
+                  codes={null}
+                  whatsIncluded={whatsIncluded}
+                  depositCounter={depositCounter}
+                  modules={modules}
+                  discount={null}
+                  discountCode={null}
+                >
+                  
+
+                </CheckoutDescription>
+                <CheckoutCreate
+                    home={null}
+                    unit={null}
+                    sku={sku}
+                    bitPayID={bitPayID}
+                    discount={null}
+                    codes={null}
+                    discountCode={null}
+                    stripePromise={stripePromise}
+                  />
+                <CheckoutModules
+                  unit={null}
+                  modules={modules}
+                  discount={null}
+                  discountCode={null}
+                >
+                  
+
+                </CheckoutModules>
+
+                </>
+              )
+              }}
+            </PaymentContext.Consumer>
+          </CheckoutActions>
+        </CheckoutOptions>
+        </div>
+        <div className="w-3/6 max-w-3xl pl-2 mt-6 align-top hidden lg:inline-block relative">
+                    <Figure node={depositBlockImage}/>
+                </div>
       </Container>
     </Layout>
   );
