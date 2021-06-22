@@ -8,7 +8,7 @@ import bitDisabled from "./images/bit-icons-01.svg"
 import stripeIcons from "./images/color.svg"
 import stripeDisabled from "./images/stripe-icons2-01.svg"
 import { StyledPageLink } from "./global/internalLink";
-import ReactGA from 'react-ga';
+// import ReactGA from 'react-ga';
 
 const StripeCheckoutCreateButton = ({ handleClick, disabled }) => (
   <div className="stripe-button max-w-2xl block w-full">
@@ -184,20 +184,21 @@ export default function CheckoutCreate({
 
   const handleBitpayClick = () => {
     // Collect CTA analytics
-    ReactGA.event({
-      category: 'Conversion',
-      action: 'Bitpay Initiated',
-      label: window.location.search || "",
-    })
+    // ReactGA.event({
+    //   category: 'Conversion',
+    //   action: 'Bitpay Initiated',
+    //   label: window.location.search || "",
+    // })
+    return;
   }
 
   const handleStripeClick = async (/* event */) => {
     // Collect CTA analytics
-    ReactGA.event({
-      category: 'Conversion',
-      action: 'Stripe Initiated',
-      label: window.location.search || "",
-    })
+    // ReactGA.event({
+    //   category: 'Conversion',
+    //   action: 'Stripe Initiated',
+    //   label: window.location.search || "",
+    // })
 
     const stripe = await stripePromise;
     const data = { sku, discount, discountCode };
