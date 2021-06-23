@@ -187,7 +187,7 @@ small {
   z-index: 100;
   visibility: hidden;
   opacity: 0;
-  animation: 1s ease-out 10s 1 forwards appearFromZero;
+  animation: 1s ease-out 20s 1 forwards appearFromZero;
 }
 .newsletter-close{
   outline: none;
