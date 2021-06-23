@@ -183,22 +183,19 @@ export default function CheckoutCreate({
   }, []);
 
   const handleBitpayClick = () => {
-    // Collect CTA analytics
-    // ReactGA.event({
-    //   category: 'Conversion',
-    //   action: 'Bitpay Initiated',
-    //   label: window.location.search || "",
-    // })
-    return;
+    typeof window !== "undefined" && window.gtag("event", "click", {
+      category: 'Conversion',
+      action: 'Bitpay Initiated',
+      label: window.location.search || "",
+    })
   }
 
   const handleStripeClick = async (/* event */) => {
-    // Collect CTA analytics
-    // ReactGA.event({
-    //   category: 'Conversion',
-    //   action: 'Stripe Initiated',
-    //   label: window.location.search || "",
-    // })
+    typeof window !== "undefined" && window.gtag("event", "click", {
+      category: 'Conversion',
+      action: 'Stripe Initiated',
+      label: window.location.search || "",
+    })
 
     const stripe = await stripePromise;
     const data = { sku, discount, discountCode };
