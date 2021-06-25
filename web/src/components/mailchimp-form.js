@@ -39,13 +39,14 @@ export default class MailChimpForm extends React.Component {
         <h3 className="text-mobileLarge md:text-desktopBody">
           Thank you for signing up.
           <br />
-          <span className="earth">E</span>
+          
         </h3>
-        <GridRow />
+        
         <p className="pt-1em text-mobileBody md:text-desktopCaption">
-          We will begin sharing updates on new home, new locations, and other projects as the
+          We'll share occasional updates on new homes, new locations, and new projects as the
           network expands.
         </p>
+        <GridRow />
       </>
     ) : (
       <form className="mx-0" onSubmit={this._handleSubmit}>
