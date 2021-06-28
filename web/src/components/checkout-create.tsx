@@ -183,19 +183,35 @@ export default function CheckoutCreate({
   }, []);
 
   const handleBitpayClick = () => {
-    typeof window !== "undefined" && window.gtag("event", "click", {
-      category: 'Conversion',
-      action: 'Bitpay Initiated',
-      label: window.location.search || "",
+    typeof window !== "undefined" &&
+    window.gtag("event", 'Bitpay Initiated', {
+      'event_category': 'Conversion',
+      'event_label': window.location.search || "",
     })
+
+    typeof window !== "undefined" &&
+    window.ga('send', {
+      hitType: 'event',
+      eventCategory: 'Conversion',
+      eventAction: 'Bitpay Initiated',
+      eventLabel: window.location.search || "",
+    });
   }
 
   const handleStripeClick = async (/* event */) => {
-    typeof window !== "undefined" && window.gtag("event", "click", {
-      category: 'Conversion',
-      action: 'Stripe Initiated',
-      label: window.location.search || "",
+    typeof window !== "undefined" &&
+    window.gtag("event", 'Stripe Initiated', {
+      'event_category': 'Conversion',
+      'event_label': window.location.search || "",
     })
+
+    typeof window !== "undefined" &&
+    window.ga('send', {
+      hitType: 'event',
+      eventCategory: 'Conversion',
+      eventAction: 'Stripe Initiated',
+      eventLabel: window.location.search || "",
+    });
 
     const stripe = await stripePromise;
     const data = { sku, discount, discountCode };
