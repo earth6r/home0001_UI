@@ -107,8 +107,8 @@ export default {
       ],
     },
     {
-      name: 'obroundButton',
-      titel: 'obroundButton',
+      name: 'obroundButtons',
+      titel: 'obroundButtons',
       type: 'array',
       of: [
         {
