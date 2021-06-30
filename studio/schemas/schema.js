@@ -38,6 +38,7 @@ import flexCallibration from './objects/flexCallibration'
 import flexSquare from './objects/flexSquare'
 import flexText from './objects/flexText'
 import flexPdf from './objects/flexPdf'
+import flexObround from './objects/flexObround'
 import authorReference from './objects/authorReference'
 import partnerReference from './objects/partnerReference'
 import header from './objects/header'
@@ -114,6 +115,7 @@ export default createSchema({
     flexText,
     flexSquare,
     flexPdf,
+    flexObround,
     authorReference,
     partnerReference,
     bodyPortableText,
