@@ -107,6 +107,16 @@ export default {
       ],
     },
     {
+      name: 'obroundButton',
+      titel: 'obroundButton',
+      type: 'array',
+      of: [
+        {
+          type: 'obroundButton'
+        }
+      ]
+    },
+    {
       name: 'callibrationMarks',
       title: 'Callibration Marks',
       type: 'array',
