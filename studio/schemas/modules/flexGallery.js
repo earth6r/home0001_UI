@@ -39,8 +39,8 @@ export default {
       of: [
         {
           type: 'flexImage',
-          
-          
+
+
         },
       ],
     },
@@ -51,8 +51,8 @@ export default {
       of: [
         {
           type: 'flexEdgetoEdge',
-          
-          
+
+
         },
       ],
     },
@@ -108,7 +108,7 @@ export default {
     },
     {
       name: 'obroundButtons',
-      titel: 'obroundButtons',
+      title: 'obroundButtons',
       type: 'array',
       of: [
         {
