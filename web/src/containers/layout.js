@@ -3,8 +3,20 @@ import React, { useState } from "react";
 import Layout from "../components/layout";
 import { ThemeProvider } from "@chakra-ui/core";
 import { Global, css } from "@emotion/core";
-// import { theme } from "../gatsby-plugin-chakra-ui/theme";
-// import { theme } from "../lib/theme";
+import * as Sentry from "@sentry/browser";
+import { Integrations } from "@sentry/tracing";
+
+
+try {
+  Sentry.init({
+    dsn: "https://1cd03b4176dd4fc4a68dca869e1d712e@o914508.ingest.sentry.io/5853521",
+    integrations: [new Integrations.BrowserTracing()],
+    tracesSampleRate: 1.0,
+  });
+} catch (error) {
+  console.error("Sentry failed to init: ", error);
+}
+
 
 const GlobalStyles = css`
   .js-focus-visible :focus:not([data-focus-visible-added]) {
@@ -46,7 +58,7 @@ const query = graphql`
       }
     }
   }
- 
+
   query SiteTitleQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
@@ -100,7 +112,7 @@ const query = graphql`
       pillColor
     }
     strikeColor:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
-      strikeColor 
+      strikeColor
     }
     newsletter:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       newsletterText {
@@ -220,14 +232,14 @@ function LayoutContainer(props) {
   const [showSubNav, setShowSubNav] = useState(0);
   function handleShowNav() {
     setShowNav(true);
-   
+
   }
   function handleHideNav() {
     setShowNav(false);
   }
   function handleShowSubNav() {
     setShowSubNav(1);
- 
+
   }
   function handleHideSubNav() {
     setShowSubNav(2);
@@ -242,7 +254,7 @@ function LayoutContainer(props) {
             'Missing "Site settings". Open the Studio at http://localhost:3333 and some content in "Site settings"'
           );
         }
-    
+
         return (
           <ThemeProvider>
             <Global styles={GlobalStyles} />

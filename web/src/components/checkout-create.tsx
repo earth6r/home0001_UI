@@ -8,7 +8,6 @@ import bitDisabled from "./images/bit-icons-01.svg"
 import stripeIcons from "./images/color.svg"
 import stripeDisabled from "./images/stripe-icons2-01.svg"
 import { StyledPageLink } from "./global/internalLink";
-// import ReactGA from 'react-ga';
 
 const StripeCheckoutCreateButton = ({ handleClick, disabled }) => (
   <div className="stripe-button max-w-2xl block w-full">
