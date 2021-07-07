@@ -182,36 +182,44 @@ export default function CheckoutCreate({
     }
   }, []);
 
-  const handleBitpayClick = () => {
-    typeof window !== "undefined" &&
-    window.gtag("event", 'Bitpay Initiated', {
-      'event_category': 'Conversion',
-      'event_label': window.location.search || "",
-    })
+  const sendAnalyticsEvent = (action, category, label) => {
+    try {
+      if (typeof window !== "undefined") {
+        if (window.gtag) {
+          window.gtag("event", action, {
+            "event_category": category,
+            "event_label": label,
+          })
+        }
 
-    typeof window !== "undefined" &&
-    window.ga('send', {
-      hitType: 'event',
-      eventCategory: 'Conversion',
-      eventAction: 'Bitpay Initiated',
-      eventLabel: window.location.search || "",
-    });
+        if (window.ga) {
+          window.ga("send", {
+            hitType: "event",
+            eventCategory: category,
+            eventAction: action,
+            eventLabel: label,
+          });
+        }
+      }
+    } catch (error) {
+      console.error("Error sending Google Analytics: ", error)
+    }
+  }
+
+  const handleBitpayClick = () => {
+    sendAnalyticsEvent(
+      'Bitpay Initiated',
+      'Conversion',
+      window && window.location && window.location.search || ""
+    )
   }
 
   const handleStripeClick = async (/* event */) => {
-    typeof window !== "undefined" &&
-    window.gtag("event", 'Stripe Initiated', {
-      'event_category': 'Conversion',
-      'event_label': window.location.search || "",
-    })
-
-    typeof window !== "undefined" &&
-    window.ga('send', {
-      hitType: 'event',
-      eventCategory: 'Conversion',
-      eventAction: 'Stripe Initiated',
-      eventLabel: window.location.search || "",
-    });
+    sendAnalyticsEvent(
+      'Stripe Initiated',
+      'Conversion',
+      window && window.location && window.location.search || ""
+    )
 
     const stripe = await stripePromise;
     const data = { sku, discount, discountCode };
