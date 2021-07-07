@@ -66,7 +66,7 @@ function getFixedWithCrop({ assetId, fixed, crop }) {
 
 export const getFixedProps = ({ assetId, crop }, options) => {
    
-  let fixed = getFluidGatsbyImage(assetId, {maxWidth: 500}, clientConfig.sanity);
+  let fixed = getFluidGatsbyImage(assetId, {maxWidth: 768}, clientConfig.sanity);
   // If we have a crop, let's add it to every URL in the fixed object
 
   if (crop && crop.top != `undefined`) {
