@@ -6,17 +6,20 @@ import { Global, css } from "@emotion/core";
 import * as Sentry from "@sentry/browser";
 import { Integrations } from "@sentry/tracing";
 
-
+// Add Sentry to page to catch exceptions from users
+// only init in production env
 try {
-  Sentry.init({
-    dsn: "https://1cd03b4176dd4fc4a68dca869e1d712e@o914508.ingest.sentry.io/5853521",
-    integrations: [new Integrations.BrowserTracing()],
-    tracesSampleRate: 1.0,
-  });
+  const currentURL = window && window.location && window.location.href;
+  if (!currentURL.match("localhost") && !currentURL.match("staging.earth")) {
+    Sentry.init({
+      dsn: "https://1cd03b4176dd4fc4a68dca869e1d712e@o914508.ingest.sentry.io/5853521",
+      integrations: [new Integrations.BrowserTracing()],
+      tracesSampleRate: 1.0,
+    });
+  }
 } catch (error) {
   console.error("Sentry failed to init: ", error);
 }
-
 
 const GlobalStyles = css`
   .js-focus-visible :focus:not([data-focus-visible-added]) {
