@@ -53,3 +53,16 @@
   GATSBY_BITPAY_MEMBERSHIP_ID_REGULAR_PRICE="l/CnnFYlET61gGwW5MWXJga4vf/TT5UlCWV9+n27Kw5Y44AdbkqiGvc7I1z+XhRrldV2Bd4pA4a1speCeFw3o8/fS0yO10NvOMIB7rYv3bLTexLZXp3qIvQfyk+b0j+UpnxxpNN1swG9hVg2KWRaCtRpHPJnXiIHHamH1KaZukf4g4CQS3p5SNyVEDqTA3vUzJntR0dhim8KnUU6JI6f8vucL9vxFAkmgNaTa43JsJ7UuKkhOv2+EOE+k2TWFZEp/4OxIrTNH4HdrQBxMPhAedEVewqcbwQxeRRz6SQhsVdWKefecf0O3ss6oGyLzm4Ya+03+glqshRLYEX04ZRCzz/fffxZO0vStSx6+SYRYFPHyCTgmj/xiF8D5JDR9uT71x17olcKjn/hVQ5Lj19Egg=="
   GATSBY_BITPAY_MEMBERSHIP_ID_DISCOUNTED="l/CnnFYlET61gGwW5MWXJga4vf/TT5UlCWV9+n27Kw5Y44AdbkqiGvc7I1z+XhRrldV2Bd4pA4a1speCeFw3o2CFGlISmkxgyCCC8H/ZLctcFYGbHfVa0PlwVsmd2d75av1rOlPLqLzC9Z/YZBZZlB1BzJW0xdccWen0ljkDaErdnb3efIlBcopdNDiVYCDYK8KcKgc9SAwtwsbfanr/FwQ65UQl3QH6EV8AtMlAv6u3PYy9470x1fk8bGkCFumM47WVxjLTfTLct38ksIRRGone/hfHXtHw/8xv2l6bSc9mT1odfmomhrIpkN9O2Xem/bsUzqR4bezversqFeWfmxzFcH0br9J8FyrvXZLoR57zz0j6DDAf/YS+5e9HZxbzn3dasSFTjjlcohyKZMlVPg=="
   STRIPE_WEBHOOK_ENDPOINT_SECRET="whsec_6ddd4gWKaGEk7WRFkxPg2jrMsADJW6wT"
+
+
+# Production context:
+# All deploys from the production repository branch
+# will inherit these settings.
+[context.production.environment]
+  GATSBY_SANITY_DATASET = "production"
+
+# Specific branch context:
+# Deploys from this branch will take these settings
+# and override their current ones.
+[context.staging.environment]
+  GATSBY_SANITY_DATASET = "staging"
