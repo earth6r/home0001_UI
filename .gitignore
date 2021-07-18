@@ -9,3 +9,6 @@
 
 # Local Netlify folder
 .netlify
+
+# Generated sanity json
+/studio/sanity.json
