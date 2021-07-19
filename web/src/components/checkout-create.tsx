@@ -8,7 +8,6 @@ import bitDisabled from "./images/bit-icons-01.svg"
 import stripeIcons from "./images/color.svg"
 import stripeDisabled from "./images/stripe-icons2-01.svg"
 import { StyledPageLink } from "./global/internalLink";
-// import ReactGA from 'react-ga';
 
 const StripeCheckoutCreateButton = ({ handleClick, disabled }) => (
   <div className="stripe-button max-w-2xl block w-full">
@@ -182,20 +181,44 @@ export default function CheckoutCreate({
     }
   }, []);
 
+  const sendAnalyticsEvent = (action, category, label) => {
+    try {
+      if (typeof window !== "undefined") {
+        if (window.gtag) {
+          window.gtag("event", action, {
+            "event_category": category,
+            "event_label": label,
+          })
+        }
+
+        if (window.ga) {
+          window.ga("send", {
+            hitType: "event",
+            eventCategory: category,
+            eventAction: action,
+            eventLabel: label,
+          });
+        }
+      }
+    } catch (error) {
+      console.error("Error sending Google Analytics: ", error)
+    }
+  }
+
   const handleBitpayClick = () => {
-    typeof window !== "undefined" && window.gtag("event", "click", {
-      category: 'Conversion',
-      action: 'Bitpay Initiated',
-      label: window.location.search || "",
-    })
+    sendAnalyticsEvent(
+      'Bitpay Initiated',
+      'Conversion',
+      window && window.location && window.location.search || ""
+    )
   }
 
   const handleStripeClick = async (/* event */) => {
-    typeof window !== "undefined" && window.gtag("event", "click", {
-      category: 'Conversion',
-      action: 'Stripe Initiated',
-      label: window.location.search || "",
-    })
+    sendAnalyticsEvent(
+      'Stripe Initiated',
+      'Conversion',
+      window && window.location && window.location.search || ""
+    )
 
     const stripe = await stripePromise;
     const data = { sku, discount, discountCode };

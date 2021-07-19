@@ -9,80 +9,88 @@ const Layout = ({ mainMenu,infoSection,blackHeader, newsletter,strikeColor,pillC
   const myRef = useRef({
     location: null,
   })
-    
+
  const [isClient, setClient] = useState(false);
  useEffect(() => {
-    
+
 
 
     setClient(true)
     if(typeof window != `undefined`){
-       
+
      function isBottom(el) {
         return el.getBoundingClientRect().bottom <= window.innerHeight;
       }
      document.addEventListener('scroll',function(){
       let myel = document.getElementById("page-content-wrapper");
-      
 
-        if(isBottom(myel)){
-          let el =document.getElementsByClassName("intercom-lightweight-app-launcher")
 
-          for (var i = el.length - 1; i >= 0; i--) {
-            el[i].style.marginBottom = "65px"
+        if(myel && isBottom(myel)){
+
+          let el = document.getElementsByClassName("intercom-lightweight-app-launcher")
+          if (el && el.length) {
+            for (var i = el.length - 1; i >= 0; i--) {
+              el[i].style.marginBottom = "65px"
+            }
           }
 
           let el2 =document.getElementsByClassName("intercom-launcher-frame")
-          // el.style.position = "relative"
-          for (var i = el2.length - 1; i >= 0; i--) {
-            el2[i].style.marginBottom = "65px"
-          }
-           let el3 =document.getElementsByClassName("intercom-messenger-frame")
-          // el.style.position = "relative"
-         
-          for (var i = el3.length - 1; i >= 0; i--) {
-            el3[i].style.marginBottom = "65px"
+          if (el2 && el2.length) {
+            for (var i = el2.length - 1; i >= 0; i--) {
+              el2[i].style.marginBottom = "65px"
+            }
           }
 
-           let el4 =document.getElementsByClassName("intercom-launcher-discovery-frame")
-          // el.style.position = "relative"
-          for (var i = el4.length - 1; i >= 0; i--) {
-            el4[i].style.marginBottom = "65px"
+          let el3 =document.getElementsByClassName("intercom-messenger-frame")
+          if (el3 && el3.length) {
+            for (var i = el3.length - 1; i >= 0; i--) {
+              el3[i].style.marginBottom = "65px"
+            }
           }
 
-             let el5 =document.getElementById("intercom-frame")
-          // el.style.position = "relative"
-          if(el5){
+          let el4 =document.getElementsByClassName("intercom-launcher-discovery-frame")
+          if (el4 && el4.length) {
+            for (var i = el4.length - 1; i >= 0; i--) {
+              el4[i].style.marginBottom = "65px"
+            }
+          }
+
+          let el5 =document.getElementById("intercom-frame")
+          if (el5) {
             el5.style.marginBottom = "65px"
           }
         } else {
           let el =document.getElementsByClassName("intercom-lightweight-app-launcher")
-
-          for (var i = el.length - 1; i >= 0; i--) {
-            el[i].style.marginBottom = "20px"
+          if (el && el.length) {
+            for (var i = el.length - 1; i >= 0; i--) {
+              el[i].style.marginBottom = "20px"
+            }
           }
 
           let el2 =document.getElementsByClassName("intercom-launcher-frame")
-          // el.style.position = "relative"
-          for (var i = el2.length - 1; i >= 0; i--) {
-            el2[i].style.marginBottom = "20px"
-          }
-           let el3 =document.getElementsByClassName("intercom-messenger-frame")
-          // el.style.position = "relative"
-         
-          for (var i = el3.length - 1; i >= 0; i--) {
-            el3[i].style.marginBottom = "20px"
+          if (el2 && el2.length) {
+            for (var i = el2.length - 1; i >= 0; i--) {
+              el2[i].style.marginBottom = "20px"
+            }
           }
 
-           let el4 =document.getElementsByClassName("intercom-launcher-discovery-frame")
-          // el.style.position = "relative"
-          for (var i = el4.length - 1; i >= 0; i--) {
-            el4[i].style.marginBottom = "20px"
+          let el3 =document.getElementsByClassName("intercom-messenger-frame")
+          if (el3 && el3.length) {
+            for (var i = el3.length - 1; i >= 0; i--) {
+              el3[i].style.marginBottom = "20px"
+            }
           }
 
-             let el5 =document.getElementById("intercom-frame")
-          // el.style.position = "relative"
-          if(el5){
+          let el4 =document.getElementsByClassName("intercom-launcher-discovery-frame")
+          if (el4 && el4.length) {
+            for (var i = el4.length - 1; i >= 0; i--) {
+              el4[i].style.marginBottom = "20px"
+            }
+          }
+
+
+          let el5 =document.getElementById("intercom-frame")
+          if (el5) {
             el5.style.marginBottom = "20px"
           }
         }

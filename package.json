@@ -22,6 +22,8 @@
   },
   "dependencies": {
     "@sanity/image-url": "^0.140.19",
+    "@sentry/browser": "^6.8.0",
+    "@sentry/tracing": "^6.8.0",
     "gatsby-plugin-facebook-pixel": "^1.0.5",
     "gatsby-plugin-google-analytics": "^3.0.0",
     "gatsby-plugin-google-gtag": "^3.5.0",
