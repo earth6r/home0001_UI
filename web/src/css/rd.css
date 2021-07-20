@@ -7,7 +7,7 @@
   }
 }
 
-.r-d-nav{
+.r-d-nav-text-desktop{
   font-family: 'Everett', monospace;
   font-style: normal;
   font-weight: normal;
@@ -21,8 +21,25 @@
   color: #000000;
 }
 
+.r-d-nav-text-mobile{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 120%;
+  /* or 14px */
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.03em;
+
+  color: #000000;
+}
+
 .r-d-tagline{
-  max-width: 85%;
+  max-width: 100%;
+}
+
+.r-d-tagline-mobile{
+  max-width: 300px;
 }
 
 .lightbox-pdf{

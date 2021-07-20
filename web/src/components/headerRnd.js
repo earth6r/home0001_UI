@@ -126,17 +126,17 @@ const HeaderRnd = ({ mainMenu, infoSection = null, infoSectionBelow = null, rMen
       </div>
     }
       <header className={`r-d-menu md:block fixed z-50 w-full left-0`}>
-        <div className={`r-d-nav flex container pb-0 w-full  md:bg-transparent md:relative justify-between md:justify-center md:justify-between items-center content-center`}>
+        <div className={`r-d-nav-text-desktop flex container pb-0 w-full  md:bg-transparent md:relative justify-between md:justify-center md:justify-between items-center content-center`}>
 
           <GridRow scroll={false} hide={1} className="flex w-full justify-between md:hidden">
-            <h1 style={{ top: ".05em" }} className="md:hidden relative">
+            <h1 style={{ top: ".05em" }} className="r-d-nav-text-mobile r-d-tagline-mobile md:hidden relative">
               <PageLink to="/">
                 <span className="earth-svg block">EARTH is a multi-disciplinary collective working across architecture, technology, design, and art.</span>
               </PageLink>
             </h1>
 
             <li onClick={onOpen} className="block md:block cursor-pointer">
-              <span className="uppercase relative info-menu-mobile md:pt-1/2em inline-block">
+              <span className="r-d-nav-text-mobile uppercase relative info-menu-mobile md:pt-1/2em inline-block">
                 {info && infoSection ? "Close" : "Info"}
               </span>
             </li>
