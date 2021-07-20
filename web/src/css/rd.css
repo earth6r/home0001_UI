@@ -3,10 +3,28 @@
 @media(max-width:767px){
   .r-d-menu{
     background: white;
-    border-bottom:1px solid black;
     height:33px;
   }
 }
+
+.r-d-nav{
+  font-family: 'Everett', monospace;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 110%;
+  /* or 15px */
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.03em;
+
+  color: #000000;
+}
+
+.r-d-tagline{
+  max-width: 85%;
+}
+
 .lightbox-pdf{
   position: fixed;
   top:0;

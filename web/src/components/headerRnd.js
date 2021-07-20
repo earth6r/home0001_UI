@@ -19,6 +19,8 @@ import {
   useDisclosure,
 } from "@chakra-ui/core";
 
+// this is the floating header for the R & D site
+
 const HeaderRnd = ({ mainMenu, infoSection = null, infoSectionBelow = null, rMenu, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome, showThinBanner, thinBanner }) => {
   // const containerRef = useRef(null);
   // const { height } = useDimensions(containerRef);
@@ -123,87 +125,43 @@ const HeaderRnd = ({ mainMenu, infoSection = null, infoSectionBelow = null, rMen
           ))}
       </div>
     }
-      <header className={`${scrollUp ? "" :""}r-d-menu md:block fixed z-50 w-full left-0`}>
-        <div
-          className={`${
-            showNav ? "h-full" : ""
-          } flex container pb-0 w-full nav md:bg-transparent md:relative justify-between md:justify-center md:justify-between items-center content-center`}
-        >
+      <header className={`r-d-menu md:block fixed z-50 w-full left-0`}>
+        <div className={`r-d-nav flex container pb-0 w-full  md:bg-transparent md:relative justify-between md:justify-center md:justify-between items-center content-center`}>
+
           <GridRow scroll={false} hide={1} className="flex w-full justify-between md:hidden">
-            <h1 style={{ top: ".05em" }} className="md:hidden relative logo">
+            <h1 style={{ top: ".05em" }} className="md:hidden relative">
               <PageLink to="/">
-                <span className="earth-svg block text-mobileNav md:text-desktopNav"><svg viewBox="0 0 45 11" fill="none">
-<path d="M0 0H7.4747V1.25196H1.52952V4.65937H7.2752V5.91134H1.52952V9.68014H7.621V10.9321H0V0Z" fill="black"/>
-<path d="M12.4756 0H14.4574L18.7799 10.9321H17.1174L15.8672 7.67957H11.0259L9.78899 10.9321H8.12646L12.4756 0ZM15.415 6.45342L13.4465 1.29068L11.4914 6.45342H15.415Z" fill="black"/>
-<path d="M19.897 0H24.5653C26.9993 0 28.3027 1.07127 28.3027 2.86532C28.3027 4.67228 27.0658 5.33053 26.454 5.43378C27.4648 5.61448 28.2362 6.15657 28.2362 7.52469V9.21549C28.2362 9.77048 28.316 10.3255 28.9012 10.9321H27.1589C26.7333 10.4416 26.6801 9.89955 26.6801 9.40909V7.76992C26.6801 6.47924 25.9486 6.15657 24.7116 6.15657H21.4132V10.9192H19.897V0ZM24.6185 4.9046C26.5338 4.9046 26.7599 3.5881 26.7599 2.95567C26.7599 1.94893 26.0949 1.25196 24.5121 1.25196H21.4132V4.9046H24.6185Z" fill="black"/>
-<path d="M32.8912 1.25196H29.3135V0H38.0251V1.25196H34.434V10.9321H32.8912V1.25196Z" fill="black"/>
-<path d="M44.8217 10.9321H43.2523V5.89843H37.2539V4.64646H43.2523V0H44.8217V10.9321Z" fill="black"/>
-</svg></span>
+                <span className="earth-svg block">EARTH is a multi-disciplinary collective working across architecture, technology, design, and art.</span>
               </PageLink>
             </h1>
 
-            <li onClick={onOpen} className="block
-            md:block cursor-pointer">
-                      <span className="uppercase relative info-menu-mobile md:pt-1/2em inline-block">
-                        {info && infoSection ? "Close" : "Info"}
-                      </span>
-                    </li>
+            <li onClick={onOpen} className="block md:block cursor-pointer">
+              <span className="uppercase relative info-menu-mobile md:pt-1/2em inline-block">
+                {info && infoSection ? "Close" : "Info"}
+              </span>
+            </li>
           </GridRow>
 
-          <nav
-            className={`${
-              showNav
-                ? "block z-40 bg-white box md:shadow-none transition-none rounded-lg"
-                : "hidden"
-            } fixed left-0 top-0 md:relative w-full md:block text-mobileNav md:text-desktopNav`}
-          >
+          <nav className={`${showNav ? "block z-40 bg-white box md:shadow-none transition-none rounded-lg" : "hidden"} fixed left-0 top-0 md:relative w-full md:block`}>
             <div className="mx-mobile md:mx-0">
-              <ul
-                style={{}}
-                className="flex pt-2em md:pt-0 flex-wrap relative mt-1 leading-none container p-0 m-0 md:flex md:flex-no-wrap w-full text-mobileNav md:text-desktopNav justify-center md:justify-between"
-              >
-                <li className="absolute md:relative left-0 top-0 pt-2">
-                  <h1 className="logo ">
-                    <PageLink onClick={onHideNav} to="/">
-                      <span className="earth-svg"><svg viewBox="0 0 45 11" fill="none">
-<path d="M0 0H7.4747V1.25196H1.52952V4.65937H7.2752V5.91134H1.52952V9.68014H7.621V10.9321H0V0Z" fill="black"/>
-<path d="M12.4756 0H14.4574L18.7799 10.9321H17.1174L15.8672 7.67957H11.0259L9.78899 10.9321H8.12646L12.4756 0ZM15.415 6.45342L13.4465 1.29068L11.4914 6.45342H15.415Z" fill="black"/>
-<path d="M19.897 0H24.5653C26.9993 0 28.3027 1.07127 28.3027 2.86532C28.3027 4.67228 27.0658 5.33053 26.454 5.43378C27.4648 5.61448 28.2362 6.15657 28.2362 7.52469V9.21549C28.2362 9.77048 28.316 10.3255 28.9012 10.9321H27.1589C26.7333 10.4416 26.6801 9.89955 26.6801 9.40909V7.76992C26.6801 6.47924 25.9486 6.15657 24.7116 6.15657H21.4132V10.9192H19.897V0ZM24.6185 4.9046C26.5338 4.9046 26.7599 3.5881 26.7599 2.95567C26.7599 1.94893 26.0949 1.25196 24.5121 1.25196H21.4132V4.9046H24.6185Z" fill="black"/>
-<path d="M32.8912 1.25196H29.3135V0H38.0251V1.25196H34.434V10.9321H32.8912V1.25196Z" fill="black"/>
-<path d="M44.8217 10.9321H43.2523V5.89843H37.2539V4.64646H43.2523V0H44.8217V10.9321Z" fill="black"/>
-</svg></span>
-                    </PageLink>
-                  </h1>
+              <ul style={{}} className="flex pt-2em md:pt-0 flex-wrap relative mt-1 container p-0 m-0 md:flex md:flex-no-wrap w-full justify-center md:justify-between">
+                
+                <li className="absolute md:relative left-0 top-0 pt-2 r-d-tagline">
+                  <PageLink onClick={onHideNav} to="/">
+                    <span className="">EARTH is a multi-disciplinary collective working across architecture, technology, design, and art.</span>
+                  </PageLink>
                 </li>
-                <li className="absolute left-0 top-0 pointer-events-none w-full md:hidden">
-                  <GridRow hide={1} />
-                </li>
-                {menu &&
-                  menu.map((item, index) => (
-                    <li className="hidden md:block" key={item._key}>
-                      <PageLink
-                        className="md:pt-1/2em inline-block"
-                        onClick={onHideNav}
-                        to={`/${item.link.content.main.slug.current}`}
-                      >
-                        {item.title}
-                      </PageLink>
-                    </li>
-                  ))}
-                    <li className="hidden mt-1em mb-1/2em mx-auto" >
-                      <CircleButton title={"Info"} url={"/about"} float={true} />
-                    </li>
 
-                    <li onClick={onOpen} className="hidden md:block cursor-pointer">
-                      <span className="uppercase md:pt-1/2em inline-block">
-                        {info && infoSection ? "Close" : "Info"}
-                      </span>
-                    </li>
+                <li onClick={onOpen} className="absolute md:relative left-0 top-0 pt-2">
+                  <span className="uppercase">
+                    {info && infoSection ? "Close" : "Info"}
+                  </span>
+                </li>
                 
               </ul>
-              
             </div>
           </nav>
+          
         </div>
       </header>
       <div
