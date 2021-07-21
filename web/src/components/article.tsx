@@ -64,20 +64,25 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                 <>
 
                   <AccordionHeader id={item._key}>
-                  <div id={item.customslug}></div>
-                    <h2 id={item.customslug + "-h2"} className="m-0 relative underline text-left normal-case -mt-1/4em md:mt-0">{item.title}{item.flag && item.flag.length > 0}{
-                      <>
-                      <div style={{background: item.flagcolor ? item.flagcolor : "none"}} className="flag inline-block align-top">{item.flag}</div>
-
-                      <div
-                      style={{ marginTop: "-.15em" }}
-                      className="accordion-icon mt-3 underline block relative text-left md:text-desktopCaption pr-1em"
-                    >
-               
+                    <div className={`article-box flex items-start pb-8 md:pb-0 ${item.pagebreak ? "article-pagebreak" : ""}`}>
+                      <div id={item.customslug}></div>
+                      <div className="article-tag relative md:text-tagDt">{item.category}</div>
+                      <div className="article-titlebox grid-cols-1">
+                        <div className="article-title m-0 relative text-left normal-case -mt-1/4em mt-0 md:text-lg">{item.title}</div>
+                        {item.flag && item.flag.length > 0}{
+                          <div  style={{background: item.flagcolor ? item.flagcolor : "none"}} className="flag-bg ml-2 md:invisible">
+                            <div className="flag">{item.flag}</div>
+                          </div>
+                        }
+                      </div>
+                      <div className="flag-box w-0 md:w-20">
+                        {item.flag && item.flag.length > 0}{
+                          <div  style={{background: item.flagcolor ? item.flagcolor : "none"}} className="flag-bg ml-2 invisible md:visible">
+                            <div className="flag md:text-flagDt">{item.flag}</div>
+                          </div>
+                        }
+                      </div>
                     </div>
-                    </>
-                    }</h2>
-                    
                   </AccordionHeader>
                   
                   <AccordionPanel className="pb-1em md:pl-16 md:pr-40 md:w-3/4 ">

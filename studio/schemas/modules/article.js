@@ -27,12 +27,6 @@ export default {
       type: 'number'
     },
     {
-      name: 'callibrationMark',
-      title: 'Show Callibration Marks',
-      default: true,
-      type: 'boolean',
-    },
-    {
       name: 'articleItems',
       title: 'Article Items',
       type: 'array',

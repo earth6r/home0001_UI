@@ -25,6 +25,9 @@ module.exports = {
           textTransform: "uppercase",
         },
       ],
+      flagMb:".625rem",
+      flagDt:".8125rem",
+      tagDt:"0.75rem",
 
       base: ["1rem", "1.25rem"],
       baseMd: ["1.625rem", "1.875rem"],
