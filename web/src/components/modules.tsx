@@ -15,7 +15,7 @@ import FlexGallery from "./global/flexGallery";
 import { InternalLink } from "./global/internalLink";
 import { RichTable } from "./global/richTable";
 
-export const Modules = ({ reactModule, type, specs = false }: { type: string; reactModule: any }) => {
+export const Modules = ({ reactModule, type, specs = false }: { type: string; reactModule: any; specs: boolean}) => {
  const [isClient, setClient] = useState(false);
  
  useEffect(() => {

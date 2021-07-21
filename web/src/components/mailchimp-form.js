@@ -11,15 +11,15 @@ import {
   Button,
 } from "@chakra-ui/core";
 import GridRow from "./grid/grid-row";
+import ObroundButton from "./global/obroundButton";
 
 export default class MailChimpForm extends React.Component {
-  constructor() {
+  constructor(rnd = false) {
     super();
-    this.state = { email: "", result: {}, msg: "" };
+    this.state = { email: "", result: {}, msg: ""};
   }
 
   _handleSubmit = async (e) => {
-
     e.preventDefault();
     const result = await addToMailchimp(this.state.email);
   
@@ -32,8 +32,7 @@ export default class MailChimpForm extends React.Component {
   };
 
   render() {
-    const {newsletter} = this.props
-
+    const {newsletter, rnd} = this.props
     return this.state.result == "success" ? (
       <>
         <h3 className="text-mobileLarge md:text-desktopBody">
@@ -69,16 +68,20 @@ export default class MailChimpForm extends React.Component {
             aria-describedby="email-helper-text"
           />
         </FormControl>
-
+        {rnd ? 
+        <Button mt={4} type="submit"
+        className="bg-black rounded-full normal-case w-full text-white">
+        Sign Up
+        </Button>
+        :
         <Button
           mt={4}
-          // variantColor="teal"
-          // isLoading={props.isSubmitting}
           type="submit"
           className="bg-black rounded-md w-full text-white"
         >
           Submit
         </Button>
+        }
         {this.state.result == "error" && (
           <div
             style={{ borderColor: "red" }}

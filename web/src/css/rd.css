@@ -214,6 +214,9 @@ color:grey;
   line-height: 1;
 }
 /* info section R & D */
+.info-rd-content{
+  font-family: Everett;
+}
 .info-rd a{
   margin-bottom: 1.5rem;
   text-decoration: underline;
