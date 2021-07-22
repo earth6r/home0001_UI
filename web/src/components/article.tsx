@@ -84,15 +84,18 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                       </div>
                     </div>
                   </AccordionHeader>
-                  
-                  <AccordionPanel className="pb-1em md:pl-16 md:pr-40 md:w-3/4 ">
+                  <AccordionPanel className="text-tagRnd items-align pb-1em ml-auto mr-auto w-50% md:w-3/4 ">
                     <PortableText blocks={item.text} />
-                    
                   </AccordionPanel>
                   {isExpanded && 
-                  <AccordionHeader className="text-right"><div onClick={function(){
-                      {item._key}
-                    }} className="underline block w-full text-right md:text-desktopCaption">CLOSE</div></AccordionHeader>}
+                  <AccordionHeader className="text-right">
+                    <div onClick={function(){
+                        {item._key}
+                      }} 
+                      className="underline block w-full text-right md:text-desktopCaption">
+                      CLOSE
+                    </div>
+                  </AccordionHeader>}
                 </>
               )}
             </AccordionItem>
