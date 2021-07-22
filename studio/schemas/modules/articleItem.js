@@ -44,6 +44,11 @@ export default {
       type: 'bodyPortableText',
     },
     {
+      name: 'articleModule',
+      title: 'Article Module',
+      type: 'moduleContent',
+    },
+    {
       name: 'pagebreak',
       title: 'Show Pagebreak after Article',
       default: true,

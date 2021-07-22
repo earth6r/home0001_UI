@@ -13,6 +13,8 @@ import { MdSouth } from 'react-icons/md'
 import PortableText from "./portableText";
 import GridRow from "./grid/grid-row";
 import { navigate } from '@reach/router';
+import { RenderModules } from "../utils/renderModules";
+import Container from "./container";
 
 export interface ArticleModuleProps {
   data: {
@@ -45,7 +47,8 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
       }
 
   })
-  
+  console.log("articleitem", articleItems);
+
   return (
     <>
     {title &&
@@ -68,9 +71,9 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                       <div id={item.customslug}></div>
                       <div className="article-tag relative md:text-tagDt">{item.category}</div>
                       <div className="article-titlebox grid-cols-1">
-                        <div className="article-title m-0 relative text-left normal-case -mt-1/4em mt-0 md:text-lg">{item.title}</div>
+                        <div className="article-title m-0 relative text-left normal-case -mt-1/4em md:text-lg">{item.title}</div>
                         {item.flag && item.flag.length > 0}{
-                          <div  style={{background: item.flagcolor ? item.flagcolor : "none"}} className="flag-bg ml-2 md:invisible">
+                          <div  style={{background: item.flagcolor ? item.flagcolor : "none"}} className="flag-bg align-top md:invisible">
                             <div className="flag">{item.flag}</div>
                           </div>
                         }
@@ -86,6 +89,9 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                   </AccordionHeader>
                   <AccordionPanel className="text-tagRnd pb-1em ml-auto mr-auto w-50% md:w-3/4 ">
                     <PortableText blocks={item.text} />
+                    <Container>
+                    <div>{RenderModules(item.articleModule)}</div>
+                    </Container>
                   </AccordionPanel>
                   {isExpanded && 
                   <AccordionHeader className="text-right">
