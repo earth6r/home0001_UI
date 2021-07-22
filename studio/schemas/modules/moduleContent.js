@@ -38,6 +38,9 @@ export default {
       type: 'specButton',
     },
     {
+      type: 'rdObroundButton',
+    },
+    {
       type: 'accordion',
     },
   ],
