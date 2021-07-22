@@ -340,7 +340,7 @@ const HomeTemplate = (props) => {
                             </span>
                           )}
                           {item.price && (
-                            <span className="w-1/5 text-left text-mobileCaption md:text-base text-left m-0  md:mt-0 homes-accordion-header-small">
+                            <span className="w-1/5 text-left text-mobileCaption md:text-base m-0  md:mt-0 homes-accordion-header-small">
                               {item.price}
                             </span>
                           )}

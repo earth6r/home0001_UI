@@ -9,15 +9,17 @@ const Layout = ({ mainMenu,infoSection,blackHeader, newsletter,strikeColor,pillC
   const myRef = useRef({
     location: null,
   })
-
  const [isClient, setClient] = useState(false);
  useEffect(() => {
-
-
-
     setClient(true)
     if(typeof window != `undefined`){
-
+      //if rnd page is shown intercom messanger icon is hidden
+      if(rnd) {
+        window.intercomSettings= {
+          app_id: "utnfnkyr",
+          hide_default_launcher: true
+        }
+      }
      function isBottom(el) {
         return el.getBoundingClientRect().bottom <= window.innerHeight;
       }
