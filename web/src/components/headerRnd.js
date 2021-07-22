@@ -176,10 +176,10 @@ const HeaderRnd = ({ mainMenu, infoSection = null, infoSectionBelow = null, rMen
       }
       <Modal className="rounded-md" isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay opacity={0.75} />
-        <ModalContent className="info-rd-content rounded-md">
-          <ModalHeader className="font-normal mb-0 pb-0">
-            <div className="info-rd text-mobileCaption md:text-desktopCaption "> <PortableText blocks={infoSection} /> </div>
-            <h5 className=" text-mobileCaption md:text-desktopCaption mt-1em uppercase">
+        <ModalContent className="rounded-md">
+          <ModalHeader className="info-rnd-content font-normal mb-0 pb-0">
+            <div className="info-rd"> <PortableText blocks={infoSection} /> </div>
+            <h5 className="mt-1em uppercase">
               Newsletter
             </h5>
           </ModalHeader>

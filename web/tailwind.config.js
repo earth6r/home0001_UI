@@ -29,7 +29,7 @@ module.exports = {
       flagDt:".8125rem",
       tagDt:"0.75rem",
       tagRnd: [
-        "1.188rem",
+        "1.1875rem",
         {
           lineHeight: "1.563rem"
         }

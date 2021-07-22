@@ -164,24 +164,24 @@ color:grey;
   max-width:100%;
 }
 
-
 .standard-text p a{
   border-bottom:2px solid;
 }
 .standard-text h1 > a {
   border-bottom:5px solid;
 }
-
+@media(min-width:768px){
+  .px-special{
+    padding:0 85px;
+  }
+}
 
 @media(max-width:767px){
-
-
   .react-pdf__Page,.react-pdf__Page canvas{
     max-width: calc(100vw);
   }
   .mt-special-nav{
-        margin-top: 27px !important;
-
+    margin-top: 27px !important;
   }
 
   .standard-text h1 > a {
@@ -202,32 +202,31 @@ color:grey;
     stroke-width:10px;
    }
 }
-@media(min-width:768px){
-  .px-special{
-    padding:0 85px;
-  }
-}
-
 
 .rte .html-text{
   font-size:18px;
   line-height: 1;
 }
 /* info section R & D */
-.info-rd-content{
+.info-rnd-content{
   font-family: Everett;
+  font-size: 0.75rem !important;
 }
+
 .info-rd a{
   margin-bottom: 1.5rem;
   text-decoration: underline;
 }
-.rnd-mailchimp input, .rnd-mailchimp button{
+.rnd-mailchimp input {
   font-size: .875rem !important;
+
   padding: 1.5em 0.5em !important;
   display: flex !important;
 }
+
 .rnd-mailchimp form button,.rnd-mailchimp button[type="submit"]{
   display:flex;
+  line-height: 1.125rem !important;
 }
 .rnd-mailchimp form p{
   display:none;

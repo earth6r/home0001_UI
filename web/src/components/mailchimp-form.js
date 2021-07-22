@@ -70,7 +70,7 @@ export default class MailChimpForm extends React.Component {
         </FormControl>
         {rnd ? 
         <Button mt={4} type="submit"
-        className="bg-black rounded-full normal-case w-full text-white">
+        className="bg-black text-desktopNav rounded-full normal-case w-full text-white">
         Sign Up
         </Button>
         :

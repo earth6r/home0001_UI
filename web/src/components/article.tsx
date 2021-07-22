@@ -84,7 +84,7 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                       </div>
                     </div>
                   </AccordionHeader>
-                  <AccordionPanel className="text-tagRnd items-align pb-1em ml-auto mr-auto w-50% md:w-3/4 ">
+                  <AccordionPanel className="text-tagRnd pb-1em ml-auto mr-auto w-50% md:w-3/4 ">
                     <PortableText blocks={item.text} />
                   </AccordionPanel>
                   {isExpanded && 
