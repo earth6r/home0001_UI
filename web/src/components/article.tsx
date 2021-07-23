@@ -65,7 +65,7 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                 {({ isExpanded }) => (
                   <>
                     <AccordionHeader id={item._key}>
-                    <div id={item.customslug}></div>
+                      <div id={item.customslug}></div>
 
                       <div
                         className={`article-box flex items-start ${
@@ -80,16 +80,32 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                               </div>
                             </td>
                             <td className={"flex justify-end"}>
-                              <div className="article-titlebox flex align-start tiny:w-372">
+                              <div className="article-titlebox flex flex-col md:flex-row align-start tiny:w-372">
                                 <div className="flex flex-col">
-                                <div className="m-0 relative normal-case -mt-1/4em md:text-lg">
-                                  {item.title}
+                                  <div className="m-0 relative normal-case -mt-1/4em md:text-lg">
+                                    {item.title}
+                                  </div>
+                                  {isExpanded && (
+                                    <div className="article-subtitle py-3">{item.subtitle}</div>
+                                  )}
                                 </div>
-                                {isExpanded && (
-                                  <div className="article-subtitle py-3">{item.subtitle}</div>
-                                )}
+                                <div className="flag-box w-0 md:w-20 items-start">
+                                  {item.flag && item.flag.length > 0}
+                                  {
+                                    <div
+                                      style={{
+                                        background: item.flagcolor ? item.flagcolor : "none",
+                                      }}
+                                      className="flag-bg ml-2 md:invisible"
+                                    >
+                                      <div className="flag md:text-flagDt md:h-0 md:w-0">
+                                        {item.flag}
+                                      </div>
+                                    </div>
+                                  }
                                 </div>
-                                <div className="flag-box w-0 md:w-20 flex block items-start">
+                              </div>
+                              <div className="flag-box w-0 md:w-20 flex items-start">
                                 {item.flag && item.flag.length > 0}
                                 {
                                   <div
@@ -100,20 +116,6 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                                   </div>
                                 }
                               </div>
-                              </div>
-                              <div className="flag-box w-0 md:w-20 items-start">
-                              {item.flag && item.flag.length > 0}
-                                {
-                                  <div
-                                    style={{ background: item.flagcolor ? item.flagcolor : "none" }}
-                                    className="flag-bg ml-2 md:invisible"
-                                  >
-                                    <div className="flag md:text-flagDt md:h-0 md:w-0">
-                                      {item.flag}
-                                    </div>
-                                  </div>
-                                }
-                                </div>
                               <div className="1/12 sm:w-1/6"></div>
                             </td>
                           </tr>
