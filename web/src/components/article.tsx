@@ -67,24 +67,33 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                 <>
 
                   <AccordionHeader id={item._key}>
-                    <div className={`article-box flex items-start pb-8 md:pb-0 ${item.pagebreak ? "article-pagebreak" : ""}`}>
+                    <div className={`article-box flex items-start ${item.pagebreak ? "article-pagebreak" : ""}`}>
                       <div id={item.customslug}></div>
-                      <div className="article-tag relative md:text-tagDt">{item.category}</div>
-                      <div className="article-titlebox grid-cols-1">
-                        <div className="article-title m-0 relative text-left normal-case -mt-1/4em md:text-lg">{item.title}</div>
-                        {item.flag && item.flag.length > 0}{
-                          <div  style={{background: item.flagcolor ? item.flagcolor : "none"}} className="flag-bg align-top md:invisible">
-                            <div className="flag">{item.flag}</div>
+                      <table className={'w-full'}>
+                        <tr><td className={''}>
+                          <div className="article-tag relative md:text-tagDt">{item.category}</div>
+                        </td>
+                        <td className={'flex justify-end'}>
+                          <div className="article-titlebox tiny:w-372">
+                            <div className="article-title m-0 relative normal-case -mt-1/4em md:text-lg">{item.title}</div>
+                            {item.flag && item.flag.length > 0}{
+                              <div  style={{background: item.flagcolor ? item.flagcolor : "none"}} className="flag-bg ml-2 md:invisible md:h-0 md:w-0">
+                                <div className="flag md:text-flagDt md:h-0 md:w-0">{item.flag}</div>
+                              </div>
+                            }
                           </div>
-                        }
-                      </div>
-                      <div className="flag-box w-0 md:w-20">
-                        {item.flag && item.flag.length > 0}{
-                          <div  style={{background: item.flagcolor ? item.flagcolor : "none"}} className="flag-bg ml-2 invisible md:visible">
-                            <div className="flag md:text-flagDt">{item.flag}</div>
+                          <div className="flag-box w-0 md:w-20 block flex items-start">
+                            {item.flag && item.flag.length > 0}{
+                              <div  style={{background: item.flagcolor ? item.flagcolor : "none"}} className="flag-bg ml-2 invisible md:visible">
+                                <div className="flag md:text-flagDt">{item.flag}</div>
+                              </div>
+                            }
                           </div>
-                        }
-                      </div>
+                          <div className="1/12 sm:w-1/6"></div>
+                        </td></tr>
+                      </table>
+                      
+                      
                     </div>
                   </AccordionHeader>
                   <AccordionPanel className="text-tagRnd pb-1em ml-auto mr-auto w-50% md:w-3/4 ">

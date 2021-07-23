@@ -151,7 +151,7 @@ const HeaderRnd = ({ mainMenu, infoSection = null, infoSectionBelow = null, rMen
                   </PageLink>
                 </li>
 
-                <li onClick={onOpen} className="absolute md:relative left-0 top-0 pt-2">
+                <li onClick={onOpen} className="absolute md:relative left-0 top-0 pt-2 cursor-pointer">
                   <span className="uppercase">
                     {info && infoSection ? "Close" : "Info"}
                   </span>
