@@ -105,7 +105,7 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                                   }
                                 </div>
                               </div>
-                              <div className="flag-box w-0 md:w-20 flex items-start">
+                              <div className="flag-box w-0 md:w-20 flex -m-2 items-start">
                                 {item.flag && item.flag.length > 0}
                                 {
                                   <div
