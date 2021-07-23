@@ -81,6 +81,10 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                                 <div className="flag md:text-flagDt md:h-0 md:w-0">{item.flag}</div>
                               </div>
                             }
+                            {isExpanded && 
+                              <div className="article-subtitle">
+                                {item.subtitle}
+                              </div>}
                           </div>
                           <div className="flag-box w-0 md:w-20 block flex items-start">
                             {item.flag && item.flag.length > 0}{
@@ -96,6 +100,7 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                       
                     </div>
                   </AccordionHeader>
+                  
                   <AccordionPanel className="text-tagRnd pb-1em ml-auto mr-auto w-50% md:w-3/4 ">
                     <PortableText blocks={item.text} />
                     <Container>

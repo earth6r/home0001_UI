@@ -131,6 +131,10 @@
 
   display: inline;
 }
+.rte.rte-large .article-accordion .article-subtitle{
+  font-size: 13px;
+  line-height: 110%;
+}
 .rte.rte-large .article-accordion .article-title:hover{
   color:grey;
 }

@@ -129,7 +129,7 @@ const HeaderRnd = ({ mainMenu, infoSection = null, infoSectionBelow = null, rMen
 
           <GridRow scroll={false} hide={1} className="flex w-full justify-between md:hidden">
             <h1 style={{ top: ".05em" }} className="r-d-nav-text-mobile r-d-tagline-mobile md:hidden relative">
-              <PageLink to="/">
+              <PageLink to="/research">
                 <span className="earth-svg block">EARTH is a multi-disciplinary collective working across architecture, technology, design, and art.</span>
               </PageLink>
             </h1>
@@ -146,7 +146,7 @@ const HeaderRnd = ({ mainMenu, infoSection = null, infoSectionBelow = null, rMen
               <ul style={{}} className="flex pt-2em md:pt-0 flex-wrap relative mt-1 container p-0 m-0 md:flex md:flex-no-wrap w-full justify-center md:justify-between">
                 
                 <li className="absolute md:relative left-0 top-0 pt-2 r-d-tagline">
-                  <PageLink onClick={onHideNav} to="/">
+                  <PageLink onClick={onHideNav} to="/research">
                     <span className="">EARTH is a multi-disciplinary collective working across architecture, technology, design, and art.</span>
                   </PageLink>
                 </li>
