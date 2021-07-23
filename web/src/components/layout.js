@@ -183,7 +183,7 @@ const Layout = ({
         id="page-content-wrapper"
         className={`${showThinBanner && !rnd ? "mt-16 md:mt-12 md:mt-16" : "mt-8"} ${
           blackHeader ? " dark-theme " : ""
-        } ${rnd ? "px-special" : ""} container pb-0 `}
+        } ${rnd ? "px-special container-no-x-scroll" : ""} container pb-0 `}
       >
         {children}
       </div>

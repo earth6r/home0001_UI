@@ -86,7 +86,7 @@
   top:50%;
 }
 
-#page-content-wrapper{
+.container-no-x-scroll{
   overflow-x: hidden;
 }
 
