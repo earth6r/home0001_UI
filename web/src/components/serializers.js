@@ -83,8 +83,6 @@ const serializers = {
         )
     },
     buttonLink: ({ mark, children }) => {
-
-
       return (
         <button className="box-menu">
           <a href={mark.href}>{children}</a>
@@ -109,8 +107,6 @@ const serializers = {
           }
           
         }else if(mark.homeLink || mark.rndLink){
-          console.log("in the circlebutton", mark.homeLink, mark.rndLink)
-          // make button here
           return (
               <CircleButton linkHome={mark.homeLink} linkRnd={mark.rndLink} title={children} url={mark.reference} color={mark.color}></CircleButton> 
             );

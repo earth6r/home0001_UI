@@ -218,6 +218,7 @@
   font-size:18px;
   line-height: 1;
 }
+
 /* rdObroud Button */
 @media(min-width: 768px){
   .rdObround-width h2, .rte.rte-large .rdObround-width h2{
@@ -226,7 +227,6 @@
     letter-spacing: 0;
   }
 }
-
 .rdObround-width h2, .rte.rte-large .rdObround-width h2 {
   font-size:0.875rem ;
 }
