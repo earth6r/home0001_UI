@@ -46,7 +46,6 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
       setScrolled(false);
     }
   });
-  console.log("article Items", articleItems);
   return (
     <>
       {title && <div className="md:text-desktopCaption">{title}</div>}
