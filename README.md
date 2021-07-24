@@ -32,6 +32,7 @@ If you want to turn off preview you can set `watchMode: false` in gatsby-config
 
 Netlify automatically deploys new changes commited to master on GitHub. If you want to change deployment branch, do so in [build & deploy settings on Netlify](https://www.netlify.com/docs/continuous-deployment/#branches-deploys).
 
+
 ## Stuck? Get help
 
 [![Slack Community Button](https://slack.sanity.io/badge.svg)](https://slack.sanity.io/)

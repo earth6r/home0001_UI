@@ -76,28 +76,6 @@
 .accordion button{
   line-height:1.1 !important;
 }
-.rte.rte-large .article-accordion button{
-   padding-left:0;
-   display:inline-block;
-   width:auto;
-}
-.rte.rte-large .article-accordion button:hover{
-  color: #ccc;
-  background:inherit;
-}
-.rte.rte-large .article-accordion h2{
-  font-size:30px;
-}
-.rte.rte-large .article-accordion *{
-  font-size:inherit;
-  line-height: inherit;
-}
-.rte .article-accordion .flag{
-  font-size:12px;
-  line-height: 1;
-  padding:2px;
-  margin:0 15px;
-}
 .floor-plan{
   width:75%;
   
@@ -156,14 +134,5 @@
   .floor-plan-cap.text-desktopCaptionSpecial *{
     font-size: 10px;
     text-align: left;
-  }
-    .rte .article-accordion .flag{
-  margin:0;
-  right:0;
-  top:-15px;
-  position: absolute;
-}
-  .rte.rte-large .article-accordion h2:hover{
-    color:black;
   }
 }

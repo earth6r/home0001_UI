@@ -25,6 +25,15 @@ module.exports = {
           textTransform: "uppercase",
         },
       ],
+      flagMb:".625rem",
+      flagDt:".8125rem",
+      tagDt:"0.75rem",
+      tagRnd: [
+        "1.1875rem",
+        {
+          lineHeight: "1.563rem"
+        }
+      ],
 
       base: ["1rem", "1.25rem"],
       baseMd: ["1.625rem", "1.875rem"],
@@ -222,7 +231,11 @@ module.exports = {
         "3": "63.24%",
         menu: "100px",
       },
+      screens: {
+        "tiny": "460px",
+      },
       width: {
+        "372": "372px",
         "1/10": "10%",
         "2/10": "20%",
         "3/10": "30%",

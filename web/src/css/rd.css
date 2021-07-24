@@ -3,10 +3,45 @@
 @media(max-width:767px){
   .r-d-menu{
     background: white;
-    border-bottom:1px solid black;
     height:33px;
   }
 }
+
+.r-d-nav-text-desktop{
+  font-family: 'Everett', monospace;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 110%;
+  /* or 15px */
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.03em;
+
+  color: #000000;
+}
+
+.r-d-nav-text-mobile{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 120%;
+  /* or 14px */
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.03em;
+
+  color: #000000;
+}
+
+.r-d-tagline{
+  max-width: 100%;
+}
+
+.r-d-tagline-mobile{
+  max-width: 300px;
+}
+
 .lightbox-pdf{
   position: fixed;
   top:0;
@@ -50,15 +85,95 @@
   right:30px;
   top:50%;
 }
+
+.container-no-x-scroll{
+  overflow-x: hidden;
+}
+
 .rte.rte-large .article-accordion{
   border:none;
-  font-size:20px;
-  line-height: 30px;
+  font-family: Everett;
 }
+.rte.rte-large .article-accordion button{
+   padding-left:0;
+   display:inline-block;
+   width:100%;
+}
+.rte.rte-large .article-accordion button:hover{
+  color: #ccc;
+  background:inherit;
+}
+.rte.rte-large .article-accordion *{
+  font-size:inherit;
+  line-height: inherit;
+  font-style: normal;
+  font-weight: normal;
+  color: #000000;
+}
+.rte.rte-large .article-accordion .article-box{
+  padding-right: 10rem;
+  margin-right: -10rem;
+  padding-top: 1.3rem;
+  padding-bottom: 0;
+}
+.rte.rte-large .article-accordion .article-pagebreak{
+  border-top-color: black;
+  border-top-width: 1px;
+}
+.rte.rte-large .article-accordion .article-titlebox{
+  display: inline;
+  text-align: left;
+}
+.rte.rte-large .article-accordion .article-title{
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+
+  display: inline;
+}
+.rte.rte-large .article-accordion .article-subtitle{
+  font-size: 13px;
+  line-height: 110%;
+}
+.rte.rte-large .article-accordion .article-title:hover{
+  color:grey;
+}
+.rte .article-accordion .flag-box{
+  display:inline-flex;
+}
+.rte .article-accordion .flag{
+  font-size: .625rem;
+  line-height: 110%;
+  letter-spacing: 0.03em;
+  
+  display: inline;
+  white-space: nowrap;
+  margin-top: -0.45rem;
+  margin-bottom: 0.1rem;
+}
+.rte .article-accordion .flag-bg{
+  font-size: 13px;
+  line-height: 110%;
+  letter-spacing: 0.03em;
+  
+
+  display:inline-flex;
+  white-space: nowrap;
+  margin-top: 0.45rem;
+}
+.rte .article-accordion .article-tag{
+  font-size: 10px;
+  line-height: 110%;
+  letter-spacing: 0.03em;
+  @apply uppercase;
+  display: flex;
+
+  min-width: 5rem;
+}
+
 .gallery-image iframe, .internal-iframe iframe{
   max-width:100%;
 }
-
 
 .standard-text p a{
   border-bottom:2px solid;
@@ -66,17 +181,18 @@
 .standard-text h1 > a {
   border-bottom:5px solid;
 }
-
+@media(min-width:768px){
+  .px-special{
+    padding:0 85px;
+  }
+}
 
 @media(max-width:767px){
-
-
   .react-pdf__Page,.react-pdf__Page canvas{
     max-width: calc(100vw);
   }
   .mt-special-nav{
-        margin-top: 27px !important;
-
+    margin-top: 27px !important;
   }
 
   .standard-text h1 > a {
@@ -97,29 +213,50 @@
     stroke-width:10px;
    }
 }
-@media(min-width:768px){
-  .px-special{
-    padding:0 85px;
-  }
-}
-
 
 .rte .html-text{
   font-size:18px;
   line-height: 1;
 }
+
+/* rdObroud Button */
+@media(min-width: 768px){
+  .rdObround-width h2, .rte.rte-large .rdObround-width h2{
+    font-family: Everett;
+    font-size: 0.875rem !important;
+    letter-spacing: 0;
+  }
+}
+.rdObround-width h2, .rte.rte-large .rdObround-width h2 {
+  font-size:0.875rem ;
+}
+.rdObround-width .background-obround {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.5);
+  border-radius: 9999px;
+  transition: 0.25s box-shadow;
+  transition-property: box-shadow, background-color;
+}
 /* info section R & D */
+.info-rnd-content{
+  font-family: Everett;
+  font-size: 0.75rem !important;
+}
+
 .info-rd a{
   margin-bottom: 1.5rem;
   text-decoration: underline;
 }
-.rnd-mailchimp input, .rnd-mailchimp button{
+.rnd-mailchimp input {
   font-size: .875rem !important;
+
   padding: 1.5em 0.5em !important;
   display: flex !important;
 }
+
 .rnd-mailchimp form button,.rnd-mailchimp button[type="submit"]{
   display:flex;
+  line-height: 1.125rem !important;
 }
 .rnd-mailchimp form p{
   display:none;

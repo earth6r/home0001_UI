@@ -67,20 +67,7 @@ export default {
   // ],
   preview: {
     select: {
-      title: 'pageContent.pageModule.title',
-      // publishedAt: 'publishedAt',
-      slug: 'slug',
-      media: 'mainImage',
-    },
-    prepare({ title = 'No title', slug = {}, media }) {
-      //const dateSegment = format(publishedAt, 'YYYY/MM')
-      //const path = `/${dateSegment}/${slug.current}/`
-      console.log(pageContent)
-      return {
-        title,
-        media,
-        //subtitle: publishedAt ? path : 'Missing publishing date',
-      }
-    },
+      title: 'content.main.title'
+    }
   },
 }

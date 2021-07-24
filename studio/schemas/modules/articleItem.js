@@ -9,8 +9,18 @@ export default {
       type: 'string',
     },
     {
+      name: 'category',
+      title: 'Article Category',
+      type: 'string',
+    },
+    {
       name: 'title',
       title: 'Article Title',
+      type: 'string',
+    },
+    {
+      name: 'subtitle',
+      title: 'Article Subtitle',
       type: 'string',
     },
     {
@@ -32,6 +42,17 @@ export default {
       name: 'text',
       title: 'Text',
       type: 'bodyPortableText',
+    },
+    {
+      name: 'articleModule',
+      title: 'Article Module',
+      type: 'moduleContent',
+    },
+    {
+      name: 'pagebreak',
+      title: 'Show Pagebreak before Article',
+      default: true,
+      type: 'boolean',
     },
   ],
   preview: {

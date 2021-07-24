@@ -117,7 +117,8 @@ export default {
               options: {
                 isHighlighted: true,
               },
-            },{
+            },
+            {
               name: 'link',
               title: 'Link',
               type: 'reference',

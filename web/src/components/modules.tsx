@@ -9,13 +9,14 @@ import GridRow from "./grid/grid-row";
 import { RenderPaneModules } from "../utils/renderPaneModules";
 import { Header } from "./global/header";
 import CircleButton from "./global/circleButton";
+import RdObroundButton from "./global/rdObroundButton";
 import SpecButton from "./global/specButton";
 import Gallery from "./global/gallery";
 import FlexGallery from "./global/flexGallery";
 import { InternalLink } from "./global/internalLink";
 import { RichTable } from "./global/richTable";
 
-export const Modules = ({ reactModule, type, specs = false }: { type: string; reactModule: any }) => {
+export const Modules = ({ reactModule, type, specs = false }: { type: string; reactModule: any; specs: boolean}) => {
  const [isClient, setClient] = useState(false);
  
  useEffect(() => {
@@ -146,6 +147,24 @@ export const Modules = ({ reactModule, type, specs = false }: { type: string; re
           />
           {reactModule.callibrationMark ? 
          <GridRow></GridRow>
+          : <div className="w-full py-3"></div>}
+        </>
+      );
+    case "rdObroundButton":
+      return (
+        <>
+          <RdObroundButton
+            color={reactModule.color}
+            textColor={reactModule.customCircleTextColor}
+            customColor={reactModule.customCircleColor}
+            title={reactModule.title}
+            url={reactModule.url}
+            linkHome = {reactModule.homeLink}
+            linkRnd = {reactModule.rndLink}
+            float={false}
+          />
+          {reactModule.callibrationMark ? 
+          <GridRow></GridRow>
           : <div className="w-full py-3"></div>}
         </>
       );
