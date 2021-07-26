@@ -64,18 +64,18 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                 {({ isExpanded }) => (
                   <>
                     <AccordionHeader id={item._key}>
-                      <div id={item.customslug}></div>
                       <div
                         className={`article-box flex items-start ${
                           item.pagebreak ? "article-pagebreak" : ""
                         }`}
                       >
                         <table className="w-full">
-                          <tr className="flex flex-row">
-                            <td className="w-5/10">
+                          <tr className="flex flex-row -mb-1/4em">
+                            <td className="md:w-5/10">
                               <div className="article-tag md:text-tagDt">{item.category}</div>
+                              <div id={item.customslug}></div>
                             </td>
-                            <td className="flex md:ml-0 ml-10">
+                            <td className="flex mr-5 md:ml-0 ml-10">
                               <div className="article-titlebox text-desktopLarge flex align-start tiny:w-372">
                                 <div className="flex flex-col">
                                   <div className="m-0 relative normal-case -mt-1/4em md:text-lg flex flex-wrap">
