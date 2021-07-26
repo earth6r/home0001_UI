@@ -71,16 +71,12 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                         }`}
                       >
                         <table className="w-full">
-                          <tr>
-                            <td className="flex">
-                              <div className="article-tag align-text-top relative left-0 top-0 md:text-tagDt">
-                                {item.category}
-                              </div>
+                          <tr className="flex flex-row">
+                            <td className="w-5/10">
+                              <div className="article-tag md:text-tagDt">{item.category}</div>
                             </td>
-                            <td
-                              className={"flex justify-end md:ml-0 md:flex-no-wrap ml-20 flew-wrap"}
-                            >
-                              <div className="article-titlebox flex flex-col md:flex-row align-start tiny:w-372">
+                            <td className="flex md:ml-0 ml-10">
+                              <div className="article-titlebox text-desktopLarge flex align-start tiny:w-372">
                                 <div className="flex flex-col">
                                   <div className="m-0 relative normal-case -mt-1/4em md:text-lg flex flex-wrap">
                                     {item.title}
@@ -91,7 +87,7 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                                           style={{
                                             background: item.flagcolor ? item.flagcolor : "none",
                                           }}
-                                          className="flag-bg ml-2 md:invisible"
+                                          className="flag-bg md:invisible"
                                         >
                                           <div className="flag md:text-flagDt md:h-0 md:w-0">
                                             {item.flag}
@@ -101,7 +97,7 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                                     </div>
                                   </div>
                                   {isExpanded && (
-                                    <div className="article-subtitle tracking-normal ml-2 md:m-0 py-3">
+                                    <div className="article-subtitle tracking-normal md:m-0 py-3">
                                       {item.subtitle}
                                     </div>
                                   )}
@@ -137,7 +133,6 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                                   </div>
                                 }
                               </div>
-                              <div className="1/12 sm:w-1/6"></div>
                             </td>
                           </tr>
                         </table>
