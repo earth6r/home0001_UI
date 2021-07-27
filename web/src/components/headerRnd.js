@@ -66,10 +66,11 @@ const HeaderRnd = ({ mainMenu, infoSection = null, infoSectionBelow = null, rMen
   const menu = rMenu !== undefined ? rMenu.edges[0].node.items : null;
   const submenu = subMenu && subMenu.edges[0] !== undefined ? subMenu.edges[0].node.items : null;
   const menuFooter = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
-  // console.log(mainMenu);
+  console.log("mainMenu", mainMenu);
+  console.log("menu", menu)
+  console.log("submenu", submenu)
   function makeTitle(slug) {
   var words = slug.split('-');
-
   for (var i = 0; i < words.length; i++) {
     var word = words[i];
     words[i] = word.charAt(0).toUpperCase() + word.slice(1);
@@ -128,10 +129,8 @@ const HeaderRnd = ({ mainMenu, infoSection = null, infoSectionBelow = null, rMen
         <div className={`r-d-nav-text-desktop flex container pb-0 w-full  md:bg-transparent md:relative justify-between md:justify-center md:justify-between items-center content-center`}>
 
           <GridRow scroll={false} hide={1} className="flex w-full justify-between md:hidden">
-            <h1 style={{ top: ".05em" }} className="r-d-nav-text-mobile r-d-tagline-mobile md:hidden relative">
-              <PageLink to="/research">
+            <h1 style={{ top: ".05em" }} className="r-d-nav-text-mobile r-d-tagline-mobile md:hidden relative cursor-default">
                 <span className="earth-svg block">EARTH is a multi-disciplinary collective working across architecture, technology, design, and art.</span>
-              </PageLink>
             </h1>
 
             <li onClick={onOpen} className="block md:block cursor-pointer">
@@ -145,10 +144,8 @@ const HeaderRnd = ({ mainMenu, infoSection = null, infoSectionBelow = null, rMen
             <div className="mx-mobile md:mx-0">
               <ul style={{}} className="flex pt-2em md:pt-0 flex-wrap relative mt-1 container p-0 m-0 md:flex md:flex-no-wrap w-full justify-center md:justify-between">
                 
-                <li className="absolute md:relative left-0 top-0 pt-2 r-d-tagline">
-                  <PageLink onClick={onHideNav} to="/research">
+                <li className="absolute md:relative left-0 top-0 pt-2 r-d-tagline cursor-default">
                     <span className="">EARTH is a multi-disciplinary collective working across architecture, technology, design, and art.</span>
-                  </PageLink>
                 </li>
 
                 <li onClick={onOpen} className="absolute md:relative left-0 top-0 pt-2 cursor-pointer">
