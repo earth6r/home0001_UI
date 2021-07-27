@@ -51,7 +51,7 @@ export default {
     {
       name: 'pagebreak',
       title: 'Show Pagebreak before Article',
-      default: true,
+      initialValue: true,
       type: 'boolean',
     },
   ],

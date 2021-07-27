@@ -66,9 +66,9 @@ const HeaderRnd = ({ mainMenu, infoSection = null, infoSectionBelow = null, rMen
   const menu = rMenu !== undefined ? rMenu.edges[0].node.items : null;
   const submenu = subMenu && subMenu.edges[0] !== undefined ? subMenu.edges[0].node.items : null;
   const menuFooter = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
-  console.log("mainMenu", mainMenu);
-  console.log("menu", menu)
-  console.log("submenu", submenu)
+  // console.log("mainMenu", mainMenu);
+  // console.log("menu", menu)
+  // console.log("submenu", submenu)
   function makeTitle(slug) {
   var words = slug.split('-');
   for (var i = 0; i < words.length; i++) {
