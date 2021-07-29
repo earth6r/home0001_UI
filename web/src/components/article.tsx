@@ -70,15 +70,15 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                         }`}
                       >
                         <table className="w-full">
-                          <tr className="flex flex-row -mb-1/4em">
-                            <td className="md:w-5/10">
+                          <tr className="flex flex-row">
+                            <td className="md:w-4/10">
                               <div className="article-tag md:text-tagDt">{item.category}</div>
                               <div id={item.customslug}></div>
                             </td>
                             <td className="flex mr-5 md:ml-0 ml-10">
                               <div className="article-titlebox text-desktopLarge flex align-start tiny:w-372">
                                 <div className="flex flex-col">
-                                  <div className="m-0 relative normal-case -mt-1/4em md:text-lg flex flex-wrap">
+                                  <div className="m-0 relative normal-case md:text-lg flex flex-wrap">
                                     {item.title}
                                     <div className="flag-box w-0 md:w-20 items-start">
                                       {item.flag && item.flag.length > 0}
