@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ReactHtmlParser from 'react-html-parser'
 import BlockContent from "@sanity/block-content-to-react";
 import { Serializer } from "./../utils/serializer";
 import {
@@ -29,7 +30,6 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
   const [openArticle, setOpenArticle] = useState(false);
   const mew = defaultNum ? defaultNum : articleItems.length;
   const [visible, setVisible] = useState(mew);
-  console.log("all articles", articleItems);
   useEffect(() => {
     if (typeof window && window.location.href.includes("?#") && scrolled) {
       setVisible(true);
@@ -69,45 +69,41 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                           item.pagebreak ? "article-pagebreak" : ""
                         }`}
                       >
-                        <table className="w-full">
+                        <table className="w-full mr-5">
                           {/* add -mb-1/4em in tr */}
                           <tr className="flex flex-row">
                             <td className="md:w-4/10">
                               <div className="article-tag md:text-tagDt">{item.category}</div>
                               <div id={item.customslug}></div>
                             </td>
-                            <td className="flex mr-5 ml-10">
-                              <div className="article-titlebox md:text-desktopLarge flex align-start tiny:w-372">
-                                <div className="flex flex-col">
-                                  {/* add -mt-1/4em to div  */}
-                                  <div className="m-0 relative normal-case md:text-lg flex flex-wrap">
-                                    {item.title}
-                                    <div className="flag-box w-0 md:w-20 items-start">
-                                      {item.flag && item.flag.length > 0}
-                                      {
-                                        <div
-                                          style={{
-                                            background: item.flagcolor ? item.flagcolor : "none",
-                                          }}
-                                          className="flag-bg md:invisible"
-                                        >
-                                          <div className="flag md:text-flagDt md:h-0 md:w-0">
-                                            {item.flag}
-                                          </div>
-                                        </div>
-                                      }
+                            <td className="md:w-5/10 flex items-start ml-10 md:ml-0">
+                              <div className="article-titlebox flex flex-col items-start">
+                                {/* <div className="flex flex-col flex-wrap"> */}
+                                {/* add -mt-1/4em to div  */}
+                                <div className="m-0 article-title relative normal-case md:text-lg">{ReactHtmlParser(item.title)}</div>
+                                {item.flag && (
+                                  <div className="flag-box w-0 md:w-20 items-start">
+                                    <div
+                                      style={{
+                                        background: item.flagcolor ? item.flagcolor : "none",
+                                      }}
+                                      className="flag-bg md:invisible"
+                                    >
+                                      <div className="flag md:text-flagDt md:h-0 md:w-0">
+                                        {item.flag}
+                                      </div>
                                     </div>
                                   </div>
-                                  {isExpanded && (
-                                    <div className="article-subtitle tracking-normal md:m-0 py-3">
-                                      {item.subtitle}
-                                    </div>
-                                  )}
-                                </div>
+                                )}
+                                {isExpanded && (
+                                  <div className="article-subtitle tracking-normal md:m-0 py-3">
+                                    {item.subtitle}
+                                  </div>
+                                )}
+                                {/* </div> */}
                               </div>
-                              <div className="flag-box w-0 md:w-20 flex -m-2 items-start">
-                                {item.flag && item.flag.length > 0}
-                                {
+                              {item.flag && (
+                                <div className="flag-box w-0 md:w-20 -m-2 items-start">
                                   <div
                                     style={{
                                       background: item.flagcolor ? item.flagcolor : "none",
@@ -116,8 +112,8 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                                   >
                                     <div className="flag md:text-flagDt">{item.flag}</div>
                                   </div>
-                                }
-                              </div>
+                                </div>
+                              )}
                             </td>
                           </tr>
                         </table>
@@ -137,25 +133,24 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                       )} */}
                     </AccordionHeader>
                     <AccordionPanel className="text-tagRnd pb-1em ml-auto mr-auto w-50% md:w-3/4 ">
-                      {item.text && <PortableText blocks={item.text} />}
                       <Container>
                         <div>{RenderModules(item.articleModule)}</div>
                       </Container>
                     </AccordionPanel>
                     {isExpanded && (
                       <AccordionHeader>
-                      <div
-                        onClick={function () {
-                          {
-                            item._key;
-                          }
-                        }}
-                        className="underline block w-full text-right md:text-desktopCaption"
-                      >
-                        CLOSE
-                      </div>
+                        <div
+                          onClick={function () {
+                            {
+                              item._key;
+                            }
+                          }}
+                          className="underline block w-full text-right md:text-desktopCaption"
+                        >
+                          CLOSE
+                        </div>
                       </AccordionHeader>
-                    )}  
+                    )}
                   </>
                 )}
               </AccordionItem>

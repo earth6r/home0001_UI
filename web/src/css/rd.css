@@ -16,6 +16,9 @@
     min-height: 6vh;
   }
 }
+.viewSpacer {
+  min-height: 1px;
+}
 .r-d-nav-text-desktop{
   font-family: 'Everett', monospace;
   font-style: normal;
@@ -123,7 +126,7 @@
 .rte.rte-large .article-accordion .article-box{
   padding-right: 10rem;
   margin-right: -10rem;
-  padding-top: 1.3rem;
+  padding-top: 2vw;
   padding-bottom: 0.4rem;
 }
 .rte.rte-large .article-accordion .article-pagebreak{

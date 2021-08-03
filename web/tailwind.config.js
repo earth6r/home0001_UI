@@ -26,8 +26,10 @@ module.exports = {
         },
       ],
       flagMb:".625rem",
-      flagDt:".8125rem",
-      tagDt:"0.75rem",
+      flagDt:"1.2vw",
+      flagDtMax:"0.8125rem",
+      tagDt:"1.1vw",
+      tagDtMax:"0.75rem",
       tagRnd: [
         "1.1875rem",
         {
@@ -121,7 +123,7 @@ module.exports = {
           textTransform: "uppercase",
         },
       ],
-      lg: ["1.75rem", "1.2"],
+      lg: ["2.6vw", "1.2"],
       "2xl": ["2rem", "2.375rem"],
     },
     borderColor: {
@@ -233,6 +235,7 @@ module.exports = {
       },
       screens: {
         "tiny": "460px",
+        "max-font": "1083px"
       },
       width: {
         "372": "372px",

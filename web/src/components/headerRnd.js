@@ -173,7 +173,7 @@ const HeaderRnd = ({
             ))}
         </div>
       )} */}
-      <header className={`r-d-menu block fixed z-50 w-full left-0 ${
+      <header className={`r-d-menu  block fixed z-50 w-full left-0 pt-2 ${
               scrollStart < 60
                 ? ""
                 : "hidden"

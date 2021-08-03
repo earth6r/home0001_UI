@@ -50,6 +50,7 @@ import richTableCell from './objects/cell'
 import richTableRow from './objects/row'
 import homeUnit from './objects/homeUnit'
 import pane from './objects/pane'
+import viewSpacer from './objects/viewSpacer'
 
 // Modules
 import accordion from './modules/accordion'
@@ -153,6 +154,7 @@ export default createSchema({
     richTable,
     richTableRow,
     richTableCell,
+    viewSpacer,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ]),

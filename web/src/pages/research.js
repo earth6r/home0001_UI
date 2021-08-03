@@ -53,7 +53,6 @@ export const query = graphql`
 
 const IndexPage = (props) => {
   const { data, errors } = props;
-
   if (errors) {
     return (
       <Layout>

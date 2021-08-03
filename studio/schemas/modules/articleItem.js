@@ -39,11 +39,6 @@ export default {
       type: 'string',
     },
     {
-      name: 'text',
-      title: 'Text',
-      type: 'bodyPortableText',
-    },
-    {
       name: 'articleModule',
       title: 'Article Module',
       type: 'moduleContent',
