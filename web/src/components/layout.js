@@ -172,16 +172,16 @@ const Layout = ({
           isHome={isHome}
         />
       )}
-      <div
-        className={`${
-          showThinBanner && !rnd ? "mt-16 md:mt-20" : "mt-8"
-        } hidden md:block container pb-1/2em absolute`}
-      >
-        <GridRow />
-      </div>
+        <div
+          className={`${
+            showThinBanner && !rnd ? "mt-16 md:mt-20" : "mt-8"
+          } hidden md:block container pb-1/2em absolute`}
+        >
+          <GridRow />
+        </div>
       <div
         id="page-content-wrapper"
-        className={`${showThinBanner && !rnd ? "mt-16 md:mt-12 md:mt-16" : "mt-8"} ${
+        className={`${showThinBanner && !rnd ? "mt-16 md:mt-12 md:mt-16" : "mt-0"} ${
           blackHeader ? " dark-theme " : ""
         } ${rnd ? "px-special container-no-x-scroll" : ""} container pb-0 `}
       >
