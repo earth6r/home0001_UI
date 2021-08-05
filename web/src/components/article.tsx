@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ReactHtmlParser from 'react-html-parser'
+import ReactHtmlParser from "react-html-parser";
 import BlockContent from "@sanity/block-content-to-react";
 import { Serializer } from "./../utils/serializer";
 import {
@@ -49,7 +49,7 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
   return (
     <>
       {title && <div className="md:text-desktopCaption">{title}</div>}
-      <Accordion allowToggle className=" w-full">
+      <Accordion allowMultiple={false} allowToggle className=" w-full">
         {articleItems.length > 0 &&
           articleItems.map((item, index) => (
             <React.Fragment key={item._key}>
@@ -65,7 +65,7 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                   <>
                     <AccordionHeader id={item._key}>
                       <div
-                        className={`article-box flex items-start ${
+                        className={`article-box md:relative flex items-start ${
                           item.pagebreak ? "article-pagebreak" : ""
                         }`}
                       >
@@ -76,33 +76,33 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                               <div className="article-tag md:text-tagDt">{item.category}</div>
                               <div id={item.customslug}></div>
                             </td>
-                            <td className="md:w-5/10 flex items-start ml-10 md:ml-0">
-                              <div className="article-titlebox flex flex-col items-start">
+                            <td className="md:w-5/10 flex flex-col items-start ml-10 md:ml-0">
+                              <div className="article-titlebox flex flex-col md:flex-row items-start">
                                 {/* <div className="flex flex-col flex-wrap"> */}
                                 {/* add -mt-1/4em to div  */}
-                                <div className="m-0 article-title relative normal-case md:text-lg">{ReactHtmlParser(item.title)}</div>
+                                <div className="m-0 article-title relative normal-case md:text-lg">
+                                  {ReactHtmlParser(item.title)}
+                                </div>
                                 {item.flag && (
-                                  <div className="flag-box w-0 md:w-20 items-start">
+                                  <div className="flag-box w-20 pl-0 md:pl-2">
                                     <div
                                       style={{
                                         background: item.flagcolor ? item.flagcolor : "none",
                                       }}
-                                      className="flag-bg md:invisible"
+                                      className="flag-bg"
                                     >
-                                      <div className="flag md:text-flagDt md:h-0 md:w-0">
-                                        {item.flag}
-                                      </div>
+                                      <div className="flag md:text-flagDt">{item.flag}</div>
                                     </div>
                                   </div>
                                 )}
-                                {isExpanded && (
-                                  <div className="article-subtitle tracking-normal md:m-0 py-3">
-                                    {item.subtitle}
-                                  </div>
-                                )}
-                                {/* </div> */}
                               </div>
-                              {item.flag && (
+                              {isExpanded && (
+                                <div className="article-subtitle tracking-normal md:m-0 py-3">
+                                  {item.subtitle}
+                                </div>
+                              )}
+                              {/* </div> */}
+                              {/* {item.flag && (
                                 <div className="flag-box w-0 md:w-20 -m-2 items-start">
                                   <div
                                     style={{
@@ -113,7 +113,7 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                                     <div className="flag md:text-flagDt">{item.flag}</div>
                                   </div>
                                 </div>
-                              )}
+                              )} */}
                             </td>
                           </tr>
                         </table>
