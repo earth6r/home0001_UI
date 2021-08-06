@@ -26,10 +26,8 @@ module.exports = {
         },
       ],
       flagMb:".625rem",
-      flagDt:"1.2vw",
-      flagDtMax:"0.8125rem",
-      tagDt:"1.1vw",
-      tagDtMax:"0.75rem",
+      flagDt:"0.8125rem",
+      tagDt:"0.75rem",
       tagRnd: [
         "1.1875rem",
         {
