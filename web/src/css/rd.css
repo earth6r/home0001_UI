@@ -134,8 +134,8 @@
 .rte.rte-large .article-accordion .article-box{
   padding-right: 10rem;
   margin-right: -10rem;
-  padding-top: 2vw;
-  padding-bottom: 0.4rem;
+  padding-top: 1.35vw;
+  padding-bottom: 0.1vw;
 }
 .rte.rte-large .article-accordion .article-pagebreak{
   border-top-color: black;
@@ -185,6 +185,9 @@
   display:inline-flex;
   white-space: nowrap;
   margin-top: 0.45rem;
+}
+.article-tag{
+  padding-top: 4px;
 }
 .rte .article-accordion .article-tag{
   font-size: 10px;
