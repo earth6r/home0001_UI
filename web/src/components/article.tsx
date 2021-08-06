@@ -65,7 +65,7 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                   <>
                     <AccordionHeader id={item._key}>
                       <div
-                        className={`article-box md:relative flex items-start ${
+                        className={`article-box relative flex items-start ${
                           item.pagebreak ? "article-pagebreak" : ""
                         }`}
                       >

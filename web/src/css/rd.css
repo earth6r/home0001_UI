@@ -28,7 +28,8 @@
   /* or 15px */
   display: flex;
   align-items: center;
-  letter-spacing: 0.03em;
+  /* set letter-spacing accoding to Johns notes to 0; */
+  letter-spacing: 0em;
 
   color: #000000;
 }
@@ -41,7 +42,8 @@
   /* or 14px */
   display: flex;
   align-items: center;
-  letter-spacing: 0.03em;
+  /* set letter-spacing accoding to Johns notes to 0; */
+  letter-spacing: 0em;
 
   color: #000000;
 }
