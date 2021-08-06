@@ -122,6 +122,7 @@ module.exports = {
         },
       ],
       lg: ["2.6vw", "1.2"],
+      articleTitle: ["2.19vw", "1.2"],
       "2xl": ["2rem", "2.375rem"],
     },
     borderColor: {

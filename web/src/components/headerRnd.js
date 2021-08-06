@@ -173,7 +173,7 @@ const HeaderRnd = ({
             ))}
         </div>
       )} */}
-      <header className={`r-d-menu  block fixed z-50 w-full left-0 pt-2 ${
+      <header className={`r-d-menu  block fixed z-50 w-full left-0 pt-3 ${
               scrollStart < 60
                 ? ""
                 : "hidden"
@@ -217,7 +217,7 @@ const HeaderRnd = ({
 
                 <li
                   onClick={onOpen}
-                  className="absolute md:relative left-0 top-0 pt-2 cursor-pointer"
+                  className="absolute md:relative left-0 top-0 pt-3 cursor-pointer"
                 >
                   <span className="uppercase">{info && infoSection ? "Close" : "Info"}</span>
                 </li>

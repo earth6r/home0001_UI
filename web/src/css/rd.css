@@ -16,6 +16,12 @@
     min-height: 6vh;
   }
 }
+
+.r-d-menu{
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+}
+
 .viewSpacer {
   min-height: 1px;
 }
@@ -140,7 +146,7 @@
   text-align: left;
 }
 .rte.rte-large .article-accordion .article-title{
-  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 120%;
   letter-spacing: -0.02em;
 
@@ -152,6 +158,10 @@
 }
 .rte.rte-large .article-accordion .article-title:hover{
   color:grey;
+}
+.rte.rte-large .article-container{
+  max-width: 848px;
+
 }
 .rte .article-accordion .flag-box{
   display:inline-flex;

@@ -80,7 +80,7 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                               <div className="article-titlebox flex flex-col md:flex-row items-start">
                                 {/* <div className="flex flex-col flex-wrap"> */}
                                 {/* add -mt-1/4em to div  */}
-                                <div className="m-0 article-title relative normal-case md:text-lg">
+                                <div className="m-0 article-title relative normal-case md:text-articleTitle">
                                   {ReactHtmlParser(item.title)}
                                 </div>
                                 {item.flag && (
@@ -132,9 +132,9 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                         </div>
                       )} */}
                     </AccordionHeader>
-                    <AccordionPanel className="text-tagRnd pb-1em ml-auto mr-auto w-50% md:w-3/4 ">
+                    <AccordionPanel className="text-tagRnd pb-1em ml-auto mr-auto article-container md:pl-0 md:pr-0">
                       <Container>
-                        <div>{RenderModules(item.articleModule)}</div>
+                        <div className="">{RenderModules(item.articleModule)}</div>
                       </Container>
                     </AccordionPanel>
                     {isExpanded && (

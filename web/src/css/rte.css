@@ -40,6 +40,11 @@
   @apply text-mobileLarge;
 }
 
+.rte.rte-rnd {
+  padding-left: 0.1em;
+  padding-right: 0.1em;
+}
+
 .rte h1 {
   @apply text-mobileLarge;
 }

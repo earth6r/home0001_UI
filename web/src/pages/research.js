@@ -85,7 +85,7 @@ const IndexPage = (props) => {
         image={meta.openImage}
       />
     }
-      <Container className="rte-large">
+      <Container className="rte-large rte-rnd">
         <div className="flex flex-wrap">{RenderModules(modules)}</div>
       </Container>
     </Layout>
