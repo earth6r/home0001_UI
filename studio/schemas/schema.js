@@ -37,6 +37,7 @@ import flexEmbed from './objects/flexEmbed'
 import flexCallibration from './objects/flexCallibration'
 import flexSquare from './objects/flexSquare'
 import flexText from './objects/flexText'
+import flexVerticalText from './objects/flexVerticalText'
 import flexPdf from './objects/flexPdf'
 import flexObround from './objects/flexObround'
 import authorReference from './objects/authorReference'
@@ -115,6 +116,7 @@ export default createSchema({
     flexEmbed,
     flexCallibration,
     flexText,
+    flexVerticalText,
     flexSquare,
     flexPdf,
     flexObround,

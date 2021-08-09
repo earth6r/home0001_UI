@@ -77,6 +77,16 @@ export default {
       ],
     },
     {
+      name: 'verticalTexts',
+      title: 'Vertical Text',
+      type: 'array',
+      of: [
+        {
+          type: 'flexVerticalText',
+        },
+      ],
+    },
+    {
       name: 'squares',
       title: 'Square Button',
       type: 'array',
