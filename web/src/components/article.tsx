@@ -71,12 +71,12 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                       >
                         <table className="w-full mr-5">
                           {/* add -mb-1/4em in tr */}
-                          <tr className="flex flex-row">
+                          <tr className="flex flex-row md:justify-between">
                             <td className="md:w-4/10">
                               <div className="article-tag md:text-tagDt">{item.category}</div>
                               <div id={item.customslug}></div>
                             </td>
-                            <td className="md:w-5/10 flex flex-col items-start ml-10 md:ml-0">
+                            <td className="md:w-10/20 flex flex-col items-start ml-10 md:ml-0">
                               <div className="article-titlebox flex flex-col md:flex-row items-start">
                                 {/* <div className="flex flex-col flex-wrap"> */}
                                 {/* add -mt-1/4em to div  */}

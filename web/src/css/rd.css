@@ -5,16 +5,6 @@
     background: white;
     height:33px;
   }
-  /* remove this */
-  .article-titlebox {
-    min-height: 6vh;
-  }
-}
-/* remove this */
-@media (min-width:768px) {
-  .article-titlebox {
-    min-height: 6vh;
-  }
 }
 
 .r-d-menu{
@@ -113,6 +103,7 @@
 .rte.rte-large .article-accordion{
   border:none;
   font-family: Everett;
+  line-height: 0;
 }
 .rte.rte-large .article-accordion button{
   /* change padding to padding-top */
@@ -126,7 +117,6 @@
 }
 .rte.rte-large .article-accordion *{
   font-size:inherit;
-  line-height: inherit;
   font-style: normal;
   font-weight: normal;
   color: #000000;
@@ -135,7 +125,7 @@
   padding-right: 10rem;
   margin-right: -10rem;
   padding-top: 1.35vw;
-  padding-bottom: 0.1vw;
+  padding-bottom: 1.35vw;
 }
 .rte.rte-large .article-accordion .article-pagebreak{
   border-top-color: black;
@@ -167,7 +157,7 @@
   display:inline-flex;
 }
 .rte .article-accordion .flag{
-  font-size: .625rem;
+  font-size: .688rem;
   line-height: 110%;
   letter-spacing: 0.03em;
   
