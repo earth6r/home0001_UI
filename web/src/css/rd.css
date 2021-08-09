@@ -117,6 +117,7 @@
 }
 .rte.rte-large .article-accordion *{
   font-size:inherit;
+  line-height:inherit;
   font-style: normal;
   font-weight: normal;
   color: #000000;
