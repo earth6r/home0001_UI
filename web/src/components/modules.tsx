@@ -91,6 +91,7 @@ export const Modules = ({
             rowNumTablet={reactModule.numRowsTablet}
             pdfs={reactModule.pdfs}
             texts={reactModule.texts}
+            verticalTexts={reactModule.verticalTexts}
             callibrationMarks={reactModule.callibrationMarks}
             embeds={reactModule.embeds}
             edges={reactModule.edges}

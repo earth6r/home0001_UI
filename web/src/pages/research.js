@@ -67,7 +67,7 @@ const IndexPage = (props) => {
     meta,
   } = data.allSanityRnd.edges[0].node._rawContent;
 
- 
+ console.log(data);
 
   if (!site) {
     throw new Error(

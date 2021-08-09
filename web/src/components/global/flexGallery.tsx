@@ -354,7 +354,6 @@ const FlexGallery = (props) => {
               </>
             );
           } else if (image._type == "flexVerticalText") {
-            console.log(image);
             return (
               <div
                 key={image._key}
