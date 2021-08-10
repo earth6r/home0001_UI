@@ -359,14 +359,12 @@ const FlexGallery = (props) => {
                 key={image._key}
                 className={`
                   ${image.edgeBind ? "edgeBind--" + image.edgeBind : "" }
-                  ${image.highZindex ? "high-z-index " : "z-20 "} 
-                  flex-item flex-vertical-text relative 
+                  flex-vertical-text 
                 `}
                 style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
               >
                 <div style={{ color: `${image.color ? image.color : "inherit"}` }}>
-                  {" "}
-                  <PortableText blocks={image.text} />
+                  <PortableText className="m-0" blocks={image.text} />
                 </div>
               </div>
             );
