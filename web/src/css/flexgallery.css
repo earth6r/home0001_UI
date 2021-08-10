@@ -118,6 +118,11 @@ form .earth-svg svg {
   font-size: 0.75rem !important;
   transform: rotate(-90deg);
 }
+@media (max-width: 767px) {
+  .flex-vertical-text {
+    font-size: 0.625rem !important;
+  }
+}
 .flex-vertical-text p  {
   margin-bottom:  0em !important;
 }
@@ -139,66 +144,66 @@ form .earth-svg svg {
     right: -12vw;
   }
 }
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .flex-vertical-text.edgeBind--right{
     right: -8vw;
   }
 }
-@media (max-width: 689px) {
+/* @media (max-width: 689px) {
+  .flex-vertical-text.edgeBind--right{
+    right: -10vw;
+  }
+} */
+@media (max-width: 599px) {
   .flex-vertical-text.edgeBind--right{
     right: -10vw;
   }
 }
-@media (max-width: 599px) {
-  .flex-vertical-text.edgeBind--right{
-    right: -13vw;
-  }
-}
 @media (max-width: 530px) {
   .flex-vertical-text.edgeBind--right{
-    right: -15vw;
+    right: -12vw;
   }
 }
 @media (max-width: 415px) {
   .flex-vertical-text.edgeBind--right{
-    right: -21vw;
+    right: -16vw;
   }
 }
 @media (max-width: 359px) {
   .flex-vertical-text.edgeBind--right{
-    right: -25vw;
+    right: -20vw;
   }
 }
 @media (max-width: 280px) {
   .flex-vertical-text.edgeBind--right{
-    right: -30vw;
+    right: -22vw;
   }
 }
 
 .flex-vertical-text.edgeBind--left {
   left: -20vw;
 }
- @media (max-width: 1349px) {
+ @media (max-width: 1379px) {
   .flex-vertical-text.edgeBind--left{
     left: -17vw;
   }
 } 
-@media (max-width: 1229px) {
+@media (max-width: 1239px) {
   .flex-vertical-text.edgeBind--left{
     left: -15vw;
   }
 }
-@media (max-width: 1159px) {
+@media (max-width: 1169px) {
   .flex-vertical-text.edgeBind--left{
     left: -12vw;
   }
 }
-@media (max-width: 1050px) {
+@media (max-width: 1079px) {
   .flex-vertical-text.edgeBind--left{
     left: -10vw;
   }
 }
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .flex-vertical-text.edgeBind--left{
     left: -5vw;
   }
@@ -208,19 +213,19 @@ form .earth-svg svg {
     left: -6vw;
   }
 }
-@media (max-width: 604px) {
+@media (max-width: 530px) {
   .flex-vertical-text.edgeBind--left{
     left: -8vw;
   }
 }
-@media (max-width: 414px) {
+@media (max-width: 375px) {
   .flex-vertical-text.edgeBind--left{
-    left: -11vw;
+    left: -10vw;
   }
 }
 @media (max-width: 280px) {
   .flex-vertical-text.edgeBind--left{
-    left: -13vw;
+    left: -12vw;
   }
 } 
 /* END FLEX GALLERY */
