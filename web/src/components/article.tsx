@@ -31,21 +31,27 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
   const mew = defaultNum ? defaultNum : articleItems.length;
   const [visible, setVisible] = useState(mew);
   useEffect(() => {
-    if (typeof window && window.location.href.includes("?#") && scrolled) {
-      setVisible(true);
-      let mySlug = window.location.href.split("?#")[1];
-      navigate("#" + mySlug);
-      let el = document.getElementById(mySlug + "-h2");
-      if (el) {
-        el.click();
-      }
+    
+        if (typeof window && window.location.href.includes("?article=")) {
+          // setVisible(true);
+          let y = window.scrollY - 50; //your current y position on the page
+          console.log("scrollY", y, window.scrollY)
+          let mySlug = window.location.href.split("?article=")[1];
+          // navigate("#" + mySlug);
+          let el = document.getElementById(mySlug);
+          console.log("el", el.getBoundingClientRect().top)
+          if (el) {
+            el.click();
+            y = y - el.getBoundingClientRect().top;
+          }
+          console.log("y after if statement", y)
+          setTimeout(function(){
 
-      let y = window.scrollY - 50; //your current y position on the page
-      window.scrollBy(0, y);
-
-      setScrolled(false);
-    }
-  });
+          document.body.scrollTo({top: y,left: 0, behavior: "smooth" });
+        }, 500)
+        }
+        
+      });
   return (
     <>
       {title && <div className="md:text-desktopCaption">{title}</div>}
@@ -73,8 +79,9 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                           {/* add -mb-1/4em in tr */}
                           <tr className="flex flex-row md:justify-between">
                             <td className="md:w-4/10">
+                              <a id={item.customslug}>
                               <div className="article-tag md:text-tagDt">{item.category}</div>
-                              <div id={item.customslug}></div>
+                              </a>
                             </td>
                             <td className="md:w-10/20 flex flex-col items-start ml-10 md:ml-0">
                               <div className="article-titlebox flex flex-col md:flex-row items-start">
@@ -158,14 +165,14 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
               {/* <div>{index < articleItems.length - 1 && <GridRow></GridRow>}</div> */}
             </React.Fragment>
           ))}
-        {defaultNum && loadNum && visible < articleItems.length - 1 && (
+        {/* {defaultNum && loadNum && visible < articleItems.length - 1 && (
           <div
             onClick={() => setVisible(loadNum + visible)}
             className="text-desktopCaption underline cursor-pointer"
           >
             MORE ↓
           </div>
-        )}
+        )} */}
       </Accordion>
     </>
   );
