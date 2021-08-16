@@ -34,21 +34,19 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
     
         if (typeof window && window.location.href.includes("?article=")) {
           // setVisible(true);
-          let y = window.scrollY - 50; //your current y position on the page
-          console.log("scrollY", y, window.scrollY)
+ 
           let mySlug = window.location.href.split("?article=")[1];
-          // navigate("#" + mySlug);
           let el = document.getElementById(mySlug);
-          console.log("el", el.getBoundingClientRect().top)
+
           if (el) {
             el.click();
-            y = y - el.getBoundingClientRect().top;
           }
-          console.log("y after if statement", y)
+  
           setTimeout(function(){
-
-          document.body.scrollTo({top: y,left: 0, behavior: "smooth" });
-        }, 500)
+              let y = window.scrollY - 50; //your current y position on the page
+              y = el.getBoundingClientRect().top;
+              window.scrollTo({top: y,left: 0, behavior: "smooth" });
+          }, 100)
         }
         
       });
