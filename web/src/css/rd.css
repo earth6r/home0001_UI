@@ -123,8 +123,12 @@
   color: #000000;
 }
 .rte.rte-large .article-accordion .article-box{
-  padding-right: 10rem;
-  margin-right: -10rem;
+/*  padding-right: 10rem;
+  margin-right: -10rem;*/
+  padding-left:0;
+  padding-right:calc(27px + 0.1em);
+  left:0;
+  width: calc(100% + 27px + 0.1em);
   padding-top: 1.35vw;
   padding-bottom: 1.35vw;
 }
@@ -204,9 +208,17 @@
   .px-special{
     padding:0 85px;
   }
+
 }
 
 @media(max-width:767px){
+    .rte.rte-large .article-accordion .article-box{
+  /*  padding-right: 10rem;
+    margin-right: -10rem;*/
+    padding-right:calc(.625rem + 0.1em);
+    width: calc(100% + .625rem + 0.1em);
+  }
+
   .react-pdf__Page,.react-pdf__Page canvas{
     max-width: calc(100vw);
   }
