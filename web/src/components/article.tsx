@@ -33,20 +33,36 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
   useEffect(() => {
     
         if (typeof window && window.location.href.includes("?article=")) {
-          // setVisible(true);
- 
-          let mySlug = window.location.href.split("?article=")[1];
+          let mySlug = window.location.href.split("?article=")[1].split("&")[0]; //remove url before and after 'article' parameter
+
           let el = document.getElementById(mySlug);
 
+          
+
           if (el) {
+            //open the article
             el.click();
+
+            //define function to scroll to article
+            function findAndScrollSlug(element) {
+              let deltaY = element.getBoundingClientRect().top;
+              window.scrollBy({top: deltaY, left: 0, behavior: "smooth" });
+            }
+            
+            //run timeout of 0 to have click take effect, then scroll to article when page layout is finished
+            setTimeout(function () {
+              if(document.readyState === "complete") {
+                setTimeout(function () {
+                  findAndScrollSlug(el);
+                }, 0);  
+              }
+              window.addEventListener("load", () => {
+                setTimeout(function () {
+                  findAndScrollSlug(el);
+                }, 0);  
+              });
+            }, 0);      
           }
-  
-          setTimeout(function(){
-              let y = window.scrollY - 50; //your current y position on the page
-              y = el.getBoundingClientRect().top;
-              window.scrollTo({top: y,left: 0, behavior: "smooth" });
-          }, 100)
         }
         
       });
