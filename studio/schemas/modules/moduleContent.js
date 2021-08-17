@@ -43,5 +43,8 @@ export default {
     {
       type: 'accordion',
     },
+    {
+      type: 'viewSpacer'
+    }
   ],
 }

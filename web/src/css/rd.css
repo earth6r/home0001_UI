@@ -7,6 +7,14 @@
   }
 }
 
+.r-d-menu{
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+}
+
+.viewSpacer {
+  min-height: 1px;
+}
 .r-d-nav-text-desktop{
   font-family: 'Everett', monospace;
   font-style: normal;
@@ -16,7 +24,8 @@
   /* or 15px */
   display: flex;
   align-items: center;
-  letter-spacing: 0.03em;
+  /* set letter-spacing accoding to Johns notes to 0; */
+  letter-spacing: 0em;
 
   color: #000000;
 }
@@ -29,7 +38,8 @@
   /* or 14px */
   display: flex;
   align-items: center;
-  letter-spacing: 0.03em;
+  /* set letter-spacing accoding to Johns notes to 0; */
+  letter-spacing: 0em;
 
   color: #000000;
 }
@@ -93,9 +103,11 @@
 .rte.rte-large .article-accordion{
   border:none;
   font-family: Everett;
+  line-height: 0;
 }
 .rte.rte-large .article-accordion button{
-   padding-left:0;
+  /* change padding to padding-top */
+   padding: 0;
    display:inline-block;
    width:100%;
 }
@@ -105,16 +117,20 @@
 }
 .rte.rte-large .article-accordion *{
   font-size:inherit;
-  line-height: inherit;
+  line-height:inherit;
   font-style: normal;
   font-weight: normal;
   color: #000000;
 }
 .rte.rte-large .article-accordion .article-box{
-  padding-right: 10rem;
-  margin-right: -10rem;
-  padding-top: 1.3rem;
-  padding-bottom: 0;
+/*  padding-right: 10rem;
+  margin-right: -10rem;*/
+  padding-left:0;
+  padding-right:calc(27px + 0.1em);
+  left:0;
+  width: calc(100% + 27px + 0.1em);
+  padding-top: 1.35vw;
+  padding-bottom: 1.35vw;
 }
 .rte.rte-large .article-accordion .article-pagebreak{
   border-top-color: black;
@@ -125,7 +141,7 @@
   text-align: left;
 }
 .rte.rte-large .article-accordion .article-title{
-  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 120%;
   letter-spacing: -0.02em;
 
@@ -138,11 +154,15 @@
 .rte.rte-large .article-accordion .article-title:hover{
   color:grey;
 }
+.rte.rte-large .article-container{
+  max-width: 848px;
+
+}
 .rte .article-accordion .flag-box{
   display:inline-flex;
 }
 .rte .article-accordion .flag{
-  font-size: .625rem;
+  font-size: .688rem;
   line-height: 110%;
   letter-spacing: 0.03em;
   
@@ -160,6 +180,9 @@
   display:inline-flex;
   white-space: nowrap;
   margin-top: 0.45rem;
+}
+.article-tag{
+  padding-top: 4px;
 }
 .rte .article-accordion .article-tag{
   font-size: 10px;
@@ -185,9 +208,17 @@
   .px-special{
     padding:0 85px;
   }
+
 }
 
 @media(max-width:767px){
+    .rte.rte-large .article-accordion .article-box{
+  /*  padding-right: 10rem;
+    margin-right: -10rem;*/
+    padding-right:calc(.625rem + 0.1em);
+    width: calc(100% + .625rem + 0.1em);
+  }
+
   .react-pdf__Page,.react-pdf__Page canvas{
     max-width: calc(100vw);
   }

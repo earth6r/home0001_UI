@@ -37,6 +37,7 @@ const FlexGallery = (props) => {
     rowNumMobile,
     rowNumTablet,
     texts,
+    verticalTexts,
   } = props;
   const myImages = images ? shuffle(images).filter(Boolean) : [];
   const myrandImages = embeds ? shuffle(myImages.concat(embeds)) : myImages;
@@ -48,7 +49,8 @@ const FlexGallery = (props) => {
     : randImages4;
   const randImages6 = circleButtons ? shuffle(randImages5.concat(circleButtons)) : randImages5;
   const randImages7 = obroundButtons ? shuffle(randImages6.concat(obroundButtons)) : randImages6;
-  const randImages = edges ? shuffle(randImages7.concat(edges)) : randImages7;
+  const randImages8 = verticalTexts ? shuffle(randImages7.concat(verticalTexts)) : randImages7;
+  const randImages = edges ? shuffle(randImages8.concat(edges)) : randImages8;
   const justify = ["justify-start", "justify-center", "justify-between", "justify-end"];
   const [direction, setDirection] = useState();
   const [mobile, setMobile] = useState(false);
@@ -350,6 +352,21 @@ const FlexGallery = (props) => {
                   </div>
                 )}
               </>
+            );
+          } else if (image._type == "flexVerticalText") {
+            return (
+              <div
+                key={image._key}
+                className={`
+                  ${image.edgeBind ? "edgeBind--" + image.edgeBind : "" }
+                  flex-vertical-text 
+                `}
+                style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
+              >
+                <div style={{ color: `${image.color ? image.color : "inherit"}` }}>
+                  <PortableText className="m-0" blocks={image.text} />
+                </div>
+              </div>
             );
           } else {
             return (

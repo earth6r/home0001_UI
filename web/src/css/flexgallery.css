@@ -1,113 +1,231 @@
 /* FLEX GALLERY */
-.flexible-gallery{
+.flexible-gallery {
   display: grid;
   grid-template-columns: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
 }
-.flex-item:hover .hover-hide, .flex-item:active .hover-hide{
+.flex-item:hover .hover-hide,
+.flex-item:active .hover-hide {
   opacity: 0;
 }
-.flex-item .hover-image{
+.flex-item .hover-image {
   position: absolute;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
 }
-.flex-item:hover .hover-image, .flex-item:active .hover-image{
+.flex-item:hover .hover-image,
+.flex-item:active .hover-image {
   position: absolute;
-  top:0;
-  left:0;
-  opacity:1;
+  top: 0;
+  left: 0;
+  opacity: 1;
 }
 
 /* edge to edge image support */
-.flex-item.edge-to-edge{
-  left:0;
+.flex-item.edge-to-edge {
+  left: 0;
   position: relative;
   z-index: 30;
 }
-.flex-item.high-z-index{
+.flex-item.high-z-index {
   z-index: 31;
   position: relative;
 }
-.flexible-gallery .flex-item.edge-to-edge.up-to-nav{
-  top:-1.2rem;
+.flexible-gallery .flex-item.edge-to-edge.up-to-nav {
+  top: -1.2rem;
 }
-.flexible-gallery .flex-item.edge-to-edge img{
+.flexible-gallery .flex-item.edge-to-edge img {
   display: block;
   position: absolute;
-  width:100vw;
-  left:-27px;
+  width: 100vw;
+  left: -27px;
 }
-form .earth-svg svg{
-  top:2px;
+form .earth-svg svg {
+  top: 2px;
 }
 .flex-item .drop-shadow {
   box-shadow: 0px 1px 11px rgb(0 0 0 / 30%);
   transition: 0.1s;
 }
-.flex-item .border-img figure{
+.flex-item .border-img figure {
   box-shadow: 0 0 0 0.5px black;
 }
 .flex-item:hover .drop-shadow {
-  box-shadow:0px 1px 5px rgb(0 0 0 / 40%);
+  box-shadow: 0px 1px 5px rgb(0 0 0 / 40%);
 }
-.flexible-gallery .flex-item img{
-  width:100%;
+.flexible-gallery .flex-item img {
+  width: 100%;
   max-width: none;
 }
-@media(max-width:767px){
-  .flexible-gallery .flex-item.edge-to-edge.up-to-nav{
-    top:-0rem;
+@media (max-width: 767px) {
+  .flexible-gallery .flex-item.edge-to-edge.up-to-nav {
+    top: -0rem;
   }
-  .flex-item:hover .hover-hide{
+  .flex-item:hover .hover-hide {
     opacity: 1;
     -webkit-backface-visibility: hidden;
   }
-  .flexible-gallery .flex-item.edge-to-edge img{
-    width:100vw;
-    left:-0.625rem;
+  .flexible-gallery .flex-item.edge-to-edge img {
+    width: 100vw;
+    left: -0.625rem;
   }
-  .flex-item:hover img{
+  .flex-item:hover img {
     opacity: 1;
     -webkit-backface-visibility: hidden;
   }
-  .flex-item .hover-image{
-    opacity:0;
+  .flex-item .hover-image {
+    opacity: 0;
     -webkit-backface-visibility: hidden;
   }
-  .flex-item:hover .hover-hide{
-    transition:0.125s;
+  .flex-item:hover .hover-hide {
+    transition: 0.125s;
     -webkit-backface-visibility: hidden;
   }
 
-  .flex-item:hover .hover-image{
-    opacity:0;
+  .flex-item:hover .hover-image {
+    opacity: 0;
     -webkit-backface-visibility: hidden;
     -webkit-perspective: 1000;
     -webkit-font-smoothing: antialiased;
     -webkit-transform-style: preserve-3d;
-    -webkit-transform: translateZ(0); 
-    background:rgba(255,255,255,0);
-    transition:0.125s;
+    -webkit-transform: translateZ(0);
+    background: rgba(255, 255, 255, 0);
+    transition: 0.125s;
     -webkit-backface-visibility: hidden;
   }
-  .flex-item:hover .drop-shadow{
-    box-shadow:0px 1px 11px rgb(0 0 0 / 30%);
+  .flex-item:hover .drop-shadow {
+    box-shadow: 0px 1px 11px rgb(0 0 0 / 30%);
     -webkit-backface-visibility: hidden;
   }
-  .flexible-gallery .flex-item img{
-    transition:0.125s;
+  .flexible-gallery .flex-item img {
+    transition: 0.125s;
     -webkit-backface-visibility: hidden;
   }
-
 }
 
-.flexible-gallery .flex-item iframe{
-  max-width:100%;
-  max-height:100%;
+.flexible-gallery .flex-item iframe {
+  max-width: 100%;
+  max-height: 100%;
 }
-.flexible-gallery .flex-item > .overflow-hidden >.react-pdf__Document canvas{
-    width: 100% !important;
-    height: auto !important;
+.flexible-gallery .flex-item > .overflow-hidden > .react-pdf__Document canvas {
+  width: 100% !important;
+  height: auto !important;
 }
+
+/*flex vertical text */
+.flex-vertical-text {
+  position: absolute;
+  line-height: 110% !important;
+  font-size: 0.75rem !important;
+  transform: rotate(-90deg);
+}
+@media (max-width: 767px) {
+  .flex-vertical-text {
+    font-size: 0.625rem !important;
+  }
+}
+.flex-vertical-text p  {
+  margin-bottom:  0em !important;
+}
+.flex-vertical-text.edgeBind--right {
+  right: -20vw;
+}
+@media (max-width: 1239px) {
+  .flex-vertical-text.edgeBind--right{
+    right: -17vw;
+  }
+}
+@media (max-width: 1129px) {
+  .flex-vertical-text.edgeBind--right{
+    right: -15vw;
+  }
+}
+@media (max-width: 1059px) {
+  .flex-vertical-text.edgeBind--right{
+    right: -12vw;
+  }
+}
+@media (max-width: 1023px) {
+  .flex-vertical-text.edgeBind--right{
+    right: -8vw;
+  }
+}
+/* @media (max-width: 689px) {
+  .flex-vertical-text.edgeBind--right{
+    right: -10vw;
+  }
+} */
+@media (max-width: 599px) {
+  .flex-vertical-text.edgeBind--right{
+    right: -10vw;
+  }
+}
+@media (max-width: 530px) {
+  .flex-vertical-text.edgeBind--right{
+    right: -12vw;
+  }
+}
+@media (max-width: 415px) {
+  .flex-vertical-text.edgeBind--right{
+    right: -16vw;
+  }
+}
+@media (max-width: 359px) {
+  .flex-vertical-text.edgeBind--right{
+    right: -20vw;
+  }
+}
+@media (max-width: 280px) {
+  .flex-vertical-text.edgeBind--right{
+    right: -22vw;
+  }
+}
+
+.flex-vertical-text.edgeBind--left {
+  left: -20vw;
+}
+ @media (max-width: 1379px) {
+  .flex-vertical-text.edgeBind--left{
+    left: -17vw;
+  }
+} 
+@media (max-width: 1239px) {
+  .flex-vertical-text.edgeBind--left{
+    left: -15vw;
+  }
+}
+@media (max-width: 1169px) {
+  .flex-vertical-text.edgeBind--left{
+    left: -12vw;
+  }
+}
+@media (max-width: 1079px) {
+  .flex-vertical-text.edgeBind--left{
+    left: -10vw;
+  }
+}
+@media (max-width: 1023px) {
+  .flex-vertical-text.edgeBind--left{
+    left: -5vw;
+  }
+}
+@media (max-width: 719px) {
+  .flex-vertical-text.edgeBind--left{
+    left: -6vw;
+  }
+}
+@media (max-width: 530px) {
+  .flex-vertical-text.edgeBind--left{
+    left: -8vw;
+  }
+}
+@media (max-width: 375px) {
+  .flex-vertical-text.edgeBind--left{
+    left: -10vw;
+  }
+}
+@media (max-width: 280px) {
+  .flex-vertical-text.edgeBind--left{
+    left: -12vw;
+  }
+} 
 /* END FLEX GALLERY */
-

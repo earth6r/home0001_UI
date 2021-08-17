@@ -39,11 +39,6 @@ export default {
       type: 'string',
     },
     {
-      name: 'text',
-      title: 'Text',
-      type: 'bodyPortableText',
-    },
-    {
       name: 'articleModule',
       title: 'Article Module',
       type: 'moduleContent',
@@ -51,7 +46,7 @@ export default {
     {
       name: 'pagebreak',
       title: 'Show Pagebreak before Article',
-      default: true,
+      initialValue: true,
       type: 'boolean',
     },
   ],

@@ -37,6 +37,7 @@ import flexEmbed from './objects/flexEmbed'
 import flexCallibration from './objects/flexCallibration'
 import flexSquare from './objects/flexSquare'
 import flexText from './objects/flexText'
+import flexVerticalText from './objects/flexVerticalText'
 import flexPdf from './objects/flexPdf'
 import flexObround from './objects/flexObround'
 import authorReference from './objects/authorReference'
@@ -50,6 +51,7 @@ import richTableCell from './objects/cell'
 import richTableRow from './objects/row'
 import homeUnit from './objects/homeUnit'
 import pane from './objects/pane'
+import viewSpacer from './objects/viewSpacer'
 
 // Modules
 import accordion from './modules/accordion'
@@ -114,6 +116,7 @@ export default createSchema({
     flexEmbed,
     flexCallibration,
     flexText,
+    flexVerticalText,
     flexSquare,
     flexPdf,
     flexObround,
@@ -153,6 +156,7 @@ export default createSchema({
     richTable,
     richTableRow,
     richTableCell,
+    viewSpacer,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ]),

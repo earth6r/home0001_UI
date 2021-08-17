@@ -53,7 +53,6 @@ export const query = graphql`
 
 const IndexPage = (props) => {
   const { data, errors } = props;
-
   if (errors) {
     return (
       <Layout>
@@ -67,8 +66,6 @@ const IndexPage = (props) => {
     main: { modules, slug },
     meta,
   } = data.allSanityRnd.edges[0].node._rawContent;
-
- 
 
   if (!site) {
     throw new Error(
@@ -86,7 +83,7 @@ const IndexPage = (props) => {
         image={meta.openImage}
       />
     }
-      <Container className="rte-large">
+      <Container className="rte-large rte-rnd">
         <div className="flex flex-wrap">{RenderModules(modules)}</div>
       </Container>
     </Layout>
