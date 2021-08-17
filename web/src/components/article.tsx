@@ -106,7 +106,7 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                                     {ReactHtmlParser(item.title)}
                                   </div>
                                   {item.flag && (
-                                    <div className="flag-box w-20 pl-0 md:pl-2">
+                                    <div className="flag-box pl-0 md:pl-2">
                                       <div
                                         style={{
                                           background: item.flagcolor ? item.flagcolor : "none",
