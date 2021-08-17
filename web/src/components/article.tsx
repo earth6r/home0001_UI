@@ -90,53 +90,55 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                         }`}
                       >
                         <table className="w-full mr-5">
-                          {/* add -mb-1/4em in tr */}
-                          <tr className="flex flex-row md:justify-between">
-                            <td className="md:w-4/10">
-                              <a id={item.customslug}>
-                              <div className="article-tag md:text-tagDt">{item.category}</div>
-                              </a>
-                            </td>
-                            <td className="md:w-10/20 flex flex-col items-start ml-10 md:ml-0">
-                              <div className="article-titlebox flex flex-col md:flex-row items-start">
-                                {/* <div className="flex flex-col flex-wrap"> */}
-                                {/* add -mt-1/4em to div  */}
-                                <div className="m-0 article-title relative normal-case md:text-articleTitle">
-                                  {ReactHtmlParser(item.title)}
+                          <tbody>
+                            {/* add -mb-1/4em in tr */}
+                            <tr className="flex flex-row md:justify-between">
+                              <td className="md:w-4/10">
+                                <a id={item.customslug}>
+                                <div className="article-tag md:text-tagDt">{item.category}</div>
+                                </a>
+                              </td>
+                              <td className="md:w-10/20 flex flex-col items-start ml-10 md:ml-0">
+                                <div className="article-titlebox flex flex-col md:flex-row items-start">
+                                  {/* <div className="flex flex-col flex-wrap"> */}
+                                  {/* add -mt-1/4em to div  */}
+                                  <div className="m-0 article-title relative normal-case md:text-articleTitle">
+                                    {ReactHtmlParser(item.title)}
+                                  </div>
+                                  {item.flag && (
+                                    <div className="flag-box w-20 pl-0 md:pl-2">
+                                      <div
+                                        style={{
+                                          background: item.flagcolor ? item.flagcolor : "none",
+                                        }}
+                                        className="flag-bg"
+                                      >
+                                        <div className="flag md:text-flagDt">{item.flag}</div>
+                                      </div>
+                                    </div>
+                                  )}
                                 </div>
-                                {item.flag && (
-                                  <div className="flag-box w-20 pl-0 md:pl-2">
+                                {isExpanded && (
+                                  <div className="article-subtitle tracking-normal md:m-0 py-3">
+                                    {item.subtitle}
+                                  </div>
+                                )}
+                                {/* </div> */}
+                                {/* {item.flag && (
+                                  <div className="flag-box w-0 md:w-20 -m-2 items-start">
                                     <div
                                       style={{
                                         background: item.flagcolor ? item.flagcolor : "none",
                                       }}
-                                      className="flag-bg"
+                                      className="flag-bg ml-2 invisible md:visible"
                                     >
                                       <div className="flag md:text-flagDt">{item.flag}</div>
                                     </div>
                                   </div>
-                                )}
-                              </div>
-                              {isExpanded && (
-                                <div className="article-subtitle tracking-normal md:m-0 py-3">
-                                  {item.subtitle}
-                                </div>
-                              )}
-                              {/* </div> */}
-                              {/* {item.flag && (
-                                <div className="flag-box w-0 md:w-20 -m-2 items-start">
-                                  <div
-                                    style={{
-                                      background: item.flagcolor ? item.flagcolor : "none",
-                                    }}
-                                    className="flag-bg ml-2 invisible md:visible"
-                                  >
-                                    <div className="flag md:text-flagDt">{item.flag}</div>
-                                  </div>
-                                </div>
-                              )} */}
-                            </td>
-                          </tr>
+                                )} */}
+                              </td>
+                            </tr>
+                          </tbody>
                         </table>
                       </div>
                       {/* could become share butten*/}
