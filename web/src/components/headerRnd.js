@@ -49,23 +49,24 @@ const HeaderRnd = ({
   // change state on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const scrolly = document.getElementById("page-content-wrapper").scrollTop
+      console.log("scroll event");
+      const scrollY = window.scrollY;
       //Isa: I am not sure why there is so much logic here, I think we could set isScrolled on State and use that and get rid of scrollUp
-      const isScrolled = scrolly > scrollStart && scrolly > 60;
+      const isScrolled = scrollY > scrollStart && scrollY > 60;
       setScrollStart(isScrolled);
-      // console.log(document.getElementById("page-content-wrapper").scrollTop)
+      console.log(window.scrollY)
       if (isScrolled) {
         setScrollUp(false);
-        setScrollStart(scrolly)
+        setScrollStart(scrollY);
       }else{
         setScrollUp(true);
-        setScrollStart(scrolly)
+        setScrollStart(scrollY);
       }
     };
-    document.getElementById("page-content-wrapper").addEventListener('scroll', handleScroll, { passive: true });
+    document.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
       // clean up the event handler when the component unmounts
-      document.getElementById("page-content-wrapper").removeEventListener('scroll', handleScroll);
+      document.removeEventListener('scroll', handleScroll);
     };
   }, [scrollUp, scrollStart]);
 
