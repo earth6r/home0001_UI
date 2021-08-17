@@ -54,12 +54,12 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
               if(document.readyState === "complete") {
                 setTimeout(function () {
                   findAndScrollSlug(el);
-                }, 0);  
+                }, 500);  
               }
               window.addEventListener("load", () => {
                 setTimeout(function () {
                   findAndScrollSlug(el);
-                }, 0);  
+                }, 500);  
               });
             }, 0);      
           }

@@ -49,12 +49,10 @@ const HeaderRnd = ({
   // change state on scroll
   useEffect(() => {
     const handleScroll = () => {
-      console.log("scroll event");
       const scrollY = window.scrollY;
       //Isa: I am not sure why there is so much logic here, I think we could set isScrolled on State and use that and get rid of scrollUp
       const isScrolled = scrollY > scrollStart && scrollY > 60;
       setScrollStart(isScrolled);
-      console.log(window.scrollY)
       if (isScrolled) {
         setScrollUp(false);
         setScrollStart(scrollY);
