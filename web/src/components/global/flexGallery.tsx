@@ -39,18 +39,24 @@ const FlexGallery = (props) => {
     texts,
     verticalTexts,
   } = props;
-  const myImages = images ? shuffle(images).filter(Boolean) : [];
-  const myrandImages = embeds ? shuffle(myImages.concat(embeds)) : myImages;
-  const randImages2 = pdfs ? shuffle(myrandImages.concat(pdfs)) : myrandImages;
-  const randImages3 = texts ? shuffle(randImages2.concat(texts)) : randImages2;
-  const randImages4 = squares ? shuffle(randImages3.concat(squares)) : randImages3;
-  const randImages5 = callibrationMarks
-    ? shuffle(randImages4.concat(callibrationMarks))
-    : randImages4;
-  const randImages6 = circleButtons ? shuffle(randImages5.concat(circleButtons)) : randImages5;
-  const randImages7 = obroundButtons ? shuffle(randImages6.concat(obroundButtons)) : randImages6;
-  const randImages8 = verticalTexts ? shuffle(randImages7.concat(verticalTexts)) : randImages7;
-  const randImages = edges ? shuffle(randImages8.concat(edges)) : randImages8;
+
+  // Join all submodules into an array
+
+  let subModules = [
+                  images, 
+                  circleButtons, 
+                  obroundButtons, 
+                  embeds, 
+                  squares, 
+                  pdfs, 
+                  edges,
+                  texts,
+                  verticalTexts];
+  
+  subModules = Array.prototype.concat.apply([], subModules); //concat all submodules into a 1-dimensional array
+  subModules = subModules.filter(e => e != null); //filter out anything that is undefined
+
+  
   const justify = ["justify-start", "justify-center", "justify-between", "justify-end"];
   const [direction, setDirection] = useState();
   const [mobile, setMobile] = useState(false);
@@ -104,8 +110,8 @@ const FlexGallery = (props) => {
 
   return (
     <div key={2} style={gridStyle} className="w-full relative flexible-gallery mb-4">
-      {randImages &&
-        randImages.map((image, index) => {
+      {subModules &&
+        subModules.map((image, index) => {
           // console.log(image);
 
           let styleObj = {
