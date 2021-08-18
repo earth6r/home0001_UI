@@ -16,7 +16,7 @@
   min-height: 1px;
 }
 .r-d-nav-text-desktop{
-  font-family: 'Everett', monospace;
+  font-family: 'FolioBT', monospace;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -102,7 +102,7 @@
 
 .rte.rte-large .article-accordion{
   border:none;
-  font-family: Everett;
+  font-family: FolioBT;
   line-height: 0;
 }
 .rte.rte-large .article-accordion button{
@@ -141,9 +141,9 @@
   text-align: left;
 }
 .rte.rte-large .article-accordion .article-title{
-  font-size: 1.25rem;
-  line-height: 120%;
-  letter-spacing: -0.02em;
+  font-size: 33px !important;
+  line-height: 36px !important;
+  letter-spacing: -0.33px;
 
   display: inline;
 }
@@ -270,7 +270,7 @@
 }
 /* info section R & D */
 .info-rnd-content{
-  font-family: Everett;
+  font-family: FolioBT;
   font-size: 0.75rem !important;
 }
 
