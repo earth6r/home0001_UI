@@ -194,17 +194,18 @@ const FlexGallery = (props) => {
                 /* if image is not a link */
                 return (
                   <div
-                    key={image._key}
-                    className={`${image.hideDesktop ? "lg:hidden " : ""} ${
-                      image.hideTablet ? "md:hidden lg:block " : ""
-                    } ${image.hideMobile ? "hidden md:block " : ""} flex-item`}
-                    style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
-                  >
+                  key={image._key}
+                  className={`${image.hideDesktop ? "lg:hidden " : ""} ${image.hideTablet ? "md:hidden lg:block " : ""} ${image.hideMobile ? "hidden md:block " : ""} flex-item`}
+                  style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}>
                     <div
-                      className={`${image.dropShadow ? "drop-shadow" : ""} ${
-                        image.border ? " border-img" : ""
-                      } z-40 relative`}
-                    >
+                    className={`
+                    ${image.dropShadow ? "drop-shadow" : ""} 
+                    ${image.border ? " border-img" : ""} 
+                    ${image.paddingTop ? "pt-" + image.paddingTop : ""} 
+                    ${image.paddingBottom ? "pb-" + image.paddingBottom : ""} 
+                    ${image.paddingLeft ? "pl-" + image.paddingLeft : ""} 
+                    ${image.paddingRight ? "pr-" + image.paddingRight : ""} 
+                    z-40 relative`}>
                       <Figure node={image} />
                     </div>{" "}
                     {image.caption && (
