@@ -119,6 +119,42 @@ export default {
         isHighlighted: true,
       },
     },
+    {
+      name:'paddingTopMobile',
+      type: 'number',
+      description: "padding top Mobile",
+      title: 'Padding Top Mobile',
+      options: {
+        isHighlighted: true,
+      },
+    },
+    {
+      name:'paddingBottomMobile',
+      type: 'number',
+      description: "padding bottom Mobile",
+      title: 'Padding Bottom Mobile',
+      options: {
+        isHighlighted: true,
+      },
+    },
+    {
+      name:'paddingLeftMobile',
+      type: 'number',
+      description: "padding left Mobile",
+      title: 'Padding Left Mobile',
+      options: {
+        isHighlighted: true,
+      },
+    },
+    {
+      name:'paddingRightMobile',
+      type: 'number',
+      description: "padding right Mobile",
+      title: 'Padding Right Mobile',
+      options: {
+        isHighlighted: true,
+      },
+    },
     
     {
       name:'startColumnTablet',
@@ -154,6 +190,42 @@ export default {
       type: 'number',
       description: "ending row for tablet",
       title: 'ending Row tablet',
+      options: {
+        isHighlighted: true,
+      },
+    },
+    {
+      name:'paddingTopTablet',
+      type: 'number',
+      description: "padding top Tablet",
+      title: 'Padding Top Tablet',
+      options: {
+        isHighlighted: true,
+      },
+    },
+    {
+      name:'paddingBottomTablet',
+      type: 'number',
+      description: "padding bottom Tablet",
+      title: 'Padding Bottom Tablet',
+      options: {
+        isHighlighted: true,
+      },
+    },
+    {
+      name:'paddingLeftTablet',
+      type: 'number',
+      description: "padding left Tablet",
+      title: 'Padding Left Tablet',
+      options: {
+        isHighlighted: true,
+      },
+    },
+    {
+      name:'paddingRightTablet',
+      type: 'number',
+      description: "padding right Tablet",
+      title: 'Padding Right Tablet',
       options: {
         isHighlighted: true,
       },
