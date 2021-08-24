@@ -201,10 +201,10 @@ const FlexGallery = (props) => {
                     className={`
                     ${image.dropShadow ? "drop-shadow" : ""} 
                     ${image.border ? " border-img" : ""} 
-                    ${image.paddingTop ? "pt-" + image.paddingTop : ""} 
-                    ${image.paddingBottom ? "pb-" + image.paddingBottom : ""} 
-                    ${image.paddingLeft ? "pl-" + image.paddingLeft : ""} 
-                    ${image.paddingRight ? "pr-" + image.paddingRight : ""} 
+                    ${image.paddingTop ? "pt-p" + image.paddingTop : ""} 
+                    ${image.paddingBottom ? "pb-p" + image.paddingBottom : ""} 
+                    ${image.paddingLeft ? "pl-p" + image.paddingLeft : ""} 
+                    ${image.paddingRight ? "pr-p" + image.paddingRight : ""} 
                     z-40 relative`}>
                       <Figure node={image} />
                     </div>{" "}

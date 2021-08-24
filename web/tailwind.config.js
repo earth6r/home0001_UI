@@ -5,9 +5,10 @@ module.exports = {
     ],
   important: true,
   theme: {
-    inset: {
-      "0": "0",
-      "1/2": "50%",
+    borderColor: {
+      default: "#edeef0",
+      secondary: "#cacaca",
+      dark: "#434343",
     },
     fontSize: {
       sm: [
@@ -125,26 +126,15 @@ module.exports = {
       articleTitle: ["2.19vw", "1.2"],
       "2xl": ["2rem", "2.375rem"],
     },
-    borderColor: {
-      default: "#edeef0",
-      secondary: "#cacaca",
-      dark: "#434343",
+    inset: {
+      "0": "0",
+      "1/2": "50%",
     },
     textColor: {
       primary: "#000000",
       white: "#ffffff"
     },
     extend: {
-      keyframes: {
-        in: {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
-        },
-        out: {
-          "0%": { opacity: "1" },
-          "100%": { opacity: "0" },
-        },
-      },
       animation: {
         in: "in .25s linear 1s forwards",
         out: "out .25s linear 0s forwards",
@@ -159,20 +149,48 @@ module.exports = {
         lightGray: "#f2f2f2",
         darkGray: "#1f1f1f",
       },
-      textColor: {
-        primary: "#F7F6F0",
-        red: "#e30613",
-        gray: "#797979",
-        darkGray: "#333333",
-        aside: "#4c4c4e",
-        rte: "#393939",
-        subtitle: "#b9b9b9",
-      },
       borderWidth: {
         "1/2": ".5px",
       },
       fontFamily: {
         serif: ["GP", "Helvetica", "Arial", "sans-serif"],
+      },
+      inset: {
+        "2": "34%",
+        "3": "63.24%",
+        menu: "100px",
+      },
+      keyframes: {
+        in: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        out: {
+          "0%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        },
+      },
+      padding: {
+        p1: "1%",
+        p2: "2%",
+        p3: "3%",
+        p4: "4%",
+        p5: "5%",
+        p6: "6%",
+        p7: "7%",
+        p8: "8%",
+        p9: "9%",
+        p10: "10%",
+        p11: "11%",
+        p12: "12%",
+        p13: "13%",
+        p14: "14%",
+        p15: "15%",
+        p16: "16%",
+        p17: "17%",
+        p18: "18%",
+        p19: "19%",
+        p20: "20%",
       },
       spacing: {
         mobile: ".625rem",
@@ -227,14 +245,18 @@ module.exports = {
         "18/20": "90vw",
         "19/20": "95vw",
       },
-      inset: {
-        "2": "34%",
-        "3": "63.24%",
-        menu: "100px",
-      },
       screens: {
         "tiny": "460px",
         "max-font": "1083px"
+      },
+      textColor: {
+        primary: "#F7F6F0",
+        red: "#e30613",
+        gray: "#797979",
+        darkGray: "#333333",
+        aside: "#4c4c4e",
+        rte: "#393939",
+        subtitle: "#b9b9b9",
       },
       width: {
         "372": "372px",
@@ -256,7 +278,9 @@ module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
   },
-  variants: {},
+  variants: {
+    
+  },
   plugins: [
     ({ addComponents, theme }) => {
       addComponents({
