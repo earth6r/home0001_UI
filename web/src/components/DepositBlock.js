@@ -92,10 +92,9 @@ const DiscountNotice = ({ discountCode, color, codes }) => {
   
   return (
     <div className="discount-container mb-1">
-      <div className="">$100 USD</div>
-      
+      <div className=""> $100 USD / 0.002 BTC / 0.03 ETH</div>
     </div>
-    );
+  );
 
 };
 
@@ -109,69 +108,52 @@ const handleRefund = () => {
   }
 }
   return(
-  <>
-    <h1 className="membership-deposit mb-2">Hold your spot.
-    <br />
-    </h1>
-  
+  <>  
     <div id='spots-remaining-count'>
-   <span> Spots remaining:</span> {depositCounter}
+      <span> Hold your spot:</span> {depositCounter}
     </div>
 
+    <Accordion className="max-w-2xl my-20 w-full deposit-accordion" allowToggle allowMultiple>
+      <AccordionItem
+      defaultIsOpen={false}
+      className="border-none relative block accordion max-w-2xl">
+        {({ isExpanded }) => (
+          <>
+            <AccordionHeader className=" relative py-6 border-none">
+              <h2 className="m-0 -mt-1/4em md:mt-0">{"What's included?"}</h2>
+              <div className="accordion-icon right-0 absolute pr-1em">
+                {isExpanded ? 
+                  <span id='thin-minus'></span>
+                  : 
+                  <svg width="22" height="21" viewBox="0 0 22 21" fill="none">
+                  <path d="M10.7243 0V10.5M10.7243 21V10.5M10.7243 10.5H21.1322M10.7243 10.5H0.316406" stroke="white"/>
+                  </svg>
+                }
+              </div>
+            </AccordionHeader>
+            <AccordionPanel className="pb-1em">
+              <PortableText blocks={whatsIncluded} />
+            </AccordionPanel>
+          </>
+        )}
+      </AccordionItem>
+    </Accordion>
 
-
-
-      <Accordion className="max-w-2xl my-20 w-full deposit-accordion" allowToggle allowMultiple>
-  
-              <AccordionItem
-
-              defaultIsOpen={false}
-              className="border-none relative block accordion max-w-2xl"
-            >
-              {({ isExpanded }) => (
-                <>
-                  <AccordionHeader className=" relative py-6 border-none">
-                    <h2 className="m-0 -mt-1/4em md:mt-0">{"What's included?"}</h2>
-                    <div
-                      
-                      className="accordion-icon right-0 absolute pr-1em"
-                    >
-                      {isExpanded ? 
-                       <span id='thin-minus'></span>
-                        : 
-                        <svg width="22" height="21" viewBox="0 0 22 21" fill="none">
-                        <path d="M10.7243 0V10.5M10.7243 21V10.5M10.7243 10.5H21.1322M10.7243 10.5H0.316406" stroke="white"/>
-                        </svg>
-                      }
-                    </div>
-                  </AccordionHeader>
-                  <AccordionPanel className="pb-1em">
-                    <PortableText blocks={whatsIncluded} />
-                  </AccordionPanel>
-                </>
-              )}
-            </AccordionItem>
-        </Accordion>
-
-
-
-
- <div id='deposit-text-span'>
-   <span> Membership Deposit:</span> <DiscountNotice codes={codes} color={color} discountCode={discountCode} />
+    <div id='deposit-text-span'>
+      <span> Reservation Deposit:</span> <DiscountNotice codes={codes} color={color} discountCode={discountCode} />
     </div>
 
-     <div className="mb-8" id='refundable-text-span'>
+    <div className="mb-8" id='refundable-text-span'>
         Fully refundable any time, for any reason. <span onClick={handleRefund} id='question-trigger'>?</span>
     </div>
+
     {unitTitle &&
       <p className="mb-0">Reserve unit {unitTitle}</p>
     }
-    <p>
+    <p></p>
 
-
-  </p>
-  {showRefund ?
-     <>
+    {showRefund ?
+      <>
         <div className="refund-popup rounded-md  w-full md:max-w-md fixed md:display-block py-4 md:m-auto px-8 bg-white">  
           <button onClick={handleRefund} aria-label="Close" type="button" className="refund-close">
           <svg viewBox="0 0 24 24" focusable="false" role="presentation" aria-hidden="true"><path fill="currentColor" d="M.439,21.44a1.5,1.5,0,0,0,2.122,2.121L11.823,14.3a.25.25,0,0,1,.354,0l9.262,9.263a1.5,1.5,0,1,0,2.122-2.121L14.3,12.177a.25.25,0,0,1,0-.354l9.263-9.262A1.5,1.5,0,0,0,21.439.44L12.177,9.7a.25.25,0,0,1-.354,0L2.561.44A1.5,1.5,0,0,0,.439,2.561L9.7,11.823a.25.25,0,0,1,0,.354Z"></path></svg></button>
@@ -180,10 +162,8 @@ const handleRefund = () => {
           </div>
         </div>
         <div className="refund-popup-overlay" onClick={handleRefund}></div>
-        </>
-
-
-  : ""}
+      </>
+      : ""}
   </>
 )};
 
@@ -267,7 +247,7 @@ const CheckoutModules = ({ unit, modules, children, discount, discountCode }) =>
 const DepositBlock = (props) => {
 	const {depositPage} = props
   return(
-<StaticQuery
+    <StaticQuery
       query={query}
       render={data => {
       	  let sku = "MEMB001";
@@ -286,54 +266,51 @@ const DepositBlock = (props) => {
 	          <CheckoutActions unit={null}>
 	            <PaymentContext.Consumer>
 	              {({ discount, discountCode }) => {
-	                
-
-	                
 	                return (
-	              <>
-	                <CheckoutDescription
-	                  unit={null}
-	                  color={null}
-	                  codes={null}
-	                  whatsIncluded={whatsIncluded}
-	                  depositCounter={depositCounter}
-	                  modules={[0]}
-	                  discount={null}
-	                  discountCode={null}
-	                >
-	                  
+                    <>
+                      <CheckoutDescription
+                        unit={null}
+                        color={null}
+                        codes={null}
+                        whatsIncluded={whatsIncluded}
+                        depositCounter={depositCounter}
+                        modules={[0]}
+                        discount={null}
+                        discountCode={null}
+                      >
+                        
 
-	                </CheckoutDescription>
-	                <CheckoutCreate
-	                    home={null}
-	                    unit={null}
-	                    sku={sku}
-	                    bitPayID={bitPayID}
-	                    discount={null}
-	                    codes={null}
-	                    discountCode={null}
-	                    stripePromise={stripePromise}
-	                  />
-	                <CheckoutModules
-	                  unit={null}
-	                  modules={[0]}
-	                  discount={null}
-	                  discountCode={null}
-	                >
-	                  
+                      </CheckoutDescription>
+                      <CheckoutCreate
+                          home={null}
+                          unit={null}
+                          sku={sku}
+                          bitPayID={bitPayID}
+                          discount={null}
+                          codes={null}
+                          discountCode={null}
+                          stripePromise={stripePromise}
+                        />
+                      <CheckoutModules
+                        unit={null}
+                        modules={[0]}
+                        discount={null}
+                        discountCode={null}
+                      >
+                        
 
-	                </CheckoutModules>
+                      </CheckoutModules>
 
-	                </>
-	              )
+                    </>
+	                )
 	              }}
 	            </PaymentContext.Consumer>
 	          </CheckoutActions>
 	        </CheckoutOptions>
 	        </div>
 	        <div className="w-3/6 max-w-3xl pl-2 mt-6 align-top hidden lg:inline-block relative">
-	                    <Figure node={depositBlockImage}/>
-	                </div>
+            <Figure node={depositBlockImage}/>
+          </div>
 	      </Container>
       	)}}
       />

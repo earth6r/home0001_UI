@@ -1,36 +1,36 @@
-import React, { useState, useEffect, useRef } from "react";
-import Header from "./header";
-import HeaderRnd from "./headerRnd";
 import Footer from "./footer";
 import GridRow from "./grid/grid-row";
+import Header from "./header";
+import HeaderRnd from "./headerRnd";
+import React, { useState, useEffect, useRef } from "react";
 
 const Layout = ({
-  mainMenu,
-  infoSection,
-  blackHeader,
-  newsletter,
-  strikeColor,
-  pillColor,
-  infoSectionBelow,
-  showPopupNewsletter,
-  blackFooter,
-  rMenu,
-  rnd = false,
-  subMenu,
-  footerMenu,
-  children,
-  onHideNav,
-  onShowNav,
-  showNav,
-  onHideSubNav,
-  onShowSubNav,
-  showSubNav,
-  siteTitle,
-  isHome,
-  thinBanner,
-  showThinBanner,
   bannerUrl,
   bannerUrlTitle,
+  blackFooter,
+  blackHeader,
+  children,
+  footerMenu,
+  infoSection,
+  infoSectionBelow,
+  isHome,
+  mainMenu,
+  newsletter,
+  onHideNav,
+  onHideSubNav,
+  onShowNav,
+  onShowSubNav,
+  pillColor,
+  rMenu,
+  rnd = false,
+  showNav,
+  showPopupNewsletter,
+  showSubNav,
+  showThinBanner,
+  siteTitle,
+  strikeColor,
+  subMenu,
+  thinBanner,
 }) => {
   const myRef = useRef({
     location: null,

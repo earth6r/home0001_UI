@@ -48,6 +48,16 @@
 
 @font-face {
   font-family: 'FolioBT';
+  src: url("FolioBT-Book.woff2") format('woff2');
   src: url("FolioBT-Book.woff") format('woff');
+  src: url("FolioBT-Book.ttf") format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NeueHaasGrotesk';
+  src: url("NHaasGroteskTXPro-75Bd.woff2") format('woff2'),
+       url("NHaasGroteskTXPro-75Bd.woff") format('woff'),
+       url("NHaasGroteskTXPro-75Bd.ttf") format('truetype');
   font-display: swap;
 }

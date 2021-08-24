@@ -127,9 +127,9 @@ form .earth-svg svg {
   margin-bottom:  0em !important;
 }
 .flex-vertical-text.edgeBind--right {
-  right: -20vw;
+  right: -10vw;
 }
-@media (max-width: 1239px) {
+/* @media (max-width: 1239px) {
   .flex-vertical-text.edgeBind--right{
     right: -17vw;
   }
@@ -148,7 +148,7 @@ form .earth-svg svg {
   .flex-vertical-text.edgeBind--right{
     right: -8vw;
   }
-}
+} */
 /* @media (max-width: 689px) {
   .flex-vertical-text.edgeBind--right{
     right: -10vw;

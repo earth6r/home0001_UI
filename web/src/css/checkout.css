@@ -54,7 +54,7 @@ color:black;
 text-transform: none;
 }
 .home-deposit-module::before{
-  background: #171717;
+  background: #E5E5E5;
   content:"";
   top:0;
   left:-27px;
@@ -65,14 +65,14 @@ text-transform: none;
 }
 .home-deposit-module {
   color:white;
-  background: #171717;
+  background: #E5E5E5;
   position: relative;
 }
 .home-deposit-module-scroll{
   z-index: 99;
 }
 .dark-theme{
-  background:#171717;
+  background:#E5E5E5;
 }
 .home-deposit-module label{
   color:white;

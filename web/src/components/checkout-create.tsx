@@ -28,7 +28,7 @@ const DisabledButton = () => {
 
 
     <span id="checkout-button" role="link" onClick={clickHandler} className="max-w-2xl block w-full">
-        <input className="e-checkout relative special-stripe text-center bg-white text-black white-box rounded-full w-full block leading-none h-3em md:h-2em justify-center text-mobileBody md:text-desktopBody" type="submit" value="Join Now" />
+        <input className="e-checkout relative special-stripe text-center bg-white text-black white-box rounded-full w-full block leading-none h-3em md:h-2em justify-center text-mobileBody md:text-desktopBody" type="submit" value="Join sum Now" />
       </span>
   </div>
 )};
@@ -105,20 +105,23 @@ const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, hand
     <>
       <section className="mb-10 md:mb-20">
         <form>
-        <div className="stripe-button max-w-2xl py-2 block w-full">
-          <img src={stripeIcons} />
-          <span id="checkout-button" role="link" onClick={handleStripe} className="relative text-gray-700 max-w-2xl block w-full">
-            <input defaultChecked={showStripe ? true :  false} id="stripe-radio" type="radio" className="absolute bg-none"/><label htmlFor="stripe-radio" className="e-checkout rounded-md option-button-checkout special-stripe text-left text-white  box rounded-none w-full block h-2rem justify-center">Pay with card</label>
-          </span>
-        </div>
+          <div className="stripe-button max-w-2xl py-2 block w-full">
+            <img src={stripeIcons} />
+            <span id="checkout-button" role="link" onClick={handleStripe} className="relative text-gray-700 max-w-2xl block w-full">
+              <input defaultChecked={showStripe ? true :  false} id="stripe-radio" type="radio" className="absolute bg-none"/><label htmlFor="stripe-radio" className="e-checkout rounded-md option-button-checkout special-stripe text-left text-white  box rounded-none w-full block h-2rem justify-center">Pay with card</label>
+            </span>
+          </div>
 
-        <div className="stripe-button pt-2 bit-button max-w-2xl block w-full">
-          <img src={bitIcons} />
-          <span onClick={handleBit} className="max-w-2xl block w-full relative text-gray-700">
-            <input id="bit-radio" type="radio" className="absolute bg-none"/><label htmlFor="bit-radio" className="e-checkout option-button-checkout special-bitcoin rounded-md text-left text-white text-gray-700 box w-full block h-2rem rounded-none justify-center ">Pay with crypto</label>
-          </span>
-        </div>
+          <div className="stripe-button pt-2 bit-button max-w-2xl block w-full">
+            <img src={bitIcons} />
+            <span onClick={handleBit} className="max-w-2xl block w-full relative text-gray-700">
+              <input id="bit-radio" type="radio" className="absolute bg-none"/><label htmlFor="bit-radio" className="e-checkout option-button-checkout special-bitcoin rounded-md text-left text-white text-gray-700 box w-full block h-2rem rounded-none justify-center ">Pay with crypto</label>
+            </span>
+          </div>
         </form>
+
+        <StripeCheckoutCreateButton disabled={disabled} handleClick={handleStripeClick} />
+        <BitPayCheckoutButton disabled={disabled} bitPayID={bitPayID} onClick={handleBitpayClick}/>
 
         <CheckoutTerms disabled={disabled} handleChange={handleChange} />
         { !disabled &&
@@ -135,23 +138,6 @@ const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, hand
           <DisabledButton/>
           : ""
         }
-
-
-
-
-
-
-
-        {/*<div className="py-1em">
-          <span className="max-w-4xl block w-full md:pl-1/10">
-            <Link
-              className="box rounded-md w-full block text-center leading-none h-2em  flex items-center justify-center text-mobileBody md:text-desktopBody uppercase"
-              to="/homes"
-            >
-              <span className="-mt-1/4em md:mt-0">Available Homes</span>
-            </Link>
-          </span>
-        </div>*/}
       </section>
     </>
   );
