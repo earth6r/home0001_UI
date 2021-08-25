@@ -44,6 +44,7 @@
 /* pay language 14px and terms matches*/
 .stripe-button, .bit-button{
   position:relative;
+  font-size:1.125rem;
 }
 /*DEPOSIT BLOCK*/
 .home-deposit-module *{
@@ -151,7 +152,7 @@ text-transform: none;
 }
 
 .stripe-button input, .bit-button input{
-  padding:0 50px;
+  padding:20px 50px;
   text-transform: uppercase;
 }
 
