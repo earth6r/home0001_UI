@@ -99,8 +99,8 @@ if(typeof window != `undefined`){
       <header className={`${showThinBanner && thinBanner ? "mt-16 md:mt-8" : "" } ${blackHeader ? "black-header ":""} fixed z-50 w-full left-0`}>
         <div className={`${showNav ? "h-full" : ""} flex container pb-0 w-full nav md:bg-transparent md:relative justify-between md:justify-center md:justify-between items-center content-center`}>
           <nav className="flex w-full justify-between md:hidden">
-            <h1 style={{ top: ".05em" }} className="md:hidden relative">
-              <PageLink to="/">
+            <h1 className="md:hidden relative">
+              <PageLink className={`${currentUri && currentUri.includes('/')  ? "": "current-nav-link"}`} to="/">
                 Earth
               </PageLink>
             </h1>
@@ -113,7 +113,7 @@ if(typeof window != `undefined`){
             >
               <div
                 style={{ marginTop: ".5px" }}
-                className={`${showNav ? "hidden" : ""}  px-4 flex justify-center h-full w-full items-center absolute top-0 left-0`}
+                className={`${showNav ? "hidden" : ""}  px-4 flex justify-center h-full w-full items-center absolute top-0 ml-1`}
               >
                 <Icon symbol="hamburgerRed" />
               </div>
@@ -127,8 +127,11 @@ if(typeof window != `undefined`){
           </nav>
 
           <nav
-          className={`${showThinBanner && thinBanner ? "mt-16 md:mt-4" : "" } ${showNav ? "block z-40 bg-white md:shadow-none transition-none" : "hidden"} fixed left-0 top-0 md:relative w-full md:block h-full`}>
-            <div className="mx-mobile md:mx-0">
+          className={`
+          ${showThinBanner && thinBanner ? "mt-16 md:mt-4" : "" } 
+          ${showNav ? "block z-40 bg-white md:shadow-none transition-none" : "hidden"} 
+          fixed md:relative top-0 left-0 w-full md:block h-full`}>
+            <div className="nav-box mx-mobile md:mx-0">
               <ul
                 style={{}}
                 className="flex pt-2em md:pt-0 flex-wrap relative mt-1 container p-0 m-0 md:flex md:flex-no-wrap w-full justify-center md:justify-between"
