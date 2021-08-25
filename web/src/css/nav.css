@@ -13,12 +13,32 @@ header{
   color: #FF0000;
 }
 
+nav .nav-box{
+  padding-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 @media (max-width: 767px) {
   header {
     font-size: 12px;
     line-height: 20px;
   }
 }
+
+@media (max-width: 569px) {
+  header {
+    top:16px;
+    padding-left: 10px;
+    padding-right: 0px;
+  }
+  nav .nav-box{
+    padding-top: 4px;
+    padding-left: 10px;
+    padding-right: 0px;
+  }
+}
+
 
 .nav h1,
 .nav a {
@@ -141,6 +161,7 @@ header{
   .max-w-special{
     max-width:calc(100% - 8rem) !important;
   }
+
   .logo .current-nav-link::after{
     width: 105%;
   }
@@ -159,7 +180,27 @@ header{
     display: block;
     box-shadow: 0 2.5px 0px -1px #FF0000;
   }
+
 }
+.logo .current-nav-link::after{
+  width: 105%;
+}
+.current-nav-link.homes::after{
+  width:101%;
+}
+.current-nav-link.about::after{
+  left:-1px;
+}
+.current-nav-link::after{
+  content: "";
+  width: 100%;
+  height: 4px;
+  position: relative;
+  top: -4px;
+  display: block;
+  box-shadow: 0 2.5px 0px 0px red;
+}
+
 .sub-menu{
 
   top:-5px;
