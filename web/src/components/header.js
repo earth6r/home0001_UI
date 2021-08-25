@@ -96,7 +96,7 @@ if(typeof window != `undefined`){
     }
       
 
-      <header className={`${showThinBanner && thinBanner ? "mt-16 md:mt-8" : "" } ${blackHeader ? "black-header ":""} fixed z-50 w-full left-0`}>
+      <header className={`${showThinBanner && thinBanner ? "mt-16 md:mt-8" : "" } ${blackHeader ? "black-header ":""} fixed z-50 w-full left-0 text-mobileNav md:text-desktopNav`}>
         <div className={`${showNav ? "h-full" : ""} flex container pb-0 w-full nav md:bg-transparent md:relative justify-between md:justify-center md:justify-between items-center content-center`}>
           <nav className="flex w-full justify-between md:hidden">
             <h1 style={{ top: ".05em" }} className="md:hidden relative">

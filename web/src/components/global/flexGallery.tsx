@@ -374,16 +374,18 @@ const FlexGallery = (props) => {
             /* VERTICAL CAPTIONS */
             case "flexVerticalText":
               return (
-                <div
-                  key={image._key}
-                  className={`
-                    ${image.edgeBind ? "edgeBind--" + image.edgeBind : "" }
-                    flex-vertical-text 
-                  `}
-                  style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
+                <div className={`flex-item ${image.edgeBind ? "edgeBind--" + image.edgeBind + "-wrapper" : "" }`} style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
                 >
-                  <div style={{ color: `${image.color ? image.color : "inherit"}` }}>
-                    <PortableText className="m-0" blocks={image.text} />
+                  <div
+                    key={image._key}
+                    className={`
+                      ${image.edgeBind ? "edgeBind--" + image.edgeBind : "" }
+                      flex-vertical-text text-mobileNav md:text-desktopNav
+                    `}
+                  >
+                    <div style={{ color: `${image.color ? image.color : "inherit"}` }}>
+                      <PortableText className="m-0" blocks={image.text} />
+                    </div>
                   </div>
                 </div>
               );

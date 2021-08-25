@@ -38,7 +38,7 @@ module.exports = {
       ],
 
       base: ["1rem", "1.25rem"],
-      baseMd: ["1.625rem", "1.875rem"],
+      baseMd: ["1.8vw"],
       baseLg: ["3.75rem", "4.25rem"],
       baseLgMobile: ["3.75rem", "4.25rem"],
       baseRte: [
@@ -56,16 +56,16 @@ module.exports = {
         },
       ],
       desktopBody: [
-        "1.875rem",
+        "1.8vw",
         {
-          lineHeight: "2.5rem",
+          lineHeight: "2.5vw",
           letterSpacing: "-.005em",
         },
       ],
       desktopNav: [
-        "1.125rem",
+        "0.9vw",
         {
-          lineHeight: "1.125rem",
+          lineHeight: "1vw",
           letterSpacing: "0rem",
         },
       ],
@@ -86,16 +86,16 @@ module.exports = {
         },
       ],
       mobileLarge: [
-        "1.625rem",
+        "4.1666vw",
         {
-          lineHeight: "1.875rem",
+          lineHeight: "4.722vw",
           letterSpacing: "0.01em",
         },
       ],
       mobileBody: [
-        "1rem",
+        "4.1666vw",
         {
-          lineHeight: "1.25rem",
+          lineHeight: "4.722vw",
           letterSpacing: "0.01em",
         },
       ],
