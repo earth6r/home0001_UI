@@ -118,18 +118,30 @@ const FlexGallery = (props) => {
             gridColumnEnd: image._type == "flexEdgetoEdge" ? 999 : image.endColumn,
             gridRowStart: image.startRow,
             gridRowEnd: image.endRow,
+            paddingTop: image.paddingTop + "vw",
+            paddingBottom: image.paddingBottom + "vw",
+            paddingLeft: image.paddingLeft + "vw",
+            paddingRight: image.paddingRight + "vw",
           };
           let styleObjMobile = {
             gridColumnStart: image.startColumnMobile,
             gridColumnEnd: image.endColumnMobile,
             gridRowStart: image.startRowMobile,
             gridRowEnd: image.endRowMobile,
+            paddingTop: image.paddingTopMobile + "vw",
+            paddingBottom: image.paddingBottom + "vw",
+            paddingLeft: image.paddingLeft + "vw",
+            paddingRight: image.paddingRightMobile + "vw",
           };
           let styleObjTablet = {
             gridColumnStart: image.startColumnTablet,
             gridColumnEnd: image.endColumnTablet,
             gridRowStart: image.startRowTablet,
             gridRowEnd: image.endRowTablet,
+            paddingTop: image.paddingTop + "vw",
+            paddingBottom: image.paddingBottom + "vw",
+            paddingLeft: image.paddingLeft + "vw",
+            paddingRight: image.paddingRightTablet + "vw",
           };
         /* end css grid info */
 
@@ -171,18 +183,6 @@ const FlexGallery = (props) => {
                         ${image.dropShadow ? "drop-shadow" : ""} 
                         ${image.border ? " border-img" : ""} 
                         ${image.hoverImage ? "hover-hide" : ""} 
-                        ${image.paddingTopMobile ? "pt-p" + image.paddingTopMobile : ""} 
-                        ${image.paddingBottomMobile ? "pb-p" + image.paddingBottomMobile : ""} 
-                        ${image.paddingLeftMobile ? "pl-p" + image.paddingLeftMobile : ""} 
-                        ${image.paddingRightMobile ? "pr-p" + image.paddingRightMobile : ""} 
-                        ${image.paddingTop ? "md:pt-p" + image.paddingTop : ""} 
-                        ${image.paddingBottom ? "md:pb-p" + image.paddingBottom : ""} 
-                        ${image.paddingLeft ? "md:pl-p" + image.paddingLeft : ""} 
-                        ${image.paddingRight ? "md:pr-p" + image.paddingRight : ""} 
-                        ${image.paddingTopTablet ? "sm:pt-p" + image.paddingTopTablet : ""} 
-                        ${image.paddingBottomTablet ? "sm:pb-p" + image.paddingBottomTablet : ""} 
-                        ${image.paddingLeftTablet ? "sm:pl-p" + image.paddingLeftTablet : ""} 
-                        ${image.paddingRightTablet ? "sm:pr-p" + image.paddingRightTablet : ""} 
                         z-40 relative inline-block w-full`}>
                           <Figure node={image} />
                         </div>{" "}
@@ -194,18 +194,6 @@ const FlexGallery = (props) => {
                           className={`
                           ${image.dropShadow ? "drop-shadow" : ""} 
                           ${image.border ? " border-img" : ""} 
-                          ${image.paddingTopMobile ? "pt-p" + image.paddingTopMobile : ""} 
-                          ${image.paddingBottomMobile ? "pb-p" + image.paddingBottomMobile : ""} 
-                          ${image.paddingLeftMobile ? "pl-p" + image.paddingLeftMobile : ""} 
-                          ${image.paddingRightMobile ? "pr-p" + image.paddingRightMobile : ""} 
-                          ${image.paddingTop ? "md:pt-p" + image.paddingTop : ""} 
-                          ${image.paddingBottom ? "md:pb-p" + image.paddingBottom : ""} 
-                          ${image.paddingLeft ? "md:pl-p" + image.paddingLeft : ""} 
-                          ${image.paddingRight ? "md:pr-p" + image.paddingRight : ""} 
-                          ${image.paddingTopTablet ? "sm:pt-p" + image.paddingTopTablet : ""} 
-                          ${image.paddingBottomTablet ? "sm:pb-p" + image.paddingBottomTablet : ""} 
-                          ${image.paddingLeftTablet ? "sm:pl-p" + image.paddingLeftTablet : ""} 
-                          ${image.paddingRightTablet ? "sm:pr-p" + image.paddingRightTablet : ""} 
                           hover-image w-full inline-block`}>
                             {" "}
                             <Figure node={image.hoverImage} />
@@ -229,18 +217,6 @@ const FlexGallery = (props) => {
                     className={`
                     ${image.dropShadow ? "drop-shadow" : ""} 
                     ${image.border ? " border-img" : ""} 
-                    ${image.paddingTopMobile ? "pt-p" + image.paddingTopMobile : ""} 
-                    ${image.paddingBottomMobile ? "pb-p" + image.paddingBottomMobile : ""} 
-                    ${image.paddingLeftMobile ? "pl-p" + image.paddingLeftMobile : ""} 
-                    ${image.paddingRightMobile ? "pr-p" + image.paddingRightMobile : ""} 
-                    ${image.paddingTop ? "md:pt-p" + image.paddingTop : ""} 
-                    ${image.paddingBottom ? "md:pb-p" + image.paddingBottom : ""} 
-                    ${image.paddingLeft ? "md:pl-p" + image.paddingLeft : ""} 
-                    ${image.paddingRight ? "md:pr-p" + image.paddingRight : ""} 
-                    ${image.paddingTopTablet ? "sm:pt-p" + image.paddingTopTablet : ""} 
-                    ${image.paddingBottomTablet ? "sm:pb-p" + image.paddingBottomTablet : ""} 
-                    ${image.paddingLeftTablet ? "sm:pl-p" + image.paddingLeftTablet : ""} 
-                    ${image.paddingRightTablet ? "sm:pr-p" + image.paddingRightTablet : ""} 
                     z-40 relative`}>
                       <Figure node={image} />
                     </div>{" "}
