@@ -11,24 +11,23 @@ import { StyledPageLink } from "./global/internalLink";
 
 const StripeCheckoutCreateButton = ({ handleClick, disabled }) => (
   <div className="stripe-button max-w-2xl block w-full">
-
-
-  <span id="checkout-button" role="link" onClick={handleClick} className="max-w-2xl block w-full">
-      <input className="e-checkout relative special-stripe text-center bg-white text-black  white-box rounded-full w-full block leading-none h-3em md:h-2em justify-center text-mobileBody md:text-desktopBody" type="submit" value="Join Now" />
+    <img src={stripeIcons} />
+    <span id="checkout-button" role="link" onClick={handleClick} className="max-w-2xl block w-full">
+        <input className="e-checkout my-4 relative special-stripe text-left bg-white text-black  white-box rounded-full w-full block leading-none h-3em md:h-2em justify-center text-mobileBody md:text-desktopBody" type="submit" value="pay with card" />
     </span>
   </div>
 );
 
-const DisabledButton = () => {
+const DisabledButton = ({text}) => {
   const clickHandler = () => {
    document.getElementById('terms').classList.add("alert");
   }
   return(
-  <div className="disabled-button max-w-2xl block w-full">
+  <div className="disabled-button max-w-2xl stripe-button block w-full">
 
-
+    <img src={text == 'pay with card' ? stripeIcons : bitIcons} />
     <span id="checkout-button" role="link" onClick={clickHandler} className="max-w-2xl block w-full">
-        <input className="e-checkout relative special-stripe text-center bg-white text-black white-box rounded-full w-full block leading-none h-3em md:h-2em justify-center text-mobileBody md:text-desktopBody" type="submit" value="Join sum Now" />
+        <input className="e-checkout my-4 relative special-stripe text-left bg-white text-black white-box rounded-full w-full block leading-none h-3em md:h-2em justify-center text-mobileBody md:text-desktopBody" type="submit" value={text} />
       </span>
   </div>
 )};
@@ -39,9 +38,9 @@ const BitPayCheckoutButton = ({ bitPayID, disabled, onClick }) => (
     <input type="hidden" name="posData" value="" />
     <input type="hidden" name="data" value={bitPayID} />
     <div className="stripe-button bit-button">
-
+    <img src={bitIcons} />
     <span className="max-w-2xl block w-full">
-      <input onClick={onClick} className="e-checkout relative special-bitcoin text-center bg-white text-black white-box rounded-full w-full block leading-none h-3em md:h-2em justify-center text-mobileBody md:text-desktopBody" type="submit" value="Join Now" />
+      <input onClick={onClick} className="e-checkout my-4 relative special-bitcoin text-left bg-white text-black white-box rounded-full w-full block leading-none h-3em md:h-2em justify-center text-mobileBody md:text-desktopBody" type="submit" value="pay with crypto" />
     </span>
 
     </div>
@@ -104,38 +103,24 @@ const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, hand
   return (
     <>
       <section className="mb-10 md:mb-20">
-        <form>
-          <div className="stripe-button max-w-2xl py-2 block w-full">
-            <img src={stripeIcons} />
-            <span id="checkout-button" role="link" onClick={handleStripe} className="relative text-gray-700 max-w-2xl block w-full">
-              <input defaultChecked={showStripe ? true :  false} id="stripe-radio" type="radio" className="absolute bg-none"/><label htmlFor="stripe-radio" className="e-checkout rounded-md option-button-checkout special-stripe text-left text-white  box rounded-none w-full block h-2rem justify-center">Pay with card</label>
-            </span>
-          </div>
-
-          <div className="stripe-button pt-2 bit-button max-w-2xl block w-full">
-            <img src={bitIcons} />
-            <span onClick={handleBit} className="max-w-2xl block w-full relative text-gray-700">
-              <input id="bit-radio" type="radio" className="absolute bg-none"/><label htmlFor="bit-radio" className="e-checkout option-button-checkout special-bitcoin rounded-md text-left text-white text-gray-700 box w-full block h-2rem rounded-none justify-center ">Pay with crypto</label>
-            </span>
-          </div>
-        </form>
-
-        <StripeCheckoutCreateButton disabled={disabled} handleClick={handleStripeClick} />
-        <BitPayCheckoutButton disabled={disabled} bitPayID={bitPayID} onClick={handleBitpayClick}/>
+       
 
         <CheckoutTerms disabled={disabled} handleChange={handleChange} />
         { !disabled &&
           <>
-          {showStripe ?
+          
            <StripeCheckoutCreateButton disabled={disabled} handleClick={handleStripeClick} />
-           :
+           
            <BitPayCheckoutButton disabled={disabled} bitPayID={bitPayID} onClick={handleBitpayClick}/>
-          }
+          
           </>
         }
 
         {disabled ?
-          <DisabledButton/>
+          <>
+          <DisabledButton text="pay with card"/>
+          <DisabledButton text="pay with crypto"/>
+          </>
           : ""
         }
       </section>

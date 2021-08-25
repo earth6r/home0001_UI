@@ -1,6 +1,9 @@
 .spring-green{
   color:#66ff00;
 }
+.disabled-button{
+  opacity: 0.5;
+}
 #question-trigger{
   display: inline-block;
   background: white;
@@ -44,14 +47,14 @@
 }
 /*DEPOSIT BLOCK*/
 .home-deposit-module *{
-  color:white;
+  color:black;
 }
 .stripe-button, .bit-button{
   color:black;
 }
 .special-bitcoin{
 color:black;
-text-transform: none;
+/*text-transform: none;*/
 }
 .home-deposit-module::before{
   background: #E5E5E5;
@@ -79,7 +82,7 @@ text-transform: none;
 }
 .home-deposit-module .special-stripe{
   color:black;
-  text-transform: none;
+/*  text-transform: none;*/
 }
 .black-footer{
   background: #171717;
@@ -113,8 +116,8 @@ text-transform: none;
 text-transform: none;
 }
 .deposit-accordion {
-  border-top: 1px solid #FFFFFFBF;
-  border-bottom: 1px solid #FFFFFFBF;
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
 }
 .stripe-button img, .bit-button img{
   position:absolute;
@@ -127,7 +130,7 @@ text-transform: none;
   transform: translate(0%, -50%);
 }
 #refundable-text-span, .home-deposit-module #spots-remaining-count span{
-  color:#FFFFFFBF;
+  color:#000000;
 }
 #deposit-text-span .discount-container{
   color:white;
@@ -146,37 +149,16 @@ text-transform: none;
 .white-box{
   box-shadow: 0px 0px 10px rgb(255 255 255 / 50%)
 }
-.stripe-button input[type=radio]{
-  box-shadow:none;
-  vertical-align: middle;
-  height:60px !important;
-  left:15px;
-  top:4px;
-  border:1px solid black;
-  filter: none;
-  left:-100px;
-  overflow:visible;
-  position:relative;
+
+.stripe-button input, .bit-button input{
+  padding:0 50px;
+  text-transform: uppercase;
 }
-.stripe-button input[type=radio]:checked::before{
-  content:"◉";
-  color:white;
-  font-size: 23px;
-  line-height: 2.6;
-  left: 111px;
-}
-.stripe-button input[type=radio]::before{
-  content:"○";
-  color:#FFFFFFBF;
-  position:absolute;
-  line-height: 1.1;
-  left: 109px;
-  font-size: 47px;
-}
+
 .option-button-checkout{
-  text-transform: none;
+ /* text-transform: none;*/
   background: transparent;
-  border:1px solid #FFFFFFBF;
+  border:1px solid #000000;
   padding:0.75rem 0;
   padding-left:40px;
   line-height: 0.1;
@@ -246,18 +228,18 @@ label.terms-agreement{
   text-transform: none;
   margin-left:20px;
   padding-left:0;
-  color:#FFFFFFBF;
+  color:#000000;
 }
 .terms-agreement a{
   text-transform: none;
-  color:#FFFFFFBF;
+  color:#000000;
   border-bottom:1px solid;
 }
 #thin-minus{
   height:1px;
   width: 23px;
   vertical-align: middle;
-  background: white;
+  background: black;
   display: inline-block;
 }
 
@@ -390,24 +372,11 @@ label.terms-agreement{
   background: white;
   display: inline-block;
 }
-  .stripe-button input[type=radio]:checked::before{
-  content:"◉";
-  line-height: 51px;
-  left:115px;
-  top:0px;
-  font-size:18px;
-}
+
 label.terms-agreement{
   margin-left:10px;
 }
-.stripe-button input[type=radio]::before{
-  content:"○";
-  top:0;
-  position:absolute;
-  line-height: 43px;
-  left:112px;
-  font-size:40px;
-}
+
 
     .e-checkbox + a{
     display: inline-block;
@@ -419,11 +388,7 @@ label.terms-agreement{
   .option-button-checkout, .terms-agreement, .terms-agreement a{
     font-size:14px;
   }
-  .stripe-button input[type=radio]{
 
-  height:3rem !important;
-
-}
   
   .stripe-button img, .stripe-button.bit-button img{
     height:18px;

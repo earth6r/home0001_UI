@@ -126,7 +126,7 @@ const handleRefund = () => {
                   <span id='thin-minus'></span>
                   : 
                   <svg width="22" height="21" viewBox="0 0 22 21" fill="none">
-                  <path d="M10.7243 0V10.5M10.7243 21V10.5M10.7243 10.5H21.1322M10.7243 10.5H0.316406" stroke="white"/>
+                  <path d="M10.7243 0V10.5M10.7243 21V10.5M10.7243 10.5H21.1322M10.7243 10.5H0.316406" stroke="black"/>
                   </svg>
                 }
               </div>
@@ -143,7 +143,7 @@ const handleRefund = () => {
       <span> Reservation Deposit:</span> <DiscountNotice codes={codes} color={color} discountCode={discountCode} />
     </div>
 
-    <div className="mb-8" id='refundable-text-span'>
+    <div className="mb-0" id='refundable-text-span'>
         Fully refundable any time, for any reason. <span onClick={handleRefund} id='question-trigger'>?</span>
     </div>
 
