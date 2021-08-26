@@ -133,10 +133,28 @@ small {
 
 .circle-width{
   width: 30vw;
+  font-family: "NeueHaasGrotesk";
 }
 .circle-width h2, .rte.rte-large .circle-width h2{
   max-width: 190px;
-  font-size:3vw;
+  font-size: 0.75rem;
+}
+@media(min-width: 768px){
+  .circle-width{
+    width: 17vw;
+  }
+  .circle-width h2, .rte.rte-large .circle-width h2{
+    font-size: 0.75rem;
+  }
+}
+@media(min-width: 1024px){
+  .circle-width{
+    width: 13vw;
+  }
+  .circle-width h2, .rte.rte-large .circle-width h2{
+    font-size:0.8vw;
+    letter-spacing: 0.03em;
+  }
 }
 
 /*NEWSLETTER POPUP*/
@@ -259,22 +277,6 @@ small {
   .gallery-image {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
-  }
-}
-@media(min-width: 768px){
-  .circle-width{
-    width: 17vw;
-  }
-  .circle-width h2, .rte.rte-large .circle-width h2{
-    font-size:1.9vw;
-  }
-}
-@media(min-width: 1024px){
-  .circle-width{
-    width: 12vw;
-  }
-  .circle-width h2, .rte.rte-large .circle-width h2{
-    font-size:1.1vw;
   }
 }
 

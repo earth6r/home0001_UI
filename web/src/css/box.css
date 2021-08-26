@@ -44,7 +44,7 @@
 .box-circle .background-circle {
   padding-bottom: 100%;
   background: rgba(255, 255, 255, 1);
-  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.8);
   border-radius: 9999px;
   transition: 0.25s box-shadow;
   transition-property: box-shadow, background-color;
@@ -117,10 +117,7 @@
     @apply py-2 px-1/4em;
   }
   .box-circle .background-circle {
-    box-shadow: 0px 1px 11px rgba(0, 0, 0, 0.6);
-  }
-  .box-circle * {
-    @apply text-nav;
+    box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.6);
   }
   .box-link:before {
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.6);
