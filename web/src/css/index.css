@@ -149,7 +149,7 @@ small {
     width: 13vw;
   }
   .circle-width h2, .rte.rte-large .circle-width h2{
-    font-size:0.8vw;
+    font-size:0.75rem;
     letter-spacing: 0.03em;
   }
 }
