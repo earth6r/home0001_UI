@@ -19,13 +19,6 @@ nav .nav-box{
   padding-right: 5px;
 }
 
-@media (max-width: 767px) {
-  header {
-    font-size: 12px;
-    line-height: 20px;
-  }
-}
-
 @media (max-width: 569px) {
   header {
     top:16px;
@@ -217,6 +210,17 @@ nav .nav-box{
   animation-iteration-count: 1;
 }
 footer{
+  font-family: NeueHaasGrotesk;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
   color: #FF0000;
 }
 .sub-menu > div{
