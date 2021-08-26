@@ -129,9 +129,9 @@ const FlexGallery = (props) => {
         gridColumnEnd: image.endColumnMobile,
         gridRowStart: image.startRowMobile,
         gridRowEnd: image.endRowMobile,
-        paddingTop: image.paddingTopMobile + "vw",
-        paddingBottom: image.paddingBottom + "vw",
-        paddingLeft: image.paddingLeft + "vw",
+        paddingTop: image.paddingTopMobileMobile + "vw",
+        paddingBottom: image.paddingBottomMobile + "vw",
+        paddingLeft: image.paddingLeftMobile + "vw",
         paddingRight: image.paddingRightMobile + "vw",
       };
       let styleObjTablet = {
@@ -139,9 +139,9 @@ const FlexGallery = (props) => {
         gridColumnEnd: image.endColumnTablet,
         gridRowStart: image.startRowTablet,
         gridRowEnd: image.endRowTablet,
-        paddingTop: image.paddingTop + "vw",
-        paddingBottom: image.paddingBottom + "vw",
-        paddingLeft: image.paddingLeft + "vw",
+        paddingTop: image.paddingTopTablet + "vw",
+        paddingBottom: image.paddingBottomTablet + "vw",
+        paddingLeft: image.paddingLeftTablet + "vw",
         paddingRight: image.paddingRightTablet + "vw",
       };
       /* end css grid info */
