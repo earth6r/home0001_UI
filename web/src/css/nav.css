@@ -161,6 +161,26 @@ nav .nav-box{
   .max-w-special{
     max-width:calc(100% - 8rem) !important;
   }
+
+  .logo .current-nav-link::after{
+    width: 105%;
+  }
+  .current-nav-link.homes::after{
+    width:101%;
+  }
+  .current-nav-link.about::after{
+    left:-1px;
+  }
+  .current-nav-link::after{
+    content: "";
+    width: 100%;
+    height: 4px;
+    position: relative;
+    top: -4px;
+    display: block;
+    box-shadow: 0 2.5px 0px -1px #FF0000;
+  }
+
 }
 .logo .current-nav-link::after{
   width: 105%;
@@ -195,6 +215,9 @@ nav .nav-box{
   transition:2s;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
+}
+footer{
+  color: #FF0000;
 }
 .sub-menu > div{
   pointer-events: none;

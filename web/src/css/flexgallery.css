@@ -114,9 +114,9 @@ form .earth-svg svg {
 /*flex vertical text */
 .flex-vertical-text {
   position: absolute;
-  line-height: 110% !important;
-  font-size: 0.75rem !important;
-  transform: rotate(-90deg);
+/*  line-height: 110% !important;*/
+/*  font-size: 0.75rem !important;*/
+  
 }
 @media (max-width: 767px) {
   .flex-vertical-text {
@@ -126,8 +126,11 @@ form .earth-svg svg {
 .flex-vertical-text p  {
   margin-bottom:  0em !important;
 }
-.flex-vertical-text.edgeBind--right {
-  right: -10vw;
+.flex-item.edgeBind--right-wrapper {
+  right: 0;
+  position: absolute;
+  white-space: nowrap;
+  transform: rotate(-90deg);
 }
 /* @media (max-width: 1239px) {
   .flex-vertical-text.edgeBind--right{
@@ -154,7 +157,7 @@ form .earth-svg svg {
     right: -10vw;
   }
 } */
-@media (max-width: 599px) {
+/*@media (max-width: 599px) {
   .flex-vertical-text.edgeBind--right{
     right: -10vw;
   }
@@ -227,5 +230,5 @@ form .earth-svg svg {
   .flex-vertical-text.edgeBind--left{
     left: -12vw;
   }
-} 
+}*/ 
 /* END FLEX GALLERY */

@@ -94,9 +94,6 @@ small {
   right:-3px;
 }
 
-.rte .md\:text-desktopCaption{
-  font-size:10px !important;
-}
 .text-desktopCaptionSpecial *{
   font-size:1rem;
   line-height: 1.2;
