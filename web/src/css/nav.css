@@ -223,6 +223,11 @@ footer{
 
   color: #FF0000;
 }
+@media (max-width: 569px) {
+  footer li{
+    padding-right: 1rem;
+  }
+}
 .sub-menu > div{
   pointer-events: none;
 }
