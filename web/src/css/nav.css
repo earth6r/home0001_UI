@@ -49,9 +49,9 @@ nav .nav-box{
 .earth-svg{
   display: inline-block;
   padding-bottom:2px;
+  height: 1.2rem;
 }
 .earth-svg svg{
-  height: 0.7em;
     width: auto;
     position: relative;
     top: 3px;
