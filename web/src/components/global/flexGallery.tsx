@@ -42,15 +42,16 @@ const FlexGallery = (props) => {
   // Join all submodules into an array
 
   let subModules = [
-                  images, 
-                  circleButtons, 
-                  obroundButtons, 
-                  embeds, 
-                  squares, 
-                  pdfs, 
-                  edges,
-                  texts,
-                  verticalTexts];
+    images, 
+    circleButtons, 
+    obroundButtons, 
+    embeds, 
+    squares, 
+    pdfs, 
+    edges,
+    texts,
+    verticalTexts
+  ];
   
   subModules = Array.prototype.concat.apply([], subModules); //concat all submodules into a 1-dimensional array
   subModules = subModules.filter(e => e != null); //filter out anything that is undefined
@@ -374,13 +375,14 @@ const FlexGallery = (props) => {
         /* VERTICAL CAPTIONS */
         case "flexVerticalText":
           return (
-            <div className={`flex-item ${image.edgeBind ? "edgeBind--" + image.edgeBind + "-wrapper" : "" }`} style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
+            <div className={`flex-item z-40 ${image.edgeBind ? "edgeBind--" + image.edgeBind + "-wrapper" : "" }`} 
+            style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
             >
               <div
                 key={image._key}
                 className={`
                   ${image.edgeBind ? "edgeBind--" + image.edgeBind : "" }
-                  flex-vertical-text text-mobileNav md:text-desktopNav
+                  flex-vertical-text
                 `}
               >
                 <div style={{ color: `${image.color ? image.color : "inherit"}` }}>

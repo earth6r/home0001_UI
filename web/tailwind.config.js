@@ -204,8 +204,8 @@ module.exports = {
         p30: "3.0vw",
       },
       spacing: {
-        mobile: ".625rem",
-        desktop: "27px",
+        mobile: "1.75rem",
+        desktop: "1.75rem",
         footerOffset: "200px",
         contentOffsetDesktop: "245px",
         contentOffsetMobile: "238px",
