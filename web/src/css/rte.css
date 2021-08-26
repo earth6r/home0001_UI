@@ -59,7 +59,7 @@
   transition: 0.125s color;
 }
 
-.rte a:hover {
+.rte a:not(.table-link):hover {
   color: #ccc;
 }
 

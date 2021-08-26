@@ -17,7 +17,7 @@ export default {
     },
     {
       name: 'url',
-      title: 'External Link (optional)',
+      title: 'Use this, not link, for now',
       type: 'url',
     },
   ],
