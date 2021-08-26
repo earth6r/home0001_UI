@@ -223,7 +223,7 @@ footer{
 
   color: #FF0000;
 }
-@media (max-width: 569px) {
+@media (max-width: 768px) {
   footer li{
     padding-right: 1rem;
   }

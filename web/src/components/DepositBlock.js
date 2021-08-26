@@ -109,18 +109,18 @@ const handleRefund = () => {
 }
   return(
   <>  
-    <div id='spots-remaining-count'>
+    <div id='spots-remaining-count' class="pt-10">
       <span> Hold your spot:</span> {depositCounter}
     </div>
 
-    <Accordion className="max-w-2xl my-20 w-full deposit-accordion" allowToggle allowMultiple>
+    <Accordion className="max-w-2xl my-6 w-full deposit-accordion" allowToggle allowMultiple>
       <AccordionItem
       defaultIsOpen={false}
       className="border-none relative block accordion max-w-2xl">
         {({ isExpanded }) => (
           <>
             <AccordionHeader className=" relative py-6 border-none">
-              <h2 className="m-0 -mt-1/4em md:mt-0">{"What's included?"}</h2>
+              <div className="m-0 -mt-1/4em md:mt-0">{"What's included?"}</div>
               <div className="accordion-icon right-0 absolute pr-1em">
                 {isExpanded ? 
                   <span id='thin-minus'></span>
@@ -131,7 +131,7 @@ const handleRefund = () => {
                 }
               </div>
             </AccordionHeader>
-            <AccordionPanel className="pb-1em">
+            <AccordionPanel className="whats-included-accordion pb-1em">
               <PortableText blocks={whatsIncluded} />
             </AccordionPanel>
           </>
@@ -140,7 +140,8 @@ const handleRefund = () => {
     </Accordion>
 
     <div id='deposit-text-span'>
-      <span> Reservation Deposit:</span> <DiscountNotice codes={codes} color={color} discountCode={discountCode} />
+      <span> Reservation Deposit:<br/></span> 
+      <DiscountNotice codes={codes} color={color} discountCode={discountCode} />
     </div>
 
     <div className="mb-0" id='refundable-text-span'>
@@ -257,7 +258,7 @@ const DepositBlock = (props) => {
 		  let bitPayID = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_REGULAR_PRICE;
 		  let bitPayIDDiscounted = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_DISCOUNTED;
       	return(
-         <Container className={` home-deposit-module ${depositPage ? " membership-page-module pt-8" : " pb-24 px-2 mt-8 md:mb-0 home-deposit-module-scroll"}`}>
+         <Container className={` home-deposit-module ${depositPage ? " membership-page-module pt-8" : "home-deposit-module-scroll"}`}>
 	        <div className="w-full md:inline-block md:w-3/6">
 	        {depositPage &&
 	        	<div className="pt-8"></div>

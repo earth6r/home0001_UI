@@ -240,8 +240,8 @@ input::placeholder {
     transform: translateY(0%);
 }
   .rte  {
-    @apply text-desktopBody;
-
+    @apply text-mobileBody;
+    -webkit-font-smoothing: auto;
   }
 
 
@@ -311,6 +311,6 @@ input::placeholder {
   }*/
    .rte  {
     @apply text-desktopBody;
-    
+    -webkit-font-smoothing: auto;
   }
 }

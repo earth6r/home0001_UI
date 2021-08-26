@@ -63,7 +63,7 @@ module.exports = {
         },
       ],
       desktopNav: [
-        "0.9vw",
+        ".8rem",
         {
           lineHeight: "1vw",
           letterSpacing: "0rem",
@@ -93,10 +93,10 @@ module.exports = {
         },
       ],
       mobileBody: [
-        "4.1666vw",
+        "1.3rem",
         {
-          lineHeight: "4.722vw",
-          letterSpacing: "0.01em",
+          lineHeight: "115%",
+          letterSpacing: "-0.33px",
         },
       ],
       mobileNav: [
