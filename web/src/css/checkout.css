@@ -127,6 +127,12 @@ text-transform: none;
   font-size: 1.25rem;
   line-height: 120%;
   letter-spacing: -0.1px;
+  padding-left: 3vw;
+}
+
+.whats-included-accordion p:before {
+  content: "–";
+  @apply absolute left-0;
 }
 
 .stripe-button img, .bit-button img{
