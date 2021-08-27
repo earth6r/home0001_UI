@@ -15,7 +15,7 @@
 html {
   font-family: "FolioBT", Arial, Helvetica, sans-serif;
 }
-button, input,footer{
+input, footer{
   font-family:"NeueHaasGrotesk", Arial, Helvetica, sans-serif;
 }
 h6{
@@ -136,6 +136,24 @@ small {
   max-width: 190px;
 /*  font-size:3vw;*/
 }
+@media(min-width: 768px){
+  .circle-width{
+    width: 17vw;
+  }
+  .circle-width h2, .rte.rte-large .circle-width h2{
+
+  }
+}
+@media(min-width: 1024px){
+  .circle-width{
+    width: 13vw;
+  }
+  .circle-width h2, .rte.rte-large .circle-width h2{
+
+
+  }
+
+}
 
 /*NEWSLETTER POPUP*/
 .calendly-contact{
@@ -249,8 +267,8 @@ small {
     height:3em;
   }
   #page-content-wrapper .earth-svg{
-    top: -1px;
-    position: relative;
+    /* top: -1px;
+    position: relative; */
   }
 }
 @media only screen and (max-width: 767px) {
@@ -259,6 +277,7 @@ small {
     margin-bottom: 0 !important;
   }
 }
+
 @media(min-width: 768px){
   .circle-width{
     width: 17vw;
@@ -275,4 +294,5 @@ small {
 /*    font-size:1.1vw;*/
   }
 }
+
 

@@ -19,13 +19,6 @@ nav .nav-box{
   padding-right: 5px;
 }
 
-@media (max-width: 767px) {
-  header {
-    font-size: 12px;
-    line-height: 20px;
-  }
-}
-
 @media (max-width: 569px) {
   header {
     top:16px;
@@ -56,9 +49,9 @@ nav .nav-box{
 .earth-svg{
   display: inline-block;
   padding-bottom:2px;
+  height: 1.2rem;
 }
 .earth-svg svg{
-  height: 0.7em;
     width: auto;
     position: relative;
     top: 3px;
@@ -217,7 +210,23 @@ nav .nav-box{
   animation-iteration-count: 1;
 }
 footer{
+  font-family: NeueHaasGrotesk;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
   color: #FF0000;
+}
+@media (max-width: 768px) {
+  footer li{
+    padding-right: 1rem;
+  }
 }
 .sub-menu > div{
   pointer-events: none;

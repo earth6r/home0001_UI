@@ -117,12 +117,6 @@ form .earth-svg svg {
   font-family: NeueHaasGrotesk;
 /*  line-height: 110% !important;*/
 /*  font-size: 0.75rem !important;*/
-  
-}
-@media (max-width: 767px) {
-  .flex-vertical-text {
-    font-size: 0.625rem !important;
-  }
 }
 .flex-vertical-text p  {
   margin-bottom:  0em !important;
@@ -133,12 +127,14 @@ form .earth-svg svg {
   white-space: nowrap;
   transform: rotate(-90deg);
 }
+
 .flex-vertical-text.edgeBind--left-wrapper {
   left: 0;
   position: absolute;
   white-space: nowrap;
   transform: rotate(90deg);
 }
+
 
 
 /* END FLEX GALLERY */

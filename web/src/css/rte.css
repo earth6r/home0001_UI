@@ -59,7 +59,7 @@
   transition: 0.125s color;
 }
 
-.rte a:hover {
+.rte a:not(.table-link):hover {
   color: #ccc;
 }
 
@@ -93,11 +93,6 @@
   /* counter-increment: rte-list; */
   @apply pl-1/10 relative;
   padding-bottom:0.3em;
-}
-
-.rte ul:not(.table) li:before {
-  content: "–";
-  @apply absolute left-0;
 }
 
 .rte blockquote,
@@ -240,8 +235,8 @@ input::placeholder {
     transform: translateY(0%);
 }
   .rte  {
-    @apply text-desktopBody;
-
+    @apply text-mobileBody;
+    -webkit-font-smoothing: auto;
   }
 
 
@@ -311,6 +306,6 @@ input::placeholder {
   }*/
    .rte  {
     @apply text-desktopBody;
-    
+    -webkit-font-smoothing: auto;
   }
 }

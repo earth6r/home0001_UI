@@ -109,9 +109,10 @@ const handleRefund = () => {
 }
   return(
   <>  
-    <div id='spots-remaining-count'>
+    <div id='spots-remaining-count' class="pt-10">
       <span> Hold your spot:</span> {depositCounter}
     </div>
+
 
     <Accordion className="max-w-2xl my-8 w-full deposit-accordion" allowToggle allowMultiple>
       <AccordionItem
@@ -120,7 +121,7 @@ const handleRefund = () => {
         {({ isExpanded }) => (
           <>
             <AccordionHeader className=" relative py-6 border-none">
-              <h2 className="m-0 -mt-1/4em md:mt-0">{"What's included?"}</h2>
+              <div className="m-0 -mt-1/4em md:mt-0">{"What's included?"}</div>
               <div className="accordion-icon right-0 absolute pr-1em">
                 {isExpanded ? 
                   <span id='thin-minus'></span>
@@ -131,7 +132,7 @@ const handleRefund = () => {
                 }
               </div>
             </AccordionHeader>
-            <AccordionPanel className="pb-1em">
+            <AccordionPanel className="whats-included-accordion pb-1em">
               <PortableText blocks={whatsIncluded} />
             </AccordionPanel>
           </>
@@ -140,7 +141,8 @@ const handleRefund = () => {
     </Accordion>
 
     <div id='deposit-text-span'>
-      <span> Reservation Deposit:</span> <DiscountNotice codes={codes} color={color} discountCode={discountCode} />
+      <span> Reservation Deposit:<br/></span> 
+      <DiscountNotice codes={codes} color={color} discountCode={discountCode} />
     </div>
 
     <div className="mb-0" id='refundable-text-span'>

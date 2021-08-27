@@ -96,12 +96,18 @@ if(typeof window != `undefined`){
     }
       
 
-      <header className={`${showThinBanner && thinBanner ? "mt-16 md:mt-8" : "" } ${blackHeader ? "black-header ":""} fixed z-50 w-full left-0 text-mobileNav md:text-desktopNav`}>
+      <header className={`${showThinBanner && thinBanner ? "mt-16 md:mt-8" : "" } ${blackHeader ? "black-header ":""} fixed z-50 w-full left-0npm run dev`}>
         <div className={`${showNav ? "h-full" : ""} flex container pb-0 w-full nav md:bg-transparent md:relative justify-between md:justify-center md:justify-between items-center content-center`}>
           <nav className="flex w-full justify-between md:hidden">
             <h1 className="md:hidden relative">
-              <PageLink className={`${currentUri && currentUri.includes('/')  ? "": "current-nav-link"}`} to="/">
-                Earth
+              <PageLink className={`${currentUri && currentUri.includes('/')  ? "": ""}`} to="/">
+                <svg className="earth-svg blockx" width="47" height="11" viewBox="0 0 47 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.324219 11H8.23422V8.95598H2.70422V6.53399H7.40822V4.64398H2.70422V2.57198H8.13622V0.583984H0.324219V11Z" fill="#FF0000"/>
+                  <path d="M9.38113 11H11.7751L12.4191 9.01198H16.1991L16.8571 11H19.3771L15.6111 0.583984H13.1331L9.38113 11ZM13.6231 5.35798C13.9591 4.33598 14.3231 2.58598 14.3231 2.58598H14.3511C14.3511 2.58598 14.5751 3.92999 15.0231 5.35798L15.6531 7.30398H12.9791L13.6231 5.35798Z" fill="#FF0000"/>
+                  <path d="M20.8517 11H23.2317V7.02398H24.9957C26.1437 7.02398 26.6617 7.55598 26.7877 8.59198C26.9137 9.73998 26.8857 10.846 27.1657 11H29.5177V10.888C29.1817 10.748 29.2657 9.57199 29.0697 8.15798C28.9297 7.03798 28.4677 6.46398 27.4317 6.14198V6.09998C28.7617 5.66598 29.3637 4.78398 29.3637 3.56598C29.3637 1.66198 27.8377 0.583984 25.8077 0.583984H20.8517V11ZM23.2317 2.47398H25.4157C26.4657 2.47398 26.9837 3.03398 26.9837 3.88798C26.9837 4.71398 26.4097 5.25998 25.3457 5.25998H23.2317V2.47398Z" fill="#FF0000"/>
+                  <path d="M30.7072 2.61398H33.8012V11H36.1952V2.61398H39.3032V0.583984H30.7072V2.61398Z" fill="#FF0000"/>
+                  <path d="M40 6.63198V4.64398L44.62 4.60198V0.583984H47V11H44.62V6.58998L40 6.63198Z" fill="#FF0000"/>
+                </svg>
               </PageLink>
             </h1>
             <button
@@ -138,8 +144,14 @@ if(typeof window != `undefined`){
               >
                 <li className="absolute md:relative left-0 top-0 pt-2">
                   <h1 className="">
-                    <PageLink className={`${currentUri && currentUri.includes('/')  ? "": "current-nav-link"}`} onClick={onHideNav} to="/">
-                      Earth
+                    <PageLink className={`${currentUri && currentUri.includes('/')  ? "": ""}`} onClick={onHideNav} to="/">
+                      <svg className="earth-svg blockx" width="47" height="11" viewBox="0 0 47 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.324219 11H8.23422V8.95598H2.70422V6.53399H7.40822V4.64398H2.70422V2.57198H8.13622V0.583984H0.324219V11Z" fill="#FF0000"/>
+                        <path d="M9.38113 11H11.7751L12.4191 9.01198H16.1991L16.8571 11H19.3771L15.6111 0.583984H13.1331L9.38113 11ZM13.6231 5.35798C13.9591 4.33598 14.3231 2.58598 14.3231 2.58598H14.3511C14.3511 2.58598 14.5751 3.92999 15.0231 5.35798L15.6531 7.30398H12.9791L13.6231 5.35798Z" fill="#FF0000"/>
+                        <path d="M20.8517 11H23.2317V7.02398H24.9957C26.1437 7.02398 26.6617 7.55598 26.7877 8.59198C26.9137 9.73998 26.8857 10.846 27.1657 11H29.5177V10.888C29.1817 10.748 29.2657 9.57199 29.0697 8.15798C28.9297 7.03798 28.4677 6.46398 27.4317 6.14198V6.09998C28.7617 5.66598 29.3637 4.78398 29.3637 3.56598C29.3637 1.66198 27.8377 0.583984 25.8077 0.583984H20.8517V11ZM23.2317 2.47398H25.4157C26.4657 2.47398 26.9837 3.03398 26.9837 3.88798C26.9837 4.71398 26.4097 5.25998 25.3457 5.25998H23.2317V2.47398Z" fill="#FF0000"/>
+                        <path d="M30.7072 2.61398H33.8012V11H36.1952V2.61398H39.3032V0.583984H30.7072V2.61398Z" fill="#FF0000"/>
+                        <path d="M40 6.63198V4.64398L44.62 4.60198V0.583984H47V11H44.62V6.58998L40 6.63198Z" fill="#FF0000"/>
+                      </svg>
                     </PageLink>
                   </h1>
                 </li>

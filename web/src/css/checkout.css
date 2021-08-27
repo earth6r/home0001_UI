@@ -71,6 +71,8 @@ color:black;
   color:white;
   background: #E5E5E5;
   position: relative;
+  margin-top: 5rem;
+  padding-left: 6.5vw;
 }
 .home-deposit-module-scroll{
   z-index: 99;
@@ -120,6 +122,19 @@ text-transform: none;
   border-top: 1px solid #000000;
   border-bottom: 1px solid #000000;
 }
+
+.whats-included-accordion p{
+  font-size: 1.25rem;
+  line-height: 120%;
+  letter-spacing: -0.1px;
+  padding-left: 3vw;
+}
+
+.whats-included-accordion p:before {
+  content: "–";
+  @apply absolute left-0;
+}
+
 .stripe-button img, .bit-button img{
   position:absolute;
   height:25px;
