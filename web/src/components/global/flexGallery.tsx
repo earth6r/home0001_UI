@@ -285,7 +285,7 @@ const FlexGallery = (props) => {
               {image !== undefined && image.title && (
                 <div
                   key={image._key}
-                  className="self-center mx-auto z-20 bottom-0 md:relative"
+                  className="self-center mx-auto z-60 bottom-0 md:relative"
                   style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
                 >
                   <CircleButton

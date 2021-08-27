@@ -144,6 +144,20 @@ module.exports = {
       primary: "#000000",
       white: "#ffffff"
     },
+    zIndex: {
+      '0': 0,
+      '10': 10,
+      '20': 20,
+      '30': 30,
+      '40': 40,
+      '50': 50,
+      '60': 60,
+      '70': 70,
+      '80': 80,
+      '90': 90,
+      '100': 100,
+      'auto': 'auto',
+    },
     extend: {
       animation: {
         in: "in .25s linear 1s forwards",
