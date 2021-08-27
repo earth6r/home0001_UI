@@ -78,6 +78,7 @@ const FlexGallery = (props) => {
   let gridStyle = {
     gridTemplateRows: rowStyle,
   };
+  
   let handleWindowResize = function (event) {
     if (window.innerWidth <= 767) {
       setMobile(true);
@@ -176,7 +177,7 @@ const FlexGallery = (props) => {
                 ${image.hideDesktop ? "lg:hidden " : ""} 
                 ${image.hideTablet ? "md:hidden lg:block " : ""} 
                 ${image.hideMobile ? "hidden md:block " : ""} 
-                flex-item`}
+                flex-item overflow-hidden`}
                 style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}>
                   <PageLink className="internal-link z-40 block relative" to={uri + "/" + link}>
                     <div
@@ -369,10 +370,8 @@ const FlexGallery = (props) => {
                 </div>
               )}
             </>
-              )
-              /* END VERTICAL CAPTIONS*/
-             
-        
+          )
+        /* end obroundButton */  
 
         /* VERTICAL CAPTIONS */
         case "flexVerticalText":
@@ -394,6 +393,7 @@ const FlexGallery = (props) => {
             </div>
           );
         /* END VERTICAL CAPTIONS*/
+
         default:
             return (
             <div
@@ -417,8 +417,8 @@ const FlexGallery = (props) => {
       {subModules &&
         subModules.map((image, index) => {
             return(handleSubModule(image))
-
-        })}
+        })
+      }
     </div>
   );
 };
