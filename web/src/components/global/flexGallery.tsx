@@ -413,7 +413,7 @@ const FlexGallery = (props) => {
 
 
   return (
-    <div key={2} style={gridStyle} className="w-full relative flexible-gallery mb-4">
+    <div key={2} style={gridStyle} className="w-full relative flexible-gallery">
       {subModules &&
         subModules.map((image, index) => {
             return(handleSubModule(image))
