@@ -97,7 +97,7 @@ export const Modules = ({
             edges={reactModule.edges}
             circleButtons={reactModule.circleButtons}
           />
-          {reactModule.callibrationMark ? <GridRow></GridRow> : <div className="w-full py-3"></div>}
+          {reactModule.callibrationMark ? <GridRow></GridRow> : ""}
         </>
       );
     case "pane":

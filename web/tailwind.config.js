@@ -93,6 +93,13 @@ module.exports = {
           letterSpacing: "0.01em",
         },
       ],
+      smallBody: [
+        "1.1rem",
+        {
+          lineHeight: "115%",
+          letterSpacing: "-0.33px",
+        },
+      ],
       mobileBody: [
         "1.3rem",
         {
@@ -260,7 +267,8 @@ module.exports = {
       },
       screens: {
         "tiny": "460px",
-        "max-font": "1083px"
+        "max-font": "1083px",
+        "sub-i-6": "360px",
       },
       textColor: {
         primary: "#F7F6F0",

@@ -10,10 +10,10 @@ export const RichTable = (props) => {
   
   return (
     <>
-      <div className="relative z-0 pb-1em w-full flex flex-col">
+      <div className="relative z-0 w-full flex flex-col">
         <div className="relative z-10 overflow-x-hidden">
-          <div className="flex justify-left w-full pt-1/2em">
-            <ul className={`mb-0 align-top flex-1 w-auto`}>
+          <div className="flex justify-left w-full">
+            <ul className={`mb-0 align-top flex-1 w-auto pb-0`}>
               {rows && rows.map((row) => (
                 <PageLink className="table-link" to={row.cells[0] && row.cells[0].url ? row.cells[0].url : "/"}>
                   <li key={`row-${row._key}`} className="flex pl-0 hover:underline">
@@ -24,8 +24,8 @@ export const RichTable = (props) => {
                         </div>
                       }else {
                         return(
-                          <div className="w-1/2 md:w-1/4 px-1 py-1/4em border-none pl-0"> 
-                            <div className="truncate text-mobileBody lg:text-desktopBody">{cell.value}</div>
+                          <div className={`${index == 2? "w-1/6": "w-1/2 pr-1"} sm:w-1/4 py-1/4em border-none`}> 
+                            <div className="truncate text-smallBody tiny:text-mobileBody lg:text-desktopBody">{cell.value}</div>
                           </div>
                         )
                       }
