@@ -130,10 +130,11 @@ small {
 
 .circle-width{
   width: 30vw;
+  font-family: "NeueHaasGrotesk";
 }
 .circle-width h2, .rte.rte-large .circle-width h2{
   max-width: 190px;
-  font-size:3vw;
+/*  font-size:3vw;*/
 }
 
 /*NEWSLETTER POPUP*/
@@ -263,7 +264,7 @@ small {
     width: 17vw;
   }
   .circle-width h2, .rte.rte-large .circle-width h2{
-    font-size:1.9vw;
+    /*font-size:1.9vw;*/
   }
 }
 @media(min-width: 1024px){
@@ -271,7 +272,7 @@ small {
     width: 12vw;
   }
   .circle-width h2, .rte.rte-large .circle-width h2{
-    font-size:1.1vw;
+/*    font-size:1.1vw;*/
   }
 }
 

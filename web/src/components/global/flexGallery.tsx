@@ -395,7 +395,7 @@ const FlexGallery = (props) => {
                   <div
                     style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
                     key={image._key}
-                    className="flex-item html-text z-20 relative"
+                    className="flex-item html-text z-20 relative text-mobileNav md:text-desktopNav"
                   >
                     {ReactHtmlParser(image.embedCode)}
                   </div>

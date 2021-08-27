@@ -67,6 +67,7 @@ module.exports = {
         {
           lineHeight: "1vw",
           letterSpacing: "0rem",
+          fontFamily: "NeueHaasGrotesk"
         },
       ],
       desktopInterface: [
@@ -105,6 +106,7 @@ module.exports = {
           lineHeight: "1.40625rem",
           letterSpacing: ".01em",
           textTransform: "uppercase",
+          fontFamily: "NeueHaasGrotesk"
         },
       ],
       mobileInterface: [
@@ -154,7 +156,7 @@ module.exports = {
         "1/2": ".5px",
       },
       fontFamily: {
-        serif: ["GP", "Helvetica", "Arial", "sans-serif"],
+        serif: ["FolioBT", "Helvetica", "Arial", "sans-serif"],
       },
       inset: {
         "2": "34%",

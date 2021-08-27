@@ -197,7 +197,7 @@ nav .nav-box{
   height: 4px;
   position: relative;
   top: -4px;
-  display: block;
+  display: none;
   box-shadow: 0 2.5px 0px 0px red;
 }
 

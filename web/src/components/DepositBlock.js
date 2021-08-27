@@ -113,7 +113,7 @@ const handleRefund = () => {
       <span> Hold your spot:</span> {depositCounter}
     </div>
 
-    <Accordion className="max-w-2xl my-20 w-full deposit-accordion" allowToggle allowMultiple>
+    <Accordion className="max-w-2xl my-8 w-full deposit-accordion" allowToggle allowMultiple>
       <AccordionItem
       defaultIsOpen={false}
       className="border-none relative block accordion max-w-2xl">
@@ -257,8 +257,8 @@ const DepositBlock = (props) => {
 		  let bitPayID = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_REGULAR_PRICE;
 		  let bitPayIDDiscounted = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_DISCOUNTED;
       	return(
-         <Container className={` home-deposit-module ${depositPage ? " membership-page-module pt-8" : " pb-24 px-2 mt-8 md:mb-0 home-deposit-module-scroll"}`}>
-	        <div className="w-full md:inline-block md:w-3/6">
+         <Container className={`pl-20 home-deposit-module ${depositPage ? " membership-page-module pt-8" : " pb-4 px-2 mt-8 md:mb-0 home-deposit-module-scroll"}`}>
+	        <div className="w-full md:inline-block mt-12 md:w-3/6">
 	        {depositPage &&
 	        	<div className="pt-8"></div>
 	        }
