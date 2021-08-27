@@ -399,7 +399,7 @@ label.terms-agreement{
   border-bottom:1px solid;
   }
   .home-deposit-module::before{
-    left:-0.625rem;
+    left:-1.75rem;
   }
   .option-button-checkout, .terms-agreement, .terms-agreement a{
     font-size:14px;

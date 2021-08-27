@@ -216,8 +216,8 @@
     .rte.rte-large .article-accordion .article-box{
   /*  padding-right: 10rem;
     margin-right: -10rem;*/
-    padding-right:calc(.625rem + 0.1em);
-    width: calc(100% + .625rem + 0.1em);
+    padding-right:calc(1.75rem + 0.1em);
+    width: calc(100% + 1.75rem + 0.1em);
   }
 
   .react-pdf__Page,.react-pdf__Page canvas{
