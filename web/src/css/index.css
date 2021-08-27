@@ -295,4 +295,6 @@ small {
   }
 }
 
-
+.intercom-lightweight-app-launcher{
+  right: 1.75rem !important;
+}

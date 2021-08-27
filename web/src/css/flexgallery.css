@@ -122,7 +122,7 @@ form .earth-svg svg {
   margin-bottom:  0em !important;
 }
 .flex-item.edgeBind--right-wrapper {
-  right: 0;
+  right: -0.5rem;
   position: absolute;
   white-space: nowrap;
   transform: rotate(-90deg);
