@@ -213,7 +213,7 @@ const FlexGallery = (props) => {
                 ${image.hideDesktop ? "lg:hidden " : ""} 
                 ${image.hideTablet ? "md:hidden lg:block " : ""} 
                 ${image.hideMobile ? "hidden md:block " : ""} 
-                flex-item`}
+                flex-item overflow-hidden`}
                 style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}>
                   <div
                   className={`
