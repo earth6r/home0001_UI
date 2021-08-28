@@ -351,7 +351,7 @@ const CollectivePage = (props) => {
         image={meta.openImage}
       />
       <Container className="">
-        <div className="flex flex-wrap">{RenderModules(modules)}</div>
+        <div className="flex flex-wrap overflow-x-hidden">{RenderModules(modules)}</div>
       </Container>
       { title == "Landing" &&
         <DepositBlock></DepositBlock>
