@@ -18,6 +18,12 @@ export default {
       type: 'boolean',
     },
     {
+      name: 'cssClassInject',
+      title: 'add css classes, like tailwind',
+      default: "",
+      type: 'string',
+    },
+    {
       name: 'text',
       title: 'Text',
       type: 'array',

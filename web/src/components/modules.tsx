@@ -42,7 +42,6 @@ export const Modules = ({
       return (
         <>
           <StandardText
-            className="standard-text"
             specs={specs}
             data={reactModule as StandardTextProps["data"]}
           />
