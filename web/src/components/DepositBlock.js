@@ -260,7 +260,7 @@ const DepositBlock = (props) => {
 		  let bitPayIDDiscounted = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_DISCOUNTED;
       	return(
          <Container className={`md:pl-20 home-deposit-module ${depositPage ? " membership-page-module pt-8" : " pb-4 px-2 mt-8 md:mb-0 home-deposit-module-scroll"}`}>
-	        <div className="w-full md:inline-block md:mt-12 md:w-3/6">
+	        <div className="w-full md:inline-block md:mt-12 md:w-4/6 lg:w-3/6">
 	        {depositPage &&
 	        	<div className="pt-8"></div>
 	        }

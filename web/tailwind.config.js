@@ -108,7 +108,7 @@ module.exports = {
         },
       ],
       mobileNav: [
-        ".9375rem",
+        ".75rem",
         {
           lineHeight: "1.40625rem",
           letterSpacing: ".01em",
@@ -139,6 +139,16 @@ module.exports = {
     inset: {
       "0": "0",
       "1/2": "50%",
+    },
+    screens: {
+      "sub-i-6": "360px",
+      "tiny": "460px",
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "max-font": "1083px",
+      "xl": "1280px",
+      "2xl": "1536px",
     },
     textColor: {
       primary: "#000000",
@@ -279,11 +289,6 @@ module.exports = {
         "17/20": "85vw",
         "18/20": "90vw",
         "19/20": "95vw",
-      },
-      screens: {
-        "tiny": "460px",
-        "max-font": "1083px",
-        "sub-i-6": "360px",
       },
       textColor: {
         primary: "#F7F6F0",

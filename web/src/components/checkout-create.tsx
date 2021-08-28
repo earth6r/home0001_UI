@@ -27,7 +27,7 @@ const DisabledButton = ({text}) => {
 
     <img src={text == 'pay with card' ? stripeIcons : bitIcons} />
     <span id="checkout-button" role="link" onClick={clickHandler} className="max-w-2xl block w-full">
-        <input className="e-checkout my-4 relative special-stripe text-left bg-white text-black white-box rounded-full w-full block leading-none h-3em md:h-3em justify-center text-mobileNav md:text-desktopNav" type="submit" value={text} />
+        <input className="e-checkout my-4 relative special-stripe text-left bg-white text-black white-box rounded-full w-full block leading-none h-3em md:h-3em justify-center text-mobileNav md:text-desktopNav pl-1 sub-i-6:pl-5 tiny:pl-20 sm:pl-32 md:pl-20" type="submit" value={text} />
       </span>
   </div>
 )};
