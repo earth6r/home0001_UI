@@ -13,7 +13,7 @@ const StripeCheckoutCreateButton = ({ handleClick, disabled }) => (
   <div className="stripe-button max-w-2xl block w-full">
     <img src={stripeIcons} />
     <span id="checkout-button" role="link" onClick={handleClick} className="max-w-2xl block w-full">
-        <input className="e-checkout my-4 relative special-stripe text-left bg-white text-black  white-box rounded-full w-full block leading-none h-3em md:h-3em justify-center text-mobileNav md:text-desktopNav" type="submit" value="pay with card" />
+        <input className="e-checkout my-4 relative special-stripe text-left bg-white text-black  white-box rounded-full w-full block leading-none h-3em md:h-3em justify-center text-mobileNav md:text-desktopNav pl-1 sub-i-6:pl-5 tiny:pl-20 sm:pl-32 md:pl-20" type="submit" value="pay with card" />
     </span>
   </div>
 );
@@ -40,7 +40,7 @@ const BitPayCheckoutButton = ({ bitPayID, disabled, onClick }) => (
     <div className="stripe-button bit-button">
     <img src={bitIcons} />
     <span className="max-w-2xl block w-full">
-      <input onClick={onClick} className="e-checkout my-4 relative special-bitcoin text-left bg-white text-black white-box rounded-full w-full block leading-none h-3em md:h-3em justify-center text-mobileNav md:text-desktopNav" type="submit" value="pay with crypto" />
+      <input onClick={onClick} className="e-checkout my-4 relative special-bitcoin text-left bg-white text-black white-box rounded-full w-full block leading-none h-3em md:h-3em justify-center text-mobileNav md:text-desktopNav pl-1 sub-i-6:pl-5 tiny:pl-20 sm:pl-32 md:pl-20" type="submit" value="pay with crypto" />
     </span>
 
     </div>
