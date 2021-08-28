@@ -17,15 +17,13 @@ nav .nav-box{
   padding-top: 10px;
 }
 
-@media (max-width: 569px) {
+@media (max-width: 768px) {
   header {
     top:16px;
-    padding-left: 10px;
     padding-right: 0px;
   }
   nav .nav-box{
     padding-top: 4px;
-    padding-left: 10px;
     padding-right: 0px;
   }
 }
