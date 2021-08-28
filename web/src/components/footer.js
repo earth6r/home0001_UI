@@ -25,8 +25,7 @@ const Footer = ({ footerMenu, newsletter, showPopupNewsletter, blackFooter }) =>
   return (
     <>
 
-      <footer id="footer" className={`${blackFooter ? "black-footer text-white ":""} pt-1em md:pt-1 pb-1em md:pb-desktop container flex flex-col uppercase left-0 md:block`}>
-        <GridRow></GridRow>
+      <footer id="footer" className={`${blackFooter ? "black-footer text-white ":""} pt-5 md:pt-8 pb-1em md:pb-desktop container flex flex-col uppercase left-0 md:block`}>
         <nav className="relative">
           <ul className="flex flex-wrap md:flex-row md:justify-between justify-between  relative">
             <li className="md:mr-1em mb-1em md:mb-0 md:w-auto">
