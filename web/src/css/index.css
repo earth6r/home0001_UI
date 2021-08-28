@@ -298,3 +298,7 @@ small {
 .intercom-lightweight-app-launcher{
   right: 1.75rem !important;
 }
+
+#page-content-wrapper{
+  overflow-x: hidden;
+}
