@@ -58,7 +58,7 @@ module.exports = {
       desktopBody: [
         "1.8vw",
         {
-          lineHeight: "2.5vw",
+          lineHeight: "115%",
           letterSpacing: "-.005em",
         },
       ],
