@@ -122,10 +122,16 @@ form .earth-svg svg {
   margin-bottom:  0em !important;
 }
 .flex-item.edgeBind--right-wrapper {
-  right: -0.5rem;
+  right: -0.35rem;
   position: absolute;
   white-space: nowrap;
   transform: rotate(-90deg);
+}
+
+@media (max-width: 767px) {
+  .flex-item.edgeBind--right-wrapper {
+    right: -0.22rem;
+  }
 }
 
 .flex-vertical-text.edgeBind--left-wrapper {

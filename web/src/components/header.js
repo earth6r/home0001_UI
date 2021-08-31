@@ -163,7 +163,7 @@ if(typeof window != `undefined`){
                     menu.map((item, index) => (
                       <li onClick={onHideNav} className="md:hidden mt-7em mb-1/2em mx-auto" key={item._key}>
                         <PageLink
-                        className={`${currentUri && currentUri.includes(item.link.content.main.slug.current) || (currentUri && currentUri.includes('home') && item.link.content.main.slug.current.includes("home")) ? "current-nav-link "+item.link.content.main.slug.current : " "} md:pt-1/2em inline-block cursor-pointer`} 
+                        className={`${currentUri && currentUri.includes(item.link.content.main.slug.current) || (currentUri && currentUri.includes('home') && item.link.content.main.slug.current.includes("home")) ? "current-nav-link "+item.link.content.main.slug.current : " "} md:pt-1/2em inline-block cursor-pointer text-mobileNav`} 
                         onClick={onHideNav}
                         to={`/${item.link.content.main.slug.current}`}>
                           {item.title}

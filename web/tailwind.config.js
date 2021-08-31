@@ -63,7 +63,7 @@ module.exports = {
         },
       ],
       desktopNav: [
-        ".8rem",
+        ".85rem",
         {
           lineHeight: "1vw",
           letterSpacing: "0rem",
@@ -110,10 +110,10 @@ module.exports = {
       mobileNav: [
         ".75rem",
         {
-          lineHeight: "1.40625rem",
+          lineHeight: "115%",
           letterSpacing: ".01em",
           textTransform: "uppercase",
-          fontFamily: "NeueHaasGrotesk"
+          fontFamily: "NeueHaasGrotesk",
         },
       ],
       mobileInterface: [
