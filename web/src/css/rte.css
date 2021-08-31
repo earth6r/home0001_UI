@@ -93,6 +93,11 @@
   padding-bottom:0.3em;
 }
 
+.rte ul:not(.table) li:before {
+  content: "–";
+  @apply absolute left-0;
+}
+
 .rte blockquote,
 .rte.rte-large blockquote {
   @apply pl-1/10 pb-1em text-mobileBody pt-1/2em;
