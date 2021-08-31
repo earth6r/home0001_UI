@@ -330,7 +330,7 @@ const HomeTemplate = (props) => {
                         >
                           {item.unit && (
                             <span className="w-1/4 text-left m-0  md:mt-0 homes-accordion-header-main">
-                              <span>Unit </span>
+                              <span>Type </span>
                               {item.unit}
                             </span>
                           )}
