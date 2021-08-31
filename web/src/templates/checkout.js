@@ -362,7 +362,7 @@ const CheckoutTemplate = (props) => {
   
 
   return (
-    <Layout blackHeader={true} blackFooter={true} showPopupNewsletter={false} isCheckout={true}>
+    <Layout blackHeader={false} blackFooter={false} showPopupNewsletter={false} isCheckout={true}>
       <SEO
         title={"EARTH Membership"}
         description={"Join the EARTH collective"}

@@ -301,7 +301,7 @@ const HomeTemplate = (props) => {
   }
 
   return (
-    <Layout blackFooter={true} showPopupNewsletter={true} isHome={slug.current}>
+    <Layout blackFooter={false} showPopupNewsletter={true} isHome={slug.current}>
       <SEO
         title={title}
       />
