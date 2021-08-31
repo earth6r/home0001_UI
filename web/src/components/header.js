@@ -119,13 +119,13 @@ if(typeof window != `undefined`){
             >
               <div
                 style={{ marginTop: ".5px" }}
-                className={`${showNav ? "hidden" : ""}  px-4 flex justify-center h-full w-full items-center absolute top-0 ml-1`}
+                className={`${showNav ? "hidden" : ""} pl-6 flex justify-center h-full w-full items-center absolute top-0 ml-1`}
               >
                 <Icon symbol="hamburgerRed" />
               </div>
               <div
                 style={{ marginTop: ".5px" }}
-                className={`${showNav ? "" : "hidden"}  px-4 flex justify-center h-full w-full items-center absolute top-0 left-0`}
+                className={`${showNav ? "" : "hidden"} pl-6 flex justify-center h-full w-full items-center absolute top-0 left-0`}
               >
                 <Icon symbol="close" />
               </div>
