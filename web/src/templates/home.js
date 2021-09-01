@@ -342,11 +342,11 @@ const HomeTemplate = (props) => {
                           {item.price && (
                             <span 
                             style={{ paddingTop: "0.4em" }}
-                            className="w-1/5 text-left text-mobileNav md:text-base m-0  md:mt-1 md:pt-0 homes-accordion-header-small">
+                            className="w-1/2 text-left text-mobileNav md:text-base m-0  md:mt-1 md:pt-0 homes-accordion-header-small">
                               {item.price}
                             </span>
                           )}
-                          {item.sold == 1 ? (
+                          {/* {item.sold == 1 ? (
                             <span className="w-1/6 text-left md:left-0 md:relative text-mobileNav md:text-base md:mt-1 md:pt-0 homes-accordion-header-small">
                               Sold
                             </span>
@@ -354,7 +354,7 @@ const HomeTemplate = (props) => {
                             <span className="w-1/4 text-left md:left-0 md:relative text-mobileNav md:text-base -mt-1/4em md:mt-1 md:pt-0 homes-accordion-header-small">
                               Coming Soon
                             </span>
-                          )}
+                          )} */}
 
                           {!item.sold && (
                             <div
