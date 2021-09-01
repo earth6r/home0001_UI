@@ -235,7 +235,8 @@ module.exports = {
         p28: "2.8vw",
         p29: "2.9vw",
         p30: "3.0vw",
-        "4.5": "1.125rem"
+        "4.5": "1.125rem",
+        "7":"1.75rem",
       },
       spacing: {
         mobile: "1.75rem",
