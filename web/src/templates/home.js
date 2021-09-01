@@ -329,35 +329,37 @@ const HomeTemplate = (props) => {
                           } relative flex h-2em  pl-1/2em border-none`}
                         >
                           {item.unit && (
-                            <span className="w-1/4 text-left m-0  md:mt-0 homes-accordion-header-main">
+                            <span className="w-1/4 text-left m-0 text-base md:mt-0 md:pt-0 homes-accordion-header-main">
                               <span>Type </span>
                               {item.unit}
                             </span>
                           )}
                           {item.bedrooms && (
-                            <span className="w-1/6 text-left m-0  text-mobileCaption md:text-base  md:mt-0 homes-accordion-header-small">
+                            <span className="w-1/6 text-left ft m-0  text-mobileNav md:text-base  md:mt-1 md:pt-0 homes-accordion-header-small">
                               {item.bedrooms}
                             </span>
                           )}
                           {item.price && (
-                            <span className="w-1/5 text-left text-mobileCaption md:text-base m-0  md:mt-0 homes-accordion-header-small">
+                            <span 
+                            style={{ paddingTop: "0.4em" }}
+                            className="w-1/5 text-left text-mobileNav md:text-base m-0  md:mt-1 md:pt-0 homes-accordion-header-small">
                               {item.price}
                             </span>
                           )}
                           {item.sold == 1 ? (
-                            <span className="w-1/6 text-left md:left-0 md:relative text-mobileCaption md:text-base md:mt-0 homes-accordion-header-small">
+                            <span className="w-1/6 text-left md:left-0 md:relative text-mobileNav md:text-base md:mt-1 md:pt-0 homes-accordion-header-small">
                               Sold
                             </span>
                           ) : (
-                            <span className="w-1/4 text-left md:left-0 md:relative text-mobileCaption md:text-base -mt-1/4em md:mt-0 homes-accordion-header-small">
+                            <span className="w-1/4 text-left md:left-0 md:relative text-mobileNav md:text-base -mt-1/4em md:mt-1 md:pt-0 homes-accordion-header-small">
                               Coming Soon
                             </span>
                           )}
 
                           {!item.sold && (
                             <div
-                              style={{ marginTop: "-0.15em" }}
-                              className="right-0 absolute pr-1em md:mt-0 homes-accordion-header-plus"
+                              style={{ marginTop: "-0.1em" }}
+                              className="right-0 absolute pr-3 md:pr-1em md:mt-1 homes-accordion-header-plus"
                             >
                               {isExpanded ? "–" : "+"}
                             </div>

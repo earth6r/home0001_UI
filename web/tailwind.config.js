@@ -65,7 +65,6 @@ module.exports = {
       desktopNav: [
         ".85rem",
         {
-          lineHeight: "1vw",
           letterSpacing: "0rem",
           fontFamily: "NeueHaasGrotesk"
         },
