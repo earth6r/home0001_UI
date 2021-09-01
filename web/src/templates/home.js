@@ -329,20 +329,20 @@ const HomeTemplate = (props) => {
                           } relative flex h-2em  pl-1/2em border-none`}
                         >
                           {item.unit && (
-                            <span className="w-1/4 text-left m-0 text-mobileNav md:mt-0 md:pt-0 homes-accordion-header-main">
+                            <span className="w-1/4 text-left text-mobileNav md:text-base homes-accordion-header-small">
                               <span>Type </span>
                               {item.unit}
                             </span>
                           )}
                           {item.bedrooms && (
-                            <span className="w-1/6 text-left ft m-0  text-mobileNav md:text-base  md:mt-1 md:pt-0 homes-accordion-header-small">
+                            <span className="w-1/6 text-left ft m-0  text-mobileNav md:text-base homes-accordion-header-small">
                               {item.bedrooms}
                             </span>
                           )}
                           {item.price && (
                             <span 
                             style={{ paddingTop: "0.4em" }}
-                            className="w-1/2 text-left text-mobileNav md:text-base m-0  md:mt-1 md:pt-0 homes-accordion-header-small">
+                            className="w-1/2 text-left md:text-center text-mobileNav md:text-base homes-accordion-header-small">
                               {item.price}
                             </span>
                           )}
