@@ -329,7 +329,7 @@ const HomeTemplate = (props) => {
                           } relative flex h-2em  pl-1/2em border-none`}
                         >
                           {item.unit && (
-                            <span className="w-1/4 text-left text-mobileNav md:text-base homes-accordion-header-small">
+                            <span className="w-1/4 text-left text-mobileNav md:text-base homes-accordion-header-small md:mt-3">
                               <span>Type </span>
                               {item.unit}
                             </span>
