@@ -67,13 +67,14 @@ const Price = ({ discount, color }) => {
 const CheckoutTerms = ({ disabled, handleChange }) => {
   return (
     <form id='terms' className="mt-8 mb-4 pb-1em">
-      <span className="e-checkbox">
-        <input id='agree-to-terms' className="e-checkbox-icon" type="checkbox" value={disabled} onChange={handleChange} />
-
-      </span>
-
-     <label htmlFor="agree-to-terms" className="terms-agreement relative"> I agree to the <a target="_blank" href="/deposit-tc/">Deposit Terms and Conditions​</a></label>
-
+      <div className="grid grid-cols-4 sm:flex">
+        <span className="e-checkbox">
+          <input id='agree-to-terms' className="e-checkbox-icon left-0" type="checkbox" value={disabled} onChange={handleChange} />
+        </span>
+        <label htmlFor="agree-to-terms" className="terms-agreement relative ml-0 col-span-3 "> 
+          I agree to the <a target="_blank" href="/deposit-tc/">Deposit Terms and Conditions​</a>
+        </label>
+      </div>
     </form>
   );
 };

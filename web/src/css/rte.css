@@ -149,8 +149,8 @@ input[type="checkbox"]:focus,
 input[type="checkbox"]:active {
   -webkit-appearance: none;
 left:12px;
-    width: 0.6em !important;
-    height: 0.6em !important;
+    width: 1rem !important;
+    height: 1rem !important;
     cursor: pointer;
     display: inline-block;
     border-radius: 2px;
@@ -217,11 +217,34 @@ button[type="submit"] {
   @apply w-full h-2em font-normal block uppercase text-mobileBody;
 }
 
-form label,
+/* form label,
 form label * {
   @apply text-mobileCaption tracking-wide uppercase;
   margin-top: 0.05em;
   font-smoothing: none;
+} */
+form label {
+  @apply pl-1em ml-1/10;
+}
+
+form label,
+form label * {
+  font-size: .85rem !important;
+  line-height: 2.1vw !important;
+  letter-spacing: 0rem !important;
+}
+@media(max-width:767px){
+  form label,
+  form label * {
+    line-height: 2rem !important;
+  }
+}
+  
+@media(max-width:430px){
+  form label,
+  form label * {
+    line-height: 115% !important;
+  }
 }
 
 input::-webkit-input-placeholder,
@@ -261,14 +284,6 @@ input::placeholder {
     line-height: 2.25em !important;
   }
 
-  form label {
-    @apply pl-1em ml-1/10;
-  }
-
-  form label,
-  form label * {
-    @apply text-desktopNav !important;
-  }
 
   .rte blockquote,
   .rte.rte-large blockquote {
