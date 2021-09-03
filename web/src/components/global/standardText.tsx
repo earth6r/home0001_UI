@@ -11,10 +11,13 @@ export const StandardText = ({ data }: StandardTextProps) => {
   const { text } = data;
 
   return (
-    <div 
-    className={`${data.cssClassInject ? data.cssClassInject : "w-full"} standard-text ararar`} 
-    style={{ marginLeft: "-.04em" }}>
-      <PortableText blocks={text} />
-    </div>
+    <>
+      <div
+        className={`${data.cssClassInject ? data.cssClassInject : "w-full"} standard-text ararar`}
+        style={{ marginLeft: "-.04em" }}>
+        <PortableText blocks={text} />
+      </div>
+      <div className="sm:w-5/6"></div>
+    </>
   );
 };
