@@ -140,7 +140,7 @@ if(typeof window != `undefined`){
             <div className="nav-box mx-mobile md:mx-0">
               <ul
                 style={{}}
-                className="flex pt-2em md:pt-0 flex-wrap relative mt-1 container p-0 m-0 md:flex md:flex-no-wrap w-full justify-center md:justify-between"
+                className="flex pt-2em md:pt-0 flex-wrap relative mt-1 container p-0 m-0 md:px-2 md:flex md:flex-no-wrap w-full justify-center md:justify-between"
               >
                 <li className="absolute md:relative left-0 top-0 pt-2">
                   <h1 className="">
