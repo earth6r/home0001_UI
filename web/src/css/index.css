@@ -13,9 +13,11 @@
 @import "./pane.css";
 
 html {
-  font-family: "GP", Arial, Helvetica, sans-serif;
+  font-family: "FolioBT", Arial, Helvetica, sans-serif;
 }
-
+input, footer{
+  font-family:"NeueHaasGrotesk", Arial, Helvetica, sans-serif;
+}
 h6{
   opacity: 0.5;
 }
@@ -92,9 +94,6 @@ small {
   right:-3px;
 }
 
-.rte .md\:text-desktopCaption{
-  font-size:10px !important;
-}
 .text-desktopCaptionSpecial *{
   font-size:1rem;
   line-height: 1.2;
@@ -122,7 +121,7 @@ small {
 }
 
 .earth {
-  font-family: "Earth", "GP", Arial, Helvetica, sans-serif;
+  font-family: "Earth", "FolioBT", Arial, Helvetica, sans-serif;
 }
 
 .no-shadow {
@@ -131,10 +130,29 @@ small {
 
 .circle-width{
   width: 30vw;
+  font-family: "NeueHaasGrotesk";
 }
 .circle-width h2, .rte.rte-large .circle-width h2{
   max-width: 190px;
-  font-size:3vw;
+/*  font-size:3vw;*/
+}
+@media(min-width: 768px){
+  .circle-width{
+    width: 17vw;
+  }
+  .circle-width h2, .rte.rte-large .circle-width h2{
+
+  }
+}
+@media(min-width: 1024px){
+  .circle-width{
+    width: 13vw;
+  }
+  .circle-width h2, .rte.rte-large .circle-width h2{
+
+
+  }
+
 }
 
 /*NEWSLETTER POPUP*/
@@ -249,8 +267,8 @@ small {
     height:3em;
   }
   #page-content-wrapper .earth-svg{
-    top: -1px;
-    position: relative;
+    /* top: -1px;
+    position: relative; */
   }
 }
 @media only screen and (max-width: 767px) {
@@ -259,12 +277,13 @@ small {
     margin-bottom: 0 !important;
   }
 }
+
 @media(min-width: 768px){
   .circle-width{
     width: 17vw;
   }
   .circle-width h2, .rte.rte-large .circle-width h2{
-    font-size:1.9vw;
+    /*font-size:1.9vw;*/
   }
 }
 @media(min-width: 1024px){
@@ -272,7 +291,10 @@ small {
     width: 12vw;
   }
   .circle-width h2, .rte.rte-large .circle-width h2{
-    font-size:1.1vw;
+/*    font-size:1.1vw;*/
   }
 }
 
+.intercom-lightweight-app-launcher{
+  right: 1.75rem !important;
+}

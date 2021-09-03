@@ -1,3 +1,34 @@
+header{
+  font-family: NeueHaasGrotesk;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: #FF0000;
+}
+
+nav .nav-box{
+  padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+  header {
+    top:16px;
+    padding-right: 0px;
+  }
+  nav .nav-box{
+    padding-top: 4px;
+    padding-right: 0px;
+  }
+}
+
+
 .nav h1,
 .nav a {
   @apply uppercase;
@@ -14,9 +45,9 @@
 .earth-svg{
   display: inline-block;
   padding-bottom:2px;
+  height: 1.2rem;
 }
 .earth-svg svg{
-  height: 0.7em;
     width: auto;
     position: relative;
     top: 3px;
@@ -119,6 +150,7 @@
   .max-w-special{
     max-width:calc(100% - 8rem) !important;
   }
+
   .logo .current-nav-link::after{
     width: 105%;
   }
@@ -135,9 +167,29 @@
     position: relative;
     top: -4px;
     display: block;
-    box-shadow: 0 2.5px 0px -1px black;
+    box-shadow: 0 2.5px 0px -1px #FF0000;
   }
+
 }
+.logo .current-nav-link::after{
+  width: 105%;
+}
+.current-nav-link.homes::after{
+  width:101%;
+}
+.current-nav-link.about::after{
+  left:-1px;
+}
+.current-nav-link::after{
+  content: "";
+  width: 100%;
+  height: 4px;
+  position: relative;
+  top: -4px;
+  display: block;
+  box-shadow: 0 2.5px 0px 0px red;
+}
+
 .sub-menu{
 
   top:-5px;
@@ -152,6 +204,25 @@
   transition:2s;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
+}
+footer{
+  font-family: NeueHaasGrotesk;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: #FF0000;
+}
+@media (max-width: 768px) {
+  footer li{
+    padding-right: 1rem;
+  }
 }
 .sub-menu > div{
   pointer-events: none;

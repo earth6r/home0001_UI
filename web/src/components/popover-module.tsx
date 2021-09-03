@@ -39,14 +39,14 @@ const PopoverModule = (props) => {
     <Popover placement="" isOpen={isOpen} onClose={close} trigger="click" usePortal={true} gutter={10}>
       <PopoverTrigger>
         {text && (
-          <button
+          <a
             id={text+"-popover"}
             onClick={open}
             aria-label={`Open ${text}`}
-            className="box-link partner-ref-link"
+            className="partner-ref-link"
           >
             {logo ? <SVG file={logo} /> : `${text}`}
-          </button>
+          </a>
         )}
       </PopoverTrigger>
       <PopoverContent

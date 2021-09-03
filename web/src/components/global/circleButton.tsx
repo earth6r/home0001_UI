@@ -67,16 +67,16 @@ const CircleButton = ({ title, url, linkHome, linkRnd, textColor, customColor, f
               />
               {myUrl  ? (
                 <PageLink
-                  className="m-0 h-full flex items-center justify-center text-nav leading-none text-center top-1/2 uppercase absolute px-1em md:px-1/2em transform -translate-y-1/2 w-full"
+                  className="m-0 h-full flex items-center justify-center text-mobileNav md:text-desktopNav text-center antialiased md:subpixel-antialiased top-1/2 uppercase absolute px-1em md:px-1/2em transform -translate-y-1/2 w-full"
                   to={`${myUrl}`}
                 >
-                  <h2 style={styleObj} className={` m-0 p-0 leading-none font-bold`}>
+                  <h2 style={styleObj} className={` m-0 p-0 font-bold`}>
                     {ReactHtmlParser(title)}
                   </h2>
                 </PageLink>
               ) : (
                 title && (
-                  <h2 style={styleObj} className={`m-0 font-bold leading-none text-center top-1/2 uppercase absolute px-1em md:px-1/2em transform -translate-y-1/2 w-full`}>
+                  <h2 style={styleObj} className={`m-0 font-bold text-center text-mobileNav md:text-desktopNav antialiased md:subpixel-antialiased top-1/2 uppercase absolute px-1em md:px-1/2em transform -translate-y-1/2 w-full`}>
                     {ReactHtmlParser(title)}
                   </h2>
                 )
@@ -94,12 +94,12 @@ const CircleButton = ({ title, url, linkHome, linkRnd, textColor, customColor, f
               />
               {url && url.content ? (
                 <PageLink
-                  className="m-0 h-full flex items-center justify-center text-nav leading-none text-center top-1/2 uppercase absolute px-1em md:px-1/2em transform -translate-y-1/2 w-full"
+                  className="m-0 h-full flex items-center justify-center text-mobileNav md:text-desktopNav text-center antialiased md:subpixel-antialiased top-1/2 uppercase absolute px-1em md:px-1/2em transform -translate-y-1/2 w-full"
                   to={`${myUrl}`}
                 >
                   <h2
                     style={styleObj} 
-                    className={`m-0 font-bold p-0  leading-none `}
+                    className={`m-0 font-bold p-0`}
                   >
                     {ReactHtmlParser(title)}
                   </h2>
@@ -108,7 +108,7 @@ const CircleButton = ({ title, url, linkHome, linkRnd, textColor, customColor, f
                 title && (
                   <h2
                     style={styleObj} 
-                    className={`m-0 font-bold leading-none text-center top-1/2 uppercase absolute px-1em md:px-1/2em transform -translate-y-1/2 w-full`}
+                    className={`m-0 font-bold text-center text-mobileNav md:text-desktopNav antialiased md:subpixel-antialiased top-1/2 uppercase absolute px-1em md:px-1/2em transform -translate-y-1/2 w-full`}
                   >
                     {ReactHtmlParser(title)}
                   </h2>

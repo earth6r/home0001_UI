@@ -33,24 +33,30 @@ const FlexGallery = (props) => {
     pdfs,
     rowNum,
     edges,
-    callibrationMarks,
     rowNumMobile,
     rowNumTablet,
     texts,
     verticalTexts,
   } = props;
-  const myImages = images ? shuffle(images).filter(Boolean) : [];
-  const myrandImages = embeds ? shuffle(myImages.concat(embeds)) : myImages;
-  const randImages2 = pdfs ? shuffle(myrandImages.concat(pdfs)) : myrandImages;
-  const randImages3 = texts ? shuffle(randImages2.concat(texts)) : randImages2;
-  const randImages4 = squares ? shuffle(randImages3.concat(squares)) : randImages3;
-  const randImages5 = callibrationMarks
-    ? shuffle(randImages4.concat(callibrationMarks))
-    : randImages4;
-  const randImages6 = circleButtons ? shuffle(randImages5.concat(circleButtons)) : randImages5;
-  const randImages7 = obroundButtons ? shuffle(randImages6.concat(obroundButtons)) : randImages6;
-  const randImages8 = verticalTexts ? shuffle(randImages7.concat(verticalTexts)) : randImages7;
-  const randImages = edges ? shuffle(randImages8.concat(edges)) : randImages8;
+
+  // Join all submodules into an array
+
+  let subModules = [
+    images, 
+    circleButtons, 
+    obroundButtons, 
+    embeds, 
+    squares, 
+    pdfs, 
+    edges,
+    texts,
+    verticalTexts
+  ];
+  
+  subModules = Array.prototype.concat.apply([], subModules); //concat all submodules into a 1-dimensional array
+  subModules = subModules.filter(e => e != null); //filter out anything that is undefined
+
+  
   const justify = ["justify-start", "justify-center", "justify-between", "justify-end"];
   const [direction, setDirection] = useState();
   const [mobile, setMobile] = useState(false);
@@ -72,6 +78,7 @@ const FlexGallery = (props) => {
   let gridStyle = {
     gridTemplateRows: rowStyle,
   };
+  
   let handleWindowResize = function (event) {
     if (window.innerWidth <= 767) {
       setMobile(true);
@@ -101,123 +108,147 @@ const FlexGallery = (props) => {
     }
   });
   if (!isClient) return null;
+ 
+  /* switch statement for handling submodule type */
 
-  return (
-    <div key={2} style={gridStyle} className="w-full relative flexible-gallery mb-4">
-      {randImages &&
-        randImages.map((image, index) => {
-          // console.log(image);
+  function handleSubModule (image){
 
-          let styleObj = {
-            gridColumnStart: image._type == "flexEdgetoEdge" ? 1 : image.startColumn,
-            gridColumnEnd: image._type == "flexEdgetoEdge" ? 999 : image.endColumn,
-            gridRowStart: image.startRow,
-            gridRowEnd: image.endRow,
-          };
-          let styleObjMobile = {
-            gridColumnStart: image.startColumnMobile,
-            gridColumnEnd: image.endColumnMobile,
-            gridRowStart: image.startRowMobile,
-            gridRowEnd: image.endRowMobile,
-          };
-          let styleObjTablet = {
-            gridColumnStart: image.startColumnTablet,
-            gridColumnEnd: image.endColumnTablet,
-            gridRowStart: image.startRowTablet,
-            gridRowEnd: image.endRowTablet,
-          };
+    if(image){
+      /* css grid info */
+      let styleObj = {
+        gridColumnStart: image._type == "flexEdgetoEdge" ? 1 : image.startColumn,
+        gridColumnEnd: image._type == "flexEdgetoEdge" ? 999 : image.endColumn,
+        gridRowStart: image.startRow,
+        gridRowEnd: image.endRow,
+        paddingTop: image.paddingTop + "vw",
+        paddingBottom: image.paddingBottom + "vw",
+        paddingLeft: image.paddingLeft + "vw",
+        paddingRight: image.paddingRight + "vw",
+      };
+      let styleObjMobile = {
+        gridColumnStart: image.startColumnMobile,
+        gridColumnEnd: image.endColumnMobile,
+        gridRowStart: image.startRowMobile,
+        gridRowEnd: image.endRowMobile,
+        paddingTop: image.paddingTopMobileMobile + "vw",
+        paddingBottom: image.paddingBottomMobile + "vw",
+        paddingLeft: image.paddingLeftMobile + "vw",
+        paddingRight: image.paddingRightMobile + "vw",
+      };
+      let styleObjTablet = {
+        gridColumnStart: image.startColumnTablet,
+        gridColumnEnd: image.endColumnTablet,
+        gridRowStart: image.startRowTablet,
+        gridRowEnd: image.endRowTablet,
+        paddingTop: image.paddingTopTablet + "vw",
+        paddingBottom: image.paddingBottomTablet + "vw",
+        paddingLeft: image.paddingLeftTablet + "vw",
+        paddingRight: image.paddingRightTablet + "vw",
+      };
+      /* end css grid info */
 
-          if (image && image._type == "flexImage") {
-            //get ratio of image
+      /* start of switch statement */
+      switch(image._type) {
+        /* FLEX IMAGE */
+        case "flexImage":
+          if (image.asset !== undefined) {
+            /* if image is also a link */
+            if (image.link) {
+              let link = image.link.content.main.slug.current;
+              let uri = "";
 
-            if (image.asset !== undefined) {
-              if (image.link) {
-                let link = image.link.content.main.slug.current;
-                let uri = "";
-
-                switch (image.link._type) {
-                  case "home":
-                    uri = "/home";
-                    //   alert("set home");
-                    break;
-                  case "checkout":
-                    uri = "/checkout";
-                    break;
-                  default:
-                    uri = "";
-                    break;
+              switch (image.link._type) {
+                case "home":
+                  uri = "/home";
+                  //   alert("set home");
+                  break;
+                case "checkout":
+                  uri = "/checkout";
+                  break;
+                default:
+                  uri = "";
+                  break;
                 }
 
-                return (
-                  <div
-                    key={image._key}
-                    className={`${image.hideDesktop ? "lg:hidden " : ""} ${
-                      image.hideTablet ? "md:hidden lg:block " : ""
-                    } ${image.hideMobile ? "hidden md:block " : ""} flex-item`}
-                    style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
-                  >
-                    <PageLink className="internal-link z-40 block relative" to={uri + "/" + link}>
-                      <div
-                        className={`${image.dropShadow ? "drop-shadow" : ""} ${
-                          image.border ? " border-img" : ""
-                        } ${
-                          image.hoverImage ? "hover-hide" : ""
-                        } z-40 relative inline-block w-full`}
-                      >
-                        <Figure node={image} />
-                      </div>{" "}
-                      {image.caption && (
-                        <span className="mt-1 relative z-20 block text-sm">{image.caption}</span>
-                      )}
-                      {image.hoverImage && (
-                        <div
-                          className={`${image.dropShadow ? "drop-shadow" : ""} ${
-                            image.border ? " border-img" : ""
-                          } hover-image w-full inline-block`}
-                        >
-                          {" "}
-                          <Figure node={image.hoverImage} />
-                        </div>
-                      )}
-                    </PageLink>
-                  </div>
-                );
-              } else {
-                return (
-                  <div
-                    key={image._key}
-                    className={`${image.hideDesktop ? "lg:hidden " : ""} ${
-                      image.hideTablet ? "md:hidden lg:block " : ""
-                    } ${image.hideMobile ? "hidden md:block " : ""} flex-item`}
-                    style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
-                  >
+              return (
+                <div
+                key={image._key}
+                className={`
+                ${image.hideDesktop ? "lg:hidden " : ""} 
+                ${image.hideTablet ? "md:hidden lg:block " : ""} 
+                ${image.hideMobile ? "hidden md:block " : ""} 
+                flex-item overflow-hidden`}
+                style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}>
+                  <PageLink className="internal-link z-40 block relative" to={uri + "/" + link}>
                     <div
-                      className={`${image.dropShadow ? "drop-shadow" : ""} ${
-                        image.border ? " border-img" : ""
-                      } z-40 relative`}
-                    >
+                    className={`
+                    ${image.dropShadow ? "drop-shadow" : ""} 
+                    ${image.border ? " border-img" : ""} 
+                    ${image.hoverImage ? "hover-hide" : ""} 
+                    z-40 relative inline-block w-full`}>
                       <Figure node={image} />
                     </div>{" "}
                     {image.caption && (
-                      <span className="mt-1 block text-sm z-20 relative">{image.caption}</span>
+                      <span className="mt-1 relative z-20 block text-sm">{image.caption}</span>
                     )}
-                  </div>
-                );
-              }
+                    {image.hoverImage && (
+                      <div
+                      className={`
+                      ${image.dropShadow ? "drop-shadow" : ""} 
+                      ${image.border ? " border-img" : ""} 
+                      hover-image w-full inline-block`}>
+                        {" "}
+                        <Figure node={image.hoverImage} />
+                      </div>
+                    )}
+                  </PageLink>
+                </div>
+              );
             } else {
-              return <></>;
-            }
-          } else if (image._type == "flexEdgetoEdge") {
-            return (
-              <div
+              /* if image is not a link */
+              return (
+                <div
                 key={image._key}
-                className={`${image.upToNav ? "up-to-nav " : ""} flex-item edge-to-edge`}
-                style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
-              >
-                <Figure node={image} />
-              </div>
-            );
-          } else if (image._type == "flexPdf" && typeof window != `undefined`) {
+                className={`
+                ${image.hideDesktop ? "lg:hidden " : ""} 
+                ${image.hideTablet ? "md:hidden lg:block " : ""} 
+                ${image.hideMobile ? "hidden md:block " : ""} 
+                flex-item overflow-hidden`}
+                style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}>
+                  <div
+                  className={`
+                  ${image.dropShadow ? "drop-shadow" : ""} 
+                  ${image.border ? " border-img" : ""} 
+                  z-40 relative`}>
+                    <Figure node={image} />
+                  </div>{" "}
+                  {image.caption && (
+                    <span className="mt-1 block text-sm z-20 relative">{image.caption}</span>
+                  )}
+                </div>
+              );
+            }
+          } else {
+            return <></>;
+          }
+        /* END FLEX IMAGE */
+
+        /* FLEX EDGE TO EDGE IMAGE */
+        case "flexEdgetoEdge":
+          return (
+            <div
+              key={image._key}
+              className={`${image.upToNav ? "up-to-nav " : ""} flex-item edge-to-edge`}
+              style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
+            >
+              <Figure node={image} />
+            </div>
+          );
+        /* END FLEX EDGE TO EDGE IMAGE */
+
+        /* FLEX PDF */
+        case "flexPdf":
+          if(typeof window != `undefined`){
             return (
               <div
                 key={image._key}
@@ -227,69 +258,53 @@ const FlexGallery = (props) => {
                 <PdfReader key={image._key} file={image.asset.url} />
               </div>
             );
-          } else if (image._type == "flexText") {
-            return (
-              <div
-                key={image._key}
-                className={`${
-                  image.highZindex ? "high-z-index " : "z-20 "
-                } flex-item flex-text relative`}
-                style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
-              >
-                <div style={{ color: `${image.color ? image.color : "inherit"}` }}>
-                  {" "}
-                  <PortableText blocks={image.text} />
-                </div>
-              </div>
-            );
-          } else if (image._type == "flexCircle") {
-            return (
-              <>
-                {image !== undefined && image.title && (
-                  <div
-                    key={image._key}
-                    className="self-center mx-auto z-20 bottom-0 md:relative"
-                    style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
-                  >
-                    <CircleButton
-                      textColor={image.customCircleTextColor}
-                      customColor={image.customCircleColor}
-                      color={image.color}
-                      title={image.title}
-                      url={image.url}
-                      float={true}
-                    />
-                  </div>
-                )}
-              </>
-            );
-          } else if (image._type == "flexCallibration") {
-            let styleObj = {
-              gridColumnStart: 1,
-              gridColumnEnd: 40,
-              gridRowStart: image.startRow,
-            };
-            let styleObjMobile = {
-              gridColumnStart: 1,
-              gridColumnEnd: 40,
-              gridRowStart: image.startRowMobile,
-            };
-            let styleObjTablet = {
-              gridColumnStart: 1,
-              gridColumnEnd: 40,
-              gridRowStart: image.startRowTablet,
-            };
-            return (
-              <div
-                key={image._key}
-                className="flex-item"
-                style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
-              >
+          }
+        /*END FLEX PDF*/
+
+        /* FLEX TEXT */
+        case "flexText":
+          return (
+            <div
+              key={image._key}
+              className={`${
+                image.highZindex ? "high-z-index " : "z-20 "
+              } flex-item flex-text relative`}
+              style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
+            >
+              <div style={{ color: `${image.color ? image.color : "inherit"}` }}>
                 {" "}
-                <GridRow />
+                <PortableText blocks={image.text} />
               </div>
-            );
-          } else if (image._type == "flexSquare") {
+            </div>
+          );
+        /* END FLEX TEXT*/
+
+        /* FLEX CIRCLE */
+        case "flexCircle":
+          return (
+            <>
+              {image !== undefined && image.title && (
+                <div
+                  key={image._key}
+                  className="self-center mx-auto z-60 bottom-0 md:relative"
+                  style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
+                >
+                  <CircleButton
+                    textColor={image.customCircleTextColor}
+                    customColor={image.customCircleColor}
+                    color={image.color}
+                    title={image.title}
+                    url={image.url}
+                    float={true}
+                  />
+                </div>
+              )}
+            </>
+          );
+        /* END FLEX CIRCLE */
+
+        /* FLEX SQUARE */
+        case "flexSquare":
             const title = image.title;
             const color = image.color;
             const link = image.link;
@@ -334,52 +349,76 @@ const FlexGallery = (props) => {
             } else {
               return <></>;
             }
-          } else if (image._type == "obroundButton") {
-            return (
-              <>
-                {image !== undefined && image.title && (
-                  <div
-                    key={image._key}
-                    className="z-20 bottom-0 md:relative"
-                    style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
-                  >
-                    <ObroundButton
-                      textColor={image.customTextColor}
-                      customColor={image.customColor}
-                      title={image.title}
-                      url={image.url}
-                    />
-                  </div>
-                )}
-              </>
-            );
-          } else if (image._type == "flexVerticalText") {
-            return (
+        /*END FLEX SQUARE*/
+
+        /* obroundButton */
+        case "obroundButton":
+          return (
+            <>
+              {image !== undefined && image.title && (
+                <div
+                  key={image._key}
+                  className="z-20 bottom-0 md:relative"
+                  style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
+                >
+                  <ObroundButton
+                    textColor={image.customTextColor}
+                    customColor={image.customColor}
+                    title={image.title}
+                    url={image.url}
+                  />
+                </div>
+              )}
+            </>
+          )
+        /* end obroundButton */  
+
+        /* VERTICAL CAPTIONS */
+        case "flexVerticalText":
+          return (
+            <div className={`flex-item z-40 ${image.edgeBind ? "edgeBind--" + image.edgeBind + "-wrapper" : "" }`} 
+            style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
+            >
               <div
                 key={image._key}
                 className={`
                   ${image.edgeBind ? "edgeBind--" + image.edgeBind : "" }
-                  flex-vertical-text 
+                  flex-vertical-text text-mobileNav md:text-desktopNav
                 `}
-                style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
               >
                 <div style={{ color: `${image.color ? image.color : "inherit"}` }}>
                   <PortableText className="m-0" blocks={image.text} />
                 </div>
               </div>
-            );
-          } else {
+            </div>
+          );
+        /* END VERTICAL CAPTIONS*/
+
+        default:
             return (
-              <div
-                style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
-                key={image._key}
-                className="flex-item html-text z-20 relative"
-              >
-                {ReactHtmlParser(image.embedCode)}
-              </div>
-            );
-          }
-        })}
+            <div
+              style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
+              key={image._key}
+              className="flex-item html-text z-20 relative"
+            >
+              {ReactHtmlParser(image.embedCode)}
+            </div>
+          );
+      }
+      /* end of switch statement */
+    }
+  }
+
+
+
+
+  return (
+    <div key={2} style={gridStyle} className="w-full relative flexible-gallery">
+      {subModules &&
+        subModules.map((image, index) => {
+            return(handleSubModule(image))
+        })
+      }
     </div>
   );
 };

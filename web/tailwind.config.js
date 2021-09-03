@@ -1,13 +1,15 @@
 module.exports = {
+  mode: 'jit',
   purge: [
     './src/**/*.tsx',
     './src/**/*.js',
     ],
   important: true,
   theme: {
-    inset: {
-      "0": "0",
-      "1/2": "50%",
+    borderColor: {
+      default: "#edeef0",
+      secondary: "#cacaca",
+      dark: "#434343",
     },
     fontSize: {
       sm: [
@@ -36,7 +38,7 @@ module.exports = {
       ],
 
       base: ["1rem", "1.25rem"],
-      baseMd: ["1.625rem", "1.875rem"],
+      baseMd: ["1.8vw"],
       baseLg: ["3.75rem", "4.25rem"],
       baseLgMobile: ["3.75rem", "4.25rem"],
       baseRte: [
@@ -54,17 +56,17 @@ module.exports = {
         },
       ],
       desktopBody: [
-        "1.875rem",
+        "1.8vw",
         {
-          lineHeight: "2.5rem",
+          lineHeight: "115%",
           letterSpacing: "-.005em",
         },
       ],
       desktopNav: [
-        "1.125rem",
+        ".85rem",
         {
-          lineHeight: "1.125rem",
           letterSpacing: "0rem",
+          fontFamily: "NeueHaasGrotesk"
         },
       ],
       desktopInterface: [
@@ -84,25 +86,33 @@ module.exports = {
         },
       ],
       mobileLarge: [
-        "1.625rem",
+        "4.1666vw",
         {
-          lineHeight: "1.875rem",
+          lineHeight: "4.722vw",
           letterSpacing: "0.01em",
+        },
+      ],
+      smallBody: [
+        "1.1rem",
+        {
+          lineHeight: "115%",
+          letterSpacing: "-0.33px",
         },
       ],
       mobileBody: [
-        "1rem",
+        "1.3rem",
         {
-          lineHeight: "1.25rem",
-          letterSpacing: "0.01em",
+          lineHeight: "115%",
+          letterSpacing: "-0.33px",
         },
       ],
       mobileNav: [
-        ".9375rem",
+        ".75rem",
         {
-          lineHeight: "1.40625rem",
+          lineHeight: "115%",
           letterSpacing: ".01em",
           textTransform: "uppercase",
+          fontFamily: "NeueHaasGrotesk",
         },
       ],
       mobileInterface: [
@@ -125,26 +135,40 @@ module.exports = {
       articleTitle: ["2.19vw", "1.2"],
       "2xl": ["2rem", "2.375rem"],
     },
-    borderColor: {
-      default: "#edeef0",
-      secondary: "#cacaca",
-      dark: "#434343",
+    inset: {
+      "0": "0",
+      "1/2": "50%",
+    },
+    screens: {
+      "sub-i-6": "360px",
+      "tiny": "460px",
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "max-font": "1083px",
+      "xl": "1280px",
+      "2xl": "1536px",
     },
     textColor: {
       primary: "#000000",
       white: "#ffffff"
     },
+    zIndex: {
+      '0': 0,
+      '10': 10,
+      '20': 20,
+      '30': 30,
+      '40': 40,
+      '45': 45,
+      '50': 50,
+      '60': 60,
+      '70': 70,
+      '80': 80,
+      '90': 90,
+      '100': 100,
+      'auto': 'auto',
+    },
     extend: {
-      keyframes: {
-        in: {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
-        },
-        out: {
-          "0%": { opacity: "1" },
-          "100%": { opacity: "0" },
-        },
-      },
       animation: {
         in: "in .25s linear 1s forwards",
         out: "out .25s linear 0s forwards",
@@ -159,24 +183,64 @@ module.exports = {
         lightGray: "#f2f2f2",
         darkGray: "#1f1f1f",
       },
-      textColor: {
-        primary: "#F7F6F0",
-        red: "#e30613",
-        gray: "#797979",
-        darkGray: "#333333",
-        aside: "#4c4c4e",
-        rte: "#393939",
-        subtitle: "#b9b9b9",
-      },
       borderWidth: {
         "1/2": ".5px",
       },
       fontFamily: {
-        serif: ["GP", "Helvetica", "Arial", "sans-serif"],
+        serif: ["FolioBT", "Helvetica", "Arial", "sans-serif"],
+      },
+      inset: {
+        "2": "34%",
+        "3": "63.24%",
+        menu: "100px",
+      },
+      keyframes: {
+        in: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        out: {
+          "0%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        },
+      },
+      padding: {
+        p1: ".1vw",
+        p2: ".2vw",
+        p3: ".3vw",
+        p4: ".4vw",
+        p5: ".5vw",
+        p6: ".6vw",
+        p7: ".7vw",
+        p8: ".8vw",
+        p9: ".9vw",
+        p10: "1.0vw",
+        p11: "1.1vw",
+        p12: "1.2vw",
+        p13: "1.3vw",
+        p14: "1.4vw",
+        p15: "1.5vw",
+        p16: "1.6vw",
+        p17: "1.7vw",
+        p18: "1.8vw",
+        p19: "1.9vw",
+        p20: "2.0vw",
+        p21: "2.1vw",
+        p22: "2.2vw",
+        p23: "2.3vw",
+        p24: "2.4vw",
+        p25: "2.5vw",
+        p26: "2.6vw",
+        p27: "2.7vw",
+        p28: "2.8vw",
+        p29: "2.9vw",
+        p30: "3.0vw",
+        "4.5": "1.125rem",
+        "7":"1.75rem",
       },
       spacing: {
-        mobile: ".625rem",
-        desktop: "27px",
+        mobile: "1.75rem",
+        desktop: "1.75rem",
         footerOffset: "200px",
         contentOffsetDesktop: "245px",
         contentOffsetMobile: "238px",
@@ -227,14 +291,14 @@ module.exports = {
         "18/20": "90vw",
         "19/20": "95vw",
       },
-      inset: {
-        "2": "34%",
-        "3": "63.24%",
-        menu: "100px",
-      },
-      screens: {
-        "tiny": "460px",
-        "max-font": "1083px"
+      textColor: {
+        primary: "#F7F6F0",
+        red: "#e30613",
+        gray: "#797979",
+        darkGray: "#333333",
+        aside: "#4c4c4e",
+        rte: "#393939",
+        subtitle: "#b9b9b9",
       },
       width: {
         "372": "372px",
@@ -256,7 +320,9 @@ module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
   },
-  variants: {},
+  variants: {
+    
+  },
   plugins: [
     ({ addComponents, theme }) => {
       addComponents({

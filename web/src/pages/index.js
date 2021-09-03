@@ -119,188 +119,189 @@ export const query = graphql`
 
 `;
 
-const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
-const Unavailable = () => (
-  <div className="w-full relative z-20 pt-1em pb-1em">
-    <p>That unit is currently unavailable. Please select another unit</p>
-  </div>
-);
+// const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
+// const Unavailable = () => (
+//   <div className="w-full relative z-20 pt-1em pb-1em">
+//     <p>That unit is currently unavailable. Please select another unit</p>
+//   </div>
+// );
 
-const DiscountNotice = ({ discountCode, color, codes }) => {
+// const DiscountNotice = ({ discountCode, color, codes }) => {
   
-  return (
-    <div className="discount-container mb-1">
-      <div className="">$100 USD</div>
+//   return (
+//     <div className="discount-container mb-1">
+//       <div className="">$100 USD</div>
       
-    </div>
-    );
+//     </div>
+//     );
 
-};
+// };
 
-const ValueAdded = ({ discount,whatsIncluded, depositCounter, codes, discountCode, unitTitle, color }) => {
-const [showRefund, setShowRefund] = useState(0);
-const handleRefund = () => {
-  if(showRefund){
-    setShowRefund(0) 
-  } else{ 
-    setShowRefund(1)
-  }
-}
-  return(
-  <>
-    <h1 className="membership-deposit mb-2">Hold your spot.
-    <br />
-    </h1>
+// const ValueAdded = ({ discount,whatsIncluded, depositCounter, codes, discountCode, unitTitle, color }) => {
+// const [showRefund, setShowRefund] = useState(0);
+// const handleRefund = () => {
+//   if(showRefund){
+//     setShowRefund(0) 
+//   } else{ 
+//     setShowRefund(1)
+//   }
+// }
+//   return(
+//   <>
+//     <h1 className="membership-deposit mb-2">Hold your spot.
+//     <br />
+//     </h1>
   
-    <div id='spots-remaining-count'>
-   <span> Spots remaining:</span> {depositCounter}
-    </div>
+//     <div id='spots-remaining-count'>
+//    <span> Hold yout spot:</span> {depositCounter}
+//     </div>
 
 
 
 
-      <Accordion className="max-w-2xl my-20 w-full deposit-accordion" allowToggle allowMultiple>
+//       <Accordion className="max-w-2xl my-20 w-full deposit-accordion" allowToggle allowMultiple>
   
-              <AccordionItem
+//               <AccordionItem
 
-              defaultIsOpen={false}
-              className="border-none relative block accordion max-w-2xl"
-            >
-              {({ isExpanded }) => (
-                <>
-                  <AccordionHeader className=" relative py-6 border-none">
-                    <h2 className="m-0 -mt-1/4em md:mt-0">{"What's included?"}</h2>
-                    <div
+//               defaultIsOpen={false}
+//               className="border-none relative block accordion max-w-2xl"
+//             >
+//               {({ isExpanded }) => (
+//                 <>
+//                   <AccordionHeader className=" relative py-6 border-none">
+//                     <h2 className="m-0 -mt-1/4em md:mt-0">{"What's included?"}</h2>
+//                     <div
                       
-                      className="accordion-icon right-0 absolute pr-1em"
-                    >
-                      {isExpanded ? 
-                       <span id='thin-minus'></span>
-                        : 
-                        <svg width="22" height="21" viewBox="0 0 22 21" fill="none">
-                        <path d="M10.7243 0V10.5M10.7243 21V10.5M10.7243 10.5H21.1322M10.7243 10.5H0.316406" stroke="white"/>
-                        </svg>
-                      }
-                    </div>
-                  </AccordionHeader>
-                  <AccordionPanel className="pb-1em">
-                    <PortableText blocks={whatsIncluded} />
-                  </AccordionPanel>
-                </>
-              )}
-            </AccordionItem>
-        </Accordion>
+//                       className="accordion-icon right-0 absolute pr-1em"
+//                     >
+//                       {isExpanded ? 
+//                        <span id='thin-minus'></span>
+//                         : 
+//                         <svg width="22" height="21" viewBox="0 0 22 21" fill="none">
+//                         <path d="M10.7243 0V10.5M10.7243 21V10.5M10.7243 10.5H21.1322M10.7243 10.5H0.316406" stroke="white"/>
+//                         </svg>
+//                       }
+//                     </div>
+//                   </AccordionHeader>
+//                   <AccordionPanel className="pb-1em">
+//                     <PortableText blocks={whatsIncluded} />
+//                   </AccordionPanel>
+//                 </>
+//               )}
+//             </AccordionItem>
+//         </Accordion>
 
 
 
 
- <div id='deposit-text-span'>
-   <span> Membership Deposit:</span> <DiscountNotice codes={codes} color={color} discountCode={discountCode} />
-    </div>
+//  <div id='deposit-text-span'>
+//    <span> Membership Deposit:</span> <DiscountNotice codes={codes} color={color} discountCode={discountCode} />
+//     </div>
 
-     <div className="mb-8" id='refundable-text-span'>
-        Fully refundable any time, for any reason. <span onClick={handleRefund} id='question-trigger'>?</span>
-    </div>
-    {unitTitle &&
-      <p className="mb-0">Reserve unit {unitTitle}</p>
-    }
-    <p>
-
-
-  </p>
-  {showRefund ?
-     <>
-        <div className="refund-popup rounded-md  w-full md:max-w-md fixed md:display-block py-4 md:m-auto px-8 bg-white">  
-          <button onClick={handleRefund} aria-label="Close" type="button" className="refund-close">
-          <svg viewBox="0 0 24 24" focusable="false" role="presentation" aria-hidden="true"><path fill="currentColor" d="M.439,21.44a1.5,1.5,0,0,0,2.122,2.121L11.823,14.3a.25.25,0,0,1,.354,0l9.262,9.263a1.5,1.5,0,1,0,2.122-2.121L14.3,12.177a.25.25,0,0,1,0-.354l9.263-9.262A1.5,1.5,0,0,0,21.439.44L12.177,9.7a.25.25,0,0,1-.354,0L2.561.44A1.5,1.5,0,0,0,.439,2.561L9.7,11.823a.25.25,0,0,1,0,.354Z"></path></svg></button>
-          <div className="mb-0 pt-0">
-            <p className="text-black">If you change your mind for any reason, just email us and we'll refund your deposit within 14 days of your request, no questions asked. </p>
-          </div>
-        </div>
-        <div className="refund-popup-overlay" onClick={handleRefund}></div>
-        </>
+//      <div className="mb-8" id='refundable-text-span'>
+//         Fully refundable any time, for any reason. <span onClick={handleRefund} id='question-trigger'>?</span>
+//     </div>
+//     {unitTitle &&
+//       <p className="mb-0">Reserve unit {unitTitle}</p>
+//     }
+//     <p>
 
 
-  : ""}
-  </>
-)};
+//   </p>
+//   {showRefund ?
+//      <>
+//         <div className="refund-popup rounded-md  w-full md:max-w-md fixed md:display-block py-4 md:m-auto px-8 bg-white">  
+//           <button onClick={handleRefund} aria-label="Close" type="button" className="refund-close">
+//           <svg viewBox="0 0 24 24" focusable="false" role="presentation" aria-hidden="true"><path fill="currentColor" d="M.439,21.44a1.5,1.5,0,0,0,2.122,2.121L11.823,14.3a.25.25,0,0,1,.354,0l9.262,9.263a1.5,1.5,0,1,0,2.122-2.121L14.3,12.177a.25.25,0,0,1,0-.354l9.263-9.262A1.5,1.5,0,0,0,21.439.44L12.177,9.7a.25.25,0,0,1-.354,0L2.561.44A1.5,1.5,0,0,0,.439,2.561L9.7,11.823a.25.25,0,0,1,0,.354Z"></path></svg></button>
+//           <div className="mb-0 pt-0">
+//             <p className="text-black">If you change your mind for any reason, just email us and we'll refund your deposit within 14 days of your request, no questions asked. </p>
+//           </div>
+//         </div>
+//         <div className="refund-popup-overlay" onClick={handleRefund}></div>
+//         </>
 
-const CheckoutOptions = ({ /*ssr, */ children }) => {
-  // if (ssr) return null;
-  return <>{children}</>;
-};
 
-const CheckoutActions = ({ unit, children }) => {
-  if (unit && unit.sold) return <Unavailable />;
-  return <>{children}</>;
-};
+//   : ""}
+//   </>
+// )};
 
-const CheckoutDescription = ({ unit,whatsIncluded, depositCounter, codes, modules, children,color, discount, discountCode }) => {
-  const [head, ...rest] = modules;
+// const CheckoutOptions = ({ /*ssr, */ children }) => {
+//   // if (ssr) return null;
+//   return <>{children}</>;
+// };
+
+// const CheckoutActions = ({ unit, children }) => {
+//   if (unit && unit.sold) return <Unavailable />;
+//   return <>{children}</>;
+// };
+
+// const CheckoutDescription = ({ unit,whatsIncluded, depositCounter, codes, modules, children,color, discount, discountCode }) => {
+//   const [head, ...rest] = modules;
  
-  if (unit) {
+//   if (unit) {
 
-    return (
-      <>
-        <div className="flex flex-wrap w-full standard-text">
-          {RenderModules([head])}
+//     return (
+//       <>
+//         <div className="flex flex-wrap w-full standard-text">
+//           {RenderModules([head])}
 
-          <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
+//           <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
             
-            <ValueAdded whatsIncluded={whatsIncluded} depositCounter={depositCounter} codes={codes} color={color} unitTitle={unit.title} discount={discount} discountCode={discountCode} />
+//             <ValueAdded whatsIncluded={whatsIncluded} depositCounter={depositCounter} codes={codes} color={color} unitTitle={unit.title} discount={discount} discountCode={discountCode} />
             
-          </div>
+//           </div>
           
-        </div>
+//         </div>
         
-        {children}
-      </>
-    );
-  }
+//         {children}
+//       </>
+//     );
+//   }
 
-  return (
-    <>
-      <div className="flex flex-wrap w-full standard-text">
-        {RenderModules([head])}
+//   return (
+//     <>
+//       <div className="flex flex-wrap w-full standard-text">
+//         {RenderModules([head])}
 
-        <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
+//         <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
    
-          <ValueAdded whatsIncluded={whatsIncluded} depositCounter={depositCounter} codes={codes} discount={discount} color={color} discountCode={discountCode} />
-        </div>
+//           <ValueAdded whatsIncluded={whatsIncluded} depositCounter={depositCounter} codes={codes} discount={discount} color={color} discountCode={discountCode} />
+//         </div>
         
-      </div>
+//       </div>
       
-      {children}
-    </>
-  );
-};
+//       {children}
+//     </>
+//   );
+// };
 
-const CheckoutModules = ({ unit, modules, children, discount, discountCode }) => {
-  const [head, ...rest] = modules;
+// const CheckoutModules = ({ unit, modules, children, discount, discountCode }) => {
+//   const [head, ...rest] = modules;
 
-  if (unit) {
-    return (
-      <>
-        <div className="flex flex-wrap w-full standard-text">
-          {RenderModules(rest)}
-        </div>
-        {children}
-      </>
-    );
-  }
+//   if (unit) {
+//     return (
+//       <>
+//         <div className="flex flex-wrap w-full standard-text">
+//           {RenderModules(rest)}
+//         </div>
+//         {children}
+//       </>
+//     );
+//   }
 
-  return (
-    <>
-      <div className="flex flex-wrap w-full standard-text">
+//   return (
+//     <>
+//       <div className="flex flex-wrap w-full standard-text">
         
 
        
 
-      </div>
-      {children}
-    </>
-  );
-};
+//       </div>
+//       {children}
+//     </>
+//   );
+// };
+
 const CollectivePage = (props) => {
   const { data, errors } = props;
   let sku = "MEMB001";
@@ -342,7 +343,7 @@ const CollectivePage = (props) => {
 
     
   return (
-    <Layout blackHeader={false} blackFooter={title == "Landing" ? true : false} showPopupNewsletter={true}>
+    <Layout blackHeader={false} blackFooter={false} showPopupNewsletter={true}>
       <SEO
         title={myTitle}
         description={site.description}

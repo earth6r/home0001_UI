@@ -46,21 +46,21 @@
 @media(max-width:767px){
   
   .pane-color{
-     width:calc(100% + (0.625rem * 2));
+     width:calc(100% + (1.75rem * 2));
      left:0;
      position: absolute;
      top:0;
-     left: -0.625rem;
-     right: -0.625rem;
+     left: -1.75rem;
+     right: -1.75rem;
      min-height:100vh;
   }
  .pane-container{
-     width:calc(100% + (0.625rem * 2));
+     width:calc(100% + (1.75rem * 2));
      left:0;
      position: absolute;
      top:0;
-     left: -0.625rem;
-     right: -0.625rem;
+     left: -1.75rem;
+     right: -1.75rem;
      min-height:100vh;
   }
   .pane:first-child{

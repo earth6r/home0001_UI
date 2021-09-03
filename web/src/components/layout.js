@@ -1,36 +1,36 @@
-import React, { useState, useEffect, useRef } from "react";
-import Header from "./header";
-import HeaderRnd from "./headerRnd";
 import Footer from "./footer";
 import GridRow from "./grid/grid-row";
+import Header from "./header";
+import HeaderRnd from "./headerRnd";
+import React, { useState, useEffect, useRef } from "react";
 
 const Layout = ({
-  mainMenu,
-  infoSection,
-  blackHeader,
-  newsletter,
-  strikeColor,
-  pillColor,
-  infoSectionBelow,
-  showPopupNewsletter,
-  blackFooter,
-  rMenu,
-  rnd = false,
-  subMenu,
-  footerMenu,
-  children,
-  onHideNav,
-  onShowNav,
-  showNav,
-  onHideSubNav,
-  onShowSubNav,
-  showSubNav,
-  siteTitle,
-  isHome,
-  thinBanner,
-  showThinBanner,
   bannerUrl,
   bannerUrlTitle,
+  blackFooter,
+  blackHeader,
+  children,
+  footerMenu,
+  infoSection,
+  infoSectionBelow,
+  isHome,
+  mainMenu,
+  newsletter,
+  onHideNav,
+  onHideSubNav,
+  onShowNav,
+  onShowSubNav,
+  pillColor,
+  rMenu,
+  rnd = false,
+  showNav,
+  showPopupNewsletter,
+  showSubNav,
+  showThinBanner,
+  siteTitle,
+  strikeColor,
+  subMenu,
+  thinBanner,
 }) => {
   const myRef = useRef({
     location: null,
@@ -181,9 +181,9 @@ const Layout = ({
         </div>
       <div
         id="page-content-wrapper"
-        className={`${showThinBanner && !rnd ? "mt-16 md:mt-12 md:mt-16" : "mt-0"} ${
+        className={`${showThinBanner && !rnd ? "mt-16 md:mt-12md:mt-16" : "mt-0"} ${
           blackHeader ? " dark-theme " : ""
-        } ${rnd ? "px-special" : ""} container pb-0 `}
+        } ${rnd ? "px-special" : ""} container  px-5 md:px-7 pb-0 `}
       >
         {children}
       </div>

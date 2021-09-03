@@ -5,7 +5,7 @@ export default {
   name: 'richTable',
   type: 'document',
   fields: [
-  {
+    {
       name: 'internalTitle',
       title: 'Title for Internal Use',
       type: 'string',
@@ -15,20 +15,6 @@ export default {
       title: 'Show Callibration Marks',
       default: true,
       type: 'boolean',
-    },
-    {
-      name: 'title',
-      type: 'string',
-      title: 'Title (internal)',
-    },
-    {
-      name: 'headerRow',
-      type: 'array',
-      of: [
-        {
-          type: 'string',
-        },
-      ],
     },
     {
       name: 'rows',

@@ -97,78 +97,80 @@ if(typeof window != `undefined`){
       
 
       <header className={`${showThinBanner && thinBanner ? "mt-16 md:mt-8" : "" } ${blackHeader ? "black-header ":""} fixed z-50 w-full left-0`}>
-        <div
-          className={`${
-            showNav ? "h-full" : ""
-          } flex container pb-0 w-full nav md:bg-transparent md:relative justify-between md:justify-center md:justify-between items-center content-center`}
-        >
-          <GridRow scroll={false} hide={1} className="flex w-full justify-between md:hidden">
-            <h1 style={{ top: ".05em" }} className="md:hidden relative logo">
-              <PageLink to="/">
-                <span className="earth-svg block text-mobileNav md:text-base">
-<svg viewBox="0 0 45 11" fill="none">
-<path d="M0 0H7.4747V1.25196H1.52952V4.65937H7.2752V5.91134H1.52952V9.68014H7.621V10.9321H0V0Z" fill="black"/>
-<path d="M12.4756 0H14.4574L18.7799 10.9321H17.1174L15.8672 7.67957H11.0259L9.78899 10.9321H8.12646L12.4756 0ZM15.415 6.45342L13.4465 1.29068L11.4914 6.45342H15.415Z" fill="black"/>
-<path d="M19.897 0H24.5653C26.9993 0 28.3027 1.07127 28.3027 2.86532C28.3027 4.67228 27.0658 5.33053 26.454 5.43378C27.4648 5.61448 28.2362 6.15657 28.2362 7.52469V9.21549C28.2362 9.77048 28.316 10.3255 28.9012 10.9321H27.1589C26.7333 10.4416 26.6801 9.89955 26.6801 9.40909V7.76992C26.6801 6.47924 25.9486 6.15657 24.7116 6.15657H21.4132V10.9192H19.897V0ZM24.6185 4.9046C26.5338 4.9046 26.7599 3.5881 26.7599 2.95567C26.7599 1.94893 26.0949 1.25196 24.5121 1.25196H21.4132V4.9046H24.6185Z" fill="black"/>
-<path d="M32.8912 1.25196H29.3135V0H38.0251V1.25196H34.434V10.9321H32.8912V1.25196Z" fill="black"/>
-<path d="M44.8217 10.9321H43.2523V5.89843H37.2539V4.64646H43.2523V0H44.8217V10.9321Z" fill="black"/></svg>
-                </span>
+        <div className={`${showNav ? "h-full" : ""} flex container pb-0 w-full px-5 nav md:bg-transparent md:relative justify-between md:justify-center md:justify-between items-center content-center`}>
+          <nav className="flex w-full justify-between md:hidden">
+            <h1 className="md:hidden relative">
+              <PageLink className={`${currentUri && currentUri.includes('/')  ? "": ""}`} to="/">
+                <svg className="earth-svg blockx" width="47" height="11" viewBox="0 0 47 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.324219 11H8.23422V8.95598H2.70422V6.53399H7.40822V4.64398H2.70422V2.57198H8.13622V0.583984H0.324219V11Z" fill="#FF0000"/>
+                  <path d="M9.38113 11H11.7751L12.4191 9.01198H16.1991L16.8571 11H19.3771L15.6111 0.583984H13.1331L9.38113 11ZM13.6231 5.35798C13.9591 4.33598 14.3231 2.58598 14.3231 2.58598H14.3511C14.3511 2.58598 14.5751 3.92999 15.0231 5.35798L15.6531 7.30398H12.9791L13.6231 5.35798Z" fill="#FF0000"/>
+                  <path d="M20.8517 11H23.2317V7.02398H24.9957C26.1437 7.02398 26.6617 7.55598 26.7877 8.59198C26.9137 9.73998 26.8857 10.846 27.1657 11H29.5177V10.888C29.1817 10.748 29.2657 9.57199 29.0697 8.15798C28.9297 7.03798 28.4677 6.46398 27.4317 6.14198V6.09998C28.7617 5.66598 29.3637 4.78398 29.3637 3.56598C29.3637 1.66198 27.8377 0.583984 25.8077 0.583984H20.8517V11ZM23.2317 2.47398H25.4157C26.4657 2.47398 26.9837 3.03398 26.9837 3.88798C26.9837 4.71398 26.4097 5.25998 25.3457 5.25998H23.2317V2.47398Z" fill="#FF0000"/>
+                  <path d="M30.7072 2.61398H33.8012V11H36.1952V2.61398H39.3032V0.583984H30.7072V2.61398Z" fill="#FF0000"/>
+                  <path d="M40 6.63198V4.64398L44.62 4.60198V0.583984H47V11H44.62V6.58998L40 6.63198Z" fill="#FF0000"/>
+                </svg>
               </PageLink>
             </h1>
             <button
               style={{ borderColor: "#000000" }}
-              className={`${
-                showNav ? "border rounded-full" : "box"
-              } lg:hidden py-0 outline-none relative -mt-1 w-12 z-50 py-3`}
+              className="lg:hidden py-0 outline-none relative -mt-1 w-12 z-50 py-3"
               onClick={showNav ? onHideNav : onShowNav}
               role="button"
               aria-label="Open the menu"
             >
               <div
                 style={{ marginTop: ".5px" }}
-                className="px-4 flex justify-center h-full w-full items-center absolute top-0 left-0"
+                className={`${showNav ? "hidden" : ""} pl-6 flex justify-center h-full w-full items-center absolute top-0 ml-1`}
               >
-                <Icon symbol="hamburger" />
+                <Icon symbol="hamburgerRed" />
+              </div>
+              <div
+                style={{ marginTop: ".5px" }}
+                className={`${showNav ? "" : "hidden"} pl-6 flex justify-center h-full w-full items-center absolute top-0 left-0 ml-1`}
+              >
+                <Icon symbol="close" />
               </div>
             </button>
-          </GridRow>
+          </nav>
 
           <nav
-            className={`${showThinBanner && thinBanner ? "mt-16 md:mt-4" : "" } ${
-              showNav
-                ? "block z-40 bg-white box md:shadow-none transition-none rounded-lg"
-                : "hidden"
-            } fixed left-0 top-0 md:relative w-full md:block text-mobileNav md:text-base`}
-          >
-            <div className="mx-mobile md:mx-0">
+          className={`
+          ${showThinBanner && thinBanner ? "mt-16 md:mt-4" : "" } 
+          ${showNav ? "block z-40 bg-white md:shadow-none transition-none" : "hidden"} 
+          fixed md:relative top-0 left-0 w-full md:block h-full`}>
+            <div className="nav-box mx-mobile md:mx-0">
               <ul
                 style={{}}
-                className="flex pt-2em md:pt-0 flex-wrap relative mt-1 leading-none container p-0 m-0 md:flex md:flex-no-wrap w-full text-mobileNav md:text-base justify-center md:justify-between"
+                className="flex pt-2em md:pt-0 flex-wrap relative mt-1 container p-0 m-0 md:px-2 md:flex md:flex-no-wrap w-full justify-center md:justify-between"
               >
                 <li className="absolute md:relative left-0 top-0 pt-2">
-                  <h1 className="logo ">
-                    <PageLink className={`${currentUri && currentUri.includes('/')  ? "": "current-nav-link"}`} onClick={onHideNav} to="/">
-                      <span className="earth-svg">
-<svg viewBox="0 0 45 11" fill="none">
-<path d="M0 0H7.4747V1.25196H1.52952V4.65937H7.2752V5.91134H1.52952V9.68014H7.621V10.9321H0V0Z" fill="black"/>
-<path d="M12.4756 0H14.4574L18.7799 10.9321H17.1174L15.8672 7.67957H11.0259L9.78899 10.9321H8.12646L12.4756 0ZM15.415 6.45342L13.4465 1.29068L11.4914 6.45342H15.415Z" fill="black"/>
-<path d="M19.897 0H24.5653C26.9993 0 28.3027 1.07127 28.3027 2.86532C28.3027 4.67228 27.0658 5.33053 26.454 5.43378C27.4648 5.61448 28.2362 6.15657 28.2362 7.52469V9.21549C28.2362 9.77048 28.316 10.3255 28.9012 10.9321H27.1589C26.7333 10.4416 26.6801 9.89955 26.6801 9.40909V7.76992C26.6801 6.47924 25.9486 6.15657 24.7116 6.15657H21.4132V10.9192H19.897V0ZM24.6185 4.9046C26.5338 4.9046 26.7599 3.5881 26.7599 2.95567C26.7599 1.94893 26.0949 1.25196 24.5121 1.25196H21.4132V4.9046H24.6185Z" fill="black"/>
-<path d="M32.8912 1.25196H29.3135V0H38.0251V1.25196H34.434V10.9321H32.8912V1.25196Z" fill="black"/>
-<path d="M44.8217 10.9321H43.2523V5.89843H37.2539V4.64646H43.2523V0H44.8217V10.9321Z" fill="black"/>
-</svg>
-                      </span>
+                  <h1 className="">
+                    <PageLink className={`${currentUri && currentUri.includes('/')  ? "": ""}`} onClick={onHideNav} to="/">
+                      <svg className="earth-svg blockx" width="47" height="11" viewBox="0 0 47 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.324219 11H8.23422V8.95598H2.70422V6.53399H7.40822V4.64398H2.70422V2.57198H8.13622V0.583984H0.324219V11Z" fill="#FF0000"/>
+                        <path d="M9.38113 11H11.7751L12.4191 9.01198H16.1991L16.8571 11H19.3771L15.6111 0.583984H13.1331L9.38113 11ZM13.6231 5.35798C13.9591 4.33598 14.3231 2.58598 14.3231 2.58598H14.3511C14.3511 2.58598 14.5751 3.92999 15.0231 5.35798L15.6531 7.30398H12.9791L13.6231 5.35798Z" fill="#FF0000"/>
+                        <path d="M20.8517 11H23.2317V7.02398H24.9957C26.1437 7.02398 26.6617 7.55598 26.7877 8.59198C26.9137 9.73998 26.8857 10.846 27.1657 11H29.5177V10.888C29.1817 10.748 29.2657 9.57199 29.0697 8.15798C28.9297 7.03798 28.4677 6.46398 27.4317 6.14198V6.09998C28.7617 5.66598 29.3637 4.78398 29.3637 3.56598C29.3637 1.66198 27.8377 0.583984 25.8077 0.583984H20.8517V11ZM23.2317 2.47398H25.4157C26.4657 2.47398 26.9837 3.03398 26.9837 3.88798C26.9837 4.71398 26.4097 5.25998 25.3457 5.25998H23.2317V2.47398Z" fill="#FF0000"/>
+                        <path d="M30.7072 2.61398H33.8012V11H36.1952V2.61398H39.3032V0.583984H30.7072V2.61398Z" fill="#FF0000"/>
+                        <path d="M40 6.63198V4.64398L44.62 4.60198V0.583984H47V11H44.62V6.58998L40 6.63198Z" fill="#FF0000"/>
+                      </svg>
                     </PageLink>
                   </h1>
                 </li>
                 <li className="absolute left-0 top-0 pointer-events-none w-full md:hidden">
                   <GridRow hide={1} />
                 </li>
-                {menu &&
-                  menu.map((item, index) => (
-                    <li onClick={onHideNav} className="md:hidden mt-1em mb-1/2em mx-auto" key={item._key}>
-                      <CircleButton title={item.title} url={item.link} float={true} />
-                    </li>
-                  ))}
+                <div className="md:hidden flow-root text-left w-full">
+                  {menu &&
+                    menu.map((item, index) => (
+                      <li onClick={onHideNav} className="md:hidden mt-7em mb-1/2em mx-auto" key={item._key}>
+                        <PageLink
+                        className={`${currentUri && currentUri.includes(item.link.content.main.slug.current) || (currentUri && currentUri.includes('home') && item.link.content.main.slug.current.includes("home")) ? "current-nav-link "+item.link.content.main.slug.current : " "} md:pt-1/2em inline-block cursor-pointer text-mobileNav`} 
+                        onClick={onHideNav}
+                        to={`/${item.link.content.main.slug.current}`}>
+                          {item.title}
+                        </PageLink>
+                      </li>
+                    ))}
+                </div>
 
                 {menu &&
                   menu.map((item, index) => (
