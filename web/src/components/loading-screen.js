@@ -25,8 +25,16 @@ const LoadingScreen = ({ animate }) => {
           </div> */}
     
           <div
-            className={`${animate !== false ? "load-animate-out" : ""} 
-            w-full pointer-events-none absolute top-0 left-0 h-screen bg-black z-0`}>
+            className={`${animate !== false ? "load-animate-out3" : ""} 
+            w-full pointer-events-none absolute top-0 left-0 h-screen bg-black z-1`}>
+          </div>
+          {/* <div
+            className={`${animate !== false ? "load-animate-out2" : ""} 
+            w-full pointer-events-none absolute top-0 left-0 h-screen bg-black z-2`}>
+          </div> */}
+          <div
+            className={`${animate !== false ? "load-animate-out1" : ""} 
+            w-full pointer-events-none absolute top-0 left-0 h-screen bg-white z-3`}>
           </div>
         </div>
         </>
