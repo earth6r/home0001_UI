@@ -18,7 +18,7 @@
       <div
         className={`${
           animate !== false ? "animate-out1s" : ""
-        } w-full pointer-events-none absolute top-0 left-0 h-screen bg-white z-0`}
+        } w-full pointer-events-none absolute top-0 left-0 h-screen bg-black z-0`}
       ></div>
     </div>
   );

@@ -78,7 +78,7 @@ small {
   animation:loading;
   animation-duration: 1s;
   animation-fill-mode: forwards;
-  animation-delay: 0.3s;
+  animation-delay: 4s;
   transform-origin: top center;
 }
   
