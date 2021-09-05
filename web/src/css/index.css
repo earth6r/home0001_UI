@@ -76,10 +76,41 @@ small {
 /*loading animation*/
 .load-animation{
   animation:loading;
-  animation-duration: 1s;
+  animation-duration: 2s;
   animation-fill-mode: forwards;
-  animation-delay: 0.3s;
+  animation-delay: 0.5s;
   transform-origin: top center;
+}
+
+.load-animate-out1{
+  animation-duration: 4.5s !important;
+  animation-timing-function: linear !important;
+  animation-delay: 0s !important;
+  animation-iteration-count: 1 !important;
+  animation-direction: normal !important;
+  animation-fill-mode: forwards !important;
+  animation-play-state: running !important;
+  animation-name: out !important;
+}
+.load-animate-out2{
+  animation-duration: 2s !important;
+  animation-timing-function: linear !important;
+  animation-delay: 4s !important;
+  animation-iteration-count: 1 !important;
+  animation-direction: normal !important;
+  animation-fill-mode: forwards !important;
+  animation-play-state: running !important;
+  animation-name: out !important;
+}
+.load-animate-out3{
+  animation-duration: 1s !important;
+  animation-timing-function: linear !important;
+  animation-delay: 5.5s !important;
+  animation-iteration-count: 1 !important;
+  animation-direction: normal !important;
+  animation-fill-mode: forwards !important;
+  animation-play-state: running !important;
+  animation-name: out !important;
 }
   
 @keyframes loading {
