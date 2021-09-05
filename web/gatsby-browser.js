@@ -41,7 +41,7 @@ export const wrapRootElement = ({ element, props }) => {
   const pathname = trimSlashes(window.location.pathname);
   const title = document.getElementsByTagName("title")[0].innerText;
 
-  let animate = false;
+  let animate = true;
 
   // if (host === "homes.earth6r.com" && pathname === "collective") {
   //   window.history.replaceState({}, title, "/");
