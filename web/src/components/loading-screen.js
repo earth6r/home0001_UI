@@ -13,7 +13,7 @@ const LoadingScreen = ({ animate }) => {
 
   return (
     <>
-    {!dismissed &&
+    {true &&
       <>
         <div
           style={{ zIndex: "9999" }}
