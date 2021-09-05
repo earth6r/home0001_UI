@@ -76,9 +76,9 @@ small {
 /*loading animation*/
 .load-animation{
   animation:loading;
-  animation-duration: 1s;
+  animation-duration: 2s;
   animation-fill-mode: forwards;
-  animation-delay: 4s;
+  animation-delay: 0.5s;
   transform-origin: top center;
 }
   
