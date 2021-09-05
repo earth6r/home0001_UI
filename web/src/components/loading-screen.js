@@ -13,7 +13,7 @@ return (
     </div> */}
 
     <div
-      className={`${animate !== false ? "animate-out3s" : ""} 
+      className={`${animate !== false ? "load-animate-out" : ""} 
       w-full pointer-events-none absolute top-0 left-0 h-screen bg-black z-0`}>
     </div>
   </div>

@@ -81,6 +81,17 @@ small {
   animation-delay: 0.5s;
   transform-origin: top center;
 }
+
+.load-animate-out{
+  animation-duration: 0.25s !important;
+  animation-timing-function: linear !important;
+  animation-delay: 6s !important;
+  animation-iteration-count: 1 !important;
+  animation-direction: normal !important;
+  animation-fill-mode: forwards !important;
+  animation-play-state: running !important;
+  animation-name: out !important;
+}
   
 @keyframes loading {
   from { opacity: 1;  transform: scale(1); }
