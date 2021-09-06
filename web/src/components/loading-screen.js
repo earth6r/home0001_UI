@@ -18,23 +18,15 @@ const LoadingScreen = ({ animate }) => {
         <div
           style={{ zIndex: "9999" }}
           className="w-full pointer-events-none fixed top-0 left-0 h-screen">
-          {/* <div
-            className={`${animate !== false ? "load-animation" : ""} 
-            mx-mobile md:mx-desktop mt-mobile md:mt-desktop z-10 relative}mx-mobile md:mx-desktop mt-mobile md:mt-desktop z-10 relative`}>
+          <div
+            className={`${animate !== false ? "load-animate-out-logo" : ""} 
+            mx-mobile md:mx-desktop mt-mobile md:mt-desktop z-10 relative}mx-mobile md:mx-desktop mt-mobile md:mt-desktop z-10 relative overflow-hidden`}>
               <LogoIcon />
-          </div> */}
+          </div>
     
           <div
-            className={`${animate !== false ? "load-animate-out3" : ""} 
-            w-full pointer-events-none absolute top-0 left-0 h-screen bg-black z-1`}>
-          </div>
-          {/* <div
-            className={`${animate !== false ? "load-animate-out2" : ""} 
-            w-full pointer-events-none absolute top-0 left-0 h-screen bg-black z-2`}>
-          </div> */}
-          <div
-            className={`${animate !== false ? "load-animate-out1" : ""} 
-            w-full pointer-events-none absolute top-0 left-0 h-screen bg-white z-3`}>
+            className={`${animate !== false ? "load-animate-out-bg" : ""} 
+            w-full pointer-events-none absolute top-0 left-0 h-screen bg-white z-1 overflow-hidden`}>
           </div>
         </div>
         </>
