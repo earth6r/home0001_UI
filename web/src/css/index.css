@@ -174,7 +174,7 @@ body {
 
 .circle-width{
   width: 30vw;
-  font-family: "NeueHaasGrotesk";
+  font-family: "NeueHaasGrotesk", Arial, Helvetica, sans-serif;
 }
 .circle-width h2, .rte.rte-large .circle-width h2{
   max-width: 190px;

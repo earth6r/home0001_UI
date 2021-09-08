@@ -66,7 +66,9 @@ module.exports = {
         ".85rem",
         {
           letterSpacing: "0rem",
-          fontFamily: "NeueHaasGrotesk"
+          fontFamily: {
+            serif: ["NeueHaasGrotesk", "Helvetica", "Arial", "sans-serif"],
+          },
         },
       ],
       desktopInterface: [
@@ -112,7 +114,9 @@ module.exports = {
           lineHeight: "115%",
           letterSpacing: ".01em",
           textTransform: "uppercase",
-          fontFamily: "NeueHaasGrotesk",
+          fontFamily: {
+            serif: ["NeueHaasGrotesk", "Helvetica", "Arial", "sans-serif"],
+          },
         },
       ],
       mobileInterface: [

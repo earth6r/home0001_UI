@@ -1,5 +1,5 @@
 header{
-  font-family: NeueHaasGrotesk;
+  font-family: "NeueHaasGrotesk", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
@@ -206,7 +206,7 @@ nav .nav-box{
   animation-iteration-count: 1;
 }
 footer{
-  font-family: NeueHaasGrotesk;
+  font-family: "NeueHaasGrotesk", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
