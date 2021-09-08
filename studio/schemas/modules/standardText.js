@@ -93,6 +93,44 @@ export default {
                 ]
               },
               {
+                name: 'currencyTranslatorUSDBTC',
+                type: 'object',
+                title: '$->BTC',
+                fields: [
+                  {
+                    name: 'amountUSD',
+                    title: 'Dollars',
+                    type: 'number',
+                    description: "amount in usd to be displayed in bitcoin",
+                  },
+                  {
+                    name: 'decimalPlaces',
+                    title: 'Decimal Places',
+                    type: 'number',
+                    description: "positive for number of decimal places, negative for rounding zeros",
+                  },
+                ],
+              },
+              {
+                name: 'currencyTranslatorUSDETH',
+                type: 'object',
+                title: '$->ETH',
+                fields: [
+                  {
+                    name: 'amountUSD',
+                    title: 'Dollars',
+                    type: 'number',
+                    description: "amount in usd to be displayed in etherium",
+                  },
+                  {
+                    name: 'decimalPlaces',
+                    title: 'Decimal Places',
+                    type: 'number',
+                    description: "positive for number of decimal places, negative for rounding zeros",
+                  },
+                ],
+              },
+              {
                 name: 'internalLink',
                 type: 'object',
                 title: 'Internal link',
