@@ -136,7 +136,7 @@ const DiscountNotice = ({ discountCode, color, codes }) => {
     }
   }
   if ((discountCode !== "balaji" && !hasCode)) return (
-    <div className="discount-container mb-1">
+    <div className="discount-container mb-1 mt-1">
       <div className="">$100 USD</div>
       
     </div>

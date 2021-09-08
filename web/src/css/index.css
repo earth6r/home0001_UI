@@ -72,6 +72,30 @@ small {
   font-size: 100% !important;
 }
 
+.wf-loading body {
+  display: none;
+}
+
+/*prevent scrolling during loading animation*/
+@-webkit-keyframes slow-enable-scroll {
+  0%   { position: fixed; }
+}
+@-moz-keyframes slow-enable-scroll {
+  0%   { position: fixed; }
+}
+@-o-keyframes slow-enable-scroll {
+  0%   { position: fixed; }
+}
+@keyframes slow-enable-scroll {
+  0%   { position: fixed; }
+}
+body {
+  animation-timing-function: steps(1, jump-end);
+  -webkit-animation: slow-enable-scroll 5.8s steps(1, end); /* Safari 4+ */
+  -moz-animation:    slow-enable-scroll 5.8s steps(1, end); /* Fx 5+ */
+  -o-animation:      slow-enable-scroll 5.8s steps(1, end); /* Opera 12+ */
+  animation:         slow-enable-scroll 5.8s steps(1, end); /* IE 10+, Fx 29+ */
+}
 
 /*loading animation*/
 .load-animation{
@@ -81,7 +105,6 @@ small {
   animation-delay: 0.5s;
   transform-origin: top center;
 }
-
 .load-animate-out-bg{
   animation-duration: 1s !important;
   animation-timing-function: linear !important;
