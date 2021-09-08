@@ -140,7 +140,7 @@ const handleRefund = () => {
               {({ isExpanded }) => (
                 <>
                   <AccordionHeader className=" relative py-6 border-none">
-                    <h2 className="m-0 -mt-1/4em md:mt-0">{"What's included?"}</h2>
+                    <h2 className="-mt-1/4em md:mt-0">{"What's included?"}</h2>
                     <div
                       
                       className="accordion-icon right-0 absolute pr-1em"
@@ -323,7 +323,6 @@ const HomeTemplate = (props) => {
                     {({ isExpanded }) => (
                       <>
                         <AccordionHeader
-                          style={{ paddingTop: "0.35em" }}
                           className={`${item.sold == 1 ? "opacity-25" : ""} ${
                             isExpanded ? "text-black" : "text-black"
                           } relative flex h-2em  pl-1/2em border-none`}
@@ -341,7 +340,6 @@ const HomeTemplate = (props) => {
                           )}
                           {item.price && (
                             <span 
-                            style={{ paddingTop: "0.4em" }}
                             className="w-1/2 text-left md:text-center text-mobileNav md:text-base homes-accordion-header-small">
                               {item.price}
                             </span>
