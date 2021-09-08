@@ -103,7 +103,7 @@ const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, hand
 
   return (
     <>
-      <section className="mb-10 md:mb-20">
+      <section className="pb-10 md:mb-20">
        
 
         <CheckoutTerms disabled={disabled} handleChange={handleChange} />
