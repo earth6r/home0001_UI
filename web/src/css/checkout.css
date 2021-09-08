@@ -75,7 +75,7 @@ color:black;
   padding-left: 6.5vw;
 }
 .home-deposit-module-scroll{
-  z-index: 99;
+  z-index: 30;
 }
 .dark-theme{
   background:#E5E5E5;
@@ -398,7 +398,7 @@ label.terms-agreement{
   border-bottom:1px solid;
   }
   .home-deposit-module::before{
-    left:-1.75rem;
+    left: -1.25rem;
   }
   .option-button-checkout, .terms-agreement, .terms-agreement a{
     font-size:14px;

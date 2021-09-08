@@ -114,7 +114,7 @@ form .earth-svg svg {
 /*flex vertical text */
 .flex-vertical-text {
   position: absolute;
-  font-family: NeueHaasGrotesk;
+  font-family: "NeueHaasGrotesk", Arial, Helvetica, sans-serif;
 /*  line-height: 110% !important;*/
 /*  font-size: 0.75rem !important;*/
 }

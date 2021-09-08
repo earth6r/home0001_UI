@@ -13,7 +13,7 @@ export const RichTable = (props) => {
       <div className="relative z-0 w-full flex flex-col">
         <div className="relative z-10 overflow-x-hidden">
           <div className="flex justify-left w-full">
-            <ul className={`mb-0 align-top flex-1 w-auto pb-0 table`}>
+            <ul className={`mb-0 align-top flex-1 w-auto pb-0 table w-full`}>
               {rows && rows.map((row) => (
                 <PageLink className="table-link" to={row.cells[0] && row.cells[0].url ? row.cells[0].url : "/"}>
                   <li key={`row-${row._key}`} className="flex pl-0 hover:underline">
