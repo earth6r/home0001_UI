@@ -35,7 +35,7 @@ export const AccordionModule = ({ data }: AccordionModuleProps) => {
                     <h2 className="-mt-1/4em md:mt-0 title">{item.title}</h2>
                     <div
                       
-                      className="accordion-icon -mt-5 md:mt-0 right-0 absolute pr-1em"
+                      className="accordion-icon md:mt-0 right-0 absolute pr-1em"
                     >
                       {isExpanded ? "–" : "+"}
                     </div>

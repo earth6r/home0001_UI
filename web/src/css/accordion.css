@@ -73,6 +73,9 @@
 .accordion-icon{
   margin-top:-1px;
 }
+.accordion-icon div{
+  padding-bottom: 1.15rem!important;
+}
 .floor-plan{
   width:75%;
   
@@ -93,26 +96,27 @@
 .floor-plan .gatsby-image-wrapper img{
   object-position: center right !important;
 }
+
 @media(max-width:767px){
   .floor-plan .gatsby-image-wrapper{
-  width:100%;
-  max-height:400px;
-}
+    width:100%;
+    max-height:400px;
+  }
   .floor-plan .gatsby-image-wrapper img{
-  object-position: center left !important;
-}
+    object-position: center left !important;
+  }
 
   .accordion a{
     display: inline-block;
     border-bottom:1px solid;
   }
   .accordion h2.title{
-  font-size:0.9rem;
-  line-height: 1;
-}
-.accordion-icon{
-  margin-top: -4px;
-}
+    font-size:0.9rem;
+    line-height: 1;
+  }
+  .accordion-icon{
+    margin-top: -4px;
+  }
   .homes-accordion-header-plus{
     padding-top:0.2em;
   }
