@@ -44,6 +44,11 @@ export default {
       type: 'string'
     },
     {
+      name: 'richPrice',
+      title: 'Price allowing currency exchange',
+      type: 'bodyPortableText'
+    },
+    {
       title: 'Sold?',
       name: 'sold',
       type: 'boolean'

@@ -338,10 +338,10 @@ const HomeTemplate = (props) => {
                               {item.bedrooms}
                             </span>
                           )}
-                          {item.price && (
+                          {(item.price || item.richPrice) && (
                             <span 
                             className="w-1/2 text-left md:text-center text-mobileNav md:text-base homes-accordion-header-small md:pt-3">
-                              {item.price}
+                              {item.richPrice? <PortableText blocks={item.richPrice} /> : item.price}
                             </span>
                           )}
                           {/* {item.sold == 1 ? (
