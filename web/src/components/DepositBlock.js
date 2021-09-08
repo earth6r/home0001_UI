@@ -91,7 +91,7 @@ const Unavailable = () => (
 const DiscountNotice = ({ discountCode, color, codes }) => {
   
   return (
-    <div className="discount-container mb-1">
+    <div className="discount-container">
       <div className=""> $100 USD / 0.002 BTC / 0.03 ETH</div>
     </div>
   );
@@ -122,7 +122,7 @@ const handleRefund = () => {
           <>
             <AccordionHeader className=" relative py-6 border-none">
               <div className="m-0 -mt-1/4em md:mt-0">{"What's included?"}</div>
-              <div className="accordion-icon right-0 absolute pr-1em">
+              <div className="accordion-icon right-0 absolute pr-1em pt-4">
                 {isExpanded ? 
                   <span id='thin-minus'></span>
                   : 
