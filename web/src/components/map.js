@@ -6,7 +6,7 @@ import {
   MdPlace
 } from 'react-icons/md'
 
-const AnyReactComponent = ({ text }) => <MdPlace style={{transform:"scale(5)"}}></MdPlace>;
+const AnyReactComponent = ({ text }) => <div class="location-circle"></div>;
 
 const MapContainer = (props) => {
 

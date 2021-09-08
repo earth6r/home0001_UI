@@ -418,7 +418,7 @@ export default [
                 "visibility": "on"
             },
             {
-                "color": "#aeccff"
+                "color": "#000"
             }
         ]
     }
