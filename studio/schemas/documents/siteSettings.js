@@ -96,5 +96,15 @@ export default {
       type: 'image',
       title: 'Deposit Block Image',
     },
+    {
+      name: 'exchangeRateUSDBTC',
+      type: 'number',
+      title: 'BTC exchange rate used across site USD->BTC',
+    },
+    {
+      name: 'exchangeRateUSDETH',
+      type: 'number',
+      title: 'ETH exchange rate used across site USD->ETH',
+    },
   ],
 }

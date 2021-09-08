@@ -1,6 +1,7 @@
 import React from "react";
 import Figure from "./Figure";
 import PopoverModule from "./popover-module";
+import CurrencyTranslator from "./currencyTranslator";
 import MapModule from "./mapModule";
 import CircleButton from "./global/circleButton";
 // import { InternalLink } from "./global/internalLink";
@@ -114,6 +115,26 @@ const serializers = {
           return <></>;
         }
       
+    },
+    currencyTranslatorUSDBTC:({ mark }) => {
+      return (
+        <CurrencyTranslator
+          currencyFrom={'usd'}
+          currencyTo={'btc'}
+          amountUSD={mark.amountUSD}
+          decimalPlaces={mark.decimalPlaces}
+        />
+      )
+    },
+    currencyTranslatorUSDETH:({ mark }) => {
+      return (
+        <CurrencyTranslator
+          currencyFrom={'usd'}
+          currencyTo={'eth'}
+          amountUSD={mark.amountUSD}
+          decimalPlaces={mark.decimalPlaces}
+        />
+      )
     },
     mapLink:({ mark, children }) => {
       return (
