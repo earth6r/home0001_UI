@@ -37,7 +37,7 @@ const BitPayCheckoutButton = ({ bitPayID, disabled, onClick }) => (
     <input type="hidden" name="action" value="checkout" />
     <input type="hidden" name="posData" value="" />
     <input type="hidden" name="data" value={bitPayID} />
-    <div className="stripe-button bit-button">
+    <div className="stripe-button">
     <img src={bitIcons} />
     <span className="max-w-2xl block w-full">
       <input onClick={onClick} className="e-checkout my-4 relative special-bitcoin text-left bg-white text-black white-box rounded-full w-full block leading-none h-3em md:h-3em justify-center text-mobileNav md:text-desktopNav pl-1 sub-i-6:pl-5 tiny:pl-20 sm:pl-32 md:pl-20" type="submit" value="pay with crypto" />
@@ -103,7 +103,7 @@ const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, hand
 
   return (
     <>
-      <section className="pb-10 md:mb-20">
+      <section className="pb-20 md:mb-20">
        
 
         <CheckoutTerms disabled={disabled} handleChange={handleChange} />
