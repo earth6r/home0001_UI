@@ -46,11 +46,50 @@
   position:relative;
   font-size:1.125rem;
 }
-/*DEPOSIT BLOCK*/
-.home-deposit-module *{
+.stripe-button, .bit-button{
   color:black;
 }
-.stripe-button, .bit-button{
+.stripe-button img, .bit-button img{
+  position:absolute;
+  height:25px;
+  top: 50%;
+  pointer-events: none;
+  left:auto;
+  right:16px;
+  z-index: 2;
+  transform: translate(0%, -50%);
+}
+.stripe-button input, .bit-button input{
+  text-transform: uppercase;
+}
+.stripe-button.bit-button img{
+  position:absolute;
+  height:25px;
+  top: 50%;
+  pointer-events: none;
+  left:auto;
+  right:16px;
+  z-index: 2;
+  transform: translate(0%, -50%);
+}
+.stripe-button img, .stripe-button.bit-button img{
+  height:18px;
+  position:absolute;
+  top: 50%;
+/*  left: calc(50% - 115px);*/
+  z-index: 2;
+  transform: translate(0%, -50%);
+}
+.stripe-button.bit-button img{
+  height:18px;
+  position:absolute;
+  top: calc(50% + 3px);
+/*    left: calc(50% - 72px);*/
+  z-index: 2;
+  transform: translate(0%, -50%);
+}
+/*DEPOSIT BLOCK*/
+.home-deposit-module *{
   color:black;
 }
 .special-bitcoin{
@@ -135,18 +174,11 @@ text-transform: none;
   @apply absolute left-0;
 }
 
-.stripe-button img, .bit-button img{
-  position:absolute;
-  height:25px;
-  top: 50%;
-  pointer-events: none;
-  left:auto;
-  right:16px;
-  z-index: 2;
-  transform: translate(0%, -50%);
-}
 #refundable-text-span, .home-deposit-module #spots-remaining-count span{
   color:#000000;
+}
+#refundable-text-span {
+  margin-top: 0.16rem;
 }
 #deposit-text-span .discount-container{
   color:white;
@@ -166,9 +198,6 @@ text-transform: none;
   box-shadow: 0px 0px 10px rgb(255 255 255 / 50%)
 }
 
-.stripe-button input, .bit-button input{
-  text-transform: uppercase;
-}
 
 .option-button-checkout{
  /* text-transform: none;*/
@@ -181,16 +210,6 @@ text-transform: none;
   vertical-align: middle;
 }
 
-.stripe-button.bit-button img{
-  position:absolute;
-  height:25px;
-  top: 50%;
-  pointer-events: none;
-  left:auto;
-  right:16px;
-  z-index: 2;
-  transform: translate(0%, -50%);
-}
 
 .special-stripe{
 /*  background-image: url(./stripe-icons-01.png);*/
@@ -384,7 +403,7 @@ label.terms-agreement{
   height:1px;
   width: 12px;
   vertical-align: middle;
-  background: white;
+  background: black;
   display: inline-block;
 }
 
@@ -405,22 +424,6 @@ label.terms-agreement{
   }
 
   
-  .stripe-button img, .stripe-button.bit-button img{
-    height:18px;
-    position:absolute;
-    top: 50%;
-  /*  left: calc(50% - 115px);*/
-    z-index: 2;
-    transform: translate(0%, -50%);
-  }
-  .stripe-button.bit-button img{
-    height:18px;
-    position:absolute;
-    top: calc(50% + 3px);
-/*    left: calc(50% - 72px);*/
-    z-index: 2;
-    transform: translate(0%, -50%);
-  }
   .arrow-input-checkout{
     top:7px;
     right:5px;

@@ -122,9 +122,9 @@ const handleRefund = () => {
           <>
             <AccordionHeader className=" relative py-6 border-none">
               <div className="m-0 -mt-1/4em md:mt-0">{"What's included?"}</div>
-              <div className="accordion-icon right-0 absolute pr-1em pt-4">
+              <div className="accordion-icon right-0 absolute pr-1em pt-5">
                 {isExpanded ? 
-                  <span id='thin-minus'></span>
+                  <span id='thin-minus' className="mb-1"></span>
                   : 
                   <svg width="22" height="21" viewBox="0 0 22 21" fill="none">
                   <path d="M10.7243 0V10.5M10.7243 21V10.5M10.7243 10.5H21.1322M10.7243 10.5H0.316406" stroke="black"/>
@@ -140,12 +140,12 @@ const handleRefund = () => {
       </AccordionItem>
     </Accordion>
 
-    <div id='deposit-text-span'>
+    <div id='deposit-text-span' className="leading-7">
       <span> Reservation Deposit:<br/></span> 
       <DiscountNotice codes={codes} color={color} discountCode={discountCode} />
     </div>
 
-    <div className="mb-0" id='refundable-text-span'>
+    <div className="" id='refundable-text-span'>
         Fully refundable any time, for any reason. <span onClick={handleRefund} id='question-trigger'>?</span>
     </div>
 
