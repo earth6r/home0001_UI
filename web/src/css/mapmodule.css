@@ -1,6 +1,6 @@
-.map-module-wrapper{
+/*.map-module-wrapper .gm-style > div > div > div > div:not(.location-circle){
   filter:grayscale(1);
-}
+}*/
 .map-module-wrapper.mexico{
   filter:none;
 }
@@ -9,6 +9,14 @@
   left:5px;
   z-index: 1;
   cursor:pointer;
+}
+.location-circle{
+	background: rgba(255,255,0,0.4);
+	width: 100px;
+	height:100px;
+	display: inline-block;
+	border-radius: 50px;
+	transform: translate(-50%, -50%);
 }
 @media(max-width:767px){
 	.map-module-wrapper{
