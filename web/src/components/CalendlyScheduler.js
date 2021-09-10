@@ -78,7 +78,7 @@ const CalendlyScheduler = () => {
         <div className="relative w-auto mt-6 mb-32 md:mt-0 md:inline-block md:mr-24 md:pt-6">
           <div className="flex">
             <input id='other-place' className="w-full md:w-auto py-0 -ml-1/4em px-1" placeholder={"other"} type="text"/>
-            <button className="relative right-otherArrow" onClick={handleLocationClick(0, "other")}>→</button>
+            <button className="relative pb-1 right-otherArrow1 lg:right-otherArrow2 xl:right-otherArrow3" onClick={handleLocationClick(0, "other")}>→</button>
           </div>
         </div>
 

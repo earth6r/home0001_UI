@@ -17,7 +17,7 @@ export default () => {
     <Layout>
       <SEO title={"success"} description={"success"} keywords={[]} />
       <Container>
-        <div className="pt-6 pb-6">
+        <div className="pt-6 pb-6 md:pt-20">
           Deposit received – thank you.
         </div>
 
