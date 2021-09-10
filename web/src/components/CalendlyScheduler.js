@@ -3,9 +3,7 @@ import CalendlyWidget from "./CalendlyWidget";
 
 const BuyLaterMessage = () => (
   <p>
-    Thank you. We’ll keep you updated as new homes and new locations become available. When you’re
-    ready to buy, write us to reserve a home and schedule consultations with our team to secure
-    financing and complete your purchase.
+    We’ll keep you updated as new homes become available, and you'll receive an email shortly with access to our team's calendar. When you’re ready to buy, you can schedule a consultation to secure financing and complete your purchase.
   </p>
 );
 
@@ -63,16 +61,26 @@ const CalendlyScheduler = () => {
     return (
       <>
 
-      <div className="block w-full mb-1em">Where would you like to own a home?</div>
+      <div className="block w-full mb-1em md:mb-2 md:pt-2">Where would you like to own a home?</div>
 
-          <button className="md:inline-block md:mr-24" onClick={handleLocationClick(1, "New York")}>New York</button>
+        <button className="block pb-2 md:inline-block md:mr-24 md:pt-6" onClick={handleLocationClick(1, "Crown Heights NY")}>Crown Heights NY</button>
      
-          <button className="md:inline-block md:mr-24" onClick={handleLocationClick(1, "Los Angeles")}>Los Angeles</button>
+        <button className="block pb-2 md:inline-block md:mr-24 md:pt-6" onClick={handleLocationClick(1, "Echo Park LA")}>Echo Park LA</button>
+        
+        <button className="block pb-2 md:inline-block md:mr-24 md:pt-6" onClick={handleLocationClick(1, "Arts District LA")}>Arts District LA</button>
+        
+        <button className="block pb-2 md:inline-block md:mr-24 md:pt-6" onClick={handleLocationClick(1, "Hudson NY")}>Hudson NY</button>
+        
+        <button className="block pb-2 md:inline-block md:mr-24 md:pt-6" onClick={handleLocationClick(1, "Berlin DE")}>Berlin DE</button>
+        
+        <button className="block pb-2 md:inline-block md:mr-24 md:pt-6" onClick={handleLocationClick(1, "Yucatan MX")}>Yucatan MX</button>
  
-          <div className="relative w-auto mt-6 md:mt-0 md:inline-block md:mr-24">
-          <input id='other-place' className="w-full md:w-auto py-0 -ml-1/4em px-1" placeholder={"other"} type="text"/>
-          <button className="absolute arrow-input-checkout px-1" onClick={handleLocationClick(0, "other")}>→</button>
+        <div className="relative w-auto mt-6 md:mt-0 md:inline-block md:mr-24 md:pt-6">
+          <div className="flex">
+            <input id='other-place' className="w-full md:w-auto py-0 -ml-1/4em px-1" placeholder={"other"} type="text"/>
+            <button className="relative right-otherArrow" onClick={handleLocationClick(0, "other")}>→</button>
           </div>
+        </div>
 
       </>
     );
@@ -84,11 +92,11 @@ const CalendlyScheduler = () => {
     <div className="block w-full mb-1em">When would you like to buy?</div>
   
         
-          <button id="checkout-button-1" className="inline-block mr-24 pt-2" onClick={handleTimeFrameClick(1, "This year")}>This year</button>
+          <button id="checkout-button-1" className="block text-left md:inline-block md:mr-24 pt-2" onClick={handleTimeFrameClick(1, "This year")}>This year</button>
          
-          <button id="checkout-button-2" className="inline-block mr-24 pt-2" onClick={handleTimeFrameClick(0, "Next year")}>Next year</button>
+          <button id="checkout-button-2" className="block text-left md:inline-block md:mr-24 pt-2" onClick={handleTimeFrameClick(0, "Next year")}>Next year</button>
      
-          <button className="inline-block mr-24 pt-2" onClick={handleTimeFrameClick(0, "Don't know")}>Don’t know</button>
+          <button className="block text-left md:inline-block md:mr-24 pt-2" onClick={handleTimeFrameClick(0, "Don't know")}>Don’t know</button>
         
 
       </>

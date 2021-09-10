@@ -81,6 +81,10 @@ const views = {
   "checkout-success": `
     h1 Deposit received — thank you.
     p You are now a member — part of the collective. We’ll keep you updated as new homes and new locations become available. When you’re ready, schedule a consultation with our team to ask questions, make plans, secure financing and complete your purchase.
+    p You can follow the link below to connect with our team.
+      br
+      br
+      a(href="https://calendly.com/earthcollective/first-call-with-earth") Schedule a consultation
 `,
   "checkout-confirmed": `
     h1 Welcome to Earth.

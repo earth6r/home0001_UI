@@ -114,7 +114,7 @@ color:black;
   padding-left: 6.5vw;
 }
 .home-deposit-module-scroll{
-  z-index: 30;
+  z-index: 10;
 }
 .dark-theme{
   background:#E5E5E5;
@@ -243,10 +243,6 @@ text-transform: none;
   width:100vw;
   height:100vh;
   position: fixed;
-}
-.arrow-input-checkout{
-  top:10px;
-  right:5px;
 }
 #checkout-button-1{
   width:120px;
@@ -424,10 +420,6 @@ label.terms-agreement{
   }
 
   
-  .arrow-input-checkout{
-    top:7px;
-    right:5px;
-  }
   .spring-green {
     color: #66ff00;
     position: relative;
