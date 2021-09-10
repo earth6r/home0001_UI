@@ -194,7 +194,9 @@ module.exports = {
         "1/2": "50%",
         "2": "34%",
         "3": "63.24%",
-        otherArrow: "2rem",
+        otherArrow1: "2rem",
+        otherArrow2: "2.5rem",
+        otherArrow3: "3rem",
         menu: "100px",
       },
       keyframes: {
