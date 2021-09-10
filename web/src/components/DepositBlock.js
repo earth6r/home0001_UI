@@ -140,7 +140,7 @@ const handleRefund = () => {
       </AccordionItem>
     </Accordion>
 
-    <div id='deposit-text-span' className="leading-7">
+    <div id='deposit-text-span' className="leading-7 md:leading-8 xl:leading-9">
       <span> Reservation Deposit:<br/></span> 
       <DiscountNotice codes={codes} color={color} discountCode={discountCode} />
     </div>

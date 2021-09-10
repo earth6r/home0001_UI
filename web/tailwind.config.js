@@ -139,10 +139,6 @@ module.exports = {
       articleTitle: ["2.19vw", "1.2"],
       "2xl": ["2rem", "2.375rem"],
     },
-    inset: {
-      "0": "0",
-      "1/2": "50%",
-    },
     screens: {
       "sub-i-6": "360px",
       "tiny": "460px",
@@ -194,8 +190,11 @@ module.exports = {
         serif: ["FolioBT", "Helvetica", "Arial", "sans-serif"],
       },
       inset: {
+        "0": "0",
+        "1/2": "50%",
         "2": "34%",
         "3": "63.24%",
+        otherArrow: "2rem",
         menu: "100px",
       },
       keyframes: {
