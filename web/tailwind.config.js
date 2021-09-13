@@ -111,8 +111,8 @@ module.exports = {
       mobileNav: [
         ".75rem",
         {
-          lineHeight: "115%",
-          letterSpacing: ".01em",
+          lineHeight: "120%",
+          letterSpacing: ".03em",
           textTransform: "uppercase",
           fontFamily: {
             serif: ["NeueHaasGrotesk", "Helvetica", "Arial", "sans-serif"],
