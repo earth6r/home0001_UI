@@ -27,6 +27,7 @@
 }
 .partner-ref-link{
   margin-bottom: 0 !important;
+  border-bottom: 2px solid;
   line-height: 115% !important;
   top: -1px;
   font-size: inherit;
