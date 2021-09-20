@@ -52,12 +52,12 @@ const PopoverModule = (props) => {
       <PopoverContent
         id={text+'-content-popover'}
         bg="transparent"
-        className="content-popover border-none max-w-sm md:max-w-4xl no-shadow m-2 -mt-100 ml-4 text-mobileBody p-0 md:text-desktopBody"
+        className="content-popover border-none max-w-xs md:max-w-4xl no-shadow m-2 -mt-100 ml-4 text-mobileBody p-0 md:text-desktopBody"
         zIndex={50}
       >
         <span className="block">
           {content && (
-            <span className="box block px-1em py-1em pb-3/4em bg-white text-mobileBody md:text-desktopBody">
+            <span className="box block px-1em py-1em bg-white text-mobileBody md:text-desktopBody">
               <BasePortableText blocks={content} serializers={Serializer} />
             </span>
           )}
