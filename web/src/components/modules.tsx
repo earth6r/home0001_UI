@@ -15,6 +15,7 @@ import Gallery from "./global/gallery";
 import FlexGallery from "./global/flexGallery";
 import { InternalLink } from "./global/internalLink";
 import { RichTable } from "./global/richTable";
+import { VisuallyHidden } from "@chakra-ui/core";
 
 export const Modules = ({
   reactModule,
@@ -79,24 +80,102 @@ export const Modules = ({
       );
     case "flexGallery":
       // alert(reactModule.images.length);
+      
+      // flex galleries were causing cumulative layout shift due to having no height at initial DOM render
+      // flx galleries are now wrapped in a box whose height is driven by padding according to its number of rows
+      // not sure what to do about the non-linear scaling other than breaking it up like this
+      // https://css-tricks.com/aspect-ratio-boxes/
       return (
         <>
-          <FlexGallery
-            obroundButtons={reactModule.obroundButtons}
-            squares={reactModule.squares}
-            images={reactModule.images}
-            rowNum={reactModule.numRows}
-            rowNumMobile={reactModule.numRowsMobile}
-            rowNumTablet={reactModule.numRowsTablet}
-            pdfs={reactModule.pdfs}
-            texts={reactModule.texts}
-            verticalTexts={reactModule.verticalTexts}
-            callibrationMarks={reactModule.callibrationMarks}
-            embeds={reactModule.embeds}
-            edges={reactModule.edges}
-            circleButtons={reactModule.circleButtons}
-          />
-          {reactModule.callibrationMark ? <GridRow></GridRow> : ""}
+          <style scoped>
+            {`.flex-layout-padding-${reactModule._key} {
+                position: relative; 
+                overflow: hidden;
+                height: 0;
+                width: 100%;
+                padding-top: ${reactModule.numRows * 1.028 + "%"};
+            }
+            @media (max-width: 2000px) {
+                .flex-layout-padding-${reactModule._key} {
+                  padding-top: ${reactModule.numRows * 1.038 + "%"}; 
+                }
+            }
+            @media (max-width: 1536px) {
+                .flex-layout-padding-${reactModule._key} {
+                  padding-top: ${reactModule.numRows * 1.045 + "%"}; 
+                }
+            }
+            @media (max-width: 1280px) {
+                .flex-layout-padding-${reactModule._key} {
+                  padding-top: ${reactModule.numRows * 1.058 + "%"}; 
+                }
+            }
+            @media (max-width: 1024px) {
+                .flex-layout-padding-${reactModule._key} {
+                  padding-top: ${reactModule.numRowsTablet * 1.066 + "%"}; 
+                }
+            }
+            @media (max-width: 900px) {
+                .flex-layout-padding-${reactModule._key} {
+                  padding-top: ${reactModule.numRowsTablet * 1.078 + "%"}; 
+                }
+            }
+            @media (max-width: 768px) {
+                .flex-layout-padding-${reactModule._key} {
+                  padding-top: ${reactModule.numRowsMobile * 1.065 + "%"}; 
+                }
+            }
+            @media (max-width: 646px) {
+                .flex-layout-padding-${reactModule._key} {
+                  padding-top: ${reactModule.numRowsMobile * 1.07 + "%"}; 
+                }
+            }
+            @media (max-width: 600px) {
+                .flex-layout-padding-${reactModule._key} {
+                  padding-top: ${reactModule.numRowsMobile * 1.085 + "%"}; 
+                }
+            }
+            @media (max-width: 500px) {
+                .flex-layout-padding-${reactModule._key} {
+                  padding-top: ${reactModule.numRowsMobile * 1.096 + "%"}; 
+                }
+            }
+            @media (max-width: 450px) {
+                .flex-layout-padding-${reactModule._key} {
+                  padding-top: ${reactModule.numRowsMobile * 1.109 + "%"}; 
+                }
+            }
+            @media (max-width: 400px) {
+                .flex-layout-padding-${reactModule._key} {
+                  padding-top: ${reactModule.numRowsMobile * 1.12 + "%"}; 
+                }
+            }
+            @media (max-width: 350px) {
+                .flex-layout-padding-${reactModule._key} {
+                  padding-top: ${reactModule.numRowsMobile * 1.15 + "%"}; 
+                }
+            }`}
+          </style>
+          <div className={`flex-layout-padding-${reactModule._key}`}>
+            <div style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%"}}>
+              <FlexGallery
+                obroundButtons={reactModule.obroundButtons}
+                squares={reactModule.squares}
+                images={reactModule.images}
+                rowNum={reactModule.numRows}
+                rowNumMobile={reactModule.numRowsMobile}
+                rowNumTablet={reactModule.numRowsTablet}
+                pdfs={reactModule.pdfs}
+                texts={reactModule.texts}
+                verticalTexts={reactModule.verticalTexts}
+                callibrationMarks={reactModule.callibrationMarks}
+                embeds={reactModule.embeds}
+                edges={reactModule.edges}
+                circleButtons={reactModule.circleButtons}
+              />
+              {reactModule.callibrationMark ? <GridRow></GridRow> : ""}
+            </div>
+          </div>
         </>
       );
     case "pane":
