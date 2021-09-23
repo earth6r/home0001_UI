@@ -7,8 +7,8 @@ export default () => (
   <Layout>
     <SEO title={"error"} description={"error"} keywords={[]} />
     <Container>
-      <div className="standard-text">
-        <h1>There was an error processing your payment.</h1>
+      <div className="standard-text sm:w-5/6 mt-24">
+        <p>There was an error processing your payment.</p>
         <p>
           If you'd like to start the checkout process over again,{" "}
           <Link to="/checkout/membership">click here</Link> to return to the checkout page.

@@ -4,6 +4,9 @@
 .disabled-button{
   opacity: 0.5;
 }
+.button--where:hover{
+  text-decoration: underline;
+}
 #question-trigger{
   display: inline-block;
   background: white;
@@ -245,7 +248,7 @@ text-transform: none;
   position: fixed;
 }
 #checkout-button-1{
-  width:120px;
+  width:128px;
 }
 #checkout-button-2{
   width:150px;

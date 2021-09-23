@@ -17,8 +17,8 @@ export default () => {
     <Layout>
       <SEO title={"pending"} description={"pending"} keywords={[]} />
       <Container>
-        <div className="standard-text">
-          <h1>Thank you. Your order is currently pending.</h1>
+        <div className="standard-text sm:w-2/3 mt-24">
+          <p>Thank you. Your order is currently pending.</p>
           <p>
             If you completed the checkout process, you will receive an email notification once the transaction has been processed.
             <br />

@@ -201,6 +201,7 @@
 
 .standard-text p a{
   border-bottom:2px solid;
+  padding-right: 0.0625rem;
 }
 .standard-text h1 > a {
   border-bottom:5px solid;
