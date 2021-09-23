@@ -340,7 +340,7 @@ const HomeTemplate = (props) => {
                           )}
                           {(item.price || item.richPrice) && (
                             <span 
-                            className="w-1/2 text-left md:text-center text-mobileNav md:text-base homes-accordion-header-small md:pt-3">
+                            className="sm:w-1/2 text-left md:text-center text-mobileNav md:text-base homes-accordion-header-small md:pt-3">
                               {item.richPrice? <PortableText blocks={item.richPrice} /> : item.price}
                             </span>
                           )}
