@@ -102,7 +102,7 @@ module.exports = {
         },
       ],
       mobileBody: [
-        "1.34375rem",
+        "1.28rem",
         {
           lineHeight: "115%",
           letterSpacing: "-0.33px",
