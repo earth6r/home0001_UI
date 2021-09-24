@@ -281,6 +281,7 @@ module.exports = async function send(event) {
   const settings = config(action)(data);
 
   // Compile template.pug, and render a set of data
+  // Sandwich the specific email between the top and bottom of the template
   const view = views[action];
   const template = pug.compile(`${layout}${view}${footer}`);
   const html = template(settings.templateOptions);
