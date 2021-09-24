@@ -17,6 +17,15 @@ html(lang="en")
       @media screen {
         * {
           font-family: "FolioBT", Arial, Helvetica, sans-serif !important;
+          font-size: 20px;
+          line-height: 120%;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+      }
+      @media screen and (min-width: 640px) {
+        * {
+          font-family: "FolioBT", Arial, Helvetica, sans-serif !important;
           font-size: 33px;
           line-height: 120%;
           -webkit-font-smoothing: antialiased;
@@ -48,10 +57,18 @@ html(lang="en")
         width: 46.68px;
         padding: 25px;
       }
-
-      .main-text {
-       padding-left: 23%;
-       padding-right: 23%;
+      
+      @media screen {
+        .main-text {
+          padding-left: 5%;
+          padding-right: 5%;
+        }
+      }
+      @media screen and (min-width: 640px) {
+        .main-text {
+          padding-left: 23%;
+          padding-right: 23%;
+        }
       }
       a {
           font-size: 20px;
@@ -175,20 +192,20 @@ const views = {
       p If you have any questions, feel free to reply to this email and we'll get right back to you.
 `,
   "checkout-success": `
-      p Welcome to Earth.
-      p We’re happy that you’ve joined us on our journey to build a planetary housing network. We’ll keep you updated as new homes and new locations become available. When you’re ready to buy, just schedule a consultation with our team to make plans, secure financing and complete your purchase. You can follow the link below to connect with our team at your convenience. 
+      p We’re happy that you’ve joined us on our journey to build a planetary housing network. We’ll keep you updated as new homes and new locations become available. 
+      p When you’re ready to buy, just follow the link below to schedule a consultation with our team at your convenience. We’ll help you make plans, secure financing and complete your purchase.
       a(
         class="schedule-link",
         href="https://calendly.com/earthcollective/first-call-with-earth"
       ) Schedule a consultation
 `,
   "checkout-confirmed": `
-      p Welcome to Earth.
       p Your deposit is currently pending. You'll soon be a member — part of the collective. Once your payment is verified, you'll receive a confirmation email with your receipt. You can expect confirmation within the next six hours. We'll keep you posted.
 `,
   "checkout-completed": `
       p Your transaction has been verified, and is now complete.
-      p We’re happy that you’ve joined us on our journey to build a planetary housing network. We’ll keep you updated as new homes and new locations become available. When you’re ready to buy, just schedule a consultation with our team to make plans, secure financing and complete your purchase. You can follow the link below to connect with our team at your convenience. 
+      p We’re happy that you’ve joined us on our journey to build a planetary housing network. We’ll keep you updated as new homes and new locations become available. 
+      p When you’re ready to buy, just follow the link below to schedule a consultation with our team at your convenience. We’ll help you make plans, secure financing and complete your purchase.
       a(
         class="schedule-link",
         href="https://calendly.com/earthcollective/first-call-with-earth"
@@ -247,7 +264,8 @@ const footer = `
               fill="#FFFFFF"
             )
         p © Earth 2021
-        p 85 Delancey Street, New York, NY 10002 | 360 East 2nd Street, Los Angeles, CA 90012
+        p 85 Delancey Street, New York, NY 10002 
+        p 360 East 2nd Street, Los Angeles, CA 90012
         div(class="social-box-footer")
           a(href="https://www.twitter.com/earth6r")
             svg(
