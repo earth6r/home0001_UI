@@ -16,7 +16,7 @@ module.exports = function (emailUsername) {
       transporterOptions: {
         from,
         to: opts.customer.email,
-        subject: "On EARTH",
+        subject: "Welcome to Earth",
       },
     };
   };
@@ -112,7 +112,7 @@ module.exports = function (emailUsername) {
       transporterOptions: {
         from,
         to: opts.customer.email,
-        subject: "On EARTH",
+        subject: "Welcome to Earth",
       },
     };
   };
@@ -144,7 +144,7 @@ module.exports = function (emailUsername) {
       transporterOptions: {
         from,
         to: opts.customer.email,
-        subject: "On EARTH",
+        subject: "Welcome to Earth",
       },
     };
   };
