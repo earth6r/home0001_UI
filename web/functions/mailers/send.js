@@ -129,85 +129,86 @@ html(lang="en")
 // prettier-ignore
 const views = {
   "admin-checkout-failure": `
-    h1 Failed Purchase
+      p Failed Purchase
 
-    p #{customer.email} &lt;#{customer.email}&gt; attempted to purchased #{product.name}
-      if product.sku
-        span #{' '}(SKU #{product.sku})
-      else
-        span #{' '}(Invoice ID #{product.invoiceId})
-      span , but the order could not be processed.
+      p #{customer.email} &lt;#{customer.email}&gt; attempted to purchase #{product.name}
+        if product.sku
+          span #{' '}(SKU #{product.sku})
+        else
+          span #{' '}(Invoice ID #{product.invoiceId})
+        span , but the order could not be processed.
 
-    p An email has been sent to the customer asking them to contact EARTH6r
+      p An email has been sent to the customer asking them to contact EARTH6r
 `,
   "admin-checkout-success": `
-    h1 New Purchase
-    p #{customer.email} &lt;#{customer.email}&gt; has purchased #{product.name}
-      if product.invoiceId
-        span #{' '}(Invoice ID #{product.invoiceId})
-      else
-        span #{' '}(SKU #{product.sku})
-    p The order total is #{session.currency.toUpperCase()} #{session.amount_total / 100}
+      p New Purchase
+      p #{customer.email} &lt;#{customer.email}&gt; has purchased #{product.name}
+        if product.invoiceId
+          span #{' '}(Invoice ID #{product.invoiceId})
+        else
+          span #{' '}(SKU #{product.sku})
+      p The order total is #{session.currency.toUpperCase()} #{session.amount_total / 100}
 `,
   "admin-checkout-confirmed": `
-    h1 New Purchase Confirmation (BitPay)
-    p #{customer.email} &lt;#{customer.email}&gt; has been confirmed for their purchase of #{product.name}
-      if product.invoiceId
-        span #{' '}(Invoice ID #{product.invoiceId})
-      else
-        span #{' '}(SKU #{product.sku})
-    p The order total is #{session.currency.toUpperCase()} #{session.amount_total / 100}
+      p New Purchase Confirmation (BitPay)
+      p #{customer.email} &lt;#{customer.email}&gt; has been confirmed for their purchase of #{product.name}
+        if product.invoiceId
+          span #{' '}(Invoice ID #{product.invoiceId})
+        else
+          span #{' '}(SKU #{product.sku})
+      p The order total is #{session.currency.toUpperCase()} #{session.amount_total / 100}
 `,
   "admin-checkout-completed": `
-    h1 New Purchase Completed (BitPay)
-    p #{customer.email} &lt;#{customer.email}&gt; has completed their purchase of #{product.name}
-      if product.invoiceId
-        span #{' '}(Invoice ID #{product.invoiceId})
-      else
-        span #{' '}(SKU #{product.sku})
-    p The order total is #{session.currency.toUpperCase()} #{session.amount_total / 100}
+      p New Purchase Completed (BitPay)
+      p #{customer.email} &lt;#{customer.email}&gt; has completed their purchase of #{product.name}
+        if product.invoiceId
+          span #{' '}(Invoice ID #{product.invoiceId})
+        else
+          span #{' '}(SKU #{product.sku})
+      p The order total is #{session.currency.toUpperCase()} #{session.amount_total / 100}
 `,
   "checkout-failure": `
-    p We were unable to process your payment for your EARTH membership. Please take a moment to complete the checkout process again and double-check your billing information.
-    p Click
-      a(href="https://earth6r.com/collective") here
-      span to begin the checkout process again.
-    p If you have any questions about your checkout, reply to this email and we'll get right back to you.
+      p We were unable to process your payment for your Earth membership. Please take a moment to complete the checkout process again and double-check your billing information.
+      p Click 
+        a(href="https://staging.earth6r.com/checkout/membership") here
+        span  to begin the checkout process again.
+      p If you have any questions, feel free to reply to this email and we'll get right back to you.
 `,
   "checkout-success": `
       p Welcome to Earth.
       p We’re happy that you’ve joined us on our journey to build a planetary housing network. We’ll keep you updated as new homes and new locations become available. When you’re ready to buy, just schedule a consultation with our team to make plans, secure financing and complete your purchase. You can follow the link below to connect with our team at your convenience. 
       a(
+        class="schedule-link",
         href="https://calendly.com/earthcollective/first-call-with-earth"
       ) Schedule a consultation
 `,
   "checkout-confirmed": `
-    h1 Welcome to Earth.
-    p Your deposit is currently pending. You'll soon be a member — part of the collective. Once your payment is verified, you'll receive a confirmation email with your receipt. You can expect confirmation within the next six hours. We'll keep you posted.
+      p Welcome to Earth.
+      p Your deposit is currently pending. You'll soon be a member — part of the collective. Once your payment is verified, you'll receive a confirmation email with your receipt. You can expect confirmation within the next six hours. We'll keep you posted.
 `,
   "checkout-completed": `
-    h1 Your transaction has been verified, and is now complete.
-    p You are now a member — part of the collective. We’ll keep you updated as new homes and new locations become available. When you’re ready, schedule a consultation with our team to ask questions, make plans, secure financing and complete your purchase.
-    p You can follow the link below to connect with our team.
-      br
-      br
-      a(href="https://calendly.com/earthcollective/first-call-with-earth") Schedule a consultation
+      p Your transaction has been verified, and is now complete.
+      p We’re happy that you’ve joined us on our journey to build a planetary housing network. We’ll keep you updated as new homes and new locations become available. When you’re ready to buy, just schedule a consultation with our team to make plans, secure financing and complete your purchase. You can follow the link below to connect with our team at your convenience. 
+      a(
+        class="schedule-link",
+        href="https://calendly.com/earthcollective/first-call-with-earth"
+      ) Schedule a consultation
 `,
   "checkout-receipt": `
-    h1 Deposit received — thank you.
-    p Your payment's been verified. Please save this email for your records.
+      p Deposit received — thank you.
+      p Your payment's been verified. Please save this email for your records.
 
-    if product.invoiceId
-      p Receipt #{product.invoiceId}
+      if product.invoiceId
+        p Receipt #{product.invoiceId}
 
-    p The deposit amount is #{session.currency.toUpperCase()} #{session.amount_total / 100}
-    p If you have any questions, feel free to reply to this email and we'll get right back to you.
+      p The deposit amount is #{session.currency.toUpperCase()} #{session.amount_total / 100}
+      p If you have any questions, feel free to reply to this email and we'll get right back to you.
 `,
   "schedule-success": `
-    p Your meeting has been scheduled.
+      p Your meeting has been scheduled.
 `,
   "admin-schedule-success": `
-    p A meeting has been scheduled with #{customer.name} &lt;#{customer.email}&gt;.
+      p A meeting has been scheduled with #{customer.name} &lt;#{customer.email}&gt;.
 `,
 };
 
@@ -248,7 +249,7 @@ const footer = `
         p © Earth 2021
         p 85 Delancey Street, New York, NY 10002 | 360 East 2nd Street, Los Angeles, CA 90012
         div(class="social-box-footer")
-          a(href="https://twitter.com/earth6r")
+          a(href="https://www.twitter.com/earth6r")
             svg(
               class="social-logo"
               height="25",
