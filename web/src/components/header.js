@@ -81,8 +81,8 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
 
   function storeNewEelamDomainOrigin() {
     useEffect(() => {
-      if(currentUri && currentUri.split('#')[1]) {
-        if(currentUri.split('#')[1] == 'new-eelam') {
+      if(currentUri && currentUri.split('?')[1]) {
+        if(currentUri.split('?')[1] == 'new-eelam') {
           sessionStorage.setItem('forwarder', 'new-eelam')
           setForwarder('new-eelam');
         }
