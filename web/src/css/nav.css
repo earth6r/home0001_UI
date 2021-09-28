@@ -48,10 +48,18 @@ nav .nav-box{
   height: 1.2rem;
 }
 .earth-svg svg{
-    width: auto;
-    position: relative;
-    top: 3px;
-    left:1px;
+  width: auto;
+  position: relative;
+  top: 3px;
+  left:1px;
+}
+.new-eelam-header{
+  top: 1px;
+  position: relative;
+  padding-left: 0.5em;
+}
+.new-eelam-header-dash{
+  padding-left: 0.5em;
 }
 /* THIN BANNER */
 .marquee {

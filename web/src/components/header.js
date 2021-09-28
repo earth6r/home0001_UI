@@ -3,12 +3,13 @@ import React, { useState, useEffect } from "react";
 import Icon from "./icon";
 import CircleButton from "./global/circleButton";
 import GridRow from "./grid/grid-row";
-import ReactHtmlParser from "react-html-parser"
+import ReactHtmlParser from "react-html-parser";
 
 const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu, onHideNav, onShowNav,onHideSubNav, onShowSubNav, showNav,showSubNav, siteTitle, onLoaded, footerMenu, isHome, showThinBanner, thinBanner, bannerUrl, bannerUrlTitle }) => {
   // const containerRef = useRef(null);
   // const { height } = useDimensions(containerRef);
   const [loaded, setLoaded] = useState(false);
+  const [forwarder, setForwarder] = useState('');
   const menu = mainMenu !== undefined ? mainMenu.edges[0].node.items : null;
   const submenu = subMenu && subMenu.edges[0] !== undefined ? subMenu.edges[0].node.items : null;
   const menuFooter = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
@@ -30,33 +31,31 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
     }
   }
   function makeTitle(slug) {
-  var words = slug.split('-');
+    var words = slug.split('-');
 
-  for (var i = 0; i < words.length; i++) {
-    var word = words[i];
-    words[i] = word.charAt(0).toUpperCase() + word.slice(1);
+    for (var i = 0; i < words.length; i++) {
+      var word = words[i];
+      words[i] = word.charAt(0).toUpperCase() + word.slice(1);
 
-  }
-
-  return words.join(' ');
-}
-if(typeof window != `undefined`){
-   currentUri = window.location.href.split("http://")[1]
-   if(!currentUri){
-      currentUri = window.location.href.split("https://")[1]
     }
-  if(currentUri && currentUri.includes("homes.")){
-    currentUri = currentUri.split("homes.")[1];
+
+    return words.join(' ');
   }
-   if(currentUri){
-    let stringLength = currentUri.length
-     if(currentUri.charAt(stringLength - 1) =="/"){
-      currentUri = currentUri.slice(0, -1)
-     }
-   }
-   
-   
-}
+  if(typeof window != `undefined`){
+    currentUri = window.location.href.split("http://")[1]
+    if(!currentUri){
+        currentUri = window.location.href.split("https://")[1]
+      }
+    if(currentUri && currentUri.includes("homes.")){
+      currentUri = currentUri.split("homes.")[1];
+    }
+    if(currentUri){
+      let stringLength = currentUri.length
+      if(currentUri.charAt(stringLength - 1) =="/"){
+        currentUri = currentUri.slice(0, -1)
+      }
+    }
+  }
   useEffect(() => {
     // setLoaded(true);
     currentUri = window.location.href.split("http://")[1]
@@ -70,14 +69,29 @@ if(typeof window != `undefined`){
         currentUri = currentUri.slice(0, -1)
        }
     }
-   
-  
     setTimeout(function () {
       setLoaded(true);
     }, 3000);
   }, []);
   let buttonStyle = {
     background: pillColor
+  }
+
+  storeNewEelamDomainOrigin();
+
+  function storeNewEelamDomainOrigin() {
+    useEffect(() => {
+      if(currentUri && currentUri.split('?')[1]) {
+        if(currentUri.split('?')[1] == 'new-eelam') {
+          sessionStorage.setItem('forwarder', 'new-eelam')
+          setForwarder('new-eelam');
+        }
+      }
+  
+      if(sessionStorage.getItem('forwarder') && sessionStorage.getItem('forwarder') == 'new-eelam') {
+        setForwarder('new-eelam');
+      }
+    });
   }
 
   return (
@@ -108,6 +122,8 @@ if(typeof window != `undefined`){
                   <path d="M30.7072 2.61398H33.8012V11H36.1952V2.61398H39.3032V0.583984H30.7072V2.61398Z" fill="#FF0000"/>
                   <path d="M40 6.63198V4.64398L44.62 4.60198V0.583984H47V11H44.62V6.58998L40 6.63198Z" fill="#FF0000"/>
                 </svg>
+                <span className={`${forwarder=='new-eelam' ? "": "hidden"} new-eelam-header-dash`}>–</span>
+                <span className={`${forwarder=='new-eelam' ? "": "hidden"} new-eelam-header`}>FKA New Eelam</span>
               </PageLink>
             </h1>
             <button
@@ -152,6 +168,8 @@ if(typeof window != `undefined`){
                         <path d="M30.7072 2.61398H33.8012V11H36.1952V2.61398H39.3032V0.583984H30.7072V2.61398Z" fill="#FF0000"/>
                         <path d="M40 6.63198V4.64398L44.62 4.60198V0.583984H47V11H44.62V6.58998L40 6.63198Z" fill="#FF0000"/>
                       </svg>
+                      <span className={`${forwarder=='new-eelam' ? "": "hidden"} new-eelam-header-dash`}>–</span>
+                      <span className={`${forwarder=='new-eelam' ? "": "hidden"} new-eelam-header`}>FKA New Eelam</span>
                     </PageLink>
                   </h1>
                 </li>
