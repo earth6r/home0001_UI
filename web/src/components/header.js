@@ -122,6 +122,8 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
                   <path d="M30.7072 2.61398H33.8012V11H36.1952V2.61398H39.3032V0.583984H30.7072V2.61398Z" fill="#FF0000"/>
                   <path d="M40 6.63198V4.64398L44.62 4.60198V0.583984H47V11H44.62V6.58998L40 6.63198Z" fill="#FF0000"/>
                 </svg>
+                <span className={`${forwarder=='new-eelam' ? "": "hidden"} new-eelam-header-dash`}>–</span>
+                <span className={`${forwarder=='new-eelam' ? "": "hidden"} new-eelam-header`}>FKA New Eelam</span>
               </PageLink>
             </h1>
             <button
