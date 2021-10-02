@@ -165,7 +165,7 @@ const handleRefund = () => {
         </div>
         <div className="refund-popup-overlay" onClick={handleRefund}></div>
       </>
-      : ""}
+      : <div></div>}
   </>
 )};
 

@@ -14,8 +14,8 @@
   font-size:18px;
   padding:5px 5px;
   position: relative;
-  left:5px;
-  bottom:5px;
+  /*was 5px before*/
+  left:2px;
   cursor:pointer;
   line-height: 0.5;
   border-radius:50px; 
@@ -310,7 +310,7 @@ label.terms-agreement{
   top: calc(50% - 10rem);
   left:calc(50% - 14rem);
   visibility: hidden;
-  animation: 1s ease-out 1s 1 appearFromZeroRefund;
+  animation: 1s ease-out 0.5s 1 appearFromZeroRefund;
   z-index: 9999999999;
   animation-fill-mode: forwards;
   box-shadow: 0px 1px 11px rgb(0 0 0 / 60%);
@@ -327,7 +327,7 @@ label.terms-agreement{
   z-index: 100;
   visibility: hidden;
   opacity: 0;
-  animation: 1s ease-out 1s 1 forwards appearFromZeroRefund;
+  animation: 1s ease-out 0.5s 1 forwards appearFromZeroRefund;
 }
 .refund-close{
   outline: none;
@@ -378,11 +378,12 @@ label.terms-agreement{
 @media(max-width: 767px){
   .refund-popup{
     opacity: 1;
+    z-index: 9999;
     visibility: hidden;
     left:0;
     top:auto;
     bottom:0;
-    animation: 1s ease-out 1s 1 forwards slideInFromBottomRefund;
+    animation: 1s ease-out 0.5s 1 forwards slideInFromBottomRefund;
   }
   .refund-popup-overlay{
     display: none;
