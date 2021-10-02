@@ -42,17 +42,28 @@ nav .nav-box{
 .gradient-to-b3{
 	background: linear-gradient(0deg,hsla(0,0%,100%,0),hsla(0,0%,100%,.55) 20%, hsla(0,0%,100%,.75) 40%,hsla(0,0%,100%,.96) 75%,hsla(0,0%,100%,.99));
 }
+
+.menu-earth-button {
+  width: 200px;
+  text-align: left;
+}
 .earth-svg{
   display: inline-block;
   padding-bottom:2px;
   height: 1.2rem;
 }
 .earth-svg svg{
-    width: auto;
-    position: relative;
-    top: 3px;
-    left:1px;
+  width: auto;
+  position: relative;
+  top: 3px;
+  left:1px;
 }
+.new-eelam-header{
+  top: 1px;
+  position: relative;
+  padding-left: 1em;
+}
+
 /* THIN BANNER */
 .marquee {
   position: relative;
