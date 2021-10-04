@@ -156,7 +156,6 @@ const handleRefund = () => {
     {unitTitle &&
       <p className="mb-0">Reserve unit {unitTitle}</p>
     }
-    <p></p>
 
     {showRefund ?
       <>
