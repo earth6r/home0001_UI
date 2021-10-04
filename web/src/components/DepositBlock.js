@@ -96,7 +96,7 @@ const DiscountNotice = ({ discountCode,eth, btc, color, codes }) => {
   
   return (
     <div className="discount-container">
-      <div className=""> <span className="block md:inline-block">$100 USD /&nbsp;</span><span className="block md:inline-block"> {100 * btc} BTC /&nbsp;</span><span className="block md:inline-block">{100 * eth} ETH</span></div>
+      <div className=""> $100 USD / {Math.round((100 * btc)*1000)/1000} BTC / {Math.round((100 * eth)*100)/100} ETH</div>
     </div>
   );
 
