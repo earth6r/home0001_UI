@@ -127,7 +127,7 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
             </h1>
             <button
               style={{ borderColor: "#000000" }}
-              className="lg:hidden py-0 outline-none relative -mt-1 w-12 z-50 py-3"
+              className="lg:hidden outline-none relative -mt-1 pb-6 pl-2 w-12 z-50"
               onClick={showNav ? onHideNav : onShowNav}
               role="button"
               aria-label="Open the menu"
@@ -177,7 +177,7 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
                 <div className="md:hidden flow-root text-left w-full">
                   {menu &&
                     menu.map((item, index) => (
-                      <li onClick={onHideNav} className="md:hidden mt-7em mb-1/2em mx-auto" key={item._key}>
+                      <li onClick={onHideNav} className="md:hidden mt-6em pt-1em mb-1/2em mx-auto" key={item._key}>
                         <PageLink
                         className={`${currentUri && currentUri.includes(item.link.content.main.slug.current) || (currentUri && currentUri.includes('home') && item.link.content.main.slug.current.includes("home")) ? "current-nav-link "+item.link.content.main.slug.current : " "} md:pt-1/2em inline-block cursor-pointer text-mobileNav`} 
                         onClick={onHideNav}
