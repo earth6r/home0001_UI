@@ -114,7 +114,8 @@ const handleRefund = () => {
   return(
   <>  
     <div id='spots-remaining-count' class="pt-0">
-      {depositCounter}
+      <p>Hold your spot: 0 places remaining out of 200</p>
+      <p>Our initial release of homes is now oversubscribed. Join our waitlist for the next release:</p>
     </div>
 
 
