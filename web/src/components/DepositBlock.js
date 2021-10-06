@@ -151,7 +151,7 @@ const handleRefund = () => {
       <DiscountNotice btc={btc} eth={eth} codes={codes} color={color} discountCode={discountCode} />
     </div>
     <div className="" id='refundable-text-span'>
-        Reservation deposit, refundable any time for any reason. <span onClick={handleRefund} id='question-trigger'>?</span>
+        Reservation deposit fully refundable any time, for any reason. <span onClick={handleRefund} id='question-trigger'>?</span>
     </div>
 
     {unitTitle &&
