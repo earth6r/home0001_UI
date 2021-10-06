@@ -114,7 +114,8 @@ const handleRefund = () => {
   return(
   <>  
     <div id='spots-remaining-count' class="pt-0">
-      {depositCounter}
+      <p>Hold your spot: 0 places remaining out of 200</p>
+      <p style={{color: 'red'}}>Our initial release of homes is now oversubscribed. Join our waitlist for the next release:</p>
     </div>
 
 
@@ -145,7 +146,7 @@ const handleRefund = () => {
     </Accordion>
 
     <div id='deposit-text-span' className="leading-7 md:leading-8 xl:leading-9">
-      <span> Reservation Deposit:<br/></span> 
+      <span> Join Waitlist:<br/></span> 
       <DiscountNotice btc={btc} eth={eth} codes={codes} color={color} discountCode={discountCode} />
     </div>
 
