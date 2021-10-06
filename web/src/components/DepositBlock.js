@@ -114,7 +114,8 @@ const handleRefund = () => {
   return(
   <>  
     <div id='spots-remaining-count' class="pt-0">
-      <p>Hold your spot: 0 places remaining out of 200</p>
+      <p>Hold your spot:</p>
+      <p>0 places remaining out of 200</p>
       <p style={{color: 'red'}}>Our initial release of homes is now oversubscribed. Join our waitlist for the next release:</p>
     </div>
 
@@ -146,12 +147,11 @@ const handleRefund = () => {
     </Accordion>
 
     <div id='deposit-text-span' className="leading-7 md:leading-8 xl:leading-9">
-      <span> Join Waitlist:<br/></span> 
+      <span> Join our waitlist:<br/></span> 
       <DiscountNotice btc={btc} eth={eth} codes={codes} color={color} discountCode={discountCode} />
     </div>
-
     <div className="" id='refundable-text-span'>
-        Fully refundable any time, for any reason. <span onClick={handleRefund} id='question-trigger'>?</span>
+        Reservation deposit, refundable any time for any reason. <span onClick={handleRefund} id='question-trigger'>?</span>
     </div>
 
     {unitTitle &&
