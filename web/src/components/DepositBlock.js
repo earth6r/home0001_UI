@@ -149,8 +149,7 @@ const handleRefund = () => {
     <div id='deposit-text-span' className="leading-7 md:leading-8 xl:leading-9">
       <span> Join our waitlist:<br/></span> 
       <DiscountNotice btc={btc} eth={eth} codes={codes} color={color} discountCode={discountCode} />
-    </div>
-    <div className="" id='refundable-text-span'>
+        <br/>
         Reservation deposit fully refundable any time, for any reason. <span onClick={handleRefund} id='question-trigger'>?</span>
     </div>
 
