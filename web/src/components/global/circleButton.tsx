@@ -52,7 +52,6 @@ const CircleButton = ({ title, url, linkHome, linkRnd, textColor, customColor, f
     const element = ref.current;
     setElementTop(element.offsetTop);
   }, [ref]);
-  // top-1/2 -translate-y-1/2 right-0 z-20
   return (
     <div ref={ref} className={`${!float ? "right-0 ml-1em z-20 self" : ""}`}>
       {float ? (
