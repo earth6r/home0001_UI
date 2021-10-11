@@ -106,9 +106,12 @@ const ValueAdded = ({ discount,whatsIncluded, depositCounter, eth, btc, codes, d
 const [showRefund, setShowRefund] = useState(0);
 const handleRefund = () => {
   if(showRefund){
-    setShowRefund(0) 
+    setShowRefund(0)
+    document.getElementsByClassName("intercom-lightweight-app")[0].style.opacity = '1';
   } else{ 
     setShowRefund(1)
+    document.getElementsByClassName("intercom-lightweight-app")[0].style.opacity = '0';
+    document.getElementsByClassName("intercom-lightweight-app")[0].style.transition = 'opacity 1s ease-out';
   }
 }
   return(
