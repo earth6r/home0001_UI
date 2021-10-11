@@ -6,7 +6,6 @@ import {
   AccordionItem,
   AccordionHeader,
   AccordionPanel,
-  AccordionIcon,
 } from "@chakra-ui/core";
 import PortableText from "../portableText";
 import GridRow from "../grid/grid-row";
@@ -21,12 +20,11 @@ export interface AccordionModuleProps {
 export const AccordionModule = ({ data }: AccordionModuleProps) => {
   const { title, accordionItems } = data;
   return (
-    <Accordion allowMultiple={false} className=" w-full">
+    <Accordion allowToggle className=" w-full">
       {accordionItems.length > 0 &&
         accordionItems.map((item, index) => (
           <React.Fragment key={item._key}>
             <AccordionItem
-              defaultIsOpen={false}
               className="border-none relative block accordion box max-w-4xl lg:ml-1/10 mb-1em rounded-lg"
             >
               {({ isExpanded }) => (

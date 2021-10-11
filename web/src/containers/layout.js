@@ -235,10 +235,11 @@ function LayoutContainer(props) {
   const [showSubNav, setShowSubNav] = useState(0);
   function handleShowNav() {
     setShowNav(true);
-
+    document.body.style.overflow = "hidden";
   }
   function handleHideNav() {
     setShowNav(false);
+    document.body.style.overflow = "";
   }
   function handleShowSubNav() {
     setShowSubNav(1);
