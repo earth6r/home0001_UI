@@ -51,6 +51,10 @@ export const query = graphql`
         }
       }
     }
+    settings:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+        exchangeRateUSDBTC
+        exchangeRateUSDETH
+    }
     depositBlockImage:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       depositBlockImage {
         _key
@@ -88,17 +92,17 @@ const Unavailable = () => (
   </div>
 );
 
-const DiscountNotice = ({ discountCode, color, codes }) => {
+const DiscountNotice = ({ discountCode,eth, btc, color, codes }) => {
   
   return (
     <div className="discount-container">
-      <div className=""> $100 USD / 0.002 BTC / 0.03 ETH</div>
+      <div className=""> $100 USD / {Math.round((100 * btc)*1000)/1000} BTC / {Math.round((100 * eth)*100)/100} ETH</div>
     </div>
   );
 
 };
 
-const ValueAdded = ({ discount,whatsIncluded, depositCounter, codes, discountCode, unitTitle, color }) => {
+const ValueAdded = ({ discount,whatsIncluded, depositCounter, eth, btc, codes, discountCode, unitTitle, color }) => {
 const [showRefund, setShowRefund] = useState(0);
 const handleRefund = () => {
   if(showRefund){
@@ -110,7 +114,9 @@ const handleRefund = () => {
   return(
   <>  
     <div id='spots-remaining-count' class="pt-0">
-      {depositCounter}
+      <p>Hold your spot:</p>
+      <p>0 places remaining out of 200</p>
+      <p style={{color: 'red'}}>Our initial release of homes is now oversubscribed. Join our waitlist for the next release:</p>
     </div>
 
 
@@ -141,18 +147,15 @@ const handleRefund = () => {
     </Accordion>
 
     <div id='deposit-text-span' className="leading-7 md:leading-8 xl:leading-9">
-      <span> Reservation Deposit:<br/></span> 
-      <DiscountNotice codes={codes} color={color} discountCode={discountCode} />
-    </div>
-
-    <div className="" id='refundable-text-span'>
-        Fully refundable any time, for any reason. <span onClick={handleRefund} id='question-trigger'>?</span>
+      <span> Join our waitlist:<br/></span> 
+      <DiscountNotice btc={btc} eth={eth} codes={codes} color={color} discountCode={discountCode} />
+        <br/>
+        Reservation deposit fully refundable any time, for any reason. <span onClick={handleRefund} id='question-trigger'>?</span>
     </div>
 
     {unitTitle &&
       <p className="mb-0">Reserve unit {unitTitle}</p>
     }
-    <p></p>
 
     {showRefund ?
       <>
@@ -179,7 +182,7 @@ const CheckoutActions = ({ unit, children }) => {
   return <>{children}</>;
 };
 
-const CheckoutDescription = ({ unit,whatsIncluded, depositCounter, codes, modules, children,color, discount, discountCode }) => {
+const CheckoutDescription = ({ unit,whatsIncluded,btc, eth, depositCounter, codes, modules, children,color, discount, discountCode }) => {
   const [head, ...rest] = modules;
  
   if (unit) {
@@ -191,7 +194,7 @@ const CheckoutDescription = ({ unit,whatsIncluded, depositCounter, codes, module
 
           <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
             
-            <ValueAdded whatsIncluded={whatsIncluded} depositCounter={depositCounter} codes={codes} color={color} unitTitle={unit.title} discount={discount} discountCode={discountCode} />
+            <ValueAdded btc={btc} eth={eth} whatsIncluded={whatsIncluded} depositCounter={depositCounter} codes={codes} color={color} unitTitle={unit.title} discount={discount} discountCode={discountCode} />
             
           </div>
           
@@ -209,7 +212,7 @@ const CheckoutDescription = ({ unit,whatsIncluded, depositCounter, codes, module
 
         <div className="w-full relative z-20" style={{ marginLeft: "-.04em" }}>
    
-          <ValueAdded whatsIncluded={whatsIncluded} depositCounter={depositCounter} codes={codes} discount={discount} color={color} discountCode={discountCode} />
+          <ValueAdded btc={btc} eth={eth} whatsIncluded={whatsIncluded} depositCounter={depositCounter} codes={codes} discount={discount} color={color} discountCode={discountCode} />
         </div>
         
       </div>
@@ -255,6 +258,8 @@ const DepositBlock = (props) => {
       	  let sku = "MEMB001";
 		  const whatsIncluded = data.whatsIncluded.whatsIncluded
 		  const depositCounter = data.depositCounter.depositCounter
+      const btc = data.settings.exchangeRateUSDBTC
+      const eth = data.settings.exchangeRateUSDETH
 		  const depositBlockImage = data.depositBlockImage.depositBlockImage
 		  let bitPayID = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_REGULAR_PRICE;
 		  let bitPayIDDiscounted = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_DISCOUNTED;
@@ -275,6 +280,8 @@ const DepositBlock = (props) => {
                         color={null}
                         codes={null}
                         whatsIncluded={whatsIncluded}
+                        btc={btc}
+                        eth={eth}
                         depositCounter={depositCounter}
                         modules={[0]}
                         discount={null}

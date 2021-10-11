@@ -181,7 +181,7 @@ text-transform: none;
   color:#000000;
 }
 #refundable-text-span {
-  margin-top: 0.16rem;
+/*  margin-top: 0.16rem;*/
 }
 #deposit-text-span .discount-container{
   color:white;
@@ -357,6 +357,25 @@ label.terms-agreement{
 }
 .refund-popup button[type="submit"]{
   line-height:0.2em !important;
+}
+@-webkit-keyframes stagger-in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes stagger-in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes stagger-in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes stagger-in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+.home-deposit-module{
+  animation: stagger-in 2s 1 forwards;
 }
 .home-deposit-module .refund-popup *{
   color:black;
