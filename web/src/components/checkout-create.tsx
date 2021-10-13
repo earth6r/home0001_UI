@@ -10,10 +10,10 @@ import stripeDisabled from "./images/stripe-icons2-01.svg"
 import { StyledPageLink } from "./global/internalLink";
 
 const StripeCheckoutCreateButton = ({ handleClick, disabled }) => (
-  <div className="stripe-button max-w-2xl block w-full">
+  <div className="stripe-button max-w-2xl block w-full mb-6">
     <img src={stripeIcons} />
     <span id="checkout-button" role="link" onClick={handleClick} className="max-w-2xl block w-full">
-        <input className="e-checkout my-4 relative special-stripe text-left  text-black  white-box rounded-full w-full block leading-none h-3em md:h-3em justify-center text-mobileNav md:text-desktopNav pl-1 sub-i-6:pl-5 tiny:pl-20 sm:pl-32 md:pl-20" type="submit" value="pay with card" />
+        <input className="e-checkout my-4 relative special-stripe text-left  text-black  white-box rounded-full w-full block leading-none h-4em md:h-4em justify-center text-mobileNav md:text-desktopNav pl-1 sub-i-6:pl-5 tiny:pl-12 sm:pl-12 md:pl-12" type="submit" value="pay with card" />
     </span>
   </div>
 );
@@ -27,7 +27,7 @@ const DisabledButton = ({text}) => {
 
     <img src={text == 'pay with card' ? stripeIcons : bitIcons} />
     <span id="checkout-button" role="link" onClick={clickHandler} className="max-w-2xl block w-full">
-        <input className="e-checkout my-4 relative special-stripe text-left  text-black white-box rounded-full w-full block leading-none h-3em md:h-3em justify-center text-mobileNav md:text-desktopNav pl-1 sub-i-6:pl-5 tiny:pl-20 sm:pl-32 md:pl-20" type="submit" value={text} />
+        <input className="e-checkout my-4 relative special-stripe text-left  text-black white-box rounded-full w-full block leading-none h-4em md:h-4em justify-center text-mobileNav md:text-desktopNav pl-1 sub-i-6:pl-5 tiny:pl-12 sm:pl-12 md:pl-12" type="submit" value={text} />
       </span>
   </div>
 )};
@@ -40,7 +40,7 @@ const BitPayCheckoutButton = ({ bitPayID, disabled, onClick }) => (
     <div className="stripe-button">
     <img src={bitIcons} />
     <span className="max-w-2xl block w-full">
-      <input onClick={onClick} className="e-checkout my-4 relative special-bitcoin text-left  text-black white-box rounded-full w-full block leading-none h-3em md:h-3em justify-center text-mobileNav md:text-desktopNav pl-1 sub-i-6:pl-5 tiny:pl-20 sm:pl-32 md:pl-20" type="submit" value="pay with crypto" />
+      <input onClick={onClick} className="e-checkout my-4 relative special-bitcoin text-left  text-black white-box rounded-full w-full block leading-none h-3em md:h-3em justify-center text-mobileNav md:text-desktopNav pl-1 sub-i-6:pl-5 tiny:pl-12 sm:pl-12 md:pl-12" type="submit" value="pay with crypto" />
     </span>
 
     </div>
