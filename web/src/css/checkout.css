@@ -1,8 +1,11 @@
 .spring-green{
   color:#66ff00;
 }
-.disabled-button{
-  opacity: 0.5;
+.disabled-button .stripe-button input, .disabled-button #checkout-button input{
+  background: white
+}
+.stripe-button input, #checkout-button input{
+  background:rgb(204, 255, 0);
 }
 .button--where:hover{
   text-decoration: underline;
