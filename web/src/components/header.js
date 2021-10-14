@@ -110,7 +110,7 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
     }
       
 
-      <header className={`${showThinBanner && thinBanner ? "mt-16 md:mt-8" : "" } ${blackHeader ? "black-header ":""} fixed z-70 w-full left-0`}>
+      <header className={`${showThinBanner && thinBanner ? "mt-16 md:mt-8" : "" } ${blackHeader ? "black-header ":""} ${showNav ? "z-70 ":"z-50"} fixed w-full left-0`}>
         <div className={`${showNav ? "h-full" : ""} flex container pb-0 w-full px-5 nav md:bg-transparent md:relative justify-between md:justify-center md:justify-between items-center content-center`}>
           <nav className="flex w-full justify-between md:hidden">
             <h1 className="md:hidden relative menu-earth-button">
