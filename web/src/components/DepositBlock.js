@@ -109,13 +109,16 @@ const handleRefund = () => {
   if(showRefund){
     setShowRefund(0)
     if(isMobile){
-      document.getElementsByClassName("intercom-lightweight-app")[0].style.opacity = '1';
+      window.Intercom("update", {
+        hide_default_launcher: false,
+      });
     }
   } else{ 
     setShowRefund(1)
     if(isMobile) {
-      document.getElementsByClassName("intercom-lightweight-app")[0].style.opacity = '0';
-      document.getElementsByClassName("intercom-lightweight-app")[0].style.transition = 'opacity 1s ease-out';
+      window.Intercom("update", {
+        hide_default_launcher: true,
+      });
     }
   }
 }
