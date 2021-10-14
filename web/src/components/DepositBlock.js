@@ -84,6 +84,7 @@ export const query = graphql`
   }
 `;
 
+let isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
 
 const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
 const Unavailable = () => (
@@ -107,11 +108,15 @@ const [showRefund, setShowRefund] = useState(0);
 const handleRefund = () => {
   if(showRefund){
     setShowRefund(0)
-    document.getElementsByClassName("intercom-lightweight-app")[0].style.opacity = '1';
+    if(isMobile){
+      document.getElementsByClassName("intercom-lightweight-app")[0].style.opacity = '1';
+    }
   } else{ 
     setShowRefund(1)
-    document.getElementsByClassName("intercom-lightweight-app")[0].style.opacity = '0';
-    document.getElementsByClassName("intercom-lightweight-app")[0].style.transition = 'opacity 1s ease-out';
+    if(isMobile) {
+      document.getElementsByClassName("intercom-lightweight-app")[0].style.opacity = '0';
+      document.getElementsByClassName("intercom-lightweight-app")[0].style.transition = 'opacity 1s ease-out';
+    }
   }
 }
   return(
