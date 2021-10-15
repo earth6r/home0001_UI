@@ -84,7 +84,6 @@ export const query = graphql`
   }
 `;
 
-let isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
 
 const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
 const Unavailable = () => (
@@ -103,9 +102,13 @@ const DiscountNotice = ({ discountCode,eth, btc, color, codes }) => {
 
 };
 
+let isMobile = false;
 const ValueAdded = ({ discount,whatsIncluded, depositCounter, eth, btc, codes, discountCode, unitTitle, color }) => {
 const [showRefund, setShowRefund] = useState(0);
 const handleRefund = () => {
+  if(typeof navigator !== 'undefined'){
+    isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+  }
   if(showRefund){
     setShowRefund(0)
     if(isMobile){
