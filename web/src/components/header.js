@@ -68,14 +68,15 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
        if(currentUri.charAt(stringLength - 1) =="/"){
         currentUri = currentUri.slice(0, -1)
        }
+      }
+
+      setTimeout(function () {
+        setLoaded(true);
+      }, 3000);
+    }, [currentUri]);
+    let buttonStyle = {
+      background: pillColor
     }
-    setTimeout(function () {
-      setLoaded(true);
-    }, 3000);
-  }, []);
-  let buttonStyle = {
-    background: pillColor
-  }
 
   storeNewEelamDomainOrigin();
 
@@ -182,7 +183,7 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
                         className={` md:pt-1/2em pt-1em pb-1/2em block cursor-pointer text-mobileNav`} 
                         onClick={onHideNav}
                         to={`/${item.link.content.main.slug.current}`}>
-                          <span className={`${currentUri && currentUri.includes(item.link.content.main.slug.current) || (currentUri && currentUri.includes('home') && item.link.content.main.slug.current.includes("home")) ? "current-nav-link "+item.link.content.main.slug.current : " "}`}>{item.title}</span>
+                          <span className={`${currentUri && currentUri.includes(item.link.content.main.slug.current) || (currentUri && currentUri.includes('homes') && item.link.content.main.slug.current.includes("home")) ? "current-nav-link "+item.link.content.main.slug.current : " "}`}>{item.title}</span>
                         </PageLink>
                       </li>
                     ))}
@@ -192,7 +193,7 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
                   menu.map((item, index) => (
                     <li className="hidden md:block" key={item._key}>
                       <PageLink
-                        className={`${currentUri && currentUri.includes(item.link.content.main.slug.current) || (currentUri && currentUri.includes('home') && item.link.content.main.slug.current.includes("home")) ? "current-nav-link "+item.link.content.main.slug.current : " "} md:pt-1/2em inline-block`} 
+                        className={`${currentUri && currentUri.includes(item.link.content.main.slug.current) || (currentUri && currentUri.includes('homes') && item.link.content.main.slug.current.includes("home")) ? "current-nav-link "+item.link.content.main.slug.current : " "} md:pt-1/2em inline-block`} 
                         onClick={onHideNav}
                         to={`/${item.link.content.main.slug.current}`}
                       >
