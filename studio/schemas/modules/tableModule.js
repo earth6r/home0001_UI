@@ -17,6 +17,20 @@ export default {
       type: 'boolean',
     },
     {
+      name: 'title',
+      type: 'string',
+      title: 'Title (internal)',
+    },
+    {
+      name: 'headerRow',
+      type: 'array',
+      of: [
+        {
+          type: 'string',
+        },
+      ],
+    },
+    {
       name: 'rows',
       title: 'Table Rows',
       type: 'array',
