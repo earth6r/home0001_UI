@@ -90,7 +90,6 @@ export const Modules = ({
           <style scoped>
             {`.flex-layout-padding-${reactModule._key} {
                 position: relative; 
-                overflow: hidden;
                 height: 0;
                 width: 100%;
                 padding-top: ${reactModule.numRows * 1.028 + "%"};
