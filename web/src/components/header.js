@@ -68,14 +68,15 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
        if(currentUri.charAt(stringLength - 1) =="/"){
         currentUri = currentUri.slice(0, -1)
        }
+      }
+
+      setTimeout(function () {
+        setLoaded(true);
+      }, 3000);
+    }, [currentUri]);
+    let buttonStyle = {
+      background: pillColor
     }
-    setTimeout(function () {
-      setLoaded(true);
-    }, 3000);
-  }, []);
-  let buttonStyle = {
-    background: pillColor
-  }
 
   storeNewEelamDomainOrigin();
 
@@ -110,7 +111,7 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
     }
       
 
-      <header className={`${showThinBanner && thinBanner ? "mt-16 md:mt-8" : "" } ${blackHeader ? "black-header ":""} fixed z-50 w-full left-0`}>
+      <header className={`${showThinBanner && thinBanner ? "mt-16 md:mt-8" : "" } ${blackHeader ? "black-header ":""} ${showNav ? "z-70 ":"z-50"} fixed w-full left-0`}>
         <div className={`${showNav ? "h-full" : ""} flex container pb-0 w-full px-5 nav md:bg-transparent md:relative justify-between md:justify-center md:justify-between items-center content-center`}>
           <nav className="flex w-full justify-between md:hidden">
             <h1 className="md:hidden relative menu-earth-button">
@@ -177,12 +178,12 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
                 <div className="md:hidden flow-root text-left w-full">
                   {menu &&
                     menu.map((item, index) => (
-                      <li onClick={onHideNav} className="md:hidden mt-6em pt-1em mb-1/2em mx-auto" key={item._key}>
+                      <li onClick={onHideNav} className="md:hidden mt-6em  mx-auto" key={item._key}>
                         <PageLink
-                        className={`${currentUri && currentUri.includes(item.link.content.main.slug.current) || (currentUri && currentUri.includes('home') && item.link.content.main.slug.current.includes("home")) ? "current-nav-link "+item.link.content.main.slug.current : " "} md:pt-1/2em inline-block cursor-pointer text-mobileNav`} 
+                        className={` md:pt-1/2em pt-1em pb-1/2em block cursor-pointer text-mobileNav`} 
                         onClick={onHideNav}
                         to={`/${item.link.content.main.slug.current}`}>
-                          {item.title}
+                          <span className={`${currentUri && currentUri.includes(item.link.content.main.slug.current) || (currentUri && currentUri.includes('homes') && item.link.content.main.slug.current.includes("home")) ? "current-nav-link "+item.link.content.main.slug.current : " "}`}>{item.title}</span>
                         </PageLink>
                       </li>
                     ))}
@@ -192,7 +193,7 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
                   menu.map((item, index) => (
                     <li className="hidden md:block" key={item._key}>
                       <PageLink
-                        className={`${currentUri && currentUri.includes(item.link.content.main.slug.current) || (currentUri && currentUri.includes('home') && item.link.content.main.slug.current.includes("home")) ? "current-nav-link "+item.link.content.main.slug.current : " "} md:pt-1/2em inline-block`} 
+                        className={`${currentUri && currentUri.includes(item.link.content.main.slug.current) || (currentUri && currentUri.includes('homes') && item.link.content.main.slug.current.includes("home")) ? "current-nav-link "+item.link.content.main.slug.current : " "} md:pt-1/2em inline-block`} 
                         onClick={onHideNav}
                         to={`/${item.link.content.main.slug.current}`}
                       >
@@ -208,7 +209,6 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
       </header>
       <div
         style={{ zIndex: "45" }}
-        onClick={showNav ? onHideNav : onShowNav}
         className={`${
           showNav ? " h-full bg-black opacity-75 pointer-events-auto" : "opacity-0"
         } fixed transition-opacity duration-150 left-0 top-0  pointer-events-none w-full`}

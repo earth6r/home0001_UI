@@ -102,13 +102,27 @@ const DiscountNotice = ({ discountCode,eth, btc, color, codes }) => {
 
 };
 
+let isMobile = false;
 const ValueAdded = ({ discount,whatsIncluded, depositCounter, eth, btc, codes, discountCode, unitTitle, color }) => {
 const [showRefund, setShowRefund] = useState(0);
 const handleRefund = () => {
+  if(typeof navigator !== 'undefined'){
+    isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+  }
   if(showRefund){
-    setShowRefund(0) 
+    setShowRefund(0)
+    if(isMobile){
+      window.Intercom("update", {
+        hide_default_launcher: false,
+      });
+    }
   } else{ 
     setShowRefund(1)
+    if(isMobile) {
+      window.Intercom("update", {
+        hide_default_launcher: true,
+      });
+    }
   }
 }
   return(
@@ -149,8 +163,7 @@ const handleRefund = () => {
     <div id='deposit-text-span' className="leading-7 md:leading-8 xl:leading-9">
       <span> Join our waitlist:<br/></span> 
       <DiscountNotice btc={btc} eth={eth} codes={codes} color={color} discountCode={discountCode} />
-    </div>
-    <div className="" id='refundable-text-span'>
+        <br/>
         Reservation deposit fully refundable any time, for any reason. <span onClick={handleRefund} id='question-trigger'>?</span>
     </div>
 
@@ -265,7 +278,7 @@ const DepositBlock = (props) => {
 		  let bitPayID = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_REGULAR_PRICE;
 		  let bitPayIDDiscounted = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_DISCOUNTED;
       	return(
-         <Container className={`md:pl-20 home-deposit-module ${depositPage ? "" : " pb-4 px-2 mt-8 md:mb-0 home-deposit-module-scroll"}`}>
+         <Container className={`md:pl-20 home-deposit-module ${depositPage ? "" : " pb-4 px-0 md:px-2 mt-8 md:mb-0 home-deposit-module-scroll"}`}>
 	        <div className="max-w-2xl md:inline-block md:mt-12 md:w-4/6 lg:w-3/6">
 	        {depositPage &&
 	        	<div className="pt-8"></div>

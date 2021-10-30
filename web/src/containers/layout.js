@@ -230,15 +230,15 @@ const query = graphql`
 `;
 
 function LayoutContainer(props) {
-
   const [showNav, setShowNav] = useState(false);
   const [showSubNav, setShowSubNav] = useState(0);
   function handleShowNav() {
     setShowNav(true);
-
+    document.body.style.overflow = "hidden";
   }
   function handleHideNav() {
     setShowNav(false);
+    document.body.style.overflow = "";
   }
   function handleShowSubNav() {
     setShowSubNav(1);

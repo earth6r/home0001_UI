@@ -10,10 +10,10 @@ import stripeDisabled from "./images/stripe-icons2-01.svg"
 import { StyledPageLink } from "./global/internalLink";
 
 const StripeCheckoutCreateButton = ({ handleClick, disabled }) => (
-  <div className="stripe-button max-w-2xl block w-full">
+  <div className="stripe-button max-w-2xl block w-full ">
     <img src={stripeIcons} />
     <span id="checkout-button" role="link" onClick={handleClick} className="max-w-2xl block w-full">
-        <input className="e-checkout my-4 relative special-stripe text-left bg-white text-black  white-box rounded-full w-full block leading-none h-3em md:h-3em justify-center text-mobileNav md:text-desktopNav pl-1 sub-i-6:pl-5 tiny:pl-20 sm:pl-32 md:pl-20" type="submit" value="pay with card" />
+        <input className="e-checkout my-4 relative special-stripe text-left  text-black  white-box rounded-full w-full block leading-none h-4em md:h-4em justify-center text-mobileNav md:text-desktopNav pl-5 sub-i-6:pl-5 tiny:pl-12 sm:pl-12 md:pl-12" type="submit" value="pay with card" />
     </span>
   </div>
 );
@@ -27,7 +27,7 @@ const DisabledButton = ({text}) => {
 
     <img src={text == 'pay with card' ? stripeIcons : bitIcons} />
     <span id="checkout-button" role="link" onClick={clickHandler} className="max-w-2xl block w-full">
-        <input className="e-checkout my-4 relative special-stripe text-left bg-white text-black white-box rounded-full w-full block leading-none h-3em md:h-3em justify-center text-mobileNav md:text-desktopNav pl-1 sub-i-6:pl-5 tiny:pl-20 sm:pl-32 md:pl-20" type="submit" value={text} />
+        <input className="e-checkout my-4 relative special-stripe text-left  text-black white-box rounded-full w-full block leading-none h-4em md:h-4em justify-center text-mobileNav md:text-desktopNav pl-5 sub-i-6:pl-5 tiny:pl-12 sm:pl-12 md:pl-12" type="submit" value={text} />
       </span>
   </div>
 )};
@@ -37,11 +37,11 @@ const BitPayCheckoutButton = ({ bitPayID, disabled, onClick }) => (
     <input type="hidden" name="action" value="checkout" />
     <input type="hidden" name="posData" value="" />
     <input type="hidden" name="data" value={bitPayID} />
-    <div className="stripe-button">
+    <div className="stripe-button ">
     <img src={bitIcons} />
-    <span className="max-w-2xl block w-full">
-      <input onClick={onClick} className="e-checkout my-4 relative special-bitcoin text-left bg-white text-black white-box rounded-full w-full block leading-none h-3em md:h-3em justify-center text-mobileNav md:text-desktopNav pl-1 sub-i-6:pl-5 tiny:pl-20 sm:pl-32 md:pl-20" type="submit" value="pay with crypto" />
-    </span>
+    <div className="max-w-2xl block w-full">
+      <input onClick={onClick} className="e-checkout my-4 relative special-bitcoin text-left  text-black white-box rounded-full w-full block leading-none h-4em md:h-4em justify-center text-mobileNav md:text-desktopNav pl-5 sub-i-6:pl-5 tiny:pl-12 sm:pl-12 md:pl-12" type="submit" value="pay with crypto" />
+    </div>
 
     </div>
   </form>
@@ -67,11 +67,11 @@ const Price = ({ discount, color }) => {
 const CheckoutTerms = ({ disabled, handleChange }) => {
   return (
     <form id='terms' className="mt-8 mb-4 pb-1em">
-      <div className="grid grid-cols-4 sm:flex">
+      <div className=" sm:flex">
         <span className="e-checkbox">
-          <input id='agree-to-terms' className="e-checkbox-icon left-0" type="checkbox" value={disabled} onChange={handleChange} />
+          <input id='agree-to-terms' className="inline-block e-checkbox-icon left-0" type="checkbox" value={disabled} onChange={handleChange} />
         </span>
-        <label htmlFor="agree-to-terms" className="terms-agreement relative ml-0 col-span-3 "> 
+        <label htmlFor="agree-to-terms" className="terms-agreement inline-block relative ml-0  "> 
           I agree to the <a target="_blank" href="/deposit-tc/">Deposit Terms and Conditions​</a>
         </label>
       </div>

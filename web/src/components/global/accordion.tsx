@@ -6,27 +6,25 @@ import {
   AccordionItem,
   AccordionHeader,
   AccordionPanel,
-  AccordionIcon,
 } from "@chakra-ui/core";
 import PortableText from "../portableText";
 import GridRow from "../grid/grid-row";
 
 export interface AccordionModuleProps {
   data: {
+    title: string
     accordionItems: any[];
   };
 }
 
 export const AccordionModule = ({ data }: AccordionModuleProps) => {
-  const { accordionItems } = data;
-
+  const { title, accordionItems } = data;
   return (
-    <Accordion allowMultiple={false} className=" w-full">
+    <Accordion allowToggle className=" w-full">
       {accordionItems.length > 0 &&
         accordionItems.map((item, index) => (
           <React.Fragment key={item._key}>
             <AccordionItem
-              defaultIsOpen={false}
               className="border-none relative block accordion box max-w-4xl lg:ml-1/10 mb-1em rounded-lg"
             >
               {({ isExpanded }) => (
@@ -40,7 +38,9 @@ export const AccordionModule = ({ data }: AccordionModuleProps) => {
                       {isExpanded ? "–" : "+"}
                     </div>
                   </AccordionHeader>
-                  <AccordionPanel className="pb-1em">
+                  <AccordionPanel 
+                  style={ title === "HIW Sections" ? { paddingLeft: "0.675rem", paddingBottom: "1em"} : { paddingBottom: "1em"}}
+                  >
                     <PortableText blocks={item.text} />
                   </AccordionPanel>
                 </>

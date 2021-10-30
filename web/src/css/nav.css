@@ -190,6 +190,15 @@ nav .nav-box{
 .logo .current-nav-link::after{
   width: 105%;
 }
+.text-mobileNav .current-nav-link::after{
+  display: inline-block;
+  padding-right:0;
+  position: relative;
+  top:-7px;
+}
+.text-mobileNav span{
+  display: inline-block;
+}
 .current-nav-link.homes::after{
   width:101%;
 }
