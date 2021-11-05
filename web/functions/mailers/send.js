@@ -56,7 +56,7 @@ html(lang="en")
           height="11", 
           alt="Earth Logo"
         )
-    div(class="main-text")
+    div(style="padding-left: 10%; padding-right: 10%;", class="main-text")
       br
 `;
 
