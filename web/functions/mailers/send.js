@@ -12,39 +12,7 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title EARTH6r
     style(type="text/css").
-      @import url("https://earth6r.com/fonts/fonts.css");
-
-      @media screen {
-        * {
-          font-family: "FolioBT", Arial, Helvetica, sans-serif !important;
-          font-size: 20px;
-          line-height: 120%;
-          -webkit-font-smoothing: antialiased;
-          -moz-osx-font-smoothing: grayscale;
-        }
-      }
-      @media screen and (min-width: 640px) {
-        * {
-          font-family: "FolioBT", Arial, Helvetica, sans-serif !important;
-          font-size: 33px;
-          line-height: 120%;
-          -webkit-font-smoothing: antialiased;
-          -moz-osx-font-smoothing: grayscale;
-        }
-      }
-      
-      @media screen {
-        .main-text {
-          padding-left: 5%;
-          padding-right: 5%;
-        }
-      }
-      @media screen and (min-width: 640px) {
-        .main-text {
-          padding-left: 23%;
-          padding-right: 23%;
-        }
-      }
+    @import url("https://earth6r.com/fonts/fonts.css"); @media screen {* {font-family: "FolioBT", Arial, Helvetica, sans-serif !important; font-size: 20px; line-height: 120%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;} .main-text {padding-left: 5% !important; padding-right: 5% !important;}} @media screen and (min-width: 640px) {* {font-family: "FolioBT", Arial, Helvetica, sans-serif !important; font-size: 33px; line-height: 120%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;} .main-text {padding-left: 23% !important; padding-right: 23% !important;}}
 
   body(style="background-color: red; margin: 0; color: white; font-family: Arial, Helvetica, sans-serif; font-size: 20px; line-height: 120%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;")
     div(style="background-color: white;") 
