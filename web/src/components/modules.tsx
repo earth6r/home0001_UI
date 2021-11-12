@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { ArticleModule, ArticleModuleProps } from "./article";
 import { StandardText, StandardTextProps } from "./global/standardText";
 import { NestedPages, NestedPagesProps } from "./global/nestedPages";
-import { AccordionModule } from "./global/accordion";
+import { AccordionModule, AccordionModuleProps } from "./global/accordion";
 import { Image } from "./image";
 import { PaneModules } from "./paneModules";
 import GridRow from "./grid/grid-row";
@@ -15,6 +15,8 @@ import Gallery from "./global/gallery";
 import FlexGallery from "./global/flexGallery";
 import { InternalLink } from "./global/internalLink";
 import { RichTable } from "./global/richTable";
+import { RowLinkTable, RowLinkTableProps } from "./global/rowLinkTable";
+import { ColumnHeaderTable, ColumnHeaderTableProps } from "./global/columnHeaderTable";
 import { VisuallyHidden } from "@chakra-ui/core";
 
 export const Modules = ({
@@ -284,6 +286,10 @@ export const Modules = ({
       );
     case "richTable":
       return <RichTable data={reactModule} />;
+    case "rowLinkTable":
+      return <RowLinkTable data={reactModule as RowLinkTableProps["data"]}/>;
+    case "columnHeaderTable":
+      return <ColumnHeaderTable data={reactModule as ColumnHeaderTableProps["data"]}/>;
     case "viewSpacer":
       return <div className="viewSpacer w-full" style={{height: `${reactModule.vh}vh`}}></div>;
     default:

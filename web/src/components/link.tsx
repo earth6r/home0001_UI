@@ -5,6 +5,7 @@ export const PageLink = (props: {
   className?: string;
   to: string;
   type?: string;
+  style?: any;
   onClick?: () => void;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;

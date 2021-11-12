@@ -24,11 +24,10 @@ const DisabledButton = ({text}) => {
   }
   return(
   <div className="disabled-button max-w-2xl stripe-button block w-full">
-
     <img src={text == 'pay with card' ? stripeIcons : bitIcons} />
     <span id="checkout-button" role="link" onClick={clickHandler} className="max-w-2xl block w-full">
-        <input className="e-checkout my-4 relative special-stripe text-left  text-black white-box rounded-full w-full block leading-none h-4em md:h-4em justify-center text-mobileNav md:text-desktopNav pl-1 sub-i-6:pl-5 tiny:pl-12 sm:pl-12 md:pl-12" type="submit" value={text} />
-      </span>
+      <input className="e-checkout my-4 relative special-stripe text-left text-black white-box rounded-full w-full block leading-none h-4em md:h-4em justify-center text-mobileNav md:text-desktopNav pl-1 sub-i-6:pl-5 tiny:pl-12 sm:pl-12 md:pl-12" type="submit" value={text} />
+    </span>
   </div>
 )};
 
@@ -37,12 +36,11 @@ const BitPayCheckoutButton = ({ bitPayID, disabled, onClick }) => (
     <input type="hidden" name="action" value="checkout" />
     <input type="hidden" name="posData" value="" />
     <input type="hidden" name="data" value={bitPayID} />
-    <div className="stripe-button">
+    <div className="stripe-button max-w-2xl block w-full">
     <img src={bitIcons} />
     <span className="max-w-2xl block w-full">
-      <input onClick={onClick} className="e-checkout my-4 relative special-bitcoin text-left  text-black white-box rounded-full w-full block leading-none h-3em md:h-3em justify-center text-mobileNav md:text-desktopNav pl-1 sub-i-6:pl-5 tiny:pl-12 sm:pl-12 md:pl-12" type="submit" value="pay with crypto" />
+      <input onClick={onClick} className="e-checkout my-4 relative special-bitcoin text-left text-black white-box rounded-full w-full block leading-none h-4em md:h-4em justify-center text-mobileNav md:text-desktopNav pl-1 sub-i-6:pl-5 tiny:pl-12 sm:pl-12 md:pl-12" type="submit" value="pay with crypto" />
     </span>
-
     </div>
   </form>
 );
@@ -104,25 +102,19 @@ const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, hand
   return (
     <>
       <section className="pb-20 md:mb-20">
-       
-
         <CheckoutTerms disabled={disabled} handleChange={handleChange} />
         { !disabled &&
           <>
-          
            <StripeCheckoutCreateButton disabled={disabled} handleClick={handleStripeClick} />
-           
            <BitPayCheckoutButton disabled={disabled} bitPayID={bitPayID} onClick={handleBitpayClick}/>
-          
           </>
         }
 
-        {disabled ?
+        {disabled &&
           <>
-          <DisabledButton text="pay with card"/>
-          <DisabledButton text="pay with crypto"/>
+            <DisabledButton text="pay with card"/>
+            <DisabledButton text="pay with crypto"/>
           </>
-          : ""
         }
       </section>
     </>

@@ -52,6 +52,10 @@ import richTableRow from './objects/row'
 import homeUnit from './objects/homeUnit'
 import pane from './objects/pane'
 import viewSpacer from './objects/viewSpacer'
+import tableCell from './objects/newCell'
+import tableRow from './objects/newRow'
+import newRow from './objects/newRow'
+import newCell from './objects/newCell'
 
 // Modules
 import accordion from './modules/accordion'
@@ -73,6 +77,8 @@ import paneContent from './modules/paneContent'
 import gallery from './modules/gallery'
 import flexGallery from './modules/flexGallery'
 import richTable from './modules/tableModule'
+import rowLinkTable from './modules/rowLinkTable'
+import columnHeaderTable from './modules/columnHeaderTable'
 
 // Tabs
 import globalContent from './tabs/globalContent'
@@ -157,6 +163,11 @@ export default createSchema({
     richTableRow,
     richTableCell,
     viewSpacer,
+
+    tableCell, 
+    tableRow,
+    rowLinkTable,
+    columnHeaderTable,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ]),

@@ -5,7 +5,6 @@ import { Grid } from "@chakra-ui/core";
 
 export const RichTable = (props) => {
   const { title, headerRow, rows } = props.data;
-  // const headerRow = props.data.headerRow ? props.data.headerRow : undefined;
 
   if (headerRow !== undefined) {
     return (

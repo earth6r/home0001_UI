@@ -95,7 +95,7 @@
   padding-bottom:0.3em;
 }
 
-.rte ul:not(.table) li:before {
+.rte ul:not(.table, .column-header) li:before {
   content: "–";
   @apply absolute left-0;
 }
