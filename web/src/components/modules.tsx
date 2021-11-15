@@ -98,7 +98,6 @@ export const Modules = ({
           <style scoped>
             {`.flex-layout-padding-${reactModule._key} {
                 position: relative; 
-                overflow: hidden;
                 height: 0;
                 width: 100%;
                 padding-top: ${reactModule.numRows * 1.028 + "%"};
@@ -128,7 +127,7 @@ export const Modules = ({
                   padding-top: ${reactModule.numRowsTablet * 1.078 + "%"}; 
                 }
             }
-            @media (max-width: 768px) {
+            @media (max-width: 767px) {
                 .flex-layout-padding-${reactModule._key} {
                   padding-top: ${reactModule.numRowsMobile * 1.065 + "%"}; 
                 }

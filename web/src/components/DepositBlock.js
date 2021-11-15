@@ -128,9 +128,11 @@ const handleRefund = () => {
   return(
   <>  
     <div id='spots-remaining-count' class="pt-0">
-      <p>Hold your spot:</p>
-      <p>0 places remaining out of 200</p>
-      <p style={{color: 'red'}}>Our initial release of homes is now oversubscribed. Join our waitlist for the next release:</p>
+      <p>
+        Phases 1 and 2 are oversubscribed. <br/> 
+        Hold your spot for Phase 3:
+      </p>
+      <p style={{color:'red'}}>{depositCounter}</p>
     </div>
 
 
@@ -161,7 +163,6 @@ const handleRefund = () => {
     </Accordion>
 
     <div id='deposit-text-span' className="leading-7 md:leading-8 xl:leading-9">
-      <span> Join our waitlist:<br/></span> 
       <DiscountNotice btc={btc} eth={eth} codes={codes} color={color} discountCode={discountCode} />
         <br/>
         Reservation deposit fully refundable any time, for any reason. <span onClick={handleRefund} id='question-trigger'>?</span>
@@ -278,7 +279,7 @@ const DepositBlock = (props) => {
 		  let bitPayID = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_REGULAR_PRICE;
 		  let bitPayIDDiscounted = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_DISCOUNTED;
       	return(
-         <Container className={`md:pl-20 home-deposit-module ${depositPage ? "" : " pb-4 px-0 md:px-2 mt-8 md:mb-0 home-deposit-module-scroll"}`}>
+         <Container className={`md:pl-20 z-40 home-deposit-module ${depositPage ? "" : " pb-4 px-0 md:px-2 mt-8 md:mb-0 home-deposit-module-scroll"}`}>
 	        <div className="max-w-2xl md:inline-block md:mt-12 md:w-4/6 lg:w-3/6">
 	        {depositPage &&
 	        	<div className="pt-8"></div>
