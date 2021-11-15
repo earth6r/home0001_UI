@@ -1,4 +1,5 @@
 import { format } from 'date-fns'
+import { ColumnHeaderTable } from '../../../web/src/components/global/columnHeaderTable'
 
 export default {
   name: 'home',
@@ -34,6 +35,12 @@ export default {
       of: [
         {
           type: 'richTable',
+        },
+        {
+          type: 'rowLinkTable',
+        },
+        {
+          type: 'columnHeaderTable',
         },
       ],
     },

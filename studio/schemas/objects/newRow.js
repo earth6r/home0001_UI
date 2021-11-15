@@ -26,7 +26,7 @@ export default {
       const txts = []
       for (let idx = 0; idx < cells.length && idx < 5; idx++) {
         const cell = cells[idx]
-        const txt = safeGet(cell, 'mobileText.nn') || safeGet(cell, 'desktopText.en') || ' '
+        const txt = safeGet(cell, 'mobileText.nn') || safeGet(cell, 'desktopText.nn') || ' '
         txts.push(txt)
       }
       return {

@@ -13,7 +13,7 @@ export interface ColumnHeaderTableProps {
 export const ColumnHeaderTable = ({ data }: ColumnHeaderTableProps) => {
   const { title, headers, rows } = data;
   return (
-    <>
+    <div>
       {title && (
         <>
           <h3 className="text-mobileBody md:text-desktopBody pb-1/4em md:pb-1em pt-1/4em">{title}</h3>
@@ -31,29 +31,28 @@ export const ColumnHeaderTable = ({ data }: ColumnHeaderTableProps) => {
                 if (head.length > 0) {
                   return (
                     <ul
-                      className={`mb-4 md:mb-0 inline-block align-top w-1/2 md:flex-1 md:w-auto column-header`}
+                      className={`mb-4 md:mb-0 pr-5 inline-block align-top w-1/2 md:flex-1 md:w-auto column-header `}
                     >
                       <li
                         key={`header-${head}-${index}`}
                         style={{ minWidth: "16em" }}
-                        className="font-normal inline-block text-mobileCaption md:text-desktopCaption uppercase pb-1em relative"
+                        className="font-normal inline-block text-mobileCaption md:text-desktopCaption uppercase pb-1em px-0 relative"
                       >
                         <span>{head}</span>
                       </li>
                       <div className="md:mt-2em"></div>
                       {rows &&
                         rows.map((row) => {
-                          console.log("row in map", row);
                           return (
-                            <li key={`row-${row._key}`} className="flex w-full list-none">
+                            <li key={`row-${row._key}`} className="flex w-full list-none px-0">
                               {row.cells &&
                                 row.cells.map((cell, index) => {
-                                  if (index == currentHeader && cell.desktopText == "") {
-                                    <div className="hidden md:visible md:text-base  text-mobileCaption  md:text-desktopCaption border-b py-1/4em md:border-none">
+                                  if (index == currentHeader && !cell.desktopText) {
+                                   return (<div className="md:text-base  text-mobileCaption  md:text-desktopCaption border-b py-1/4em md:border-none">
                                       <div className="md:truncate text-mobileCaption md:text-desktopCaption">
-                                        {cell.desktopText}
+                                        {cell.mobileText}
                                       </div>
-                                    </div>;
+                                    </div>);
                                   } else if (index == currentHeader) {
                                     return (
                                       <div className="md:text-base text-mobileCaption md:text-desktopCaption border-b py-1/4em md:border-none">
@@ -107,6 +106,6 @@ export const ColumnHeaderTable = ({ data }: ColumnHeaderTableProps) => {
           <div className="absolute -mt-5 w-full h-20 md:h-32 z-0 pointer-events-none top-0 left-0"></div>
         </div>
       </div>
-    </>
+    </div>
   );
 };

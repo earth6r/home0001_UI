@@ -19,14 +19,20 @@ import { RowLinkTable, RowLinkTableProps } from "./global/rowLinkTable";
 import { ColumnHeaderTable, ColumnHeaderTableProps } from "./global/columnHeaderTable";
 import { VisuallyHidden } from "@chakra-ui/core";
 
+type specs = {
+  callibrationMarks: boolean
+  color: string
+  title: string
+  _type: string
+};
 export const Modules = ({
   reactModule,
   type,
-  specs = false,
+  specs,
 }: {
   type: string;
   reactModule: any;
-  specs: boolean;
+  specs: specs | undefined;
 }) => {
   const [isClient, setClient] = useState(false);
   useEffect(() => {

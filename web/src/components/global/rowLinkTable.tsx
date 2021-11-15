@@ -27,7 +27,7 @@ export const RowLinkTable = ({ data } : RowLinkTableProps) => {
                             </div>
                           } else {
                             return (
-                              <div key={`cell-${cell._key}`} className={`${index == 0 ? "w-2/4" : "w-1/4 pr-1"} sm:w-1/4 py-1/4em border-none`}>
+                              <div key={`cell-${cell._key}`} className={`${index == 0 ? "w-2/4" : "w-1/4 pr-1"} md:w-1/4 py-1/4em border-none`}>
                                 <div className={`truncate text-smallBody ${cell.mobileText ? "hidden md:block" : "block"} lg:text-desktopBody`}>{cell.desktopText}</div>
                                 <div className={`truncate text-smallBody ${cell.mobileText ? "visible md:hidden" : ""}`}>{cell.mobileText}</div>
                               </div>
