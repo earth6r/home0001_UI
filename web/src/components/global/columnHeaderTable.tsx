@@ -31,12 +31,12 @@ export const ColumnHeaderTable = ({ data }: ColumnHeaderTableProps) => {
                 if (head.length > 0) {
                   return (
                     <ul
-                      className={`mb-4 pr-5 pt-1/2em inline-block align-top w-1/2 md:flex-1 md:w-auto column-header `}
+                      className={`mb-4 pr-5 pt-1/2em inline-block align-top w-1/2 md:flex-1 md:w-auto`}
                     >
                       <li
                         key={`header-${head}-${index}`}
                         style={{ minWidth: "16em" }}
-                        className="font-normal inline-block text-mobileCaption md:text-desktopCaption uppercase pb-1em px-0 relative"
+                        className="font-normal inline-block text-mobileCaption md:text-desktopCaption uppercase pb-1em relative"
                       >
                         <span>{head}</span>
                       </li>
