@@ -24,14 +24,14 @@ export const ColumnHeaderTable = ({ data }: ColumnHeaderTableProps) => {
       )}
       <div className="relative z-0 pb-1em w-full flex flex-col">
         <div className="relative z-10 px-mobile md:px-desktop md:overflow-x-hidden">
-          <div className="md:flex justify-between w-full pt-1/2em">
+          <div className="md:flex md:flex-wrap justify-between w-full">
             {headers &&
               headers.map((head, index) => {
                 let currentHeader = index;
                 if (head.length > 0) {
                   return (
                     <ul
-                      className={`mb-4 md:mb-0 pr-5 inline-block align-top w-1/2 md:flex-1 md:w-auto column-header `}
+                      className={`mb-4 pr-5 pt-1/2em inline-block align-top w-1/2 md:flex-1 md:w-auto column-header `}
                     >
                       <li
                         key={`header-${head}-${index}`}
