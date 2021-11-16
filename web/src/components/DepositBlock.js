@@ -128,11 +128,9 @@ const handleRefund = () => {
   return(
   <>  
     <div id='spots-remaining-count' class="pt-0">
-      <p>
-        Phases 1 and 2 are oversubscribed. <br/> 
-        Hold your spot for Phase 3:
-      </p>
-      <p style={{color:'red'}}>{depositCounter}</p>
+      <p>Hold your spot:</p>
+      <p>0 places remaining out of 200</p>
+      <p style={{color: 'red'}}>Our initial release of homes is now oversubscribed. Join our waitlist here for the next release:</p>
     </div>
 
 
