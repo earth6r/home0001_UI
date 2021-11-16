@@ -129,8 +129,8 @@ const handleRefund = () => {
   <>  
     <div id='spots-remaining-count' class="pt-0">
       <p>Hold your spot:</p>
-      <p>0 places remaining out of 200</p>
-      <p style={{color: 'red'}}>Our initial release of homes is now oversubscribed. Join our waitlist here for the next release:</p>
+      <p style={{color: 'red'}}>0 places remaining out of 200</p>
+      <p>Our initial release of homes is now oversubscribed. Join our waitlist here for the next release:</p>
     </div>
 
 
