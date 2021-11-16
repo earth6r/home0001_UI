@@ -119,7 +119,7 @@ export const Modules = ({
                   padding-top: ${reactModule.numRowsTablet * 1.078 + "%"}; 
                 }
             }
-            @media (max-width: 768px) {
+            @media (max-width: 767px) {
                 .flex-layout-padding-${reactModule._key} {
                   padding-top: ${reactModule.numRowsMobile * 1.065 + "%"}; 
                 }
