@@ -306,7 +306,14 @@ input::placeholder {
     @apply text-desktopBody;
   }
 }
+@media(min-width: 767px){
+  .rte ol li, .rte ul li {
+      padding-left:5vw;
+
+  }
+}
 @screen lg{
+
     /* .partner-ref-link.box-link:before{
       padding:0;
       transform: translateY(-0.7em);
