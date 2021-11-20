@@ -200,10 +200,10 @@ nav .nav-box{
   display: inline-block;
 }
 .current-nav-link.homes::after{
-  width:101%;
+  width:100%;
 }
 .current-nav-link.about::after{
-  left:-1px;
+  left:0px;
 }
 .current-nav-link::after{
   content: "";
