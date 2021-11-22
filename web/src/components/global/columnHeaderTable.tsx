@@ -1,4 +1,5 @@
 import React from "react";
+import ReactHtmlParser from "react-html-parser";
 export interface ColumnHeaderTableProps {
   data: {
     title: string;
@@ -75,12 +76,12 @@ const LinkCell = (props) => {
       className={`md:truncate text-mobileCaption md:text-desktopCaption ${mobileText ? "hidden md:block" : "block"
         }`}
     >
-      {desktopText}
+      {ReactHtmlParser(desktopText)}
     </div>
     {mobileText && <div
       className={"text-mobileCaption inline-block md:hidden"}
     >
-      {mobileText}
+      {ReactHtmlParser(mobileText)}
     </div>
     }
   </a>)
@@ -93,12 +94,12 @@ const TextCell = (props) => {
       className={`md:truncate text-mobileCaption md:text-desktopCaption ${mobileText ? "hidden md:block" : "block"
         }`}
     >
-      {desktopText}
+      {ReactHtmlParser(desktopText)}
     </div>
     {mobileText && <div
       className={"text-mobileCaption inline-block md:hidden"}
     >
-      {mobileText}
+      {ReactHtmlParser(mobileText)}
     </div>}
   </>)
 }
