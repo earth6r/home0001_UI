@@ -6,13 +6,17 @@ export interface ColumnHeaderTableProps {
     tableSpacer: string;
     headers: any[];
     rows: any[];
+    // alt: string;
+    hideMobile: boolean;
+    hideTablet: boolean;
+    hideDesktop: boolean;
   };
 }
 
 export const ColumnHeaderTable = ({ data }: ColumnHeaderTableProps) => {
-  const { title, tableSpacer, headers, rows } = data;
+  const { title, tableSpacer, headers, rows, hideMobile, hideTablet, hideDesktop } = data;
   return (
-    <div>
+    <div className={`w-full ${hideMobile ? "hidden" : "block"} ${hideTablet ? "sm:hidden" : "sm:block"} ${hideDesktop ? "lg:hidden" : "lg:block"}`}>
       {title && (
         <>
           <h3 className="text-mobileBody md:text-desktopBody pb-1/4em md:pb-1em pt-1/4em">{title}</h3>
@@ -21,16 +25,16 @@ export const ColumnHeaderTable = ({ data }: ColumnHeaderTableProps) => {
           }
         </>
       )}
-      <div className="relative z-0 pb-1em w-full flex flex-col">
+      <div className="w-full relative z-0 pb-1em">
         <div className="relative z-10 px-mobile md:px-desktop md:overflow-x-hidden">
-          <div className="md:flex md:flex-wrap justify-between w-full">
+          <div className="w-full flex flex-wrap lg:flex-no-wrap justify-between">
             {headers &&
               headers.map((head, index) => {
                 let currentHeader = index;
                 if (head.length > 0) {
                   return (
                     <ul
-                      className={`mb-4 pr-5 pt-1/2em inline-block align-top w-1/2 md:flex-1 md:w-auto column-header`}
+                      className={`mb-4 pr-5 pt-1/2em inline-block align-top full-w md:flex-1 md:w-auto column-header`}
                     >
                       <li
                         key={`header-${head}-${index}`}
@@ -43,7 +47,7 @@ export const ColumnHeaderTable = ({ data }: ColumnHeaderTableProps) => {
                       {rows &&
                         rows.map((row) => {
                           return (
-                            <li key={`row-${row._key}`} className="flex w-full px-0">
+                            <li key={`row-${row._key}`} className="flex px-0">
                               {row.cells &&
                                 row.cells.map((cell, index) => {
                                   if (index == currentHeader) {
