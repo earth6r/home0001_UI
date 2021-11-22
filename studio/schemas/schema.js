@@ -52,8 +52,6 @@ import richTableRow from './objects/row'
 import homeUnit from './objects/homeUnit'
 import pane from './objects/pane'
 import viewSpacer from './objects/viewSpacer'
-import tableCell from './objects/newCell'
-import tableRow from './objects/newRow'
 import newRow from './objects/newRow'
 import newCell from './objects/newCell'
 
@@ -164,8 +162,8 @@ export default createSchema({
     richTableCell,
     viewSpacer,
 
-    tableCell, 
-    tableRow,
+    newCell, 
+    newRow,
     rowLinkTable,
     columnHeaderTable,
     // When added to this list, object types can be used as
