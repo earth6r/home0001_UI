@@ -15,6 +15,11 @@ export default {
         title: 'Title top of Table',
         type: 'string',
       },
+      {
+        name: 'tableSpacer',
+        title: 'Space between Title and Table in vh percent',
+        type: 'string'
+      },
     {
       name: 'headers',
       title: 'Column Headers',

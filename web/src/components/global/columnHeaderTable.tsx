@@ -1,25 +1,23 @@
 import React from "react";
-import { PageLink } from "../link";
-import GridRow from "../grid/grid-row";
-
 export interface ColumnHeaderTableProps {
   data: {
     title: string;
+    tableSpacer: string;
     headers: any[];
     rows: any[];
   };
 }
 
 export const ColumnHeaderTable = ({ data }: ColumnHeaderTableProps) => {
-  const { title, headers, rows } = data;
+  const { title, tableSpacer, headers, rows } = data;
   return (
     <div>
       {title && (
         <>
           <h3 className="text-mobileBody md:text-desktopBody pb-1/4em md:pb-1em pt-1/4em">{title}</h3>
-          <div className="w-full ">
-            <GridRow />
-          </div>
+          {tableSpacer &&
+            <div style={{ width: "100%", height: `${tableSpacer}vh` }}></div>
+          }
         </>
       )}
       <div className="relative z-0 pb-1em w-full flex flex-col">
@@ -31,12 +29,12 @@ export const ColumnHeaderTable = ({ data }: ColumnHeaderTableProps) => {
                 if (head.length > 0) {
                   return (
                     <ul
-                      className={`mb-4 pr-5 pt-1/2em inline-block align-top w-1/2 md:flex-1 md:w-auto`}
+                      className={`mb-4 pr-5 pt-1/2em inline-block align-top w-1/2 md:flex-1 md:w-auto column-header`}
                     >
                       <li
                         key={`header-${head}-${index}`}
                         style={{ minWidth: "16em" }}
-                        className="font-normal inline-block text-mobileCaption md:text-desktopCaption uppercase pb-1em relative"
+                        className="font-normal inline-block text-mobileCaption md:text-desktopCaption uppercase pb-1em pl-0 relative"
                       >
                         <span>{head}</span>
                       </li>
@@ -44,53 +42,13 @@ export const ColumnHeaderTable = ({ data }: ColumnHeaderTableProps) => {
                       {rows &&
                         rows.map((row) => {
                           return (
-                            <li key={`row-${row._key}`} className="flex w-full list-none px-0">
+                            <li key={`row-${row._key}`} className="flex w-full px-0">
                               {row.cells &&
                                 row.cells.map((cell, index) => {
-                                  if (index == currentHeader && !cell.desktopText) {
-                                   return (<div className="md:text-base  text-mobileCaption  md:text-desktopCaption border-b py-1/4em md:border-none">
-                                      <div className="md:truncate text-mobileCaption md:text-desktopCaption">
-                                        {cell.mobileText}
-                                      </div>
-                                    </div>);
-                                  } else if (index == currentHeader) {
+                                  if (index == currentHeader) {
                                     return (
                                       <div className="md:text-base text-mobileCaption md:text-desktopCaption border-b py-1/4em md:border-none">
-                                        {cell.url ? (
-                                          <a href={cell.url} target="blank">
-                                            <div
-                                              className={`md:truncate text-mobileCaption md:text-desktopCaption ${
-                                                cell.mobileText ? "hidden md:block" : "block"
-                                              }`}
-                                            >
-                                              {cell.desktopText}
-                                            </div>
-                                            <div
-                                              className={`text-mobileCaption ${
-                                                cell.mobileText ? "visible md:hidden" : "hidden"
-                                              }`}
-                                            >
-                                              {cell.mobileText}
-                                            </div>
-                                          </a>
-                                        ) : (
-                                          <>
-                                            <div
-                                              className={`md:truncate text-mobileCaption md:text-desktopCaption ${
-                                                cell.mobileText ? "hidden md:block" : "block"
-                                              }`}
-                                            >
-                                              {cell.desktopText}
-                                            </div>
-                                            <div
-                                              className={`text-mobileCaption ${
-                                                cell.mobileText ? "visible md:hidden" : "hidden"
-                                              }`}
-                                            >
-                                              {cell.mobileText}
-                                            </div>
-                                          </>
-                                        )}
+                                        {cell.url ? <LinkCell url={cell.url} desktopText={cell.desktopText} mobileText={cell.mobileText} /> : <TextCell desktopText={cell.desktopText} mobileText={cell.mobileText}/>}
                                       </div>
                                     );
                                   }
@@ -109,3 +67,38 @@ export const ColumnHeaderTable = ({ data }: ColumnHeaderTableProps) => {
     </div>
   );
 };
+
+const LinkCell = (props) => {
+  const { url, mobileText, desktopText } = props;
+  return (<a href={url} target="blank">
+    <div
+      className={`md:truncate text-mobileCaption md:text-desktopCaption ${mobileText ? "hidden md:block" : "block"
+        }`}
+    >
+      {desktopText}
+    </div>
+    {mobileText && <div
+      className={"text-mobileCaption inline-block md:hidden"}
+    >
+      {mobileText}
+    </div>
+    }
+  </a>)
+}
+
+const TextCell = (props) => {
+  const { desktopText, mobileText} = props;
+  return (<>
+    <div
+      className={`md:truncate text-mobileCaption md:text-desktopCaption ${mobileText ? "hidden md:block" : "block"
+        }`}
+    >
+      {desktopText}
+    </div>
+    {mobileText && <div
+      className={"text-mobileCaption inline-block md:hidden"}
+    >
+      {mobileText}
+    </div>}
+  </>)
+}
