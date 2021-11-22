@@ -49,7 +49,7 @@ export const ColumnHeaderTable = ({ data }: ColumnHeaderTableProps) => {
                                   if (index == currentHeader) {
                                     return (
                                       <div className="md:text-base text-mobileCaption md:text-desktopCaption border-b py-1/4em md:border-none">
-                                        {cell.url ? <LinkCell url={cell.url} desktopText={cell.desktopText} mobileText={cell.mobileText} /> : <TextCell desktopText={cell.desktopText} mobileText={cell.mobileText}/>}
+                                        {cell.url ? <LinkCell url={cell.url} desktopText={cell.desktopText} mobileText={cell.mobileText} /> : <TextCell desktopText={cell.desktopText} mobileText={cell.mobileText} />}
                                       </div>
                                     );
                                   }
@@ -71,35 +71,39 @@ export const ColumnHeaderTable = ({ data }: ColumnHeaderTableProps) => {
 
 const LinkCell = (props) => {
   const { url, mobileText, desktopText } = props;
-  return (<a href={url} target="blank">
-    <div
-      className={`md:truncate text-mobileCaption md:text-desktopCaption ${mobileText ? "hidden md:block" : "block"
-        }`}
-    >
-      {ReactHtmlParser(desktopText)}
-    </div>
-    {mobileText && <div
-      className={"text-mobileCaption inline-block md:hidden"}
-    >
-      {ReactHtmlParser(mobileText)}
-    </div>
-    }
-  </a>)
+  return (
+    <a href={url} target="blank">
+      <div
+        className={`md:truncate text-mobileCaption md:text-desktopCaption ${mobileText ? "hidden md:block" : "block"
+          }`}
+      >
+        {ReactHtmlParser(desktopText)}
+      </div>
+      {mobileText && <div
+        className={"text-mobileCaption inline-block md:hidden"}
+      >
+        {ReactHtmlParser(mobileText)}
+      </div>
+      }
+    </a>
+  )
 }
 
 const TextCell = (props) => {
-  const { desktopText, mobileText} = props;
-  return (<>
-    <div
-      className={`md:truncate text-mobileCaption md:text-desktopCaption ${mobileText ? "hidden md:block" : "block"
-        }`}
-    >
-      {ReactHtmlParser(desktopText)}
-    </div>
-    {mobileText && <div
-      className={"text-mobileCaption inline-block md:hidden"}
-    >
-      {ReactHtmlParser(mobileText)}
-    </div>}
-  </>)
+  const { desktopText, mobileText } = props;
+  return (
+    <>
+      <div
+        className={`md:truncate text-mobileCaption md:text-desktopCaption ${mobileText ? "hidden md:block" : "block"
+          }`}
+      >
+        {ReactHtmlParser(desktopText)}
+      </div>
+      {mobileText && <div
+        className={"text-mobileCaption inline-block md:hidden"}
+      >
+        {ReactHtmlParser(mobileText)}
+      </div>}
+    </>
+  )
 }
