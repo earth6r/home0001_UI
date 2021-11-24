@@ -6,17 +6,13 @@ export interface ColumnHeaderTableProps {
     tableSpacer: string;
     headers: any[];
     rows: any[];
-    // alt: string;
-    hideMobile: boolean;
-    hideTablet: boolean;
-    hideDesktop: boolean;
   };
 }
 
 export const ColumnHeaderTable = ({ data }: ColumnHeaderTableProps) => {
-  const { title, tableSpacer, headers, rows, hideMobile, hideTablet, hideDesktop } = data;
+  const { title, tableSpacer, headers, rows} = data;
   return (
-    <div className={`w-full ${hideMobile ? "hidden" : "block"} ${hideTablet ? "sm:hidden" : "sm:block"} ${hideDesktop ? "lg:hidden" : "lg:block"}`}>
+    <div className={`w-full`}>
       {title && (
         <>
           <h3 className="text-mobileBody md:text-desktopBody pb-1/4em md:pb-1em pt-1/4em">{title}</h3>
@@ -34,7 +30,7 @@ export const ColumnHeaderTable = ({ data }: ColumnHeaderTableProps) => {
                 if (head.length > 0) {
                   return (
                     <ul
-                      className={`mb-4 pr-5 pt-1/2em inline-block align-top full-w md:flex-1 md:w-auto column-header`}
+                      className={`mb-4 pr-5 pt-1/2em inline-block align-top w-full column-header`}
                     >
                       <li
                         key={`header-${head}-${index}`}

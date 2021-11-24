@@ -41,40 +41,6 @@ export default {
       ],
       inputComponent: RowsInput,
     },
-    // {
-    //   name: 'alt',
-    //   type: 'string',
-    //   title: 'Alternative text',
-    //   description: 'Important for SEO and accessiblity.',
-    //   validation: (Rule) => Rule.error('You have to fill out the alternative text.').required(),
-    //   options: {
-    //     isHighlighted: true,
-    //   },
-    // },
-    {
-      title: 'Hide on Mobile?',
-      name: 'hideMobile',
-      type: 'boolean',
-      options: {
-        isHighlighted: true,
-      }
-    },
-    {
-      title: 'Hide on Tablet?',
-      name: 'hideTablet',
-      type: 'boolean',
-      options: {
-        isHighlighted: true,
-      }
-    },
-    {
-      title: 'Hide on Desktop?',
-      name: 'hideDesktop',
-      type: 'boolean',
-      options: {
-        isHighlighted: true,
-      }
-    },
   ],
   preview: {
     select: {

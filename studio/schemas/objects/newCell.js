@@ -24,7 +24,23 @@ export default {
       name: 'url',
       title: 'Use this, not link, for now',
       type: 'url'
-    }
+    },
+    {
+      title: 'Hide on Mobile?',
+      name: 'hideMobile',
+      type: 'boolean',
+      options: {
+        isHighlighted: true,
+      }
+    },
+    {
+      title: 'Hide on Tablet?',
+      name: 'hideTablet',
+      type: 'boolean',
+      options: {
+        isHighlighted: true,
+      }
+    },
   ],
   preview: {
     select: {
