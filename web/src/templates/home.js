@@ -133,7 +133,6 @@ const handleRefund = () => {
       <Accordion className="max-w-2xl my-20 w-full deposit-accordion" allowToggle allowMultiple>
   
               <AccordionItem
-
               defaultIsOpen={false}
               className="border-none relative block accordion max-w-2xl"
             >
@@ -325,22 +324,22 @@ const HomeTemplate = (props) => {
                         <AccordionHeader
                           className={`${item.sold == 1 ? "opacity-25" : ""} ${
                             isExpanded ? "text-black" : "text-black"
-                          } relative flex h-2em  pl-1/2em border-none`}
+                          } relative flex h-2em flex justify-between pl-1/2em border-none`}
                         >
                           {item.unit && (
-                            <span className="w-1/4 text-left text-mobileNav md:text-base homes-accordion-header-small md:pt-3">
+                            <span className="  text-left text-mobileNav md:text-base homes-accordion-header-small md:pt-3">
                               <span>Unit </span>
                               {item.unit}
                             </span>
                           )}
                           {item.bedrooms && (
-                            <span className="w-1/10 md:w-1/6 text-left ft m-0  text-mobileNav md:text-base homes-accordion-header-small md:pt-3">
+                            <span className="md:w-1/8 text-left ft m-0  text-mobileNav md:text-base homes-accordion-header-small md:pt-3">
                               {item.bedrooms}
                             </span>
                           )}
                           {(item.price || item.richPrice) && (
                             <span 
-                            className="sm:w-1/2 text-left md:text-center text-mobileNav md:text-base homes-accordion-header-small md:pt-3">
+                            className="w-2/3 md:w-1/2  text-left text-mobileNav md:text-base homes-accordion-header-small md:pt-3">
                               {item.richPrice? <PortableText blocks={item.richPrice} /> : item.price}
                             </span>
                           )}

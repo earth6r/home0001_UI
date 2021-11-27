@@ -24,7 +24,6 @@ const DisabledButton = ({text}) => {
   }
   return(
   <div className="disabled-button max-w-2xl stripe-button block w-full">
-
     <img src={text == 'pay with card' ? stripeIcons : bitIcons} />
     <span id="checkout-button" role="link" onClick={clickHandler} className="max-w-2xl block w-full">
         <input className="e-checkout my-4 relative special-stripe text-left  text-black white-box rounded-full w-full block leading-none h-4em md:h-4em justify-center text-mobileNav md:text-desktopNav pl-5 sub-i-6:pl-5 tiny:pl-12 sm:pl-12 md:pl-12" type="submit" value={text} />
@@ -42,7 +41,6 @@ const BitPayCheckoutButton = ({ bitPayID, disabled, onClick }) => (
     <div className="max-w-2xl block w-full">
       <input onClick={onClick} className="e-checkout my-4 relative special-bitcoin text-left  text-black white-box rounded-full w-full block leading-none h-4em md:h-4em justify-center text-mobileNav md:text-desktopNav pl-5 sub-i-6:pl-5 tiny:pl-12 sm:pl-12 md:pl-12" type="submit" value="pay with crypto" />
     </div>
-
     </div>
   </form>
 );

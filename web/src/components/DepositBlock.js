@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { StaticQuery, graphql } from "gatsby";
 import Container from "./container";
 import GraphQLErrorList from "./graphql-error-list";
@@ -104,88 +104,118 @@ const DiscountNotice = ({ discountCode,eth, btc, color, codes }) => {
 
 let isMobile = false;
 const ValueAdded = ({ discount,whatsIncluded, depositCounter, eth, btc, codes, discountCode, unitTitle, color }) => {
-const [showRefund, setShowRefund] = useState(0);
-const handleRefund = () => {
-  if(typeof navigator !== 'undefined'){
-    isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
-  }
-  if(showRefund){
-    setShowRefund(0)
-    if(isMobile){
-      window.Intercom("update", {
-        hide_default_launcher: false,
-      });
+  let currentUri = "";
+  if(typeof window != `undefined`){
+    currentUri = window.location.href.split("://")[1]
+  };
+  const [utmOrigin, setUtmOrigin] = useState('');
+  const [showRefund, setShowRefund] = useState(0);
+  const handleRefund = () => {
+    if(typeof navigator !== 'undefined'){
+      isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
     }
-  } else{ 
-    setShowRefund(1)
-    if(isMobile) {
-      window.Intercom("update", {
-        hide_default_launcher: true,
-      });
+    if(showRefund){
+      setShowRefund(0)
+      if(isMobile){
+        window.Intercom("update", {
+          hide_default_launcher: false,
+        });
+      }
+    } else{ 
+      setShowRefund(1)
+      if(isMobile) {
+        window.Intercom("update", {
+          hide_default_launcher: true,
+        });
+      }
     }
   }
-}
+
+  storeUtmOrigin();
+
+  function storeUtmOrigin() {
+    useEffect(() => {
+      if(currentUri && currentUri.split('utm_source=')[1]) {
+        if(currentUri.split('utm_source=')[1].split('&')[0] == 'instagram') {
+          localStorage.setItem('utmOrigin', 'instagram')
+          setUtmOrigin('instagram');
+        }
+      }
+
+      if(localStorage.getItem('utmOrigin') && localStorage.getItem('utmOrigin') == 'instagram') {
+        setUtmOrigin('instagram');
+      }
+    });
+  }
+
   return(
-  <>  
-    <div id='spots-remaining-count' class="pt-0">
-      <p>
-        Phases 1 and 2 are oversubscribed. <br/> 
-        Hold your spot for Phase 3:
-      </p>
-      <p style={{color:'red'}}>{depositCounter}</p>
-    </div>
+    <>  
+      <div id='spots-remaining-count' className={`${utmOrigin=='instagram' ? "hidden": ""} pt-0`}>
+        <p>Hold your spot:</p>
+        <p style={{color: 'red'}}>0 places remaining out of 200</p>
+        <p>Our initial release of homes is now oversubscribed. Join our waitlist here for the next release:</p>
+      </div>
+
+      <div id='spots-remaining-count' className={`${utmOrigin=='instagram' ? "": "hidden"} pt-0`}>
+        <p>
+          Phases 1 and 2 are oversubscribed. <br/> 
+          Hold your spot for Phase 3:
+        </p>
+        <p style={{color:'red'}}>{depositCounter}</p>
+      </div>
 
 
-    <Accordion className="max-w-2xl my-8 w-full deposit-accordion" allowToggle allowMultiple>
-      <AccordionItem
-      defaultIsOpen={false}
-      className="border-none relative block accordion max-w-2xl">
-        {({ isExpanded }) => (
-          <>
-            <AccordionHeader className=" relative py-6 border-none">
-              <div className="m-0 -mt-1/4em md:mt-0">{"What's included?"}</div>
-              <div className="accordion-icon right-0 absolute pr-1em pt-5">
-                {isExpanded ? 
-                  <span id='thin-minus' className="mb-1"></span>
-                  : 
-                  <svg width="22" height="21" viewBox="0 0 22 21" fill="none">
-                  <path d="M10.7243 0V10.5M10.7243 21V10.5M10.7243 10.5H21.1322M10.7243 10.5H0.316406" stroke="black"/>
-                  </svg>
-                }
-              </div>
-            </AccordionHeader>
-            <AccordionPanel className="whats-included-accordion pb-1em">
-              <PortableText blocks={whatsIncluded} />
-            </AccordionPanel>
-          </>
-        )}
-      </AccordionItem>
-    </Accordion>
+      <Accordion className="max-w-2xl my-8 w-full deposit-accordion" allowToggle allowMultiple>
+        <AccordionItem
+        defaultIsOpen={false}
+        className="border-none relative block accordion max-w-2xl">
+          {({ isExpanded }) => (
+            <>
+              <AccordionHeader className=" relative py-6 border-none">
+                <div className="m-0 -mt-1/4em md:mt-0">{"What's included?"}</div>
+                <div className="accordion-icon right-0 absolute pr-1em pt-5">
+                  {isExpanded ? 
+                    <span id='thin-minus' className="mb-1"></span>
+                    : 
+                    <svg width="22" height="21" viewBox="0 0 22 21" fill="none">
+                    <path d="M10.7243 0V10.5M10.7243 21V10.5M10.7243 10.5H21.1322M10.7243 10.5H0.316406" stroke="black"/>
+                    </svg>
+                  }
+                </div>
+              </AccordionHeader>
+              <AccordionPanel className="whats-included-accordion pb-1em">
+                <PortableText blocks={whatsIncluded} />
+              </AccordionPanel>
+            </>
+          )}
+        </AccordionItem>
+      </Accordion>
 
-    <div id='deposit-text-span' className="leading-7 md:leading-8 xl:leading-9">
-      <DiscountNotice btc={btc} eth={eth} codes={codes} color={color} discountCode={discountCode} />
-        <br/>
-        Reservation deposit fully refundable any time, for any reason. <span onClick={handleRefund} id='question-trigger'>?</span>
-    </div>
+      <div id='deposit-text-span' className="leading-7 md:leading-8 xl:leading-9">
+        <DiscountNotice btc={btc} eth={eth} codes={codes} color={color} discountCode={discountCode} />
+          <br/>
+          Reservation deposit fully refundable any time, for any reason. <span onClick={handleRefund} id='question-trigger'>?</span>
+      </div>
 
-    {unitTitle &&
-      <p className="mb-0">Reserve unit {unitTitle}</p>
-    }
+      {unitTitle &&
+        <p className="mb-0">Reserve unit {unitTitle}</p>
+      }
 
-    {showRefund ?
-      <>
-        <div className="refund-popup rounded-md  w-full md:max-w-md fixed md:display-block py-4 md:m-auto px-8 bg-white">  
-          <button onClick={handleRefund} aria-label="Close" type="button" className="refund-close">
-          <svg viewBox="0 0 24 24" focusable="false" role="presentation" aria-hidden="true"><path fill="currentColor" d="M.439,21.44a1.5,1.5,0,0,0,2.122,2.121L11.823,14.3a.25.25,0,0,1,.354,0l9.262,9.263a1.5,1.5,0,1,0,2.122-2.121L14.3,12.177a.25.25,0,0,1,0-.354l9.263-9.262A1.5,1.5,0,0,0,21.439.44L12.177,9.7a.25.25,0,0,1-.354,0L2.561.44A1.5,1.5,0,0,0,.439,2.561L9.7,11.823a.25.25,0,0,1,0,.354Z"></path></svg></button>
-          <div className="mb-0 pt-0">
-            <p className="text-black">If you change your mind for any reason, just email us and we'll refund your deposit within 14 days of your request, no questions asked. </p>
+      {showRefund ?
+        <>
+          <div className="refund-popup rounded-md  w-full md:max-w-md fixed md:display-block py-4 md:m-auto px-8 bg-white">  
+            <button onClick={handleRefund} aria-label="Close" type="button" className="refund-close">
+            <svg viewBox="0 0 24 24" focusable="false" role="presentation" aria-hidden="true"><path fill="currentColor" d="M.439,21.44a1.5,1.5,0,0,0,2.122,2.121L11.823,14.3a.25.25,0,0,1,.354,0l9.262,9.263a1.5,1.5,0,1,0,2.122-2.121L14.3,12.177a.25.25,0,0,1,0-.354l9.263-9.262A1.5,1.5,0,0,0,21.439.44L12.177,9.7a.25.25,0,0,1-.354,0L2.561.44A1.5,1.5,0,0,0,.439,2.561L9.7,11.823a.25.25,0,0,1,0,.354Z"></path></svg></button>
+            <div className="mb-0 pt-0">
+              <p className="text-black">If you change your mind for any reason, just email us and we'll refund your deposit within 14 days of your request, no questions asked. </p>
+            </div>
           </div>
-        </div>
-        <div className="refund-popup-overlay" onClick={handleRefund}></div>
-      </>
-      : <div></div>}
-  </>
-)};
+          <div className="refund-popup-overlay" onClick={handleRefund}></div>
+        </>
+        : <div></div>}
+    </>
+  )
+};
 
 const CheckoutOptions = ({ /*ssr, */ children }) => {
   // if (ssr) return null;
