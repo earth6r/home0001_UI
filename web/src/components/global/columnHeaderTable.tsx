@@ -30,7 +30,7 @@ export const ColumnHeaderTable = ({ data }: ColumnHeaderTableProps) => {
                 if (head.length > 0) {
                   return (
                     <ul
-                      className={`mb-4 pr-5 pt-1/2em inline-block align-top w-full column-header`}
+                      className={`mb-4 pr-5 pt-1/2em inline-block align-top column-header`}
                     >
                       <li
                         key={`header-${head}-${index}`}
@@ -74,7 +74,7 @@ const LinkCell = (props) => {
   return (
     <a href={url} target="blank">
       <div
-        className={`md:truncate text-mobileCaption md:text-desktopCaption ${mobileText ? "hidden md:block" : "block"
+        className={`md:truncate text-mobileCaption md:text-desktopCaption ${mobileText ? "hidden md:inline-block" : "inline-block"
           }`}
       >
         {ReactHtmlParser(desktopText)}
@@ -94,7 +94,7 @@ const TextCell = (props) => {
   return (
     <>
       <div
-        className={`md:truncate text-mobileCaption md:text-desktopCaption ${mobileText ? "hidden md:block" : "block"
+        className={`md:truncate text-mobileCaption md:text-desktopCaption ${mobileText ? "hidden md:inline-block" : "inline-block"
           }`}
       >
         {ReactHtmlParser(desktopText)}

@@ -17,18 +17,17 @@ const handleRowClick = (e) => {
 
 export const RowLinkTable = ({ data }: RowLinkTableProps) => {
   const { rows, desktopWidth } = data;
-
   return (
-    <div className={`w-full`}>
-      <table className={`w-full ${desktopWidth && `md:w-${desktopWidth}`}`}>
+    <div className={`w-full ${desktopWidth ? `sm:w-${desktopWidth}`: ""}`}>
+      <table className={`w-full`}>
         {rows && rows.map((row) => (
           <tr key={`row-${row._key}`} className="hover:underline cursor-pointer">
             <PageLink to={row.cells[0] && row.cells[0].url ? row.cells[0].url : "/"} className="w-full contents">
               {row.cells && row.cells.map((cell, index) => {
                 return (
                   <td key={`cell-${cell._key}`} className={`py-1/4em border-none`}>
-                    <div className={`truncate text-smallBody ${cell.mobileText || cell.hideMobile ? "hidden sm:flex" : cell.hideTablet ? "sm:hidden lg: flex" : "flex"}  flex-wrap lg:text-desktopBody`}>{ReactHtmlParser(cell.desktopText)}</div>
-                    <div className={`truncate text-smallBody ${cell.mobileText && !cell.hideMobile ? "visible sm:hidden" : "hidden"}`}>{ReactHtmlParser(cell.mobileText)}</div>
+                    <div className={`truncate text-smallBody ${cell.mobileText || cell.hideMobile ? "hidden sm:inline-block" : cell.hideTablet ? "sm:hidden lg:inline-block" : "inline-block"} lg:text-desktopBody`}>{ReactHtmlParser(cell.desktopText)}</div>
+                    <div className={`truncate text-smallBody ${cell.mobileText && !cell.hideMobile ? "inline-block  sm:hidden" : "hidden"}`}>{ReactHtmlParser(cell.mobileText)}</div>
                   </td>
                 )
               })}
