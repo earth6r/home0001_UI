@@ -30,7 +30,7 @@ export const ColumnHeaderTable = ({ data }: ColumnHeaderTableProps) => {
                 if (head.length > 0) {
                   return (
                     <ul
-                      className={`mb-4 pr-5 pt-1/2em inline-block align-top column-header`}
+                      className={`mb-4 pr-5 pt-1/2em w-autoinline-block align-top column-header`}
                     >
                       <li
                         key={`header-${head}-${index}`}
@@ -43,13 +43,13 @@ export const ColumnHeaderTable = ({ data }: ColumnHeaderTableProps) => {
                       {rows &&
                         rows.map((row) => {
                           return (
-                            <li key={`row-${row._key}`} className="flex px-0">
+                            <li key={`row-${row._key}`} className="flex flex-row center py-0 px-0">
                               {row.cells &&
                                 row.cells.map((cell, index) => {
                                   if (index == currentHeader) {
                                     return (
                                       <div className="md:text-base text-mobileCaption md:text-desktopCaption border-b py-1/4em md:border-none">
-                                        {cell.url ? <LinkCell url={cell.url} desktopText={cell.desktopText} mobileText={cell.mobileText} /> : <TextCell desktopText={cell.desktopText} mobileText={cell.mobileText} />}
+                                        {cell.url ? <LinkCell url={cell.url} desktopText={cell.desktopText} hideTablet={cell.hideTablet} mobileText={cell.mobileText} hideMobile={cell.hideMobile} /> : <TextCell desktopText={cell.desktopText} mobileText={cell.mobileText} hideMobile={cell.hideMobile} hideTablet={cell.hideTablet}/>}
                                       </div>
                                     );
                                   }
@@ -70,7 +70,7 @@ export const ColumnHeaderTable = ({ data }: ColumnHeaderTableProps) => {
 };
 
 const LinkCell = (props) => {
-  const { url, mobileText, desktopText } = props;
+  const { url, mobileText, desktopText, hideTablet, hideMobile } = props;
   return (
     <a href={url} target="blank">
       <div
@@ -90,17 +90,16 @@ const LinkCell = (props) => {
 }
 
 const TextCell = (props) => {
-  const { desktopText, mobileText } = props;
+  const { desktopText, mobileText, hideTablet, hideMobile } = props;
   return (
     <>
       <div
-        className={`md:truncate text-mobileCaption md:text-desktopCaption ${mobileText ? "hidden md:inline-block" : "inline-block"
-          }`}
+        className={`md:truncate text-mobileCaption md:text-desktopCaption ${!!mobileText || !!hideMobile ? "hidden" : "inline-block"} ${!!hideTablet ? "sm:hidden lg:inline-block" : "sm:inline-block"}`}
       >
         {ReactHtmlParser(desktopText)}
       </div>
       {mobileText && <div
-        className={"text-mobileCaption inline-block md:hidden"}
+        className={"text-mobileCaption inline-block sm:hidden"}
       >
         {ReactHtmlParser(mobileText)}
       </div>}

@@ -26,7 +26,7 @@ export const RowLinkTable = ({ data }: RowLinkTableProps) => {
               {row.cells && row.cells.map((cell, index) => {
                 return (
                   <td key={`cell-${cell._key}`} className={`py-1/4em border-none`}>
-                    <div className={`truncate text-smallBody ${cell.mobileText || cell.hideMobile ? "hidden sm:inline-block" : cell.hideTablet ? "sm:hidden lg:inline-block" : "inline-block"} lg:text-desktopBody`}>{ReactHtmlParser(cell.desktopText)}</div>
+                    <div className={`truncate text-smallBody ${cell.mobileText || cell.hideMobile ? "hidden" : "inline-block"} ${cell.hideTablet ? "sm:hidden lg:inline-block" : "sm:inline-block"} lg:text-desktopBody`}>{ReactHtmlParser(cell.desktopText)}</div>
                     <div className={`truncate text-smallBody ${cell.mobileText && !cell.hideMobile ? "inline-block  sm:hidden" : "hidden"}`}>{ReactHtmlParser(cell.mobileText)}</div>
                   </td>
                 )
