@@ -52,7 +52,7 @@ const Layout = ({
       function isBottom(el) {
         return el.getBoundingClientRect().bottom <= window.innerHeight;
       }
-      document.addEventListener("scroll", function () {
+/*      document.addEventListener("scroll", function () {
         let myel = document.getElementById("page-content-wrapper");
 
         if (myel && isBottom(myel)) {
@@ -124,7 +124,7 @@ const Layout = ({
         }
       });
     }
-  });
+  }); */
   if (!isClient) return null;
 
   return (
