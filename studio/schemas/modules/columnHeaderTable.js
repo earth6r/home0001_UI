@@ -1,28 +1,28 @@
 import RowsInput from 'part:@ssfbank/sanity-plugin-byo-table/rows-input'
 
 export default {
-  title: 'Table',
-  name: 'richTable',
-  type: 'document',
+    name: 'columnHeaderTable',
+  title: 'Column Header Table',
+  type: 'object',
   fields: [
     {
-      name: 'internalTitle',
+      name: 'titleInternal',
       title: 'Title for Internal Use',
       type: 'string',
     },
     {
-      name: 'callibrationMark',
-      title: 'Show Callibration Marks',
-      default: true,
-      type: 'boolean',
-    },
+        name: 'title',
+        title: 'Title top of Table',
+        type: 'string',
+      },
+      {
+        name: 'tableSpacer',
+        title: 'Space between Title and Table in vh percent',
+        type: 'string'
+      },
     {
-      name: 'title',
-      type: 'string',
-      title: 'Title (internal)',
-    },
-    {
-      name: 'headerRow',
+      name: 'headers',
+      title: 'Column Headers',
       type: 'array',
       of: [
         {
@@ -36,7 +36,7 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'richTableRow',
+          type: 'newRow',
         },
       ],
       inputComponent: RowsInput,
@@ -44,7 +44,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'internalTitle',
+      title: 'titleInternal',
     },
   },
 }

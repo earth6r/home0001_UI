@@ -26,9 +26,9 @@ const Footer = ({ footerMenu, newsletter, showPopupNewsletter, blackFooter }) =>
     <>
 
       <footer id="footer" className={`${blackFooter ? "black-footer text-white ":""} pt-5 md:pt-8 pb-1em md:pb-desktop container flex flex-col uppercase left-0 md:block`}>
-        <nav className="relative">
-          <ul className="flex flex-wrap md:flex-row md:justify-between justify-between  relative">
-            <li className="md:mr-1em mb-1em md:mb-0 md:w-auto">
+        <nav className="display-block w-full relative">
+          <ul className="display-block text-left md:flex md:flex-wrap md:flex-row md:justify-between md:justify-between  relative">
+            <li className="display-block  md:mr-1em mb-1em md:mb-0 md:w-auto">
               <button onClick={onOpen} className="uppercase" role="Open newsletter">
                 Newsletter
               </button>
@@ -40,7 +40,7 @@ const Footer = ({ footerMenu, newsletter, showPopupNewsletter, blackFooter }) =>
                     if(item.link){
                         return (
                       
-                      <li className="md:mr-1em" key={item._key}>
+                      <li className="text-left mb-1em md:mb-0 display-block md:mr-1em" key={item._key}>
                       {item.link &&
                         <Link to={`/${item.link.content.main.slug.current}`}>
                           {item.link.content.main.title}
@@ -52,7 +52,7 @@ const Footer = ({ footerMenu, newsletter, showPopupNewsletter, blackFooter }) =>
                     }else{
                       return (
                       
-                      <li className="md:mr-1em" key={item._key}>
+                      <li className="text-left mb-1em md:mb-0 display-block md:mr-1em" key={item._key}>
                   
                         <span>
                           {item.title}
@@ -65,7 +65,7 @@ const Footer = ({ footerMenu, newsletter, showPopupNewsletter, blackFooter }) =>
                     
                   case "externalLink":
                     return (
-                      <li className="mr-1em" key={item._key}>
+                      <li className="text-left mb-1em md:mb-0 display-block md:mr-1em" key={item._key}>
                         {item.url !== undefined && (
                           <a href={item.url} title={item.title} target="_blank">
                   

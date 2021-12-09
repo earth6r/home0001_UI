@@ -23,7 +23,7 @@
 
 .rte ul li,
 .rte ol li {
-  padding-bottom:0.3em;
+  padding-bottom:0.7em;
 }
 .partner-ref-link{
   margin-bottom: 0 !important;
@@ -92,10 +92,10 @@
 .rte ul li {
   /* counter-increment: rte-list; */
   @apply pl-1/10 relative;
-  padding-bottom:0.3em;
+  padding-bottom:0.7em;
 }
 
-.rte ul:not(.table) li:before {
+.rte ul:not(.table, .column-header) li:before {
   content: "–";
   @apply absolute left-0;
 }
@@ -306,7 +306,14 @@ input::placeholder {
     @apply text-desktopBody;
   }
 }
+@media(min-width: 767px){
+  .rte ol li, .rte ul li {
+      padding-left:5vw;
+
+  }
+}
 @screen lg{
+
     /* .partner-ref-link.box-link:before{
       padding:0;
       transform: translateY(-0.7em);

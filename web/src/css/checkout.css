@@ -194,7 +194,7 @@ text-transform: none;
   color:white;
 }
 
-#terms.alert::after{
+#terms.alert > div::after{
   content:"* ";
   color:#FF3131;
   position: relative;

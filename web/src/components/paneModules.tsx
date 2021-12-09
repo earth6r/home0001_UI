@@ -12,6 +12,8 @@ import Gallery from "./global/gallery";
 import FlexGallery from "./global/flexGallery";
 import { InternalLink } from "./global/internalLink";
 import { RichTable } from "./global/richTable";
+import { RowLinkTable, RowLinkTableProps } from "./global/rowLinkTable";
+import { ColumnHeaderTable, ColumnHeaderTableProps } from "./global/columnHeaderTable";
 
 export const PaneModules = ({ reactModule, type, specs = false }: { type: string; reactModule: any }) => {
   switch (type) {
@@ -130,7 +132,12 @@ export const PaneModules = ({ reactModule, type, specs = false }: { type: string
       );
     case "richTable":
       return <RichTable data={reactModule} />;
+    case "rowLinkTable":
+      return <RowLinkTable data={reactModule as RowLinkTableProps["data"]} />;
+      case "columnHeaderTable":
+        return <ColumnHeaderTable data={reactModule as ColumnHeaderTableProps["data"]} />;
     default:
       return "";
+
   }
 };

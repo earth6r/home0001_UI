@@ -4,6 +4,8 @@ import { motion, useViewportScroll, useTransform } from "framer-motion";
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import GridRow from "../grid/grid-row";
 import { RichTable } from "./richTable";
+import { RowLinkTable } from "./rowLinkTable";
+import { ColumnHeaderTable } from "./columnHeaderTable";
 import {
   Accordion,
   AccordionItem,
@@ -21,7 +23,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/core";
 
-const SpecButton = ({ title, url, color, float = true, callibrationMark, specs = false }) => {
+const SpecButton = ({ title, url, color, float = true, callibrationMark, specs }) => {
   const [elementTop, setElementTop] = useState(0);
   const ref = useRef(null);
   const { scrollY } = useViewportScroll();
@@ -64,8 +66,9 @@ const SpecButton = ({ title, url, color, float = true, callibrationMark, specs =
             <ModalContent className="rounded-lg mx-mobile max-w-special md:mx-desktop">
               <ModalCloseButton zIndex={10} />
               <ModalBody className="rounded-lg">
-                
-                {specs && specs.map((spec) => <RichTable key={spec._key} data={spec} />)}
+                {specs[0]._type === 'richTable' && specs.map((spec) => <RichTable key={spec._key} data={spec} />)}
+                {specs[0]._type === 'rowLinkTable' && specs.map((spec) => <RowLinkTable key={spec._key} data={spec} />)}
+                {specs[0]._type === 'columnHeaderTable' && specs.map((spec) => <ColumnHeaderTable key={spec._key} data={spec} />)}
                 <div className="w-full popupgrid">
         <GridRow />
       </div>

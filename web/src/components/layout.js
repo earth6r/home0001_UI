@@ -38,7 +38,8 @@ const Layout = ({
   const [isClient, setClient] = useState(false);
   useEffect(() => {
     setClient(true);
-    if (typeof window != `undefined`) {
+    /* INTERCOM BUBBLE */
+    if (typeof window != `undefined`) { /* check because window is undefined during build */
       //if rnd page is shown intercom messanger icon is hidden
       if (rnd) {
         window.Intercom("update", {
@@ -49,82 +50,29 @@ const Layout = ({
           hide_default_launcher: false,
         });
       }
-      function isBottom(el) {
+      function atFooter(el) {
         return el.getBoundingClientRect().bottom <= window.innerHeight;
       }
-      document.addEventListener("scroll", function () {
-        let myel = document.getElementById("page-content-wrapper");
-
-        if (myel && isBottom(myel)) {
-          let el = document.getElementsByClassName("intercom-lightweight-app-launcher");
-          if (el && el.length) {
-            for (var i = el.length - 1; i >= 0; i--) {
-              el[i].style.marginBottom = "65px";
+      function calculateIntercomBottomMargin(el){
+        return window.innerHeight-el.getBoundingClientRect().bottom+"px";
+      }
+      if(window.innerWidth > 767){ /* Don't move intercom bubble on mobile*/
+        document.addEventListener("scroll", function () {
+          let pageWrapper = document.getElementById("page-content-wrapper");
+          let intercomBubble = document.querySelector(".intercom-lightweight-app-launcher");
+          if(intercomBubble){
+            if (pageWrapper && atFooter(pageWrapper)) {
+              intercomBubble.style.marginBottom = calculateIntercomBottomMargin(pageWrapper);
+            } else {
+              intercomBubble.style.marginBottom = "0px";
             }
           }
-
-          let el2 = document.getElementsByClassName("intercom-launcher-frame");
-          if (el2 && el2.length) {
-            for (var i = el2.length - 1; i >= 0; i--) {
-              el2[i].style.marginBottom = "65px";
-            }
-          }
-
-          let el3 = document.getElementsByClassName("intercom-messenger-frame");
-          if (el3 && el3.length) {
-            for (var i = el3.length - 1; i >= 0; i--) {
-              el3[i].style.marginBottom = "65px";
-            }
-          }
-
-          let el4 = document.getElementsByClassName("intercom-launcher-discovery-frame");
-          if (el4 && el4.length) {
-            for (var i = el4.length - 1; i >= 0; i--) {
-              el4[i].style.marginBottom = "65px";
-            }
-          }
-
-          let el5 = document.getElementById("intercom-frame");
-          if (el5) {
-            el5.style.marginBottom = "65px";
-          }
-        } else {
-          let el = document.getElementsByClassName("intercom-lightweight-app-launcher");
-          if (el && el.length) {
-            for (var i = el.length - 1; i >= 0; i--) {
-              el[i].style.marginBottom = "20px";
-            }
-          }
-
-          let el2 = document.getElementsByClassName("intercom-launcher-frame");
-          if (el2 && el2.length) {
-            for (var i = el2.length - 1; i >= 0; i--) {
-              el2[i].style.marginBottom = "20px";
-            }
-          }
-
-          let el3 = document.getElementsByClassName("intercom-messenger-frame");
-          if (el3 && el3.length) {
-            for (var i = el3.length - 1; i >= 0; i--) {
-              el3[i].style.marginBottom = "20px";
-            }
-          }
-
-          let el4 = document.getElementsByClassName("intercom-launcher-discovery-frame");
-          if (el4 && el4.length) {
-            for (var i = el4.length - 1; i >= 0; i--) {
-              el4[i].style.marginBottom = "20px";
-            }
-          }
-
-          let el5 = document.getElementById("intercom-frame");
-          if (el5) {
-            el5.style.marginBottom = "20px";
-          }
-        }
-      });
+        });
+      }
     }
+    /* END INTERCOM BUBBLE */
   });
+
   if (!isClient) return null;
 
   return (

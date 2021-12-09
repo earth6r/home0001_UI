@@ -25,6 +25,12 @@ export default {
       type: 'internalLink',
     },
     {
+      type: 'rowLinkTable'
+    },
+    {
+      type: 'columnHeaderTable'
+    },
+    {
       // type: 'tableModule',
       type: 'richTable',
     },
