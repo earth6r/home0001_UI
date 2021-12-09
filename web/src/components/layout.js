@@ -52,10 +52,12 @@ const Layout = ({
       function isBottom(el) {
         return el.getBoundingClientRect().bottom <= window.innerHeight;
       }
-/*      document.addEventListener("scroll", function () {
+      if(window.innerWidth > 767){
+        document.addEventListener("scroll", function () {
         let myel = document.getElementById("page-content-wrapper");
 
         if (myel && isBottom(myel)) {
+          
           let el = document.getElementsByClassName("intercom-lightweight-app-launcher");
           if (el && el.length) {
             for (var i = el.length - 1; i >= 0; i--) {
@@ -121,10 +123,11 @@ const Layout = ({
           if (el5) {
             el5.style.marginBottom = "20px";
           }
-        }
-      });
+        };
+      })
+       }
     }
-  }); */
+  });
   if (!isClient) return null;
 
   return (
