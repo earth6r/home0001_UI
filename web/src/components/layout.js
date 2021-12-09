@@ -62,7 +62,6 @@ const Layout = ({
           let intercomBubble = document.querySelector(".intercom-lightweight-app-launcher");
           if(intercomBubble){
             if (pageWrapper && atFooter(pageWrapper)) {
-              // console.log(calculateIntercomBottomMargin(pageWrapper));
               intercomBubble.style.marginBottom = calculateIntercomBottomMargin(pageWrapper);
             } else {
               intercomBubble.style.marginBottom = "0px";
