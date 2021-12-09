@@ -54,7 +54,7 @@ const Layout = ({
         return el.getBoundingClientRect().bottom <= window.innerHeight;
       }
       function calculateIntercomBottomMargin(el){
-        window.innerHeight-el.getBoundingClientRect().bottom+"px";
+        return window.innerHeight-el.getBoundingClientRect().bottom+"px";
       }
       if(window.innerWidth > 767){ /* Don't move intercom bubble on mobile*/
         document.addEventListener("scroll", function () {
@@ -62,6 +62,7 @@ const Layout = ({
           let intercomBubble = document.querySelector(".intercom-lightweight-app-launcher");
           if(intercomBubble){
             if (pageWrapper && atFooter(pageWrapper)) {
+              // console.log(calculateIntercomBottomMargin(pageWrapper));
               intercomBubble.style.marginBottom = calculateIntercomBottomMargin(pageWrapper);
             } else {
               intercomBubble.style.marginBottom = "0px";
