@@ -13,7 +13,7 @@ const StripeCheckoutCreateButton = ({ handleClick, disabled }) => (
   <div className="stripe-button max-w-2xl block w-full ">
     <img src={stripeIcons} />
     <span id="checkout-button" role="link" onClick={handleClick} className="max-w-2xl block w-full">
-        <input className="whitespace-normal e-checkout my-4 relative special-stripe text-left text-black pr-40 white-box rounded-full w-full block leading-none h-4em md:h-4em justify-center text-mobileNav md:text-desktopNav pl-5 sub-i-6:pl-5 tiny:pl-12" type="submit" value="pay with card to hold your spot" />
+        <input className="e-checkout my-4 relative special-stripe text-left  text-black  white-box rounded-full w-full block leading-none h-4em md:h-4em justify-center text-mobileNav md:text-desktopNav pl-5 sub-i-6:pl-5 tiny:pl-12 sm:pl-12 md:pl-12" type="submit" value="pay with card" />
     </span>
   </div>
 );
@@ -24,9 +24,9 @@ const DisabledButton = ({text}) => {
   }
   return(
   <div className="disabled-button max-w-2xl stripe-button block w-full">
-    <img src={text == 'pay with card to hold your spot' ? stripeIcons : bitIcons} />
+    <img src={text == 'pay with card' ? stripeIcons : bitIcons} />
     <span id="checkout-button" role="link" onClick={clickHandler} className="max-w-2xl block w-full">
-        <input className="whitespace-normal e-checkout my-4 relative special-stripe text-left text-black pr-40 white-box rounded-full w-full block leading-none h-4em md:h-4em justify-center text-mobileNav md:text-desktopNav pl-5 sub-i-6:pl-5 tiny:pl-12" type="submit" value={text} />
+        <input className="e-checkout my-4 relative special-stripe text-left  text-black white-box rounded-full w-full block leading-none h-4em md:h-4em justify-center text-mobileNav md:text-desktopNav pl-5 sub-i-6:pl-5 tiny:pl-12 sm:pl-12 md:pl-12" type="submit" value={text} />
       </span>
   </div>
 )};
@@ -39,7 +39,7 @@ const BitPayCheckoutButton = ({ bitPayID, disabled, onClick }) => (
     <div className="stripe-button ">
     <img src={bitIcons} />
     <div className="max-w-2xl block w-full">
-      <input onClick={onClick} className="whitespace-normal e-checkout my-4 relative special-bitcoin text-left text-black pr-40 white-box rounded-full w-full block leading-none h-4em md:h-4em justify-center text-mobileNav md:text-desktopNav pl-5 sub-i-6:pl-5 tiny:pl-12 " type="submit" value="pay with crypto to hold your spot" />
+      <input onClick={onClick} className="e-checkout my-4 relative special-bitcoin text-left  text-black white-box rounded-full w-full block leading-none h-4em md:h-4em justify-center text-mobileNav md:text-desktopNav pl-5 sub-i-6:pl-5 tiny:pl-12 sm:pl-12 md:pl-12" type="submit" value="pay with crypto" />
     </div>
     </div>
   </form>
@@ -66,10 +66,10 @@ const CheckoutTerms = ({ disabled, handleChange }) => {
   return (
     <form id='terms' className="mt-8 mb-4 pb-1em">
       <div className=" sm:flex">
-        <label htmlFor="agree-to-terms" className="terms-agreement inline-block relative ml-0  "> 
         <span className="e-checkbox">
           <input id='agree-to-terms' className="inline-block e-checkbox-icon left-0" type="checkbox" value={disabled} onChange={handleChange} />
         </span>
+        <label htmlFor="agree-to-terms" className="terms-agreement inline-block relative ml-0  "> 
           I agree to the <a target="_blank" href="/deposit-tc/">Deposit Terms and Conditions​</a>
         </label>
       </div>
@@ -117,8 +117,8 @@ const CheckoutActions = ({ unit, discount, discountCode, bitPayID, message, hand
 
         {disabled ?
           <>
-          <DisabledButton text="pay with card to hold your spot"/>
-          <DisabledButton text="pay with crypto to hold your spot"/>
+          <DisabledButton text="pay with card"/>
+          <DisabledButton text="pay with crypto"/>
           </>
           : ""
         }
