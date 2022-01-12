@@ -53,18 +53,18 @@ const Layout = ({
       function atFooter(el) {
         return el.getBoundingClientRect().bottom <= window.innerHeight;
       }
-      function calculateIntercomBottomMargin(el){
-        return Math.min(77, window.innerHeight-el.getBoundingClientRect().bottom)+"px";
+      function calculateIntercomBottom(el){
+        return Math.min(77, window.innerHeight-el.getBoundingClientRect().bottom)+20+"px";
       }
       function positionIntercomBubble() {
         let pageWrapper = document.getElementById("page-content-wrapper");
-        let intercomBubble = document.querySelector(".intercom-lightweight-app-launcher");
+        let intercomBubble = document.querySelector(".intercom-lightweight-app-launcher, .intercom-launcher-frame");
         if(intercomBubble){
           if (pageWrapper && atFooter(pageWrapper)) {
-            intercomBubble.style.marginBottom = calculateIntercomBottomMargin(pageWrapper);
+            intercomBubble.style.bottom = calculateIntercomBottom(pageWrapper);
           }
           else {
-            intercomBubble.style.marginBottom = "0px";
+            intercomBubble.style.bottom = "20px";
           }
         }
       }
