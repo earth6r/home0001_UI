@@ -53,20 +53,25 @@ const Layout = ({
       function atFooter(el) {
         return el.getBoundingClientRect().bottom <= window.innerHeight;
       }
-      function calculateIntercomBottomMargin(el){
-        return window.innerHeight-el.getBoundingClientRect().bottom+"px";
+      function calculateIntercomBottom(el){
+        return Math.min(77, window.innerHeight-el.getBoundingClientRect().bottom)+20+"px";
       }
+      function positionIntercomBubble() {
+        let pageWrapper = document.getElementById("page-content-wrapper");
+        let intercomBubble = document.querySelector(".intercom-lightweight-app-launcher, .intercom-launcher-frame");
+        if(intercomBubble){
+          if (pageWrapper && atFooter(pageWrapper)) {
+            intercomBubble.style.bottom = calculateIntercomBottom(pageWrapper);
+          }
+          else {
+            intercomBubble.style.bottom = "20px";
+          }
+        }
+      }
+      positionIntercomBubble();
       if(window.innerWidth > 767){ /* Don't move intercom bubble on mobile*/
         document.addEventListener("scroll", function () {
-          let pageWrapper = document.getElementById("page-content-wrapper");
-          let intercomBubble = document.querySelector(".intercom-lightweight-app-launcher");
-          if(intercomBubble){
-            if (pageWrapper && atFooter(pageWrapper)) {
-              intercomBubble.style.marginBottom = calculateIntercomBottomMargin(pageWrapper);
-            } else {
-              intercomBubble.style.marginBottom = "0px";
-            }
-          }
+          positionIntercomBubble();
         });
       }
     }
