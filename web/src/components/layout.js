@@ -68,8 +68,8 @@ const Layout = ({
           }
         }
       }
-      positionIntercomBubble();
       if(window.innerWidth > 767){ /* Don't move intercom bubble on mobile*/
+        positionIntercomBubble();
         document.addEventListener("scroll", function () {
           positionIntercomBubble();
         });
