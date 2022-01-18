@@ -163,10 +163,10 @@ module.exports = async function send(event) {
   const text = html
     .replace(/<style(.|\n)*?<\/style>/g, "")
     .replace(/(?:.*<body>|<\/body>*)/g, "")
-    .replace(/&lt;/g, "\n")
-    .replace(/&gt;/g, "")
     .replace(/<\/\w+?>/g, "\n")
-    .replace(/<\/?[^>]+?>/g, "");
+    .replace(/<\/?[^>]+?>/g, "")
+    .replace(/&lt;/g, "\<")
+    .replace(/&gt;/g, "\>");
     
   // Create reusable transporter object using the default SMTP transport
   const transporter = nodemailer.createTransport({
