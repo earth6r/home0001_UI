@@ -11,8 +11,9 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title EARTH6r
+    link(rel='styesheet' href="https://earth6r.com/fonts/fonts.css")
     style(type="text/css").
-      @import url("https://earth6r.com/fonts/fonts.css"); @media screen {* {font-family: "FolioBT", Arial, Helvetica, sans-serif !important; font-size: 20px; line-height: 120%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;} .main-text {padding-left: 5% !important; padding-right: 5% !important;}} @media screen and (min-width: 640px) {* {font-family: "FolioBT", Arial, Helvetica, sans-serif !important; font-size: 33px; line-height: 120%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;} .main-text {padding-left: 23% !important; padding-right: 23% !important;}}
+      * {font-family: "FolioBT", Arial, Helvetica, sans-serif !important; font-size: 20px; line-height: 120%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;} .main-text {padding-left: 5% !important; padding-right: 5% !important;} @media screen and (min-width: 640px) {* {font-family: "FolioBT", Arial, Helvetica, sans-serif !important; font-size: 33px; line-height: 120%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;} .main-text {padding-left: 23% !important; padding-right: 23% !important;}}
 
   body(style="background-color: red; margin: 0; color: white; font-family: Arial, Helvetica, sans-serif; font-size: 20px; line-height: 120%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;")
     div(style="background-color: white;") 
@@ -160,10 +161,13 @@ module.exports = async function send(event) {
 
   // Strip tags and add newlines for text content
   const text = html
+    .replace(/<style(.|\n)*?<\/style>/g, "")
     .replace(/(?:.*<body>|<\/body>*)/g, "")
+    .replace(/&lt;/g, "\n")
+    .replace(/&gt;/g, "")
     .replace(/<\/\w+?>/g, "\n")
     .replace(/<\/?[^>]+?>/g, "");
-
+    
   // Create reusable transporter object using the default SMTP transport
   const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
@@ -177,7 +181,7 @@ module.exports = async function send(event) {
   // Send mail with defined transport object
   try {
     const info = await transporter.sendMail(
-      Object.assign({ html, text }, settings.transporterOptions)
+      Object.assign({ html, text}, settings.transporterOptions)
     );
 
     // console.log("Message sent: %s", info.messageId);
