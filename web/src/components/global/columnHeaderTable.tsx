@@ -46,7 +46,7 @@ export const ColumnHeaderTable = ({ data }: ColumnHeaderTableProps) => {
                             <li key={`row-${row._key}`} className="flex flex-row center py-0 px-0">
                               {row.cells &&
                                 row.cells.map((cell, index) => {
-                                  if (index == currentHeader) {
+                                  if (index == currentHeader && (cell.desktopText || cell.mobileText)) {
                                     return (
                                       <div className="md:text-base text-mobileCaption md:text-desktopCaption border-b py-1/4em md:border-none">
                                         {cell.url ? <LinkCell url={cell.url} desktopText={cell.desktopText} hideTablet={cell.hideTablet} mobileText={cell.mobileText} hideMobile={cell.hideMobile} /> : <TextCell desktopText={cell.desktopText} mobileText={cell.mobileText} hideMobile={cell.hideMobile} hideTablet={cell.hideTablet}/>}
