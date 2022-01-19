@@ -33,7 +33,8 @@ const CircleButton = ({ title, url, linkHome, linkRnd, textColor, customColor, f
         //   alert("set home");
         break;
       case "checkout":
-        uri = "/checkout";
+        uri = "";
+        myUrl = "#checkout"
         break;
       default:
         uri = "";
@@ -48,6 +49,7 @@ const CircleButton = ({ title, url, linkHome, linkRnd, textColor, customColor, f
   }else{
     myUrl = uri + "/" + myUrl
   }
+
   useLayoutEffect(() => {
     const element = ref.current;
     setElementTop(element.offsetTop);

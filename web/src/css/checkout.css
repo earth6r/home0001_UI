@@ -65,12 +65,18 @@
   top: 50%;
   pointer-events: none;
   left:auto;
-  right:40px;
+  right:30px;
   z-index: 2;
   transform: translate(0%, -50%);
 }
 .stripe-button input, .bit-button input{
   text-transform: uppercase;
+}
+@media (min-width: 768px) {
+  .stripe-button input, .bit-button input{
+    padding-right: 14rem !important;
+    padding-left: 2rem !important;
+  }
 }
 .stripe-button.bit-button img{
   position:absolute;

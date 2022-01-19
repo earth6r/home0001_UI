@@ -295,6 +295,7 @@ const FlexGallery = (props) => {
                     color={image.color}
                     title={image.title}
                     url={image.url}
+                    checkoutModule={image.checkoutModule}
                     float={true}
                   />
                 </div>
