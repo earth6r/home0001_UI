@@ -66,7 +66,7 @@ const CheckoutTerms = ({ disabled, handleChange }) => {
   return (
     <form id='terms' className="mt-8 mb-4 pb-1em">
       <div className=" sm:flex">
-        <label htmlFor="agree-to-terms" className="terms-agreement inline-block relative ml-0  "> 
+        <label htmlFor="agree-to-terms" className="terms-agreement inline-block relative"> 
         <span className="e-checkbox">
           <input id='agree-to-terms' className="inline-block e-checkbox-icon left-0" type="checkbox" value={disabled} onChange={handleChange} />
         </span>
