@@ -272,7 +272,7 @@ text-transform: none;
 }
 label.terms-agreement{
   text-transform: none;
-  margin-left:20px;
+  margin-left:0;
   padding-left:0;
   color:#000000;
 }
