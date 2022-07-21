@@ -75,7 +75,7 @@ async function createSitePages(graphql, actions) {
     .forEach((edge, index) => {
       const { id } = edge.node;
       const slug = edge.node.content.main.slug;
-      console.log(slug);
+      // console.log(slug);
       // const dateSegment = format(publishedAt, "YYYY/MM");
       const path = `/${slug.current}/`;
 
@@ -159,17 +159,19 @@ async function createHomes(graphql, actions) {
   pageEdges
     // .filter((edge) => !isFuture(edge.node.publishedAt))
     .forEach((edge, index) => {
-      const { id } = edge.node;
-      const slug = edge.node.content.main.slug;
-      // console.log(slug);
-      // const dateSegment = format(publishedAt, "YYYY/MM");
-      const path = `/home/${slug.current}/`;
+      if (edge.node.content) {
+        const { id } = edge.node;
+        const slug = edge.node.content.main.slug;
+        // console.log(slug);
+        // const dateSegment = format(publishedAt, "YYYY/MM");
+        const path = `/home/${slug.current}/`;
 
-      createPage({
-        path,
-        component: require.resolve("./src/templates/home.js"),
-        context: { id },
-      });
+        createPage({
+          path,
+          component: require.resolve("./src/templates/home.js"),
+          context: { id },
+        });
+      }
     });
 }
 

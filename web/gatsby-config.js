@@ -8,6 +8,7 @@ const tailwindConfig = require("./tailwind.config.js");
 
 module.exports = {
   plugins: [
+    'gatsby-plugin-image',
     `gatsby-plugin-netlify`,
     `gatsby-plugin-typescript`,
     {
