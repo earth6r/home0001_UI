@@ -9,7 +9,6 @@ import PdfReader from "./pdfReader";
 import clientConfig from "../../../client-config";
 import imageUrlBuilder from "@sanity/image-url";
 import { PageLink } from "../link";
-// import Img from "gatsby-image";
 import Figure from "../Figure";
 import { trimSlashes } from "../../lib/helpers";
 // Get a pre-configured url-builder from your sanity client

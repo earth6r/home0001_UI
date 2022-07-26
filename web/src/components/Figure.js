@@ -63,24 +63,27 @@ function getFixedWithCrop({ assetId, fixed, crop }) {
 export const getFixedProps = (node, options) => {
   const gatsbyImageData = getGatsbyImageData(node, options, clientConfig.sanity);
 
-  // If we have a crop, let's add it to every URL in the fixed object
-  // if (node.crop && node.crop.top != `undefined`) {
-  //   return getFixedWithCrop({ assetId, fixed, crop });
-  // }
-
   return gatsbyImageData;
 };
 
 
 const Figure = ({node}) => {
-  if (!node || !node.asset || !node.asset._id) { return null }
+  if (!node || !node.asset || !node.asset._id) {
+    return null;
+  }
 
-  const gatsbyImageData = getFixedProps(node, { maxWidth: 700, fit: 'none', quality: 70 });
+  const options = {
+    layout: 'constrained',
+    width: 700,
+    fit: 'none',
+    quality: 70,
+  };
+
+  const gatsbyImageData = getFixedProps(node, options);
 
   return (
     <figure>
       <GatsbyImage image={gatsbyImageData} alt={node.alt} />
-      {/* <img src={fluidProps.src} alt={node.alt} srcSet={fluidProps.srcSet} srcwebp={fluidProps.srcWebp} srcsetwebp={fluidProps.srcSetWebp} /> */}
     </figure>
   )
 }

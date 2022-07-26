@@ -1,7 +1,4 @@
 import cx from "classnames";
-// import Img from "gatsby-image";
-// @ts-ignore
-// import { getFluidGatsbyImage } from "gatsby-source-sanity";
 import React, { useState, useEffect } from "react";
 import imageUrlBuilder from "@sanity/image-url";
 

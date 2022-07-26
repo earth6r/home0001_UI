@@ -1,6 +1,4 @@
 import cx from "classnames";
-// import Img from "gatsby-image";
-// import { getFluidGatsbyImage } from "gatsby-source-sanity";
 import React, { useState, useEffect, useRef } from "react";
 import imageUrlBuilder from "@sanity/image-url";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
