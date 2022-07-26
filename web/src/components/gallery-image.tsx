@@ -1,14 +1,11 @@
 import cx from "classnames";
-import Img from "gatsby-image";
-// @ts-ignore
-import { getFluidGatsbyImage } from "gatsby-source-sanity";
 import React, { useState, useEffect, useRef } from "react";
 import imageUrlBuilder from "@sanity/image-url";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 
 const sanityConfig = {
   projectId: process.env.GATSBY_SANITY_PROJECT_ID,
-  dataset: process.env.GATSBY_SANITY_DATASET,
+  dataset: process.env.GATSBY_SANITY_DATASET
 };
 
 const builder = imageUrlBuilder(sanityConfig);
@@ -24,7 +21,7 @@ export const GalleryImage = ({
   src,
   order,
   caption,
-  lead,
+  lead
 }: {
   imageId?: string;
   width?: number;
@@ -64,11 +61,10 @@ export const GalleryImage = ({
   }
 
   const y = useTransform(scrollY, [elementTop, elementTop + 2], [0.1 - randSpeed, 0.2], {
-    clamp: false,
+    clamp: false
   });
 
   useEffect(() => {
-
     var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
     setRandPullX(Math.random() * 20 * plusOrMinus);
     setRandPullY(Math.random() * 20 * plusOrMinus);
@@ -88,12 +84,18 @@ export const GalleryImage = ({
       style={{
         order: `${order}`,
         margin: `${randY}rem ${remainingMargin / 2}rem`,
-        padding: `${randMobileY}rem ${remainingMargin / 2}rem`,
+        padding: `${randMobileY}rem ${remainingMargin / 2}rem`
       }}
     >
       {fluidProps ? (
         <div>
-          <Img className="relative z-50" fluid={fluidProps} alt={alt} defaultFadeIn={200} imgStyle={{ objectFit: 'contain', maxWidth: "none" }} />
+          <Img
+            className="relative z-50"
+            fluid={fluidProps}
+            alt={alt}
+            defaultFadeIn={200}
+            imgStyle={{ objectFit: "contain", maxWidth: "none" }}
+          />
           {caption && (
             <figcaption className="mt-3/4em text-mobileCaption md:text-desktopCaption">
               {caption}
@@ -103,10 +105,10 @@ export const GalleryImage = ({
       ) : (
         <img
           alt={alt}
-          imgStyle={{ objectFit: 'contain', maxWidth: "none" }}
+          imgStyle={{ objectFit: "contain", maxWidth: "none" }}
           src={src ? src : undefined}
           className={cx("x y block", {
-            "is-loaded": loaded,
+            "is-loaded": loaded
           })}
           onLoad={() => {
             setLoaded(true);

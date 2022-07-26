@@ -1,6 +1,6 @@
 import React from 'react'
-import Img from 'gatsby-image'
-import {getFluidGatsbyImage, getFixedGatsbyImage} from 'gatsby-source-sanity'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { getGatsbyImageData } from 'gatsby-source-sanity'
 import clientConfig from '../../client-config'
 import imageUrlBuilder from '@sanity/image-url'
 // Get a pre-configured url-builder from your sanity client
@@ -42,8 +42,6 @@ function getFixedWithCrop({ assetId, fixed, crop }) {
         .map((declaration) => {
           // And get their URLs for further modification
           const [url, multiplier] = declaration.split(' ');
-
-
           return `${url.split('?')[0]+"?"}${cropQueryStr} ${multiplier}`;
         })
         // and finally turn this back into a string
@@ -53,47 +51,39 @@ function getFixedWithCrop({ assetId, fixed, crop }) {
   // Add the rect query string we created to all src declarations
 
   newFixed.src = fixed.src.split('&fit=crop')[0] + cropQueryStr;
-  
+
   newFixed.srcWebp = fixed.srcWebp + cropQueryStr;
   newFixed.srcSet = addToSrcset(fixed.srcSet);
   newFixed.srcSetWebp = addToSrcset(fixed.srcSetWebp);
   newFixed.height = null
 
-
-
   return newFixed;
 }
 
-export const getFixedProps = ({ assetId, crop }, options) => {
-   
-  let fixed = getFluidGatsbyImage(assetId, {maxWidth: 768}, clientConfig.sanity);
-  // If we have a crop, let's add it to every URL in the fixed object
+export const getFixedProps = (node, options) => {
+  const gatsbyImageData = getGatsbyImageData(node, options, clientConfig.sanity);
 
-  if (crop && crop.top != `undefined`) {
-    
-    return getFixedWithCrop({ assetId, fixed, crop });
-  }
-
-  
-  return fixed;
+  return gatsbyImageData;
 };
 
 
 const Figure = ({node}) => {
+  if (!node || !node.asset || !node.asset._id) {
+    return null;
+  }
 
-  if (!node || !node.asset || !node.asset._id) { return null }
+  const options = {
+    layout: 'constrained',
+    width: 700,
+    fit: 'none',
+    quality: 70,
+  };
 
-  const fluidProps = getFixedProps({assetId: node.asset, crop: node.crop},
-
-    {maxWidth: 700, fit: 'none', quality: 70}
-
-  )
-
+  const gatsbyImageData = getFixedProps(node, options);
 
   return (
     <figure>
-      <img src={fluidProps.src} alt={node.alt} srcSet={fluidProps.srcSet} srcwebp={fluidProps.srcWebp} srcsetwebp={fluidProps.srcSetWebp} />
-
+      <GatsbyImage image={gatsbyImageData} alt={node.alt} />
     </figure>
   )
 }

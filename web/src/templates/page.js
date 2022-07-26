@@ -31,11 +31,11 @@ const PageTemplate = (props) => {
       <SEO
         title={title}
       />
-      
+
       {page._rawContent.main.title == "Contact" ?
-       
+
        <Container>
-     
+
         <div className="flex flex-wrap w-full">
         {RenderModules([modules[0],modules[1]])}
          {/* <div className="standard-text calendly-contact">Or,&nbsp;<a href="/checkout/membership">become a member</a>&nbsp;to schedule a call with us.</div>*/}

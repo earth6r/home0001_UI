@@ -1,14 +1,11 @@
 import cx from "classnames";
-import Img from "gatsby-image";
-// @ts-ignore
-import { getFluidGatsbyImage } from "gatsby-source-sanity";
 import React, { useState, useLayoutEffect, useRef } from "react";
 import imageUrlBuilder from "@sanity/image-url";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 
 const sanityConfig = {
   projectId: process.env.GATSBY_SANITY_PROJECT_ID,
-  dataset: process.env.GATSBY_SANITY_DATASET,
+  dataset: process.env.GATSBY_SANITY_DATASET
 };
 
 const builder = imageUrlBuilder(sanityConfig);
@@ -19,7 +16,7 @@ export const Image = ({
   width,
   alt,
   src,
-  caption,
+  caption
 }: {
   imageId?: string;
   width?: number;
@@ -44,11 +41,10 @@ export const Image = ({
   }
 
   const y = useTransform(scrollY, [elementTop, elementTop + 2], [0.1 - randSpeed, 0.2], {
-    clamp: false,
+    clamp: false
   });
 
   useLayoutEffect(() => {
-
     setRandX(Math.floor(Math.random() * 4));
     setRandY(Math.floor(Math.random() * 4));
     setRandSpeed(Math.random() * (0.3 - 0.2) - 0.2);
@@ -64,17 +60,23 @@ export const Image = ({
       ref={ref}
     >
       {fluidProps ? (
-        <motion.div style={{  }}>
-          <Img className="relative z-20" fluid={fluidProps} alt={alt} imgStyle={{ objectFit: 'contain', maxWidth: "none" }} defaultFadeIn={200} />
+        <motion.div style={{}}>
+          <Img
+            className="relative z-20"
+            fluid={fluidProps}
+            alt={alt}
+            imgStyle={{ objectFit: "contain", maxWidth: "none" }}
+            defaultFadeIn={200}
+          />
           {caption && <figcaption className="mt-1 text-sm">{caption}</figcaption>}
         </motion.div>
       ) : (
         <img
           alt={alt}
-          imgStyle={{ objectFit: 'contain', maxWidth: "none" }}
+          imgStyle={{ objectFit: "contain", maxWidth: "none" }}
           src={src ? src : undefined}
           className={cx("x y block", {
-            "is-loaded": loaded,
+            "is-loaded": loaded
           })}
           onLoad={() => {
             setLoaded(true);

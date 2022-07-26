@@ -1,6 +1,5 @@
 
 import React from "react";
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import MapContainer from "./map"
 import {
   Popover,
