@@ -1,6 +1,5 @@
 import React from 'react'
-import { GatsbyImage } from 'gatsby-plugin-image'
-import { getGatsbyImageData } from 'gatsby-source-sanity'
+import SanityImage from 'gatsby-plugin-sanity-image'
 import clientConfig from '../../client-config'
 import imageUrlBuilder from '@sanity/image-url'
 // Get a pre-configured url-builder from your sanity client
@@ -60,30 +59,20 @@ function getFixedWithCrop({ assetId, fixed, crop }) {
   return newFixed;
 }
 
-export const getFixedProps = (node, options) => {
-  const gatsbyImageData = getGatsbyImageData(node, options, clientConfig.sanity);
-
-  return gatsbyImageData;
-};
-
-
 const Figure = ({node}) => {
   if (!node || !node.asset || !node.asset._id) {
     return null;
   }
 
-  const options = {
-    layout: 'constrained',
-    width: 700,
-    fit: 'none',
-    quality: 70,
-  };
-
-  const gatsbyImageData = getFixedProps(node, options);
-
   return (
     <figure>
-      <GatsbyImage image={gatsbyImageData} alt={node.alt} />
+      <SanityImage
+        asset={node.asset}
+        alt={node.alt}
+        crop={node.crop}
+        hotspot={node.hotspot}
+        loading="eager"
+      />
     </figure>
   )
 }
