@@ -22,8 +22,16 @@ h6{
   opacity: 0.5;
 }
 
+figure {
+  position: relative;
+}
+
 figure img{
   object-fit: contain !important;
+}
+
+figure img[data-loading] {
+  top: 50%;
 }
 
 .popupgrid{

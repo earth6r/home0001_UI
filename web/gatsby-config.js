@@ -43,18 +43,6 @@ module.exports = {
         delay_timeout: 1000
       },
     },
-    {
-      resolve: "gatsby-plugin-web-font-loader",
-      options: {
-        custom: {
-          families: ["GP", "Earth"],
-          urls: ["/fonts/fonts.css"],
-        },
-        usePreload: true,
-      },
-      usePreload: true,
-      useMinify: true,
-    },
     // {
     //   resolve: `gatsby-source-stripe`,
     //   options: {

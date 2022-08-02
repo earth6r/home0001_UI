@@ -32,53 +32,53 @@ const Layout = ({
   subMenu,
   thinBanner,
 }) => {
-  const myRef = useRef({
-    location: null,
-  });
-  const [isClient, setClient] = useState(false);
   useEffect(() => {
-    setClient(true);
+    function atFooter(el) {
+      return el.getBoundingClientRect().bottom <= window.innerHeight;
+    }
+
+    function calculateIntercomBottom(el) {
+      return Math.min(77, window.innerHeight - el.getBoundingClientRect().bottom) + 20 + "px";
+    }
+
+    function positionIntercomBubble() {
+      let pageWrapper = document.getElementById("page-content-wrapper");
+      let intercomBubble = document.querySelector(
+        ".intercom-lightweight-app-launcher, .intercom-launcher-frame"
+      );
+      if (intercomBubble) {
+        if (pageWrapper && atFooter(pageWrapper)) {
+          intercomBubble.style.bottom = calculateIntercomBottom(pageWrapper);
+        } else {
+          intercomBubble.style.bottom = "20px";
+        }
+      }
+    }
+
     /* INTERCOM BUBBLE */
-    if (typeof window != `undefined`) { /* check because window is undefined during build */
-      //if rnd page is shown intercom messanger icon is hidden
+    if (typeof window != `undefined`) {
+      /* Check because window is undefined during build */
+      // If rnd page is shown intercom messanger icon is hidden
       if (rnd) {
         window.Intercom("update", {
-          hide_default_launcher: true,
+          hide_default_launcher: true
         });
       } else {
         window.Intercom("update", {
-          hide_default_launcher: false,
+          hide_default_launcher: false
         });
       }
-      function atFooter(el) {
-        return el.getBoundingClientRect().bottom <= window.innerHeight;
-      }
-      function calculateIntercomBottom(el){
-        return Math.min(77, window.innerHeight-el.getBoundingClientRect().bottom)+20+"px";
-      }
-      function positionIntercomBubble() {
-        let pageWrapper = document.getElementById("page-content-wrapper");
-        let intercomBubble = document.querySelector(".intercom-lightweight-app-launcher, .intercom-launcher-frame");
-        if(intercomBubble){
-          if (pageWrapper && atFooter(pageWrapper)) {
-            intercomBubble.style.bottom = calculateIntercomBottom(pageWrapper);
-          }
-          else {
-            intercomBubble.style.bottom = "20px";
-          }
-        }
-      }
-      if(window.innerWidth > 767){ /* Don't move intercom bubble on mobile*/
+
+      if (window.innerWidth > 767) {
+        /* Don't move intercom bubble on mobile*/
         positionIntercomBubble();
-        document.addEventListener("scroll", function () {
-          positionIntercomBubble();
-        });
+        document.addEventListener("scroll", positionIntercomBubble);
       }
     }
     /* END INTERCOM BUBBLE */
-  });
 
-  if (!isClient) return null;
+    return () => document.removeEventListener("scroll", positionIntercomBubble);
+  });
 
   return (
     <div className="flex flex-col justify-between h-full">

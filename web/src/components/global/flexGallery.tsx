@@ -62,7 +62,6 @@ const FlexGallery = (props) => {
   const [tablet, setTablet] = useState(false);
   const myRowNum =
     mobile && rowNumMobile ? rowNumMobile : tablet && rowNumTablet ? rowNumTablet : rowNum;
-  const [isClient, setClient] = useState(false);
   function showPdf(key) {
     let mykey = document.getElementById(key);
     mykey.style.display = "block";
@@ -91,7 +90,6 @@ const FlexGallery = (props) => {
     }
   };
   useEffect(() => {
-    setClient(true);
     if (typeof window != `undefined`) {
       if (window.innerWidth <= 767) {
         setMobile(true);
@@ -106,7 +104,6 @@ const FlexGallery = (props) => {
       window.addEventListener("resize", handleWindowResize);
     }
   });
-  if (!isClient) return null;
  
   /* switch statement for handling submodule type */
 

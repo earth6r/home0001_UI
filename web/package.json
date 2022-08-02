@@ -63,8 +63,6 @@
     "gatsby-plugin-react-helmet": "^5.19.0",
     "gatsby-plugin-sanity-image": "^0.11.0",
     "gatsby-plugin-segment-js": "^3.7.1",
-    "gatsby-plugin-web-font-loader": "^1.0.4",
-    "gatsby-plugin-webfonts": "^2.2.2",
     "gatsby-source-sanity": "^7.4.2",
     "gatsby-source-stripe": "^4.0.0",
     "graphql-request": "^3.3.0",

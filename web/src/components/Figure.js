@@ -71,7 +71,6 @@ const Figure = ({node}) => {
         alt={node.alt}
         crop={node.crop}
         hotspot={node.hotspot}
-        loading="eager"
       />
     </figure>
   )
