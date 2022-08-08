@@ -28,10 +28,7 @@ figure {
 
 figure img{
   object-fit: contain !important;
-}
-
-figure img[data-loading] {
-  top: 50%;
+  transition: unset !important; /* Remove image fade-in animation */
 }
 
 .popupgrid{

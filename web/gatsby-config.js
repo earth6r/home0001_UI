@@ -29,13 +29,6 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-sanity-image",
-      options: {
-        projectId: process.env.GATSBY_SANITY_PROJECT_ID,
-        dataset: process.env.GATSBY_SANITY_DATASET,
-      },
-    },
-    {
     resolve: 'gatsby-plugin-intercom-spa',
       options: {
         app_id: process.env.INTERCOM_APP_ID,
