@@ -1,28 +1,77 @@
-import React, { useState, useEffect, useRef } from "react";
-import { GalleryImage } from "../gallery-image";
-import GridRow from "../grid/grid-row";
+import React from "react";
 import ReactHtmlParser from "react-html-parser";
 import CircleButton from "./circleButton";
 import ObroundButton from "./obroundButton";
 import PortableText from "../portableText";
 import PdfReader from "./pdfReader";
-import clientConfig from "../../../client-config";
-import imageUrlBuilder from "@sanity/image-url";
 import { PageLink } from "../link";
 import Figure from "../Figure";
 import { trimSlashes } from "../../lib/helpers";
-// Get a pre-configured url-builder from your sanity client
-const builder = imageUrlBuilder(clientConfig.sanity);
+import { css } from "@emotion/react";
 
-// Then we like to make a simple function like this that gives the
-// builder an image and returns the builder for you to specify additional
-// parameters:
-function urlFor(source) {
-  return builder.image(source);
-}
-var shuffle = require("shuffle-array");
+const gridStyle = (rowNum, rowNumTablet, rowNumMobile) => {
+  let rowStyle = 1 + "vw";
+  for (var i = rowNum - 2; i >= 0; i--) {
+    rowStyle = rowStyle + " " + 1 + "vw";
+  }
 
-const FlexGallery = (props) => {
+  let rowStyleTablet = 1 + "vw";
+  for (var i = (rowNumTablet ? rowNumTablet : rowNum) - 2; i >= 0; i--) {
+    rowStyleTablet = rowStyleTablet + " " + 1 + "vw";
+  }
+
+  let rowStyleMobile = 1 + "vw";
+  for (var i = (rowNumMobile ? rowNumMobile : rowNum) - 2; i >= 0; i--) {
+    rowStyleMobile = rowStyleMobile + " " + 1 + "vw";
+  }
+
+  return css`
+    grid-template-rows: ${rowStyle};
+
+    @media (max-width: 1024px) {
+      grid-template-rows: ${rowStyleTablet};
+    }
+
+    @media (max-width: 768px) {
+      grid-template-rows: ${rowStyleMobile};
+    }
+  `;
+};
+
+const imageStyle = image => css`
+  grid-column-start: ${image._type == "flexEdgetoEdge" ? 1 : image.startColumn};
+  grid-column-end: ${image._type == "flexEdgetoEdge" ? 999 : image.endColumn};
+  grid-row-start: ${image.startRow};
+  grid-row-end: ${image.endRow};
+  padding-top: ${image.paddingTop}vw;
+  padding-bottom: ${image.paddingBottom}vw;
+  padding-left: ${image.paddingLeft}vw;
+  padding-right: ${image.paddingRight}vw;
+
+  @media (max-width: 1024px) {
+    grid-column-start: ${image.startColumnTablet};
+    grid-column-end: ${image.endColumnTablet};
+    grid-row-start: ${image.startRowTablet};
+    grid-row-end: ${image.endRowTablet};
+    padding-top: ${image.paddingTopTablet}vw;
+    padding-bottom: ${image.paddingBottomTablet}vw;
+    padding-left: ${image.paddingLeftTablet}vw;
+    padding-right: ${image.paddingRightTablet}vw;
+  }
+
+  @media (max-width: 768px) {
+    grid-column-start: ${image.startColumnMobile};
+    grid-column-end: ${image.endColumnMobile};
+    grid-row-start: ${image.startRowMobile};
+    grid-row-end: ${image.endRowMobile};
+    padding-top: ${image.paddingTopMobileMobile}vw;
+    padding-bottom: ${image.paddingBottomMobile}vw;
+    padding-left: ${image.paddingLeftMobile}vw;
+    padding-right: ${image.paddingRightMobile}vw;
+  }
+`;
+
+const FlexGallery = props => {
   const {
     images,
     circleButtons,
@@ -35,116 +84,31 @@ const FlexGallery = (props) => {
     rowNumMobile,
     rowNumTablet,
     texts,
-    verticalTexts,
+    verticalTexts
   } = props;
 
   // Join all submodules into an array
 
   let subModules = [
-    images, 
-    circleButtons, 
-    obroundButtons, 
-    embeds, 
-    squares, 
-    pdfs, 
+    images,
+    circleButtons,
+    obroundButtons,
+    embeds,
+    squares,
+    pdfs,
     edges,
     texts,
     verticalTexts
   ];
-  
+
   subModules = Array.prototype.concat.apply([], subModules); //concat all submodules into a 1-dimensional array
   subModules = subModules.filter(e => e != null); //filter out anything that is undefined
 
-  
-  const justify = ["justify-start", "justify-center", "justify-between", "justify-end"];
-  const [direction, setDirection] = useState();
-  const [mobile, setMobile] = useState(false);
-  const [tablet, setTablet] = useState(false);
-  const myRowNum =
-    mobile && rowNumMobile ? rowNumMobile : tablet && rowNumTablet ? rowNumTablet : rowNum;
-  function showPdf(key) {
-    let mykey = document.getElementById(key);
-    mykey.style.display = "block";
-  }
-
-  let numbOfRows = 100 / myRowNum;
-  let rowStyle = 1 + "vw";
-  for (var i = myRowNum - 2; i >= 0; i--) {
-    rowStyle = rowStyle + " " + 1 + "vw";
-  }
-
-  let gridStyle = {
-    gridTemplateRows: rowStyle,
-  };
-  
-  let handleWindowResize = function (event) {
-    if (window.innerWidth <= 767) {
-      setMobile(true);
-    } else {
-      setMobile(false);
-    }
-    if (window.innerWidth > 767 && window.innerWidth <= 1024) {
-      setTablet(true);
-    } else {
-      setTablet(false);
-    }
-  };
-  useEffect(() => {
-    if (typeof window != `undefined`) {
-      if (window.innerWidth <= 767) {
-        setMobile(true);
-      } else {
-        setMobile(false);
-      }
-      if (window.innerWidth > 767 && window.innerWidth <= 1024) {
-        setTablet(true);
-      } else {
-        setTablet(false);
-      }
-      window.addEventListener("resize", handleWindowResize);
-    }
-  });
- 
   /* switch statement for handling submodule type */
-
-  function handleSubModule (image){
-
-    if(image){
-      /* css grid info */
-      let styleObj = {
-        gridColumnStart: image._type == "flexEdgetoEdge" ? 1 : image.startColumn,
-        gridColumnEnd: image._type == "flexEdgetoEdge" ? 999 : image.endColumn,
-        gridRowStart: image.startRow,
-        gridRowEnd: image.endRow,
-        paddingTop: image.paddingTop + "vw",
-        paddingBottom: image.paddingBottom + "vw",
-        paddingLeft: image.paddingLeft + "vw",
-        paddingRight: image.paddingRight + "vw",
-      };
-      let styleObjMobile = {
-        gridColumnStart: image.startColumnMobile,
-        gridColumnEnd: image.endColumnMobile,
-        gridRowStart: image.startRowMobile,
-        gridRowEnd: image.endRowMobile,
-        paddingTop: image.paddingTopMobileMobile + "vw",
-        paddingBottom: image.paddingBottomMobile + "vw",
-        paddingLeft: image.paddingLeftMobile + "vw",
-        paddingRight: image.paddingRightMobile + "vw",
-      };
-      let styleObjTablet = {
-        gridColumnStart: image.startColumnTablet,
-        gridColumnEnd: image.endColumnTablet,
-        gridRowStart: image.startRowTablet,
-        gridRowEnd: image.endRowTablet,
-        paddingTop: image.paddingTopTablet + "vw",
-        paddingBottom: image.paddingBottomTablet + "vw",
-        paddingLeft: image.paddingLeftTablet + "vw",
-        paddingRight: image.paddingRightTablet + "vw",
-      };
-      /* end css grid info */
-
+  function handleSubModule(image) {
+    if (image) {
       /* start of switch statement */
-      switch(image._type) {
+      switch (image._type) {
         /* FLEX IMAGE */
         case "flexImage":
           if (image.asset !== undefined) {
@@ -164,24 +128,26 @@ const FlexGallery = (props) => {
                 default:
                   uri = "";
                   break;
-                }
+              }
 
               return (
                 <div
-                key={image._key}
-                className={`
-                ${image.hideDesktop ? "lg:hidden " : ""} 
-                ${image.hideTablet ? "md:hidden lg:block " : ""} 
-                ${image.hideMobile ? "hidden md:block " : ""} 
-                flex-item overflow-hidden`}
-                style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}>
+                  key={image._key}
+                  className={`
+                    ${image.hideDesktop ? "lg:hidden " : ""}
+                    ${image.hideTablet ? "md:hidden lg:block " : ""}
+                    ${image.hideMobile ? "hidden md:block " : ""}
+                    flex-item overflow-hidden`}
+                  css={imageStyle(image)}
+                >
                   <PageLink className="internal-link z-40 block relative" to={uri + "/" + link}>
                     <div
-                    className={`
-                    ${image.dropShadow ? "drop-shadow" : ""} 
-                    ${image.border ? " border-img" : ""} 
-                    ${image.hoverImage ? "hover-hide" : ""} 
-                    z-40 relative inline-block w-full`}>
+                      className={`
+                    ${image.dropShadow ? "drop-shadow" : ""}
+                    ${image.border ? " border-img" : ""}
+                    ${image.hoverImage ? "hover-hide" : ""}
+                    z-40 relative inline-block w-full`}
+                    >
                       <Figure node={image} />
                     </div>{" "}
                     {image.caption && (
@@ -189,10 +155,11 @@ const FlexGallery = (props) => {
                     )}
                     {image.hoverImage && (
                       <div
-                      className={`
-                      ${image.dropShadow ? "drop-shadow" : ""} 
-                      ${image.border ? " border-img" : ""} 
-                      hover-image w-full inline-block`}>
+                        className={`
+                      ${image.dropShadow ? "drop-shadow" : ""}
+                      ${image.border ? " border-img" : ""}
+                      hover-image w-full inline-block`}
+                      >
                         {" "}
                         <Figure node={image.hoverImage} />
                       </div>
@@ -204,18 +171,20 @@ const FlexGallery = (props) => {
               /* if image is not a link */
               return (
                 <div
-                key={image._key}
-                className={`
-                ${image.hideDesktop ? "lg:hidden " : ""} 
-                ${image.hideTablet ? "md:hidden lg:block " : ""} 
-                ${image.hideMobile ? "hidden md:block " : ""} 
-                flex-item overflow-hidden`}
-                style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}>
-                  <div
+                  key={image._key}
                   className={`
-                  ${image.dropShadow ? "drop-shadow" : ""} 
-                  ${image.border ? " border-img" : ""} 
-                  z-40 relative`}>
+                    ${image.hideDesktop ? "lg:hidden " : ""}
+                    ${image.hideTablet ? "md:hidden lg:block " : ""}
+                    ${image.hideMobile ? "hidden md:block " : ""}
+                    flex-item overflow-hidden`}
+                  css={imageStyle(image)}
+                >
+                  <div
+                    className={`
+                  ${image.dropShadow ? "drop-shadow" : ""}
+                  ${image.border ? " border-img" : ""}
+                  z-40 relative`}
+                  >
                     <Figure node={image} />
                   </div>{" "}
                   {image.caption && (
@@ -235,7 +204,7 @@ const FlexGallery = (props) => {
             <div
               key={image._key}
               className={`${image.upToNav ? "up-to-nav " : ""} flex-item edge-to-edge`}
-              style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
+              css={imageStyle(image)}
             >
               <Figure node={image} />
             </div>
@@ -244,13 +213,9 @@ const FlexGallery = (props) => {
 
         /* FLEX PDF */
         case "flexPdf":
-          if(typeof window != `undefined`){
+          if (typeof window != `undefined`) {
             return (
-              <div
-                key={image._key}
-                className="flex-item relative z-20"
-                style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
-              >
+              <div key={image._key} className="flex-item relative z-20" css={imageStyle(image)}>
                 <PdfReader key={image._key} file={image.asset.url} />
               </div>
             );
@@ -265,7 +230,7 @@ const FlexGallery = (props) => {
               className={`${
                 image.highZindex ? "high-z-index " : "z-20 "
               } flex-item flex-text relative`}
-              style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
+              css={imageStyle(image)}
             >
               <div style={{ color: `${image.color ? image.color : "inherit"}` }}>
                 {" "}
@@ -283,7 +248,7 @@ const FlexGallery = (props) => {
                 <div
                   key={image._key}
                   className="self-center mx-auto z-60 bottom-0 md:relative"
-                  style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
+                  css={imageStyle(image)}
                 >
                   <CircleButton
                     textColor={image.customCircleTextColor}
@@ -302,50 +267,46 @@ const FlexGallery = (props) => {
 
         /* FLEX SQUARE */
         case "flexSquare":
-            const title = image.title;
-            const color = image.color;
-            const link = image.link;
+          const title = image.title;
+          const color = image.color;
+          const link = image.link;
 
-            let slug =
-              link !== undefined
-                ? link.content !== undefined
-                  ? link.content.main.slug.current
-                  : link.current
-                : null;
+          let slug =
+            link !== undefined
+              ? link.content !== undefined
+                ? link.content.main.slug.current
+                : link.current
+              : null;
 
-            let uri = "";
-            if (link !== undefined && title) {
-              switch (link._type) {
-                case "home":
-                  uri = "/home";
-                  break;
-                case "checkout":
-                  uri = "/checkout";
-                  break;
-                default:
-                  uri = "/";
-                  break;
-              }
-
-              return (
-                <span
-                  key={image._key}
-                  style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
-                  className="flex-item block md:pl-1/10"
-                >
-                  <PageLink
-                    className={`${
-                      color === "black" ? "bg-black hover:bg-black text-white" : ""
-                    } box rounded-md w-full block text-center leading-none h-2em  flex items-center justify-center text-mobileBody md:text-desktopBody z-20 relative uppercase`}
-                    to={`${trimSlashes(uri)}/${slug}`}
-                  >
-                    <span className="-mt-1/4em md:mt-0">{title}</span>
-                  </PageLink>
-                </span>
-              );
-            } else {
-              return <></>;
+          let uri = "";
+          if (link !== undefined && title) {
+            switch (link._type) {
+              case "home":
+                uri = "/home";
+                break;
+              case "checkout":
+                uri = "/checkout";
+                break;
+              default:
+                uri = "/";
+                break;
             }
+
+            return (
+              <span key={image._key} css={imageStyle(image)} className="flex-item block md:pl-1/10">
+                <PageLink
+                  className={`${
+                    color === "black" ? "bg-black hover:bg-black text-white" : ""
+                  } box rounded-md w-full block text-center leading-none h-2em  flex items-center justify-center text-mobileBody md:text-desktopBody z-20 relative uppercase`}
+                  to={`${trimSlashes(uri)}/${slug}`}
+                >
+                  <span className="-mt-1/4em md:mt-0">{title}</span>
+                </PageLink>
+              </span>
+            );
+          } else {
+            return <></>;
+          }
         /*END FLEX SQUARE*/
 
         /* obroundButton */
@@ -353,11 +314,7 @@ const FlexGallery = (props) => {
           return (
             <>
               {image !== undefined && image.title && (
-                <div
-                  key={image._key}
-                  className="z-20 bottom-0 md:relative"
-                  style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
-                >
+                <div key={image._key} className="z-20 bottom-0 md:relative" css={imageStyle(image)}>
                   <ObroundButton
                     textColor={image.customTextColor}
                     customColor={image.customColor}
@@ -367,19 +324,22 @@ const FlexGallery = (props) => {
                 </div>
               )}
             </>
-          )
-        /* end obroundButton */  
+          );
+        /* end obroundButton */
 
         /* VERTICAL CAPTIONS */
         case "flexVerticalText":
           return (
-            <div className={`flex-item z-40 ${image.edgeBind ? "edgeBind--" + image.edgeBind + "-wrapper" : "" }`} 
-            style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
+            <div
+              className={`flex-item z-40 ${
+                image.edgeBind ? "edgeBind--" + image.edgeBind + "-wrapper" : ""
+              }`}
+              css={imageStyle(image)}
             >
               <div
                 key={image._key}
                 className={`
-                  ${image.edgeBind ? "edgeBind--" + image.edgeBind : "" }
+                  ${image.edgeBind ? "edgeBind--" + image.edgeBind : ""}
                   flex-vertical-text text-mobileNav md:text-desktopNav
                 `}
               >
@@ -392,9 +352,9 @@ const FlexGallery = (props) => {
         /* END VERTICAL CAPTIONS*/
 
         default:
-            return (
+          return (
             <div
-              style={mobile ? styleObjMobile : tablet ? styleObjTablet : styleObj}
+              css={imageStyle(image)}
               key={image._key}
               className="flex-item html-text z-20 relative"
             >
@@ -406,16 +366,16 @@ const FlexGallery = (props) => {
     }
   }
 
-
-
-
   return (
-    <div key={2} style={gridStyle} className="w-full relative flexible-gallery">
+    <div
+      key={2}
+      css={gridStyle(rowNum, rowNumTablet, rowNumMobile)}
+      className="w-full relative flexible-gallery"
+    >
       {subModules &&
         subModules.map((image, index) => {
-            return(handleSubModule(image))
-        })
-      }
+          return handleSubModule(image);
+        })}
     </div>
   );
 };

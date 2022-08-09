@@ -1,6 +1,6 @@
 // Load variables from `.env` as soon as possible
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV || "development"}`,
+  path: `.env.${process.env.NODE_ENV || "development"}`
 });
 const clientConfig = require("./client-config");
 const isProd = process.env.NODE_ENV === "production";
@@ -8,14 +8,17 @@ const tailwindConfig = require("./tailwind.config.js");
 
 module.exports = {
   plugins: [
-    'gatsby-plugin-image',
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-netlify`,
     `gatsby-plugin-typescript`,
+    `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
-        postCssPlugins: [require(`tailwindcss`)(tailwindConfig)],
-      },
+        postCssPlugins: [require(`tailwindcss`)(tailwindConfig)]
+      }
     },
     "gatsby-plugin-react-helmet",
     {
@@ -26,15 +29,15 @@ module.exports = {
         watchMode: !isProd,
         overlayDrafts: !isProd,
         useCdn: true
-      },
+      }
     },
     {
-    resolve: 'gatsby-plugin-intercom-spa',
+      resolve: "gatsby-plugin-intercom-spa",
       options: {
         app_id: process.env.INTERCOM_APP_ID,
         include_in_development: true,
         delay_timeout: 1000
-      },
+      }
     },
     // {
     //   resolve: `gatsby-source-stripe`,
@@ -48,14 +51,14 @@ module.exports = {
       resolve: `gatsby-plugin-hotjar`,
       options: {
         id: process.env.HOTJAR_ID,
-        sv: process.env.HOTJAR_SNIPPET_VERSION,
-      },
+        sv: process.env.HOTJAR_SNIPPET_VERSION
+      }
     },
     {
-    resolve: `gatsby-plugin-facebook-pixel`,
+      resolve: `gatsby-plugin-facebook-pixel`,
       options: {
-        pixelId: "1778055882368765",
-      },
+        pixelId: "1778055882368765"
+      }
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -66,15 +69,15 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#ffffff`,
         display: `minimal-ui`,
-        icon: `src/images/favicon.jpg`,
-      },
+        icon: `src/images/favicon.jpg`
+      }
     },
     {
       resolve: "gatsby-plugin-mailchimp",
       options: {
         endpoint: process.env.MAILCHIMP_ENDPOINT, // string; add your MC list endpoint here; see instructions below
-        timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
-      },
+        timeout: 3500 // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
+      }
     },
     {
       resolve: `gatsby-plugin-google-gtag`,
@@ -82,25 +85,25 @@ module.exports = {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
           "G-70W92XYTX9", // GA4
-          "UA-190900607-1", // Google Analytics (classic)
+          "UA-190900607-1" // Google Analytics (classic)
         ],
         // This object gets passed directly to the gtag config command
         // This config will be shared across all trackingIds
         gtagConfig: {
           optimize_id: "OPT-MWRZP22", // Google Optimize container ID
           anonymize_ip: true,
-          cookie_expires: 0,
+          cookie_expires: 0
         },
         // This object is used for configuration specific to this plugin
         pluginConfig: {
           // Puts tracking script in the head instead of the body
           head: true,
           // Setting this parameter is also optional
-          respectDNT: true,
+          respectDNT: true
           // Avoids sending pageview hits from custom paths
           // exclude: ["/preview/**", "/do-not-track/me/too/"],
-        },
-      },
+        }
+      }
     },
     {
       resolve: `gatsby-plugin-segment-js`,
@@ -118,8 +121,6 @@ module.exports = {
         // number (defaults to 50); time to wait after a route update before it should
         // track the page change, to implement this, make sure your `trackPage` property is set to `true`
         trackPageDelay: 50,
-
-
 
         // boolean (defaults to false); whether to delay load Segment
         // ADVANCED FEATURE: only use if you leverage client-side routing (ie, Gatsby <Link>)
@@ -149,5 +150,5 @@ module.exports = {
         manualLoad: false
       }
     }
-  ],
+  ]
 };

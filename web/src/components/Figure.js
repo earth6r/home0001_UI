@@ -60,14 +60,18 @@ function getFixedWithCrop({ assetId, fixed, crop }) {
   return newFixed;
 }
 
+export const getFixedProps = (node, options) => {
+  const gatsbyImageData = getGatsbyImageData(node, options, clientConfig.sanity);
+
+  return gatsbyImageData;
+};
+
 const Figure = ({ node }) => {
   if (!node || !node.asset || !node.asset._id) {
     return null;
   }
 
-  const options = { maxWidth: 700, fit: "none", layout: "fullWidth", quality: 70 };
-
-  const gatsbyImageData = getGatsbyImageData(node, options, clientConfig.sanity);
+  const gatsbyImageData = getFixedProps(node, { maxWidth: 700, fit: "none", quality: 70 });
 
   return (
     <figure>
