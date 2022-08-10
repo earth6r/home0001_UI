@@ -72,8 +72,9 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
               .concat(meta)}
           >
 
-          <script src="https://www.googleoptimize.com/optimize.js?id=OPT-MWRZP22"></script>
-
+          <link rel="stylesheet" href="/fonts/fonts.css"></link>
+          <link rel="preload" href="/fonts/fonts.css" as="style"></link>
+          <script src="https://www.googleoptimize.com/optimize.js?id=OPT-MWRZP22" async></script>
           <meta property="og:title" content="EARTH" />
           <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>

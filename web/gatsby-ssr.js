@@ -9,7 +9,6 @@ import "./src/css/index.css";
 import React from "react";
 // import { withPrefix } from "gatsby";
 import "focus-visible/dist/focus-visible";
-import LoadingScreen from "./src/components/loading-screen";
 
 //stripe
 import { Elements } from "@stripe/react-stripe-js";
@@ -47,7 +46,6 @@ const ELEMENTS_OPTIONS = {
 export const wrapRootElement = ({ element, props }) => {
   return (
     <Elements options={ELEMENTS_OPTIONS} stripe={stripePromise} {...props}>
-      <LoadingScreen />
       {element}
     </Elements>
   );

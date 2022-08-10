@@ -34,11 +34,6 @@ export const Modules = ({
   reactModule: any;
   specs: specs | undefined;
 }) => {
-  const [isClient, setClient] = useState(false);
-  useEffect(() => {
-    setClient(true);
-  });
-  if (!isClient) return null;
   switch (type) {
     case "accordion":
       return (
