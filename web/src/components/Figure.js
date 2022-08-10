@@ -75,7 +75,7 @@ const Figure = ({ node }) => {
 
   return (
     <figure>
-      <GatsbyImage image={gatsbyImageData} alt={node.alt} />
+      <GatsbyImage loading="eager" image={gatsbyImageData} alt={node.alt} />
     </figure>
   );
 };
