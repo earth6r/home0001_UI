@@ -49,25 +49,25 @@ const imageStyle = image => css`
   padding-right: ${image.paddingRight}vw;
 
   @media (max-width: 1024px) {
-    grid-column-start: ${image.startColumnTablet};
-    grid-column-end: ${image.endColumnTablet};
-    grid-row-start: ${image.startRowTablet};
-    grid-row-end: ${image.endRowTablet};
-    padding-top: ${image.paddingTopTablet}vw;
-    padding-bottom: ${image.paddingBottomTablet}vw;
-    padding-left: ${image.paddingLeftTablet}vw;
-    padding-right: ${image.paddingRightTablet}vw;
+    grid-column-start: ${image.startColumnTablet || "unset"};
+    grid-column-end: ${image.endColumnTablet || "unset"};
+    grid-row-start: ${image.startRowTablet || "unset"};
+    grid-row-end: ${image.endRowTablet || "unset"};
+    padding-top: ${image.paddingTopTablet ? image.paddingTopTablet + "vw" : "unset"};
+    padding-bottom: ${image.paddingBottomTablet ? image.paddingBottomTablet + "vw" : "unset"};
+    padding-left: ${image.paddingLeftTablet ? image.paddingLeftTablet + "vw" : "unset"};
+    padding-right: ${image.paddingRightTablet ? image.paddingRightTablet + "vw" : "unset"};
   }
 
   @media (max-width: 768px) {
-    grid-column-start: ${image.startColumnMobile};
-    grid-column-end: ${image.endColumnMobile};
-    grid-row-start: ${image.startRowMobile};
-    grid-row-end: ${image.endRowMobile};
-    padding-top: ${image.paddingTopMobileMobile}vw;
-    padding-bottom: ${image.paddingBottomMobile}vw;
-    padding-left: ${image.paddingLeftMobile}vw;
-    padding-right: ${image.paddingRightMobile}vw;
+    grid-column-start: ${image.startColumnMobile || "unset"};
+    grid-column-end: ${image.endColumnMobile || "unset"};
+    grid-row-start: ${image.startRowMobile || "unset"};
+    grid-row-end: ${image.endRowMobile || "unset"};
+    padding-top: ${image.paddingTopMobile ? image.paddingTopMobile + "vw" : "unset"};
+    padding-bottom: ${image.paddingBottomMobile ? image.paddingBottomMobile + "vw" : "unset"};
+    padding-left: ${image.paddingLeftMobile ? image.paddingLeftMobile + "vw" : "unset"};
+    padding-right: ${image.paddingRightMobile ? image.paddingRightMobile + "vw" : "unset"};
   }
 `;
 
