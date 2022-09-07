@@ -68,10 +68,12 @@
 
 .earth-rnd-logo-mobile {
   display: none;
+
+  width: 47px;
 }
 
-.earth-rnd-logo svg {
-  width: 600px;
+.earth-rnd-logo {
+  width: 700px;
 }
 
 .rnd-md-menu {
@@ -81,9 +83,9 @@
 }
 
 .hero-rnd {
-  height: 75vh;
+  height: 77vh;
   margin-right: 20px;
-  margin-top: 60px;
+  margin-top: 80px;
 
   @media (max-width: 768px) {
     height: 40vh;
@@ -95,6 +97,8 @@
 .hero-rnd-video {
   position: relative;
   width: 80%;
+  max-height: 100%;
+
 }
 
 .hero-rnd-video::before {
@@ -130,6 +134,7 @@
   color: #ff0000;
   font-size: max(32px, 4vw);
   line-height: max(44.8px, 5vw);
+  -webkit-text-stroke: 0.2px;
 }
 
 .lightbox-pdf{

@@ -13,6 +13,8 @@ import Icon from "./icon";
 import MailChimpForm from "./mailchimp-form";
 import PortableText from "./portableText";
 import { PageLink } from "../components/link";
+import EarthLogo from "../components/images/earth-rnd-logo.png";
+import EarthLogoMobile from "../components/images/earth-rnd-logo-mobile.png";
 
 // this is the floating header for the R & D site
 const HeaderRnd = ({
@@ -90,11 +92,11 @@ const HeaderRnd = ({
           <div className="flex justify-between relative">
             <div className="r-d-tagline cursor-default">
               <PageLink onClick={onHideNav} to="/">
-                <span className="earth-rnd-logo">
-                  <Icon symbol="earthRndLogo" />
-                </span>
+                <div className="earth-rnd-logo">
+                  <img src={EarthLogo} alt="Earth Logo" />
+                </div>
                 <span className="earth-rnd-logo-mobile">
-                  <Icon symbol="earthRndLogoMobile" />
+                  <img src={EarthLogoMobile} alt="Earth Logo" />
                 </span>
               </PageLink>
             </div>
