@@ -1,12 +1,3 @@
-import { PageLink } from "../components/link";
-import React, { useState, useEffect } from "react";
-import Icon from "./icon";
-import CircleButton from "./global/circleButton";
-import GridRow from "./grid/grid-row";
-import ReactHtmlParser from "react-html-parser";
-import PortableText from "./portableText";
-import MailChimpForm from "./mailchimp-form";
-import instagramLogo from "./image.png";
 import {
   Modal,
   ModalOverlay,
@@ -14,16 +5,21 @@ import {
   ModalHeader,
   ModalBody,
   ModalCloseButton,
-  useDisclosure,
+  useDisclosure
 } from "@chakra-ui/core";
-import { set } from "react-ga";
+import React, { useState, useEffect } from "react";
+import GridRow from "./grid/grid-row";
+import Icon from "./icon";
+import MailChimpForm from "./mailchimp-form";
+import PortableText from "./portableText";
+import { PageLink } from "../components/link";
 
 // this is the floating header for the R & D site
-
 const HeaderRnd = ({
   mainMenu,
   infoSection = null,
   infoSectionBelow = null,
+  newsletter,
   rMenu,
   subMenu,
   onHideNav,
@@ -37,14 +33,20 @@ const HeaderRnd = ({
   footerMenu,
   isHome,
   showThinBanner,
-  thinBanner,
+  thinBanner
 }) => {
-  // const containerRef = useRef(null);
-  // const { height } = useDimensions(containerRef);
-  const [loaded, setLoaded] = useState(false);
   const [info, setInfo] = useState(false);
   const [scrollUp, setScrollUp] = useState(true);
   const [scrollStart, setScrollStart] = useState(0);
+  const [currentUri, setCurrentUri] = useState("");
+
+  useEffect(() => {
+    let uri = window.location.href.split("http://")[1];
+    if (!uri) {
+      uri = window.location.href.split("https://")[1];
+    }
+    setCurrentUri(uri);
+  }, []);
 
   // change state on scroll
   useEffect(() => {
@@ -56,223 +58,135 @@ const HeaderRnd = ({
       if (isScrolled) {
         setScrollUp(false);
         setScrollStart(scrollY);
-      }else{
+      } else {
         setScrollUp(true);
         setScrollStart(scrollY);
       }
     };
-    document.addEventListener('scroll', handleScroll, { passive: true });
+    document.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       // clean up the event handler when the component unmounts
-      document.removeEventListener('scroll', handleScroll);
+      document.removeEventListener("scroll", handleScroll);
     };
   }, [scrollUp, scrollStart]);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
-  function handleShowInfo() {
-    if (info) {
-      setInfo(false);
-    } else {
-      setInfo(true);
-    }
-  }
   const menu = rMenu !== undefined ? rMenu.edges[0].node.items : null;
   const submenu = subMenu && subMenu.edges[0] !== undefined ? subMenu.edges[0].node.items : null;
   const menuFooter = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
 
-  function makeTitle(slug) {
-    var words = slug.split("-");
-    for (var i = 0; i < words.length; i++) {
-      var word = words[i];
-      words[i] = word.charAt(0).toUpperCase() + word.slice(1);
-    }
-
-    return words.join(" ");
-  }
-
   return (
     <>
-      {/* isHome is undefined, this never shows
-      {isHome && submenu && (
-        <div
-          style={{
-            zIndex: "51",
-            minWidth: "30vw",
-            width: "calc(100% - 1.5rem)",
-            borderRadius: "22px",
-          }}
-          className={`${
-            showNav ? "hidden" : ""
-          } sub-menu absolute mt-10 lg:mt-16 mx-3 lg:mx-5 box-menu px-5 py-2 top-0 right-0 lg:w-auto`}
+      <header
+        className={`r-d-menu r-d-nav-text-desktop block fixed z-50 w-full left-0 top-0 ${
+          scrollStart < 60 ? "" : "md:hidden"
+        } ${showNav ? "bg-white" : ""}`}
+      >
+        <nav
+          className={`mx-mobile md:mx-6 z-40 transition-none rounded-lg md:relative r-d-menu-nav ${
+            showNav ? "bg-white" : ""
+          }`}
         >
-          {submenu &&
-            submenu.map((item, index) => (
-              <div key={index + "first"}>
-                {item.link && isHome == item.link.content.main.slug.current && (
-                  <div
-                    className="cursor-pointer"
-                    onClick={showSubNav ? onHideSubNav : onShowSubNav}
-                  >
-                    <li className="block">
-                      {item.title}{" "}
-                      <span className="float-right">
-                        <svg
-                          style={{ top: "10px" }}
-                          className={`${showSubNav ? "flip" : ""} relative`}
-                          width="10"
-                          height="6"
-                          viewBox="0 0 10 6"
-                          fill="none"
-                        >
-                          <path
-                            d="M0.969269 0.955238L1.67451 0.25L5.90593 4.48143L5.2007 5.18667L0.969269 0.955238Z"
-                            fill="black"
-                          />
-                          <path
-                            d="M5.2007 5.18667L4.49546 4.48143L8.72689 0.25L9.43212 0.955238L5.2007 5.18667Z"
-                            fill="black"
-                          />
-                        </svg>
-                      </span>
-                    </li>
-                  </div>
-                )}
-              </div>
-            ))}
-
-          {submenu &&
-            submenu.map((item, index) => (
-              <div key={index + "second"} className={`${index == submenu.length - 1 ? "" : ""}`}>
-                <li
-                  className={`${
-                    showSubNav && item.link && isHome != item.link.content.main.slug.current
-                      ? " h-auto"
-                      : "h-0"
-                  } block overflow-hidden`}
-                  key={item._key}
-                >
-                  <PageLink
-                    className="md:pt-1/2em inline-block overflow-hidden"
-                    onClick={onHideSubNav}
-                    to={item.link ? "/home/" + item.link.content.main.slug.current : " "}
-                  >
-                    {item.title}
-                  </PageLink>
-                </li>
-                {!item.link && (
-                  <li
-                    className={`${
-                      showSubNav ? " h-auto" : "h-0"
-                    } hidden md:block overflow-hidden opacity-50`}
-                  >
-                    {item.title}
-                  </li>
-                )}
-              </div>
-            ))}
-        </div>
-      )} */}
-      <header className={`r-d-menu  block fixed z-50 w-full left-0 pt-3 ${
-              scrollStart < 60
-                ? ""
-                : "hidden"
-            } `}>
-        <div
-          className={`r-d-nav-text-desktop flex container pb-0 w-full md:bg-transparent md:relative justify-between items-center content-center`}
-        >
-          <GridRow scroll={false} hide={1} className="flex w-full justify-between md:hidden">
-            <h1
-              style={{ top: ".05em" }}
-              className="r-d-nav-text-mobile r-d-tagline-mobile md:hidden relative cursor-default"
-            >
-              <span className="earth-svg block">
-                EARTH is a multi-disciplinary collective working across architecture, technology,
-                design, and art.
-              </span>
-            </h1>
-
-            <li onClick={onOpen} className="block md:block cursor-pointer">
-              <span className="r-d-nav-text-mobile uppercase relative info-menu-mobile md:pt-1/2em inline-block">
-                {info && infoSection ? "Close" : "Info"}
-              </span>
-            </li>
-          </GridRow>
-
-          <nav
-            className={`${
-              showNav
-                ? "block z-40 bg-white box md:shadow-none transition-none rounded-lg"
-                : "hidden"
-            } fixed left-0 top-0 md:relative w-full md:block`}
-          >
-            <div className="mx-mobile md:mx-0">
-              <ul className="flex pt-2em md:pt-0 flex-wrap relative mt-1 container p-0 m-0 md:flex md:flex-no-wrap w-full justify-center md:justify-between">
-                <li className="absolute md:relative left-0 top-0 pt-2 r-d-tagline cursor-default">
-                  <span className="">
-                    EARTH is a multi-disciplinary collective working across architecture,
-                    technology, design, and art.
-                  </span>
-                </li>
-
-                <li
-                  onClick={onOpen}
-                  className="absolute md:relative left-0 top-0 pt-3 cursor-pointer"
-                >
-                  <span className="uppercase">{info && infoSection ? "Close" : "Info"}</span>
-                </li>
-              </ul>
+          <div className="flex justify-between relative">
+            <div className="r-d-tagline cursor-default">
+              <PageLink onClick={onHideNav} to="/">
+                <span className="earth-rnd-logo">
+                  <Icon symbol="earthRndLogo" />
+                </span>
+                <span className="earth-rnd-logo-mobile">
+                  <Icon symbol="earthRndLogoMobile" />
+                </span>
+              </PageLink>
             </div>
-          </nav>
-        </div>
+
+            <div className="hidden md:flex rnd-md-menu absolute top-0">
+              {menu &&
+                menu.map((item, index) => (
+                  <div key={index}>
+                    <PageLink
+                      key={item._key}
+                      className={`${
+                        currentUri !== "" &&
+                        currentUri.includes(item.link.content.main.slug.current)
+                          ? "rnd-current-nav-link " + item.link.content.main.slug.current
+                          : " "
+                      } md:pt-1/2em inline-block`}
+                      onClick={onHideNav}
+                      to={`/${item.link.content.main.slug.current}`}
+                    >
+                      {item.title + ",\u00A0"}
+                    </PageLink>
+                  </div>
+                ))}
+              <div className="cursor-pointer md:pt-1/2em" onClick={onOpen}>
+                <span className="uppercase">Newsletter</span>
+              </div>
+            </div>
+            <button
+              className="md:hidden outline-none flex content-start items-center"
+              onClick={showNav ? onHideNav : onShowNav}
+              role="button"
+              aria-label="Open the menu"
+            >
+              <div className="rnd-menu-button">
+                {showNav ? <Icon symbol="closeBlack" /> : <Icon symbol="hamburger" />}
+              </div>
+            </button>
+          </div>
+          {showNav ? (
+            <div className="md:hidden mt-40 text-left rnd-mobile-menu">
+              {menu &&
+                menu.map((item, index) => (
+                  <>
+                    <div onClick={onHideNav} className="my-3em" key={item._key}>
+                      <PageLink
+                        className={`py-1/2em block cursor-pointer rnd-mobile-nav`}
+                        onClick={onHideNav}
+                        to={`/${item.link.content.main.slug.current}`}
+                      >
+                        <span
+                          className={`${
+                            currentUri && currentUri.includes(item.link.content.main.slug.current)
+                              ? "rnd-current-nav-link " + item.link.content.main.slug.current
+                              : " "
+                          }`}
+                        >
+                          {item.title}
+                        </span>
+                      </PageLink>
+                    </div>
+                  </>
+                ))}
+              <div
+                onClick={() => {
+                  onOpen();
+                  onHideNav();
+                }}
+                className="my-3em"
+              >
+                <span className="cursor-pointer py-1/2em block rnd-mobile-nav uppercase">
+                  Newsletter
+                </span>
+              </div>
+            </div>
+          ) : null}
+        </nav>
       </header>
-      {/* <div
-        style={{ zIndex: "45" }}
-        onClick={showNav ? onHideNav : onShowNav}
-        className={`${
-          showNav ? " h-full bg-black opacity-75 pointer-events-auto" : "opacity-0"
-        } fixed hidden transition-opacity duration-150 left-0 top-0  pointer-events-none w-full`}
-      ></div>
       <div
-        style={{ zIndex: "40" }}
-        className={`${
-          scrollUp ? "fixed" : ""
-        }  w-full h-12 md:h-18 pointer-events-none top-0 left-0`}
-      ></div> */}
-      {/* info is set to false, this never renders
-      {infoSection && info && (
-        <div style={{ zIndex: "44" }} className="fixed info-section left-0 bg-white px-6 pt-10">
-          <PortableText blocks={infoSection} />
-        </div>
-      )} */}
+        className={`fixed w-full h-12 md:h-18 z-30 gradient-to-b3-mobile pointer-events-none top-0 left-0`}
+      ></div>
       <Modal className="rounded-md" isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay opacity={0.75} />
         <ModalContent className="rounded-md">
-          <ModalHeader className="info-rnd-content font-normal mb-0 pb-0">
-            <div className="info-rd">
-              {" "}
-              <PortableText blocks={infoSection} />{" "}
-            </div>
-            <h5 className="mt-1em uppercase">Newsletter</h5>
+          <ModalHeader className="font-normal mb-0">
+            <h5 style={{ color: "black" }} className="uppercase text-base">
+              Newsletter
+            </h5>
           </ModalHeader>
           <ModalCloseButton />
-          <ModalBody className="rnd-mailchimp mb-0 pb-0 pt-1/2em">
-            <MailChimpForm rnd={true} />
+          <ModalBody className="rnd-mailchimp py-6">
+            <MailChimpForm newsletter={newsletter} rnd={true} />
           </ModalBody>
-
-          {infoSectionBelow && (
-            <ModalHeader className="font-normal pb-1em pt-2">
-              <div className="text-flagDt">
-                {" "}
-                <PortableText blocks={infoSectionBelow} />{" "}
-              </div>
-            </ModalHeader>
-          )}
-          {/*<ModalFooter>
-            <Button mr={3} onClick={onClose}>
-              Close
-            </Button>
-            <Button variant="ghost">Secondary Action</Button>
-          </ModalFooter>*/}
         </ModalContent>
       </Modal>
     </>

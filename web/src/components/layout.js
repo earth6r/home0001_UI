@@ -1,8 +1,9 @@
+import React, { useState, useEffect, useRef } from "react";
 import Footer from "./footer";
 import GridRow from "./grid/grid-row";
 import Header from "./header";
 import HeaderRnd from "./headerRnd";
-import React, { useState, useEffect, useRef } from "react";
+import FooterRnd from "./footerRnd";
 
 const Layout = ({
   bannerUrl,
@@ -23,6 +24,7 @@ const Layout = ({
   pillColor,
   rMenu,
   rnd = false,
+  rndFooterMenu,
   showNav,
   showPopupNewsletter,
   showSubNav,
@@ -30,7 +32,7 @@ const Layout = ({
   siteTitle,
   strikeColor,
   subMenu,
-  thinBanner,
+  thinBanner
 }) => {
   useEffect(() => {
     function atFooter(el) {
@@ -60,13 +62,7 @@ const Layout = ({
       /* Check because window is undefined during build */
       // If rnd page is shown intercom messanger icon is hidden
       if (rnd) {
-        window.Intercom("update", {
-          hide_default_launcher: true
-        });
-      } else {
-        window.Intercom("update", {
-          hide_default_launcher: false
-        });
+        document.body.classList.add("hide-intercom");
       }
 
       if (window.innerWidth > 767) {
@@ -90,6 +86,7 @@ const Layout = ({
           siteTitle={siteTitle}
           infoSection={infoSection}
           infoSectionBelow={infoSectionBelow}
+          newsletter={newsletter}
           onHideNav={onHideNav}
           onShowNav={onShowNav}
           showNav={showNav}
@@ -125,13 +122,13 @@ const Layout = ({
           isHome={isHome}
         />
       )}
-        <div
-          className={`${
-            showThinBanner && !rnd ? "mt-16 md:mt-20" : "mt-8"
-          } hidden md:block container pb-1/2em absolute`}
-        >
-          <GridRow />
-        </div>
+      <div
+        className={`${
+          showThinBanner && !rnd ? "mt-16 md:mt-20" : "mt-8"
+        } hidden md:block container pb-1/2em absolute`}
+      >
+        <GridRow />
+      </div>
       <div
         id="page-content-wrapper"
         className={`${showThinBanner && !rnd ? "mt-16 md:mt-12md:mt-16" : "mt-0"} ${
@@ -140,7 +137,9 @@ const Layout = ({
       >
         {children}
       </div>
-      {!rnd && (
+      {rnd ? (
+        <FooterRnd blackFooter={blackFooter} footerMenu={rndFooterMenu} />
+      ) : (
         <Footer
           blackFooter={blackFooter}
           showPopupNewsletter={showPopupNewsletter}

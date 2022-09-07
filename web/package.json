@@ -82,6 +82,7 @@
     "react-router-dom": "^5.2.0",
     "react-sticky": "^6.0.3",
     "react-tabs": "^3.1.1",
+    "react-youtube": "^9.0.3",
     "shuffle-array": "^1.0.1",
     "styled-components": "^5.2.0",
     "tailwindcss": "^1.7.6",

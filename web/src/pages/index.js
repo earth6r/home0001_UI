@@ -1,9 +1,13 @@
 import React from "react";
 import { graphql } from "gatsby";
+import {
+  mapEdgesToNodes,
+  filterOutDocsWithoutSlugs,
+  filterOutDocsPublishedInTheFuture
+} from "../lib/helpers";
 import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
-import DepositBlock from "../components/DepositBlock";
 import Layout from "../containers/layout";
 import { RenderModules } from "../utils/renderModules";
 
@@ -30,56 +34,13 @@ export const query = graphql`
     }
   }
 
-  query CollectivePageQuery {
+  query IndexPageQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
       description
       keywords
     }
-    depositCounter: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
-      depositCounter
-    }
-    whatsIncluded: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
-      whatsIncluded {
-        _key
-        _rawChildren
-        _type
-        style
-        children {
-          _key
-          _type
-          text
-          marks
-        }
-      }
-    }
-    depositBlockImage: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
-      depositBlockImage {
-        _key
-        _rawAsset
-        _rawCrop
-        _rawHotspot
-        _type
-        asset {
-          assetId
-          url
-          _id
-        }
-        crop {
-          bottom
-          left
-          right
-          top
-        }
-        hotspot {
-          height
-          width
-          x
-          y
-        }
-      }
-    }
-    allSanityLanding(filter: { content: { main: { title: { eq: "Landing" } } } }) {
+    allSanityRnd {
       edges {
         node {
           _rawContent(resolveReferences: { maxDepth: 20 })
@@ -89,15 +50,8 @@ export const query = graphql`
   }
 `;
 
-const CollectivePage = props => {
+const IndexPage = props => {
   const { data, errors } = props;
-  let sku = "MEMB001";
-  const whatsIncluded = data.whatsIncluded.whatsIncluded;
-  const depositCounter = data.depositCounter.depositCounter;
-  const depositBlockImage = data.depositBlockImage.depositBlockImage;
-  let bitPayID = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_REGULAR_PRICE;
-  let bitPayIDDiscounted = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_DISCOUNTED;
-
   if (errors) {
     return (
       <Layout>
@@ -108,9 +62,9 @@ const CollectivePage = props => {
 
   const site = (data || {}).site;
   const {
-    main: { modules, slug, title },
+    main: { modules, slug },
     meta
-  } = data.allSanityLanding.edges[0].node._rawContent;
+  } = data.allSanityRnd.edges[0].node._rawContent;
 
   if (!site) {
     throw new Error(
@@ -118,25 +72,21 @@ const CollectivePage = props => {
     );
   }
 
-  let myTitle = title + " | ";
-  if (title == "Landing") {
-    myTitle = "";
-  }
-
   return (
-    <Layout blackHeader={false} blackFooter={false} showPopupNewsletter={true}>
-      <SEO
-        title={myTitle}
-        description={site.description}
-        keywords={site.keywords}
-        image={meta.openImage}
-      />
-      <Container className="">
+    <Layout rnd={true}>
+      {meta && (
+        <SEO
+          title={site.title}
+          description={site.description}
+          keywords={site.keywords}
+          image={meta.openImage}
+        />
+      )}
+      <Container className="rte-large rte-rnd">
         <div className="flex flex-wrap">{RenderModules(modules)}</div>
       </Container>
-      {title == "Landing" && <DepositBlock />}
     </Layout>
   );
 };
 
-export default CollectivePage;
+export default IndexPage;

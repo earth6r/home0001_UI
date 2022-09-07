@@ -1,30 +1,43 @@
 import { PageLink } from "../link";
-import React, { useRef, useLayoutEffect, useState } from "react";
-import { motion, useViewportScroll, useTransform } from "framer-motion";
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import React, { createRef } from "react";
+import ReactHtmlParser from "react-html-parser";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure
+} from "@chakra-ui/core";
+import MailChimpForm from "../mailchimp-form";
 
-const RdObroundButton = ({ title, url, linkHome, linkRnd, textColor, customColor, float = true, color }) => {
-  const [elementTop, setElementTop] = useState(0);
-  const ref = useRef(null);
-  const { scrollY } = useViewportScroll();
-  let randPadding = Math.random() * 10;
+const RdObroundButton = ({
+  openSignupModal,
+  title,
+  url,
+  modalTitle,
+  modalSubtitle,
+  linkHome,
+  linkRnd,
+  textColor,
+  customColor,
+  color
+}) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   let uri = "";
-  let myUrl = url && url.content ? url.content.main.slug.current : ""
-  let realColor = customColor ? customColor : color
+  let myUrl = url && url.content ? url.content.main.slug.current : "";
+  let realColor = customColor ? customColor : color;
   let realTextColor = textColor ? textColor : "black";
-  if(!customColor){
+  if (!customColor) {
     realTextColor = color == "black" ? "white" : "black";
   }
 
-
   let styleObj = {
-                color: realTextColor,
-                backgroundColor: realColor,
-              }
-
-  const y = useTransform(scrollY, [elementTop, elementTop + 1], [0.9, 1], {
-    clamp: false,
-  });
+    color: realTextColor,
+    backgroundColor: realColor
+  };
 
   if (url !== undefined) {
     switch (url._type) {
@@ -41,80 +54,62 @@ const RdObroundButton = ({ title, url, linkHome, linkRnd, textColor, customColor
     }
   }
 
- if(linkHome){
-    myUrl = "/collective"
-  }else if(linkRnd){
-    myUrl = "/"
-  }else{
-    myUrl = uri + "/" + myUrl
+  if (linkHome) {
+    myUrl = "/collective";
+  } else if (linkRnd) {
+    myUrl = "/";
+  } else {
+    myUrl = uri + "/" + myUrl;
   }
-  useLayoutEffect(() => {
-    const element = ref.current;
-    setElementTop(element.offsetTop);
-  }, [ref]);
-  // top-1/2 -translate-y-1/2 right-0 z-20
+
   return (
-    <div ref={ref} className={`${!float ? "right-0 ml-1em z-20 self" : ""}`}>
-      {float ? (
-        <div
-          className={`box-circle mx-1/4em right-0 circle-width self`}
-          style={{ margin: `${randPadding} .5rem` }}
-        >
-          <div className="">
-            <div className="square relative">
-              <div style={styleObj} 
-                className={`background-circle `}
-              />
-              {myUrl  ? (
-                <PageLink
-                  className="m-0 h-full flex items-center justify-center text-nav leading-none text-center top-1/2 uppercase absolute px-1em md:px-1/2em transform -translate-y-1/2 w-full"
-                  to={`${myUrl}`}
+    <>
+      <div className={`right-0 ml-1em z-20 self`}>
+        <div className={`mx-1/4em right-0 rdObround-width relative`}>
+          <div className="square">
+            {url && url.content ? (
+              <PageLink
+                className="m-0 h-full flex items-center justify-center text-nav leading-none text-center top-1/2 uppercase px-1em md:px-1/2em w-full"
+                to={`${myUrl}`}
+              >
+                <h2
+                  style={styleObj}
+                  className={`background-obround rounded-full m-0 font-normal px-10 py-4  leading-none`}
                 >
-                  <h2 style={styleObj} className={` m-0 p-0 leading-none font-bold`}>
+                  {ReactHtmlParser(title)}
+                </h2>
+              </PageLink>
+            ) : (
+              title && (
+                <div className="m-0 h-full flex items-center justify-center text-nav leading-none text-center top-1/2 uppercase px-1em md:px-1/2em w-full">
+                  <h2
+                    onClick={() => (openSignupModal ? onOpen() : undefined)}
+                    style={styleObj}
+                    className={`background-obround cursor-pointer rounded-full m-0 font-normal px-10 py-4  leading-none`}
+                  >
                     {ReactHtmlParser(title)}
                   </h2>
-                </PageLink>
-              ) : (
-                title && (
-                  <h2 style={styleObj} className={`m-0 font-bold leading-none text-center top-1/2 uppercase absolute px-1em md:px-1/2em transform -translate-y-1/2 w-full`}>
-                    {ReactHtmlParser(title)}
-                  </h2>
-                )
-              )}
-            </div>
+                </div>
+              )
+            )}
           </div>
         </div>
-      ) : (
-        <div className={`mx-1/4em right-0 rdObround-width relative`}>
-          <motion.div className="">
-            <motion.div className="square">
-              {url && url.content ? (
-                <PageLink
-                  className="m-0 h-full flex items-center justify-center text-nav leading-none text-center top-1/2 uppercase absolute px-1em md:px-1/2em transform -translate-y-1/2 w-full"
-                  to={`${myUrl}`}
-                >
-                  <h2
-                    style={styleObj} 
-                    className={`background-obround rounded-full m-0 font-normal px-10 py-4  leading-none`}
-                  >
-                    {ReactHtmlParser(title)}
-                  </h2>
-                </PageLink>
-              ) : (
-                title && (
-                  <h2
-                    style={styleObj} 
-                    className={`m-0 font-bold leading-none text-center top-1/2 uppercase absolute px-1em md:px-1/2em transform -translate-y-1/2 w-full`}
-                  >
-                    {ReactHtmlParser(title)}
-                  </h2>
-                )
-              )}
-            </motion.div>
-          </motion.div>
-        </div>
-      )}
-    </div>
+      </div>
+      <Modal isOpen={isOpen} onClose={onClose} isCentered finalFocusRef={createRef()}>
+        <ModalOverlay opacity={0.75} />
+        <ModalContent className="rounded-md">
+          <ModalHeader className="font-normal mb-0">
+            <h5 style={{ color: "black" }} className="uppercase text-base">
+              {modalTitle}
+            </h5>
+          </ModalHeader>
+          <ModalCloseButton />
+          <ModalBody className="rnd-mailchimp py-6">
+            <MailChimpForm newsletter={modalSubtitle} rnd={true} signup={true} />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
   );
 };
 

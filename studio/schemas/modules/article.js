@@ -1,20 +1,18 @@
-import React from 'react'
-
 export default {
   title: 'Article (R&D only)',
   name: 'article',
   type: 'object',
   hidden: true,
   fields: [
-  {
+    {
       name: 'internalTitle',
       title: 'Title for Internal Use',
-      type: 'string',
+      type: 'string'
     },
     {
       name: 'title',
       title: 'Title (optional)',
-      type: 'string',
+      type: 'string'
     },
     {
       name: 'defaultNum',
@@ -30,18 +28,18 @@ export default {
       name: 'callibrationMark',
       title: 'Show Callibration Marks',
       default: true,
-      type: 'boolean',
+      type: 'boolean'
     },
     {
       name: 'articleItems',
       title: 'Article Items',
       type: 'array',
-      of: [{ type: 'articleItem' }],
+      of: [{type: 'articleItem'}]
     }
   ],
   preview: {
     select: {
-      title: 'internalTitle',
-    },
-  },
+      title: 'internalTitle'
+    }
+  }
 }

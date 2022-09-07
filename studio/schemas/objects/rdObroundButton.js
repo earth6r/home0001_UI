@@ -6,23 +6,38 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'string',
+      type: 'string'
+    },
+    {
+      name: 'openSignupModal',
+      title: 'Open Signup Modal',
+      type: 'boolean'
+    },
+    {
+      name: 'modalTitle',
+      title: 'Modal Title',
+      type: 'string'
+    },
+    {
+      name: 'modalSubtitle',
+      title: 'Modal Subtitle',
+      type: 'bodyPortableText'
     },
     {
       name: 'homeLink',
       title: '/collective',
-      type: 'boolean',
+      type: 'boolean'
     },
     {
       name: 'rndLink',
       title: '/',
-      type: 'boolean',
+      type: 'boolean'
     },
     {
       name: 'url',
       title: 'URL',
       type: 'reference',
-      to: [{ type: 'landing' }],
+      to: [{type: 'landing'}]
     },
     {
       title: 'Color',
@@ -40,12 +55,12 @@ export default {
     {
       name: 'customCircleTextColor',
       title: 'custom text color (#ffff)',
-      type: 'string',
+      type: 'string'
     },
     {
       name: 'customCircleColor',
       title: 'custom color (#ffff)',
-      type: 'string',
+      type: 'string'
     }
-  ],
+  ]
 }

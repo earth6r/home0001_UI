@@ -39,11 +39,6 @@
   @apply text-mobileLarge;
 }
 
-.rte.rte-rnd {
-  padding-left: 0.1em;
-  padding-right: 0.1em;
-}
-
 .rte h1 {
   @apply text-mobileLarge;
 }
@@ -179,7 +174,7 @@ input[type="checkbox"]:checked {
     top: 1px;
   }
   .rte {
-  
+
     line-height: 115%;
 }
   input[type="checkbox"],
@@ -241,7 +236,7 @@ form label * {
     line-height: 2rem !important;
   }
 }
-  
+
 @media(max-width:430px){
   form label,
   form label * {

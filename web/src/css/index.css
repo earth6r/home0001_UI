@@ -112,6 +112,10 @@ small {
 }
 /* end loading animation */
 
+.hide-intercom .intercom-lightweight-app, .hide-intercom .intercom-app {
+  display: none;
+}
+
 .instagram-logo{
   width:20px;
   top:0px;

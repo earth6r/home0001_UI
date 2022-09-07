@@ -9,12 +9,12 @@ import { Integrations } from "@sentry/tracing";
 // Add Sentry to page to catch exceptions from users
 // only init in production env
 try {
-  const currentURL = window && window.location && window.location.href;
-  if (!currentURL.match("localhost") && !currentURL.match("staging.earth")) {
+  const currentURL = typeof window !== "undefined" && window.location && window.location.href;
+  if (currentURL && !currentURL.match("localhost") && !currentURL.match("staging.earth")) {
     Sentry.init({
       dsn: "https://1cd03b4176dd4fc4a68dca869e1d712e@o914508.ingest.sentry.io/5853521",
       integrations: [new Integrations.BrowserTracing()],
-      tracesSampleRate: 1.0,
+      tracesSampleRate: 1.0
     });
   }
 } catch (error) {
@@ -66,20 +66,20 @@ const query = graphql`
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
     }
-    showThinBanner:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+    showThinBanner: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       showthinbanner
     }
-    thinBanner:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+    thinBanner: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       thinbanner
     }
-    bannerUrl:  allSanitySiteSettings {
+    bannerUrl: allSanitySiteSettings {
       edges {
         node {
           _rawUrl(resolveReferences: { maxDepth: 20 })
         }
       }
     }
-    bannerUrlTitle:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+    bannerUrlTitle: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       bannerUrlTitle
     }
     all: allSanitySiteSettings {
@@ -97,7 +97,7 @@ const query = graphql`
         }
       }
     }
-    infoSection:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+    infoSection: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       infosection {
         _key
         _rawChildren
@@ -111,13 +111,13 @@ const query = graphql`
         }
       }
     }
-    pillColor:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+    pillColor: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       pillColor
     }
-    strikeColor:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+    strikeColor: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       strikeColor
     }
-    newsletter:  sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+    newsletter: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       newsletterText {
         _key
         _rawChildren
@@ -226,6 +226,30 @@ const query = graphql`
         }
       }
     }
+
+    rndFooterMenu: allSanityMenus(filter: { slug: { current: { eq: "rnd-footer" } } }) {
+      edges {
+        node {
+          items {
+            ... on SanityExternalLink {
+              _key
+              _type
+              title
+              url
+            }
+            ... on SanityInternalLink {
+              _key
+              _type
+              link {
+                ...LinkFragment
+                ...HomeLinkFragment
+              }
+              title
+            }
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -242,16 +266,14 @@ function LayoutContainer(props) {
   }
   function handleShowSubNav() {
     setShowSubNav(1);
-
   }
   function handleHideSubNav() {
     setShowSubNav(2);
-
   }
   return (
     <StaticQuery
       query={query}
-      render={(data) => {
+      render={data => {
         if (!data.site) {
           throw new Error(
             'Missing "Site settings". Open the Studio at http://localhost:3333 and some content in "Site settings"'
@@ -263,7 +285,7 @@ function LayoutContainer(props) {
             <Global styles={GlobalStyles} />
             <Layout
               {...props}
-              showPopupNewsletter = {props.showPopupNewsletter}
+              showPopupNewsletter={props.showPopupNewsletter}
               showThinBanner={props.isCheckout ? false : data.showThinBanner.showthinbanner}
               thinBanner={data.thinBanner.thinbanner}
               bannerUrl={data.bannerUrl.edges[0].node._rawUrl}
@@ -272,7 +294,7 @@ function LayoutContainer(props) {
               infoSectionBelow={data.belowInfo.edges[0].node._rawInfosectionBelow}
               newsletter={data.all.edges[0].node._rawNewsletterText}
               showNav={showNav}
-              showSubNav = {showSubNav}
+              showSubNav={showSubNav}
               siteTitle={data.site.title}
               pillColor={data.pillColor.pillColor}
               strikeColor={data.strikeColor.strikeColor}
@@ -281,6 +303,7 @@ function LayoutContainer(props) {
               onHideSubNav={handleHideSubNav}
               onShowSubNav={handleShowSubNav}
               footerMenu={data.footerMenu}
+              rndFooterMenu={data.rndFooterMenu}
               mainMenu={data.mainMenu}
               rMenu={data.rMenu}
               subMenu={data.subMenu}

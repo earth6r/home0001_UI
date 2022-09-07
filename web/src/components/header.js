@@ -115,7 +115,7 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
         <div className={`${showNav ? "h-full" : ""} flex container pb-0 w-full px-5 nav md:bg-transparent md:relative justify-between md:justify-center md:justify-between items-center content-center`}>
           <nav className="flex w-full justify-between md:hidden">
             <h1 className="md:hidden relative menu-earth-button">
-              <PageLink className={`${currentUri && currentUri.includes('/')  ? "": ""}`} to="/">
+              <PageLink className={`${currentUri && currentUri.includes('/')  ? "": ""}`} to="/collective">
                 <svg className="earth-svg blockx" width="47" height="11" viewBox="0 0 47 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M0.324219 11H8.23422V8.95598H2.70422V6.53399H7.40822V4.64398H2.70422V2.57198H8.13622V0.583984H0.324219V11Z" fill="#FF0000"/>
                   <path d="M9.38113 11H11.7751L12.4191 9.01198H16.1991L16.8571 11H19.3771L15.6111 0.583984H13.1331L9.38113 11ZM13.6231 5.35798C13.9591 4.33598 14.3231 2.58598 14.3231 2.58598H14.3511C14.3511 2.58598 14.5751 3.92999 15.0231 5.35798L15.6531 7.30398H12.9791L13.6231 5.35798Z" fill="#FF0000"/>
@@ -160,7 +160,7 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
               >
                 <li className="absolute md:relative left-0 top-0 pt-2">
                   <h1 className="menu-earth-button">
-                    <PageLink className={`${currentUri && currentUri.includes('/')  ? "": ""}`} onClick={onHideNav} to="/">
+                    <PageLink className={`${currentUri && currentUri.includes('/')  ? "": ""}`} onClick={onHideNav} to="/collective">
                       <svg className="earth-svg blockx" width="47" height="11" viewBox="0 0 47 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.324219 11H8.23422V8.95598H2.70422V6.53399H7.40822V4.64398H2.70422V2.57198H8.13622V0.583984H0.324219V11Z" fill="#FF0000"/>
                         <path d="M9.38113 11H11.7751L12.4191 9.01198H16.1991L16.8571 11H19.3771L15.6111 0.583984H13.1331L9.38113 11ZM13.6231 5.35798C13.9591 4.33598 14.3231 2.58598 14.3231 2.58598H14.3511C14.3511 2.58598 14.5751 3.92999 15.0231 5.35798L15.6531 7.30398H12.9791L13.6231 5.35798Z" fill="#FF0000"/>

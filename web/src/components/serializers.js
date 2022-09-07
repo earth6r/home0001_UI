@@ -76,6 +76,14 @@ const serializers = {
       );
     },
     mainImage: Figure,
+    articleImage: ({node}) => (
+      <div className="article-section-image">
+        {node.caption ? (
+          <span className="article-image-caption">{node.caption}</span>
+        ) : null}
+        <Figure node={node} />
+      </div>
+    )
   },
   marks: {
     image: ({mark,children}) => {

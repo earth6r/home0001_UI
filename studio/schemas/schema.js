@@ -14,7 +14,7 @@ import blockText from './blockText'
 import partner from './documents/partner'
 import siteSettings from './documents/siteSettings'
 
-//static pages
+// static pages
 import landing from './documents/landing'
 import home from './documents/home'
 // import homes from './documents/homes'
@@ -30,6 +30,7 @@ import bioPortableText from './objects/bioPortableText'
 import imagePortableText from './objects/imagePortableText'
 import listPortableText from './objects/listPortableText'
 import excerptPortableText from './objects/excerptPortableText'
+import articleImage from './objects/articleImage'
 import mainImage from './objects/mainImage'
 import flexImage from './objects/flexImage'
 import flexEdgetoEdge from './objects/flexEdgetoEdge'
@@ -59,8 +60,10 @@ import newCell from './objects/newCell'
 import accordion from './modules/accordion'
 import article from './modules/article'
 import articleItem from './modules/articleItem'
+import articleSection from './modules/articleSection'
 import accordionItem from './modules/accordionItem'
 import externalLink from './modules/externalLink'
+import heroRnd from './modules/heroRnd'
 import internalLink from './modules/internalLink'
 import metaCard from './modules/metaCard'
 import postCategory from './modules/postCategory'
@@ -97,7 +100,7 @@ export default createSchema({
     siteSettings,
     post,
     page,
-    //static pages
+    // static pages
     landing,
     home,
     about,
@@ -112,8 +115,10 @@ export default createSchema({
     category,
     author,
     article,
+    heroRnd,
     rnd,
     partner,
+    articleImage,
     mainImage,
     flexImage,
     flexEdgetoEdge,
@@ -147,6 +152,7 @@ export default createSchema({
     gallery,
     flexGallery,
     articleItem,
+    articleSection,
     metaCard,
     blockContent,
     blockText,
@@ -162,11 +168,11 @@ export default createSchema({
     richTableCell,
     viewSpacer,
 
-    newCell, 
+    newCell,
     newRow,
     rowLinkTable,
-    columnHeaderTable,
+    columnHeaderTable
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
-  ]),
+  ])
 })

@@ -314,8 +314,6 @@ const CheckoutTemplate = (props) => {
   const depositCounter = data.depositCounter.depositCounter
   const depositBlockImage = data.depositBlockImage.depositBlockImage
   const discountCodes = data.discountCodes.discountCodes
-   console.log("AARATI")
-   console.log(depositBlockImage)
   const ssr = typeof window === "undefined";
   const {
     main: { modules, slug },

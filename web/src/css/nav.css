@@ -1,4 +1,4 @@
-header{
+header {
   font-family: "NeueHaasGrotesk", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -9,7 +9,6 @@ header{
   text-align: center;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-
   color: #FF0000;
 }
 
@@ -51,11 +50,11 @@ nav .nav-box{
   padding-bottom:2px;
   height: 1.2rem;
 }
-.earth-svg svg{
+.earth-svg svg {
   width: auto;
   position: relative;
   top: 3px;
-  left:1px;
+  left: 1px;
 }
 .new-eelam-header{
   top: 1px;
@@ -106,7 +105,6 @@ nav .nav-box{
   to { transform: translateX(-50%); }
 }
 @media(max-width: 767px){
-  
   .info-menu-mobile{
     top:-3px;
   }
@@ -126,7 +124,6 @@ nav .nav-box{
   max-width: 50%;
  }
   .marquee-content span{
-    
     text-align:left;
     display: block;
     vertical-align: top;
@@ -305,6 +302,9 @@ footer{
 
 
 @media(max-width:767px){
+  .gradient-to-b3-mobile {
+    background: linear-gradient(0deg,hsla(0,0%,100%,0),hsla(0,0%,100%,.55) 20%, hsla(0,0%,100%,.75) 40%,hsla(0,0%,100%,.96) 75%,hsla(0,0%,100%,.99));
+  }
 
   .gradient-to-b2 {
     /* background: rgb(255, 255, 255); */

@@ -1,115 +1,160 @@
-import React, { useState, useEffect } from "react";
+// @ts-nocheck
+import React, { useEffect, useState } from "react";
 import ReactHtmlParser from "react-html-parser";
-import BlockContent from "@sanity/block-content-to-react";
-import { Serializer } from "./../utils/serializer";
-import {
-  Accordion,
-  AccordionItem,
-  AccordionHeader,
-  AccordionPanel,
-  AccordionButton,
-  AccordionIcon,
-} from "@chakra-ui/core";
-import { MdSouth } from "react-icons/md";
-import PortableText from "./portableText";
-import GridRow from "./grid/grid-row";
-import { navigate } from "@reach/router";
+import { Accordion, AccordionItem, AccordionHeader, AccordionPanel } from "@chakra-ui/core";
 import { RenderModules } from "../utils/renderModules";
 import Container from "./container";
+import Figure from "./Figure";
 
 export interface ArticleModuleProps {
   data: {
     title: any;
     articleItems: any[];
+    defaultNum: any;
   };
 }
 
-export const ArticleModule = ({ data }: AccordionModuleProps) => {
-  const { articleItems, title, defaultNum, loadNum } = data;
-  const [scrolled, setScrolled] = useState(true);
-  const [openArticle, setOpenArticle] = useState(false);
+export const ArticleModule = ({ data }: ArticleModuleProps) => {
+  const { articleItems, title, defaultNum } = data;
   const mew = defaultNum ? defaultNum : articleItems.length;
-  const [visible, setVisible] = useState(mew);
+  const [articlesImages, setArticlesImages] = useState(undefined);
+  const [expandedArticles, setExpandedArticles] = useState<Set<string>>(new Set());
+
   useEffect(() => {
-    
-        if (typeof window && window.location.href.includes("?article=")) {
-          let mySlug = window.location.href.split("?article=")[1].split("&")[0]; //remove url before and after 'article' parameter
+    if (typeof window && window.location.href.includes("?article=")) {
+      let mySlug = window.location.href.split("?article=")[1].split("&")[0]; //remove url before and after 'article' parameter
 
-          let el = document.getElementById(mySlug);
+      let el = document.getElementById(mySlug);
 
-          
+      if (el) {
+        //open the article
+        el.click();
 
-          if (el) {
-            //open the article
-            el.click();
-
-            //define function to scroll to article
-            function findAndScrollSlug(element) {
-              let deltaY = element.getBoundingClientRect().top;
-              window.scrollBy({top: deltaY, left: 0, behavior: "smooth" });
-            }
-            
-            //run timeout of 0 to have click take effect, then scroll to article when page layout is finished
-            setTimeout(function () {
-              if(document.readyState === "complete") {
-                setTimeout(function () {
-                  findAndScrollSlug(el);
-                }, 500);  
-              }
-              window.addEventListener("load", () => {
-                setTimeout(function () {
-                  findAndScrollSlug(el);
-                }, 500);  
-              });
-            }, 0);      
-          }
+        //define function to scroll to article
+        function findAndScrollSlug(element) {
+          let deltaY = element.getBoundingClientRect().top;
+          window.scrollBy({ top: deltaY, left: 0, behavior: "smooth" });
         }
-        
+
+        //run timeout of 0 to have click take effect, then scroll to article when page layout is finished
+        setTimeout(function() {
+          if (document.readyState === "complete") {
+            setTimeout(function() {
+              findAndScrollSlug(el);
+            }, 500);
+          }
+          window.addEventListener("load", () => {
+            setTimeout(function() {
+              findAndScrollSlug(el);
+            }, 500);
+          });
+        }, 0);
+      }
+    }
+
+    const images = [];
+    articleItems.forEach(articleItem => {
+      if (articleItem.mainImage) {
+        images.push({
+          articleId: articleItem._key,
+          image: articleItem.mainImage,
+          justify: Math.floor(Math.random() * 3)
+        });
+      }
+      articleItem.articleModule.forEach(module => {
+        if (module._type === "articleSection") {
+          if (module.mainImage) {
+            images.push({
+              articleId: articleItem._key,
+              image: module.mainImage,
+              justify: Math.floor(Math.random() * 3)
+            });
+          }
+
+          module.content.forEach(block => {
+            if (block._type === "articleImage") {
+              images.push({
+                articleId: articleItem._key,
+                image: block,
+                justify: Math.floor(Math.random() * 3)
+              });
+            }
+          });
+        }
       });
+    });
+
+    setArticlesImages(images);
+  }, []);
+
+  const onClickArticleImage = articleId => {
+    const article = document.getElementById(articleId);
+
+    if (article) {
+      article.click();
+    }
+  };
+
+  const onExpandItem = (articleId: string, isExpanded: boolean) => {
+    const newExpandedArticles = new Set(expandedArticles);
+    if (isExpanded) {
+      newExpandedArticles.add(articleId);
+
+      const article = document.getElementById(articleId);
+
+      if (article) {
+        article.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      newExpandedArticles.delete(articleId);
+    }
+
+    setExpandedArticles(newExpandedArticles);
+  };
+
   return (
     <>
       {title && <div className="md:text-desktopCaption">{title}</div>}
-      <Accordion allowMultiple={false} allowToggle className=" w-full">
+      <Accordion allowMultiple className="w-full flex flex-col gap-5">
         {articleItems.length > 0 &&
           articleItems.map((item, index) => (
             <React.Fragment key={item._key}>
               <AccordionItem
                 defaultIsOpen={
                   typeof window !== `undefined` && window.location.href.includes(item.customslug)
-                    ? false
+                    ? true
                     : false
                 }
-                className={`${index <= visible ? "block" : "hidden"} article-accordion `}
+                id={item._key}
+                onChange={(isExpanded: boolean) => onExpandItem(item._key, isExpanded)}
+                className={`${index <= mew ? "block" : "hidden"} article-accordion`}
               >
                 {({ isExpanded }) => (
                   <>
                     <AccordionHeader id={item._key}>
-                      <div
-                        className={`article-box relative flex items-start ${
-                          item.pagebreak ? "article-pagebreak" : ""
-                        }`}
-                      >
-                        <table className="w-full mr-5">
+                      <div className={`article-box relative flex items-start`}>
+                        <table className="w-full">
                           <tbody>
-                            {/* add -mb-1/4em in tr */}
-                            <tr className="flex flex-row md:justify-between">
-                              <td className="md:w-4/10">
+                            <tr className="flex flex-col md:flex-row md:justify-between gap-5 md:gap-0">
+                              <td className="md:w-1/5">
                                 <a id={item.customslug}>
-                                <div className="article-tag md:text-tagDt">{item.category}</div>
+                                  <div className="article-tag">{item.category}</div>
                                 </a>
                               </td>
-                              <td className="md:w-10/20 flex flex-col items-start ml-10 md:ml-0">
+                              <td className="md:w-4/5 flex flex-col items-start">
                                 <div className="article-titlebox flex flex-col md:flex-row items-start">
-                                  {/* <div className="flex flex-col flex-wrap"> */}
-                                  {/* add -mt-1/4em to div  */}
-                                  <div className="m-0 article-title relative normal-case md:text-articleTitle">
+                                  <div
+                                    className={`article-title relative normal-case ${
+                                      isExpanded ? "no-underline" : ""
+                                    }`}
+                                  >
                                     {ReactHtmlParser(item.title)}
                                   </div>
                                   {item.flag && (
                                     <div className="flag-box pl-0 md:pl-2">
                                       <div
                                         style={{
-                                          background: item.flagcolor ? item.flagcolor : "none",
+                                          background: item.flagcolor ? item.flagcolor : "none"
                                         }}
                                         className="flag-bg"
                                       >
@@ -123,73 +168,64 @@ export const ArticleModule = ({ data }: AccordionModuleProps) => {
                                     {item.subtitle}
                                   </div>
                                 )}
-                                {/* </div> */}
-                                {/* {item.flag && (
-                                  <div className="flag-box w-0 md:w-20 -m-2 items-start">
-                                    <div
-                                      style={{
-                                        background: item.flagcolor ? item.flagcolor : "none",
-                                      }}
-                                      className="flag-bg ml-2 invisible md:visible"
-                                    >
-                                      <div className="flag md:text-flagDt">{item.flag}</div>
-                                    </div>
-                                  </div>
-                                )} */}
                               </td>
                             </tr>
                           </tbody>
                         </table>
                       </div>
-                      {/* could become share butten*/}
-                      {/* {isExpanded && (
-                        <div
-                          onClick={function () {
-                            {
-                              item._key;
-                            }
-                          }}
-                          className="underline block w-full text-right md:text-desktopCaption"
-                        >
-                          SHARE
-                        </div>
-                      )} */}
                     </AccordionHeader>
                     <AccordionPanel className="text-tagRnd pb-1em ml-auto mr-auto article-container md:pl-0 md:pr-0">
                       <Container>
-                        <div className="">{RenderModules(item.articleModule)}</div>
+                        {item.mainImage ? (
+                          <>
+                            <div className="article-main-image">
+                              {item.mainImage.caption ? (
+                                <span className="article-image-caption">
+                                  {item.mainImage.caption}
+                                </span>
+                              ) : null}
+                              <Figure node={item.mainImage} />
+                            </div>
+                          </>
+                        ) : null}
+                        <div className="mt-6">{RenderModules(item.articleModule)}</div>
                       </Container>
                     </AccordionPanel>
-                    {isExpanded && (
-                      <AccordionHeader>
-                        <div
-                          onClick={function () {
-                            {
-                              item._key;
-                            }
-                          }}
-                          className="underline block w-full text-right md:text-desktopCaption"
-                        >
-                          CLOSE
-                        </div>
-                      </AccordionHeader>
-                    )}
                   </>
                 )}
               </AccordionItem>
-              {/* was this meant to add space between accordion items? */}
-              {/* <div>{index < articleItems.length - 1 && <GridRow></GridRow>}</div> */}
             </React.Fragment>
           ))}
-        {/* {defaultNum && loadNum && visible < articleItems.length - 1 && (
-          <div
-            onClick={() => setVisible(loadNum + visible)}
-            className="text-desktopCaption underline cursor-pointer"
-          >
-            MORE ↓
-          </div>
-        )} */}
       </Accordion>
+      <div className="flex flex-col gap-20 article-image-stream">
+        {articlesImages
+          ? articlesImages.map(({ articleId, image, justify }, index) => {
+              if (expandedArticles.has(articleId)) {
+                return null;
+              }
+
+              return (
+                <div
+                  className={`w-full flex ${
+                    justify === 0
+                      ? "justify-start"
+                      : justify === 1
+                      ? "justify-center"
+                      : "justify-end"
+                  }`}
+                  key={index}
+                >
+                  <div
+                    className="cursor-pointer md:w-1/2"
+                    onClick={() => onClickArticleImage(articleId)}
+                  >
+                    <Figure node={image} />
+                  </div>
+                </div>
+              );
+            })
+          : null}
+      </div>
     </>
   );
 };

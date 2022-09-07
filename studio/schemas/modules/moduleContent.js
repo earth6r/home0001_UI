@@ -7,6 +7,12 @@ export default {
       type: 'article',
     },
     {
+      type: 'articleSection',
+    },
+    {
+      type: 'heroRnd',
+    },
+    {
       type: 'flexGallery',
     },
     {

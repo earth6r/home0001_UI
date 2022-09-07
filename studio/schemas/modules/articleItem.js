@@ -3,56 +3,61 @@ export default {
   name: 'articleItem',
   type: 'object',
   fields: [
-  {
+    {
       name: 'internalTitle',
       title: 'Title for Internal Use',
-      type: 'string',
+      type: 'string'
     },
     {
       name: 'category',
       title: 'Article Category',
-      type: 'string',
+      type: 'string'
     },
     {
       name: 'title',
       title: 'Article Title',
-      type: 'string',
+      type: 'string'
     },
     {
       name: 'subtitle',
       title: 'Article Subtitle',
-      type: 'string',
+      type: 'string'
+    },
+    {
+      name: 'mainImage',
+      title: 'Main Image',
+      type: 'mainImage'
     },
     {
       name: 'flag',
       title: 'Article Flag',
-      type: 'string',
+      type: 'string'
     },
     {
       name: 'flagcolor',
       title: 'Flag Color Hex (#ffffff)',
-      type: 'string',
+      type: 'string'
     },
     {
       name: 'customslug',
       title: 'Fill this out if you want a custom url',
-      type: 'string',
+      type: 'string'
     },
     {
       name: 'articleModule',
       title: 'Article Module',
-      type: 'moduleContent',
+      type: 'moduleContent'
     },
     {
       name: 'pagebreak',
       title: 'Show Pagebreak before Article',
       initialValue: true,
-      type: 'boolean',
-    },
+      type: 'boolean'
+    }
   ],
   preview: {
     select: {
-      title: "internalTitle"
+      title: 'internalTitle'
     }
   }
 }

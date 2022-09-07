@@ -36,9 +36,9 @@ export const Image = ({
   let fluidProps;
   let svgProps;
 
-  if (imageId && !/gif/.test(imageId)) {
-    fluidProps = getFluidGatsbyImage(imageId, { maxWidth: width || 2400 }, sanityConfig);
-  }
+  // if (imageId && !/gif/.test(imageId)) {
+  //   fluidProps = getFluidGatsbyImage(imageId, { maxWidth: width || 2400 }, sanityConfig);
+  // }
 
   const y = useTransform(scrollY, [elementTop, elementTop + 2], [0.1 - randSpeed, 0.2], {
     clamp: false
@@ -73,8 +73,8 @@ export const Image = ({
       ) : (
         <img
           alt={alt}
-          imgStyle={{ objectFit: "contain", maxWidth: "none" }}
-          src={src ? src : undefined}
+          style={{ objectFit: "contain" }}
+          src={src}
           className={cx("x y block", {
             "is-loaded": loaded
           })}
