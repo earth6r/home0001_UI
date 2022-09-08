@@ -288,6 +288,9 @@ small {
     bottom:0;
     animation: 1s ease-out 15s 1 forwards slideInFromBottom;
   }
+  .mobile-logo-margin-left {
+    margin-left: 72px;
+  }
   .newsletter-popup-overlay{
   display: none;
 }

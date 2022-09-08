@@ -174,7 +174,7 @@ export const ArticleModule = ({ data }: ArticleModuleProps) => {
                         </table>
                       </div>
                     </AccordionHeader>
-                    <AccordionPanel className="text-tagRnd pb-1em ml-auto mr-auto article-container md:pl-0 md:pr-0">
+                    <AccordionPanel className="text-tagRnd pb-1em article-container md:pl-0 md:pr-0">
                       <Container>
                         {item.mainImage ? (
                           <>
