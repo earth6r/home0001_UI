@@ -2,7 +2,7 @@
 
 .r-d-menu{
   font-family: Arial, Helvetica, sans-serif;
-  padding: 1.5rem 0;
+  padding: 1.75rem 0;
 }
 .rnd-contact {
   margin-top: 33vh;
@@ -54,7 +54,6 @@
   align-items: center;
   /* set letter-spacing accoding to Johns notes to 0; */
   letter-spacing: 0em;
-
   color: #000000;
 }
 
@@ -68,8 +67,7 @@
 
 .earth-rnd-logo-mobile {
   display: none;
-
-  width: 47px;
+  width: 52px;
 }
 
 .earth-rnd-logo {
@@ -84,7 +82,7 @@
 
 .hero-rnd {
   height: 77vh;
-  margin-right: 20px;
+  margin-right: 24px;
   margin-top: 80px;
 
   @media (max-width: 768px) {
@@ -98,9 +96,12 @@
   position: relative;
   width: 80%;
   max-height: 100%;
-
+  overflow: hidden;
 }
-
+.r-d-menu-nav {
+  margin-left: 1.75rem !important;
+  margin-right: 1.75rem !important;
+}
 .hero-rnd-video::before {
   content: "";
   display: block;
@@ -132,8 +133,9 @@
 
 .hero-rnd-text {
   color: #ff0000;
-  font-size: max(32px, 4vw);
-  line-height: max(44.8px, 5vw);
+  font-size: max(28px, 4vw);
+  line-height: max(42px, 5vw);
+  z-index: 11;
   -webkit-text-stroke: 0.2px;
 }
 
@@ -185,6 +187,10 @@
   overflow-x: hidden;
 }
 
+.rte-rnd {
+  font-size: max(32px, 4vw) !important;
+  line-height: max(44.8px, 5vw) !important;
+}
 .rte.rte-large .article-accordion{
   border:none;
   font-family: Arial, sans-serif;
@@ -251,23 +257,25 @@
   font-size: 13px;
   line-height: 110%;
   letter-spacing: 0.03em;
-
-
   display:inline-flex;
   white-space: nowrap;
   margin-top: 0.45rem;
 }
 .article-tag{
-  padding-top: max(10px, 0.9vw);
+  padding-top: max(11px, 0.9vw);
 }
 .rte .article-accordion .article-tag{
-  font-size: max(10px, 0.9vw);
+  font-size: max(11px, 0.9vw);
   line-height: 110%;
   letter-spacing: 0.03em;
   @apply uppercase;
   display: flex;
 
   min-width: 5rem;
+}
+.article-container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 .article-container p {
   font-size: max(16px, 1.6vw) !important;
@@ -313,7 +321,12 @@
 
 }
 @media(max-width:767px){
+  .article-container {
+    margin-left: 72px;
+  }
+
   .article-accordion {
+    margin-right: 24px;
     -webkit-text-stroke: 0.2px;
   }
 
@@ -330,11 +343,14 @@
   }
 
   .r-d-menu {
+    padding: 1.25rem 0;
     -webkit-text-stroke: 0.2px;
   }
 
   .r-d-menu-nav {
     height: 100%;
+    margin-left: 1.25rem !important;
+    margin-right: 1.25rem !important;
   }
 
   .rnd-mobile-menu {

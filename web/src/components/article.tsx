@@ -135,7 +135,7 @@ export const ArticleModule = ({ data }: ArticleModuleProps) => {
                       <div className={`article-box relative flex items-start`}>
                         <table className="w-full">
                           <tbody>
-                            <tr className="flex flex-col md:flex-row md:justify-between gap-5 md:gap-0">
+                            <tr className="flex flex-row md:justify-between gap-5 md:gap-0">
                               <td className="md:w-1/5">
                                 <a id={item.customslug}>
                                   <div className="article-tag">{item.category}</div>
@@ -174,7 +174,7 @@ export const ArticleModule = ({ data }: ArticleModuleProps) => {
                         </table>
                       </div>
                     </AccordionHeader>
-                    <AccordionPanel className="text-tagRnd pb-1em ml-auto mr-auto article-container md:pl-0 md:pr-0">
+                    <AccordionPanel className="text-tagRnd pb-1em article-container md:pl-0 md:pr-0">
                       <Container>
                         {item.mainImage ? (
                           <>
