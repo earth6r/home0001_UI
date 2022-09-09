@@ -67,7 +67,7 @@
 
 .earth-rnd-logo-mobile {
   display: none;
-  width: 52px;
+  width: 58px;
 }
 
 .earth-rnd-logo {
@@ -75,9 +75,11 @@
 }
 
 .rnd-md-menu {
-  transform: rotate(90deg);
-  transform-origin: left top;
-  left: 100%;
+  right: 0;
+  transform: rotate(-90deg);
+  transform-origin: right;
+  margin-right: 5px;
+  margin-top: -5px;
 }
 
 .hero-rnd {
@@ -92,30 +94,13 @@
   }
 }
 
-.hero-rnd-video {
-  position: relative;
-  width: 80%;
-  max-height: 100%;
-  overflow: hidden;
-}
 .r-d-menu-nav {
   margin-left: 1.75rem !important;
   margin-right: 1.75rem !important;
 }
-.hero-rnd-video::before {
-  content: "";
-  display: block;
-  width: 100%;
-  padding-bottom: 56.25%;
-  height: 0;
-}
 
-.hero-rnd-video iframe {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+.hero-rnd-image > img {
+  max-width: 60%;
 }
 
 .hero-rnd-image figure {
@@ -133,10 +118,9 @@
 
 .hero-rnd-text {
   color: #ff0000;
-  font-size: max(28px, 4vw);
-  line-height: max(42px, 5vw);
+  font-size: max(20px, 4vw);
+  line-height: max(24px, 5vw);
   z-index: 11;
-  -webkit-text-stroke: 0.2px;
 }
 
 .lightbox-pdf{
@@ -188,8 +172,9 @@
 }
 
 .rte-rnd {
-  font-size: max(32px, 4vw) !important;
-  line-height: max(44.8px, 5vw) !important;
+  font-size: max(20px, 4vw) !important;
+  line-height: max(24px, 5vw) !important;
+  -webkit-text-stroke: 0.2px;
 }
 .rte.rte-large .article-accordion{
   border:none;
@@ -231,7 +216,7 @@
   letter-spacing: -0.33px;
   -webkit-font-smoothing: auto;
   text-decoration: underline;
-  text-underline-offset: max(10px, 1vw);
+  text-underline-offset: max(5px, 1vw);
 }
 .rte.rte-large .article-accordion .article-title:hover {
   text-decoration: none;
@@ -289,7 +274,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  transform: rotate(-90deg);
+  transform: rotate(90deg);
   transform-origin: left bottom;
 }
 .article-main-image .article-image-caption {
@@ -302,7 +287,10 @@
 .article-image-stream {
   margin-top: 96px;
 }
-
+.popup-button {
+  text-decoration: underline;
+  text-underline-offset: max(5px, 1vw);
+}
 .gallery-image iframe, .internal-iframe iframe{
   max-width:100%;
 }
@@ -318,7 +306,6 @@
   .px-special{
     padding:0 85px;
   }
-
 }
 @media(max-width:767px){
   .article-container {
@@ -327,7 +314,10 @@
 
   .article-accordion {
     margin-right: 24px;
-    -webkit-text-stroke: 0.2px;
+  }
+
+  .mobile-padding {
+    padding: 0 1rem;
   }
 
   .earth-rnd-logo {
@@ -344,13 +334,12 @@
 
   .r-d-menu {
     padding: 1.25rem 0;
-    -webkit-text-stroke: 0.2px;
   }
 
   .r-d-menu-nav {
     height: 100%;
-    margin-left: 1.25rem !important;
-    margin-right: 1.25rem !important;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
   }
 
   .rnd-mobile-menu {
@@ -359,10 +348,6 @@
 
   .rnd-contact {
     font-size: 6vw;
-  }
-
-  .rnd-footer {
-    -webkit-text-stroke: 0.2px;
   }
 
   .react-pdf__Page,.react-pdf__Page canvas{

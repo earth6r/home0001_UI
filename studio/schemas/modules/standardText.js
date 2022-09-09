@@ -6,22 +6,22 @@ export default {
   type: 'object',
   hidden: true,
   fields: [
-{
+    {
       name: 'internalTitle',
       title: 'Title for Internal Use',
-      type: 'string',
+      type: 'string'
     },
     {
       name: 'callibrationMark',
       title: 'Show Callibration Marks',
       default: true,
-      type: 'boolean',
+      type: 'boolean'
     },
     {
       name: 'cssClassInject',
       title: 'add css classes, like tailwind',
-      default: "",
-      type: 'string',
+      default: '',
+      type: 'string'
     },
     {
       name: 'text',
@@ -32,35 +32,35 @@ export default {
           title: 'Block',
           type: 'block',
           styles: [
-            { title: 'Normal', value: 'normal' },
-            { title: 'H1', value: 'h1' },
-            { title: 'H2', value: 'h2' },
-            { title: 'H3', value: 'h3' },
-            { title: 'H4', value: 'h4' },
-            { title: 'H5', value: 'h5' },
-            { title: 'H6', value: 'h6' },
-            { title: 'Quote', value: 'blockquote' },
+            {title: 'Normal', value: 'normal'},
+            {title: 'H1', value: 'h1'},
+            {title: 'H2', value: 'h2'},
+            {title: 'H3', value: 'h3'},
+            {title: 'H4', value: 'h4'},
+            {title: 'H5', value: 'h5'},
+            {title: 'H6', value: 'h6'},
+            {title: 'Quote', value: 'blockquote'}
           ],
           // Marks let you mark up inline text in the block editor.
           marks: {
             // Annotations can be any object structure – e.g. a link or a footnote.
             decorators: [
-              { value: 'strong', title: 'Strong' },
-              { value: 'italic', title: 'Italic' },
-              { value: 'underline', title: 'Underline' },
-              { value: 'code', title: 'Code' },
+              {value: 'strong', title: 'Strong'},
+              {value: 'italic', title: 'Italic'},
+              {value: 'underline', title: 'Underline'},
+              {value: 'code', title: 'Code'},
               {
                 title: 'Inline Snippet',
                 value: 'tick',
                 blockEditor: {
                   icon: () => 'T',
                   render: (props) => (
-                    <span style={{ backgroundColor: '#ccc', fontWeight: '300' }}>
+                    <span style={{backgroundColor: '#ccc', fontWeight: '300'}}>
                       {props.children}
                     </span>
-                  ),
-                },
-              },
+                  )
+                }
+              }
             ],
             annotations: [
               {
@@ -75,11 +75,11 @@ export default {
                     validation: Rule => Rule.uri({
                       scheme: ['http', 'https', 'mailto', 'tel']
                     })
-                  },
-                ],
+                  }
+                ]
               },
               {
-                name:'mapLink',
+                name: 'mapLink',
                 type: 'object',
                 title: 'Map Link',
                 fields: [
@@ -96,6 +96,23 @@ export default {
                 ]
               },
               {
+                name: 'contactPopup',
+                type: 'object',
+                title: 'Contact Popup',
+                fields: [
+                  {
+                    name: 'title',
+                    type: 'string',
+                    title: 'Title'
+                  },
+                  {
+                    name: 'subtitle',
+                    type: 'text',
+                    title: 'Subtitle'
+                  }
+                ]
+              },
+              {
                 name: 'currencyTranslatorUSDBTC',
                 type: 'object',
                 title: '$->BTC',
@@ -104,15 +121,15 @@ export default {
                     name: 'amountUSD',
                     title: 'Dollars',
                     type: 'number',
-                    description: "amount in usd to be displayed in bitcoin",
+                    description: 'amount in usd to be displayed in bitcoin'
                   },
                   {
                     name: 'decimalPlaces',
                     title: 'Decimal Places',
                     type: 'number',
-                    description: "positive for number of decimal places, negative for rounding zeros",
-                  },
-                ],
+                    description: 'positive for number of decimal places, negative for rounding zeros'
+                  }
+                ]
               },
               {
                 name: 'currencyTranslatorUSDETH',
@@ -123,15 +140,15 @@ export default {
                     name: 'amountUSD',
                     title: 'Dollars',
                     type: 'number',
-                    description: "amount in usd to be displayed in etherium",
+                    description: 'amount in usd to be displayed in etherium'
                   },
                   {
                     name: 'decimalPlaces',
                     title: 'Decimal Places',
                     type: 'number',
-                    description: "positive for number of decimal places, negative for rounding zeros",
-                  },
-                ],
+                    description: 'positive for number of decimal places, negative for rounding zeros'
+                  }
+                ]
               },
               {
                 name: 'internalLink',
@@ -143,30 +160,30 @@ export default {
                     type: 'reference',
                     title: 'Reference',
                     to: [
-                      { type: 'page' },
-                      { type: 'checkout' },
-                      { type: 'home' },
+                      {type: 'page'},
+                      {type: 'checkout'},
+                      {type: 'home'}
                       // other types you may want to link to
-                    ],
-                  },
-                ],
-              },
-            ],
+                    ]
+                  }
+                ]
+              }
+            ]
           },
-          of: [{ type: 'authorReference' }],
-          of: [{ type: 'partnerReference' }],
-        },
-      ],
-    },
+          of: [{type: 'authorReference'}],
+          of: [{type: 'partnerReference'}]
+        }
+      ]
+    }
   ],
   preview: {
     select: {
-      title: 'internalLink',
+      title: 'internalLink'
     },
-    prepare(selection) {
+    prepare (selection) {
       return Object.assign({}, selection, {
-        title: 'Standard Text',
+        title: 'Standard Text'
       })
-    },
-  },
+    }
+  }
 }

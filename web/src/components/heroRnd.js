@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import Figure from "./Figure";
-import YouTube from "react-youtube";
 
-const HeroRnd = ({ images, titles, videos }) => {
+const HeroRnd = ({ images, imageUrls, titles, showTitles }) => {
   const [selectedMedia, setSelectedMedia] = useState(undefined);
   const [selectedTitle, setSelectedTitle] = useState(undefined);
   const [mediaLeft, setMediaLeft] = useState(undefined);
@@ -11,26 +10,13 @@ const HeroRnd = ({ images, titles, videos }) => {
   const [textTop, setTextTop] = useState(undefined);
 
   useEffect(() => {
-    setSelectedMedia(Math.floor(Math.random() * (images.length + videos.length)));
+    setSelectedMedia(Math.floor(Math.random() * (images.length + imageUrls.length)));
     setSelectedTitle(Math.floor(Math.random() * titles.length));
     setMediaLeft(Math.floor(Math.random() * 3));
     setMediaTop(Math.floor(Math.random() * 3));
     setTextLeft(Math.floor(Math.random() * 3));
     setTextTop(Math.floor(Math.random() * 3));
   }, []);
-
-  const opts = {
-    playerVars: {
-      autoplay: 1,
-      controls: 0,
-      disablekb: 1,
-      iv_load_policy: 3,
-      loop: 1,
-      modestbranding: 1,
-      mute: 1,
-      playsinline: 1
-    }
-  };
 
   return (
     <div className="w-full relative hero-rnd">
@@ -43,18 +29,16 @@ const HeroRnd = ({ images, titles, videos }) => {
           } md:mr-10`}
         >
           {selectedMedia >= images.length ? (
-            <YouTube
-              videoId={videos[selectedMedia - images.length]}
-              opts={opts}
-              className="hero-rnd-video"
-              onReady={event => event.target.playVideo()} // In case autoplay doesn't work on mobile
-            />
+            <img src={imageUrls[selectedMedia - images.length]} alt="Hero Image" />
           ) : (
             <Figure node={images[selectedMedia]}></Figure>
           )}
         </div>
       ) : null}
-      {selectedTitle !== undefined && textLeft !== undefined && textTop !== undefined ? (
+      {showTitles &&
+      selectedTitle !== undefined &&
+      textLeft !== undefined &&
+      textTop !== undefined ? (
         <div
           className={`absolute hero-rnd-text uppercase w-full h-full flex ${
             textLeft === 0 ? "justify-start" : textLeft === 1 ? "justify-center" : "justify-end"

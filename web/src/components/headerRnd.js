@@ -51,7 +51,7 @@ const HeaderRnd = ({
             showNav ? "bg-white" : ""
           }`}
         >
-          <div className="flex justify-between relative">
+          <div className="flex justify-between items-start relative">
             <div className="r-d-tagline cursor-default">
               <PageLink onClick={onHideNav} to="/">
                 <div className="earth-rnd-logo">
@@ -63,7 +63,7 @@ const HeaderRnd = ({
               </PageLink>
             </div>
 
-            <div className="flex rnd-md-menu absolute top-0">
+            <div className="flex rnd-md-menu">
               {menu &&
                 menu.map((item, index) => (
                   <div key={index}>
@@ -86,9 +86,6 @@ const HeaderRnd = ({
           </div>
         </nav>
       </header>
-      <div
-        className={`fixed w-full rnd-header-fade gradient-to-b3-desktop pointer-events-none top-0 left-0`}
-      ></div>
     </>
   );
 };
