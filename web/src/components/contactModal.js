@@ -32,7 +32,7 @@ const ContactModal = ({ children, title, subtitle }) => {
           <ModalCloseButton />
           <ModalBody className="rnd-mailchimp py-6">
             {subtitle}
-            <MailChimpForm rnd={true} />
+            <MailChimpForm />
           </ModalBody>
         </ModalContent>
       </Modal>
