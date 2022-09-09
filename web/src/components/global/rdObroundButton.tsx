@@ -105,7 +105,7 @@ const RdObroundButton = ({
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody className="rnd-mailchimp py-6">
-            <MailChimpForm newsletter={modalSubtitle} rnd={true} signup={true} />
+            <MailChimpForm newsletter={modalSubtitle} rnd={true} />
           </ModalBody>
         </ModalContent>
       </Modal>
