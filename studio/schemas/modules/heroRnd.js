@@ -19,10 +19,9 @@ export default {
       ]
     },
     {
-      name: 'youtubeVideos',
-      title: 'YouTube Video IDs',
+      name: 'imageUrls',
+      title: 'External Image Urls',
       type: 'array',
-      description: 'Only insert the video ID of the youtube video needed',
       of: [
         {
           type: 'string'
@@ -39,6 +38,11 @@ export default {
         }
       ],
       validation: Rule => Rule.required()
+    },
+    {
+      name: 'showTitles',
+      title: 'Show titles on website',
+      type: 'boolean'
     }
   ],
   preview: {

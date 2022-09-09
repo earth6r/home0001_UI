@@ -90,8 +90,9 @@ export const Modules = ({
         <>
           <HeroRnd
             images={reactModule.images ?? []}
+            imageUrls={reactModule.imageUrls ?? []}
             titles={reactModule.titles ?? []}
-            videos={reactModule.youtubeVideos ?? []}
+            showTitles={reactModule.showTitles}
           />
           {reactModule.callibrationMark ? <GridRow></GridRow> : <div className="w-full py-3"></div>}
         </>

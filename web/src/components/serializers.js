@@ -9,6 +9,7 @@ import { PageLink } from "./link";
 import PdfReader from "./global/pdfReader";
 
 import ReactHtmlParser from "react-html-parser";
+import ContactModal from './contactModal';
 
 const serializers = {
   types: {
@@ -151,6 +152,18 @@ const serializers = {
               lat={mark.lat}
               long={mark.long}
             />
+      )
+    },
+    contactPopup:({ mark, children }) => {
+      return (
+        <>
+          <ContactModal
+            title={mark.title}
+            subtitle={mark.subtitle}
+          >
+            {children}
+          </ContactModal>
+        </>
       )
     },
     partner: ({ mark, children }) => <div>partner</div>,
