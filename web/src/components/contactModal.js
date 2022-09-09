@@ -22,11 +22,13 @@ const ContactModal = ({ children, title, subtitle }) => {
       <Modal isOpen={isOpen} onClose={onClose} isCentered finalFocusRef={createRef()}>
         <ModalOverlay opacity={0.75} />
         <ModalContent className="rounded-md">
-          <ModalHeader className="font-normal mb-0">
-            <h5 style={{ color: "black" }} className="uppercase text-base">
-              {title}
-            </h5>
-          </ModalHeader>
+          {title && title !== "" ? (
+            <ModalHeader className="font-normal mb-0">
+              <h5 style={{ color: "black" }} className="uppercase text-base">
+                {title}
+              </h5>
+            </ModalHeader>
+          ) : null}
           <ModalCloseButton />
           <ModalBody className="rnd-mailchimp py-6">
             {subtitle}
