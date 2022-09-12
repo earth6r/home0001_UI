@@ -13,14 +13,19 @@ import {
 import GridRow from "./grid/grid-row";
 
 export default class MailChimpForm extends React.Component {
-  constructor(rnd = false) {
+  constructor(rnd = false, signup = false) {
     super();
-    this.state = { email: "", result: {}, msg: "" };
+    this.state = { email: "", result: {}, msg: "", signup };
   }
 
   _handleSubmit = async e => {
     e.preventDefault();
-    const result = await addToMailchimp(this.state.email);
+    let result;
+    if (this.state.signup) {
+      result = await addToMailchimp(this.state.email, {}, process.env.MAILCHIMP_SIGNUP_ENDPOINT);
+    } else {
+      result = await addToMailchimp(this.state.email);
+    }
 
     this.setState({ result: result.result });
     this.setState({ msg: result.msg });
@@ -31,7 +36,7 @@ export default class MailChimpForm extends React.Component {
   };
 
   render() {
-    const { newsletter, rnd } = this.props;
+    const { newsletter, rnd, signup } = this.props;
     return this.state.result === "success" ? (
       <>
         <h3 className="text-mobileLarge md:text-desktopBody">
@@ -63,7 +68,7 @@ export default class MailChimpForm extends React.Component {
               onChange={this.handleChange}
               type="email"
               id="email"
-              className="rounded-md mx-0 pl-1/2em w-full pt-0"
+              className="rounded-md mx-0 pl-1/2em w-full pt-0 input-margin-top"
               required
               placeholder="Email address"
               aria-describedby="email-helper-text"
@@ -71,7 +76,6 @@ export default class MailChimpForm extends React.Component {
           </FormControl>
           {rnd ? (
             <Button
-              style={{ height: "3em" }}
               mt={4}
               type="submit"
               className="bg-black text-desktopNav rounded-full normal-case w-full text-white"

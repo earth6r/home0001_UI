@@ -19,12 +19,23 @@ export default {
       ]
     },
     {
-      name: 'imageUrls',
-      title: 'External Image Urls',
+      name: 'youtubeVideos',
+      title: 'YouTube Video IDs',
       type: 'array',
+      description: 'Only insert the video ID of the youtube video needed',
       of: [
         {
           type: 'string'
+        }
+      ]
+    },
+    {
+      name: 'thumbnails',
+      title: 'Video Thumbnails',
+      type: 'array',
+      of: [
+        {
+          type: 'mainImage'
         }
       ]
     },

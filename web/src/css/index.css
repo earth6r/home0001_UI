@@ -294,9 +294,9 @@ small {
   .newsletter-popup-overlay{
   display: none;
 }
-  input:not(.e-checkout), textarea, select,form button, button[type="submit"]{
+  /* input:not(.e-checkout), textarea, select,form button, button[type="submit"]{
     height:3em;
-  }
+  } */
   #page-content-wrapper .earth-svg{
     /* top: -1px;
     position: relative; */
