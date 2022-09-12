@@ -60,12 +60,11 @@ const HeroRnd = ({ images, thumbnails, titles, showTitles, videos }) => {
                   // In case autoplay doesn't work on mobile
                   event.target.playVideo();
                 }}
-                style={showThumbnail ? { visibility: "hidden" } : undefined}
                 onPlay={() => {
                   // Hide thumbnail after video is playing
                   setTimeout(() => {
                     setShowThumbnail(false);
-                  }, 5500);
+                  }, 5000);
                 }}
                 onStateChange={event => {
                   event.target.playVideo();
