@@ -32,7 +32,7 @@
 }
 .r-d-nav-text-desktop{
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 16px;
   line-height: 110%;
   /* or 15px */
@@ -83,20 +83,68 @@
 }
 
 .hero-rnd {
-  height: 77vh;
+  height: 70vh;
   margin-right: 24px;
   margin-top: 80px;
 
   @media (max-width: 768px) {
-    height: 40vh;
+    height: 35vh;
     margin-top: 60px;
     margin-right: 0;
   }
 }
 
+.hero-rnd-container {
+  margin: 0 -1.75rem;
+  width: 100vw !important;
+}
+
+.hero-rnd-video {
+  position: relative;
+  width: 70%;
+  max-height: 100%;
+  overflow: hidden;
+  filter: grayscale(1);
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+}
+
+.hero-rnd-video-thumbnail {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  filter: grayscale(1);
+  z-index: 2;
+}
+
+.hero-rnd-video-thumbnail figure {
+  height: 100%;
+  width: 100%;
+}
+
 .r-d-menu-nav {
   margin-left: 1.75rem !important;
   margin-right: 1.75rem !important;
+}
+
+.hero-rnd-video::before {
+  content: "";
+  display: block;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.hero-rnd-video iframe {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .hero-rnd-image > img {
@@ -404,20 +452,24 @@
   font-family: FolioBT;
   font-size: 0.75rem !important;
 }
-
 .info-rd a{
   margin-bottom: 1.5rem;
   text-decoration: underline;
 }
 .rnd-mailchimp input {
   font-size: .875rem !important;
-
   padding: 1.5em 0.5em !important;
   display: flex !important;
 }
-
+.input-margin-top {
+  margin-top: 1rem !important;
+}
+form button[type="submit"], form input {
+  height: 52px !important;
+  font-size: 1rem !important;
+}
 .rnd-mailchimp form button,.rnd-mailchimp button[type="submit"]{
-  display:flex;
+  display: flex;
   line-height: 1.125rem !important;
 }
 .rnd-mailchimp form p{
