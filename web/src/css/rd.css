@@ -83,12 +83,12 @@
 }
 
 .hero-rnd {
-  height: 70vh;
+  height: min(50vw, 1000px);
   margin-right: 24px;
   margin-top: 80px;
 
   @media (max-width: 768px) {
-    height: 35vh;
+    height: 75vw;
     margin-top: 60px;
     margin-right: 0;
   }
