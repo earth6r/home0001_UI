@@ -65,7 +65,10 @@ const HeroRnd = ({ images, thumbnails, titles, showTitles, videos }) => {
                   // Hide thumbnail after video is playing
                   setTimeout(() => {
                     setShowThumbnail(false);
-                  }, 4500);
+                  }, 5500);
+                }}
+                onStateChange={event => {
+                  event.target.playVideo();
                 }}
               />
             </div>
@@ -81,11 +84,9 @@ const HeroRnd = ({ images, thumbnails, titles, showTitles, videos }) => {
       textLeft !== undefined &&
       textTop !== undefined ? (
         <div
-          className={`absolute hero-rnd-text uppercase w-full h-full flex ${
+          className={`absolute hero-rnd-text uppercase h-full flex ${
             textLeft === 0 ? "justify-start" : textLeft === 1 ? "justify-center" : "justify-end"
-          } ${
-            textTop === 0 ? "items-start" : textTop === 1 ? "items-center" : "items-end"
-          } md:mr-10`}
+          } ${textTop === 0 ? "items-start" : textTop === 1 ? "items-center" : "items-end"}`}
         >
           <div>{titles[selectedTitle]}</div>
         </div>
