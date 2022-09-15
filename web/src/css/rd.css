@@ -12,19 +12,20 @@
   padding: 0 1.75rem;
   top: 50%;
   transform: translateY(-50%);
+  -webkit-text-stroke: 0.2px;
 
   @media (max-width: 768px) {
     padding: 0 1.25rem;
   }
 }
 .rnd-contact a {
-  color: red;
+  color: black;
   text-decoration: underline;
   text-underline-offset: max(5px, 1vw);
   text-decoration-thickness: max(2.5px, 0.5vw);
 }
 .rnd-contact a:hover {
-  color: red !important;
+  color: black !important;
 }
 .rnd-footer {
   font-family: Arial, Helvetica, sans-serif;
