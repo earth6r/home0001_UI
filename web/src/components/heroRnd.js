@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Figure from "./Figure";
 import YouTube from "react-youtube";
+import { imageUrlFor } from '../lib/image-url';
 
 const HeroRnd = ({ images, thumbnails, titles, showTitles, videos }) => {
   const [selectedMedia, setSelectedMedia] = useState(undefined);
-  const [selectedThumbail, setSelectedThumbnail] = useState(undefined);
+  const [selectedThumbnail, setSelectedThumbnail] = useState(undefined);
   const [selectedTitle, setSelectedTitle] = useState(undefined);
   const [mediaLeft, setMediaLeft] = useState(undefined);
   const [mediaTop, setMediaTop] = useState(undefined);
@@ -49,7 +50,7 @@ const HeroRnd = ({ images, thumbnails, titles, showTitles, videos }) => {
             <div className="hero-rnd-video">
               {thumbnails.length && showThumbnail ? (
                 <div className="hero-rnd-video-thumbnail">
-                  <Figure node={thumbnails[selectedThumbail]}></Figure>
+                  <img src={imageUrlFor(thumbnails[selectedThumbnail]).url()} alt={thumbnails[selectedThumbnail].caption} />
                 </div>
               ) : null}
 
@@ -66,7 +67,10 @@ const HeroRnd = ({ images, thumbnails, titles, showTitles, videos }) => {
                     setShowThumbnail(false);
                   }, 5000);
                 }}
-                onStateChange={event => {
+                onError={event => {
+                  setShowThumbnail(true);
+                }}
+                onPause={event => {
                   event.target.playVideo();
                 }}
               />

@@ -63,7 +63,7 @@ const SpecButton = ({ title, url, color, float = true, callibrationMark, specs }
             className="rounded-lg"
           >
             <ModalOverlay onClick={onClose} opacity={0.75} />
-            <ModalContent className="rounded-lg mx-mobile max-w-special md:mx-desktop">
+            <ModalContent className="mx-mobile max-w-special md:mx-desktop">
               <ModalCloseButton zIndex={10} />
               <ModalBody className="rounded-lg">
                 {specs[0]._type === 'richTable' && specs.map((spec) => <RichTable key={spec._key} data={spec} />)}

@@ -21,7 +21,7 @@ const ContactModal = ({ children, title, subtitle }) => {
       </span>
       <Modal isOpen={isOpen} onClose={onClose} isCentered finalFocusRef={createRef()}>
         <ModalOverlay opacity={0.75} />
-        <ModalContent className="rounded-md">
+        <ModalContent>
           {title && title !== "" ? (
             <ModalHeader className="font-normal mb-0">
               <h5 style={{ color: "black" }} className="uppercase text-base">

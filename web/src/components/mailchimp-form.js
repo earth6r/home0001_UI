@@ -68,7 +68,7 @@ export default class MailChimpForm extends React.Component {
               onChange={this.handleChange}
               type="email"
               id="email"
-              className="rounded-md mx-0 pl-1/2em w-full pt-0 input-margin-top"
+              className="mx-0 pl-1/2em w-full pt-0 input-margin-top"
               required
               placeholder="Email address"
               aria-describedby="email-helper-text"
@@ -78,12 +78,12 @@ export default class MailChimpForm extends React.Component {
             <Button
               mt={4}
               type="submit"
-              className="bg-black text-desktopNav rounded-full normal-case w-full text-white"
+              className="bg-black text-desktopNav normal-case w-full text-white"
             >
               Sign Up
             </Button>
           ) : (
-            <Button mt={4} type="submit" className="bg-black rounded-md w-full text-white">
+            <Button mt={4} type="submit" className="bg-black w-full text-white">
               Submit
             </Button>
           )}

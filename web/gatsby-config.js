@@ -55,6 +55,14 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /earth-rnd-logo.*\.svg/,
+        }
+      }
+    },
+    {
       resolve: `gatsby-plugin-facebook-pixel`,
       options: {
         pixelId: "1778055882368765"
