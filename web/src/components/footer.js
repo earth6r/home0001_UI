@@ -91,7 +91,7 @@ const Footer = ({ footerMenu, newsletter, showPopupNewsletter, blackFooter }) =>
       </footer>
       <Modal className="rounded-md" isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay opacity={0.75} />
-        <ModalContent className="rounded-md">
+        <ModalContent>
           <ModalHeader className="font-normal mb-0 pb-0">
             <h5 className=" text-mobileCaption md:text-desktopCaption mt-1/4em uppercase">
               Newsletter

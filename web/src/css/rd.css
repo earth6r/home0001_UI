@@ -5,11 +5,23 @@
   padding: 1.75rem 0;
 }
 .rnd-contact {
-  margin-top: 33vh;
-  font-size: 4vw;
+  font-size: max(20px, 4vw) !important;
+  line-height: max(24px, 5vw) !important;
+  position: absolute;
+  left: 0;
+  padding: 0 1.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+
+  @media (max-width: 768px) {
+    padding: 0 1.25rem;
+  }
 }
 .rnd-contact a {
   color: red;
+  text-decoration: underline;
+  text-underline-offset: max(5px, 1vw);
+  text-decoration-thickness: max(2.5px, 0.5vw);
 }
 .rnd-contact a:hover {
   color: red !important;
@@ -32,7 +44,7 @@
 }
 .r-d-nav-text-desktop{
   font-style: normal;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 16px;
   line-height: 110%;
   /* or 15px */
@@ -80,10 +92,11 @@
   transform-origin: right;
   margin-right: 5px;
   margin-top: -5px;
+  -webkit-text-stroke: 0.2px;
 }
 
 .hero-rnd {
-  height: min(50vw, 1000px);
+  height: min(45vw, 1000px);
   margin-right: 24px;
   margin-top: 80px;
 
@@ -122,7 +135,7 @@
   background-color: white;
 }
 
-.hero-rnd-video-thumbnail figure {
+.hero-rnd-video-thumbnail img {
   height: 100%;
   width: 100%;
 }
@@ -342,14 +355,10 @@
 .popup-button {
   text-decoration: underline;
   text-underline-offset: max(5px, 1vw);
+  text-decoration-thickness: max(2.5px, 0.5vw);
 }
 .gallery-image iframe, .internal-iframe iframe{
   max-width:100%;
-}
-
-.standard-text p a{
-  border-bottom:2px solid;
-  padding-right: 0.0625rem;
 }
 .standard-text h1 > a {
   border-bottom:5px solid;
@@ -471,6 +480,9 @@
 form button[type="submit"], form input {
   height: 52px !important;
   font-size: 1rem !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border: 1px solid black !important;
 }
 .rnd-mailchimp form button,.rnd-mailchimp button[type="submit"]{
   display: flex;

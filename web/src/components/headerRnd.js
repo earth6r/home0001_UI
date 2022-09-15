@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { PageLink } from "../components/link";
-import EarthLogo from "../components/images/earth-rnd-logo.png";
-import EarthLogoMobile from "../components/images/earth-rnd-logo-mobile.png";
+import EarthLogo from "../components/images/logos/earth-rnd-logo.svg";
+import EarthLogoMobile from "../components/images/logos/earth-rnd-logo-mobile.svg";
 
 // this is the floating header for the R & D site
 const HeaderRnd = ({
@@ -55,10 +55,10 @@ const HeaderRnd = ({
             <div className="r-d-tagline cursor-default">
               <PageLink onClick={onHideNav} to="/">
                 <div className="earth-rnd-logo">
-                  <img src={EarthLogo} alt="Earth Logo" />
+                  <EarthLogo />
                 </div>
                 <span className="earth-rnd-logo-mobile">
-                  <img src={EarthLogoMobile} alt="Earth Logo" />
+                  <EarthLogoMobile />
                 </span>
               </PageLink>
             </div>
