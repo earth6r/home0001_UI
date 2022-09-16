@@ -44,7 +44,7 @@ const HeroRnd = ({ images, thumbnails, titles, showTitles, videos }) => {
             mediaLeft === 0 ? "justify-start" : mediaLeft === 1 ? "justify-center" : "justify-end"
           } ${
             mediaTop === 0 ? "items-start" : mediaTop === 1 ? "items-center" : "items-end"
-          } md:mr-10`}
+          }`}
         >
           {selectedMedia >= images.length ? (
             <div className="hero-rnd-video">
@@ -61,17 +61,21 @@ const HeroRnd = ({ images, thumbnails, titles, showTitles, videos }) => {
                   // In case autoplay doesn't work on mobile
                   event.target.playVideo();
                 }}
-                onPlay={() => {
-                  // Hide thumbnail after video is playing
-                  setTimeout(() => {
-                    setShowThumbnail(false);
-                  }, 5000);
-                }}
                 onError={event => {
                   setShowThumbnail(true);
                 }}
-                onPause={event => {
-                  event.target.playVideo();
+                onStateChange={event => {
+                  // Check if video playing
+                  if (event && event.data === 1) {
+                    // Hide thumbnail after video is playing
+                    setTimeout(() => {
+                      setShowThumbnail(false);
+                    }, 5000);
+                  } else {
+                    // Try to play video and show thumbnail
+                    event.target.playVideo();
+                    setShowThumbnail(true);
+                  }
                 }}
               />
             </div>
