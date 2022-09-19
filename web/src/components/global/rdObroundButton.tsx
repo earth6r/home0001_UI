@@ -42,11 +42,11 @@ const RdObroundButton = ({
   if (url !== undefined) {
     switch (url._type) {
       case "home":
-        uri = "/home";
+        uri = "/homes/locations";
         //   alert("set home");
         break;
       case "checkout":
-        uri = "/checkout";
+        uri = "/homes/checkout";
         break;
       default:
         uri = "";
@@ -55,7 +55,7 @@ const RdObroundButton = ({
   }
 
   if (linkHome) {
-    myUrl = "/collective";
+    myUrl = "/homes";
   } else if (linkRnd) {
     myUrl = "/";
   } else {

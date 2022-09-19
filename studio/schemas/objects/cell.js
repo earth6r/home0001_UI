@@ -1,5 +1,3 @@
-import safeGet from 'lodash/get'
-
 export default {
   title: 'Table Cell',
   name: 'richTableCell',
@@ -7,29 +5,34 @@ export default {
   fields: [
     {
       name: 'value',
-      type: 'string',
+      type: 'string'
     },
     {
       name: 'link',
       title: 'Link (optional)',
       type: 'reference',
-      to: [{ type: 'page' }, { type: 'post' }],
+      to: [{type: 'page'}, {type: 'post'}]
     },
     {
       name: 'url',
       title: 'Use this, not link, for now',
       type: 'url',
-    },
+      validation: (Rule) =>
+        Rule.uri({
+          allowRelative: true,
+          scheme: ['https', 'http', 'mailto', 'tel']
+        })
+    }
   ],
   preview: {
     select: {
-      value: 'value',
+      value: 'value'
     },
-    prepare({ value }) {
+    prepare ({value}) {
       const txt = value
       return {
-        title: txt,
+        title: txt
       }
-    },
-  },
+    }
+  }
 }

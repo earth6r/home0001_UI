@@ -13,17 +13,17 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
   const menu = mainMenu !== undefined ? mainMenu.edges[0].node.items : null;
   const submenu = subMenu && subMenu.edges[0] !== undefined ? subMenu.edges[0].node.items : null;
   const menuFooter = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
- 
+
   let currentUri = ""
   let uri = "";
   if (bannerUrl !== undefined && bannerUrl !== null) {
     switch (bannerUrl._type) {
       case "home":
-        uri = "/home";
+        uri = "/homes/locations";
         //   alert("set home");
         break;
       case "checkout":
-        uri = "/checkout";
+        uri = "/homes/checkout";
         break;
       default:
         uri = "";
@@ -62,7 +62,7 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
     if(!currentUri){
       currentUri = window.location.href.split("https://")[1]
     }
-    
+
     if(currentUri){
       let stringLength = currentUri.length
        if(currentUri.charAt(stringLength - 1) =="/"){
@@ -88,7 +88,7 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
           setForwarder('new-eelam');
         }
       }
-  
+
       if(sessionStorage.getItem('forwarder') && sessionStorage.getItem('forwarder') == 'new-eelam') {
         setForwarder('new-eelam');
       }
@@ -109,13 +109,13 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
           }
         </div></div></div></div>
     }
-      
+
 
       <header className={`${showThinBanner && thinBanner ? "mt-16 md:mt-8" : "" } ${blackHeader ? "black-header ":""} ${showNav ? "z-70 ":"z-50"} fixed w-full left-0`}>
         <div className={`${showNav ? "h-full" : ""} flex container pb-0 w-full px-5 nav md:bg-transparent md:relative justify-between md:justify-center md:justify-between items-center content-center`}>
           <nav className="flex w-full justify-between md:hidden">
             <h1 className="md:hidden relative menu-earth-button">
-              <PageLink className={`${currentUri && currentUri.includes('/')  ? "": ""}`} to="/collective">
+              <PageLink className={`${currentUri && currentUri.includes('/')  ? "": ""}`} to="/homes">
                 <svg className="earth-svg blockx" width="47" height="11" viewBox="0 0 47 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M0.324219 11H8.23422V8.95598H2.70422V6.53399H7.40822V4.64398H2.70422V2.57198H8.13622V0.583984H0.324219V11Z" fill="#FF0000"/>
                   <path d="M9.38113 11H11.7751L12.4191 9.01198H16.1991L16.8571 11H19.3771L15.6111 0.583984H13.1331L9.38113 11ZM13.6231 5.35798C13.9591 4.33598 14.3231 2.58598 14.3231 2.58598H14.3511C14.3511 2.58598 14.5751 3.92999 15.0231 5.35798L15.6531 7.30398H12.9791L13.6231 5.35798Z" fill="#FF0000"/>
@@ -150,8 +150,8 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
 
           <nav
           className={`
-          ${showThinBanner && thinBanner ? "mt-16 md:mt-4" : "" } 
-          ${showNav ? "block z-40 bg-white md:shadow-none transition-none" : "hidden"} 
+          ${showThinBanner && thinBanner ? "mt-16 md:mt-4" : "" }
+          ${showNav ? "block z-40 bg-white md:shadow-none transition-none" : "hidden"}
           fixed md:relative top-0 left-0 w-full md:block h-full`}>
             <div className="nav-box mx-mobile md:mx-0">
               <ul
@@ -160,7 +160,7 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
               >
                 <li className="absolute md:relative left-0 top-0 pt-2">
                   <h1 className="menu-earth-button">
-                    <PageLink className={`${currentUri && currentUri.includes('/')  ? "": ""}`} onClick={onHideNav} to="/collective">
+                    <PageLink className={`${currentUri && currentUri.includes('/')  ? "": ""}`} onClick={onHideNav} to="/homes">
                       <svg className="earth-svg blockx" width="47" height="11" viewBox="0 0 47 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.324219 11H8.23422V8.95598H2.70422V6.53399H7.40822V4.64398H2.70422V2.57198H8.13622V0.583984H0.324219V11Z" fill="#FF0000"/>
                         <path d="M9.38113 11H11.7751L12.4191 9.01198H16.1991L16.8571 11H19.3771L15.6111 0.583984H13.1331L9.38113 11ZM13.6231 5.35798C13.9591 4.33598 14.3231 2.58598 14.3231 2.58598H14.3511C14.3511 2.58598 14.5751 3.92999 15.0231 5.35798L15.6531 7.30398H12.9791L13.6231 5.35798Z" fill="#FF0000"/>
@@ -180,10 +180,10 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
                     menu.map((item, index) => (
                       <li onClick={onHideNav} className="md:hidden mt-6em  mx-auto" key={item._key}>
                         <PageLink
-                        className={` md:pt-1/2em pt-1em pb-1/2em block cursor-pointer text-mobileNav`} 
+                        className={` md:pt-1/2em pt-1em pb-1/2em block cursor-pointer text-mobileNav`}
                         onClick={onHideNav}
                         to={`/${item.link.content.main.slug.current}`}>
-                          <span className={`${currentUri && currentUri.includes(item.link.content.main.slug.current) || (currentUri && currentUri.includes('homes') && item.link.content.main.slug.current.includes("home")) ? "current-nav-link "+item.link.content.main.slug.current : " "}`}>{item.title}</span>
+                          <span className={`${currentUri && currentUri.includes(item.link.content.main.slug.current) || (currentUri && currentUri.includes('locations') && item.link.content.main.slug.current.includes("locations")) ? "current-nav-link homes" : " "}`}>{item.title}</span>
                         </PageLink>
                       </li>
                     ))}
@@ -193,7 +193,7 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
                   menu.map((item, index) => (
                     <li className="hidden md:block" key={item._key}>
                       <PageLink
-                        className={`${currentUri && currentUri.includes(item.link.content.main.slug.current) || (currentUri && currentUri.includes('homes') && item.link.content.main.slug.current.includes("home")) ? "current-nav-link "+item.link.content.main.slug.current : " "} md:pt-1/2em inline-block`} 
+                        className={`${currentUri && currentUri.includes(item.link.content.main.slug.current) || (currentUri && currentUri.includes('locations') && item.link.content.main.slug.current.includes("locations")) ? "current-nav-link homes" : " "} md:pt-1/2em inline-block`}
                         onClick={onHideNav}
                         to={`/${item.link.content.main.slug.current}`}
                       >
@@ -202,7 +202,7 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
                     </li>
                   ))}
               </ul>
-              
+
             </div>
           </nav>
         </div>

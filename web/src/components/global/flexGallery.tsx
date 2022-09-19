@@ -119,11 +119,11 @@ const FlexGallery = props => {
 
               switch (image.link._type) {
                 case "home":
-                  uri = "/home";
+                  uri = "/homes/locations";
                   //   alert("set home");
                   break;
                 case "checkout":
-                  uri = "/checkout";
+                  uri = "/homes/checkout";
                   break;
                 default:
                   uri = "";
@@ -282,10 +282,10 @@ const FlexGallery = props => {
           if (link !== undefined && title) {
             switch (link._type) {
               case "home":
-                uri = "/home";
+                uri = "/homes/locations";
                 break;
               case "checkout":
-                uri = "/checkout";
+                uri = "/homes/checkout";
                 break;
               default:
                 uri = "/";

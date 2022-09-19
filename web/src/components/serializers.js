@@ -177,7 +177,7 @@ const serializers = {
             <PageLink
               className="internal-link"
               title={mark.reference.content.main.title}
-              to={`/home/${mark.reference.content.main.slug.current}`}
+              to={`/homes/locations/${mark.reference.content.main.slug.current}`}
             >
               {children}
             </PageLink>
@@ -187,7 +187,7 @@ const serializers = {
             <PageLink
               className="internal-link"
               title={mark.reference.content.main.title}
-              to={`/checkout/${mark.reference.content.main.slug.current}`}
+              to={`/homes/checkout/${mark.reference.content.main.slug.current}`}
             >
               {children}
             </PageLink>
@@ -212,7 +212,7 @@ const serializers = {
             <PageLink
               className="internal-link"
               title=""
-              to={`/collective`}
+              to={`/homes`}
             >
               {children}
             </PageLink>
