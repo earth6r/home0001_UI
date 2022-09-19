@@ -18,19 +18,24 @@ export default {
       name: 'link',
       title: 'Link (optional)',
       type: 'reference',
-      to: [{ type: 'page' }, { type: 'post' }]
+      to: [{type: 'page'}, {type: 'post'}]
     },
     {
       name: 'url',
       title: 'Use this, not link, for now',
-      type: 'url'
+      type: 'url',
+      validation: (Rule) =>
+        Rule.uri({
+          allowRelative: true,
+          scheme: ['https', 'http', 'mailto', 'tel']
+        })
     },
     {
       title: 'Hide on Mobile?',
       name: 'hideMobile',
       type: 'boolean',
       options: {
-        isHighlighted: true,
+        isHighlighted: true
       }
     },
     {
@@ -38,15 +43,15 @@ export default {
       name: 'hideTablet',
       type: 'boolean',
       options: {
-        isHighlighted: true,
+        isHighlighted: true
       }
-    },
+    }
   ],
   preview: {
     select: {
       value: 'desktopText'
     },
-    prepare({ value }) {
+    prepare ({value}) {
       const txt = value
       return {
         title: txt

@@ -121,7 +121,7 @@ async function createSiteCheckout(graphql, actions) {
       const slug = edge.node.content.main.slug;
       // console.log(slug);
       // const dateSegment = format(publishedAt, "YYYY/MM");
-      const path = `/checkout/${slug.current}/`;
+      const path = `/homes/checkout/${slug.current}/`;
 
       createPage({
         path,
@@ -164,7 +164,7 @@ async function createHomes(graphql, actions) {
         const slug = edge.node.content.main.slug;
         // console.log(slug);
         // const dateSegment = format(publishedAt, "YYYY/MM");
-        const path = `/home/${slug.current}/`;
+        const path = `/homes/locations/${slug.current}/`;
 
         createPage({
           path,

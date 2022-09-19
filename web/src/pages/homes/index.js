@@ -1,11 +1,11 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Container from "../components/container";
-import GraphQLErrorList from "../components/graphql-error-list";
-import SEO from "../components/seo";
-import DepositBlock from "../components/DepositBlock";
-import Layout from "../containers/layout";
-import { RenderModules } from "../utils/renderModules";
+import Container from "../../components/container";
+import GraphQLErrorList from "../../components/graphql-error-list";
+import SEO from "../../components/seo";
+import DepositBlock from "../../components/DepositBlock";
+import Layout from "../../containers/layout";
+import { RenderModules } from "../../utils/renderModules";
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
@@ -120,7 +120,7 @@ const CollectivePage = props => {
 
   let myTitle = title + " | ";
   if (title == "Landing") {
-    myTitle = "";
+    myTitle = "Earth";
   }
 
   return (

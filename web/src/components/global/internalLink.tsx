@@ -60,10 +60,10 @@ export const InternalLink = (props: InternalLinkProps) => {
   if (link !== undefined && title) {
     switch (link._type) {
       case "home":
-        uri = "/home";
+        uri = "/homes/locations";
         break;
       case "checkout":
-        uri = "/checkout";
+        uri = "/homes/checkout";
         break;
       default:
         uri = "/";

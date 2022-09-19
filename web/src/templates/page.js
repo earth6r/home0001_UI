@@ -32,13 +32,11 @@ const PageTemplate = (props) => {
         title={title}
       />
 
-      {page._rawContent.main.title == "Contact" ?
-
+      {page._rawContent.main.title == "Contact" && !isrnd ?
        <Container>
-
         <div className="flex flex-wrap w-full">
         {RenderModules([modules[0],modules[1]])}
-         {/* <div className="standard-text calendly-contact">Or,&nbsp;<a href="/checkout/membership">become a member</a>&nbsp;to schedule a call with us.</div>*/}
+         {/* <div className="standard-text calendly-contact">Or,&nbsp;<a href="/homes/checkout/membership">become a member</a>&nbsp;to schedule a call with us.</div>*/}
          <CalendlyContact/>
         {RenderModules(modules.slice(2,modules.length))}
         </div>

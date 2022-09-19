@@ -1,8 +1,8 @@
 import * as React from "react";
-import Container from "../../components/container";
-import SEO from "../../components/seo";
-import Layout from "../../containers/layout";
-import CalendlyScheduler from "../../components/CalendlyScheduler";
+import Container from "../../../components/container";
+import SEO from "../../../components/seo";
+import Layout from "../../../containers/layout";
+import CalendlyScheduler from "../../../components/CalendlyScheduler";
 // import ReactGA from 'react-ga';
 
 export default () => {

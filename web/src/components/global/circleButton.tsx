@@ -29,12 +29,12 @@ const CircleButton = ({ title, url, linkHome, linkRnd, textColor, customColor, f
   if (url !== undefined) {
     switch (url._type) {
       case "home":
-        uri = "/home";
+        uri = "/homes/locations";
         //   alert("set home");
         break;
       case "checkout":
         uri = "";
-        myUrl = "#checkout"
+        myUrl = "homes#checkout"
         break;
       default:
         uri = "";
@@ -43,7 +43,7 @@ const CircleButton = ({ title, url, linkHome, linkRnd, textColor, customColor, f
   }
 
  if(linkHome){
-    myUrl = "/collective"
+    myUrl = "/homes"
   }else if(linkRnd){
     myUrl = "/"
   }else{
@@ -63,7 +63,7 @@ const CircleButton = ({ title, url, linkHome, linkRnd, textColor, customColor, f
         >
           <div className="">
             <div className="square relative">
-              <div style={styleObj} 
+              <div style={styleObj}
                 className={`background-circle `}
               />
               {myUrl  ? (
@@ -90,7 +90,7 @@ const CircleButton = ({ title, url, linkHome, linkRnd, textColor, customColor, f
           <motion.div className="">
             <motion.div className="square">
               <div
-                style={styleObj} 
+                style={styleObj}
                 className={`background-circle `}
               />
               {url && url.content ? (
@@ -99,7 +99,7 @@ const CircleButton = ({ title, url, linkHome, linkRnd, textColor, customColor, f
                   to={`${myUrl}`}
                 >
                   <h2
-                    style={styleObj} 
+                    style={styleObj}
                     className={`m-0 font-normal p-0`}
                   >
                     {ReactHtmlParser(title)}
@@ -108,7 +108,7 @@ const CircleButton = ({ title, url, linkHome, linkRnd, textColor, customColor, f
               ) : (
                 title && (
                   <h2
-                    style={styleObj} 
+                    style={styleObj}
                     className={`m-0 font-normal text-center text-mobileNav md:text-desktopNav antialiased md:subpixel-antialiased top-1/2 uppercase absolute px-1em md:px-1/2em transform -translate-y-1/2 w-full`}
                   >
                     {ReactHtmlParser(title)}

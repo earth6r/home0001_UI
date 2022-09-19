@@ -1,7 +1,7 @@
 import * as React from "react";
-import Container from "../../components/container";
-import SEO from "../../components/seo";
-import Layout from "../../containers/layout";
+import Container from "../../../components/container";
+import SEO from "../../../components/seo";
+import Layout from "../../../containers/layout";
 import { Link } from "gatsby";
 // import ReactGA from 'react-ga';
 
@@ -24,7 +24,7 @@ export default () => {
             <br />
             <br />
             If you closed the checkout before you finished and you need to start the process over
-            again, <Link to="/checkout/membership">click here</Link> to return to the checkout page.
+            again, <Link to="/homes/checkout/membership">click here</Link> to return to the checkout page.
           </p>
         </div>
       </Container>

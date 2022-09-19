@@ -12,7 +12,7 @@ const CalendlyWidget = () => {
   const handleEventScheduled = (e) => {
     // console.log("EventScheduled", e);
 
-    navigate("/checkout/scheduled");
+    navigate("/homes/checkout/scheduled");
   };
 
   return (

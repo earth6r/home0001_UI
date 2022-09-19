@@ -73,7 +73,7 @@ const views = {
   "checkout-failure": `
       p We were unable to process your payment for your Earth membership. Please take a moment to complete the checkout process again and double-check your billing information.
       p Click 
-        a(href="https://staging.earth6r.com/checkout/membership") here
+        a(href="https://staging.earth6r.com/homes/checkout/membership") here
         span  to begin the checkout process again.
       p If you have any questions, feel free to reply to this email and we'll get right back to you.
 `,

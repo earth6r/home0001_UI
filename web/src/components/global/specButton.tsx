@@ -37,7 +37,7 @@ const SpecButton = ({ title, url, color, float = true, callibrationMark, specs }
   if (url !== undefined) {
     switch (url._type) {
       case "home":
-        uri = "/home";
+        uri = "/homes/locations";
         //   alert("set home");
         break;
       default:
@@ -46,7 +46,7 @@ const SpecButton = ({ title, url, color, float = true, callibrationMark, specs }
     }
   }
 
- 
+
   // top-1/2 -translate-y-1/2 right-0 z-20
   return (
     <>
