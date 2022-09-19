@@ -22,7 +22,7 @@
 .rnd-contact a {
   color: black;
   text-decoration: underline;
-  text-underline-offset: max(5px, 1vw);
+  text-underline-offset: max(4.2px, 0.9vw);
   text-decoration-thickness: max(2.5px, 0.5vw);
 }
 .rnd-contact a:hover {
@@ -284,7 +284,7 @@
   letter-spacing: -0.33px;
   -webkit-font-smoothing: auto;
   text-decoration: underline;
-  text-underline-offset: max(5px, 1vw);
+  text-underline-offset: max(4.2px, 0.9vw);
 }
 .rte.rte-large .article-accordion .article-title:hover {
   text-decoration: none;
@@ -357,7 +357,7 @@
 }
 .popup-button {
   text-decoration: underline;
-  text-underline-offset: max(5px, 1vw);
+  text-underline-offset: max(4.2px, 0.9vw);
   text-decoration-thickness: max(2.5px, 0.5vw);
 }
 .gallery-image iframe, .internal-iframe iframe{
