@@ -6,7 +6,7 @@ import { imageUrlFor } from "../lib/image-url";
 import { buildImageObj } from "../lib/helpers";
 // import ReactGA from 'react-ga';
 
-function SEO({ description, lang, meta, keywords, title, image = null, ogTitle, ogDescription }) {
+function SEO({ description, lang, meta, keywords, title, image = null, ogTitle, ogDescription, ogUrl, twitterImage, twitterTitle, twitterDescription }) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -18,43 +18,33 @@ function SEO({ description, lang, meta, keywords, title, image = null, ogTitle, 
         const siteAuthor = (data.site && data.site.author && data.site.author.name) || "";
         const metaImage =
           image && image.asset ? imageUrlFor(buildImageObj(image)).width(1200).url() : "";
+        const metaTwitterImage =
+          twitterImage && twitterImage.asset ? imageUrlFor(buildImageObj(twitterImage)).width(800).url() : "";
 
         return (
           <Helmet
             htmlAttributes={{ lang }}
             title={title === "" ? `Earth` : `${title}`}
             titleTemplate={title === `Earth` || title === 'EARTH' ? title : `%s | ${siteTitle}`}
-            meta={[
-              {
-                name: "twitter:card",
-                content: "summary",
-              },
-              {
-                name: "twitter:creator",
-                content: siteAuthor,
-              },
-              {
-                name: "twitter:title",
-                content: "EARTH",
-              },
-              {
-                name: "twitter:description",
-                content: metaDescription,
-              },
-            ].concat(meta)}
           >
 
-          <link rel="stylesheet" href="/fonts/fonts.css"></link>
-          <link rel="preload" href="/fonts/fonts.css" as="style"></link>
-          <script src="https://www.googleoptimize.com/optimize.js?id=OPT-MWRZP22" async></script>
-          <meta name="description" content={metaDescription} />
-          <meta name="keywords" content={keywords && keywords.length > 0 ? keywords.join(", ") : ""} />
-          <meta property='og:type' content="website" />
-          <meta property="og:title" content={ogTitle ?? 'Earth'} />
-          <meta property="og:description" content={ogDescription ?? metaDescription} />
-          <meta property="og:image" content={metaImage} />
-          <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
+            <link rel="stylesheet" href="/fonts/fonts.css"></link>
+            <link rel="preload" href="/fonts/fonts.css" as="style"></link>
+            <script src="https://www.googleoptimize.com/optimize.js?id=OPT-MWRZP22" async></script>
+            <meta name="description" content={metaDescription} />
+            <meta name="keywords" content={keywords && keywords.length > 0 ? keywords.join(", ") : ""} />
+            <meta property='og:type' content="website" />
+            <meta property="og:title" content={ogTitle ?? 'Earth'} />
+            <meta property="og:description" content={ogDescription ?? metaDescription} />
+            <meta property="og:image" content={metaImage} />
+            <meta property="og:url" content={ogUrl ?? ""} />
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:creator" content={siteAuthor} />
+            <meta name="twitter:title" content={twitterTitle ?? "Earth"} />
+            <meta name="twitter:description" content={twitterDescription ?? metaDescription} />
+            <meta name="twitter:image" content={metaTwitterImage ?? metaImage} />
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
           </Helmet>
         );
       }}
