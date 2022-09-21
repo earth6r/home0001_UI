@@ -132,6 +132,10 @@ const CollectivePage = props => {
         image={meta.openImage}
         ogTitle={meta.openTitle}
         ogDescription={meta.openGraphDescription}
+        ogUrl={process.env.SITE_URL + slug}
+        twitterImage={meta.twitterImage}
+        twitterTitle={meta.twitterTitle}
+        twitterDescription={meta.twitterDescription}
       />
       <Container className="">
         <div className="flex flex-wrap">{RenderModules(modules)}</div>
