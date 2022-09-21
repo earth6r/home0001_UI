@@ -73,7 +73,7 @@ const IndexPage = props => {
   }
 
   return (
-    <Layout rnd={true}>
+    <>
       {meta && (
         <SEO
           title={site.title}
@@ -84,10 +84,12 @@ const IndexPage = props => {
           ogDescription={meta.openGraphDescription}
         />
       )}
-      <Container className="rte-large rte-rnd">
-        <div className="flex flex-wrap">{RenderModules(modules)}</div>
-      </Container>
-    </Layout>
+      <Layout rnd={true}>
+        <Container className="rte-large rte-rnd">
+          <div className="flex flex-wrap">{RenderModules(modules)}</div>
+        </Container>
+      </Layout>
+    </>
   );
 };
 
