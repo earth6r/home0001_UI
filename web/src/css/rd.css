@@ -12,6 +12,7 @@
   left: 0;
   padding: 0 1.75rem;
   top: 50%;
+  letter-spacing: -.01em;
   transform: translateY(-50%);
   -webkit-text-stroke: 0.2px;
 
