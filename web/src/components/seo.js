@@ -6,7 +6,7 @@ import { imageUrlFor } from "../lib/image-url";
 import { buildImageObj } from "../lib/helpers";
 // import ReactGA from 'react-ga';
 
-function SEO({ description, lang, meta, keywords, title, image = null }) {
+function SEO({ description, lang, meta, keywords, title, image = null, ogTitle, ogDescription }) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -26,26 +26,6 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
             titleTemplate={title === `Earth` || title === 'EARTH' ? title : `%s | ${siteTitle}`}
             meta={[
               {
-                name: "description",
-                content: metaDescription,
-              },
-              {
-                property: `og:title`,
-                content: `EARTH is a distributed housing collective.`,
-              },
-              {
-                property: "og:description",
-                content: metaDescription,
-              },
-              {
-                property: "og:type",
-                content: "website",
-              },
-              {
-                property: "og:image",
-                content: metaImage,
-              },
-              {
                 name: "twitter:card",
                 content: "summary",
               },
@@ -61,21 +41,18 @@ function SEO({ description, lang, meta, keywords, title, image = null }) {
                 name: "twitter:description",
                 content: metaDescription,
               },
-            ].concat(
-                keywords && keywords.length > 0
-                  ? {
-                      name: "keywords",
-                      content: keywords.join(", "),
-                    }
-                  : []
-              )
-              .concat(meta)}
+            ].concat(meta)}
           >
 
           <link rel="stylesheet" href="/fonts/fonts.css"></link>
           <link rel="preload" href="/fonts/fonts.css" as="style"></link>
           <script src="https://www.googleoptimize.com/optimize.js?id=OPT-MWRZP22" async></script>
-          <meta property="og:title" content="EARTH" />
+          <meta name="description" content={metaDescription} />
+          <meta name="keywords" content={keywords && keywords.length > 0 ? keywords.join(", ") : ""} />
+          <meta property='og:type' content="website" />
+          <meta property="og:title" content={ogTitle ?? 'Earth'} />
+          <meta property="og:description" content={ogDescription ?? metaDescription} />
+          <meta property="og:image" content={metaImage} />
           <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
           <meta name="robots" content="noindex,nofollow" />
