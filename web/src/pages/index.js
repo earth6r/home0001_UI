@@ -82,7 +82,7 @@ const IndexPage = props => {
           image={meta.openImage}
           ogTitle={meta.openTitle}
           ogDescription={meta.openGraphDescription}
-          ogUrl={process.env.SITE_URL + slug}
+          ogUrl={process.env.SITE_URL}
           twitterImage={meta.twitterImage}
           twitterTitle={meta.twitterTitle}
           twitterDescription={meta.twitterDescription}
