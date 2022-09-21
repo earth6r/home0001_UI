@@ -80,6 +80,8 @@ const IndexPage = props => {
           description={site.description}
           keywords={site.keywords}
           image={meta.openImage}
+          ogTitle={meta.openTitle}
+          ogDescription={meta.openGraphDescription}
         />
       )}
       <Container className="rte-large rte-rnd">
