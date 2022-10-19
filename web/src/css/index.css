@@ -13,10 +13,7 @@
 @tailwind utilities;
 
 html {
-  font-family: "FolioBT", Arial, Helvetica, sans-serif;
-}
-input, footer{
-  font-family:"NeueHaasGrotesk", Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 h6{
   opacity: 0.5;
@@ -75,6 +72,14 @@ th {
 
 small {
   font-size: 100% !important;
+}
+
+.header-nav-text {
+  font-size: max(32px, 4.5vw);
+  line-height: max(40px, 4.6vw);
+  text-decoration: underline;
+  text-underline-offset: max(9px, 1.2vw);
+  text-decoration-thickness: max(2.5px, 0.3vw);
 }
 
 /*loading animation*/
@@ -148,17 +153,12 @@ small {
   margin-left: 1px;
 }
 
-.earth {
-  font-family: "Earth", "FolioBT", Arial, Helvetica, sans-serif;
-}
-
 .no-shadow {
   box-shadow: none !important; /* weird bug with popover modules */
 }
 
 .circle-width{
   width: 37vw;
-  font-family: "NeueHaasGrotesk", Arial, Helvetica, sans-serif;
 }
 .circle-width h2, .rte.rte-large .circle-width h2{
   max-width: 190px;

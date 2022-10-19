@@ -1,7 +1,5 @@
 header {
-  font-family: "NeueHaasGrotesk", Arial, Helvetica, sans-serif;
   font-style: normal;
-  font-weight: bold;
   font-size: 14px;
   line-height: 20px;
   display: flex;
@@ -9,7 +7,6 @@ header {
   text-align: center;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: #FF0000;
 }
 
 nav .nav-box{
@@ -231,7 +228,6 @@ nav .nav-box{
   animation-iteration-count: 1;
 }
 footer{
-  font-family: "NeueHaasGrotesk", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 14px;

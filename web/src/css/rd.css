@@ -450,7 +450,6 @@
 /* rdObroud Button */
 @media(min-width: 768px){
   .rdObround-width h2, .rte.rte-large .rdObround-width h2{
-    font-family: Everett;
     font-size: 0.875rem !important;
     letter-spacing: 0;
   }
@@ -467,7 +466,6 @@
 }
 /* info section R & D */
 .info-rnd-content{
-  font-family: FolioBT;
   font-size: 0.75rem !important;
 }
 .info-rd a{

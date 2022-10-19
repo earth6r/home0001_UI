@@ -6,12 +6,6 @@
 .grid-row:before,
 .grid-marker:before {
   @apply text-mobileNav;
-  font-family: "Earth";
-}
-
-.grid-row nav,
-.grid-row ul li a {
-  font-family: "GP";
 }
 
 .grid-row:before {

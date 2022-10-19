@@ -28,8 +28,8 @@ function SEO({ description, lang, meta, keywords, title, image = null, ogTitle, 
             titleTemplate={title === `Earth` || title === 'EARTH' ? title : `%s | ${siteTitle}`}
           >
 
-            <link rel="stylesheet" href="/fonts/fonts.css"></link>
-            <link rel="preload" href="/fonts/fonts.css" as="style"></link>
+            {/* <link rel="stylesheet" href="/fonts/fonts.css"></link> */}
+            {/* <link rel="preload" href="/fonts/fonts.css" as="style"></link> */}
             <script src="https://www.googleoptimize.com/optimize.js?id=OPT-MWRZP22" async></script>
             <meta name="description" content={metaDescription} />
             <meta name="keywords" content={keywords && keywords.length > 0 ? keywords.join(", ") : ""} />
