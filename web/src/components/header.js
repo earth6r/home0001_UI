@@ -115,7 +115,7 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
       }
 
       <header className={`${showThinBanner && thinBanner ? "mt-16 md:mt-8" : ""} ${blackHeader ? "black-header " : ""} ${showNav ? "z-70 " : "z-50"} fixed w-full left-0 top-0`}>
-        <div className={`${showNav ? "h-full" : ""} flex container w-full p-5 nav md:bg-transparent md:relative justify-between md:justify-center md:justify-between items-center content-center`}>
+        <div className={`${showNav ? "h-full" : ""} flex container w-full p-4 md:p-8 nav md:bg-transparent md:relative justify-between md:justify-center md:justify-between items-center content-center`}>
           <nav className="flex w-full justify-between">
             <h1 className="relative menu-earth-button">
               <PageLink className={`${currentUri && currentUri.includes('/') ? "" : ""}`} to="/homes">
@@ -151,11 +151,11 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
 
           <nav
             className={`${showThinBanner && thinBanner ? "mt-16 md:mt-4" : ""} ${showNav ? "block overflow-auto z-40 bg-white md:shadow-none transition-none" : "hidden"} fixed top-0 left-0 w-full h-full`}>
-            <div className="nav-box p-5">
+            <div className="nav-box p-4 md:p-8">
               <ul
                 className="flex pt-2em flex-wrap mt-1 container p-0 m-0 w-full justify-center"
               >
-                <li className="fixed left-0 top-0 p-5">
+                <li className="fixed left-0 top-0 p-4 md:p-8">
                   <h1 className="menu-earth-button">
                     <PageLink className={`${currentUri && currentUri.includes('/') ? "" : ""}`} onClick={onHideNav} to="/homes">
                       <div className="earth-rnd-logo">
@@ -179,7 +179,7 @@ const Header = ({ mainMenu, rMenu, pillColor, blackHeader, strikeColor, subMenu,
                           className={`md:pt-1/2em pt-1em pb-1/2em block cursor-pointer header-nav-text normal-case`}
                           onClick={onHideNav}
                           to={`/${item.link.content.main.slug.current}`}>
-                          <span className={`${currentUri && currentUri.includes(item.link.content.main.slug.current) || (currentUri && currentUri.includes('locations') && item.link.content.main.slug.current.includes("locations")) ? "current-nav-link homes" : ""}`}>{item.title}</span>
+                          <span className={`${currentUri && currentUri.includes(item.link.content.main.slug.current) || (currentUri && currentUri.includes('locations') && item.link.content.main.slug.current.includes("locations")) ? "homes" : ""}`}>{item.title}</span>
                         </PageLink>
                       </li>
                     ))}

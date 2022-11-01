@@ -79,7 +79,11 @@ small {
   line-height: max(40px, 4.6vw);
   text-decoration: underline;
   text-underline-offset: max(9px, 1.2vw);
-  text-decoration-thickness: max(2.5px, 0.3vw);
+  text-decoration-thickness: max(2.5px, 0.45vw);
+}
+
+.internal-link {
+  border-bottom: 2px solid;
 }
 
 /*loading animation*/

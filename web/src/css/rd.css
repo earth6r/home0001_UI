@@ -25,6 +25,7 @@
   text-decoration: underline;
   text-underline-offset: max(4.2px, 0.9vw);
   text-decoration-thickness: max(2.5px, 0.5vw);
+  border: none !important;
 }
 .rnd-contact a:hover {
   color: black !important;
@@ -364,6 +365,9 @@
 }
 .gallery-image iframe, .internal-iframe iframe{
   max-width:100%;
+}
+.standard-text a {
+  border-bottom: 2px solid;
 }
 .standard-text h1 > a {
   border-bottom:5px solid;
