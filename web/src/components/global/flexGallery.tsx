@@ -340,7 +340,7 @@ const FlexGallery = props => {
                 key={image._key}
                 className={`
                   ${image.edgeBind ? "edgeBind--" + image.edgeBind : ""}
-                  flex-vertical-text text-mobileNav md:text-desktopNav
+                  text-mobileNav md:text-desktopNav flex-vertical-text
                 `}
               >
                 <div style={{ color: `${image.color ? image.color : "inherit"}` }}>

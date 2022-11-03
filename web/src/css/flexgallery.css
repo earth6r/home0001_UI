@@ -100,6 +100,9 @@ form .earth-svg svg {
     transition: 0.125s;
     -webkit-backface-visibility: hidden;
   }
+  .flex-vertical-text a {
+    font-size: 0.625rem !important;
+  }
 }
 
 .flexible-gallery .flex-item iframe {

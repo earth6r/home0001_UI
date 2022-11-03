@@ -82,10 +82,6 @@ small {
   text-decoration-thickness: max(2.5px, 0.45vw);
 }
 
-.internal-link {
-  border-bottom: 2px solid;
-}
-
 /*loading animation*/
 .load-animation{
   animation:loading;
