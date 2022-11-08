@@ -16,7 +16,7 @@ const ContactModal = ({ children, title, subtitle }) => {
 
   return (
     <>
-      <span onClick={onOpen} class="cursor-pointer popup-button">
+      <span onClick={onOpen} className="cursor-pointer popup-button">
         {children}
       </span>
       <Modal isOpen={isOpen} onClose={onClose} isCentered finalFocusRef={createRef()}>

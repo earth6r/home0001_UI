@@ -70,7 +70,7 @@ const HeroRnd = ({ images, thumbnails, titles, showTitles, videos }) => {
                     // Hide thumbnail after video is playing
                     setTimeout(() => {
                       setShowThumbnail(false);
-                    }, 5000);
+                    }, 4000);
                   } else {
                     // Try to play video and show thumbnail
                     event.target.playVideo();
