@@ -3,7 +3,7 @@ module.exports = {
   purge: [
     './src/**/*.tsx',
     './src/**/*.js',
-    ],
+  ],
   important: true,
   theme: {
     borderColor: {
@@ -27,9 +27,9 @@ module.exports = {
           textTransform: "uppercase",
         },
       ],
-      flagMb:".625rem",
-      flagDt:"0.8125rem",
-      tagDt:"0.75rem",
+      flagMb: ".625rem",
+      flagDt: "0.8125rem",
+      tagDt: "0.75rem",
       tagRnd: [
         "1.1875rem",
         {
@@ -187,7 +187,7 @@ module.exports = {
         "1/2": ".5px",
       },
       fontFamily: {
-        serif: ["FolioBT", "Helvetica", "Arial", "sans-serif"],
+        serif: ["Arial", "FolioBT", "Helvetica", "sans-serif"],
       },
       inset: {
         "0": "0",
@@ -241,7 +241,7 @@ module.exports = {
         p29: "2.9vw",
         p30: "3.0vw",
         "4.5": "1.125rem",
-        "7":"1.75rem",
+        "7": "1.75rem",
       },
       spacing: {
         mobile: "1.75rem",
@@ -326,7 +326,7 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
   },
   variants: {
-    
+
   },
   plugins: [
     ({ addComponents, theme }) => {

@@ -40,14 +40,16 @@ export default class MailChimpForm extends React.Component {
     return this.state.result === "success" ? (
       <>
         <h3 className="text-mobileLarge md:text-desktopBody">
-          Thank you for signing up.
+          {signup ? <>You&#39;re signed up.</> : <>Thank you for signing up.</>}
           <br />
         </h3>
 
-        <p className="pt-1em text-mobileBody md:text-desktopCaption">
-          We'll share occasional updates on new homes, new locations, and new projects as the
-          network expands.
-        </p>
+        {signup ? null : (
+          <p className="pt-1em text-mobileBody md:text-desktopCaption">
+            We'll share occasional updates on new homes, new locations, and new projects as the
+            network expands.
+          </p>
+        )}
         <GridRow />
       </>
     ) : (
