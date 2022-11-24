@@ -247,7 +247,7 @@ const FlexGallery = props => {
               {image !== undefined && image.title && (
                 <div
                   key={image._key}
-                  className="self-center mx-auto z-60 bottom-0 md:relative"
+                  className="self-center mx-auto z-40 bottom-0 md:relative"
                   css={imageStyle(image)}
                 >
                   <CircleButton
@@ -340,7 +340,7 @@ const FlexGallery = props => {
                 key={image._key}
                 className={`
                   ${image.edgeBind ? "edgeBind--" + image.edgeBind : ""}
-                  flex-vertical-text text-mobileNav md:text-desktopNav
+                  text-mobileNav md:text-desktopNav flex-vertical-text
                 `}
               >
                 <div style={{ color: `${image.color ? image.color : "inherit"}` }}>

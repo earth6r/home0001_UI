@@ -100,6 +100,9 @@ form .earth-svg svg {
     transition: 0.125s;
     -webkit-backface-visibility: hidden;
   }
+  .flex-vertical-text a {
+    font-size: 0.625rem !important;
+  }
 }
 
 .flexible-gallery .flex-item iframe {
@@ -114,7 +117,6 @@ form .earth-svg svg {
 /*flex vertical text */
 .flex-vertical-text {
   position: absolute;
-  font-family: "NeueHaasGrotesk", Arial, Helvetica, sans-serif;
 /*  line-height: 110% !important;*/
 /*  font-size: 0.75rem !important;*/
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import HamburgerIcon from "./hamburger";
 import HamburgerRedIcon from "./hamburgerRed";
+import HamburgerSmallIcon from './hamburgerSmall';
 import Close from "./close";
 import CloseBlack from "./closeBlack";
 
@@ -10,6 +11,8 @@ function Icon(props) {
       return <HamburgerIcon />;
     case "hamburgerRed":
       return <HamburgerRedIcon />;
+    case "hamburgerSmall":
+      return <HamburgerSmallIcon />;
     case "close":
       return <Close />;
     case "closeBlack":
