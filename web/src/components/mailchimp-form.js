@@ -13,15 +13,15 @@ import {
 import GridRow from "./grid/grid-row";
 
 export default class MailChimpForm extends React.Component {
-  constructor(rnd = false, signup = false) {
+  constructor() {
     super();
-    this.state = { email: "", result: {}, msg: "", signup };
+    this.state = { email: "", result: {}, msg: "" };
   }
 
   _handleSubmit = async e => {
     e.preventDefault();
     let result;
-    if (this.state.signup) {
+    if (this.props.signup) {
       result = await addToMailchimp(this.state.email, {}, process.env.GATSBY_MAILCHIMP_SIGNUP_ENDPOINT);
     } else {
       result = await addToMailchimp(this.state.email);
