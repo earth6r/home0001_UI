@@ -192,6 +192,39 @@
   padding: 0 1.75rem;
 }
 
+.live-video-container {
+  width: 70%;
+  margin: 40px auto 0 auto;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin: 20px auto 0 auto;
+  }
+}
+
+.live-video {
+  position: relative;
+  width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.live-video::before {
+  content: "";
+  display: block;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.live-video iframe {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .lightbox-pdf{
   position: fixed;
   top:0;

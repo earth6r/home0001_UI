@@ -18,6 +18,7 @@ import { RowLinkTable, RowLinkTableProps } from "./global/rowLinkTable";
 import { ColumnHeaderTable, ColumnHeaderTableProps } from "./global/columnHeaderTable";
 import HeroRnd from "./heroRnd";
 import ArticleSection from "./articleSection";
+import LiveVideo from "./liveVideo";
 
 type specs = {
   callibrationMarks: boolean;
@@ -94,6 +95,17 @@ export const Modules = ({
             titles={reactModule.titles ?? []}
             showTitles={reactModule.showTitles}
             videos={reactModule.youtubeVideos ?? []}
+          />
+          {reactModule.callibrationMark ? <GridRow></GridRow> : <div className="w-full py-3"></div>}
+        </>
+      );
+    case "liveVideo":
+      return (
+        <>
+          <LiveVideo
+            description={reactModule.description}
+            links={reactModule.links ?? []}
+            youtubeVideo={reactModule.youtubeVideo}
           />
           {reactModule.callibrationMark ? <GridRow></GridRow> : <div className="w-full py-3"></div>}
         </>
