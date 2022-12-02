@@ -80,6 +80,7 @@ import flexGallery from './modules/flexGallery'
 import richTable from './modules/tableModule'
 import rowLinkTable from './modules/rowLinkTable'
 import columnHeaderTable from './modules/columnHeaderTable'
+import liveVideo from './modules/liveVideo'
 
 // Tabs
 import globalContent from './tabs/globalContent'
@@ -171,7 +172,8 @@ export default createSchema({
     newCell,
     newRow,
     rowLinkTable,
-    columnHeaderTable
+    columnHeaderTable,
+    liveVideo
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ])

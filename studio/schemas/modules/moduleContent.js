@@ -4,31 +4,31 @@ export default {
   type: 'array',
   of: [
     {
-      type: 'article',
+      type: 'article'
     },
     {
-      type: 'articleSection',
+      type: 'articleSection'
     },
     {
-      type: 'heroRnd',
+      type: 'heroRnd'
     },
     {
-      type: 'flexGallery',
+      type: 'flexGallery'
     },
     {
-      type: 'pane',
+      type: 'pane'
     },
     {
-      type: 'gallery',
+      type: 'gallery'
     },
     {
-      type: 'imageModule',
+      type: 'imageModule'
     },
     {
-      type: 'standardText',
+      type: 'standardText'
     },
     {
-      type: 'internalLink',
+      type: 'internalLink'
     },
     {
       type: 'rowLinkTable'
@@ -38,25 +38,28 @@ export default {
     },
     {
       // type: 'tableModule',
-      type: 'richTable',
+      type: 'richTable'
     },
     {
-      type: 'header',
+      type: 'header'
     },
     {
-      type: 'circleButton',
+      type: 'circleButton'
     },
     {
-      type: 'specButton',
+      type: 'specButton'
     },
     {
-      type: 'rdObroundButton',
+      type: 'rdObroundButton'
     },
     {
-      type: 'accordion',
+      type: 'accordion'
     },
     {
       type: 'viewSpacer'
+    },
+    {
+      type: 'liveVideo'
     }
-  ],
+  ]
 }
