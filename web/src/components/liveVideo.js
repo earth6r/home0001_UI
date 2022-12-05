@@ -3,7 +3,7 @@ import YouTube from "react-youtube";
 import { imageUrlFor } from '../lib/image-url';
 import PortableText from './portableText';
 
-const LiveVideo = ({ description, image, links, youtubeVideo }) => {
+const LiveVideo = ({ description, image, links, youtubeVideo, showOnlyPlaceholder }) => {
   const [showThumbnail, setShowThumbnail] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
 
@@ -27,13 +27,13 @@ const LiveVideo = ({ description, image, links, youtubeVideo }) => {
   return (
     <div className="live-video-container">
       <div className="live-video bg-black">
-        {image && showThumbnail ? (
+        {image && (showThumbnail || showOnlyPlaceholder) ? (
           <div className="live-video-placeholder">
             <img src={imageUrlFor(image).url()} alt="Stream placeholder" />
           </div>
         ) : null}
 
-        {setShowVideo ? (
+        {showVideo && !showOnlyPlaceholder ? (
           <YouTube
             videoId={youtubeVideo}
             opts={opts}

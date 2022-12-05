@@ -16,6 +16,12 @@ export default {
       type: 'image'
     },
     {
+      name: 'showOnlyPlaceholder',
+      title: 'Show Only Placeholder',
+      description: 'Hides the video and only shows image as long as this is true',
+      type: 'boolean'
+    },
+    {
       name: 'description',
       title: 'Description',
       type: 'blockText'
