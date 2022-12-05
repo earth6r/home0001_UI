@@ -106,7 +106,7 @@ export const Modules = ({
             description={reactModule.description}
             image={reactModule.placeholderImage}
             links={reactModule.links ?? []}
-            youtubeVideo={reactModule.youtubeVideo}
+            channelId={reactModule.channelId}
           />
           {reactModule.callibrationMark ? <GridRow></GridRow> : <div className="w-full py-3"></div>}
         </>
