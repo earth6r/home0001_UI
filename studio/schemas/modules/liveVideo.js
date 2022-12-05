@@ -4,8 +4,8 @@ export default {
   type: 'object',
   fields: [
     {
-      name: 'youtubeVideo',
-      title: 'YouTube Video ID',
+      name: 'channelId',
+      title: 'YouTube Channel ID',
       type: 'string',
       validation: Rule => Rule.required()
     },
