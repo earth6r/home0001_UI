@@ -3,36 +3,26 @@ import YouTube from "react-youtube";
 import { imageUrlFor } from '../lib/image-url';
 import PortableText from './portableText';
 
-const LiveVideo = ({ description, image, links, channelId }) => {
+const LiveVideo = ({ description, image, links, youtubeVideo }) => {
   const [showThumbnail, setShowThumbnail] = useState(false);
-  const [player, setPlayer] = useState()
-
-  const onPlayerError = () => {
-    console.log('Error')
-    setShowThumbnail(true)
-  };
-
-  const loadVideo = () => {
-    new window.YT.Player(`youtube-player`, {
-      events: {
-        onError: onPlayerError,
-      },
-    });
-  };
+  const [showVideo, setShowVideo] = useState(false);
 
   useEffect(() => {
-    if (window.YT) {
-      loadVideo();
-    } else {
-      const tag = document.createElement('script');
-      tag.src = 'https://www.youtube.com/iframe_api';
-
-      window.onYouTubeIframeAPIReady = loadVideo;
-
-      const firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    }
+    setTimeout(() => {
+      setShowVideo(true);
+    }, 2000);
   }, []);
+
+  const opts = {
+    playerVars: {
+      controls: 1,
+      disablekb: 1,
+      iv_load_policy: 3,
+      modestbranding: 1,
+      playsinline: 1,
+      rel: 0,
+    }
+  };
 
   return (
     <div className="live-video-container">
@@ -43,16 +33,15 @@ const LiveVideo = ({ description, image, links, channelId }) => {
           </div>
         ) : null}
 
-        <iframe
-          id="youtube-player"
-          width="640"
-          height="360"
-          src={`https://www.youtube.com/embed/live_stream?enablejsapi=1&channel=${channelId}&iv_load_policy=3&controls=1&modestbranding=1&rel=0`}
-          title="My Broadcast"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+        {setShowVideo ? (
+          <YouTube
+            videoId={youtubeVideo}
+            opts={opts}
+            onError={event => {
+              setShowThumbnail(true);
+            }}
+          />
+        ) : null}
       </div>
       <div className="mt-4"><PortableText blocks={description} /></div>
       {links.length ? (
