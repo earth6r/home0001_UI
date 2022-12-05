@@ -10,9 +10,15 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      name: 'placeholderImage',
+      title: 'Placeholder Image',
+      description: 'Image to be displayed when stream is not available',
+      type: 'image'
+    },
+    {
       name: 'description',
       title: 'Description',
-      type: 'text'
+      type: 'blockText'
     },
     {
       name: 'links',

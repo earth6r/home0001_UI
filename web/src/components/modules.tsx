@@ -104,6 +104,7 @@ export const Modules = ({
         <>
           <LiveVideo
             description={reactModule.description}
+            image={reactModule.placeholderImage}
             links={reactModule.links ?? []}
             youtubeVideo={reactModule.youtubeVideo}
           />
