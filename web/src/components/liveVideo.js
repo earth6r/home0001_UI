@@ -14,7 +14,8 @@ const LiveVideo = ({ description, image, links, vimeoVideoId, vimeoPrivacyHash, 
 
         {!showOnlyPlaceholder ? (
           <iframe
-            src={`https://player.vimeo.com/video/${vimeoVideoId}?${vimeoPrivacyHash ? 'h=' + vimeoPrivacyHash + '&' : ''}badge=0&autopause=0&autoplay=1`}
+            src="https://vimeo.com/event/2686583/embed/f9ccf73588?badge=0&autopause=0&autoplay=1"
+            // src={`https://player.vimeo.com/video/${vimeoVideoId}?${vimeoPrivacyHash ? 'h=' + vimeoPrivacyHash + '&' : ''}badge=0&autopause=0&autoplay=1`}
             frameBorder="0"
             allow="autoplay; fullscreen; picture-in-picture"
             allowFullScreen>
