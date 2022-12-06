@@ -106,8 +106,8 @@ export const Modules = ({
             description={reactModule.description}
             image={reactModule.placeholderImage}
             links={reactModule.links ?? []}
-            vimeoEventId={reactModule.vimeoEventId}
-            vimeoEmbedId={reactModule.vimeoEmbedId}
+            vimeoVideoId={reactModule.vimeoVideoId}
+            vimeoPrivacyHash={reactModule.vimeoPrivacyHash}
             showOnlyPlaceholder={reactModule.showOnlyPlaceholder}
           />
           {reactModule.callibrationMark ? <GridRow></GridRow> : <div className="w-full py-3"></div>}

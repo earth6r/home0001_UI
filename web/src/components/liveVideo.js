@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { imageUrlFor } from '../lib/image-url';
 import PortableText from './portableText';
 
-const LiveVideo = ({ description, image, links, vimeoEventId, vimeoEmbedId, showOnlyPlaceholder }) => {
+const LiveVideo = ({ description, image, links, vimeoVideoId, vimeoPrivacyHash, showOnlyPlaceholder }) => {
   return (
     <div className="live-video-container">
       <div className="live-video bg-black">
@@ -14,7 +14,7 @@ const LiveVideo = ({ description, image, links, vimeoEventId, vimeoEmbedId, show
 
         {!showOnlyPlaceholder ? (
           <iframe
-            src={`https://vimeo.com/event/${vimeoEventId}/embed/${vimeoEmbedId}`}
+            src={`https://player.vimeo.com/video/${vimeoVideoId}?${vimeoPrivacyHash ? 'h=' + vimeoPrivacyHash + '&' : ''}badge=0&autopause=0&autoplay=1`}
             frameBorder="0"
             allow="autoplay; fullscreen; picture-in-picture"
             allowFullScreen>
