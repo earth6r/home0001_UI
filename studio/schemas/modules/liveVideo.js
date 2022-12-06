@@ -4,16 +4,16 @@ export default {
   type: 'object',
   fields: [
     {
-      name: 'vimeoEventId',
-      title: 'Vimeo Event ID',
+      name: 'vimeoVideoId',
+      title: 'Vimeo Video ID',
       type: 'string',
       validation: Rule => Rule.required()
     },
     {
-      name: 'vimeoEmbedId',
-      title: 'Vimeo Embed ID',
+      name: 'vimeoPrivacyHash',
+      title: 'Vimeo Privacy Hash',
       type: 'string',
-      validation: Rule => Rule.required()
+      description: 'If video is set to unlisted, you need to specify the privacy hash which looks like af913062c8ff and comes after ?h= in the url'
     },
     {
       name: 'placeholderImage',
