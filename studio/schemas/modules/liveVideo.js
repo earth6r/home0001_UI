@@ -4,8 +4,14 @@ export default {
   type: 'object',
   fields: [
     {
-      name: 'youtubeVideo',
-      title: 'YouTube Video ID',
+      name: 'vimeoEventId',
+      title: 'Vimeo Event ID',
+      type: 'string',
+      validation: Rule => Rule.required()
+    },
+    {
+      name: 'vimeoEmbedId',
+      title: 'Vimeo Embed ID',
       type: 'string',
       validation: Rule => Rule.required()
     },
