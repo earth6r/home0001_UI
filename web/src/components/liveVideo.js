@@ -7,15 +7,16 @@ const LiveVideo = ({ description, image, links, vimeoEventId, vimeoEmbedId, show
 
   const loadVideo = () => {
     const player = new window.Vimeo.Player('vimeo-video');
-    console.log(player)
 
-    player.getQualities().then((qualities) => {
-      // If there are no qualities, it means stream is off
-      if (!qualities || qualities.length === 0) {
+    player.on('loaded', async () => {
+      console.log('Video loaded');
+      try {
+        const qualities = await player.getQualities();
+        console.log('Video qualities', qualities);
+        setShowPlaceholder(!qualities || !qualities.length)
+      } catch (e) {
         setShowPlaceholder(true);
       }
-    }).catch(() => {
-      setShowPlaceholder(true);
     });
   };
 
