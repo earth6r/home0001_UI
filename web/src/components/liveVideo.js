@@ -7,6 +7,7 @@ const LiveVideo = ({ description, image, links, vimeoEventId, vimeoEmbedId, show
 
   const loadVideo = () => {
     const player = new window.Vimeo.Player('vimeo-video');
+    console.log(player)
 
     player.getQualities().then((qualities) => {
       // If there are no qualities, it means stream is off
@@ -28,7 +29,7 @@ const LiveVideo = ({ description, image, links, vimeoEventId, vimeoEmbedId, show
   });
 
   useEffect(() => {
-    if (!window.Player) {
+    if (!window.Vimeo) {
       const tag = document.createElement('script');
       tag.src = 'https://player.vimeo.com/api/player.js';
       const firstScriptTag = document.getElementsByTagName('script')[0];
@@ -49,7 +50,7 @@ const LiveVideo = ({ description, image, links, vimeoEventId, vimeoEmbedId, show
           id="vimeo-video"
           src={`https://vimeo.com/event/${vimeoEventId}/embed/${vimeoEmbedId}?badge=0&autopause=0&autoplay=1`}
           frameBorder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
+          allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
           allowFullScreen
           style={{ display: showPlaceholder || showOnlyPlaceholder ? 'none' : 'block' }}
         >
