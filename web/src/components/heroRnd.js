@@ -40,11 +40,9 @@ const HeroRnd = ({ images, thumbnails, titles, showTitles, videos }) => {
     <div className="w-full relative hero-rnd">
       {selectedMedia !== undefined && mediaLeft !== undefined && mediaTop !== undefined ? (
         <div
-          className={`absolute hero-rnd-container h-full flex ${
-            mediaLeft === 0 ? "justify-start" : mediaLeft === 1 ? "justify-center" : "justify-end"
-          } ${
-            mediaTop === 0 ? "items-start" : mediaTop === 1 ? "items-center" : "items-end"
-          }`}
+          className={`absolute hero-rnd-container -mx-4 md:-mx-8 h-full flex ${mediaLeft === 0 ? "justify-start" : mediaLeft === 1 ? "justify-center" : "justify-end"
+            } ${mediaTop === 0 ? "items-start" : mediaTop === 1 ? "items-center" : "items-end"
+            }`}
         >
           {selectedMedia >= images.length ? (
             <div className="hero-rnd-video">
@@ -87,13 +85,12 @@ const HeroRnd = ({ images, thumbnails, titles, showTitles, videos }) => {
         </div>
       ) : null}
       {showTitles &&
-      selectedTitle !== undefined &&
-      textLeft !== undefined &&
-      textTop !== undefined ? (
+        selectedTitle !== undefined &&
+        textLeft !== undefined &&
+        textTop !== undefined ? (
         <div
-          className={`absolute hero-rnd-text uppercase h-full flex ${
-            textLeft === 0 ? "justify-start" : textLeft === 1 ? "justify-center" : "justify-end"
-          } ${textTop === 0 ? "items-start" : textTop === 1 ? "items-center" : "items-end"}`}
+          className={`absolute hero-rnd-text -mx-4 md:-mx-8 uppercase h-full flex ${textLeft === 0 ? "justify-start" : textLeft === 1 ? "justify-center" : "justify-end"
+            } ${textTop === 0 ? "items-start" : textTop === 1 ? "items-center" : "items-end"}`}
         >
           <div>{titles[selectedTitle]}</div>
         </div>

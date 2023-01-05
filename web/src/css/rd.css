@@ -112,7 +112,6 @@
 }
 
 .hero-rnd-container {
-  margin: 0 -1.75rem;
   width: 100vw !important;
 }
 
@@ -187,7 +186,6 @@
   font-size: max(20px, 4vw);
   line-height: max(24px, 5vw);
   z-index: 11;
-  margin: 0 -1.75rem;
   width: 100vw !important;
   padding: 0 1.75rem;
 }
