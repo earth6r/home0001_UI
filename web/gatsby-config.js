@@ -8,18 +8,18 @@ const tailwindConfig = require("./tailwind.config.js");
 
 module.exports = {
   plugins: [
-    {
-      resolve: `gatsby-plugin-postcss`,
-      options: {
-        postCssPlugins: [require(`tailwindcss`)(tailwindConfig)]
-      }
-    },
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-netlify`,
     `gatsby-plugin-typescript`,
     `gatsby-plugin-emotion`,
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [require(`tailwindcss`)(tailwindConfig)]
+      }
+    },
     "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-source-sanity",

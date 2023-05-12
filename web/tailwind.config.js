@@ -241,8 +241,8 @@ module.exports = {
         "7": "1.75rem"
       },
       spacing: {
-        mobile: "1.75rem",
-        desktop: "1.75rem",
+        mobile: "1rem",
+        desktop: "2.5rem",
         footerOffset: "200px",
         contentOffsetDesktop: "245px",
         contentOffsetMobile: "238px",

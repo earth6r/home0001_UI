@@ -123,28 +123,21 @@ const Layout = ({
         />
       )}
       <div
-        className={`${showThinBanner && !rnd ? "mt-16 md:mt-20" : "mt-8"
-          } hidden md:block container pb-1/2em absolute`}
+        className={`${
+          showThinBanner && !rnd ? "mt-16 md:mt-20" : "mt-8"
+        } hidden md:block container pb-1/2em absolute`}
       >
         <GridRow />
       </div>
       <div
         id="page-content-wrapper"
-        className={`${showThinBanner && !rnd ? "mt-16 md:mt-12md:mt-16" : "mt-0"} ${blackHeader ? " dark-theme " : ""
-          } ${rnd ? "px-special mobile-padding" : ""} container px-4 md:px-8 pb-0`}
+        className={`${showThinBanner && !rnd ? "mt-16 md:mt-12md:mt-16" : "mt-0"} ${
+          blackHeader ? " dark-theme " : ""
+        } ${rnd ? "px-special mobile-padding" : ""} container pb-0`}
       >
         {children}
       </div>
-      {rnd ? (
-        <FooterRnd blackFooter={blackFooter} footerMenu={rndFooterMenu} />
-      ) : (
-        <Footer
-          blackFooter={blackFooter}
-          showPopupNewsletter={showPopupNewsletter}
-          newsletter={newsletter}
-          footerMenu={footerMenu}
-        />
-      )}
+      {rnd ? <FooterRnd blackFooter={blackFooter} footerMenu={rndFooterMenu} /> : null}
     </div>
   );
 };
