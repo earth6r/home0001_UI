@@ -8,18 +8,18 @@ const tailwindConfig = require("./tailwind.config.js");
 
 module.exports = {
   plugins: [
-    `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-netlify`,
-    `gatsby-plugin-typescript`,
-    `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
         postCssPlugins: [require(`tailwindcss`)(tailwindConfig)]
       }
     },
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-netlify`,
+    `gatsby-plugin-typescript`,
+    `gatsby-plugin-emotion`,
     "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-source-sanity",
@@ -55,10 +55,10 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-react-svg',
+      resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /earth-rnd-logo.*\.svg/,
+          include: /earth.*\.svg/
         }
       }
     },
