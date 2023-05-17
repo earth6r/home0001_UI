@@ -1,0 +1,1872 @@
+[
+  {
+    "_key": "fc2ff664d1d9",
+    "_type": "accordion",
+    "accordionItems": [
+      {
+        "_key": "5a2c7d8bd118",
+        "_type": "accordionItem",
+        "internalTitle": "HOMEBUYING, SIMPLIFIED",
+        "text": [
+          {
+            "_key": "08abe1a7cdd1",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "44c876ebe67a",
+                "_type": "span",
+                "marks": [],
+                "text": "When you buy an Earth home, you own the title on your individual home in the traditional way (so you can qualify for a traditional mortgage when buying with fiat currency). It's not a timeshare or a rental—it's exactly like buying any other home. We guide you through the purchase process, from choosing the right home, to obtaining financing, to handing over the keys. Our next phase of homes will be available in 6-12 months and will be released exclusively to our waitlist."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ],
+        "title": "HOMEBUYING, SIMPLIFIED"
+      },
+      {
+        "_key": "41a326a9992c",
+        "_type": "accordionItem",
+        "internalTitle": "BUY WITH CRYPTO",
+        "text": [
+          {
+            "_key": "90b7335d2cb9",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "b72dcd39d60d",
+                "_type": "span",
+                "marks": [],
+                "text": "Earth homes are available to buy with either crypto or fiat currencies. We’re working to make many of our next phase of homes available for purchase through wallet-to-wallet transactions. Where this is not possible, we work with title and escrow services specialized in crypto-to-cash conversion through BitPay."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ],
+        "title": "BUY WITH CRYPTO"
+      },
+      {
+        "_key": "1bf6c4d958ce",
+        "_type": "accordionItem",
+        "internalTitle": "Swap Locations Any Time",
+        "text": [
+          {
+            "_key": "fa619928ec21",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "15bc9e3392d7",
+                "_type": "span",
+                "marks": [],
+                "text": "Each Earth home is a node in an expanding network. Swap locations as often as you like to spend time in other places, and make your home available to other members of the housing collective while you’re away. You’ll pay one cleaning fee upon departure, with no nightly charges. We take care of the practicalities, providing cleaning and virtual concierge services. And we make use of new homes before they're sold to provide additional flexibility, so that you can swap locations whenever you like. When home swapping, you’ll always be offered homes that most closely match the value of your own."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ],
+        "title": "Swap Locations Any Time"
+      },
+      {
+        "_key": "ec9681c73019",
+        "_type": "accordionItem",
+        "internalTitle": "Retain Full Control",
+        "text": [
+          {
+            "_key": "92ff4903966c",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "264310fdfe29",
+                "_type": "span",
+                "marks": [],
+                "text": "You own your home. You're in control. If you don’t want your place to be available to other members of the collective while you’re away, that’s fine—you just won’t be able to make use of our homes in other locations during that time. You’re also free to rent out your home (in accordance with local laws and building rules), and your tenants will enjoy all the flexibility of our housing collective. You can sell your home however you like, whenever you like—you own the title—and you’re free to work with a broker of your choice to do that, or use our resale service to simplify the process."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ],
+        "title": "Retain Full Control"
+      },
+      {
+        "_key": "345522fb7f11",
+        "_type": "accordionItem",
+        "internalTitle": "NO HIDDEN FEES",
+        "text": [
+          {
+            "_key": "312b23132e3e",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "04117eb056be",
+                "_type": "span",
+                "marks": [],
+                "text": "Earth has no hidden fees or premiums. You’ll pay market prices to buy your Earth home, we don’t charge you design fees, and there are no nightly rates when staying in other locations. Each time you home swap, you'll only pay a single $100 cleaning fee. And any paid-for services will be transparently priced up-front and will be up to you to choose. Our financial model is circular, with revenues from home sales reinvested back into the collective so that we can continually provide more affordable, more beautiful, and more flexible housing to more and more members."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ],
+        "title": "NO HIDDEN FEES"
+      },
+      {
+        "_key": "fb45b6f212ca",
+        "_type": "accordionItem",
+        "internalTitle": "Equipped with all the essentials",
+        "text": [
+          {
+            "_key": "b57e47ae4b3e",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "884475e4beef",
+                "_type": "span",
+                "marks": [],
+                "text": "From seating to tableware, linens to toiletries, and pantry essentials to houseplants, each new Earth home comes with furniture and homewares selected with a focus on simplicity and functionality. We work directly with designers from our community to source pieces straight from their studios, without intermediaries, so that you don’t have to pay a premium for great design."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ],
+        "title": "Equipped with all the essentials"
+      },
+      {
+        "_key": "1f29cc393f22",
+        "_type": "accordionItem",
+        "internalTitle": "Try Before You Buy",
+        "text": [
+          {
+            "_key": "5f9c1dd63b74",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "ae68bcb983b5",
+                "_type": "span",
+                "marks": [],
+                "text": "One- or two-night trial stays available soon."
+              },
+              {
+                "_key": "11da59ae460d",
+                "_type": "span",
+                "marks": [],
+                "text": " "
+              },
+              {
+                "_key": "25b1f1c28e5d",
+                "_type": "span",
+                "marks": ["b155c4c2756a"],
+                "text": "Join the waitlist"
+              },
+              {
+                "_key": "c59ba616c337",
+                "_type": "span",
+                "marks": [],
+                "text": " for first access."
+              }
+            ],
+            "markDefs": [
+              {
+                "_key": "b155c4c2756a",
+                "_type": "internalLink",
+                "reference": {
+                  "_id": "drafts.checkout",
+                  "_type": "checkout",
+                  "_rev": "5WCzv0n4G9UKPpP1LxFsmN",
+                  "_createdAt": "2020-09-27T17:45:34Z",
+                  "_updatedAt": "2023-05-15T19:07:44Z",
+                  "content": {
+                    "_type": "pageContent",
+                    "main": {
+                      "_type": "pageModule",
+                      "modules": [
+                        {
+                          "_key": "cec21bfa861b",
+                          "_type": "header",
+                          "title": " "
+                        },
+                        {
+                          "_key": "c1fffb4bb9d3",
+                          "_type": "flexGallery",
+                          "callibrationMark": false,
+                          "callibrationMarks": [],
+                          "images": [
+                            {
+                              "_key": "0d35f32b9e23",
+                              "_type": "flexImage",
+                              "alt": "desk",
+                              "asset": {
+                                "_id": "image-6e372ec9cabf4f04b62d403089067d3ebd33036b-1499x1001-jpg",
+                                "_type": "sanity.imageAsset",
+                                "_rev": "NKXFXYk9BbyILQUjfEeolc",
+                                "_createdAt": "2021-01-07T17:46:36Z",
+                                "_updatedAt": "2021-01-07T17:46:36Z",
+                                "assetId": "6e372ec9cabf4f04b62d403089067d3ebd33036b",
+                                "extension": "jpg",
+                                "metadata": {
+                                  "_type": "sanity.imageMetadata",
+                                  "dimensions": {
+                                    "_type": "sanity.imageDimensions",
+                                    "aspectRatio": 1.4975024975024975,
+                                    "height": 1001,
+                                    "width": 1499
+                                  },
+                                  "hasAlpha": false,
+                                  "isOpaque": true,
+                                  "lqip": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAUGB//EACQQAAIBAwQBBQEAAAAAAAAAAAECAwAEBQYREhNxFCExUVJh/8QAFgEBAQEAAAAAAAAAAAAAAAAABAAB/8QAGhEBAAMAAwAAAAAAAAAAAAAAAQARIQISMf/aAAwDAQACEQMRAD8A1U4NLIPHDMAnUZArjc+KTXdmYsGmQEqc2kK9e1QOic1kNTG79bdzBlbmrB9yB+fFMdYxLbYVb7snZo1LdfaQpP8ARRO4tBEPFPZRi0lmiilm2jd0Dcfqis109rjL5bFx3ErxRlSYwqr7AD4orXMkaXP/2Q==",
+                                  "palette": {
+                                    "_type": "sanity.imagePalette",
+                                    "darkMuted": {
+                                      "_type": "sanity.imagePaletteSwatch",
+                                      "background": "#453323",
+                                      "foreground": "#fff",
+                                      "population": 2.21,
+                                      "title": "#fff"
+                                    },
+                                    "darkVibrant": {
+                                      "_type": "sanity.imagePaletteSwatch",
+                                      "background": "#65462a",
+                                      "foreground": "#fff",
+                                      "population": 1.72,
+                                      "title": "#fff"
+                                    },
+                                    "dominant": {
+                                      "_type": "sanity.imagePaletteSwatch",
+                                      "background": "#c7bca9",
+                                      "foreground": "#000",
+                                      "population": 3.41,
+                                      "title": "#fff"
+                                    },
+                                    "lightMuted": {
+                                      "_type": "sanity.imagePaletteSwatch",
+                                      "background": "#c7bca9",
+                                      "foreground": "#000",
+                                      "population": 3.41,
+                                      "title": "#fff"
+                                    },
+                                    "lightVibrant": {
+                                      "_type": "sanity.imagePaletteSwatch",
+                                      "background": "#ddc8ae",
+                                      "foreground": "#000",
+                                      "population": 0.81,
+                                      "title": "#000"
+                                    },
+                                    "muted": {
+                                      "_type": "sanity.imagePaletteSwatch",
+                                      "background": "#9a805c",
+                                      "foreground": "#fff",
+                                      "population": 2.14,
+                                      "title": "#fff"
+                                    },
+                                    "vibrant": {
+                                      "_type": "sanity.imagePaletteSwatch",
+                                      "background": "#896b38",
+                                      "foreground": "#fff",
+                                      "population": 2.93,
+                                      "title": "#fff"
+                                    }
+                                  }
+                                },
+                                "mimeType": "image/jpeg",
+                                "originalFilename": "Rd-NY-CH-Living-H1000xW1500.jpg",
+                                "path": "images/m8l686jf/production/6e372ec9cabf4f04b62d403089067d3ebd33036b-1499x1001.jpg",
+                                "sha1hash": "6e372ec9cabf4f04b62d403089067d3ebd33036b",
+                                "size": 741012,
+                                "uploadId": "z6nYTWcdZKVrN8Rqu3zE7AU3PEIgZhwL",
+                                "url": "https://cdn.sanity.io/images/m8l686jf/production/6e372ec9cabf4f04b62d403089067d3ebd33036b-1499x1001.jpg",
+                                "filename": "Rd-NY-CH-Living-H1000xW1500.jpg",
+                                "width": 1499,
+                                "height": 1001,
+                                "placeholderUrl": "https://cdn.sanity.io/images/m8l686jf/staging/6e372ec9cabf4f04b62d403089067d3ebd33036b-1499x1001.jpg?rect=416,0,667,1001&w=%width%&h=%height%&q=80",
+                                "id": "image-6e372ec9cabf4f04b62d403089067d3ebd33036b-1499x1001-jpg",
+                                "children": [],
+                                "parent": null
+                              },
+                              "endColumn": 20,
+                              "endColumnMobile": 21,
+                              "endColumnTablet": 21,
+                              "startColumn": 15,
+                              "startColumnMobile": 3,
+                              "startColumnTablet": 15,
+                              "startRow": 8,
+                              "startRowMobile": 210,
+                              "startRowTablet": 8
+                            },
+                            {
+                              "_key": "5be513fc2ac2",
+                              "_type": "flexImage",
+                              "alt": "bed",
+                              "asset": {
+                                "_id": "image-7e717140a5c56b183ad2a80e71dd3645bea87c38-1499x1001-jpg",
+                                "_type": "sanity.imageAsset",
+                                "_rev": "NKXFXYk9BbyILQUjfEeolc",
+                                "_createdAt": "2021-01-08T09:49:26Z",
+                                "_updatedAt": "2021-01-08T09:49:26Z",
+                                "assetId": "7e717140a5c56b183ad2a80e71dd3645bea87c38",
+                                "extension": "jpg",
+                                "metadata": {
+                                  "_type": "sanity.imageMetadata",
+                                  "dimensions": {
+                                    "_type": "sanity.imageDimensions",
+                                    "aspectRatio": 1.4975024975024975,
+                                    "height": 1001,
+                                    "width": 1499
+                                  },
+                                  "hasAlpha": false,
+                                  "isOpaque": true,
+                                  "lqip": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAYEBQf/xAAjEAACAQQBAwUAAAAAAAAAAAABAgMABAURIQYTFDFBUWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAYEQADAQEAAAAAAAAAAAAAAAAAARESIf/aAAwDAQACEQMRAD8A1qSwEcrFeBVbkbjxLm3i7MkndbRZRwv2aYcVM2QiFxNoBeAg9P2pV/FFPA0csSkN7jgihSqotnBJyXUWLxtybe6mKyABtBSaKXOoLc22WniLLKFPDOmzr4ootlYZ/9k=",
+                                  "palette": {
+                                    "_type": "sanity.imagePalette",
+                                    "darkMuted": {
+                                      "_type": "sanity.imagePaletteSwatch",
+                                      "background": "#546041",
+                                      "foreground": "#fff",
+                                      "population": 0.21,
+                                      "title": "#fff"
+                                    },
+                                    "darkVibrant": {
+                                      "_type": "sanity.imagePaletteSwatch",
+                                      "background": "#4a423a",
+                                      "foreground": "#fff",
+                                      "population": 0,
+                                      "title": "#fff"
+                                    },
+                                    "dominant": {
+                                      "_type": "sanity.imagePaletteSwatch",
+                                      "background": "#c4bcb4",
+                                      "foreground": "#000",
+                                      "population": 19.2,
+                                      "title": "#fff"
+                                    },
+                                    "lightMuted": {
+                                      "_type": "sanity.imagePaletteSwatch",
+                                      "background": "#c4bcb4",
+                                      "foreground": "#000",
+                                      "population": 19.2,
+                                      "title": "#fff"
+                                    },
+                                    "lightVibrant": {
+                                      "_type": "sanity.imagePaletteSwatch",
+                                      "background": "#c4bcb4",
+                                      "foreground": "#000",
+                                      "population": 0,
+                                      "title": "#fff"
+                                    },
+                                    "muted": {
+                                      "_type": "sanity.imagePaletteSwatch",
+                                      "background": "#938470",
+                                      "foreground": "#fff",
+                                      "population": 3.58,
+                                      "title": "#fff"
+                                    },
+                                    "vibrant": {
+                                      "_type": "sanity.imagePaletteSwatch",
+                                      "background": "#8e7f70",
+                                      "foreground": "#fff",
+                                      "population": 0,
+                                      "title": "#fff"
+                                    }
+                                  }
+                                },
+                                "mimeType": "image/jpeg",
+                                "originalFilename": "NY-CH-Rd-Bedroom-H1000xW1500.jpg",
+                                "path": "images/m8l686jf/production/7e717140a5c56b183ad2a80e71dd3645bea87c38-1499x1001.jpg",
+                                "sha1hash": "7e717140a5c56b183ad2a80e71dd3645bea87c38",
+                                "size": 403853,
+                                "uploadId": "c1CJv6veAWWU414uNqh9x3qc7EMTnA4p",
+                                "url": "https://cdn.sanity.io/images/m8l686jf/production/7e717140a5c56b183ad2a80e71dd3645bea87c38-1499x1001.jpg",
+                                "filename": "NY-CH-Rd-Bedroom-H1000xW1500.jpg",
+                                "width": 1499,
+                                "height": 1001,
+                                "placeholderUrl": "https://cdn.sanity.io/images/m8l686jf/staging/7e717140a5c56b183ad2a80e71dd3645bea87c38-1499x1001.jpg?rect=416,0,667,1001&w=%width%&h=%height%&q=80",
+                                "id": "image-7e717140a5c56b183ad2a80e71dd3645bea87c38-1499x1001-jpg",
+                                "children": [],
+                                "parent": null
+                              },
+                              "endColumn": 20,
+                              "endColumnMobile": 16,
+                              "endColumnTablet": 21,
+                              "startColumn": 15,
+                              "startColumnMobile": 1,
+                              "startColumnTablet": 15,
+                              "startRow": 25,
+                              "startRowMobile": 270,
+                              "startRowTablet": 30
+                            },
+                            {
+                              "_key": "d9557f29a9b0",
+                              "_type": "flexImage",
+                              "alt": "grass",
+                              "asset": {
+                                "_id": "image-1603581fb45c036e5ad0501587769b03b1ef9ecc-1485x1707-jpg",
+                                "_type": "sanity.imageAsset",
+                                "_rev": "lYnn35gZ7y9FMgm4Ehc3Jf",
+                                "_createdAt": "2021-01-07T18:10:43Z",
+                                "_updatedAt": "2021-01-07T18:10:43Z",
+                                "assetId": "1603581fb45c036e5ad0501587769b03b1ef9ecc",
+                                "extension": "jpg",
+                                "metadata": {
+                                  "_type": "sanity.imageMetadata",
+                                  "dimensions": {
+                                    "_type": "sanity.imageDimensions",
+                                    "aspectRatio": 0.8699472759226714,
+                                    "height": 1707,
+                                    "width": 1485
+                                  },
+                                  "hasAlpha": false,
+                                  "isOpaque": true,
+                                  "lqip": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAUGBwL/xAAkEAABAwQCAgIDAAAAAAAAAAABAAIDBAUGERIhE2EUMVGBof/EABcBAAMBAAAAAAAAAAAAAAAAAAACAwT/xAAaEQADAQADAAAAAAAAAAAAAAAAARECAyFB/9oADAMBAAIRAxEAPwDUxldawc3vGgfpw1tcVV/qK+TnHKYwBrTHdKlZHcI6WyvlLw076J/Kq+G3CVl4LZzI/wAg6APQ96V3qOGQ1U1tY7v5Uw/ZRRhm11r+InAx+9ZMJ7b4pIW75DXoqNx3JWUt0BlBdwaRy19oihyOa6DwuDcxhe0ODXDfpERVWqhD/9k=",
+                                  "palette": {
+                                    "_type": "sanity.imagePalette",
+                                    "darkMuted": {
+                                      "_type": "sanity.imagePaletteSwatch",
+                                      "background": "#344956",
+                                      "foreground": "#fff",
+                                      "population": 1.53,
+                                      "title": "#fff"
+                                    },
+                                    "darkVibrant": {
+                                      "_type": "sanity.imagePaletteSwatch",
+                                      "background": "#0a1f29",
+                                      "foreground": "#fff",
+                                      "population": 0.88,
+                                      "title": "#fff"
+                                    },
+                                    "dominant": {
+                                      "_type": "sanity.imagePaletteSwatch",
+                                      "background": "#e3f3fb",
+                                      "foreground": "#000",
+                                      "population": 7.18,
+                                      "title": "#000"
+                                    },
+                                    "lightMuted": {
+                                      "_type": "sanity.imagePaletteSwatch",
+                                      "background": "#acc4d2",
+                                      "foreground": "#000",
+                                      "population": 3.62,
+                                      "title": "#fff"
+                                    },
+                                    "lightVibrant": {
+                                      "_type": "sanity.imagePaletteSwatch",
+                                      "background": "#e3f3fb",
+                                      "foreground": "#000",
+                                      "population": 7.18,
+                                      "title": "#000"
+                                    },
+                                    "muted": {
+                                      "_type": "sanity.imagePaletteSwatch",
+                                      "background": "#76949f",
+                                      "foreground": "#fff",
+                                      "population": 4.74,
+                                      "title": "#fff"
+                                    },
+                                    "vibrant": {
+                                      "_type": "sanity.imagePaletteSwatch",
+                                      "background": "#319acd",
+                                      "foreground": "#fff",
+                                      "population": 0,
+                                      "title": "#fff"
+                                    }
+                                  }
+                                },
+                                "mimeType": "image/jpeg",
+                                "originalFilename": "Ph-NY-CH-BldgFront-EricChakeen-edit.jpg",
+                                "path": "images/m8l686jf/production/1603581fb45c036e5ad0501587769b03b1ef9ecc-1485x1707.jpg",
+                                "sha1hash": "1603581fb45c036e5ad0501587769b03b1ef9ecc",
+                                "size": 2033892,
+                                "uploadId": "rqe63IQliD9P8iIHPPWPK27ghXGikMox",
+                                "url": "https://cdn.sanity.io/images/m8l686jf/production/1603581fb45c036e5ad0501587769b03b1ef9ecc-1485x1707.jpg",
+                                "filename": "Ph-NY-CH-BldgFront-EricChakeen-edit.jpg",
+                                "width": 1485,
+                                "height": 1707,
+                                "placeholderUrl": "https://cdn.sanity.io/images/m8l686jf/staging/1603581fb45c036e5ad0501587769b03b1ef9ecc-1485x1707.jpg?rect=174,0,1138,1707&w=%width%&h=%height%&q=80",
+                                "id": "image-1603581fb45c036e5ad0501587769b03b1ef9ecc-1485x1707-jpg",
+                                "children": [],
+                                "parent": null
+                              },
+                              "crop": {
+                                "_type": "sanity.imageCrop",
+                                "bottom": 0.1300878552971576,
+                                "left": 0,
+                                "right": 0,
+                                "top": 0
+                              },
+                              "endColumn": 20,
+                              "endColumnMobile": 19,
+                              "endColumnTablet": 21,
+                              "hotspot": {
+                                "_type": "sanity.imageHotspot",
+                                "height": 0.8699121447028424,
+                                "width": 1,
+                                "x": 0.5,
+                                "y": 0.4349560723514212
+                              },
+                              "startColumn": 15,
+                              "startColumnMobile": 6,
+                              "startColumnTablet": 15,
+                              "startRow": 42,
+                              "startRowMobile": 321,
+                              "startRowTablet": 52
+                            }
+                          ],
+                          "internalTitle": "Flex gallery: What's included + images",
+                          "numRows": 85,
+                          "numRowsMobile": 390,
+                          "numRowsTablet": 120,
+                          "texts": [
+                            {
+                              "_key": "b89244776b56",
+                              "_type": "flexText",
+                              "endColumn": 14,
+                              "endColumnMobile": 21,
+                              "endColumnTablet": 14,
+                              "startColumn": 1,
+                              "startColumnMobile": 1,
+                              "startColumnTablet": 1,
+                              "startRow": 1,
+                              "startRowMobile": 1,
+                              "startRowTablet": 1,
+                              "text": [
+                                {
+                                  "_key": "0a9f2a7e519e",
+                                  "_type": "block",
+                                  "children": [
+                                    {
+                                      "_key": "9413d18f1892",
+                                      "_type": "span",
+                                      "marks": [],
+                                      "text": "112 spots left. Hold yours now."
+                                    }
+                                  ],
+                                  "markDefs": [],
+                                  "style": "h1"
+                                },
+                                {
+                                  "_key": "07c0f4f3b754",
+                                  "_type": "block",
+                                  "children": [
+                                    {
+                                      "_key": "777100cbd510",
+                                      "_type": "span",
+                                      "marks": [],
+                                      "text": "What's included:"
+                                    }
+                                  ],
+                                  "markDefs": [],
+                                  "style": "normal"
+                                },
+                                {
+                                  "_key": "a6468b9d963b",
+                                  "_type": "block",
+                                  "children": [
+                                    {
+                                      "_key": "e5ddf9d72011",
+                                      "_type": "span",
+                                      "marks": [],
+                                      "text": "Secure your spot to become a member of Earth. Starting in New York and Los Angeles; coming next to Hudson, "
+                                    },
+                                    {
+                                      "_key": "600fe1d9493a",
+                                      "_type": "span",
+                                      "marks": [],
+                                      "text": "San Francisco, "
+                                    },
+                                    {
+                                      "_key": "8110331483f4",
+                                      "_type": "span",
+                                      "marks": [],
+                                      "text": "Austin, Miami, Mexico City, London, Berlin, and more rural locations.\n\n "
+                                    }
+                                  ],
+                                  "level": 1,
+                                  "listItem": "bullet",
+                                  "markDefs": []
+                                },
+                                {
+                                  "_key": "040dd6d8673e",
+                                  "_type": "block",
+                                  "children": [
+                                    {
+                                      "_key": "4f11c3c26d52",
+                                      "_type": "span",
+                                      "marks": [],
+                                      "text": "Our next phase of homes will be available within 6-12 months, and you'll be first in line. You'll also receive updates as additional homes and new locations become available. Change your mind and ask for your deposit back anytime, no questions asked."
+                                    },
+                                    {
+                                      "_key": "4db60b66face",
+                                      "_type": "span",
+                                      "marks": [],
+                                      "text": "\n\n "
+                                    }
+                                  ],
+                                  "level": 1,
+                                  "listItem": "bullet",
+                                  "markDefs": []
+                                },
+                                {
+                                  "_key": "63c0831d728e",
+                                  "_type": "block",
+                                  "children": [
+                                    {
+                                      "_key": "847f1b47ff97",
+                                      "_type": "span",
+                                      "marks": [],
+                                      "text": "After making your deposit, you'll receive an email with next steps and access to our team's calendar if you'd like schedule a call."
+                                    },
+                                    {
+                                      "_key": "1bb961c8cc6d",
+                                      "_type": "span",
+                                      "marks": [],
+                                      "text": " \n\n "
+                                    }
+                                  ],
+                                  "level": 1,
+                                  "listItem": "bullet",
+                                  "markDefs": [],
+                                  "style": "normal"
+                                },
+                                {
+                                  "_key": "d5ff2413d58d",
+                                  "_type": "block",
+                                  "children": [
+                                    {
+                                      "_key": "8378bce3ae5f",
+                                      "_type": "span",
+                                      "marks": [],
+                                      "text": "As homes become available, you'll have the option to spend a night or two in one to see how it feels."
+                                    },
+                                    {
+                                      "_key": "6045db2fe632",
+                                      "_type": "span",
+                                      "marks": [],
+                                      "text": " \n\n "
+                                    }
+                                  ],
+                                  "level": 1,
+                                  "listItem": "bullet",
+                                  "markDefs": [],
+                                  "style": "normal"
+                                },
+                                {
+                                  "_key": "4bd78ab65339",
+                                  "_type": "block",
+                                  "children": [
+                                    {
+                                      "_key": "bfc0284a9eb4",
+                                      "_type": "span",
+                                      "marks": [],
+                                      "text": "Once you're ready to buy, we guide you through the process from beginning to end so you don't miss a beat. You'll own the title just as you would with any other home. \n\n "
+                                    }
+                                  ],
+                                  "level": 1,
+                                  "listItem": "bullet",
+                                  "markDefs": [],
+                                  "style": "normal"
+                                },
+                                {
+                                  "_key": "3874a9f5afb4",
+                                  "_type": "block",
+                                  "children": [
+                                    {
+                                      "_key": "f525294cbd54",
+                                      "_type": "span",
+                                      "marks": [],
+                                      "text": "We keep additional homes in each city so that you can swap locations easily, as long as your own home is made available to other members of the collective while you're away. As our network grows, so too will your access to homes around the world."
+                                    }
+                                  ],
+                                  "level": 1,
+                                  "listItem": "bullet",
+                                  "markDefs": [],
+                                  "style": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "slug": {
+                        "_type": "slug",
+                        "current": "membership"
+                      },
+                      "title": "Checkout"
+                    }
+                  },
+                  "gdpr": [
+                    {
+                      "_key": "d5f8314e02b6",
+                      "_type": "block",
+                      "children": [
+                        {
+                          "_key": "bec83f8112e3",
+                          "_type": "span",
+                          "marks": [],
+                          "text": "I agree to the"
+                        },
+                        {
+                          "_key": "3342b0250abb",
+                          "_type": "span",
+                          "marks": [],
+                          "text": " "
+                        },
+                        {
+                          "_key": "330e64d12acb",
+                          "_type": "span",
+                          "marks": ["8e1d412f7c7c"],
+                          "text": "Deposit Terms and Conditions​ "
+                        }
+                      ],
+                      "markDefs": [
+                        {
+                          "_key": "8e1d412f7c7c",
+                          "_type": "internalLink",
+                          "reference": {
+                            "_id": "2104a9c3-8d23-4df9-aaa5-91eed9d730e9",
+                            "_type": "page",
+                            "_rev": "esTfkMYpvSMSTYRrgreK2x",
+                            "_createdAt": "2020-09-21T19:57:29Z",
+                            "_updatedAt": "2023-05-15T18:52:54Z",
+                            "content": {
+                              "_type": "pageContent",
+                              "main": {
+                                "_type": "pageModule",
+                                "modules": [
+                                  {
+                                    "_key": "ece855d88e4b",
+                                    "_type": "flexGallery",
+                                    "internalTitle": "SPACER",
+                                    "numRows": 2,
+                                    "numRowsMobile": 4,
+                                    "numRowsTablet": 4
+                                  },
+                                  {
+                                    "_key": "3100c6c51562",
+                                    "_type": "standardText",
+                                    "cssClassInject": "sm:w-5/6",
+                                    "internalTitle": " ",
+                                    "text": [
+                                      {
+                                        "_key": "87c40b6bea9b",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "d3c50301d9bb",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Earth Membership Deposit Terms and Conditions"
+                                          }
+                                        ],
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "3c79c46d4a0c",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "de0bb5139f84",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "ACCEPTANCE OF TERMS AND CONDITIONS Please find below the terms and conditions (“Terms”) on which you are able to make a Membership Deposit (“Deposit”) to join the "
+                                          },
+                                          {
+                                            "_key": "137c718f61d7",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Earth"
+                                          },
+                                          {
+                                            "_key": "4c5e86cbee88",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": " Housing Collective. If you are unable to accept these Terms, you will not be able to make the Deposit. Please note that these Terms only apply to the Deposit and are not applicable in the event you, in the future, finalize a purchase of an "
+                                          },
+                                          {
+                                            "_key": "0c96060a2c30",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Earth"
+                                          },
+                                          {
+                                            "_key": "89292e393e7b",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": " Home. The final purchase of an "
+                                          },
+                                          {
+                                            "_key": "3da8d89e24bb",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Earth"
+                                          },
+                                          {
+                                            "_key": "723aca3a17fe",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": " Home will be governed by separate terms and conditions.\n\nBy finalizing the online Deposit you agree to acknowledge and confirm:"
+                                          }
+                                        ],
+                                        "level": 1,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "d05c3324f530",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "09168a9aaaf0",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "That you have read and agree to be bound by these Terms."
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "129e56aceb0b",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "5c7407cfa431",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Upon receipt of your payment of the Deposit Amount (as defined in Section 5 below) as set out herein, that an agreement regarding the Deposit has been entered between you and New Eelam, Inc. doing business as "
+                                          },
+                                          {
+                                            "_key": "86d9bdc7d682",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Earth"
+                                          },
+                                          {
+                                            "_key": "7f82cfad69a4",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": ", a corporation incorporated under the laws of the state of Delaware with registered address at 2035 Sunset Lake Road, Suite B-2, Newark, DE, 19702 (“"
+                                          },
+                                          {
+                                            "_key": "5144a7c91cb7",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Earth"
+                                          },
+                                          {
+                                            "_key": "77096bff7490",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "” or “We”). We recommend that you print a copy of these Terms or save them to your computer for future reference."
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "0b8ced370cc3",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "472208e6727f",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "INTRODUCTION"
+                                          }
+                                        ],
+                                        "level": 1,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "c31842347131",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "dfd24cbb7593",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "A Deposit is a preliminary, non-binding order, which "
+                                          },
+                                          {
+                                            "_key": "3d68eab1ab3a",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "gives you membership in the "
+                                          },
+                                          {
+                                            "_key": "30b49b67fa55",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Earth"
+                                          },
+                                          {
+                                            "_key": "9ed03ebd05cf",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": " Housing Collective and which "
+                                          },
+                                          {
+                                            "_key": "746e1dde2ed5",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "entitles you to be a prioritized buyer when an "
+                                          },
+                                          {
+                                            "_key": "973753202076",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Earth"
+                                          },
+                                          {
+                                            "_key": "e46e9de2bee7",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": " Home is available for sale in your chosen location. "
+                                          },
+                                          {
+                                            "_key": "8fe1a788ea05",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Earth"
+                                          },
+                                          {
+                                            "_key": "e5b82b1549bd",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": " will use reasonable efforts to ensure that you will be able to finalize your purchase of an "
+                                          },
+                                          {
+                                            "_key": "40143b50ebe4",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Earth"
+                                          },
+                                          {
+                                            "_key": "6f19e39ee3bb",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": " Home. These Terms do not however constitute a purchase agreement and the Reservation does not in any way confirm or guarantee you a right to purchase an "
+                                          },
+                                          {
+                                            "_key": "de234b795a25",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Earth"
+                                          },
+                                          {
+                                            "_key": "b08e01bf7456",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": " Home with priority over other customers."
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "47b1c4715b2c",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "be3613e3ca96",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Earth"
+                                          },
+                                          {
+                                            "_key": "9f8934d889bf",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": " will "
+                                          },
+                                          {
+                                            "_key": "4dc0f51a78fa",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "update you as homes become available, and you may write to us at collective@earth6r.com"
+                                          },
+                                          {
+                                            "_key": "c2bd921b927e",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": " to reserve a specific home, "
+                                          },
+                                          {
+                                            "_key": "413345348e12",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "schedule consultations with our team, and to "
+                                          },
+                                          {
+                                            "_key": "db23cdb9cb59",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "convert your reservation to a formal order and configure your "
+                                          },
+                                          {
+                                            "_key": "96b5e7418e42",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Earth"
+                                          },
+                                          {
+                                            "_key": "72de0a8fecba",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": " Home. "
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "4b0206059a8c",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "e8cf9e0414fd",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "THE RIGHT TO PLACE A DEPOSIT"
+                                          }
+                                        ],
+                                        "level": 1,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "a68665568a34",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "74c756856af2",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "You must be at least 18 years of age and ensure that all the details you provide to us are accurate."
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "37d0c93c8963",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "330f6d8ef31c",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "The offer to make a Deposit is available until we disable the Deposit functionality in our digital channels."
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "99886cba45bf",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "5ffc3bb97de1",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Your rights in respect of the Deposit are personal and may not be assigned or transferred to anyone else."
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "5a3b80f0cd67",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "936302b1f372",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "You represent and warrant that you are not a person, or acting on behalf of a person, designated on any sanctions list imposed by the UN, EU or US. If at any time these representations fail to be true, your "
+                                          },
+                                          {
+                                            "_key": "68d497ab7d89",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Deposit and Membership"
+                                          },
+                                          {
+                                            "_key": "144a398374e5",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": " will automatically terminate with immediate effect, without any liability to compensate you whatsoever. Furthermore, according to the Law we may not be able to repay your Deposit Amount payment."
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "0bae6dc5e8c5",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "81d65dfee1c5",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "HOW TO MAKE AN ONLINE DEPOSIT"
+                                          }
+                                        ],
+                                        "level": 1,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "46fb40a8bf3f",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "ff5dc5042437",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "When you have finalized the online Deposit process on our digital channels and we have received your Deposit Amount, you have made a Deposit."
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "1d4894c97863",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "45d374735f23",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "After you have finalized your Deposit, you will receive a receipt of your Deposit confirming that it has been received and completed (“Deposit Confirmation”). Please save the Deposit receipt as this will be used when you have the opportunity to purchase your "
+                                          },
+                                          {
+                                            "_key": "9cf041106ed0",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Earth"
+                                          },
+                                          {
+                                            "_key": "62e9b42441df",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": " Home."
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "b59f55367cbd",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "fb9690877af5",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "If you do not receive the Deposit Confirmation within four (4) hours of completing the online process, please contact us by following the instructions on "
+                                          },
+                                          {
+                                            "_key": "ff2aa084b2e0",
+                                            "_type": "span",
+                                            "marks": ["b65cd40facde"],
+                                            "text": "www.earth6r.com/contact"
+                                          },
+                                          {
+                                            "_key": "1e28762d8f18",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "​ "
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [
+                                          {
+                                            "_key": "b65cd40facde",
+                                            "_type": "link",
+                                            "href": "https://www.earth6r.com/contact"
+                                          }
+                                        ],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "77ba2c086a97",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "c203ec570e06",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "THE DEPOSIT"
+                                          }
+                                        ],
+                                        "level": 1,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "68536721acf4",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "5313b99e2705",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Please note that we collect a refundable 100 USD deposit (the “Deposit Amount”) in order for the Deposit to be processed. The Deposit Amount as set out above is free of Sales Tax. This means we will not charge you any Sales Tax in relation to this Deposit due to the fact that it is a refundable Deposit."
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "162e9451afee",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "3f4145f07799",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "The Deposit is payable by credit card or cryptocurrency. We use Stripe and Bitpay for internet payment services. By accepting these Terms you expressly agree to either Stripe or Bitpay handling the payment transaction, your payment details and any other information necessary for such payment transaction to be executed by Stripe or Bitpay (including but not limited to fraud prevention). Stripe is certified by banks and card acquirers to securely manage payment transactions. If paying with Stripe, all communication between the Website and your bank is handled by Stripe and is encrypted via SSL (Secure Sockets Layer). "
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "3d60e2b2bd86",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "15d67678989b",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "When finalizing your purchase of an "
+                                          },
+                                          {
+                                            "_key": "3da9840fc828",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Earth"
+                                          },
+                                          {
+                                            "_key": "b489e4883447",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": " Home, the Deposit Amount can be used as a partial payment of your final order."
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "de7a55b42f53",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "07d88a4f97ac",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "You do not have a right to collect interest on the Deposit."
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "d34043866ec0",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "b83fe4de09fe",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "RIGHT OF CANCELLATION AND REFUND"
+                                          }
+                                        ],
+                                        "level": 1,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "93d403c8b61f",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "833b90398890",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "You have the right to cancel your Membership at any time and for any reason. If you wish to cancel the Membership, please contact us by following the instructions on "
+                                          },
+                                          {
+                                            "_key": "34f85d6a031e",
+                                            "_type": "span",
+                                            "marks": ["9a4060f5941e"],
+                                            "text": "www.earth6r.com/contact"
+                                          },
+                                          {
+                                            "_key": "33bc065f6e00",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "."
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [
+                                          {
+                                            "_key": "9a4060f5941e",
+                                            "_type": "link",
+                                            "href": "https://www.earth6r.com/contact"
+                                          }
+                                        ],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "a2daa6565d8b",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "b98b4aca4953",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "We are also entitled to cancel the Membership made by you at any time. Upon a cancellation initiated by us, you will be contacted."
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "38c45ba5f689",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "ec086a95ba0b",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "If your Membership is cancelled for any reason, either by you or us, your Deposit Amount will be refunded on the payment method used by you to pay the Deposit Amount, and we will not charge you any fees due to the cancellation. We will process your cancellation without undue delay and no later than fourteen (14) days after we receive the cancellation notice. Upon cancellation, you will no longer be able to use the Deposit or enjoy the benefits of Membership."
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "10703c458d1f",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "79f9b79a3eda",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "SUPPORT"
+                                          }
+                                        ],
+                                        "level": 1,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "a265262c0ed9",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "46bea772f75a",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Should you have any questions or complaints about the Deposit or wish to contact us for any other reason, you can do so by following the instructions on the "
+                                          },
+                                          {
+                                            "_key": "6ebcb74b15be",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Earth"
+                                          },
+                                          {
+                                            "_key": "6c3cfb918a19",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": " contact page at "
+                                          },
+                                          {
+                                            "_key": "3cb873413d33",
+                                            "_type": "span",
+                                            "marks": ["b606cabe91d7"],
+                                            "text": "www.earth6r.com/contact"
+                                          },
+                                          {
+                                            "_key": "df323c2613c4",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "."
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [
+                                          {
+                                            "_key": "b606cabe91d7",
+                                            "_type": "link",
+                                            "href": "https://www.earth6r.com/contact"
+                                          }
+                                        ],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "58c11b604ec7",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "35af921ea773",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "DISCLAIMER OF WARRANTIES"
+                                          }
+                                        ],
+                                        "level": 1,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "22763ee191ae",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "89d8d2f7641c",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Earth"
+                                          },
+                                          {
+                                            "_key": "383e6b59ba27",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": " does not warrant or guarantee you the right to purchase an "
+                                          },
+                                          {
+                                            "_key": "80cc93f8831f",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Earth"
+                                          },
+                                          {
+                                            "_key": "d162bf928df4",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": " Home, despite you having completed this Deposit and paid the Deposit Amount."
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "54434a1219f6",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "94cb163d7fcf",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Further, specifications and images of "
+                                          },
+                                          {
+                                            "_key": "93f199e0f56a",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Earth"
+                                          },
+                                          {
+                                            "_key": "3646807e915a",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": " Homes in our digital channels at the time of making the Deposit are not to be considered as specifications of any final "
+                                          },
+                                          {
+                                            "_key": "ab29db24cdc2",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Earth"
+                                          },
+                                          {
+                                            "_key": "510ed4a18109",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": " Home."
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "f4ccd071e7d9",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "8f3257978a19",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "LIMITATION OF LIABILITY"
+                                          }
+                                        ],
+                                        "level": 1,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "37103916eca4",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "11db75cedc0e",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "In no event shall "
+                                          },
+                                          {
+                                            "_key": "b4fbd04b9a3b",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Earth"
+                                          },
+                                          {
+                                            "_key": "0fb3dcbf74a7",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": " or any of our affiliates be liable or responsible for any loss or damage of any kind arising out of or in connection to your Deposit (except as may be required under mandatory law), including (without limitation hereto) any failure to perform, or delay in performance of, your Deposit. Your sole and exclusive remedy related to your Reservation is limited to the refund of your Deposit Amount."
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "a0c88641930b",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "982452f4fa6a",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "OTHER IMPORTANT TERMS"
+                                          }
+                                        ],
+                                        "level": 1,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "1ff84446e5c3",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "f1f4a3024f51",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "We may assign or transfer our rights and obligations to another organization, but this will not affect your rights or our obligations under these Terms. We will always notify you in writing or by posting on the "
+                                          },
+                                          {
+                                            "_key": "51c0deb2fdca",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "Earth"
+                                          },
+                                          {
+                                            "_key": "8ccc4e37013b",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": " website if this happens."
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "0398b561f1c6",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "b0f76a98afb0",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "If we have to contact you or give you notice in writing, we will do so by phone or e-mail at the contact details you provide to us during the online Reservation process."
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "1c27b759b720",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "4d257bdd50ec",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "AMENDMENTS"
+                                          }
+                                        ],
+                                        "level": 1,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "17c159b129c7",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "8108c3b068f9",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "We may revise these Terms from time to time, but will in such event provide you with relevant information of the amended Terms first. If you do not agree to the changes, you are always entitled to cancel the Deposit."
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "a5537a8acf44",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "e956d40b5528",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "APPLICABLE LAW AND VENUE"
+                                          }
+                                        ],
+                                        "level": 1,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "63334577af95",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "73aa7b823607",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "These Terms are governed by, and to be interpreted according to, the laws of the State "
+                                          },
+                                          {
+                                            "_key": "65d5b987cf05",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": "of Delaware. Prior agreements, oral statements, negotiations, communications or representations about the Deposit are superseded by these Terms."
+                                          }
+                                        ],
+                                        "level": 2,
+                                        "listItem": "number",
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      },
+                                      {
+                                        "_key": "96daac9a4c1f",
+                                        "_type": "block",
+                                        "children": [
+                                          {
+                                            "_key": "0c4eed370400",
+                                            "_type": "span",
+                                            "marks": [],
+                                            "text": " "
+                                          }
+                                        ],
+                                        "markDefs": [],
+                                        "style": "normal"
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "slug": {
+                                  "_type": "slug",
+                                  "current": "deposit-tc"
+                                },
+                                "title": "Deposit Terms and Conditions"
+                              }
+                            },
+                            "id": "-b2c6b7b6-b8f0-5419-9db7-64bd767763a1",
+                            "children": [],
+                            "parent": null
+                          }
+                        }
+                      ],
+                      "style": "normal"
+                    }
+                  ],
+                  "id": "-d515084d-ef4f-5f07-b078-e175d2ce4add",
+                  "children": [],
+                  "parent": null
+                }
+              }
+            ],
+            "style": "normal"
+          }
+        ],
+        "title": "Try Before You Buy"
+      },
+      {
+        "_key": "d7edcd77be15",
+        "_type": "accordionItem",
+        "internalTitle": "Clean and Safe",
+        "text": [
+          {
+            "_key": "519cbc736a43",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "04df9205e0a8",
+                "_type": "span",
+                "marks": [],
+                "text": "Whenever you swap locations, our comprehensive home swap insurance keeps you protected. Your personal belongings can be stored safely in the secure storage provided inside each Earth home. Homes are cleaned thoroughly to protect against COVID-19. In addition to the usual cleaning that you'd expect, our team also uses a high-strength, non-toxic hydrogen peroxide cleaner and disinfects homes with ozone to neutralize airborne bacteria and viruses such as SARS-CoV-2."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "de4482f1a97d",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "f1c03f7a09a40",
+                "_type": "span",
+                "marks": [],
+                "text": "\n"
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ],
+        "title": "Clean and Safe"
+      },
+      {
+        "_key": "bfe110cc5f44",
+        "_type": "accordionItem",
+        "internalTitle": "A Sustainable Approach",
+        "text": [
+          {
+            "_key": "5705ca32c7ac",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "67a474d36aae",
+                "_type": "span",
+                "marks": [],
+                "text": "We make use of vacant homes before they're sold to provide additional flexibility for our members to home swap for free. By utilizing vacant inventory, we aim to reduce demand for flexible housing in surrounding neighborhoods. And by making homeownership more flexible, we want to enable a transition away from a 'sharing economy' based on renting and towards a more cooperative 'ownership economy' in which more of us can have a stake."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ],
+        "title": "A Sustainable Approach"
+      },
+      {
+        "_key": "68a2123f3959",
+        "_type": "accordionItem",
+        "internalTitle": "24/7 Concierge Service",
+        "text": [
+          {
+            "_key": "4c8e1e183841",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "b422d9f220ea",
+                "_type": "span",
+                "marks": [],
+                "text": "Arrange cleaning or maintenance, order groceries, borrow a bike, rent a car, find out what’s happening in the neighborhood. Call or text, 24/7."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ],
+        "title": "24/7 Concierge Service"
+      },
+      {
+        "_key": "4ec6060d769a",
+        "_type": "accordionItem",
+        "internalTitle": "Shape the Collective",
+        "text": [
+          {
+            "_key": "784a7c847aff",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "a756399a7eb1",
+                "_type": "span",
+                "marks": [],
+                "text": "Earth's community is built on collaboration. From prioritizing new locations and proposing amenities and features, to shaping our research and development program and our events in each city, members contribute to the evolution of the collective through discussions, dinners, and working groups in each of our locations and online in our community Discord."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ],
+        "title": "Shape the Collective"
+      }
+    ],
+    "callibrationMark": false,
+    "internalTitle": "HIW Sections",
+    "title": "HIW Sections"
+  }
+]
