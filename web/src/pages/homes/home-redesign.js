@@ -61,7 +61,7 @@ const properties = [
     address: "789 MAPLE ST.",
     unitType: "Studio",
     price: "700,000+",
-    image: "https://picsum.photos/2000/3000",
+    image: streetImage,
     city: "LA",
     propertyTypesList: ["ABC123", "GHI789"],
     description:
