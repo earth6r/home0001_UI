@@ -178,6 +178,7 @@ module.exports = {
         aside: "#f7f7f7",
         asideActive: "#edeef0",
         lightGray: "#f2f2f2",
+        whitesmoke: "#F3F3F3",
         darkGray: "#1f1f1f"
       },
       borderWidth: {
@@ -339,6 +340,7 @@ module.exports = {
           }
         }
       });
-    }
+    },
+    require("@headlessui/tailwindcss")
   ]
 };
