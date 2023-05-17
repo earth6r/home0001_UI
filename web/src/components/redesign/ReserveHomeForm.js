@@ -11,7 +11,7 @@ export const ReserveHomeForm = () => {
   };
 
   return (
-    <div className=" relative mt-8">
+    <div className=" relative">
       <div className=" w-full h-full absolute  transform scale-x-150  bg-whitesmoke"></div>
       <div className="pt-10 relative mb-4 text-[14px] md:text-base font-serif max-w-[19.375rem] md:max-w-[29.25rem]">
         <p className=" uppercase mb-0">RESERVE YOUR HOME</p>
