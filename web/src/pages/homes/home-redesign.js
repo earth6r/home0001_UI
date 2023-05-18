@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Container from "../../components/container";
 import Layout from "../../containers/layout";
 import SEO from "../../components/seo";
-import { RenderModules } from "../../utils/renderModules";
 import dummyData from "../../../../dummyData.json";
 import { AccordionModule } from "../../components/global/accordion";
 import { StandardText } from "../../components/global/standardText";
@@ -10,6 +9,9 @@ import { ReserveHomeForm } from "../../components/redesign/ReserveHomeForm";
 import { Accordion, AccordionItem, AccordionHeader, AccordionPanel } from "@chakra-ui/core";
 import streetImage from "../../components/redesign/images/street.png";
 import homeImage from "../../components/redesign/images/home.png";
+import { Popover, PopoverTrigger, PopoverContent } from "@chakra-ui/core";
+import MapContainer from "../../components/map";
+// import MapModule from "../../components/mapModule";
 const sectionTypeComponentMap = {
   accordion: AccordionModule,
   standardText: StandardText
@@ -165,7 +167,6 @@ const HomeRedesignPage = () => {
             selectedProperty={selectedProperty}
             selectedPropertyType={selectedPropertyType}
             onChange={propertType => {
-              //   setSelectedProperty(propertType);
               setSelectedPropertyType(propertType);
             }}
           />
@@ -288,12 +289,14 @@ const PropertyTypeComponent = ({ selectedPropertyType }) => {
   return (
     <>
       {selectedPropertyType && (
-        <div className="flex flex-col text-[14px] md:text-base">
+        <div className="flex flex-col text-[14px] md:text-base relative">
           <ImageSlider images={selectedPropertyType.images} />
           <div className=" text-[14px] md:text-base mt-10 md:mt-20">
             <h3 className="m-0 uppercase">{selectedPropertyType.address}</h3>
             <p className="m-0 ">{selectedPropertyType.unitType}</p>
             <p className="m-0">{selectedPropertyType.price}</p>
+            <MapModule text="MAP" lat="34.088705" long="-118.254759" />
+            {/* <MapContainer text="MAP" lat="34.088705" long="-118.254759" /> */}
           </div>
           <h3 className=" uppercase my-4 md:my-20">{selectedPropertyType.unitType}</h3>
           <p className=" max-w-xs md:max-w-4xl">{selectedPropertyType.description}</p>
@@ -365,5 +368,31 @@ const ImageSlider = ({ images }) => {
         </button>
       </div>
     </div>
+  );
+};
+
+const MapModule = props => {
+  const { text, lat, long } = props;
+  return (
+    <>
+      <Popover placement="bottom" trigger="click" usePortal={true} gutter={10}>
+        <PopoverTrigger>
+          <button aria-label={`Open Map`} className=" border-b border-dashed  uppercase">
+            MAP
+          </button>
+        </PopoverTrigger>
+        <PopoverContent
+          bg="transparent"
+          className="border-none  max-w-1xl md:max-w-2xl md:block no-shadow p-0 ml-6"
+          zIndex={65}
+        >
+          <span className="block">
+            <span className="box block px-1em py-1em bg-white text-mobileBody md:text-desktopBody">
+              <MapContainer lat={lat} long={long}></MapContainer>
+            </span>
+          </span>
+        </PopoverContent>
+      </Popover>
+    </>
   );
 };
