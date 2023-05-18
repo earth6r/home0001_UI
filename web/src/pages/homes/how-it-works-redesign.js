@@ -46,8 +46,10 @@ const HowItWorksRedignPage = () => {
         </>
       )} */}
       <Container>
-        <h2 className=" uppercase mt-5 mb-20 font-normal">How it works</h2>
-        <div>{content}</div>
+        <h2 className=" uppercase mt-5 mb-20 font-normal text-[14pox] md:text-base">
+          How it works
+        </h2>
+        <div className="mb-10 md:mb-8">{content}</div>
         <ReserveHomeForm />
       </Container>
       {/* {slug?.current === "homes/how-it-works" && <DepositBlock />} */}
