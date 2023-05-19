@@ -4,27 +4,37 @@ export default {
   type: 'object',
   hidden: true,
   fields: [
-  {
+    {
       name: 'internalTitle',
       title: 'Title for Internal Use',
-      type: 'string',
+      type: 'string'
     },
     {
       name: 'callibrationMark',
       title: 'Show Callibration Marks',
       default: true,
-      type: 'boolean',
+      type: 'boolean'
     },
     {
       name: 'title',
       title: 'Link CTA',
-      type: 'string',
+      type: 'string'
     },
     {
       name: 'link',
       title: 'Link',
       type: 'reference',
-      to: [{ type: 'page' }, { type: 'home' }, { type: 'checkout' }],
+      to: [
+        { type: 'page' },
+        { type: 'home' },
+        { type: 'checkout' },
+        {
+          type: 'homePage'
+        },
+        {
+          type: 'howItWorksPage'
+        }
+      ]
     },
     {
       title: 'Color',
@@ -32,8 +42,8 @@ export default {
       type: 'string',
       options: {
         list: [
-          {title: 'White', value: 'white'},
-          {title: 'Black', value: 'black'}
+          { title: 'White', value: 'white' },
+          { title: 'Black', value: 'black' }
         ], // <-- predefined values
         layout: 'radio', // <-- defaults to 'dropdown'
         default: 'white'
@@ -42,7 +52,7 @@ export default {
   ],
   preview: {
     select: {
-      title: "internalTitle"
+      title: 'internalTitle'
     }
   }
 }

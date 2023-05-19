@@ -13,14 +13,14 @@ import blockContent from './blockContent'
 import blockText from './blockText'
 import partner from './documents/partner'
 import siteSettings from './documents/siteSettings'
-
+import cities from './documents/cities'
 // static pages
 import landing from './documents/landing'
 import home from './documents/home'
 // import homes from './documents/homes'
-// import howItWorks from './documents/howItWorks'
+import howItWorks from './documents/howItWorks'
 import checkout from './documents/checkout'
-import about from './documents/about'
+// import about from './documents/about'
 import rnd from './documents/rnd'
 // import viewHomes from './documents/viewHomes'
 
@@ -88,6 +88,12 @@ import pageContent from './tabs/pageContent'
 
 // Content Types
 import menus from './types/menus'
+import property from './documents/property'
+import propertyType from './documents/propertyType'
+import homePage from './documents/homePage'
+import map from './objects/map'
+import simpleText from './objects/simpleText'
+import aboutPage from './documents/aboutPage'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -104,11 +110,16 @@ export default createSchema({
     // static pages
     landing,
     home,
-    about,
+    // about,
     homeUnit,
     checkout,
     // homes,
-    // howItWorks,
+    homePage,
+    cities,
+    property,
+    propertyType,
+    howItWorks,
+    aboutPage,
     // viewHomes,
     //
     accordion,
@@ -173,7 +184,9 @@ export default createSchema({
     newRow,
     rowLinkTable,
     columnHeaderTable,
-    liveVideo
+    liveVideo,
+    map,
+    simpleText
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ])
