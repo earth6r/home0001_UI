@@ -142,13 +142,10 @@ const query = graphql`
               url
             }
             ... on SanityInternalLink {
-              _key
-              _type
               link {
                 ...LinkFragment
-                ...HomeLinkFragment
               }
-              title
+              _key
             }
           }
         }
