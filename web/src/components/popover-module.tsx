@@ -7,40 +7,47 @@ import {
   PopoverBody,
   PopoverFooter,
   PopoverArrow,
-  PopoverCloseButton,
+  PopoverCloseButton
 } from "@chakra-ui/core";
 import BasePortableText from "@sanity/block-content-to-react";
 import { Serializer } from "../utils/serializer";
 import SVG from "../components/svg";
 
-const PopoverModule = (props) => {
+const PopoverModule = props => {
   const { text, logo, content } = props;
 
-  const [isOpen, setIsOpen] = React.useState(false)
-  const open = () => setIsOpen(!isOpen)
-  const close = () => setIsOpen(false)
-  if(typeof window != `undefined`){
+  const [isOpen, setIsOpen] = React.useState(false);
+  const open = () => setIsOpen(!isOpen);
+  const close = () => setIsOpen(false);
+  if (typeof window != `undefined`) {
     // window.addEventListener('scroll', function (event) {
     // Scrolling has happened...
-    let limit = document.getElementById(text+"-popover");
+    let limit = document.getElementById(text + "-popover");
     limit = limit ? limit.getBoundingClientRect().top - 100 : null;
-     //transform: translate3d(372px, 1000px, 0px) !important;
-     // let pop = document.getElementByClass('content-popover');
-     
-     // pop.style.tranform = "translate3d(372px, " + limit + ", 0px) !important"
-     // if(window.pageXOffset > limit && window.pageXOffset < limit + 100){
-     //  close()
-     // }
-      
+    //transform: translate3d(372px, 1000px, 0px) !important;
+    // let pop = document.getElementByClass('content-popover');
+
+    // pop.style.tranform = "translate3d(372px, " + limit + ", 0px) !important"
+    // if(window.pageXOffset > limit && window.pageXOffset < limit + 100){
+    //  close()
+    // }
+
     // }, false);
   }
 
   return (
-    <Popover placement="" isOpen={isOpen} onClose={close} trigger="click" usePortal={true} gutter={10}>
+    <Popover
+      placement=""
+      isOpen={isOpen}
+      onClose={close}
+      trigger="click"
+      usePortal={true}
+      gutter={10}
+    >
       <PopoverTrigger>
         {text && (
           <a
-            id={text+"-popover"}
+            id={text + "-popover"}
             onClick={open}
             aria-label={`Open ${text}`}
             className="partner-ref-link"
@@ -50,18 +57,18 @@ const PopoverModule = (props) => {
         )}
       </PopoverTrigger>
       <PopoverContent
-        id={text+'-content-popover'}
+        id={text + "-content-popover"}
         bg="transparent"
-        className="content-popover border-none max-w-xs md:max-w-4xl no-shadow m-2 -mt-100 ml-4 text-mobileBody p-0 md:text-desktopBody"
+        className="content-popover border-none  max-w-2xl no-shadow m-2 -mt-100 ml-4  p-0"
         zIndex={50}
       >
-        <span className="block">
+        <div className="block">
           {content && (
-            <span className="box block px-1em py-1em bg-white text-mobileBody md:text-desktopBody">
+            <div className="  p-10 border bg-white text-base">
               <BasePortableText blocks={content} serializers={Serializer} />
-            </span>
+            </div>
           )}
-        </span>
+        </div>
       </PopoverContent>
     </Popover>
   );
