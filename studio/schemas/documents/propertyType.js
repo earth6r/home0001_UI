@@ -7,11 +7,6 @@ export default {
   // __experimental_actions: ['update', 'publish', /* 'create', 'delete' */],
   fields: [
     {
-      name: 'title',
-      type: 'string',
-      title: 'Internal Title'
-    },
-    {
       title: 'Available',
       name: 'available',
       type: 'boolean',
@@ -75,22 +70,32 @@ export default {
       name: 'description',
       type: 'simpleText'
     },
-
     {
       name: 'inventory',
       title: 'Inventory',
-      type: 'columnHeaderTable'
+      type: 'array',
+      of: [
+        {
+          type: 'inventoryModule'
+        }
+      ]
     },
+
     {
       title: 'Property',
       name: 'property',
       type: 'reference',
-      to: [{ type: 'property' }]
+      to: [{ type: 'property' }],
+      options: {
+        // Here's where you can add the subtitle field
+        getOptionLabel: reference => `${reference.title}`
+      }
     }
   ],
   preview: {
     select: {
-      title: 'title'
+      title: 'property.title',
+      subtitle: 'propertyType'
     }
   }
 }

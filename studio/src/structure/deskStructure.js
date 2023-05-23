@@ -112,6 +112,23 @@ export default () =>
             .schemaType('aboutPage')
             .documentId('aboutPage')
         ),
+      S.listItem()
+        .title('Newsletter')
+        .child(
+          S.editor()
+            .id('newsLetter')
+            .schemaType('newsLetter')
+            .documentId('newsLetter')
+        ),
+      ,
+      S.listItem()
+        .title('Legal')
+        .child(
+          S.editor()
+            .id('legalPage')
+            .schemaType('legalPage')
+            .documentId('legalPage')
+        ),
       S.divider(),
       S.listItem()
         .title('Menus')
@@ -252,7 +269,9 @@ export default () =>
             'cities',
             'property',
             'propertyType',
-            'aboutPage'
+            'aboutPage',
+            'legalPage',
+            'newsLetter'
             //'staff',
           ].includes(listItem.getId())
       )

@@ -99,14 +99,13 @@ const HomeRedesignPage = ({ data }) => {
     setSelectedCity(city);
     setSelectedProperty(null);
     setSelectedPropertyType(null);
-    // setShowReserveHomeForm(false);
   };
   // console.log(filteredPropertiesTypes, "hel");
   return (
     <Layout showPopupNewsletter={true} rnd={false}>
       <SEO title="Home" />
       <Container className="flex flex-col h-screen">
-        <section className="mb-auto">
+        <section className="mb-auto mt-10">
           <CitiesList
             cities={cities}
             onChange={city => onSelectCity(city)}

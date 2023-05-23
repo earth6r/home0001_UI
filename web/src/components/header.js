@@ -117,14 +117,25 @@ const Header = ({
 
   const newMenu = [
     {
-      title: "Home",
-      slug: "/homes/home-redesign",
-      _key: "h412412ome"
-    },
-    {
       title: "How It Works",
       slug: "/homes/how-it-works-redesign",
       _key: "gasdgasgasd212"
+    },
+    {
+      title: "About",
+      slug: "/homes/about",
+      _key: "gasdgfasfs125125asgasd212"
+    },
+    {
+      title: "Newsletter",
+      slug: "/homes/newsletter",
+      _key: "gasdgfasfsfsfs125125asgasd212"
+    },
+
+    {
+      title: "Legal",
+      slug: "/homes/legal",
+      _key: "gasdgfasfsfasf1125125asgasd212"
     }
   ];
   return (
@@ -160,8 +171,8 @@ const Header = ({
           } flex  w-full   md:bg-transparent md:relative justify-between md:justify-between items-center content-center`}
         >
           <nav className="flex justify-between items-center w-full px-4 py-6 md:px-10 md:py-12">
-            <h1 className="relative menu z-50 h-10">
-              <PageLink to="/homes/how-it-works-redesign" className="flex items-center h-full">
+            <h1 className="relative menu z-50 h-10 ">
+              <PageLink to="/homes/home-redesign" className="flex items-center h-full">
                 <div className="  flex items-center">
                   <EarthLogoMobile />
                 </div>
@@ -202,30 +213,12 @@ const Header = ({
             } fixed  top-0 pt-[4.625rem] md:pt-[9.375rem] left-0 w-full h-full`}
           >
             <ul className="px-4 md:px-10  flex flex-col gap-10">
-              {/* <li className="flex items-center">
-                  <h1 className="menu-earth-button w-max">
-                    <PageLink
-                      className={`${currentUri && currentUri.includes("/") ? "" : ""}`}
-                      onClick={onHideNav}
-                      to="/homes"
-                    >
-                      <div className="h-5">
-                        <EarthLogoMobile />
-                      </div>
-                      <span
-                        className={`${forwarder == "new-eelam" ? "" : "hidden"} new-eelam-header`}
-                      >
-                        [FKA New Eelam]
-                      </span>
-                    </PageLink>
-                  </h1>
-                </li> */}
               {menu &&
                 newMenu.map((item, index) => {
                   return (
                     <li
                       onClick={onHideNav}
-                      className="text-start text-[0.875rem] md:text-base mt-10 uppercase"
+                      className="text-start text-[0.875rem] md:text-base uppercase "
                       key={index++}
                     >
                       <PageLink onClick={onHideNav} to={`${item.slug}`}>

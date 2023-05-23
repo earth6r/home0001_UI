@@ -8,17 +8,25 @@ import DepositBlock from "../../components/DepositBlock";
 import { AccordionModule } from "../../components/global/accordion";
 import { StandardText } from "../../components/global/standardText";
 import { useForm } from "react-hook-form";
-import { Accordion, AccordionItem, AccordionHeader, AccordionPanel } from "@chakra-ui/core";
 import { ReserveHomeForm } from "../../components/redesign/ReserveHomeForm";
+import { graphql } from "gatsby";
 
 const sectionTypeComponentMap = {
   accordion: AccordionModule,
   standardText: StandardText
 };
 
-const HowItWorksRedignPage = () => {
-  const sections = dummyData;
-  console.log(sections, "se");
+export const query = graphql`
+  {
+    sanityHowItWorksPage {
+      title
+      _rawSections
+    }
+  }
+`;
+const HowItWorksRedignPage = ({ data }) => {
+  const pageTitle = data.sanityHowItWorksPage.title || "How It Works";
+  const sections = data.sanityHowItWorksPage._rawSections;
   const content = (sections || []).map(module => {
     const ComponentToRender = sectionTypeComponentMap[module._type];
     return ComponentToRender ? (
@@ -27,27 +35,10 @@ const HowItWorksRedignPage = () => {
   });
   return (
     <Layout showPopupNewsletter={true} rnd={false}>
-      <SEO title="How It works" />
-      {/* 
-      {page._rawContent.main.title == "Contact" && !isrnd ? (
-        <Container>
-          <div className="flex flex-wrap w-full">
-            {RenderModules([modules[0], modules[1]])}
-            <CalendlyContact />
-            {RenderModules(modules.slice(2, modules.length))}
-          </div>
-        </Container>
-      ) : (
-        <>
-          <Container>
-            <div className="flex flex-wrap w-full">{RenderModules(modules)}</div>
-          </Container>
-          {slug?.current === "homes/how-it-works" && <DepositBlock />}
-        </>
-      )} */}
+      <SEO title={pageTitle} />
       <Container>
-        <h2 className=" uppercase mt-5 mb-20 font-normal text-[14pox] md:text-base">
-          How it works
+        <h2 className=" uppercase mb-20 font-normal text-[0.875rem] md:text-base mt-10">
+          {pageTitle}
         </h2>
         <div className="mb-10 md:mb-8">{content}</div>
         <ReserveHomeForm />

@@ -3,10 +3,11 @@ import { Popover, PopoverTrigger, PopoverContent } from "@chakra-ui/core";
 import MapContainer from "../map";
 import { ImageSlider } from "./ImageSlider";
 import { StandardText } from "../global/standardText";
+import { ReserveHomeForm } from "./ReserveHomeForm";
+import { InventorModule } from "./InventoryModule";
 
 export const PropertyTypeUI = ({ selectedPropertyType, property }) => {
   const [showReserveHomeForm, setShowReserveHomeForm] = useState(false);
-
   return (
     <>
       {selectedPropertyType ? (
@@ -32,17 +33,16 @@ export const PropertyTypeUI = ({ selectedPropertyType, property }) => {
           )}
         </div>
       ) : null}
+      <InventorModule data={selectedPropertyType} />
       {selectedPropertyType && (
-        <div className="">
-          <button
-            onClick={() => setShowReserveHomeForm(prev => !prev)}
-            className="mb-10 max-w-[19.375rem] md:max-w-[29.25rem] mt-20 w-full h-12 max-h-12 py-2 px-3 text-left uppercase  border border-[#000] text-[0.875rem] md:text-base"
-          >
-            JOIN THE WAITLIST FOR THIS HOME{" "}
-          </button>
-          {showReserveHomeForm && <ReserveHomeForm />}{" "}
-        </div>
+        <button
+          onClick={() => setShowReserveHomeForm(prev => !prev)}
+          className="mb-10 max-w-[19.375rem] md:max-w-[29.25rem] block mt-20 w-full h-12 max-h-12 py-2 px-3 text-left uppercase  border border-[#000] text-[0.875rem] md:text-base"
+        >
+          JOIN THE WAITLIST FOR THIS HOME{" "}
+        </button>
       )}
+      {showReserveHomeForm && <ReserveHomeForm />}{" "}
     </>
   );
 };

@@ -94,6 +94,12 @@ import homePage from './documents/homePage'
 import map from './objects/map'
 import simpleText from './objects/simpleText'
 import aboutPage from './documents/aboutPage'
+import inventoryModule from './modules/inventoryModule'
+import inventoryRow from './objects/inventoryRow'
+import inventoryCell from './objects/inventoryCell'
+import legalPage from './documents/legalPage'
+import newsLetter from './documents/newsLetter'
+import newsLetterForm from './objects/newsLetterForm'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -120,8 +126,11 @@ export default createSchema({
     propertyType,
     howItWorks,
     aboutPage,
+    legalPage,
+    newsLetter,
     // viewHomes,
     //
+    newsLetterForm,
     accordion,
     accordionItem,
     category,
@@ -186,7 +195,10 @@ export default createSchema({
     columnHeaderTable,
     liveVideo,
     map,
-    simpleText
+    simpleText,
+    inventoryModule,
+    inventoryRow,
+    inventoryCell
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ])

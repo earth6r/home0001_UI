@@ -39,7 +39,8 @@ export const SingleProperty = ({
                       {amenities.map((amenity, index) => {
                         return (
                           <li key={index++} className="p-0  text-left before:content-['']">
-                            - {amenity}
+                            <span>-</span>
+                            <span>{amenity}</span>
                           </li>
                         );
                       })}
