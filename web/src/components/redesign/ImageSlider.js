@@ -18,12 +18,14 @@ export const ImageSlider = ({ images }) => {
   const hasPreviousImage = currentImageIndex !== 0;
   const hasNextImage = currentImageIndex !== images.length - 1;
   return (
-    <div className=" flex flex-col items-center max-w-[636px] max-h-[805px]">
-      <img
-        className="max-w-[636px] max-h-[805px] object-cover mb-4 w-full"
-        src={images[currentImageIndex]?.asset?.url}
-        alt=""
-      />
+    <div className=" flex flex-col gap-4 items-center max-w-[636px] max-h-[805px]">
+      <div className="max-w-[636px] max-h-[805px] w-full">
+        <img
+          className="w-full h-full object-cover mb-4  max-h-[805px]"
+          src={images[currentImageIndex]?.asset?.url}
+          alt=""
+        />
+      </div>
       <div className=" flex gap-2">
         <button
           className=" disabled:shadow-none disabled:bg-transparent disabled:opacity-40"

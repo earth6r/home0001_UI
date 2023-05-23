@@ -16,9 +16,9 @@ export const PropertyTypeUI = ({ selectedPropertyType, property }) => {
             <ImageSlider images={selectedPropertyType.images} />
           )}
           <div className=" text-[0.875rem] md:text-base mt-10 md:mt-20">
-            {property.title && <h3 className="m-0 uppercase">{property.title}</h3>}{" "}
-            {property.unitTypes && <p className="m-0 ">{property.unitTypes}</p>}{" "}
-            {property.price && <p className="m-0">{property.price}</p>}{" "}
+            {property.title && <h3 className="m-0 uppercase">{property.title}</h3>}
+            {property.unitTypes && <p className="m-0 ">{property.unitTypes}</p>}
+            {property.price && <p className="m-0">{property.price}</p>}
             {property.map && property.map?.lat && property.map?.long && (
               <MapModule text="MAP" lat="34.088705" long="-118.254759" />
             )}
@@ -33,7 +33,13 @@ export const PropertyTypeUI = ({ selectedPropertyType, property }) => {
           )}
         </div>
       ) : null}
-      <InventorModule data={selectedPropertyType} />
+      {selectedPropertyType._rawInventory && (
+        <InventorModule
+          title={property.title}
+          propertyType={selectedPropertyType.propertyType}
+          data={selectedPropertyType}
+        />
+      )}{" "}
       {selectedPropertyType && (
         <button
           onClick={() => setShowReserveHomeForm(prev => !prev)}

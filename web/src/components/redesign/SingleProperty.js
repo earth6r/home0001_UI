@@ -30,7 +30,13 @@ export const SingleProperty = ({
                   }`}
                 >
                   <div className="p-0 m-0 text-left">
-                    {propertyType && <p className="uppercase mb-0">{propertyType}</p>}
+                    {propertyType && (
+                      <p className="uppercase mb-0">
+                        {propertyType
+                          .replace("one-bedroom", "1 bedroom")
+                          .replace("two-bedroom", "2 bedrooms")}
+                      </p>
+                    )}
                     {price && <p className="uppercase mb-0">{price}</p>}
                     {area && <p className="uppercase">{area}</p>}
                   </div>
