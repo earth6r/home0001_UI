@@ -1,21 +1,9 @@
 import React, { useRef } from "react";
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalBody,
-  //   ModalCloseButton,
-  useDisclosure
-} from "@chakra-ui/core";
+import { Modal, ModalOverlay, ModalContent, ModalBody, useDisclosure } from "@chakra-ui/core";
 import { InventoryTable } from "./InventoryTable";
-import { useSnapCarousel } from "react-snap-carousel";
 
 export const InventorModule = ({ data }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { scrollRef, pages, activePageIndex, next, prev, goTo } = useSnapCarousel();
-
-  //   const finalRef = useRef();
-  console.log(data, "data");
 
   return (
     <div>
