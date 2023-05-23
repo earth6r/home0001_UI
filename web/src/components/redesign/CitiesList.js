@@ -1,4 +1,5 @@
 import React from "react";
+
 export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
   return (
     <>

@@ -1,4 +1,5 @@
 import React from "react";
+
 export const PropertiesList = ({ properties, onChange, selectedProperty }) => {
   return (
     <>

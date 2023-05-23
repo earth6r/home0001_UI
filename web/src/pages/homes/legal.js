@@ -1,8 +1,10 @@
 import React from "react";
+import { graphql } from "gatsby";
+
+import SEO from "../../components/seo";
 import Container from "../../components/container";
 import Layout from "../../containers/layout";
-import SEO from "../../components/seo";
-import { graphql } from "gatsby";
+
 import { StandardText } from "../../components/global/standardText";
 
 export const query = graphql`

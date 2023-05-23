@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import { graphql } from "gatsby";
+
+import SEO from "../../components/seo";
 import Container from "../../components/container";
 import Layout from "../../containers/layout";
-import SEO from "../../components/seo";
-import { AccordionModule } from "../../components/global/accordion";
-import { ReserveHomeForm } from "../../components/redesign/ReserveHomeForm";
-import { graphql } from "gatsby";
+
 import { CitiesList } from "../../components/redesign/CitiesList";
 import { PropertiesList } from "../../components/redesign/PropertiesList";
 import { SingleProperty } from "../../components/redesign/SingleProperty";

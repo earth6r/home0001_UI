@@ -1,11 +1,8 @@
 import React from "react";
-// import MailChimpForm from "../../components/mailchimp-form";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import addToMailchimp from "gatsby-plugin-mailchimp";
-import ReactHtmlParser from "react-html-parser";
-import { FormControl, FormErrorMessage, Input, Button } from "@chakra-ui/core";
-import PortableText from "../portableText";
+import { Input, Button } from "@chakra-ui/core";
 
 export const NewsLetterForm = ({ data }) => {
   return (
