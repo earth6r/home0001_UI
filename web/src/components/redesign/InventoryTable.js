@@ -13,19 +13,19 @@ export const InventoryTable = ({ data }) => {
     slidesToShow: isDesktop ? 3 : 1,
     infinite: false,
     arrows: false,
-    centerMode: true,
+    centerMode: isDesktop ? false : true,
     centerPadding: isDesktop ? "" : "20vw 0px 0px 0px" // Adjust the padding value as needed
   };
 
   return (
-    <div className="w-full flex flex-col gap-20 justify-between">
-      <Slider ref={slider} {...settings} className="flex gap-20">
+    <div className="w-full gap-20 justify-between">
+      <Slider ref={slider} {...settings} className="w-full mb-20">
         {headers &&
           headers.map((head, index) => {
             let currentHeader = index;
             if (head.length > 0) {
               return (
-                <div className="">
+                <div className="w-full">
                   <ul key={index}>
                     <li className="mb-4 uppercase" key={`header-${head}-${index}`}>
                       <p>{head}</p>
@@ -53,19 +53,21 @@ export const InventoryTable = ({ data }) => {
             }
           })}
       </Slider>
-      <div className="flex gap-4 mt-8 md:hidden">
-        <CustomPrevButton
-          onClick={() => slider.current.slickPrev()}
-          disabled={slider.current && slider.current.state.currentSlide === 0}
-        />
-        <CustomNextButton
-          onClick={() => slider.current.slickNext()}
-          disabled={
-            slider.current &&
-            slider.current.state.currentSlide === slider.current.state.slideCount - 1
-          }
-        />
-      </div>
+      {headers && ((!isDesktop && headers.length > 1) || (isDesktop && headers.length > 3)) && (
+        <div className="flex justify-center items-center w-full gap-2 mt-8 ">
+          <CustomPrevButton
+            onClick={() => slider.current.slickPrev()}
+            disabled={slider.current && slider.current.state.currentSlide === 0}
+          />
+          <CustomNextButton
+            onClick={() => slider.current.slickNext()}
+            disabled={
+              slider.current &&
+              slider.current.state.currentSlide === slider.current.state.slideCount - 1
+            }
+          />
+        </div>
+      )}
     </div>
   );
 };
