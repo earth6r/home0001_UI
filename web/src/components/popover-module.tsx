@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverHeader,
-  PopoverBody,
-  PopoverFooter,
-  PopoverArrow,
-  PopoverCloseButton
-} from "@chakra-ui/core";
+import { Popover, PopoverTrigger, PopoverContent, PopoverCloseButton } from "@chakra-ui/core";
 import BasePortableText from "@sanity/block-content-to-react";
 import { Serializer } from "../utils/serializer";
 import SVG from "../components/svg";
@@ -19,30 +10,15 @@ const PopoverModule = props => {
   const [isOpen, setIsOpen] = React.useState(false);
   const open = () => setIsOpen(!isOpen);
   const close = () => setIsOpen(false);
-  if (typeof window != `undefined`) {
-    // window.addEventListener('scroll', function (event) {
-    // Scrolling has happened...
-    let limit = document.getElementById(text + "-popover");
-    limit = limit ? limit.getBoundingClientRect().top - 100 : null;
-    //transform: translate3d(372px, 1000px, 0px) !important;
-    // let pop = document.getElementByClass('content-popover');
-
-    // pop.style.tranform = "translate3d(372px, " + limit + ", 0px) !important"
-    // if(window.pageXOffset > limit && window.pageXOffset < limit + 100){
-    //  close()
-    // }
-
-    // }, false);
-  }
 
   return (
     <Popover
-      placement=""
       isOpen={isOpen}
       onClose={close}
       trigger="click"
       usePortal={true}
       gutter={10}
+      placement="top"
     >
       <PopoverTrigger>
         {text && (
@@ -59,12 +35,13 @@ const PopoverModule = props => {
       <PopoverContent
         id={text + "-content-popover"}
         bg="transparent"
-        className="content-popover border-none  max-w-2xl no-shadow m-2 -mt-100 ml-4  p-0"
+        className="border-none max-w-2xl no-shadow px-4 -ml-[5px]"
         zIndex={50}
       >
+        <PopoverCloseButton className="right-0 top-0 my-4 mx-8" />
         <div className="block">
           {content && (
-            <div className="  p-10 border bg-white text-base">
+            <div className="p-10 border bg-white text-base">
               <BasePortableText blocks={content} serializers={Serializer} />
             </div>
           )}

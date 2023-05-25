@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "../../components/container";
+import Container from "../../components/redesign/Container";
 import Layout from "../../containers/layout";
 import SEO from "../../components/seo";
 import { RenderModules } from "../../utils/renderModules";
@@ -37,7 +37,7 @@ const HowItWorksRedignPage = ({ data }) => {
     <Layout showPopupNewsletter={true} rnd={false}>
       <SEO title={pageTitle} />
       <Container>
-        <h2 className=" uppercase mb-20 font-normal text-[0.875rem] md:text-base mt-10">
+        <h2 className=" uppercase mb-10 font-normal text-[0.875rem] md:text-base mt-4 md:mt-0 leading-[120%]">
           {pageTitle}
         </h2>
         <div className="mb-10 md:mb-8">{content}</div>

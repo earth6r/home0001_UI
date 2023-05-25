@@ -21,12 +21,12 @@ export const ImageSlider = ({ images }) => {
     <div className=" flex flex-col gap-4 items-center max-w-[636px] max-h-[805px]">
       <div className="max-w-[636px] max-h-[805px] w-full">
         <img
-          className="w-full h-full object-cover mb-4  max-h-[805px]"
+          className="w-full h-full object-cover mb-4 max-h-[487px]"
           src={images[currentImageIndex]?.asset?.url}
           alt=""
         />
       </div>
-      <div className=" flex gap-2">
+      <div className="flex items-center gap-2">
         <button
           className=" disabled:shadow-none disabled:bg-transparent disabled:opacity-40"
           onClick={previousImage}

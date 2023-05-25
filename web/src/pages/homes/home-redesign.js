@@ -1,19 +1,13 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
-
 import SEO from "../../components/seo";
-import Container from "../../components/container";
 import Layout from "../../containers/layout";
-
 import { CitiesList } from "../../components/redesign/CitiesList";
 import { PropertiesList } from "../../components/redesign/PropertiesList";
 import { SingleProperty } from "../../components/redesign/SingleProperty";
 import { PropertyTypeUI } from "../../components/redesign/PropertyType";
-// import MapModule from "../../components/mapModule";
-// const sectionTypeComponentMap = {
-//   accordion: AccordionModule,
-//   standardText: StandardText
-// };
+import Container from "../../components/redesign/Container";
+
 export const query = graphql`
   {
     allSanityHomePage {

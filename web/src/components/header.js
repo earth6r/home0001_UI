@@ -171,10 +171,11 @@ const Header = ({
           } flex  w-full   md:bg-transparent md:relative justify-between md:justify-between items-center content-center`}
         >
           <nav className="flex justify-between items-center w-full px-4 py-6 md:px-10 md:py-12">
-            <h1 className="relative menu z-50 h-10 ">
+            <h1 className="relative menu z-50 md:h-10">
               <PageLink to="/homes/home-redesign" className="flex items-center h-full">
-                <div className="  flex items-center">
-                  <EarthLogoMobile />
+                <div className="flex items-center h-3 md:h-4">
+                  <EarthLogoMobile className="hidden md:block" height="14" />
+                  <EarthLogoMobile className="md:hidden" height="12" />
                 </div>
                 <span className={`${forwarder == "new-eelam" ? "" : "hidden"} new-eelam-header`}>
                   [FKA New Eelam]
@@ -183,7 +184,7 @@ const Header = ({
             </h1>
             <button
               style={{ borderColor: "#000000" }}
-              className="outline-none relative z-50  flex items-center h-full"
+              className="outline-none relative z-50 flex items-center"
               onClick={showNav ? onHideNav : onShowNav}
               role="button"
               aria-label="Open the menu"
@@ -193,8 +194,7 @@ const Header = ({
               </p>
               <span className={`${showNav ? "" : "hidden"} `}>
                 <svg
-                  width="40"
-                  height="40"
+                  className="h-5 w-5 md:h-10 md:w-10"
                   viewBox="0 0 40 40"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -210,15 +210,15 @@ const Header = ({
               showNav
                 ? "block overflow-auto  z-40 bg-white md:shadow-none transition-none"
                 : "hidden"
-            } fixed  top-0 pt-[4.625rem] md:pt-[9.375rem] left-0 w-full h-full`}
+            } fixed top-0 pt-[4.25rem] md:pt-[9.375rem] left-0 w-full h-full`}
           >
-            <ul className="px-4 md:px-10  flex flex-col gap-10">
+            <ul className="px-4 md:px-10 flex flex-col gap-10 mt-4 md:mt-0">
               {menu &&
                 newMenu.map((item, index) => {
                   return (
                     <li
                       onClick={onHideNav}
-                      className="text-start text-[0.875rem] md:text-base uppercase leading-tight"
+                      className="text-start text-[0.875rem] md:text-base uppercase leading-[120%] tracking-normal"
                       key={index++}
                     >
                       <PageLink onClick={onHideNav} to={`${item.slug}`}>

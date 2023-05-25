@@ -10,8 +10,9 @@ export const SingleProperty = ({
       {selectedProperty && (
         <div className="flex flex-col  text-[0.875rem] md:text-base">
           <img
-            className="max-w-[636px] max-h-[805px] object-cover mb-10 md:mb-20"
+            className="max-w-[636px] max-h-[487px] object-cover mb-10 md:mb-20"
             src={selectedProperty?.image?.asset?.url}
+            height="487"
             alt=""
           />
           <p className="max-w-xs md:max-w-4xl">{selectedProperty.description}</p>
@@ -44,8 +45,8 @@ export const SingleProperty = ({
                     <ul className="mb-0 p-0">
                       {amenities.map((amenity, index) => {
                         return (
-                          <li key={index++} className="p-0  text-left before:content-['']">
-                            <span>-</span>
+                          <li key={index++} className="p-0 text-left before:content-['']">
+                            <span>&ndash;&nbsp;</span>
                             <span>{amenity}</span>
                           </li>
                         );
