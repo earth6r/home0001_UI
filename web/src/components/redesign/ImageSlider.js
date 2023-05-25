@@ -18,10 +18,10 @@ export const ImageSlider = ({ images }) => {
   const hasPreviousImage = currentImageIndex !== 0;
   const hasNextImage = currentImageIndex !== images.length - 1;
   return (
-    <div className=" flex flex-col gap-4 items-center max-w-[636px] max-h-[805px]">
-      <div className="max-w-[636px] max-h-[805px] w-full">
+    <div className="flex flex-col gap-4 items-center max-h-[487px] max-w-[480px] md:max-w-[585px] md:max-h-[741px]">
+      <div className="w-full">
         <img
-          className="w-full h-full object-cover mb-4 max-h-[487px]"
+          className="max-h-[487px] max-w-[480px] md:max-w-[585px] md:max-h-[741px] h-auto w-full mb-4 object-cover"
           src={images[currentImageIndex]?.asset?.url}
           alt=""
         />

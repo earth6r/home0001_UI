@@ -8,9 +8,9 @@ export const SingleProperty = ({
   return (
     <>
       {selectedProperty && (
-        <div className="flex flex-col  text-[0.875rem] md:text-base">
+        <div className="flex flex-col text-[0.875rem] md:text-base">
           <img
-            className="max-w-[636px] max-h-[487px] object-cover mb-10 md:mb-20"
+            className="max-h-[487px] max-w-[480px] md:max-w-[585px] md:max-h-[741px] h-auto w-auto mb-10 md:mb-20"
             src={selectedProperty?.image?.asset?.url}
             height="487"
             alt=""
