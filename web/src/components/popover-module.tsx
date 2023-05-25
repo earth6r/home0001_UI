@@ -38,7 +38,15 @@ const PopoverModule = props => {
         className="border-none max-w-2xl no-shadow px-4 -ml-[5px]"
         zIndex={50}
       >
-        <PopoverCloseButton className="right-0 top-0 my-4 mx-8" />
+        <PopoverCloseButton
+          _hover={{
+            bg: "none"
+          }}
+          _active={{
+            bg: "none"
+          }}
+          className="right-0 top-0 my-4 mx-8"
+        />
         <div className="block">
           {content && (
             <div className="p-10 border bg-white text-base">
