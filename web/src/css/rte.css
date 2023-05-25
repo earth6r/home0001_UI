@@ -1,6 +1,5 @@
 .rte {
   @apply text-mobileBody;
-  -webkit-font-smoothing: auto;
 }
 
 .rte p {
@@ -10,7 +9,7 @@
 
 .rte ul,
 .rte ol {
-/*  @apply max-w-6xl;*/
+  /*  @apply max-w-6xl;*/
   @apply pb-1em;
 }
 
@@ -23,9 +22,9 @@
 
 .rte ul li,
 .rte ol li {
-  padding-bottom:0.7em;
+  padding-bottom: 0.7em;
 }
-.partner-ref-link{
+.partner-ref-link {
   margin-bottom: 0 !important;
   border-bottom: 2px solid;
   padding-right: 0.0625rem;
@@ -87,7 +86,7 @@
 .rte ul li {
   /* counter-increment: rte-list; */
   @apply pl-1/10 relative;
-  padding-bottom:0.7em;
+  padding-bottom: 0.7em;
 }
 
 .rte ul:not(.table, .column-header) li:before {
@@ -131,64 +130,62 @@ select {
 
 .e-checkbox {
   position: relative;
-  margin-right:3px;
+  margin-right: 3px;
 }
 
 .e-checkbox-icon {
   position: absolute;
-  left:0;
-  top:0;
-/*  pointer-events: none;*/
+  left: 0;
+  top: 0;
+  /*  pointer-events: none;*/
 }
 
 input[type="checkbox"],
 input[type="checkbox"]:focus,
 input[type="checkbox"]:active {
   -webkit-appearance: none;
-left:12px;
-    width: 1rem !important;
-    height: 1rem !important;
-    cursor: pointer;
-    display: inline-block;
-    border-radius: 2px;
-    top: 0.05em;
-  padding:0.3em;
+  left: 12px;
+  width: 1rem !important;
+  height: 1rem !important;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 2px;
+  top: 0.05em;
+  padding: 0.3em;
   position: relative;
   margin-right: 0.3em;
-  margin-left:2px;
+  margin-left: 2px;
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 1) !important;
 }
-.e-checkbox-icon{
+.e-checkbox-icon {
   font-size: 0.05em;
 }
 input[type="checkbox"]:checked {
-  background:black;
- /* background-image: url('data:image/svg+xml;charset=UTF-8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.31 15.13"><defs></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><polyline style="fill:none;stroke:black;stroke-width:2;" class="cls-1" points="0.5 6.92 6.92 14.63 18.81 0.5"/></g></g></svg>');
+  background: black;
+  /* background-image: url('data:image/svg+xml;charset=UTF-8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.31 15.13"><defs></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><polyline style="fill:none;stroke:black;stroke-width:2;" class="cls-1" points="0.5 6.92 6.92 14.63 18.81 0.5"/></g></g></svg>');
   background-size:90%;
   background-position:center center;
   background-repeat:no-repeat;*/
 }
-@media(max-width:767px){
-   input[type="checkbox"]:checked:before {
-
+@media (max-width: 767px) {
+  input[type="checkbox"]:checked:before {
     top: 1px;
   }
   .rte {
-
     line-height: 115%;
-}
+  }
   input[type="checkbox"],
   input[type="checkbox"]:focus,
   input[type="checkbox"]:active {
     -webkit-appearance: none;
-        width: 16px !important;
+    width: 16px !important;
     height: 16px !important;
     cursor: pointer;
     display: inline-block;
     border-radius: 2px;
     top: 0.2em;
-    left:0.3em;
-    padding:0.3em;
+    left: 0.3em;
+    padding: 0.3em;
     position: relative;
     margin-right: 0.3em;
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5) !important;
@@ -226,18 +223,18 @@ form label {
 
 form label,
 form label * {
-  font-size: .85rem !important;
+  font-size: 0.85rem !important;
   line-height: 2.1vw !important;
   letter-spacing: 0rem !important;
 }
-@media(max-width:767px){
+@media (max-width: 767px) {
   form label,
   form label * {
     line-height: 2rem !important;
   }
 }
 
-@media(max-width:430px){
+@media (max-width: 430px) {
   form label,
   form label * {
     line-height: 115% !important;
@@ -258,16 +255,15 @@ input::placeholder {
     padding-bottom: 0.1em;
     transform: translateY(0%);
 } */
-  .rte  {
+  .rte {
     @apply text-mobileBody;
   }
 
-
-  .rte.rte-large  {
+  .rte.rte-large {
     @apply text-desktopLarge max-w-none;
   }
 
-.rte h1,
+  .rte h1,
   .rte h1 * {
     @apply text-desktopLarge mb-1/2em;
   }
@@ -281,7 +277,6 @@ input::placeholder {
     @apply text-desktopBody;
     line-height: 2.25em !important;
   }
-
 
   .rte blockquote,
   .rte.rte-large blockquote {
@@ -300,15 +295,14 @@ input::placeholder {
     @apply text-desktopBody;
   }
 }
-@media(min-width: 767px){
-  .rte ol li, .rte ul li {
-      padding-left:5vw;
-
+@media (min-width: 767px) {
+  .rte ol li,
+  .rte ul li {
+    padding-left: 5vw;
   }
 }
-@screen lg{
-
-    /* .partner-ref-link.box-link:before{
+@screen lg {
+  /* .partner-ref-link.box-link:before{
       padding:0;
       transform: translateY(-0.7em);
       height: 1.35em;
@@ -320,13 +314,13 @@ input::placeholder {
     padding-bottom: 0.1em;
     transform: translateY(0%);
  } */
-/*.rte h1,
+  /*.rte h1,
   .rte h1 * {
     font-size:4.5vw;
     line-height:6vw;
     letter-spacing: -0.01em;
   }*/
-   .rte  {
+  .rte {
     @apply text-desktopBody;
   }
 }
