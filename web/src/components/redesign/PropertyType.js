@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { createRef, useEffect, useState } from "react";
 import { Popover, PopoverTrigger, PopoverContent } from "@chakra-ui/core";
 import MapContainer from "../map";
 import { ImageSlider } from "./ImageSlider";
@@ -8,6 +8,14 @@ import { InventorModule } from "./InventoryModule";
 
 export const PropertyTypeUI = ({ selectedPropertyType, property }) => {
   const [showReserveHomeForm, setShowReserveHomeForm] = useState(false);
+  const reserveHomeRef = createRef();
+
+  useEffect(() => {
+    if (showReserveHomeForm && reserveHomeRef.current) {
+      reserveHomeRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [showReserveHomeForm]);
+
   return (
     <>
       {selectedPropertyType ? (
@@ -39,16 +47,22 @@ export const PropertyTypeUI = ({ selectedPropertyType, property }) => {
           propertyType={selectedPropertyType.propertyType}
           data={selectedPropertyType}
         />
-      )}{" "}
+      )}
       {selectedPropertyType && (
         <button
           onClick={() => setShowReserveHomeForm(prev => !prev)}
-          className="mb-10 max-w-[19.375rem] md:max-w-[29.25rem] block mt-20 w-full h-12 max-h-12 py-2 px-3 text-left uppercase  border border-[#000] text-[0.875rem] md:text-base"
+          className={`outline-none mb-10 max-w-[19.375rem] md:max-w-[29.25rem] block mt-20 w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-[0.875rem] md:text-base ${
+            showReserveHomeForm ? "bg-black text-white" : "bg-white text-black"
+          }`}
         >
-          JOIN THE WAITLIST FOR THIS HOME{" "}
+          JOIN THE WAITLIST FOR THIS HOME
         </button>
       )}
-      {showReserveHomeForm && <ReserveHomeForm />}{" "}
+      {showReserveHomeForm ? (
+        <div ref={reserveHomeRef}>
+          <ReserveHomeForm />
+        </div>
+      ) : null}
     </>
   );
 };

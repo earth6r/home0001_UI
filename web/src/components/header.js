@@ -175,7 +175,7 @@ const Header = ({
               <PageLink to="/homes/home-redesign" className="flex items-center h-full">
                 <div className="flex items-center h-3 md:h-4">
                   <EarthLogoMobile className="hidden md:block" height="14" />
-                  <EarthLogoMobile className="md:hidden" height="12" />
+                  <EarthLogoMobile className="md:hidden" height="12" width="48" />
                 </div>
                 <span className={`${forwarder == "new-eelam" ? "" : "hidden"} new-eelam-header`}>
                   [FKA New Eelam]

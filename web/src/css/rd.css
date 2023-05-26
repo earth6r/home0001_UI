@@ -412,7 +412,7 @@
   max-width: 100%;
 }
 .standard-text a {
-  border-bottom: 2px solid;
+  border-bottom: 1px dashed;
 }
 .standard-text h1 > a {
   border-bottom: 5px solid;

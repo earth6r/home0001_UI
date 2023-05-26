@@ -1,32 +1,52 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, createRef } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export const ImageSlider = ({ images }) => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  useEffect(() => {
-    setCurrentImageIndex(0);
-  }, [images]);
+  const slider = createRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   const previousImage = () => {
-    const newIndex = currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1;
-    setCurrentImageIndex(newIndex);
+    if (slider.current) {
+      slider.current.slickPrev();
+    }
   };
 
   const nextImage = () => {
-    const newIndex = currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1;
-    setCurrentImageIndex(newIndex);
+    if (slider.current) {
+      slider.current.slickNext();
+    }
   };
 
-  const hasPreviousImage = currentImageIndex !== 0;
-  const hasNextImage = currentImageIndex !== images.length - 1;
+  const settings = {
+    slidesToShow: 1,
+    infinite: false,
+    arrows: false,
+    beforeChange: (oldIndex, newIndex) => {
+      setCurrentIndex(newIndex);
+    }
+  };
+
+  const hasPreviousImage = currentIndex !== 0;
+  const hasNextImage = currentIndex !== images.length - 1;
   return (
-    <div className="flex flex-col gap-4 items-center max-h-[487px] max-w-[480px] md:max-w-[585px] md:max-h-[741px]">
-      <div className="w-full">
-        <img
-          className="max-h-[487px] max-w-[480px] md:max-w-[585px] md:max-h-[741px] h-auto w-full mb-4 object-cover"
-          src={images[currentImageIndex]?.asset?.url}
-          alt=""
-        />
-      </div>
-      <div className="flex items-center gap-2">
+    <div className="flex flex-col gap-4">
+      <Slider
+        ref={slider}
+        {...settings}
+        className="max-h-[487px] max-w-[480px] md:max-w-[585px] md:max-h-[741px]"
+      >
+        {images?.map((image, index) => (
+          <img
+            key={index}
+            className="max-h-[487px] max-w-[480px] md:max-w-[585px] md:max-h-[741px] h-auto w-full mb-4 object-cover"
+            src={image?.asset?.url}
+            alt=""
+          />
+        ))}
+      </Slider>
+      <div className="flex justify-center items-center gap-2 max-w-[480px] md:max-w-[585px]">
         <button
           className=" disabled:shadow-none disabled:bg-transparent disabled:opacity-40"
           onClick={previousImage}

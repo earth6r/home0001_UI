@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { createRef, useEffect, useState } from "react";
 import { graphql } from "gatsby";
 import SEO from "../../components/seo";
 import Layout from "../../containers/layout";
@@ -73,6 +73,7 @@ const HomeRedesignPage = ({ data }) => {
   const properties = data.allSanityProperty.nodes;
   const propertiesTypes = data.allSanityPropertyType.nodes;
 
+  const propertyTypeRef = createRef();
   const [selectedCity, setSelectedCity] = useState({
     title: "",
     id: null
@@ -89,12 +90,18 @@ const HomeRedesignPage = ({ data }) => {
     ? propertiesTypes.filter(propertyType => selectedProperty?.id === propertyType?.property?.id)
     : [];
 
+  useEffect(() => {
+    if (selectedPropertyType && propertyTypeRef.current) {
+      propertyTypeRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [selectedPropertyType]);
+
   const onSelectCity = city => {
     setSelectedCity(city);
     setSelectedProperty(null);
     setSelectedPropertyType(null);
   };
-  // console.log(filteredPropertiesTypes, "hel");
+
   return (
     <Layout showPopupNewsletter={true} rnd={false}>
       <SEO title="Home" />
@@ -125,10 +132,12 @@ const HomeRedesignPage = ({ data }) => {
             />
           )}
           {selectedProperty && selectedPropertyType && (
-            <PropertyTypeUI
-              property={selectedProperty}
-              selectedPropertyType={selectedPropertyType}
-            />
+            <div ref={propertyTypeRef}>
+              <PropertyTypeUI
+                property={selectedProperty}
+                selectedPropertyType={selectedPropertyType}
+              />
+            </div>
           )}{" "}
         </section>
       </Container>

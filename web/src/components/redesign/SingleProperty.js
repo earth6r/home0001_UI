@@ -1,14 +1,23 @@
-import React from "react";
+import React, { createRef, useEffect } from "react";
+
 export const SingleProperty = ({
   onChange,
   propertyTypes,
   selectedProperty,
   selectedPropertyType
 }) => {
+  const selectedPropertyRef = createRef();
+
+  useEffect(() => {
+    if (selectedProperty && selectedPropertyRef.current && !selectedPropertyType) {
+      selectedPropertyRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [selectedProperty, selectedPropertyRef, selectedPropertyType]);
+
   return (
     <>
       {selectedProperty && (
-        <div className="flex flex-col text-[0.875rem] md:text-base">
+        <div ref={selectedPropertyRef} className="flex flex-col text-[0.875rem] md:text-base">
           <img
             className="max-h-[487px] max-w-[480px] md:max-w-[585px] md:max-h-[741px] h-auto w-auto mb-10 md:mb-20"
             src={selectedProperty?.image?.asset?.url}
