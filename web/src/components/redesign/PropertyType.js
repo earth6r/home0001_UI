@@ -35,7 +35,8 @@ export const PropertyTypeUI = ({ selectedPropertyType, property }) => {
             <h3 className=" uppercase my-4 md:my-20">
               {selectedPropertyType.propertyType
                 .replace("one-bedroom", "1 bedroom")
-                .replace("two-bedroom", "2 bedrooms")}
+                .replace("two-bedroom", "2 bedrooms")
+                .replace("studio-max", "studio max")}
             </h3>
           )}
           {selectedPropertyType?._rawDescription?.text && (
