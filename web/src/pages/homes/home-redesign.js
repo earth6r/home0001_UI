@@ -68,7 +68,7 @@ export const query = graphql`
   }
 `;
 
-const HomeRedesignPage = ({ data }) => {
+const HomeRedesignPage = ({ location, data }) => {
   const cities = data.allSanityHomePage.nodes[0].citiesList;
   const properties = data.allSanityProperty.nodes;
   const propertiesTypes = data.allSanityPropertyType.nodes;
@@ -92,7 +92,9 @@ const HomeRedesignPage = ({ data }) => {
 
   useEffect(() => {
     if (selectedPropertyType && propertyTypeRef.current) {
-      propertyTypeRef.current.scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => {
+        propertyTypeRef.current.scrollIntoView({ behavior: "smooth" });
+      }, 300);
     }
   }, [selectedPropertyType]);
 
@@ -103,7 +105,7 @@ const HomeRedesignPage = ({ data }) => {
   };
 
   return (
-    <Layout showPopupNewsletter={true} rnd={false}>
+    <Layout pathname={location.pathname.replace(/\/$/, "")} showPopupNewsletter={true} rnd={false}>
       <SEO title="Home" />
       <Container className="flex flex-col h-screen">
         <section className="mb-auto mt-10">

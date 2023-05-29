@@ -26,7 +26,8 @@ const Header = ({
   showThinBanner,
   thinBanner,
   bannerUrl,
-  bannerUrlTitle
+  bannerUrlTitle,
+  pathname = ""
 }) => {
   const [forwarder, setForwarder] = useState("");
   const menu = mainMenu !== undefined ? mainMenu.edges[0].node.items : null;
@@ -172,15 +173,35 @@ const Header = ({
         >
           <nav className="flex justify-between items-center w-full px-4 py-6 md:px-10 md:py-12">
             <h1 className="relative menu z-50 md:h-10">
-              <PageLink to="/homes/home-redesign" className="flex items-center h-full">
-                <div className="flex items-center h-3 md:h-4">
-                  <EarthLogoMobile className="hidden md:block" height="14" />
-                  <EarthLogoMobile className="md:hidden" height="12" width="48" />
+              {pathname === "/homes/home-redesign" ? (
+                <div
+                  onClick={() =>
+                    window.scrollTo({
+                      top: 0,
+                      behavior: "smooth"
+                    })
+                  }
+                  className="flex items-center h-full cursor-pointer"
+                >
+                  <div className="flex items-center h-3 md:h-4">
+                    <EarthLogoMobile className="hidden md:block" height="14" />
+                    <EarthLogoMobile className="md:hidden" height="12" width="48" />
+                  </div>
+                  <span className={`${forwarder == "new-eelam" ? "" : "hidden"} new-eelam-header`}>
+                    [FKA New Eelam]
+                  </span>
                 </div>
-                <span className={`${forwarder == "new-eelam" ? "" : "hidden"} new-eelam-header`}>
-                  [FKA New Eelam]
-                </span>
-              </PageLink>
+              ) : (
+                <PageLink to="/homes/home-redesign" className="flex items-center h-full">
+                  <div className="flex items-center h-3 md:h-4">
+                    <EarthLogoMobile className="hidden md:block" height="14" />
+                    <EarthLogoMobile className="md:hidden" height="12" width="48" />
+                  </div>
+                  <span className={`${forwarder == "new-eelam" ? "" : "hidden"} new-eelam-header`}>
+                    [FKA New Eelam]
+                  </span>
+                </PageLink>
+              )}
             </h1>
             <button
               style={{ borderColor: "#000000" }}

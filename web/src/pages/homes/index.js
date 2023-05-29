@@ -91,6 +91,7 @@ export const query = graphql`
 
 const CollectivePage = props => {
   const { data, errors } = props;
+  console.log(props);
   let sku = "MEMB001";
   const whatsIncluded = data.whatsIncluded.whatsIncluded;
   const depositCounter = data.depositCounter.depositCounter;

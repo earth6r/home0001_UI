@@ -10,7 +10,9 @@ export const SingleProperty = ({
 
   useEffect(() => {
     if (selectedProperty && selectedPropertyRef.current && !selectedPropertyType) {
-      selectedPropertyRef.current.scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => {
+        selectedPropertyRef.current.scrollIntoView({ behavior: "smooth" });
+      }, 300);
     }
   }, [selectedProperty, selectedPropertyRef, selectedPropertyType]);
 

@@ -12,7 +12,9 @@ export const PropertyTypeUI = ({ selectedPropertyType, property }) => {
 
   useEffect(() => {
     if (showReserveHomeForm && reserveHomeRef.current) {
-      reserveHomeRef.current.scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => {
+        reserveHomeRef.current.scrollIntoView({ behavior: "smooth" });
+      }, 300);
     }
   }, [showReserveHomeForm]);
 

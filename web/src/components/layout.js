@@ -32,7 +32,8 @@ const Layout = ({
   siteTitle,
   strikeColor,
   subMenu,
-  thinBanner
+  thinBanner,
+  pathname
 }) => {
   useEffect(() => {
     function atFooter(el) {
@@ -120,6 +121,7 @@ const Layout = ({
           subMenu={subMenu}
           rMenu={rMenu}
           isHome={isHome}
+          pathname={pathname}
         />
       )}
       <div
