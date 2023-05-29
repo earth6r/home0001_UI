@@ -31,22 +31,22 @@ export const ImageSlider = ({ images }) => {
   const hasPreviousImage = currentIndex !== 0;
   const hasNextImage = currentIndex !== images.length - 1;
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 image-slider">
       <Slider
         ref={slider}
         {...settings}
-        className="max-h-[487px] max-w-[480px] md:max-w-[585px] md:max-h-[741px]"
+        className="max-h-[487px] max-w-[480px] md:max-w-[585px] md:max-h-[741px] -ml-2"
       >
         {images?.map((image, index) => (
           <img
             key={index}
-            className="max-h-[487px] max-w-[480px] md:max-w-[585px] md:max-h-[741px] h-auto w-full mb-4 object-cover"
+            className="max-h-[487px] px-2 max-w-[480px] md:max-w-[585px] md:max-h-[741px] h-full w-full object-cover"
             src={image?.asset?.url}
             alt=""
           />
         ))}
       </Slider>
-      <div className="flex justify-center items-center gap-2 max-w-[480px] md:max-w-[585px]">
+      <div className="flex justify-center items-center gap-2 max-w-[480px] md:max-w-[585px] -ml-2">
         <button
           className=" disabled:shadow-none disabled:bg-transparent disabled:opacity-40"
           onClick={previousImage}

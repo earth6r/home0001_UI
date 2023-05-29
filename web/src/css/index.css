@@ -307,6 +307,18 @@ small {
   backface-visibility: hidden;
 }
 
+.image-slider .slick-track {
+  display: flex !important;
+}
+
+.image-slider .slick-slide {
+  height: inherit !important;
+}
+
+.image-slider .slick-slide > div {
+  height: 100%;
+}
+
 /*END NEWSLETTER POPUP*/
 
 @media (max-width: 767px) {

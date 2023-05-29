@@ -192,7 +192,7 @@ const Header = ({
                   </span>
                 </div>
               ) : (
-                <PageLink to="/homes/home-redesign" className="flex items-center h-full">
+                <PageLink to="/homes" className="flex items-center h-full">
                   <div className="flex items-center h-3 md:h-4">
                     <EarthLogoMobile className="hidden md:block" height="14" />
                     <EarthLogoMobile className="md:hidden" height="12" width="48" />
