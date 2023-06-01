@@ -17,7 +17,7 @@ export const PropertyTypeUI = ({ selectedPropertyType, property }) => {
       }, 300);
     }
   }, [showReserveHomeForm]);
-
+  console.log(selectedPropertyType);
   return (
     <>
       {selectedPropertyType ? (
@@ -29,9 +29,11 @@ export const PropertyTypeUI = ({ selectedPropertyType, property }) => {
             {property.title && <h3 className="m-0 uppercase">{property.title}</h3>}
             {property.unitTypes && <p className="m-0 ">{property.unitTypes}</p>}
             {property.price && <p className="m-0">{property.price}</p>}
-            {property.map && property.map?.lat && property.map?.long && (
-              <MapModule text="MAP" lat="34.088705" long="-118.254759" />
-            )}
+            {selectedPropertyType.map &&
+              selectedPropertyType.map?.lat &&
+              selectedPropertyType.map?.long && (
+                <MapModule text="MAP" lat="34.088705" long="-118.254759" />
+              )}
           </div>
           {selectedPropertyType.propertyType && (
             <h3 className=" uppercase my-4 md:my-20">
