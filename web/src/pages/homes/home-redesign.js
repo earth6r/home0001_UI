@@ -93,7 +93,7 @@ const HomeRedesignPage = ({ location, data }) => {
 
   useEffect(() => {
     setTimeout(() => {
-      if (selectedPropertyType && propertyTypeRef.current) {
+      if (selectedPropertyType?.id && propertyTypeRef.current) {
         const offset = window.innerWidth < 768 ? 16 : 40;
         const top = propertyTypeRef.current.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: "smooth" });

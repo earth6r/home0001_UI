@@ -10,7 +10,7 @@ export const SingleProperty = ({
 
   useEffect(() => {
     setTimeout(() => {
-      if (selectedProperty && selectedPropertyRef.current && !selectedPropertyType) {
+      if (selectedProperty?.id && selectedPropertyRef.current && !selectedPropertyType) {
         const offset = window.innerWidth < 768 ? 16 : 40;
         const top =
           selectedPropertyRef.current.getBoundingClientRect().top + window.scrollY - offset;
