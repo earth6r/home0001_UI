@@ -26,10 +26,10 @@ export const ReserveHomeForm = () => {
           defaultIndex={[2]}
           className="my-10 w-full max-w-[19.375rem] md:max-w-[29.25rem]"
         >
-          <AccordionItem className="bg-white border border-[#000] px-3 py-[15px] md:py-[1.15rem] text-[0.875rem] md:text-base ">
+          <AccordionItem className="bg-white border border-[#000] px-3 py-[15px] md:py-[1.15rem] text-[0.875rem] md:text-base">
             {({ isExpanded }) => (
               <>
-                <AccordionHeader className=" flex items-center justify-between hover:bg-white  max-h-[1.15rem] p-0">
+                <AccordionHeader className="flex items-center justify-between hover:bg-white max-h-[1.15rem] p-0">
                   <h2 className="m-0 uppercase text-[0.875rem] md:text-base">What's included?</h2>
                   <div className="text-[20px] font-normal">{isExpanded ? <Minus /> : <Plus />}</div>
                 </AccordionHeader>

@@ -1,4 +1,4 @@
-import React, { createRef, useEffect, useState } from "react";
+import React, { createRef, useContext, useEffect, useState } from "react";
 import { graphql } from "gatsby";
 import SEO from "../../components/seo";
 import Layout from "../../containers/layout";
@@ -7,6 +7,7 @@ import { PropertiesList } from "../../components/redesign/PropertiesList";
 import { SingleProperty } from "../../components/redesign/SingleProperty";
 import { PropertyTypeUI } from "../../components/redesign/PropertyType";
 import Container from "../../components/redesign/Container";
+import { HomesContext } from "../../components/context/HomesContext";
 
 export const query = graphql`
   {
@@ -74,14 +75,14 @@ const HomeRedesignPage = ({ location, data }) => {
   const propertiesTypes = data.allSanityPropertyType.nodes;
 
   const propertyTypeRef = createRef();
-  const [selectedCity, setSelectedCity] = useState({
-    title: "",
-    id: null
-  });
-  const [selectedProperty, setSelectedProperty] = useState({
-    id: null
-  });
-  const [selectedPropertyType, setSelectedPropertyType] = useState(null);
+  const {
+    selectedCity,
+    setCity: setSelectedCity,
+    selectedProperty,
+    setProperty: setSelectedProperty,
+    selectedPropertyType,
+    setPropertyType: setSelectedPropertyType
+  } = useContext(HomesContext);
 
   const filteredProperties = selectedCity
     ? properties.filter(property => property?.city?.id === selectedCity?.id)
@@ -91,11 +92,13 @@ const HomeRedesignPage = ({ location, data }) => {
     : [];
 
   useEffect(() => {
-    if (selectedPropertyType && propertyTypeRef.current) {
-      setTimeout(() => {
-        propertyTypeRef.current.scrollIntoView({ behavior: "smooth" });
-      }, 300);
-    }
+    setTimeout(() => {
+      if (selectedPropertyType && propertyTypeRef.current) {
+        const offset = window.innerWidth < 768 ? 16 : 40;
+        const top = propertyTypeRef.current.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    }, 300);
   }, [selectedPropertyType]);
 
   const onSelectCity = city => {
@@ -108,7 +111,7 @@ const HomeRedesignPage = ({ location, data }) => {
     <Layout pathname={location.pathname.replace(/\/$/, "")} showPopupNewsletter={true} rnd={false}>
       <SEO title="Home" />
       <Container className="flex flex-col h-screen">
-        <section className="mb-auto mt-10">
+        <section className="mb-auto mt-4 md:mt-7">
           <CitiesList
             cities={cities}
             onChange={city => onSelectCity(city)}

@@ -1,6 +1,8 @@
 import React from "react";
 import { Accordion, AccordionItem, AccordionHeader, AccordionPanel } from "@chakra-ui/core";
 import PortableText from "../portableText";
+import Minus from "../icon/minus";
+import Plus from "../icon/plus";
 
 export interface AccordionModuleProps {
   data: {
@@ -12,10 +14,7 @@ export interface AccordionModuleProps {
 export const AccordionModule = ({ data }: AccordionModuleProps) => {
   const { title, accordionItems } = data;
   return (
-    <Accordion
-      allowToggle
-      className="w-full grid grid-cols-1 gap-4 md:gap-2 max-w-[19.375rem] md:max-w-[29.25rem]"
-    >
+    <Accordion allowToggle className="my-10 w-full max-w-[19.375rem] md:max-w-[29.25rem]">
       {accordionItems.length > 0 &&
         accordionItems.map(item => (
           <React.Fragment key={item._key}>
@@ -23,11 +22,13 @@ export const AccordionModule = ({ data }: AccordionModuleProps) => {
               {/* @ts-ignore */}
               {({ isExpanded }) => (
                 <>
-                  <AccordionHeader className="relative flex justify-between hover:bg-white max-h-[1.15rem]">
+                  <AccordionHeader className="flex items-center justify-between hover:bg-white max-h-[1.15rem] p-0">
                     <h2 className="m-0 uppercase  text-[0.875rem] md:text-base">{item.title}</h2>
-                    <div className="text-[20px] font-normal">{isExpanded ? "-" : "+"}</div>
+                    <div className="text-[20px] font-normal">
+                      {isExpanded ? <Minus /> : <Plus />}
+                    </div>
                   </AccordionHeader>
-                  <AccordionPanel className="px-3 py-4">
+                  <AccordionPanel className="px-0 py-4 text-[0.875rem] md:text-base">
                     <PortableText blocks={item.text} />
                   </AccordionPanel>
                 </>

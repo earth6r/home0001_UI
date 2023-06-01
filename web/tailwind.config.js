@@ -166,6 +166,9 @@ module.exports = {
       auto: "auto"
     },
     extend: {
+      maxWidth: {
+        menu: "calc(100% - 49.23px)"
+      },
       animation: {
         in: "in .25s linear 1s forwards",
         out: "out .25s linear 0s forwards",

@@ -11,13 +11,15 @@ export const PropertyTypeUI = ({ selectedPropertyType, property }) => {
   const reserveHomeRef = createRef();
 
   useEffect(() => {
-    if (showReserveHomeForm && reserveHomeRef.current) {
-      setTimeout(() => {
-        reserveHomeRef.current.scrollIntoView({ behavior: "smooth" });
-      }, 300);
-    }
+    setTimeout(() => {
+      if (showReserveHomeForm && reserveHomeRef.current) {
+        const offset = window.innerWidth < 768 ? 16 : 40;
+        const top = reserveHomeRef.current.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    }, 300);
   }, [showReserveHomeForm]);
-  console.log(selectedPropertyType);
+
   return (
     <>
       {selectedPropertyType ? (
@@ -44,7 +46,7 @@ export const PropertyTypeUI = ({ selectedPropertyType, property }) => {
             </h3>
           )}
           {selectedPropertyType?._rawDescription?.text && (
-            <div className="max-w-xs md:max-w-4xl text-[0.875rem] md:text-base">
+            <div className="max-w-menu sm:max-w-xs lg:max-w-4xl text-[0.875rem] md:text-base">
               <StandardText data={selectedPropertyType?._rawDescription} />
             </div>
           )}

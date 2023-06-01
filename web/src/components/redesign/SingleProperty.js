@@ -9,11 +9,14 @@ export const SingleProperty = ({
   const selectedPropertyRef = createRef();
 
   useEffect(() => {
-    if (selectedProperty && selectedPropertyRef.current && !selectedPropertyType) {
-      setTimeout(() => {
-        selectedPropertyRef.current.scrollIntoView({ behavior: "smooth" });
-      }, 300);
-    }
+    setTimeout(() => {
+      if (selectedProperty && selectedPropertyRef.current && !selectedPropertyType) {
+        const offset = window.innerWidth < 768 ? 16 : 40;
+        const top =
+          selectedPropertyRef.current.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    }, 300);
   }, [selectedProperty, selectedPropertyRef, selectedPropertyType]);
 
   return (
@@ -26,11 +29,11 @@ export const SingleProperty = ({
             height="487"
             alt=""
           />
-          <p className="max-w-xs md:max-w-4xl">{selectedProperty.description}</p>
+          <p className="max-w-menu sm:max-w-xs lg:max-w-4xl">{selectedProperty.description}</p>
         </div>
       )}
       {propertyTypes && (
-        <ul className=" max-w-xs flex flex-col gap-4 my-10 md:my-20 p-0">
+        <ul className="max-w-menu sm:max-w-xs flex flex-col gap-4 my-10 md:my-20 p-0">
           {propertyTypes.map(propertType => {
             const { amenities, propertyType, price, area, id } = propertType;
             return (

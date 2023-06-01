@@ -370,8 +370,12 @@ small {
   }
 }
 
+.intercom-lightweight-app-launcher {
+  right: 0.625rem !important;
+}
+
 @media (min-width: 768px) {
   .intercom-lightweight-app-launcher {
-    right: 1.75rem !important;
+    right: 2.5rem !important;
   }
 }

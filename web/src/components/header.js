@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ReactHtmlParser from "react-html-parser";
 import Icon from "./icon";
 import CircleButton from "./global/circleButton";
 import GridRow from "./grid/grid-row";
 import EarthLogoMobile from "../components/images/logos/earth-logo-mobile.svg";
 import { PageLink } from "../components/link";
+import { HomesContext } from "./context/HomesContext";
 
 const Header = ({
   mainMenu,
@@ -33,6 +34,11 @@ const Header = ({
   const menu = mainMenu !== undefined ? mainMenu.edges[0].node.items : null;
   const submenu = subMenu && subMenu.edges[0] !== undefined ? subMenu.edges[0].node.items : null;
   const menuFooter = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
+  const {
+    setCity: setSelectedCity,
+    setProperty: setSelectedProperty,
+    setPropertyType: setSelectedPropertyType
+  } = useContext(HomesContext);
 
   let currentUri = "";
   let uri = "";
@@ -173,35 +179,26 @@ const Header = ({
         >
           <nav className="flex justify-between items-center w-full px-4 py-6 md:px-10 md:py-12">
             <h1 className="relative menu z-50 md:h-10">
-              {pathname === "/homes/home-redesign" ? (
-                <div
-                  onClick={() =>
-                    window.scrollTo({
-                      top: 0,
-                      behavior: "smooth"
-                    })
-                  }
-                  className="flex items-center h-full cursor-pointer"
-                >
-                  <div className="flex items-center h-3 md:h-4">
-                    <EarthLogoMobile className="hidden md:block" height="14" />
-                    <EarthLogoMobile className="md:hidden" height="12" width="48" />
-                  </div>
-                  <span className={`${forwarder == "new-eelam" ? "" : "hidden"} new-eelam-header`}>
-                    [FKA New Eelam]
-                  </span>
+              <PageLink
+                onClick={() => {
+                  setSelectedCity({
+                    title: "",
+                    id: null
+                  });
+                  setSelectedProperty({ id: null });
+                  setSelectedPropertyType(null);
+                }}
+                to="/homes/home-redesign"
+                className="flex items-center h-full"
+              >
+                <div className="flex items-center h-3 md:h-4">
+                  <EarthLogoMobile className="hidden md:block" height="14" />
+                  <EarthLogoMobile className="md:hidden" height="12" width="48" />
                 </div>
-              ) : (
-                <PageLink to="/homes" className="flex items-center h-full">
-                  <div className="flex items-center h-3 md:h-4">
-                    <EarthLogoMobile className="hidden md:block" height="14" />
-                    <EarthLogoMobile className="md:hidden" height="12" width="48" />
-                  </div>
-                  <span className={`${forwarder == "new-eelam" ? "" : "hidden"} new-eelam-header`}>
-                    [FKA New Eelam]
-                  </span>
-                </PageLink>
-              )}
+                <span className={`${forwarder == "new-eelam" ? "" : "hidden"} new-eelam-header`}>
+                  [FKA New Eelam]
+                </span>
+              </PageLink>
             </h1>
             <button
               style={{ borderColor: "#000000" }}
