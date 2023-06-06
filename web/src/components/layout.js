@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import Footer from "./footer";
 import GridRow from "./grid/grid-row";
 import Header from "./header";
 import HeaderRnd from "./headerRnd";
 import FooterRnd from "./footerRnd";
+import { HomesContext } from "./context/HomesContext";
 
 const Layout = ({
   bannerUrl,
@@ -35,7 +36,10 @@ const Layout = ({
   thinBanner,
   pathname
 }) => {
+  const { menuOpened } = useContext(HomesContext);
   const [showPage, setShowPage] = useState(false);
+
+  console.log(showPage);
 
   useEffect(() => {
     setShowPage(true);
@@ -144,7 +148,7 @@ const Layout = ({
         } ${
           rnd ? "px-special mobile-padding" : ""
         } container pb-0 transition-opacity duration-[350ms] ease-linear ${
-          showPage ? "opacity-100" : "opacity-0"
+          showPage || !menuOpened ? "opacity-100" : "opacity-0"
         }`}
       >
         {children}

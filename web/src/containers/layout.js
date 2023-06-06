@@ -1,10 +1,11 @@
 import { graphql, StaticQuery } from "gatsby";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Layout from "../components/layout";
 import { ThemeProvider } from "@chakra-ui/core";
 import { Global, css } from "@emotion/core";
 import * as Sentry from "@sentry/browser";
 import { Integrations } from "@sentry/tracing";
+import { HomesContext } from "../components/context/HomesContext";
 
 // Add Sentry to page to catch exceptions from users
 // only init in production env
@@ -251,10 +252,12 @@ const query = graphql`
 `;
 
 function LayoutContainer(props) {
+  const { setMenuOpen } = useContext(HomesContext);
   const [showNav, setShowNav] = useState(false);
   const [showSubNav, setShowSubNav] = useState(0);
   function handleShowNav() {
     setShowNav(true);
+    setMenuOpen(true);
     document.body.style.overflow = "hidden";
   }
   function handleHideNav() {

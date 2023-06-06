@@ -11,6 +11,7 @@ export const HomesContextProvider = ({ children }) => {
     id: null
   });
   const [selectedPropertyType, setSelectedPropertyType] = useState(null);
+  const [menuOpened, setMenuOpened] = useState(null);
 
   const setCity = city => {
     setSelectedCity(city);
@@ -24,15 +25,21 @@ export const HomesContextProvider = ({ children }) => {
     setSelectedPropertyType(propertyType);
   };
 
+  const setMenuOpen = opened => {
+    setMenuOpened(opened);
+  };
+
   return (
     <HomesContext.Provider
       value={{
         selectedCity,
         selectedProperty,
         selectedPropertyType,
+        menuOpened,
         setCity,
         setProperty,
-        setPropertyType
+        setPropertyType,
+        setMenuOpen
       }}
     >
       {children}
