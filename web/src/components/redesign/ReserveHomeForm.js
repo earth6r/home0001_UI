@@ -30,7 +30,9 @@ export const ReserveHomeForm = () => {
             {({ isExpanded }) => (
               <>
                 <AccordionHeader className="flex items-center justify-between hover:bg-white max-h-[1.15rem] p-0">
-                  <h2 className="m-0 uppercase text-[0.875rem] md:text-base">What's included?</h2>
+                  <h2 className="m-0 tracking-caps uppercase text-[0.875rem] md:text-base">
+                    What's included?
+                  </h2>
                   <div className="text-[20px] font-normal">{isExpanded ? <Minus /> : <Plus />}</div>
                 </AccordionHeader>
                 <AccordionPanel className="px-0 py-4 text-[0.875rem] md:text-base">
@@ -94,13 +96,13 @@ export const ReserveHomeForm = () => {
           </div>
           <div className="relative mt-10 flex flex-col gap-2">
             <button
-              className="h-12 max-h-12 text-center uppercase text-white bg-black  text-[0.875rem] md:text-base font-serif"
+              className="h-12 max-h-12 text-center tracking-caps uppercase text-white bg-black text-[0.875rem] md:text-base font-serif"
               type="button"
             >
               Pay with crypto
             </button>
             <button
-              className="h-12 max-h-12  text-center uppercase text-white bg-black text-[0.875rem] md:text-base font-serif "
+              className="h-12 max-h-12 text-center tracking-caps uppercase text-white bg-black text-[0.875rem] md:text-base font-serif "
               type="button"
             >
               Pay with cash

@@ -62,11 +62,11 @@ export const PropertyTypeUI = ({ selectedPropertyType, property }) => {
       {selectedPropertyType && (
         <button
           onClick={() => setShowReserveHomeForm(prev => !prev)}
-          className={`outline-none mb-10 max-w-[19.375rem] md:max-w-[29.25rem] block mt-20 w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-[0.875rem] md:text-base ${
+          className={`outline-none mb-10 max-w-[19.375rem] tracking-caps uppercase md:max-w-[29.25rem] block mt-20 w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-[0.875rem] md:text-base ${
             showReserveHomeForm ? "bg-black text-white" : "bg-white text-black"
           }`}
         >
-          JOIN THE WAITLIST FOR THIS HOME
+          Join the waitlist for this home
         </button>
       )}
       {showReserveHomeForm ? (

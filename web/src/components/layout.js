@@ -35,6 +35,12 @@ const Layout = ({
   thinBanner,
   pathname
 }) => {
+  const [showPage, setShowPage] = useState(false);
+
+  useEffect(() => {
+    setShowPage(true);
+  }, []);
+
   useEffect(() => {
     function atFooter(el) {
       return el.getBoundingClientRect().bottom <= window.innerHeight;
@@ -135,7 +141,11 @@ const Layout = ({
         id="page-content-wrapper"
         className={`${showThinBanner && !rnd ? "mt-16 md:mt-12md:mt-16" : "mt-0"} ${
           blackHeader ? " dark-theme " : ""
-        } ${rnd ? "px-special mobile-padding" : ""} container pb-0`}
+        } ${
+          rnd ? "px-special mobile-padding" : ""
+        } container pb-0 transition-opacity duration-[350ms] ease-linear ${
+          showPage ? "opacity-100" : "opacity-0"
+        }`}
       >
         {children}
       </div>

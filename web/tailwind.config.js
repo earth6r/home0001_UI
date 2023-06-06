@@ -166,6 +166,10 @@ module.exports = {
       auto: "auto"
     },
     extend: {
+      letterSpacing: {
+        body: "0.005em",
+        caps: "0.02em"
+      },
       maxWidth: {
         menu: "calc(100% - 49.23px)"
       },

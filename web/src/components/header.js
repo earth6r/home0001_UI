@@ -207,7 +207,11 @@ const Header = ({
               role="button"
               aria-label="Open the menu"
             >
-              <p className={`${showNav ? "hidden" : ""} uppercase text-[0.875rem] md:text-base`}>
+              <p
+                className={`${
+                  showNav ? "hidden" : ""
+                } tracking-caps uppercase text-[0.875rem] md:text-base`}
+              >
                 Menu
               </p>
               <span className={`${showNav ? "" : "hidden"} `}>
@@ -236,7 +240,7 @@ const Header = ({
                   return (
                     <li
                       onClick={onHideNav}
-                      className="text-start text-[0.875rem] md:text-base uppercase leading-[120%] tracking-normal"
+                      className="text-start text-[0.875rem] md:text-base uppercase leading-[120%] tracking-caps"
                       key={index++}
                     >
                       <PageLink onClick={onHideNav} to={`${item.slug}`}>
