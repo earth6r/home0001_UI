@@ -25,7 +25,7 @@ const LegalPageRedesign = ({ data }) => {
     <Layout showPopupNewsletter={true} rnd={false}>
       <SEO title={content.title} />
       <Container className="flex flex-col h-screen">
-        <div className="text-[0.875rem]  leading-4 max-w-4xl mt-10 ">
+        <div className="text-[0.875rem] leading-[135%] max-w-4xl mt-10 ">
           <StandardText data={content._rawDescription} />
         </div>
       </Container>

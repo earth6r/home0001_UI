@@ -16,7 +16,7 @@ export const SingleProperty = ({
           selectedPropertyRef.current.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: "smooth" });
       }
-    }, 300);
+    }, 500);
   }, [selectedProperty, selectedPropertyRef, selectedPropertyType]);
 
   return (

@@ -13,7 +13,7 @@ export const ReserveHomeForm = () => {
   };
 
   return (
-    <div className=" relative">
+    <div className="animate-in relative">
       <div className="w-screen h-full -ml-4 md:-ml-10 absolute bg-whitesmoke"></div>
       <div className="pt-10 relative mb-4 text-[0.875rem] md:text-base font-serif max-w-[19.375rem] md:max-w-[29.25rem]">
         <p className=" uppercase mb-0">RESERVE YOUR HOME</p>
@@ -54,7 +54,7 @@ export const ReserveHomeForm = () => {
           </AccordionItem>
         </Accordion>
         <p>
-          $100 USD / 0.005 BTC / 0.08 ETH <br />
+          $100 USD / 0.0039 BTC / 0.058 ETH <br />
           Reservation deposit fully refundable any time, for any reason.
         </p>
       </div>

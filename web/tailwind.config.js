@@ -174,7 +174,7 @@ module.exports = {
         menu: "calc(100% - 49.23px)"
       },
       animation: {
-        in: "in .25s linear 1s forwards",
+        in: "in .25s linear forwards",
         out: "out .25s linear 0s forwards",
         out1s: "out .25s linear 1s forwards",
         out2s: "out .25s linear 2s forwards",

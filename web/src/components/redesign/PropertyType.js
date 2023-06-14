@@ -17,13 +17,13 @@ export const PropertyTypeUI = ({ selectedPropertyType, property }) => {
         const top = reserveHomeRef.current.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: "smooth" });
       }
-    }, 300);
+    }, 500);
   }, [showReserveHomeForm]);
 
   return (
     <>
       {selectedPropertyType ? (
-        <div className="flex flex-col text-[0.875rem] md:text-base relative">
+        <div className="animate-in flex flex-col text-[0.875rem] md:text-base relative">
           {selectedPropertyType?.images && selectedPropertyType.images.length !== 0 && (
             <ImageSlider images={selectedPropertyType.images} />
           )}
@@ -94,7 +94,7 @@ const MapModule = props => {
           zIndex={65}
         >
           <span className="block">
-            <span className="box block px-1em py-1em bg-white text-mobileBody md:text-desktopBody">
+            <span className="border block bg-white text-mobileBody md:text-desktopBody">
               <MapContainer lat={lat} long={long}></MapContainer>
             </span>
           </span>

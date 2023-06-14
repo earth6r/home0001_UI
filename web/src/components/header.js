@@ -214,15 +214,13 @@ const Header = ({
               >
                 Menu
               </p>
-              <span className={`${showNav ? "" : "hidden"} `}>
-                <svg
-                  className="h-5 w-5 md:h-10 md:w-10"
-                  viewBox="0 0 40 40"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M8 8L32 32M32 8L8 32" stroke="black" />
-                </svg>
+              <span className={`${showNav ? "" : "hidden"}`}>
+                <span className="hidden md:block h-10 w-10">
+                  <Icon symbol="closeMenu" />
+                </span>
+                <span className="md:hidden h-3 w-3">
+                  <Icon symbol="closeMenuMobile" />
+                </span>
               </span>
             </button>
           </nav>
@@ -235,20 +233,19 @@ const Header = ({
             } fixed top-0 pt-[4.25rem] md:pt-[9.375rem] left-0 w-full h-full`}
           >
             <ul className="px-4 md:px-10 flex flex-col gap-10 mt-4 md:mt-0">
-              {menu &&
-                newMenu.map((item, index) => {
-                  return (
-                    <li
-                      onClick={onHideNav}
-                      className="text-start text-[0.875rem] md:text-base uppercase leading-[120%] tracking-caps"
-                      key={index++}
-                    >
-                      <PageLink onClick={onHideNav} to={`${item.slug}`}>
-                        <span>{item.title}</span>
-                      </PageLink>
-                    </li>
-                  );
-                })}
+              {newMenu.map((item, index) => {
+                return (
+                  <li
+                    onClick={onHideNav}
+                    className="text-start text-[0.875rem] md:text-base uppercase leading-[120%] tracking-caps"
+                    key={index++}
+                  >
+                    <PageLink onClick={onHideNav} to={`${item.slug}`}>
+                      <span>{item.title}</span>
+                    </PageLink>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
         </div>

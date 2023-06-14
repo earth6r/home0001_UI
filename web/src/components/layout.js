@@ -39,8 +39,6 @@ const Layout = ({
   const { menuOpened } = useContext(HomesContext);
   const [showPage, setShowPage] = useState(false);
 
-  console.log(showPage);
-
   useEffect(() => {
     setShowPage(true);
   }, []);

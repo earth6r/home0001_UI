@@ -1,29 +1,29 @@
 /*.map-module-wrapper .gm-style > div > div > div > div:not(.location-circle){
   filter:grayscale(1);
 }*/
-.map-module-wrapper.mexico{
-  filter:none;
+.map-module-wrapper.mexico {
+  filter: none;
 }
-.map-button{
-  top:-18px;
-  left:5px;
+.map-button {
+  top: -18px;
+  left: 5px;
   z-index: 1;
-  cursor:pointer;
+  cursor: pointer;
 }
-.location-circle{
-	background: rgba(255,255,0,0.4);
-	width: 100px;
-	height:100px;
-	display: inline-block;
-	border-radius: 50px;
-	transform: translate(-50%, -50%);
+.location-circle {
+  background: rgba(255, 0, 0, 0.4);
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  border-radius: 50px;
+  transform: translate(-50%, -50%);
 }
-@media(max-width:767px){
-	.map-module-wrapper{
-	    max-height:400px;
-	  }
+@media (max-width: 767px) {
+  .map-module-wrapper {
+    max-height: 400px;
+  }
 
-	.map-button{
-	      top: -1.5px;
-	}
+  .map-button {
+    top: -1.5px;
+  }
 }

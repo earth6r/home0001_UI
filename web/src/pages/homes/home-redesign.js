@@ -98,7 +98,7 @@ const HomeRedesignPage = ({ location, data }) => {
         const top = propertyTypeRef.current.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: "smooth" });
       }
-    }, 300);
+    }, 500);
   }, [selectedPropertyType]);
 
   const onSelectCity = city => {

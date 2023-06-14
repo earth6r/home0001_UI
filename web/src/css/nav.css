@@ -274,10 +274,6 @@ footer{
   from { max-height: 500px; height:auto; }
   to { max-height: 38px; }
 }
-.animate-in {
-  animation-fill-mode: forwards;
-  animation-delay: 1s;
-}
 @media(min-width: 768px){
   .gradient-to-b3-desktop {
     background: linear-gradient(0deg,hsla(0,0%,100%,0),hsla(0,0%,100%,.55) 20%, hsla(0,0%,100%,.75) 40%,hsla(0,0%,100%,.96) 75%,hsla(0,0%,100%,.99));
