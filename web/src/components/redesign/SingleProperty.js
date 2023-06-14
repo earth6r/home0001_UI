@@ -22,7 +22,10 @@ export const SingleProperty = ({
   return (
     <>
       {selectedProperty && (
-        <div ref={selectedPropertyRef} className="flex flex-col text-[0.875rem] md:text-base">
+        <div
+          ref={selectedPropertyRef}
+          className="animate-in flex flex-col text-[0.875rem] md:text-base"
+        >
           <img
             className="max-h-[487px] max-w-[480px] md:max-w-[585px] md:max-h-[741px] h-auto w-auto mb-10 md:mb-20"
             src={selectedProperty?.image?.asset?.url}
@@ -33,7 +36,7 @@ export const SingleProperty = ({
         </div>
       )}
       {propertyTypes && (
-        <ul className="max-w-menu sm:max-w-xs flex flex-col gap-4 my-10 md:my-20 p-0">
+        <ul className="animate-in max-w-menu sm:max-w-xs flex flex-col gap-4 my-10 md:my-20 p-0">
           {propertyTypes.map(propertType => {
             const { amenities, propertyType, price, area, id } = propertType;
             return (
