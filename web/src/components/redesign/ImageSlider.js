@@ -35,12 +35,12 @@ export const ImageSlider = ({ images }) => {
       <Slider
         ref={slider}
         {...settings}
-        className="max-h-[487px] max-w-[480px] md:max-w-[585px] md:max-h-[741px] -ml-4"
+        className="w-screen max-h-[487px] max-w-[480px] md:max-w-[585px] md:max-h-[741px] -ml-4"
       >
         {images?.map((image, index) => (
           <img
             key={index}
-            className="max-h-[487px] pl-4 max-w-[480px] md:max-w-[585px] md:max-h-[741px] h-full w-full object-cover"
+            className="max-h-[487px] px-4 max-w-[480px] md:max-w-[585px] md:max-h-[741px] h-full w-full object-cover"
             src={image?.asset?.url}
             alt=""
           />
