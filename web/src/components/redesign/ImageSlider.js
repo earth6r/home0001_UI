@@ -35,20 +35,20 @@ export const ImageSlider = ({ images }) => {
       <Slider
         ref={slider}
         {...settings}
-        className="w-screen max-h-[487px] max-w-[480px] md:max-w-[585px] md:max-h-[741px] -ml-4"
+        className="max-h-[487px] pr-[2.625rem] md:pr-0 md:max-h-[741px] -ml-4 md:w-[calc(100%_+_2rem)]"
       >
         {images?.map((image, index) => (
           <img
             key={index}
-            className="max-h-[487px] px-4 max-w-[480px] md:max-w-[585px] md:max-h-[741px] h-full w-full object-cover"
+            className="max-h-[487px] px-4 md:max-h-[741px] h-full w-full object-cover"
             src={image?.asset?.url}
             alt=""
           />
         ))}
       </Slider>
-      <div className="flex justify-center items-center gap-2 max-w-[480px] md:max-w-[585px] -ml-4">
+      <div className="flex justify-center items-center gap-2 -ml-4 pr-mobile-menu md:pr-0">
         <button
-          className=" disabled:shadow-none disabled:bg-transparent disabled:opacity-40"
+          className="disabled:shadow-none disabled:bg-transparent disabled:opacity-40"
           onClick={previousImage}
           disabled={!hasPreviousImage}
         >

@@ -177,7 +177,7 @@ const Header = ({
             showNav ? "h-full" : ""
           } flex  w-full   md:bg-transparent md:relative justify-between md:justify-between items-center content-center`}
         >
-          <nav className="flex justify-between items-center w-full px-4 py-6 md:px-10 md:py-12">
+          <nav className="flex justify-between items-center w-full px-4 py-6 md:p-10">
             <h1 className="relative menu z-50 md:h-10">
               <PageLink
                 onClick={() => {
@@ -207,18 +207,14 @@ const Header = ({
               role="button"
               aria-label="Open the menu"
             >
-              <p
-                className={`${
-                  showNav ? "hidden" : ""
-                } tracking-caps uppercase text-[0.875rem] md:text-base`}
-              >
+              <p className={`${showNav ? "hidden" : ""} tracking-caps uppercase text-[0.875rem]`}>
                 Menu
               </p>
               <span className={`${showNav ? "" : "hidden"}`}>
                 <span className="hidden md:block h-10 w-10">
                   <Icon symbol="closeMenu" />
                 </span>
-                <span className="md:hidden h-3 w-3">
+                <span className="md:hidden block h-3 w-3 my-1 md:my-0">
                   <Icon symbol="closeMenuMobile" />
                 </span>
               </span>
@@ -228,16 +224,16 @@ const Header = ({
           <nav
             className={`${showThinBanner && thinBanner ? "mt-16 md:mt-4" : ""} ${
               showNav
-                ? "block overflow-auto  z-40 bg-white md:shadow-none transition-none"
+                ? "block overflow-auto z-40 bg-white md:shadow-none transition-none"
                 : "hidden"
-            } fixed top-0 pt-[4.25rem] md:pt-[9.375rem] left-0 w-full h-full`}
+            } fixed top-0 pt-[5.25rem] md:pt-40 left-0 w-full h-full`}
           >
-            <ul className="px-4 md:px-10 flex flex-col gap-10 mt-4 md:mt-0">
+            <ul className="px-4 md:px-10 flex flex-col gap-10">
               {newMenu.map((item, index) => {
                 return (
                   <li
                     onClick={onHideNav}
-                    className="text-start text-[0.875rem] md:text-base uppercase leading-[120%] tracking-caps"
+                    className="text-start text-[0.875rem] uppercase leading-[120%] tracking-caps"
                     key={index++}
                   >
                     <PageLink onClick={onHideNav} to={`${item.slug}`}>

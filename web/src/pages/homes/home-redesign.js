@@ -8,6 +8,7 @@ import { SingleProperty } from "../../components/redesign/SingleProperty";
 import { PropertyTypeUI } from "../../components/redesign/PropertyType";
 import Container from "../../components/redesign/Container";
 import { HomesContext } from "../../components/context/HomesContext";
+import { ReserveHomeForm } from "../../components/redesign/ReserveHomeForm";
 
 export const query = graphql`
   {
@@ -73,6 +74,7 @@ const HomeRedesignPage = ({ location, data }) => {
   const cities = data.allSanityHomePage.nodes[0].citiesList;
   const properties = data.allSanityProperty.nodes;
   const propertiesTypes = data.allSanityPropertyType.nodes;
+  const [showReserveHomeForm, setShowReserveHomeForm] = useState(false);
 
   const propertyTypeRef = createRef();
   const {
@@ -90,6 +92,18 @@ const HomeRedesignPage = ({ location, data }) => {
   const filteredPropertiesTypes = selectedProperty
     ? propertiesTypes.filter(propertyType => selectedProperty?.id === propertyType?.property?.id)
     : [];
+
+  const reserveHomeRef = createRef();
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (showReserveHomeForm && reserveHomeRef.current) {
+        const offset = window.innerWidth < 768 ? 16 : 40;
+        const top = reserveHomeRef.current.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    }, 500);
+  }, [showReserveHomeForm]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -110,40 +124,62 @@ const HomeRedesignPage = ({ location, data }) => {
   return (
     <Layout pathname={location.pathname.replace(/\/$/, "")} showPopupNewsletter={true} rnd={false}>
       <SEO title="Home" />
-      <Container className="flex flex-col h-screen">
-        <section className="mb-auto mt-4 md:mt-7">
+      <Container>
+        <section>
           <CitiesList
             cities={cities}
             onChange={city => onSelectCity(city)}
             selectedCity={selectedCity}
             properties={properties}
           />
-          <PropertiesList
-            properties={filteredProperties}
-            onChange={property => {
-              setSelectedProperty(property);
-              setSelectedPropertyType(null);
-            }}
-            selectedProperty={selectedProperty}
-          />
-          {selectedProperty && (
-            <SingleProperty
-              propertyTypes={filteredPropertiesTypes}
-              selectedProperty={selectedProperty}
-              selectedPropertyType={selectedPropertyType}
-              onChange={propertType => {
-                setSelectedPropertyType(propertType);
-              }}
-            />
-          )}
-          {selectedProperty && selectedPropertyType && (
-            <div ref={propertyTypeRef}>
-              <PropertyTypeUI
-                property={selectedProperty}
-                selectedPropertyType={selectedPropertyType}
+          <div className="md:grid md:grid-cols-3 md:pr-desktop-menu">
+            <div className="md:col-start-2 md:col-span-1">
+              <PropertiesList
+                properties={filteredProperties}
+                onChange={property => {
+                  setSelectedProperty(property);
+                  setSelectedPropertyType(null);
+                }}
+                selectedProperty={selectedProperty}
               />
+              {selectedProperty && (
+                <SingleProperty
+                  propertyTypes={filteredPropertiesTypes}
+                  selectedProperty={selectedProperty}
+                  selectedPropertyType={selectedPropertyType}
+                  onChange={propertType => {
+                    setSelectedPropertyType(propertType);
+                  }}
+                />
+              )}
+              {selectedProperty && selectedPropertyType && (
+                <div ref={propertyTypeRef}>
+                  <PropertyTypeUI
+                    property={selectedProperty}
+                    selectedPropertyType={selectedPropertyType}
+                    showReserveHomeForm={showReserveHomeForm}
+                  />
+                </div>
+              )}
+              {selectedPropertyType && (
+                <div className="pr-mobile-menu md:pr-0">
+                  <button
+                    onClick={() => setShowReserveHomeForm(prev => !prev)}
+                    className={`outline-none mb-10 tracking-caps uppercase block mt-20 w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-[0.875rem] md:text-base ${
+                      showReserveHomeForm ? "bg-black text-white" : "bg-white text-black"
+                    }`}
+                  >
+                    Join the waitlist for this home
+                  </button>
+                </div>
+              )}
             </div>
-          )}{" "}
+          </div>
+          {showReserveHomeForm ? (
+            <div ref={reserveHomeRef}>
+              <ReserveHomeForm />
+            </div>
+          ) : null}
         </section>
       </Container>
     </Layout>

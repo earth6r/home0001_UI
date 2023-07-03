@@ -3,23 +3,9 @@ import { Popover, PopoverTrigger, PopoverContent } from "@chakra-ui/core";
 import MapContainer from "../map";
 import { ImageSlider } from "./ImageSlider";
 import { StandardText } from "../global/standardText";
-import { ReserveHomeForm } from "./ReserveHomeForm";
 import { InventorModule } from "./InventoryModule";
 
-export const PropertyTypeUI = ({ selectedPropertyType, property }) => {
-  const [showReserveHomeForm, setShowReserveHomeForm] = useState(false);
-  const reserveHomeRef = createRef();
-
-  useEffect(() => {
-    setTimeout(() => {
-      if (showReserveHomeForm && reserveHomeRef.current) {
-        const offset = window.innerWidth < 768 ? 16 : 40;
-        const top = reserveHomeRef.current.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: "smooth" });
-      }
-    }, 500);
-  }, [showReserveHomeForm]);
-
+export const PropertyTypeUI = ({ selectedPropertyType, showReserveHomeForm, property }) => {
   return (
     <>
       {selectedPropertyType ? (
@@ -27,7 +13,7 @@ export const PropertyTypeUI = ({ selectedPropertyType, property }) => {
           {selectedPropertyType?.images && selectedPropertyType.images.length !== 0 && (
             <ImageSlider images={selectedPropertyType.images} />
           )}
-          <div className=" text-[0.875rem] md:text-base mt-10 md:mt-20">
+          <div className="text-[0.875rem] md:text-base mt-10 md:mt-20 pr-mobile-menu md:pr-0">
             {property.title && <h3 className="m-0 uppercase">{property.title}</h3>}
             {property.unitTypes && <p className="m-0 ">{property.unitTypes}</p>}
             {property.price && <p className="m-0">{property.price}</p>}
@@ -38,7 +24,7 @@ export const PropertyTypeUI = ({ selectedPropertyType, property }) => {
               )}
           </div>
           {selectedPropertyType.propertyType && (
-            <h3 className=" uppercase my-4 md:my-20">
+            <h3 className="uppercase my-4 md:my-20 pr-mobile-menu md:pr-0">
               {selectedPropertyType.propertyType
                 .replace("one-bedroom", "1 bedroom")
                 .replace("two-bedroom", "2 bedrooms")
@@ -46,7 +32,7 @@ export const PropertyTypeUI = ({ selectedPropertyType, property }) => {
             </h3>
           )}
           {selectedPropertyType?._rawDescription?.text && (
-            <div className="max-w-menu sm:max-w-xs lg:max-w-4xl text-[0.875rem] md:text-base">
+            <div className="pr-mobile-menu md:pr-0 text-[0.875rem] md:text-base">
               <StandardText data={selectedPropertyType?._rawDescription} />
             </div>
           )}
@@ -59,21 +45,6 @@ export const PropertyTypeUI = ({ selectedPropertyType, property }) => {
           data={selectedPropertyType}
         />
       )}
-      {selectedPropertyType && (
-        <button
-          onClick={() => setShowReserveHomeForm(prev => !prev)}
-          className={`outline-none mb-10 max-w-[19.375rem] tracking-caps uppercase md:max-w-[29.25rem] block mt-20 w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-[0.875rem] md:text-base ${
-            showReserveHomeForm ? "bg-black text-white" : "bg-white text-black"
-          }`}
-        >
-          Join the waitlist for this home
-        </button>
-      )}
-      {showReserveHomeForm ? (
-        <div ref={reserveHomeRef}>
-          <ReserveHomeForm />
-        </div>
-      ) : null}
     </>
   );
 };

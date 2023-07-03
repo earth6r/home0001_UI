@@ -299,7 +299,9 @@ module.exports = {
         "16/20": "80vw",
         "17/20": "85vw",
         "18/20": "90vw",
-        "19/20": "95vw"
+        "19/20": "95vw",
+        "desktop-menu": "5.625rem",
+        "mobile-menu": "3.625rem"
       },
       textColor: {
         primary: "#F7F6F0",
