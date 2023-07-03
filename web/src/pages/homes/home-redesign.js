@@ -165,7 +165,7 @@ const HomeRedesignPage = ({ location, data }) => {
                 <div className="pr-mobile-menu md:pr-0">
                   <button
                     onClick={() => setShowReserveHomeForm(prev => !prev)}
-                    className={`outline-none mb-10 tracking-caps uppercase block mt-20 w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-[0.875rem] md:text-base ${
+                    className={`outline-none mb-10 tracking-caps uppercase block mt-20 w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-[0.875rem] ${
                       showReserveHomeForm ? "bg-black text-white" : "bg-white text-black"
                     }`}
                   >

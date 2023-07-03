@@ -18,7 +18,7 @@ export const InventorModule = ({ data, title, propertyType }) => {
         className="rounded-lg"
       >
         <ModalOverlay onClick={onClose} opacity={0.75} />
-        <ModalContent className="mx-mobile max-w-special md:mx-desktop p-4 pt-6 md:p-10 text-[0.875rem] md:text-base">
+        <ModalContent className="mx-mobile max-w-special md:mx-desktop p-4 pt-6 md:p-10 text-[0.875rem]">
           <CloseButton propertyType={propertyType} title={title} onClose={onClose} />
           <ModalBody className="rounded-lg p-0 ">
             <div className="flex flex-col gap-20 ">
@@ -40,7 +40,7 @@ export const InventorModule = ({ data, title, propertyType }) => {
 
 const CloseButton = ({ onClose, title, propertyType }) => {
   return (
-    <div className="flex justify-between items-center mb-24 md:mb-16 text-[0.875rem] md:text-base">
+    <div className="flex justify-between items-center mb-24 md:mb-16 text-[0.875rem]">
       <div>
         {title && <p className="uppercase">{title}</p>}{" "}
         {propertyType && <p>{propertyType.charAt(0).toUpperCase() + propertyType.slice(1)}</p>}{" "}

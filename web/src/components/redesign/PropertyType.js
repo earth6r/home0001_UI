@@ -9,11 +9,11 @@ export const PropertyTypeUI = ({ selectedPropertyType, showReserveHomeForm, prop
   return (
     <>
       {selectedPropertyType ? (
-        <div className="animate-in flex flex-col text-[0.875rem] md:text-base relative">
+        <div className="animate-in flex flex-col text-[0.875rem] relative">
           {selectedPropertyType?.images && selectedPropertyType.images.length !== 0 && (
             <ImageSlider images={selectedPropertyType.images} />
           )}
-          <div className="text-[0.875rem] md:text-base mt-10 md:mt-20 pr-mobile-menu md:pr-0">
+          <div className="text-[0.875rem] mt-10 md:mt-20 pr-mobile-menu md:pr-0">
             {property.title && <h3 className="m-0 uppercase">{property.title}</h3>}
             {property.unitTypes && <p className="m-0 ">{property.unitTypes}</p>}
             {property.price && <p className="m-0">{property.price}</p>}
@@ -32,7 +32,7 @@ export const PropertyTypeUI = ({ selectedPropertyType, showReserveHomeForm, prop
             </h3>
           )}
           {selectedPropertyType?._rawDescription?.text && (
-            <div className="pr-mobile-menu md:pr-0 text-[0.875rem] md:text-base">
+            <div className="pr-mobile-menu md:pr-0 text-[0.875rem]">
               <StandardText data={selectedPropertyType?._rawDescription} />
             </div>
           )}

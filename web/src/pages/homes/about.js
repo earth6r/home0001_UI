@@ -23,7 +23,7 @@ const AboutPageRedesign = ({ data }) => {
     <Layout showPopupNewsletter={true} rnd={false}>
       <SEO title={content.title} />
       <Container className="flex flex-col h-screen">
-        <div className="text-[0.875rem] md:text-base max-w-md mt-10 tracking-body">
+        <div className="text-[0.875rem] max-w-md mt-10 tracking-body">
           <StandardText data={content._rawDescription} />
         </div>
       </Container>

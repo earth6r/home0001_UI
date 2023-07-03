@@ -11,7 +11,7 @@ export const PropertiesList = ({ properties, onChange, selectedProperty }) => {
                 <button
                   className={`${
                     selectedProperty?.id === property.id ? "underline" : ""
-                  } flex flex-col gap-0 text-[0.875rem] md:text-base `}
+                  } flex flex-col gap-0 text-[0.875rem] `}
                   onClick={() => onChange(property)}
                 >
                   {property.title && <h3 className="m-0">{property.title}</h3>}{" "}

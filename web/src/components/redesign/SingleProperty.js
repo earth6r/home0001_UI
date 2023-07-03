@@ -22,10 +22,7 @@ export const SingleProperty = ({
   return (
     <>
       {selectedProperty && (
-        <div
-          ref={selectedPropertyRef}
-          className="animate-in flex flex-col text-[0.875rem] md:text-base"
-        >
+        <div ref={selectedPropertyRef} className="animate-in flex flex-col text-[0.875rem]">
           <img
             className="max-h-[487px] md:max-h-[741px] h-auto w-auto mb-10 md:mb-20"
             src={selectedProperty?.image?.asset?.url}
@@ -43,7 +40,7 @@ export const SingleProperty = ({
               <li key={id} className={`p-0 before:content-['']`}>
                 <button
                   onClick={() => onChange(propertType)}
-                  className={`p-4 border w-full flex flex-col gap-7 text-[0.875rem] md:text-base ${
+                  className={`p-4 border w-full flex flex-col gap-7 text-[0.875rem] ${
                     selectedPropertyType?.id === propertType.id ? "bg-black text-white" : ""
                   }`}
                 >
