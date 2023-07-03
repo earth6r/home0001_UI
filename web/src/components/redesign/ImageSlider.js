@@ -46,7 +46,7 @@ export const ImageSlider = ({ images }) => {
           />
         ))}
       </Slider>
-      <div className="flex justify-center items-center gap-2 -ml-4 pr-mobile-menu md:pr-0">
+      <div className="flex justify-center items-center gap-2 pr-mobile-menu md:pr-0">
         <button
           className="disabled:shadow-none disabled:bg-transparent disabled:opacity-40"
           onClick={previousImage}
