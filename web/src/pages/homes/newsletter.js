@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 
 import SEO from "../../components/seo";
 import Layout from "../../containers/layout";
-import Container from "../../components/container";
+import Container from "../../components/redesign/container";
 
 import { StandardText } from "../../components/global/standardText";
 import { NewsLetterForm } from "../../components/redesign/NewsLetterForm";
@@ -35,7 +35,9 @@ const NewsLetterPageRedesign = ({ data }) => {
     <Layout showPopupNewsletter={true} rnd={false}>
       <SEO title={pageTitle} />
       <Container>
-        <div className="mb-10 md:mb-8 ma">{content}</div>
+        <div className="md:grid md:grid-cols-3 pr-mobile-menu md:pr-desktop-menu mb-10 md:mb-8">
+          <div className="md:col-start-2 md:col-span-1">{content}</div>
+        </div>
       </Container>
     </Layout>
   );

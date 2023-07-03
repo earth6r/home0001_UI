@@ -45,7 +45,8 @@ const Layout = ({
 
   useEffect(() => {
     function atFooter(el) {
-      return el.getBoundingClientRect().bottom <= window.innerHeight;
+      const footer = document.getElementById("footer");
+      return footer && el.getBoundingClientRect().bottom <= window.innerHeight;
     }
 
     function calculateIntercomBottom(el) {

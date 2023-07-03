@@ -24,7 +24,7 @@ export const ReserveHomeForm = () => {
               here for the next release.
             </p>
             <Accordion allowToggle defaultIndex={[2]} className="my-10 w-full">
-              <AccordionItem className="bg-white border border-[#000] px-3 py-[15px] md:py-[1.15rem] text-[0.875rem]">
+              <AccordionItem className="bg-white border border-[#000] px-3 flex items-center text-[0.875rem] h-10 md:h-12">
                 {({ isExpanded }) => (
                   <>
                     <AccordionHeader className="flex items-center justify-between hover:bg-white max-h-[1.15rem] p-0">
@@ -78,7 +78,7 @@ export const ReserveHomeForm = () => {
                   type="text"
                   id="fullName"
                   name="fullName"
-                  className="outline-none border-black bg-transparent placeholder:opacity-[36] px-4 py-5 w-full text-[0.875rem] font-serif"
+                  className="outline-none border-black bg-transparent placeholder:opacity-[36] px-4 py-2 h-12 w-full text-[0.875rem] font-serif"
                   placeholder="FULL NAME"
                   ref={register}
                 />
@@ -87,7 +87,7 @@ export const ReserveHomeForm = () => {
                   type="email"
                   id="email"
                   name="email"
-                  className="outline-none border-black bg-transparent placeholder:opacity-[36] px-4 py-5 w-full text-[0.875rem] font-serif"
+                  className="outline-none border-black bg-transparent placeholder:opacity-[36] px-4 py-2 h-12 w-full text-[0.875rem] font-serif"
                   ref={register}
                 />
               </div>

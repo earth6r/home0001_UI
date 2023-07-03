@@ -14,11 +14,11 @@ export interface AccordionModuleProps {
 export const AccordionModule = ({ data }: AccordionModuleProps) => {
   const { title, accordionItems } = data;
   return (
-    <Accordion allowToggle className="my-10 w-full max-w-[19.375rem] md:max-w-[29.25rem]">
+    <Accordion allowToggle className="my-10 w-full">
       {accordionItems.length > 0 &&
         accordionItems.map(item => (
           <React.Fragment key={item._key}>
-            <AccordionItem className="bg-white border border-[#000] px-3 py-[15px] md:py-[1.15rem] text-[0.875rem]">
+            <AccordionItem className="bg-white border border-[#000] px-3 py-[15px] md:py-[1.15rem] text-[0.875rem] mt-2 first:mt-0">
               {/* @ts-ignore */}
               {({ isExpanded }) => (
                 <>

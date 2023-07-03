@@ -37,10 +37,14 @@ const HowItWorksRedignPage = ({ data }) => {
     <Layout showPopupNewsletter={true} rnd={false}>
       <SEO title={pageTitle} />
       <Container>
-        <h2 className="uppercase tracking-caps mb-10 font-normal text-[0.875rem] mt-4 md:mt-0 leading-[120%]">
-          {pageTitle}
-        </h2>
-        <div className="mb-10 md:mb-8">{content}</div>
+        <div className="md:grid md:grid-cols-3 pr-mobile-menu md:pr-desktop-menu">
+          <div className="md:col-start-2 md:col-span-1">
+            <h2 className="uppercase tracking-caps mb-10 md:mb-20 font-normal text-[0.875rem] leading-[120%]">
+              {pageTitle}
+            </h2>
+            <div className="mb-10 md:mb-8">{content}</div>
+          </div>
+        </div>
         <ReserveHomeForm />
       </Container>
       {/* {slug?.current === "homes/how-it-works" && <DepositBlock />} */}

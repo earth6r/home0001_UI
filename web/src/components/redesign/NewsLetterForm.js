@@ -6,7 +6,7 @@ import { Input, Button } from "@chakra-ui/core";
 
 export const NewsLetterForm = ({ data }) => {
   return (
-    <div className="flex flex-col gap-4 mt-10 max-w-[19.375rem] md:max-w-[29.25rem]">
+    <div className="flex flex-col gap-4 max-w-[19.375rem] md:max-w-[29.25rem]">
       <p className="text-[0.875rem] leading-[130%] md:leading-[135%] mb-0 p-0">{data.title}</p>
       <MailChimpForm signup />
     </div>
