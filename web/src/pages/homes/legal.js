@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 
 import SEO from "../../components/seo";
-import Container from "../../components/redesign/container";
+import Container from "../../components/redesign/Container";
 import Layout from "../../containers/layout";
 
 import { StandardText } from "../../components/global/standardText";

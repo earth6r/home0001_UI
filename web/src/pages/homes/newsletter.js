@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 
 import SEO from "../../components/seo";
 import Layout from "../../containers/layout";
-import Container from "../../components/redesign/container";
+import Container from "../../components/redesign/Container";
 
 import { StandardText } from "../../components/global/standardText";
 import { NewsLetterForm } from "../../components/redesign/NewsLetterForm";
