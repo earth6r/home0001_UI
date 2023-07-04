@@ -16,12 +16,13 @@ export const ReserveHomeForm = () => {
     <div className="animate-in relative">
       <div className="w-screen h-full -ml-4 md:-ml-10 absolute bg-whitesmoke"></div>
       <div className="md:grid md:grid-cols-3 pr-mobile-menu md:pr-desktop-menu">
-        <div className="md:col-start-2 md:col-span-1">
-          <div className="pt-10 relative mb-4 text-[0.875rem] font-serif">
+        <div className="md:col-start-2 md:col-span-1 py-10 md:py-20">
+          <div className="relative mb-4 text-[0.875rem] font-serif">
             <p className="uppercase mb-0">RESERVE YOUR HOME</p>
             <p className="mt-10">
-              Our initial release of homes is now oversubscribed. <br /> <br /> Join our waitlist
-              here for the next release.
+              Our initial release of homes is now oversubscribed.
+              <br />
+              Join our waitlist here for the next release.
             </p>
             <Accordion allowToggle defaultIndex={[2]} className="my-10 w-full">
               <AccordionItem className="bg-white border border-[#000] px-3 flex items-center text-[0.875rem] h-10 md:h-12">
@@ -58,7 +59,7 @@ export const ReserveHomeForm = () => {
               Reservation deposit fully refundable any time, for any reason.
             </p>
           </div>
-          <form onSubmit={handleSubmit(onSubmit)} className="w-full pb-10">
+          <form onSubmit={handleSubmit(onSubmit)} className="w-full">
             <div className="w-full">
               <div className="flex items-center justify-start p-0 mb-10">
                 <input
@@ -91,7 +92,7 @@ export const ReserveHomeForm = () => {
                   ref={register}
                 />
               </div>
-              <div className="relative mt-10 flex flex-col gap-2">
+              <div className="relative mt-10 flex flex-col gap-2 md:gap-4">
                 <button
                   className="h-12 max-h-12 text-center tracking-caps uppercase text-white bg-black text-[0.875rem] font-serif"
                   type="button"

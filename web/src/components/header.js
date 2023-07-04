@@ -37,7 +37,8 @@ const Header = ({
   const {
     setCity: setSelectedCity,
     setProperty: setSelectedProperty,
-    setPropertyType: setSelectedPropertyType
+    setPropertyType: setSelectedPropertyType,
+    setReserveHomeForm: setShowReserveHomeForm
   } = useContext(HomesContext);
 
   let currentUri = "";
@@ -187,6 +188,7 @@ const Header = ({
                   });
                   setSelectedProperty({ id: null });
                   setSelectedPropertyType(null);
+                  setShowReserveHomeForm(false);
                 }}
                 to="/homes/home-redesign"
                 className="flex items-center h-full"

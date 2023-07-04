@@ -11,6 +11,7 @@ export const HomesContextProvider = ({ children }) => {
     id: null
   });
   const [selectedPropertyType, setSelectedPropertyType] = useState(null);
+  const [showReserveHomeForm, setShowReserveHomeForm] = useState(null);
   const [menuOpened, setMenuOpened] = useState(null);
 
   const setCity = city => {
@@ -29,6 +30,10 @@ export const HomesContextProvider = ({ children }) => {
     setMenuOpened(opened);
   };
 
+  const setReserveHomeForm = show => {
+    setShowReserveHomeForm(show);
+  };
+
   return (
     <HomesContext.Provider
       value={{
@@ -36,10 +41,12 @@ export const HomesContextProvider = ({ children }) => {
         selectedProperty,
         selectedPropertyType,
         menuOpened,
+        showReserveHomeForm,
         setCity,
         setProperty,
         setPropertyType,
-        setMenuOpen
+        setMenuOpen,
+        setReserveHomeForm
       }}
     >
       {children}
