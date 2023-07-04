@@ -42,7 +42,7 @@ const HowItWorksRedignPage = ({ data }) => {
             <h2 className="uppercase tracking-caps mb-10 md:mb-20 font-normal text-[0.875rem] leading-[120%]">
               {pageTitle}
             </h2>
-            <div className="mb-10 md:mb-8">{content}</div>
+            <div className="mb-10 md:mb-20">{content}</div>
           </div>
         </div>
         <ReserveHomeForm />
