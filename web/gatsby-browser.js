@@ -11,7 +11,6 @@ import "focus-visible/dist/focus-visible";
 import PaymentContext from "./src/lib/payment-context";
 import { DISCOUNT_CODES } from "./src/lib/constants";
 import { trimSlashes } from "./src/lib/helpers";
-
 //stripe
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
