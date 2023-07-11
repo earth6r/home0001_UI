@@ -33,10 +33,14 @@ export default {
       title: 'Description'
     },
     {
+      type: 'map',
+      name: 'map'
+    },
+    {
       title: 'City',
       name: 'city',
       type: 'reference',
-      to: [{ type: 'cities' }],
+      to: [{type: 'cities'}],
       options: {
         // Here's where you can add the subtitle field
         getOptionLabel: reference => `${reference.title}`

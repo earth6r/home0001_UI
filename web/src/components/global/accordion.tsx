@@ -18,17 +18,19 @@ export const AccordionModule = ({ data }: AccordionModuleProps) => {
       {accordionItems.length > 0 &&
         accordionItems.map(item => (
           <React.Fragment key={item._key}>
-            <AccordionItem className="bg-white border border-[#000] px-3 py-[15px] md:py-[1.15rem] text-[0.875rem] mt-2 first:mt-0">
+            <AccordionItem className="bg-white border border-[#000] px-3 py-[15px] md:py-[1.15rem] text-mobile-body md:text-desktop-body mt-2 first:mt-0">
               {/* @ts-ignore */}
               {({ isExpanded }) => (
                 <>
                   <AccordionHeader className="flex items-center justify-between hover:bg-white max-h-[1.15rem] p-0">
-                    <h2 className="m-0 uppercase text-[0.875rem]">{item.title}</h2>
+                    <h2 className="m-0 uppercase text-mobile-body md:text-desktop-body">
+                      {item.title}
+                    </h2>
                     <div className="text-[20px] font-normal">
                       {isExpanded ? <Minus /> : <Plus />}
                     </div>
                   </AccordionHeader>
-                  <AccordionPanel className="px-0 py-4 text-[0.875rem]">
+                  <AccordionPanel className="px-0 py-4 text-mobile-body md:text-desktop-body">
                     <PortableText blocks={item.text} />
                   </AccordionPanel>
                 </>

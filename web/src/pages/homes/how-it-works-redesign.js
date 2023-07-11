@@ -39,7 +39,7 @@ const HowItWorksRedignPage = ({ data }) => {
       <Container>
         <div className="md:grid md:grid-cols-3 pr-mobile-menu md:pr-desktop-menu">
           <div className="md:col-start-2 md:col-span-1">
-            <h2 className="uppercase tracking-caps mb-10 md:mb-20 font-normal text-[0.875rem] leading-[120%]">
+            <h2 className="uppercase tracking-caps mb-10 md:mb-20 font-normal text-mobile-body md:text-desktop-body">
               {pageTitle}
             </h2>
             <div className="mb-10 md:mb-20">{content}</div>

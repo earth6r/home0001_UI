@@ -19,11 +19,11 @@ export default {
       initialValue: 'studio',
       options: {
         list: [
-          { title: 'STUDIO', value: 'studio' },
-          { title: 'STUDIO MAX', value: 'studio-max' },
-          { title: '1 BEDROOM', value: 'one-bedroom' },
-          { title: '2 BEDROOMS', value: 'two-bedrooms' },
-          { title: 'PENTHOUSE', value: 'penthouse' }
+          {title: 'STUDIO', value: 'studio'},
+          {title: 'STUDIO MAX', value: 'studio-max'},
+          {title: '1 BEDROOM', value: 'one-bedroom'},
+          {title: '2 BEDROOMS', value: 'two-bedrooms'},
+          {title: 'PENTHOUSE', value: 'penthouse'}
         ]
       }
     },
@@ -47,10 +47,6 @@ export default {
           type: 'string'
         }
       ]
-    },
-    {
-      type: 'map',
-      name: 'map'
     },
     {
       name: 'images',
@@ -85,7 +81,7 @@ export default {
       title: 'Property',
       name: 'property',
       type: 'reference',
-      to: [{ type: 'property' }],
+      to: [{type: 'property'}],
       options: {
         // Here's where you can add the subtitle field
         getOptionLabel: reference => `${reference.title}`

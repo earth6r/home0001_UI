@@ -9,19 +9,20 @@ export const PropertyTypeUI = ({ selectedPropertyType, showReserveHomeForm, prop
   return (
     <>
       {selectedPropertyType ? (
-        <div className="animate-in flex flex-col text-[0.875rem] relative">
+        <div className="animate-in flex flex-col text-mobile-body md:text-desktop-body relative">
           {selectedPropertyType?.images && selectedPropertyType.images.length !== 0 && (
             <ImageSlider images={selectedPropertyType.images} />
           )}
-          <div className="text-[0.875rem] mt-10 md:mt-20 pr-mobile-menu md:pr-0">
-            {property.title && <h3 className="m-0 uppercase">{property.title}</h3>}
+          <div className="text-mobile-body md:text-desktop-body mt-10 md:mt-20 pr-mobile-menu md:pr-0">
             {property.unitTypes && <p className="m-0 ">{property.unitTypes}</p>}
             {property.price && <p className="m-0">{property.price}</p>}
-            {selectedPropertyType.map &&
-              selectedPropertyType.map?.lat &&
-              selectedPropertyType.map?.long && (
-                <MapModule text="MAP" lat="34.088705" long="-118.254759" />
-              )}
+            {selectedPropertyType.map?.lat && selectedPropertyType.map?.long && (
+              <MapModule
+                text="MAP"
+                lat={selectedPropertyType.map?.lat}
+                long={selectedPropertyType.map?.long}
+              />
+            )}
           </div>
           {selectedPropertyType.propertyType && (
             <h3 className="uppercase my-4 md:my-20 pr-mobile-menu md:pr-0">
@@ -32,7 +33,7 @@ export const PropertyTypeUI = ({ selectedPropertyType, showReserveHomeForm, prop
             </h3>
           )}
           {selectedPropertyType?._rawDescription?.text && (
-            <div className="pr-mobile-menu md:pr-0 text-[0.875rem]">
+            <div className="pr-mobile-menu md:pr-0 text-mobile-body md:text-desktop-body">
               <StandardText data={selectedPropertyType?._rawDescription} />
             </div>
           )}
@@ -51,12 +52,13 @@ export const PropertyTypeUI = ({ selectedPropertyType, showReserveHomeForm, prop
 
 const MapModule = props => {
   const { text, lat, long } = props;
+
   return (
     <>
       <Popover placement="bottom" trigger="click" usePortal={true} gutter={10}>
         <PopoverTrigger>
-          <button aria-label={`Open Map`} className=" border-b border-dashed  uppercase">
-            MAP
+          <button aria-label={`Open Map`} className=" border-b border-dashed uppercase">
+            {text}
           </button>
         </PopoverTrigger>
         <PopoverContent

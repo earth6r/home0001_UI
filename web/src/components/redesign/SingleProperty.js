@@ -22,9 +22,13 @@ export const SingleProperty = ({
   return (
     <>
       {selectedProperty && (
-        <div ref={selectedPropertyRef} className="animate-in flex flex-col text-[0.875rem]">
+        <div
+          ref={selectedPropertyRef}
+          className="animate-in flex flex-col text-mobile-body md:text-desktop-body"
+        >
+          <span className="pb-4">{selectedProperty.title}</span>
           <img
-            className="max-h-[487px] md:max-h-[741px] h-auto w-auto mb-10 md:mb-20"
+            className="max-h-[487px] md:max-h-[741px] h-auto w-auto mb-10"
             src={selectedProperty?.image?.asset?.url}
             height="487"
             alt=""
@@ -33,14 +37,14 @@ export const SingleProperty = ({
         </div>
       )}
       {propertyTypes && (
-        <ul className="animate-in flex flex-col gap-4 my-10 md:my-20 p-0 pr-mobile-menu md:pr-0">
+        <ul className="animate-in flex flex-col gap-4 my-10 p-0 pr-mobile-menu md:pr-0">
           {propertyTypes.map(propertType => {
             const { amenities, propertyType, price, area, id } = propertType;
             return (
               <li key={id} className={`p-0 before:content-['']`}>
                 <button
                   onClick={() => onChange(propertType)}
-                  className={`p-4 border w-full flex flex-col gap-7 text-[0.875rem] ${
+                  className={`p-4 border w-full flex flex-col gap-7 text-mobile-body md:text-desktop-body ${
                     selectedPropertyType?.id === propertType.id ? "bg-black text-white" : ""
                   }`}
                 >

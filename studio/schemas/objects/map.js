@@ -6,12 +6,12 @@ export default {
     {
       name: 'lat',
       type: 'string',
-      title: 'latitude'
+      title: 'Latitude'
     },
     {
       name: 'long',
       type: 'string',
-      title: 'longitude'
+      title: 'Longitude'
     }
   ]
 }
