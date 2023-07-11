@@ -15,7 +15,6 @@ import { trimSlashes } from "./src/lib/helpers";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { HomesContextProvider } from "./src/components/context/HomesContext";
-import { HubspotTrackingLister } from "./src/components/context/HubspotListener";
 
 const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
 const ELEMENTS_OPTIONS = {
@@ -55,11 +54,9 @@ export const wrapRootElement = ({ element, props }) => {
   return (
     <PaymentContext.Provider value={{ discount, discountCode }}>
       <HomesContextProvider>
-        <HubspotTrackingLister>
-          <Elements options={ELEMENTS_OPTIONS} stripe={stripePromise} {...props}>
-            {element}
-          </Elements>
-        </HubspotTrackingLister>
+        <Elements options={ELEMENTS_OPTIONS} stripe={stripePromise} {...props}>
+          {element}
+        </Elements>
       </HomesContextProvider>
     </PaymentContext.Provider>
   );

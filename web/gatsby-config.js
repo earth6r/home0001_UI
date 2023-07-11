@@ -157,6 +157,14 @@ module.exports = {
         // Useful for only loading the tracking script once a user has opted in to being tracked, for example.
         manualLoad: false
       }
+    },
+    {
+      resolve: "gatsby-plugin-hubspot",
+      options: {
+        trackingCode: "39987214",
+        respectDNT: false,
+        productionOnly: true
+      }
     }
   ]
 };
