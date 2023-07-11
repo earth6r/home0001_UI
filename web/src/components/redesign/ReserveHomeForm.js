@@ -2,13 +2,14 @@ import React from "react";
 import { Accordion, AccordionItem, AccordionHeader, AccordionPanel } from "@chakra-ui/core";
 import Minus from "../icon/minus";
 import Plus from "../icon/plus";
-
-const { useForm } = require("react-hook-form");
+import { useForm } from "react-hook-form";
 
 export const ReserveHomeForm = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm({
+    shouldUseNativeValidation: true
+  });
 
-  const onSubmit = data => {
+  const onSubmit = async data => {
     console.log(data);
   };
 
@@ -67,7 +68,8 @@ export const ReserveHomeForm = () => {
                   id="terms"
                   name="terms"
                   className="outline-none border-black border-1 p-2 relative m-0 shadow-none left-0 top-0"
-                  {...register("terms", { required: true })}
+                  required
+                  ref={register({ required: true })}
                 />
                 <label
                   htmlFor="terms"
@@ -84,7 +86,8 @@ export const ReserveHomeForm = () => {
                   name="fullName"
                   className="outline-none border-black bg-transparent placeholder:opacity-[36] px-4 py-2 h-12 w-full text-mobile-body md:text-desktop-body font-serif"
                   placeholder="FULL NAME"
-                  ref={register}
+                  required
+                  ref={register({ required: true })}
                 />
                 <input
                   placeholder="EMAIL"
@@ -92,13 +95,14 @@ export const ReserveHomeForm = () => {
                   id="email"
                   name="email"
                   className="outline-none border-black bg-transparent placeholder:opacity-[36] px-4 py-2 h-12 w-full text-mobile-body md:text-desktop-body font-serif"
-                  ref={register}
+                  required
+                  ref={register({ required: true })}
                 />
               </div>
               <div className="relative mt-10 flex flex-col gap-2 md:gap-4">
                 <button
                   className="h-12 max-h-12 text-center tracking-caps uppercase text-white bg-black text-mobile-body md:text-desktop-body font-serif "
-                  type="button"
+                  type="submit"
                 >
                   Pay with cash
                 </button>
