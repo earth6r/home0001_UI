@@ -193,8 +193,8 @@ const Header = ({
                 to="/homes/home-redesign"
                 className="flex items-center h-full"
               >
-                <div className="flex items-center h-3 md:h-4">
-                  <EarthLogoMobile className="hidden md:block" height="14" />
+                <div className="flex items-center h-3">
+                  <EarthLogoMobile className="hidden md:block" height="12" />
                   <EarthLogoMobile className="md:hidden" height="12" width="48" />
                 </div>
                 <span className={`${forwarder == "new-eelam" ? "" : "hidden"} new-eelam-header`}>
@@ -209,7 +209,11 @@ const Header = ({
               role="button"
               aria-label="Open the menu"
             >
-              <p className={`${showNav ? "hidden" : ""} tracking-caps uppercase text-[0.875rem]`}>
+              <p
+                className={`${
+                  showNav ? "hidden" : ""
+                } tracking-caps uppercase text-mobile-body md:text-desktop-body`}
+              >
                 Menu
               </p>
               <span className={`${showNav ? "" : "hidden"}`}>
@@ -235,7 +239,7 @@ const Header = ({
                 return (
                   <li
                     onClick={onHideNav}
-                    className="text-start text-[0.875rem] uppercase leading-[120%] tracking-caps"
+                    className="text-start text-mobile-body md:text-desktop-body uppercase tracking-caps"
                     key={index++}
                   >
                     <PageLink onClick={onHideNav} to={`${item.slug}`}>

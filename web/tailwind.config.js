@@ -166,6 +166,20 @@ module.exports = {
       auto: "auto"
     },
     extend: {
+      fontSize: {
+        "desktop-body": [
+          "0.813rem",
+          {
+            lineHeight: "135%"
+          }
+        ],
+        "mobile-body": [
+          "0.875rem",
+          {
+            lineHeight: "130%"
+          }
+        ]
+      },
       letterSpacing: {
         body: "0.005em",
         caps: "0.02em"

@@ -7,7 +7,7 @@ import { Input, Button } from "@chakra-ui/core";
 export const NewsLetterForm = ({ data }) => {
   return (
     <div className="flex flex-col gap-4 max-w-[19.375rem] md:max-w-[29.25rem]">
-      <p className="text-[0.875rem] leading-[130%] md:leading-[135%] mb-0 p-0">{data.title}</p>
+      <p className="text-mobile-body md:text-desktop-body mb-0 p-0">{data.title}</p>
       <MailChimpForm signup />
     </div>
   );
@@ -46,7 +46,10 @@ const MailChimpForm = ({ signup }) => {
     </>
   ) : (
     <>
-      <form className="mx-0 text-[0.875rem] mt-0 p-0" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className="mx-0 text-mobile-body md:text-desktop-body mt-0 p-0"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <Input
           id="outlined-email-input"
           label="Email"
@@ -54,7 +57,7 @@ const MailChimpForm = ({ signup }) => {
           name="email"
           autoComplete="email"
           ref={register({ required: true })}
-          className="px-3 py-4 placeholder:uppercase placeholder:text-[0.875rem] w-full"
+          className="px-3 py-4 placeholder:uppercase placeholder:text-mobile-body md:placeholder:text-desktop-body w-full"
           required
           placeholder="Email address"
           aria-describedby="email-helper-text"

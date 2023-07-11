@@ -33,6 +33,10 @@ export const query = graphql`
             url
           }
         }
+        map {
+          lat
+          long
+        }
         city {
           title
           id
@@ -46,10 +50,6 @@ export const query = graphql`
         price
         area
         amenities
-        map {
-          lat
-          long
-        }
         images {
           asset {
             url
@@ -166,7 +166,7 @@ const HomeRedesignPage = ({ location, data }) => {
                 <div className="pr-mobile-menu md:pr-0">
                   <button
                     onClick={() => setShowReserveHomeForm(prev => !prev)}
-                    className={`outline-none mb-10 md:mb-20 tracking-caps uppercase block mt-20 w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-[0.875rem] ${
+                    className={`outline-none mb-10 md:mb-20 tracking-caps uppercase block mt-20 w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-mobile-body md:text-desktop-body ${
                       showReserveHomeForm ? "bg-black text-white" : "bg-white text-black"
                     }`}
                   >
