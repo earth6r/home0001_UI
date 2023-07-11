@@ -11,6 +11,7 @@ export const ReserveHomeForm = () => {
 
   const onSubmit = async data => {
     console.log(data);
+    window.location.replace("https://buy.stripe.com/8wM6pceRr5dscdGaEF");
   };
 
   return (
