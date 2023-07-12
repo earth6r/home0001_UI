@@ -33,7 +33,7 @@ export const InventorModule = ({ data, title, propertyType }) => {
 
       <button
         onClick={onOpen}
-        className="border-b border-dashed mt-20 text-mobile-body md:text-desktop-body"
+        className="border-b border-dashed mt-10 md:mt-20 text-mobile-body md:text-desktop-body"
       >
         View Inventory
       </button>

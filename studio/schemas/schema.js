@@ -55,6 +55,7 @@ import pane from './objects/pane'
 import viewSpacer from './objects/viewSpacer'
 import newRow from './objects/newRow'
 import newCell from './objects/newCell'
+import imageWithFile from './objects/imageWithFile'
 
 // Modules
 import accordion from './modules/accordion'
@@ -198,7 +199,8 @@ export default createSchema({
     simpleText,
     inventoryModule,
     inventoryRow,
-    inventoryCell
+    inventoryCell,
+    imageWithFile
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ])

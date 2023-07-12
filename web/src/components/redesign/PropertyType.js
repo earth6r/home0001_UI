@@ -4,6 +4,7 @@ import MapContainer from "../map";
 import { ImageSlider } from "./ImageSlider";
 import { StandardText } from "../global/standardText";
 import { InventorModule } from "./InventoryModule";
+import { Link } from "gatsby";
 
 export const PropertyTypeUI = ({ selectedPropertyType, showReserveHomeForm, property }) => {
   return (
@@ -39,6 +40,24 @@ export const PropertyTypeUI = ({ selectedPropertyType, showReserveHomeForm, prop
           )}
         </div>
       ) : null}
+      {selectedPropertyType.imageWithFile?.file?.asset &&
+      selectedPropertyType.imageWithFile?.image?.asset ? (
+        <div className="flex flex-col items-end">
+          <img
+            className="mt-10 h-auto w-full"
+            src={selectedPropertyType.imageWithFile.image.asset.url}
+            height="487"
+            alt=""
+          />
+          <a
+            className="hover:text-[#000] w-fit flex items-center mt-4 text-mobile-body md:text-desktop-body"
+            href={selectedPropertyType.imageWithFile.file.asset.url}
+            target="_blank"
+          >
+            Download <span className="block ml-1 mb-1">↓</span>
+          </a>
+        </div>
+      ) : null}
       {selectedPropertyType._rawInventory && (
         <InventorModule
           title={property.title}
@@ -46,6 +65,12 @@ export const PropertyTypeUI = ({ selectedPropertyType, showReserveHomeForm, prop
           data={selectedPropertyType}
         />
       )}
+      <Link
+        to="/this-is-not-an-exit/how-it-works"
+        className="w-fit block border-b border-dashed mt-10 md:mt-20 hover:text-black text-mobile-body md:text-desktop-body"
+      >
+        How It Works
+      </Link>
     </>
   );
 };
