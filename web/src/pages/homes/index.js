@@ -1,149 +1,190 @@
-import React from "react";
+import React, { createRef, useContext, useEffect, useState } from "react";
 import { graphql } from "gatsby";
-import Container from "../../components/container";
-import GraphQLErrorList from "../../components/graphql-error-list";
 import SEO from "../../components/seo";
-import DepositBlock from "../../components/DepositBlock";
 import Layout from "../../containers/layout";
-import { RenderModules } from "../../utils/renderModules";
+import { CitiesList } from "../../components/redesign/CitiesList";
+import { PropertiesList } from "../../components/redesign/PropertiesList";
+import { SingleProperty } from "../../components/redesign/SingleProperty";
+import { PropertyTypeUI } from "../../components/redesign/PropertyType";
+import Container from "../../components/redesign/Container";
+import { HomesContext } from "../../components/context/HomesContext";
+import { ReserveHomeForm } from "../../components/redesign/ReserveHomeForm";
 
 export const query = graphql`
-  fragment SanityImage on SanityMainImage {
-    crop {
-      _key
-      _type
-      top
-      bottom
-      left
-      right
+  {
+    allSanityHomePage {
+      nodes {
+        citiesList {
+          title
+          disabled
+          id
+        }
+      }
     }
-    hotspot {
-      _key
-      _type
-      x
-      y
-      height
-      width
+    allSanityProperty {
+      nodes {
+        id
+        title
+        unitTypes
+        price
+        description
+        image {
+          asset {
+            url
+          }
+        }
+        map {
+          lat
+          long
+        }
+        city {
+          title
+          id
+        }
+      }
     }
-    asset {
-      _id
-    }
-  }
+    allSanityPropertyType {
+      nodes {
+        id
+        propertyType
+        price
+        area
+        amenities
+        images {
+          asset {
+            url
+          }
+        }
+        _rawInventory(resolveReferences: { maxDepth: 10 })
+        _rawDescription(resolveReferences: { maxDepth: 10 })
 
-  query CollectivePageQuery {
-    site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
-      title
-      description
-      keywords
-    }
-    depositCounter: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
-      depositCounter
-    }
-    whatsIncluded: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
-      whatsIncluded {
-        _key
-        _rawChildren
-        _type
-        style
-        children {
-          _key
-          _type
-          text
-          marks
+        property {
+          title
+          unitTypes
+          price
+          id
         }
-      }
-    }
-    depositBlockImage: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
-      depositBlockImage {
-        _key
-        _rawAsset
-        _rawCrop
-        _rawHotspot
-        _type
-        asset {
-          assetId
-          url
-          _id
-        }
-        crop {
-          bottom
-          left
-          right
-          top
-        }
-        hotspot {
-          height
-          width
-          x
-          y
-        }
-      }
-    }
-    allSanityLanding(filter: { content: { main: { title: { eq: "Landing" } } } }) {
-      edges {
-        node {
-          _rawContent(resolveReferences: { maxDepth: 20 })
-        }
+        available
       }
     }
   }
 `;
 
-const CollectivePage = props => {
-  const { data, errors } = props;
-  console.log(props);
-  let sku = "MEMB001";
-  const whatsIncluded = data.whatsIncluded.whatsIncluded;
-  const depositCounter = data.depositCounter.depositCounter;
-  const depositBlockImage = data.depositBlockImage.depositBlockImage;
-  let bitPayID = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_REGULAR_PRICE;
-  let bitPayIDDiscounted = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_DISCOUNTED;
+const HomeRedesignPage = ({ location, data }) => {
+  const cities = data.allSanityHomePage.nodes[0].citiesList;
+  const properties = data.allSanityProperty.nodes;
+  const propertiesTypes = data.allSanityPropertyType.nodes;
 
-  if (errors) {
-    return (
-      <Layout>
-        <GraphQLErrorList errors={errors} />
-      </Layout>
-    );
-  }
-
-  const site = (data || {}).site;
+  const propertyTypeRef = createRef();
   const {
-    main: { modules, slug, title },
-    meta
-  } = data.allSanityLanding.edges[0].node._rawContent;
+    selectedCity,
+    setCity: setSelectedCity,
+    selectedProperty,
+    setProperty: setSelectedProperty,
+    selectedPropertyType,
+    setPropertyType: setSelectedPropertyType,
+    showReserveHomeForm,
+    setReserveHomeForm: setShowReserveHomeForm
+  } = useContext(HomesContext);
 
-  if (!site) {
-    throw new Error(
-      'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
-    );
-  }
+  const filteredProperties = selectedCity
+    ? properties.filter(property => property?.city?.id === selectedCity?.id)
+    : [];
+  const filteredPropertiesTypes = selectedProperty
+    ? propertiesTypes.filter(propertyType => selectedProperty?.id === propertyType?.property?.id)
+    : [];
 
-  let myTitle = title + " | ";
-  if (title == "Landing") {
-    myTitle = "Earth";
-  }
+  const reserveHomeRef = createRef();
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (showReserveHomeForm && reserveHomeRef.current) {
+        const offset = window.innerWidth < 768 ? 16 : 40;
+        const top = reserveHomeRef.current.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    }, 500);
+  }, [showReserveHomeForm]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (selectedPropertyType?.id && propertyTypeRef.current) {
+        const offset = window.innerWidth < 768 ? 16 : 40;
+        const top = propertyTypeRef.current.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    }, 500);
+  }, [selectedPropertyType]);
+
+  const onSelectCity = city => {
+    setSelectedCity(city);
+    setSelectedProperty(null);
+    setSelectedPropertyType(null);
+  };
 
   return (
-    <Layout blackHeader={false} blackFooter={false} showPopupNewsletter={true}>
-      <SEO
-        title={myTitle}
-        description={site.description}
-        keywords={site.keywords}
-        image={meta.openImage}
-        ogTitle={meta.openTitle}
-        ogDescription={meta.openGraphDescription}
-        ogUrl={process.env.SITE_URL + "homes"}
-        twitterImage={meta.twitterImage}
-        twitterTitle={meta.twitterTitle}
-        twitterDescription={meta.twitterDescription}
-      />
-      <Container className="">
-        <div className="flex flex-wrap">{RenderModules(modules)}</div>
+    <Layout pathname={location.pathname.replace(/\/$/, "")} showPopupNewsletter={true} rnd={false}>
+      <SEO title="Home" />
+      <Container>
+        <section>
+          <CitiesList
+            cities={cities}
+            onChange={city => onSelectCity(city)}
+            selectedCity={selectedCity}
+            properties={properties}
+          />
+          <div className="md:grid md:grid-cols-3 md:pr-desktop-menu">
+            <div className="md:col-start-2 md:col-span-1">
+              <PropertiesList
+                properties={filteredProperties}
+                onChange={property => {
+                  setSelectedProperty(property);
+                  setSelectedPropertyType(null);
+                }}
+                selectedProperty={selectedProperty}
+              />
+              {selectedProperty && (
+                <SingleProperty
+                  propertyTypes={filteredPropertiesTypes}
+                  selectedProperty={selectedProperty}
+                  selectedPropertyType={selectedPropertyType}
+                  onChange={propertType => {
+                    setSelectedPropertyType(propertType);
+                  }}
+                />
+              )}
+              {selectedProperty && selectedPropertyType && (
+                <div ref={propertyTypeRef}>
+                  <PropertyTypeUI
+                    property={selectedProperty}
+                    selectedPropertyType={selectedPropertyType}
+                    showReserveHomeForm={showReserveHomeForm}
+                  />
+                </div>
+              )}
+              {selectedPropertyType && (
+                <div className="pr-mobile-menu md:pr-0">
+                  <button
+                    onClick={() => setShowReserveHomeForm(prev => !prev)}
+                    className={`outline-none mb-10 md:mb-20 tracking-caps uppercase block mt-20 w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-mobile-body md:text-desktop-body ${
+                      showReserveHomeForm ? "bg-black text-white" : "bg-white text-black"
+                    }`}
+                  >
+                    Join the waitlist for this home
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+          {showReserveHomeForm ? (
+            <div ref={reserveHomeRef}>
+              <ReserveHomeForm />
+            </div>
+          ) : null}
+        </section>
       </Container>
-      {title == "Landing" && <DepositBlock />}
     </Layout>
   );
 };
 
-export default CollectivePage;
+export default HomeRedesignPage;

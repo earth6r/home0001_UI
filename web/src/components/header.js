@@ -126,7 +126,7 @@ const Header = ({
   const newMenu = [
     {
       title: "How It Works",
-      slug: "/homes/how-it-works-redesign",
+      slug: "/homes/how-it-works",
       _key: "gasdgasgasd212"
     },
     {
@@ -190,7 +190,7 @@ const Header = ({
                   setSelectedPropertyType(null);
                   setShowReserveHomeForm(false);
                 }}
-                to="/homes/home-redesign"
+                to="/homes"
                 className="flex items-center h-full"
               >
                 <div className="flex items-center h-3">
