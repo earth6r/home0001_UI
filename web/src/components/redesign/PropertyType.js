@@ -40,7 +40,7 @@ export const PropertyTypeUI = ({ selectedPropertyType, showReserveHomeForm, prop
           )}
         </div>
       ) : null}
-      {selectedPropertyType.imageWithFile.file?.asset &&
+      {selectedPropertyType.imageWithFile?.file?.asset &&
       selectedPropertyType.imageWithFile?.image?.asset ? (
         <div className="flex flex-col items-end">
           <img
