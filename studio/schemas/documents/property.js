@@ -42,7 +42,6 @@ export default {
       type: 'reference',
       to: [{type: 'cities'}],
       options: {
-        // Here's where you can add the subtitle field
         getOptionLabel: reference => `${reference.title}`
       }
     }

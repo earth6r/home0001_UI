@@ -126,24 +126,20 @@ const Header = ({
   const newMenu = [
     {
       title: "How It Works",
-      slug: "/homes/how-it-works",
-      _key: "gasdgasgasd212"
+      slug: "/this-is-not-an-exit/how-it-works"
     },
     {
       title: "About",
-      slug: "/homes/about",
-      _key: "gasdgfasfs125125asgasd212"
+      slug: "/this-is-not-an-exit/about"
     },
     {
       title: "Newsletter",
-      slug: "/homes/newsletter",
-      _key: "gasdgfasfsfsfs125125asgasd212"
+      slug: "/this-is-not-an-exit/newsletter"
     },
 
     {
       title: "Legal",
-      slug: "/homes/legal",
-      _key: "gasdgfasfsfasf1125125asgasd212"
+      slug: "/this-is-not-an-exit/legal"
     }
   ];
   return (
@@ -190,12 +186,11 @@ const Header = ({
                   setSelectedPropertyType(null);
                   setShowReserveHomeForm(false);
                 }}
-                to="/homes"
+                to="/this-is-not-an-exit"
                 className="flex items-center h-full"
               >
                 <div className="flex items-center h-3">
-                  <EarthLogoMobile className="hidden md:block" height="12" />
-                  <EarthLogoMobile className="md:hidden" height="12" width="48" />
+                  <EarthLogoMobile height="12" width="48" />
                 </div>
                 <span className={`${forwarder == "new-eelam" ? "" : "hidden"} new-eelam-header`}>
                   [FKA New Eelam]

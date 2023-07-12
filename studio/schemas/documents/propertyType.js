@@ -76,14 +76,17 @@ export default {
         }
       ]
     },
-
+    {
+      name: 'imageWithFile',
+      title: 'Image With File',
+      type: 'imageWithFile'
+    },
     {
       title: 'Property',
       name: 'property',
       type: 'reference',
       to: [{type: 'property'}],
       options: {
-        // Here's where you can add the subtitle field
         getOptionLabel: reference => `${reference.title}`
       }
     }
