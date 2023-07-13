@@ -19,6 +19,11 @@ export default {
           type: 'accordion'
         }
       ]
+    },
+    {
+      title: 'Text Below Content',
+      name: 'text',
+      type: 'simpleText'
     }
   ],
   preview: {
