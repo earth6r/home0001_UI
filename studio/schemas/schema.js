@@ -102,6 +102,7 @@ import legalPage from './documents/legalPage'
 import newsLetter from './documents/newsLetter'
 import newsLetterForm from './objects/newsLetterForm'
 import contactPage from './documents/contactPage'
+import faqPage from './documents/faqPage'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -127,6 +128,7 @@ export default createSchema({
     property,
     propertyType,
     howItWorks,
+    faqPage,
     aboutPage,
     contactPage,
     legalPage,

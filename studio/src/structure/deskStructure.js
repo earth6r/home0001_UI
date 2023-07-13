@@ -98,6 +98,14 @@ export default () =>
             .documentId('howItWorksPage')
         ),
       S.listItem()
+        .title('FAQ')
+        .child(
+          S.editor()
+            .id('faqPage')
+            .schemaType('faqPage')
+            .documentId('faqPage')
+        ),
+      S.listItem()
         .title('About')
         .child(
           S.editor()
