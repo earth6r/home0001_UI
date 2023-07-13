@@ -95,4 +95,4 @@
 # Deploy preview context:
 # All deploys generated from a pull/merge request will take these variables
 [context.deploy-preview.environment]
-  GATSBY_SANITY_DATASET="staging"
+  GATSBY_SANITY_DATASET="production"
