@@ -9,6 +9,7 @@ import { PropertyTypeUI } from "../../components/redesign/PropertyType";
 import Container from "../../components/redesign/Container";
 import { HomesContext } from "../../components/context/HomesContext";
 import { ReserveHomeForm } from "../../components/redesign/ReserveHomeForm";
+import { set } from "react-ga";
 
 export const query = graphql`
   {
@@ -109,6 +110,43 @@ const HomeRedesignPage = ({ location, data }) => {
   const reserveHomeRef = createRef();
 
   useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const property = searchParams.get("property");
+    if (property) {
+      const propertyFound = properties.find(prop => prop.id === property);
+      if (propertyFound) {
+        setSelectedCity(propertyFound.city);
+        setSelectedProperty(propertyFound);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (selectedCity) {
+      if (filteredProperties.length === 1) {
+        setSelectedProperty(filteredProperties[0]);
+      }
+    }
+  }, [selectedCity]);
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    if (selectedProperty) {
+      searchParams.set("property", selectedProperty.id);
+    } else {
+      searchParams.delete("property");
+    }
+
+    const paramsString = searchParams.toString();
+
+    window.history.replaceState(
+      {},
+      "",
+      `${window.location.pathname}${paramsString.length ? `?${paramsString}` : ""}`
+    );
+  }, [selectedProperty]);
+
+  useEffect(() => {
     setTimeout(() => {
       if (showReserveHomeForm && reserveHomeRef.current) {
         const offset = window.innerWidth < 768 ? 16 : 40;
@@ -129,9 +167,11 @@ const HomeRedesignPage = ({ location, data }) => {
   }, [selectedPropertyType]);
 
   const onSelectCity = city => {
-    setSelectedCity(city);
-    setSelectedProperty(null);
-    setSelectedPropertyType(null);
+    if (city.id !== selectedCity?.id) {
+      setSelectedCity(city);
+      setSelectedProperty(null);
+      setSelectedPropertyType(null);
+    }
   };
 
   return (
@@ -147,19 +187,22 @@ const HomeRedesignPage = ({ location, data }) => {
           />
           <div className="md:grid md:grid-cols-3 md:pr-desktop-menu">
             <div className="md:col-start-2 md:col-span-1">
-              <PropertiesList
-                properties={filteredProperties}
-                onChange={property => {
-                  setSelectedProperty(property);
-                  setSelectedPropertyType(null);
-                }}
-                selectedProperty={selectedProperty}
-              />
+              {filteredProperties.length > 1 || !selectedProperty ? (
+                <PropertiesList
+                  properties={filteredProperties}
+                  onChange={property => {
+                    setSelectedProperty(property);
+                    setSelectedPropertyType(null);
+                  }}
+                  selectedProperty={selectedProperty}
+                />
+              ) : null}
               {selectedProperty && (
                 <SingleProperty
                   propertyTypes={filteredPropertiesTypes}
                   selectedProperty={selectedProperty}
                   selectedPropertyType={selectedPropertyType}
+                  disableScroll={filteredProperties.length === 1}
                   onChange={propertType => {
                     setSelectedPropertyType(propertType);
                   }}

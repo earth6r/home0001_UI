@@ -4,27 +4,30 @@ export const SingleProperty = ({
   onChange,
   propertyTypes,
   selectedProperty,
-  selectedPropertyType
+  selectedPropertyType,
+  disableScroll = false
 }) => {
   const selectedPropertyRef = createRef();
 
   useEffect(() => {
-    setTimeout(() => {
-      if (selectedProperty?.id && selectedPropertyRef.current && !selectedPropertyType) {
-        const offset = window.innerWidth < 768 ? 16 : 40;
-        const top =
-          selectedPropertyRef.current.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: "smooth" });
-      }
-    }, 500);
-  }, [selectedProperty, selectedPropertyRef, selectedPropertyType]);
+    if (!disableScroll) {
+      setTimeout(() => {
+        if (selectedProperty?.id && selectedPropertyRef.current && !selectedPropertyType) {
+          const offset = window.innerWidth < 768 ? 16 : 40;
+          const top =
+            selectedPropertyRef.current.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+      }, 500);
+    }
+  }, [selectedProperty, selectedPropertyRef, selectedPropertyType, disableScroll]);
 
   return (
     <>
       {selectedProperty && (
         <div
           ref={selectedPropertyRef}
-          className="animate-in flex flex-col text-mobile-body md:text-desktop-body"
+          className="animate-in flex flex-col text-mobile-body md:text-desktop-body mt-10 md:mt-20"
         >
           <span className="pb-4">{selectedProperty.title}</span>
           <img
