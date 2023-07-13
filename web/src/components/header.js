@@ -133,6 +133,10 @@ const Header = ({
       slug: "/this-is-not-an-exit/about"
     },
     {
+      title: "Contact",
+      slug: "/this-is-not-an-exit/contact"
+    },
+    {
       title: "Newsletter",
       slug: "/this-is-not-an-exit/newsletter"
     },

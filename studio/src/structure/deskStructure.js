@@ -1,16 +1,11 @@
 import S from '@sanity/desk-tool/structure-builder'
 import {
-  MdPerson,
   MdDescription,
   MdHome,
   MdLocalOffer,
   MdSettings,
-  MdPayment,
   MdPublic,
-  MdDashboard,
-  MdAccountBalance,
   MdPeople,
-  MdInfoOutline,
   MdFolder
 } from 'react-icons/md'
 import IframePreview from '../previews/IframePreview'
@@ -28,23 +23,23 @@ export const getDefaultDocumentNode = props => {
    * you can set up that logic in here too.
    * https://www.sanity.io/docs/structure-builder-reference#getdefaultdocumentnode-97e44ce262c9
    */
-  const { schemaType } = props
-  if (schemaType == 'post') {
+  const {schemaType} = props
+  if (schemaType === 'post') {
     return S.document().views([
       S.view.form(),
       S.view
         .component(IframePreview)
         .title('Web preview')
-        .options({ previewURL })
+        .options({previewURL})
     ])
   }
-  if (schemaType == 'page') {
+  if (schemaType === 'page') {
     return S.document().views([
       S.view.form(),
       S.view
         .component(IframePreview)
         .title('Web preview')
-        .options({ previewURL })
+        .options({previewURL})
     ])
   }
   return S.document().views([S.view.form()])
@@ -94,7 +89,6 @@ export default () =>
         .schemaType('propertyType')
         .child(S.documentTypeList('propertyType').title('Property Types')),
       S.divider(),
-
       S.listItem()
         .title('How It Works')
         .child(
@@ -103,7 +97,6 @@ export default () =>
             .schemaType('howItWorksPage')
             .documentId('howItWorksPage')
         ),
-
       S.listItem()
         .title('About')
         .child(
@@ -113,6 +106,14 @@ export default () =>
             .documentId('aboutPage')
         ),
       S.listItem()
+        .title('Contact')
+        .child(
+          S.editor()
+            .id('contactPage')
+            .schemaType('contactPage')
+            .documentId('contactPage')
+        ),
+      S.listItem()
         .title('Newsletter')
         .child(
           S.editor()
@@ -120,7 +121,6 @@ export default () =>
             .schemaType('newsLetter')
             .documentId('newsLetter')
         ),
-      ,
       S.listItem()
         .title('Legal')
         .child(
@@ -136,7 +136,7 @@ export default () =>
           S.documentTypeList('menus')
             .title('Menus')
             .filter('_type == $type')
-            .params({ type: 'menus' })
+            .params({type: 'menus'})
         ),
       S.divider(),
       S.listItem()
@@ -255,13 +255,13 @@ export default () =>
             'page',
             'rnd',
             // 'viewHomes',
-            //'artist',
-            //'gallery',
-            //'author',
-            //'viewingRoom',
-            //'fair',
-            //'exhibition',
-            //'job',
+            // 'artist',
+            // 'gallery',
+            // 'author',
+            // 'viewingRoom',
+            // 'fair',
+            // 'exhibition',
+            // 'job',
             'menus',
             'post',
             'siteSettings',
@@ -270,9 +270,10 @@ export default () =>
             'property',
             'propertyType',
             'aboutPage',
+            'contactPage',
             'legalPage',
             'newsLetter'
-            //'staff',
+            // 'staff',
           ].includes(listItem.getId())
       )
     ])

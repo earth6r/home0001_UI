@@ -101,6 +101,7 @@ import inventoryCell from './objects/inventoryCell'
 import legalPage from './documents/legalPage'
 import newsLetter from './documents/newsLetter'
 import newsLetterForm from './objects/newsLetterForm'
+import contactPage from './documents/contactPage'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -127,6 +128,7 @@ export default createSchema({
     propertyType,
     howItWorks,
     aboutPage,
+    contactPage,
     legalPage,
     newsLetter,
     // viewHomes,
