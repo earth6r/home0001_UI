@@ -27,10 +27,10 @@ export const ReserveHomeForm = () => {
               Join our waitlist here for the next release.
             </p>
             <Accordion allowToggle defaultIndex={[2]} className="my-10 w-full">
-              <AccordionItem className="bg-white border border-[#000] px-3 flex items-center text-mobile-body md:text-desktop-body h-10 md:h-12">
+              <AccordionItem className="bg-white border border-[#000] flex flex-col justify-center text-mobile-body md:text-desktop-body">
                 {({ isExpanded }) => (
                   <>
-                    <AccordionHeader className="flex items-center justify-between hover:bg-white max-h-[1.15rem] p-0">
+                    <AccordionHeader className="flex items-center justify-between hover:bg-white px-3 py-4 h-full">
                       <h2 className="m-0 tracking-caps uppercase text-mobile-body md:text-desktop-body">
                         What's included?
                       </h2>
@@ -38,7 +38,7 @@ export const ReserveHomeForm = () => {
                         {isExpanded ? <Minus /> : <Plus />}
                       </div>
                     </AccordionHeader>
-                    <AccordionPanel className="px-0 py-4 text-mobile-body md:text-desktop-body">
+                    <AccordionPanel className="px-3 text-mobile-body md:text-desktop-body">
                       <p>
                         A place on the waitlist to buy an Earth home. Limited spots available.
                         <br /> <br />
