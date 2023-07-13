@@ -14,7 +14,7 @@ export const PropertyTypeUI = ({ selectedPropertyType, showReserveHomeForm, prop
           {selectedPropertyType?.images && selectedPropertyType.images.length !== 0 && (
             <ImageSlider images={selectedPropertyType.images} />
           )}
-          <div className="text-mobile-body md:text-desktop-body mt-10 md:mt-20 pr-mobile-menu md:pr-0">
+          <div className="text-mobile-body md:text-desktop-body mt-10 pr-mobile-menu md:pr-0">
             {property.unitTypes && <p className="m-0 ">{property.unitTypes}</p>}
             {property.price && <p className="m-0">{property.price}</p>}
             {selectedPropertyType.map?.lat && selectedPropertyType.map?.long && (
@@ -26,7 +26,7 @@ export const PropertyTypeUI = ({ selectedPropertyType, showReserveHomeForm, prop
             )}
           </div>
           {selectedPropertyType.propertyType && (
-            <h3 className="uppercase my-4 md:my-20 pr-mobile-menu md:pr-0">
+            <h3 className="uppercase my-4 md:my-10 pr-mobile-menu md:pr-0">
               {selectedPropertyType.propertyType
                 .replace("one-bedroom", "1 bedroom")
                 .replace("two-bedroom", "2 bedrooms")
@@ -67,7 +67,7 @@ export const PropertyTypeUI = ({ selectedPropertyType, showReserveHomeForm, prop
       )}
       <Link
         to="/this-is-not-an-exit/how-it-works"
-        className="w-fit block border-b border-dashed mt-10 md:mt-20 hover:text-black text-mobile-body md:text-desktop-body"
+        className="w-fit block border-b border-dashed mt-10 hover:text-black text-mobile-body md:text-desktop-body"
       >
         How It Works
       </Link>
