@@ -26,7 +26,7 @@ export const PropertyTypeUI = ({ selectedPropertyType, showReserveHomeForm, prop
             )}
           </div>
           {selectedPropertyType.propertyType && (
-            <h3 className="uppercase my-4 md:my-10 pr-mobile-menu md:pr-0">
+            <h3 className="uppercase my-10 pr-mobile-menu md:pr-0">
               {selectedPropertyType.propertyType
                 .replace("one-bedroom", "1 bedroom")
                 .replace("two-bedroom", "2 bedrooms")
