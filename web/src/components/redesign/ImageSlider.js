@@ -33,11 +33,11 @@ export const ImageSlider = ({ images }) => {
   return (
     <div className="relative flex flex-col gap-4 image-slider">
       <div
-        className="cursor-pointer w-1/2 h-full absolute top-0 left-0 z-10"
+        className="hidden md:block cursor-pointer w-1/2 h-full absolute top-0 left-0 z-10"
         onClick={previousImage}
       />
       <div
-        className="cursor-pointer w-1/2 h-full absolute top-0 right-0 z-10"
+        className="hidden md:block cursor-pointer w-1/2 h-full absolute top-0 right-0 z-10"
         onClick={nextImage}
       />
       <Slider
