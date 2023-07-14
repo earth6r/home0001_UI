@@ -167,11 +167,22 @@ export default {
                     ]
                   }
                 ]
+              },
+              {
+                name: 'anchor',
+                title: 'Anchor',
+                type: 'object',
+                icon: () => '#',
+                fields: [
+                  {
+                    name: 'anchorId',
+                    title: 'Anchor ID',
+                    type: 'string'
+                  }
+                ]
               }
             ]
-          },
-          of: [{type: 'authorReference'}],
-          of: [{type: 'partnerReference'}]
+          }
         }
       ]
     }

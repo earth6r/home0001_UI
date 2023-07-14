@@ -13,30 +13,30 @@ export default {
           title: 'Block',
           type: 'block',
           styles: [
-            { title: 'Normal', value: 'normal' },
-            { title: 'H1', value: 'h1' },
-            { title: 'H2', value: 'h2' },
-            { title: 'H3', value: 'h3' },
-            { title: 'H4', value: 'h4' },
-            { title: 'H5', value: 'h5' },
-            { title: 'H6', value: 'h6' },
-            { title: 'Quote', value: 'blockquote' }
+            {title: 'Normal', value: 'normal'},
+            {title: 'H1', value: 'h1'},
+            {title: 'H2', value: 'h2'},
+            {title: 'H3', value: 'h3'},
+            {title: 'H4', value: 'h4'},
+            {title: 'H5', value: 'h5'},
+            {title: 'H6', value: 'h6'},
+            {title: 'Quote', value: 'blockquote'}
           ],
           // Marks let you mark up inline text in the block editor.
           marks: {
             // Annotations can be any object structure – e.g. a link or a footnote.
             decorators: [
-              { value: 'strong', title: 'Strong' },
-              { value: 'italic', title: 'Italic' },
-              { value: 'underline', title: 'Underline' },
-              { value: 'code', title: 'Code' },
+              {value: 'strong', title: 'Strong'},
+              {value: 'italic', title: 'Italic'},
+              {value: 'underline', title: 'Underline'},
+              {value: 'code', title: 'Code'},
               {
                 title: 'Inline Snippet',
                 value: 'tick',
                 blockEditor: {
                   icon: () => 'T',
                   render: props => (
-                    <span style={{ backgroundColor: '#ccc', fontWeight: '300' }}>
+                    <span style={{backgroundColor: '#ccc', fontWeight: '300'}}>
                       {props.children}
                     </span>
                   )
@@ -144,17 +144,30 @@ export default {
                     type: 'reference',
                     title: 'Reference',
                     to: [
-                      { type: 'page' },
-                      { type: 'checkout' },
-                      { type: 'home' }
+                      {type: 'page'},
+                      {type: 'checkout'},
+                      {type: 'home'}
                       // other types you may want to link to
                     ]
+                  }
+                ]
+              },
+              {
+                name: 'anchor',
+                title: 'Anchor',
+                type: 'object',
+                icon: () => '#',
+                fields: [
+                  {
+                    name: 'anchorId',
+                    title: 'Anchor ID',
+                    type: 'string'
                   }
                 ]
               }
             ]
           },
-          of: [{ type: 'partnerReference' }]
+          of: [{type: 'partnerReference'}]
         }
       ]
     }
@@ -163,7 +176,7 @@ export default {
     select: {
       title: 'internalLink'
     },
-    prepare(selection) {
+    prepare (selection) {
       return Object.assign({}, selection, {
         title: 'Simple Text'
       })

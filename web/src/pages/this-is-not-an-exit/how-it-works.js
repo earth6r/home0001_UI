@@ -30,7 +30,6 @@ const HowItWorksRedignPage = ({ data }) => {
   const sections = data.sanityHowItWorksPage._rawSections;
   const text = data.sanityHowItWorksPage._rawText;
 
-  console.log(text);
   const content = (sections || []).map(module => {
     const ComponentToRender = sectionTypeComponentMap[module._type];
     return ComponentToRender ? (

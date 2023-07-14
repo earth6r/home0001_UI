@@ -28,7 +28,7 @@ export const query = graphql`
         title
         unitTypes
         price
-        description
+        _rawDescription(resolveReferences: { maxDepth: 10 })
         image {
           asset {
             url

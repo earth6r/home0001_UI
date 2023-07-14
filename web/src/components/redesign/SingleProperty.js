@@ -1,4 +1,5 @@
 import React, { createRef, useEffect } from "react";
+import { StandardText } from "../global/standardText";
 
 export const SingleProperty = ({
   onChange,
@@ -8,7 +9,7 @@ export const SingleProperty = ({
   disableScroll = false
 }) => {
   const selectedPropertyRef = createRef();
-
+  console.log(selectedProperty);
   useEffect(() => {
     if (!disableScroll) {
       setTimeout(() => {
@@ -36,7 +37,11 @@ export const SingleProperty = ({
             height="487"
             alt=""
           />
-          <p className="pr-mobile-menu md:pr-0">{selectedProperty.description}</p>
+          {selectedProperty?._rawDescription ? (
+            <div className="pr-mobile-menu md:pr-0">
+              <StandardText data={selectedProperty?._rawDescription} />
+            </div>
+          ) : null}
         </div>
       )}
       {propertyTypes && (
