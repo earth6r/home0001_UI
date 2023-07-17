@@ -80,6 +80,11 @@ export const query = graphql`
         available
       }
     }
+    sanityHowItWorksPage {
+      title
+      _rawSections
+      _rawText(resolveReferences: { maxDepth: 10 })
+    }
   }
 `;
 
@@ -87,6 +92,7 @@ const HomeRedesignPage = ({ location, data }) => {
   const cities = data.allSanityHomePage.nodes[0].citiesList;
   const properties = data.allSanityProperty.nodes;
   const propertiesTypes = data.allSanityPropertyType.nodes;
+  const howItWorks = data.sanityHowItWorksPage;
 
   const propertyTypeRef = createRef();
   const {
@@ -216,6 +222,7 @@ const HomeRedesignPage = ({ location, data }) => {
                     property={selectedProperty}
                     selectedPropertyType={selectedPropertyType}
                     showReserveHomeForm={showReserveHomeForm}
+                    howItWorks={howItWorks}
                   />
                 </div>
               )}

@@ -5,8 +5,14 @@ import { ImageSlider } from "./ImageSlider";
 import { StandardText } from "../global/standardText";
 import { InventorModule } from "./InventoryModule";
 import { Link } from "gatsby";
+import { HowItWorksModal } from "./HowItWorksModal";
 
-export const PropertyTypeUI = ({ selectedPropertyType, showReserveHomeForm, property }) => {
+export const PropertyTypeUI = ({
+  selectedPropertyType,
+  showReserveHomeForm,
+  property,
+  howItWorks
+}) => {
   return (
     <>
       {selectedPropertyType ? (
@@ -65,12 +71,7 @@ export const PropertyTypeUI = ({ selectedPropertyType, showReserveHomeForm, prop
           data={selectedPropertyType}
         />
       )}
-      <Link
-        to="/this-is-not-an-exit/how-it-works"
-        className="w-fit block border-b border-dashed mt-10 hover:text-black text-mobile-body md:text-desktop-body"
-      >
-        How It Works
-      </Link>
+      <HowItWorksModal data={howItWorks} />
     </>
   );
 };
