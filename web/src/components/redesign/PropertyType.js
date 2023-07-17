@@ -6,6 +6,7 @@ import { StandardText } from "../global/standardText";
 import { InventorModule } from "./InventoryModule";
 import { Link } from "gatsby";
 import { HowItWorksModal } from "./HowItWorksModal";
+import { imageUrlFor } from "../../lib/image-url";
 
 export const PropertyTypeUI = ({
   selectedPropertyType,
@@ -51,7 +52,10 @@ export const PropertyTypeUI = ({
         <div className="flex flex-col items-end">
           <img
             className="mt-10 h-auto w-full"
-            src={selectedPropertyType.imageWithFile.image.asset.url}
+            src={imageUrlFor(selectedPropertyType.imageWithFile.image)
+              .width(1000)
+              .auto("format")
+              .url()}
             height="487"
             alt=""
           />

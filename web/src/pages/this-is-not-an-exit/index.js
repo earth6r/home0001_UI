@@ -31,7 +31,7 @@ export const query = graphql`
         _rawDescription(resolveReferences: { maxDepth: 10 })
         image {
           asset {
-            url
+            _id
           }
         }
         map {
@@ -53,13 +53,13 @@ export const query = graphql`
         amenities
         images {
           asset {
-            url
+            _id
           }
         }
         imageWithFile {
           image {
             asset {
-              url
+              _id
             }
           }
           file {

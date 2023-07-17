@@ -2,6 +2,7 @@ import React, { useState, createRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { imageUrlFor } from "../../lib/image-url";
 
 export const ImageSlider = ({ images }) => {
   const slider = createRef(null);
@@ -45,14 +46,19 @@ export const ImageSlider = ({ images }) => {
         {...settings}
         className="max-h-[487px] pr-[2.625rem] md:pr-0 md:max-h-[741px] -ml-4 md:w-[calc(100%_+_2rem)]"
       >
-        {images?.map((image, index) => (
-          <img
-            key={index}
-            className="max-h-[487px] px-4 md:max-h-[741px] h-full w-full object-cover"
-            src={image?.asset?.url}
-            alt=""
-          />
-        ))}
+        {images?.map((image, index) =>
+          image.asset ? (
+            <img
+              key={index}
+              className="max-h-[487px] px-4 md:max-h-[741px] h-full w-full object-cover"
+              src={imageUrlFor(image)
+                .width(1000)
+                .auto("format")
+                .url()}
+              alt=""
+            />
+          ) : null
+        )}
       </Slider>
       <div className="flex justify-center items-center gap-2 pr-mobile-menu md:pr-0">
         <button

@@ -1,5 +1,6 @@
 import React, { createRef, useEffect } from "react";
 import { StandardText } from "../global/standardText";
+import { imageUrlFor } from "../../lib/image-url";
 
 export const SingleProperty = ({
   onChange,
@@ -33,7 +34,10 @@ export const SingleProperty = ({
           <span className="pb-4">{selectedProperty.title}</span>
           <img
             className="max-h-[487px] md:max-h-[741px] h-auto w-auto mb-10"
-            src={selectedProperty?.image?.asset?.url}
+            src={imageUrlFor(selectedProperty.image)
+              .width(1000)
+              .auto("format")
+              .url()}
             height="487"
             alt=""
           />
