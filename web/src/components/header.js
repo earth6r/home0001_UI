@@ -176,7 +176,7 @@ const Header = ({
         <div
           className={`${
             showNav ? "h-full" : ""
-          } flex  w-full   md:bg-transparent md:relative justify-between md:justify-between items-center content-center`}
+          } flex w-full md:bg-transparent md:relative justify-between md:justify-between items-center content-center`}
         >
           <nav className="flex justify-between items-center w-full px-4 py-6 md:p-10">
             <h1 className="relative menu z-50 md:h-10">
@@ -211,7 +211,7 @@ const Header = ({
               <p
                 className={`${
                   showNav ? "hidden" : ""
-                } tracking-caps uppercase text-mobile-body md:text-desktop-body`}
+                } tracking-caps leading-none uppercase text-mobile-body md:text-desktop-body`}
               >
                 Menu
               </p>
@@ -219,7 +219,7 @@ const Header = ({
                 <span className="hidden md:block h-10 w-10">
                   <Icon symbol="closeMenu" />
                 </span>
-                <span className="md:hidden block h-3 w-3 my-1 md:my-0">
+                <span className="md:hidden block h-3 w-3 my-px md:my-0">
                   <Icon symbol="closeMenuMobile" />
                 </span>
               </span>
@@ -231,7 +231,7 @@ const Header = ({
               showNav
                 ? "block overflow-auto z-40 bg-white md:shadow-none transition-none"
                 : "hidden"
-            } fixed top-0 pt-[5.25rem] md:pt-40 left-0 w-full h-full`}
+            } fixed top-0 pt-20 md:pt-[9.125rem] left-0 w-full h-full`}
           >
             <ul className="px-4 md:px-10 flex flex-col gap-10">
               {newMenu.map((item, index) => {
