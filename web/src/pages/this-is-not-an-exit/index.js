@@ -85,6 +85,17 @@ export const query = graphql`
       _rawSections
       _rawText(resolveReferences: { maxDepth: 10 })
     }
+    site: sanitySiteSettings(_id: { regex: "/siteSettings/" }) {
+      _rawWhatsIncluded(resolveReferences: { maxDepth: 10 })
+      exchangeRateUSDBTC
+      exchangeRateUSDETH
+      reserveHomeForm {
+        title
+        _rawSubtitle(resolveReferences: { maxDepth: 10 })
+        priceCaption
+        _rawCheckboxText(resolveReferences: { maxDepth: 10 })
+      }
+    }
   }
 `;
 
@@ -184,7 +195,7 @@ const HomeRedesignPage = ({ location, data }) => {
 
   return (
     <Layout pathname={location.pathname.replace(/\/$/, "")} showPopupNewsletter={true} rnd={false}>
-      <SEO title="Home" />
+      <SEO title="Homes" />
       <Container>
         <section>
           <CitiesList
@@ -242,7 +253,7 @@ const HomeRedesignPage = ({ location, data }) => {
           </div>
           {showReserveHomeForm ? (
             <div ref={reserveHomeRef}>
-              <ReserveHomeForm />
+              <ReserveHomeForm data={data.site} />
             </div>
           ) : null}
         </section>

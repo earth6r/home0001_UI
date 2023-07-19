@@ -3,8 +3,10 @@ import { Accordion, AccordionItem, AccordionHeader, AccordionPanel } from "@chak
 import Minus from "../icon/minus";
 import Plus from "../icon/plus";
 import { useForm } from "react-hook-form";
+import { StandardText } from "../global/standardText";
+import PortableText from "../portableText";
 
-export const ReserveHomeForm = () => {
+export const ReserveHomeForm = ({ data }) => {
   const { register, handleSubmit } = useForm({
     shouldUseNativeValidation: true
   });
@@ -19,11 +21,9 @@ export const ReserveHomeForm = () => {
       <div className="md:grid md:grid-cols-3 pr-mobile-menu md:pr-desktop-menu">
         <div className="md:col-start-2 md:col-span-1 py-10 md:pb-20">
           <div className="relative mb-4 text-mobile-body md:text-desktop-body font-serif">
-            <p className="uppercase mb-0">RESERVE YOUR HOME</p>
+            <p className="uppercase mb-0">{data.reserveHomeForm.title}</p>
             <p className="mt-10">
-              Our initial release of homes is now oversubscribed.
-              <br />
-              Join our waitlist here for the next release.
+              <StandardText data={data.reserveHomeForm._rawSubtitle} />
             </p>
             <Accordion allowToggle defaultIndex={[2]} className="my-10 w-full">
               <AccordionItem className="bg-white border border-[#000] flex flex-col justify-center text-mobile-body md:text-desktop-body">
@@ -38,26 +38,15 @@ export const ReserveHomeForm = () => {
                       </div>
                     </AccordionHeader>
                     <AccordionPanel className="px-3 text-mobile-body md:text-desktop-body">
-                      <p>
-                        A place on the waitlist to buy an Earth home. Limited spots available.
-                        <br /> <br />
-                        Our next phase of homes will be available to buy in 8-12 months. You'll be
-                        notified as new homes are released, and priority will be given based on when
-                        you join.
-                        <br />
-                        <br />
-                        Whether you plan to buy now or in the future, you can schedule consultations
-                        with our team whenever you like to make plans, select a home, and secure
-                        financing if necessary.
-                      </p>
+                      <PortableText blocks={data._rawWhatsIncluded} />
                     </AccordionPanel>
                   </>
                 )}
               </AccordionItem>
             </Accordion>
             <p>
-              $100 USD / 0.0039 BTC / 0.058 ETH <br />
-              Reservation deposit fully refundable any time, for any reason.
+              $100 USD / {data.exchangeRateUSDBTC} BTC / {data.exchangeRateUSDETH} ETH <br />
+              {data.reserveHomeForm.priceCaption}
             </p>
           </div>
           <form onSubmit={handleSubmit(onSubmit)} className="w-full">
@@ -75,7 +64,7 @@ export const ReserveHomeForm = () => {
                   htmlFor="terms"
                   className="relative m-0 text-mobile-body md:text-desktop-body font-serif"
                 >
-                  I agree to the Deposit Terms and Conditions
+                  <StandardText data={data.reserveHomeForm._rawCheckboxText} />
                 </label>
               </div>
 

@@ -56,6 +56,7 @@ import viewSpacer from './objects/viewSpacer'
 import newRow from './objects/newRow'
 import newCell from './objects/newCell'
 import imageWithFile from './objects/imageWithFile'
+import reserveHomeForm from './objects/reserveHomeForm'
 
 // Modules
 import accordion from './modules/accordion'
@@ -204,7 +205,8 @@ export default createSchema({
     inventoryModule,
     inventoryRow,
     inventoryCell,
-    imageWithFile
+    imageWithFile,
+    reserveHomeForm
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ])

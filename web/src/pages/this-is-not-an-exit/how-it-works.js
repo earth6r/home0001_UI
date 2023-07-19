@@ -13,6 +13,17 @@ export const query = graphql`
       _rawSections
       _rawText(resolveReferences: { maxDepth: 10 })
     }
+    site: sanitySiteSettings(_id: { regex: "/siteSettings/" }) {
+      _rawWhatsIncluded(resolveReferences: { maxDepth: 10 })
+      exchangeRateUSDBTC
+      exchangeRateUSDETH
+      reserveHomeForm {
+        title
+        _rawSubtitle(resolveReferences: { maxDepth: 10 })
+        priceCaption
+        _rawCheckboxText(resolveReferences: { maxDepth: 10 })
+      }
+    }
   }
 `;
 const HowItWorksRedignPage = ({ data }) => {
@@ -23,7 +34,7 @@ const HowItWorksRedignPage = ({ data }) => {
       <SEO title={pageTitle} />
       <Container>
         <HowItWorksComponent data={data} />
-        <ReserveHomeForm />
+        <ReserveHomeForm data={data.site} />
       </Container>
     </Layout>
   );

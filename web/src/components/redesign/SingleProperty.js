@@ -10,7 +10,6 @@ export const SingleProperty = ({
   disableScroll = false
 }) => {
   const selectedPropertyRef = createRef();
-  console.log(selectedProperty);
   useEffect(() => {
     if (!disableScroll) {
       setTimeout(() => {
