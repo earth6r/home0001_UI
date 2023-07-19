@@ -22,6 +22,17 @@ export const query = graphql`
       title
       _rawSections
     }
+    site: sanitySiteSettings(_id: { regex: "/siteSettings/" }) {
+      _rawWhatsIncluded(resolveReferences: { maxDepth: 10 })
+      exchangeRateUSDBTC
+      exchangeRateUSDETH
+      reserveHomeForm {
+        title
+        _rawSubtitle(resolveReferences: { maxDepth: 10 })
+        priceCaption
+        _rawCheckboxText(resolveReferences: { maxDepth: 10 })
+      }
+    }
   }
 `;
 const FaqRedesignPage = ({ data }) => {
@@ -45,7 +56,7 @@ const FaqRedesignPage = ({ data }) => {
             <div className="mb-10 md:mb-20">{content}</div>
           </div>
         </div>
-        <ReserveHomeForm />
+        <ReserveHomeForm data={data.site} />
       </Container>
     </Layout>
   );
