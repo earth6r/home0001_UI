@@ -3,36 +3,45 @@ import { Modal, ModalOverlay, ModalContent, ModalBody, useDisclosure } from "@ch
 import HowItWorksComponent from "./HowItWorksComponent";
 
 export const HowItWorksModal = ({ data }) => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const onOpen = () => {
-    setIsOpen(true);
+  const onOpenModal = () => {
+    document.body.style.overflow = "hidden";
+    onOpen();
   };
 
-  const onClose = () => {
-    setIsOpen(false);
+  const onCloseModal = () => {
+    document.body.style.overflow = "";
+    onClose();
   };
 
   return (
     <div>
-      <div
-        className={`fixed top-0 left-0 h-screen w-screen bg-white z-[9999] overflow-auto ${
-          isOpen ? "" : "hidden"
-        }`}
+      <Modal
+        preserveScrollBarGap
+        isCentered={true}
+        size="full"
+        scrollBehavior="inside"
+        blockScrollOnMount={true}
+        isOpen={isOpen}
+        onClose={onCloseModal}
       >
-        <div className="mx-mobile max-w-special md:mx-desktop px-4 md:px-10 text-mobile-body md:text-desktop-body">
-          <CloseButton onClose={onClose} />
-          <HowItWorksComponent
-            data={{
-              sanityHowItWorksPage: data
-            }}
-            hasPadding
-          />
-        </div>
-      </div>
+        <ModalOverlay onClick={onCloseModal} opacity={0.75} className="animate-in" />
+        <ModalContent className="animate-in mx-mobile max-w-special md:mx-desktop px-4 md:px-10 text-mobile-body md:text-desktop-body">
+          <CloseButton onClose={onCloseModal} />
+          <ModalBody className="p-0">
+            <HowItWorksComponent
+              data={{
+                sanityHowItWorksPage: data
+              }}
+              hasPadding
+            />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
 
       <button
-        onClick={onOpen}
+        onClick={onOpenModal}
         className="border-b border-dashed mt-10 text-mobile-body md:text-desktop-body"
       >
         How It Works
