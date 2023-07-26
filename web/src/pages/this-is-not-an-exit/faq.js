@@ -8,7 +8,6 @@ import DepositBlock from "../../components/DepositBlock";
 import { AccordionModule } from "../../components/global/accordion";
 import { StandardText } from "../../components/global/standardText";
 import { useForm } from "react-hook-form";
-import { ReserveHomeForm } from "../../components/redesign/ReserveHomeForm";
 import { graphql } from "gatsby";
 
 const sectionTypeComponentMap = {
@@ -21,17 +20,6 @@ export const query = graphql`
     sanityFaqPage {
       title
       _rawSections
-    }
-    site: sanitySiteSettings(_id: { regex: "/siteSettings/" }) {
-      _rawWhatsIncluded(resolveReferences: { maxDepth: 10 })
-      exchangeRateUSDBTC
-      exchangeRateUSDETH
-      reserveHomeForm {
-        title
-        _rawSubtitle(resolveReferences: { maxDepth: 10 })
-        priceCaption
-        _rawCheckboxText(resolveReferences: { maxDepth: 10 })
-      }
     }
   }
 `;
@@ -56,7 +44,6 @@ const FaqRedesignPage = ({ data }) => {
             <div className="mb-10 md:mb-20">{content}</div>
           </div>
         </div>
-        <ReserveHomeForm data={data.site} />
       </Container>
     </Layout>
   );
