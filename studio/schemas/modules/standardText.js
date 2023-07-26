@@ -162,9 +162,20 @@ export default {
                     to: [
                       {type: 'page'},
                       {type: 'checkout'},
-                      {type: 'home'}
+                      {type: 'home'},
+                      {type: 'aboutPage'},
+                      {type: 'contactPage'},
+                      {type: 'faqPage'},
+                      {type: 'homePage'},
+                      {type: 'howItWorksPage'},
+                      {type: 'legalPage'}
                       // other types you may want to link to
                     ]
+                  },
+                  {
+                    name: 'anchor',
+                    title: 'Anchor',
+                    type: 'string'
                   }
                 ]
               },

@@ -179,38 +179,29 @@ const serializers = {
     partner: ({ mark, children }) => <div>partner</div>,
     internalLink: ({ mark, children }) => {
       if (mark) {
-        if (mark.reference && mark.reference.content) {
-          if (mark.reference._type == "home") {
-            return (
-              <PageLink
-                className="internal-link"
-                title={mark.reference.content.main.title}
-                to={`/homes/locations/${mark.reference.content.main.slug.current}`}
-              >
-                {children}
-              </PageLink>
-            );
-          } else if (mark.reference._type == "checkout") {
-            return (
-              <PageLink
-                className="internal-link"
-                title={mark.reference.content.main.title}
-                to={`/homes/checkout/${mark.reference.content.main.slug.current}`}
-              >
-                {children}
-              </PageLink>
-            );
-          } else {
-            return (
-              <PageLink
-                className="internal-link"
-                title={mark.reference.content.main.title}
-                to={`/${mark.reference.content.main.slug.current}`}
-              >
-                {children}
-              </PageLink>
-            );
-          }
+        if (mark.reference) {
+          const anchor = mark.anchor ? `#${mark.anchor}` : "";
+          const typeToSlug = {
+            page: `/${mark.reference.content?.main?.slug?.current}`,
+            home: `/homes/locations/${mark.reference.content?.main?.slug?.current}`,
+            checkout: `/homes/checkout/${mark.reference.content?.main?.slug?.current}`,
+            aboutPage: `/this-is-not-an-exit/about`,
+            contactPage: `/this-is-not-an-exit/contact`,
+            faqPage: `/this-is-not-an-exit/faq`,
+            homePage: `/this-is-not-an-exit`,
+            howItWorksPage: `/this-is-not-an-exit/how-it-works`,
+            legalPage: `/this-is-not-an-exit/legal`
+          };
+
+          return (
+            <PageLink
+              className="internal-link"
+              title={mark.reference.content?.main?.title ?? mark.reference.title}
+              to={`${typeToSlug[mark.reference._type]}${anchor}`}
+            >
+              {children}
+            </PageLink>
+          );
         } else {
           return <></>;
         }
