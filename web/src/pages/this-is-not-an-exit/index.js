@@ -56,12 +56,14 @@ export const query = graphql`
             _id
           }
         }
-        imageWithFile {
+        moreImages {
           image {
             asset {
               _id
             }
           }
+          alt
+          caption
           file {
             asset {
               url

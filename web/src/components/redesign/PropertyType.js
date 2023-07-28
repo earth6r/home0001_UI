@@ -19,11 +19,28 @@ export const PropertyTypeUI = ({
       {selectedPropertyType ? (
         <div className="animate-in flex flex-col text-mobile-body md:text-desktop-body relative">
           {selectedPropertyType?.images && selectedPropertyType.images.length !== 0 && (
-            <ImageSlider images={selectedPropertyType.images} />
+            <ImageSlider
+              images={selectedPropertyType.images.map(image => ({
+                image
+              }))}
+            />
           )}
           <div className="text-mobile-body md:text-desktop-body mt-10 pr-mobile-menu md:pr-0">
-            {property.unitTypes && <p className="m-0 ">{property.unitTypes}</p>}
-            {property.price && <p className="m-0">{property.price}</p>}
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              <div>
+                {property.unitTypes && <p className="m-0 ">{property.unitTypes}</p>}
+                {property.price && <p className="m-0">{property.price}</p>}
+              </div>
+              <div className="text-left md:text-right mt-10 md:mt-0">
+                {selectedPropertyType._rawInventory && (
+                  <InventorModule
+                    title={property.title}
+                    propertyType={selectedPropertyType.propertyType}
+                    data={selectedPropertyType}
+                  />
+                )}
+              </div>
+            </div>
             {selectedPropertyType.map?.lat && selectedPropertyType.map?.long && (
               <MapModule
                 text="MAP"
@@ -47,34 +64,11 @@ export const PropertyTypeUI = ({
           )}
         </div>
       ) : null}
-      {selectedPropertyType.imageWithFile?.file?.asset &&
-      selectedPropertyType.imageWithFile?.image?.asset ? (
-        <div className="flex flex-col items-end">
-          <img
-            className="mt-10 h-auto w-full"
-            src={imageUrlFor(selectedPropertyType.imageWithFile.image)
-              .width(1000)
-              .auto("format")
-              .url()}
-            height="487"
-            alt=""
-          />
-          <a
-            className="hover:text-[#000] w-fit flex items-center mt-4 text-mobile-body md:text-desktop-body"
-            href={selectedPropertyType.imageWithFile.file.asset.url}
-            target="_blank"
-          >
-            Download <span className="block ml-1 mb-1">↓</span>
-          </a>
+      {selectedPropertyType.moreImages?.length ? (
+        <div className="mt-10">
+          <ImageSlider images={selectedPropertyType.moreImages} />
         </div>
       ) : null}
-      {selectedPropertyType._rawInventory && (
-        <InventorModule
-          title={property.title}
-          propertyType={selectedPropertyType.propertyType}
-          data={selectedPropertyType}
-        />
-      )}
       <HowItWorksModal data={howItWorks} />
     </>
   );

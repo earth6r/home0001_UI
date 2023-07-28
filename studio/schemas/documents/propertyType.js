@@ -77,9 +77,14 @@ export default {
       ]
     },
     {
-      name: 'imageWithFile',
-      title: 'Image With File',
-      type: 'imageWithFile'
+      name: 'moreImages',
+      title: 'More Images',
+      type: 'array',
+      of: [
+        {
+          type: 'imageWithFile'
+        }
+      ]
     },
     {
       title: 'Property',

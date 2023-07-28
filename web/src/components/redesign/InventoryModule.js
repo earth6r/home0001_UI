@@ -16,7 +16,7 @@ export const InventorModule = ({ data, title, propertyType }) => {
   };
 
   return (
-    <div>
+    <>
       <Modal
         preserveScrollBarGap
         isCentered={true}
@@ -42,11 +42,11 @@ export const InventorModule = ({ data, title, propertyType }) => {
 
       <button
         onClick={onOpenModal}
-        className="border-b border-dashed mt-10 text-mobile-body md:text-desktop-body"
+        className="border-b border-dashed text-mobile-body md:text-desktop-body"
       >
         View Inventory
       </button>
-    </div>
+    </>
   );
 };
 
