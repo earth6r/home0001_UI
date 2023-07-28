@@ -180,7 +180,7 @@ small {
   text-decoration-thickness: max(2.5px, 0.5vw);
   border: none !important;
 }
-.about-page a:hover {
+a:hover {
   color: black !important;
 }
 

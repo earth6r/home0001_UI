@@ -204,53 +204,55 @@ const HomeRedesignPage = ({ location, data }) => {
             selectedCity={selectedCity}
             properties={properties}
           />
-          <div className="md:grid md:grid-cols-3 md:pr-desktop-menu">
-            <div className="md:col-start-2 md:col-span-1">
-              {filteredProperties.length > 1 || !selectedProperty ? (
-                <PropertiesList
-                  properties={filteredProperties}
-                  onChange={property => {
-                    setSelectedProperty(property);
-                    setSelectedPropertyType(null);
-                  }}
-                  selectedProperty={selectedProperty}
-                />
-              ) : null}
-              {selectedProperty && (
-                <SingleProperty
-                  propertyTypes={filteredPropertiesTypes}
-                  selectedProperty={selectedProperty}
-                  selectedPropertyType={selectedPropertyType}
-                  disableScroll={filteredProperties.length === 1}
-                  onChange={propertType => {
-                    setSelectedPropertyType(propertType);
-                  }}
-                />
-              )}
-              {selectedProperty && selectedPropertyType && (
-                <div ref={propertyTypeRef}>
-                  <PropertyTypeUI
-                    property={selectedProperty}
-                    selectedPropertyType={selectedPropertyType}
-                    showReserveHomeForm={showReserveHomeForm}
-                    howItWorks={howItWorks}
+          {selectedCity?.id ? (
+            <div className="md:grid md:grid-cols-3 md:pr-desktop-menu">
+              <div className="md:col-start-2 md:col-span-1">
+                {filteredProperties.length > 1 || !selectedProperty?.id ? (
+                  <PropertiesList
+                    properties={filteredProperties}
+                    onChange={property => {
+                      setSelectedProperty(property);
+                      setSelectedPropertyType(null);
+                    }}
+                    selectedProperty={selectedProperty}
                   />
-                </div>
-              )}
-              {selectedPropertyType && (
-                <div className="pr-mobile-menu md:pr-0">
-                  <button
-                    onClick={() => setShowReserveHomeForm(prev => !prev)}
-                    className={`outline-none my-10 tracking-caps uppercase block w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-mobile-body md:text-desktop-body ${
-                      showReserveHomeForm ? "bg-black text-white" : "bg-white text-black"
-                    }`}
-                  >
-                    Join the waitlist for this home
-                  </button>
-                </div>
-              )}
+                ) : null}
+                {selectedProperty?.id && (
+                  <SingleProperty
+                    propertyTypes={filteredPropertiesTypes}
+                    selectedProperty={selectedProperty}
+                    selectedPropertyType={selectedPropertyType}
+                    disableScroll={filteredProperties.length === 1}
+                    onChange={propertType => {
+                      setSelectedPropertyType(propertType);
+                    }}
+                  />
+                )}
+                {selectedProperty?.id && selectedPropertyType && (
+                  <div ref={propertyTypeRef}>
+                    <PropertyTypeUI
+                      property={selectedProperty}
+                      selectedPropertyType={selectedPropertyType}
+                      showReserveHomeForm={showReserveHomeForm}
+                      howItWorks={howItWorks}
+                    />
+                  </div>
+                )}
+                {selectedPropertyType && (
+                  <div className="pr-mobile-menu md:pr-0">
+                    <button
+                      onClick={() => setShowReserveHomeForm(prev => !prev)}
+                      className={`outline-none my-10 tracking-caps uppercase block w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-mobile-body md:text-desktop-body ${
+                        showReserveHomeForm ? "bg-black text-white" : "bg-white text-black"
+                      }`}
+                    >
+                      Join the waitlist for this home
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
+          ) : null}
           {showReserveHomeForm ? (
             <div ref={reserveHomeRef}>
               <ReserveHomeForm data={data.site} />

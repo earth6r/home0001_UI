@@ -18,7 +18,7 @@ export const InventoryTable = ({ data }) => {
   };
 
   return (
-    <div className="w-full gap-20 justify-between">
+    <div className="flex flex-col justify-between h-full w-full">
       <Slider ref={slider} {...settings} className="w-full mb-20">
         {headers &&
           headers.map((head, index) => {
@@ -54,7 +54,7 @@ export const InventoryTable = ({ data }) => {
           })}
       </Slider>
       {headers && ((!isDesktop && headers.length > 1) || (isDesktop && headers.length > 3)) && (
-        <div className="flex justify-center items-center w-full gap-2 mt-8 ">
+        <div className="flex justify-center items-center w-full gap-2 mt-8">
           <CustomPrevButton
             onClick={() => slider.current.slickPrev()}
             disabled={slider.current && slider.current.state.currentSlide === 0}

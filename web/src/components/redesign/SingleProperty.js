@@ -38,6 +38,7 @@ export const SingleProperty = ({
               .auto("format")
               .url()}
             height="487"
+            width="560"
             alt=""
           />
           {selectedProperty?._rawDescription ? (

@@ -44,10 +44,6 @@ export const ReserveHomeForm = ({ data }) => {
                 )}
               </AccordionItem>
             </Accordion>
-            <p>
-              $100 USD / {data.exchangeRateUSDBTC} BTC / {data.exchangeRateUSDETH} ETH <br />
-              {data.reserveHomeForm.priceCaption}
-            </p>
           </div>
           <form onSubmit={handleSubmit(onSubmit)} className="w-full">
             <div className="w-full">

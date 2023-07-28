@@ -5,6 +5,16 @@ import { InventoryTable } from "./InventoryTable";
 export const InventorModule = ({ data, title, propertyType }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  const onOpenModal = () => {
+    document.body.style.overflow = "hidden";
+    onOpen();
+  };
+
+  const onCloseModal = () => {
+    document.body.style.overflow = "";
+    onClose();
+  };
+
   return (
     <div>
       <Modal
@@ -14,14 +24,13 @@ export const InventorModule = ({ data, title, propertyType }) => {
         scrollBehavior="inside"
         blockScrollOnMount={true}
         isOpen={isOpen}
-        onClose={onClose}
-        className="rounded-lg"
+        onClose={onCloseModal}
       >
-        <ModalOverlay onClick={onClose} opacity={0.75} />
-        <ModalContent className="mx-mobile max-w-special md:mx-desktop p-4 pt-6 md:p-10 text-mobile-body md:text-desktop-body">
-          <CloseButton propertyType={propertyType} title={title} onClose={onClose} />
-          <ModalBody className="rounded-lg p-0 ">
-            <div className="flex flex-col gap-20 ">
+        <ModalOverlay onClick={onCloseModal} opacity={0.75} className="animate-in" />
+        <ModalContent className="animate-in mx-mobile max-w-special md:mx-desktop p-6 md:p-10 text-mobile-body md:text-desktop-body">
+          <CloseButton propertyType={propertyType} title={title} onClose={onCloseModal} />
+          <ModalBody className="rounded-lg p-0">
+            <div className="flex flex-col gap-20 h-full">
               {data._rawInventory &&
                 data._rawInventory.map((data, index) => {
                   return <InventoryTable data={data} key={index} />;
@@ -32,7 +41,7 @@ export const InventorModule = ({ data, title, propertyType }) => {
       </Modal>
 
       <button
-        onClick={onOpen}
+        onClick={onOpenModal}
         className="border-b border-dashed mt-10 text-mobile-body md:text-desktop-body"
       >
         View Inventory
