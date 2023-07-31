@@ -184,6 +184,10 @@ a:hover {
   color: black !important;
 }
 
+.inventory-slider .slick-list {
+  height: 100%;
+}
+
 .no-shadow {
   box-shadow: none !important; /* weird bug with popover modules */
 }

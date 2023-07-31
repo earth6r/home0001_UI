@@ -26,16 +26,21 @@ export const InventorModule = ({ data, title, propertyType }) => {
         onClose={onCloseModal}
       >
         <ModalOverlay onClick={onCloseModal} opacity={0.75} className="animate-in" />
-        <ModalContent className="animate-in h-full md:h-auto max-w-special px-4 md:px-10 text-mobile-body md:text-desktop-body">
-          <CloseButton propertyType={propertyType} title={title} onClose={onCloseModal} />
-          <ModalBody className="rounded-lg p-0">
-            <div className="flex flex-col gap-20 h-full">
-              {data._rawInventory &&
-                data._rawInventory.map((data, index) => {
-                  return <InventoryTable data={data} key={index} />;
-                })}
-            </div>
-          </ModalBody>
+        <ModalContent
+          margin={0}
+          className="animate-in h-full md:h-auto max-w-special px-4 md:px-10 text-mobile-body md:text-desktop-body"
+        >
+          <div className="py-6 md:py-10 h-full flex flex-col">
+            <CloseButton propertyType={propertyType} title={title} onClose={onCloseModal} />
+            <ModalBody className="rounded-lg p-0">
+              <div className="flex flex-col gap-20 h-full">
+                {data._rawInventory &&
+                  data._rawInventory.map((data, index) => {
+                    return <InventoryTable data={data} key={index} />;
+                  })}
+              </div>
+            </ModalBody>
+          </div>
         </ModalContent>
       </Modal>
 
@@ -51,7 +56,7 @@ export const InventorModule = ({ data, title, propertyType }) => {
 
 const CloseButton = ({ onClose, title, propertyType }) => {
   return (
-    <div className="flex justify-between items-center mb-24 md:mb-16 text-mobile-body md:text-desktop-body">
+    <div className="flex justify-between items-center text-mobile-body md:text-desktop-body">
       <div>
         {title && <p className="uppercase">{title}</p>}{" "}
         {propertyType && <p>{propertyType.charAt(0).toUpperCase() + propertyType.slice(1)}</p>}{" "}

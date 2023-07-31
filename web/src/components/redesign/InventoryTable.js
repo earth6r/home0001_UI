@@ -18,14 +18,14 @@ export const InventoryTable = ({ data }) => {
   };
 
   return (
-    <div className="flex flex-col justify-between h-full w-full">
-      <Slider ref={slider} {...settings} className="w-full mb-20">
+    <div className="inventory-slider flex flex-col justify-between h-full w-full">
+      <Slider ref={slider} {...settings} className="w-full flex-1">
         {headers &&
           headers.map((head, index) => {
             let currentHeader = index;
             if (head.length > 0) {
               return (
-                <div className="w-full">
+                <div className="w-full pt-24 md:pt-16">
                   <ul key={index}>
                     <li className="mb-4 uppercase" key={`header-${head}-${index}`}>
                       <p>{head}</p>
