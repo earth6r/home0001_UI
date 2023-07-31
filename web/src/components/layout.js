@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
-import Footer from "./footer";
+import Footer from "../components/redesign/Footer";
 import GridRow from "./grid/grid-row";
 import Header from "./header";
 import HeaderRnd from "./headerRnd";
@@ -25,6 +25,7 @@ const Layout = ({
   pillColor,
   rMenu,
   rnd = false,
+  homes = false,
   rndFooterMenu,
   showNav,
   showPopupNewsletter,
@@ -156,7 +157,11 @@ const Layout = ({
       >
         {children}
       </div>
-      {rnd ? <FooterRnd blackFooter={blackFooter} footerMenu={rndFooterMenu} /> : null}
+      {rnd ? (
+        <FooterRnd blackFooter={blackFooter} footerMenu={rndFooterMenu} />
+      ) : homes ? (
+        <Footer footerMenu={footerMenu} />
+      ) : null}
     </div>
   );
 };

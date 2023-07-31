@@ -196,7 +196,12 @@ const HomeRedesignPage = ({ location, data }) => {
   };
 
   return (
-    <Layout pathname={location.pathname.replace(/\/$/, "")} showPopupNewsletter={true} rnd={false}>
+    <Layout
+      pathname={location.pathname.replace(/\/$/, "")}
+      showPopupNewsletter={true}
+      rnd={false}
+      homes
+    >
       <SEO title="Homes" />
       <Container>
         <section>

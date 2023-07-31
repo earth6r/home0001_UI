@@ -22,7 +22,7 @@ const LegalPageRedesign = ({ data }) => {
   const content = data.allSanityLegalPage.nodes[0];
 
   return (
-    <Layout showPopupNewsletter={true} rnd={false}>
+    <Layout showPopupNewsletter={true} rnd={false} homes>
       <SEO title={content?.title ?? "Legal"} />
       <Container>
         <div className="text-mobile-body md:text-desktop-body md:grid md:grid-cols-3 pr-mobile-menu md:pr-desktop-menu mb-10 md:mb-8">

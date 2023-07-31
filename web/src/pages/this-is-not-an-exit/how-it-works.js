@@ -30,7 +30,7 @@ const HowItWorksRedignPage = ({ data }) => {
   const pageTitle = data.sanityHowItWorksPage.title || "How It Works";
 
   return (
-    <Layout showPopupNewsletter={true} rnd={false}>
+    <Layout showPopupNewsletter={true} rnd={false} homes>
       <SEO title={pageTitle} />
       <Container>
         <HowItWorksComponent data={data} />

@@ -32,7 +32,7 @@ const NewsLetterPageRedesign = ({ data }) => {
     ) : null;
   });
   return (
-    <Layout showPopupNewsletter={true} rnd={false}>
+    <Layout showPopupNewsletter={true} rnd={false} homes>
       <SEO title={pageTitle} />
       <Container>
         <div className="md:grid md:grid-cols-3 pr-mobile-menu md:pr-desktop-menu mb-10 md:mb-8">
