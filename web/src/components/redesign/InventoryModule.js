@@ -21,13 +21,12 @@ export const InventorModule = ({ data, title, propertyType }) => {
         preserveScrollBarGap
         isCentered={true}
         size="full"
-        scrollBehavior="inside"
         blockScrollOnMount={true}
         isOpen={isOpen}
         onClose={onCloseModal}
       >
         <ModalOverlay onClick={onCloseModal} opacity={0.75} className="animate-in" />
-        <ModalContent className="animate-in mx-mobile max-w-special md:mx-desktop p-6 md:p-10 text-mobile-body md:text-desktop-body">
+        <ModalContent className="animate-in h-full md:h-auto max-w-special px-4 md:px-10 text-mobile-body md:text-desktop-body">
           <CloseButton propertyType={propertyType} title={title} onClose={onCloseModal} />
           <ModalBody className="rounded-lg p-0">
             <div className="flex flex-col gap-20 h-full">

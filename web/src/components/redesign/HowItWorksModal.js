@@ -21,13 +21,15 @@ export const HowItWorksModal = ({ data }) => {
         preserveScrollBarGap
         isCentered={true}
         size="full"
-        scrollBehavior="inside"
         blockScrollOnMount={true}
         isOpen={isOpen}
         onClose={onCloseModal}
       >
         <ModalOverlay onClick={onCloseModal} opacity={0.75} className="animate-in" />
-        <ModalContent className="animate-in mx-mobile max-w-special md:mx-desktop px-4 md:px-10 text-mobile-body md:text-desktop-body">
+        <ModalContent
+          margin={0}
+          className="animate-in h-full md:h-auto max-w-special px-4 md:px-10 text-mobile-body md:text-desktop-body"
+        >
           <CloseButton onClose={onCloseModal} />
           <ModalBody className="p-0">
             <HowItWorksComponent
