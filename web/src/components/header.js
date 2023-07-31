@@ -182,6 +182,7 @@ const Header = ({
             <h1 className="relative menu z-50 md:h-10">
               <PageLink
                 onClick={() => {
+                  onHideNav();
                   setSelectedCity({
                     title: "",
                     id: null
