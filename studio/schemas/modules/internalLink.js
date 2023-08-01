@@ -25,15 +25,15 @@ export default {
       title: 'Link',
       type: 'reference',
       to: [
-        { type: 'page' },
-        { type: 'home' },
-        { type: 'checkout' },
-        {
-          type: 'homePage'
-        },
-        {
-          type: 'howItWorksPage'
-        }
+        {type: 'page'},
+        {type: 'checkout'},
+        {type: 'home'},
+        {type: 'aboutPage'},
+        {type: 'contactPage'},
+        {type: 'faqPage'},
+        {type: 'homePage'},
+        {type: 'howItWorksPage'},
+        {type: 'legalPage'}
       ]
     },
     {
@@ -42,8 +42,8 @@ export default {
       type: 'string',
       options: {
         list: [
-          { title: 'White', value: 'white' },
-          { title: 'Black', value: 'black' }
+          {title: 'White', value: 'white'},
+          {title: 'Black', value: 'black'}
         ], // <-- predefined values
         layout: 'radio', // <-- defaults to 'dropdown'
         default: 'white'

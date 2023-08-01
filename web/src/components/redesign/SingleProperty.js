@@ -32,7 +32,7 @@ export const SingleProperty = ({
         >
           <span className="pb-4">{selectedProperty.title}</span>
           <img
-            className="max-w-[560px] h-auto w-auto mb-10"
+            className="max-w-[560px] md:max-w-[unset] h-auto w-auto mb-10"
             src={imageUrlFor(selectedProperty.image)
               .width(1000)
               .auto("format")

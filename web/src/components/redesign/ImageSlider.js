@@ -57,12 +57,16 @@ export const ImageSlider = ({ images }) => {
           className="hidden md:block cursor-pointer w-1/2 h-full absolute top-0 right-0 z-10"
           onClick={nextImage}
         />
-        <Slider ref={slider} {...settings} className="max-w-[560px] -ml-4 w-[calc(100%_+_2rem)]">
+        <Slider
+          ref={slider}
+          {...settings}
+          className="max-w-[560px] md:max-w-[unset] -ml-4 w-[calc(100%_+_2rem)]"
+        >
           {images?.map((image, index) =>
             image.image.asset ? (
               <img
                 key={index}
-                className="max-w-[560px] px-4 h-full w-full object-cover"
+                className="max-w-[560px] md:max-w-[unset] px-4 h-full w-full object-cover"
                 src={imageUrlFor(image.image)
                   .width(1000)
                   .auto("format")
@@ -84,7 +88,7 @@ export const ImageSlider = ({ images }) => {
             Download <span className="block ml-1 mb-1">↓</span>
           </a>
         ) : null}
-        <div className="flex justify-center items-center max-w-[560px]">
+        <div className="flex justify-center items-center max-w-[560px] md:max-w-[unset]">
           <button
             className="disabled:shadow-none disabled:bg-transparent disabled:opacity-40 mr-2"
             onClick={previousImage}
