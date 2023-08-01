@@ -48,7 +48,7 @@ export const ImageSlider = ({ images }) => {
   const hasNextImage = currentIndex !== images.length - 1;
   return (
     <>
-      <div className="relative image-slider">
+      <div className="relative image-slider touch-none">
         <div
           className="hidden md:block cursor-pointer w-1/2 h-full absolute top-0 left-0 z-10"
           onClick={previousImage}

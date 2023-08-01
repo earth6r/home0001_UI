@@ -11,8 +11,8 @@ export const ReserveHomeForm = ({ data }) => {
     shouldUseNativeValidation: true
   });
 
-  const onSubmit = async data => {
-    window.location.replace("https://buy.stripe.com/8wM6pceRr5dscdGaEF");
+  const onSubmit = data => {
+    window.location.href = "https://buy.stripe.com/8wM6pceRr5dscdGaEF";
   };
 
   return (

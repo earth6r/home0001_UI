@@ -35,7 +35,7 @@ const PopoverModule = props => {
       <PopoverContent
         id={text + "-content-popover"}
         bg="transparent"
-        className="border-none max-w-2xl no-shadow px-4 -ml-[5px]"
+        className="border-none max-w-2xl shadow-popup"
         zIndex={50}
       >
         <PopoverCloseButton

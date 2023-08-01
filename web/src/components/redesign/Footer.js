@@ -22,7 +22,7 @@ const Footer = ({ footerMenu }) => {
                   if (item.link) {
                     return (
                       <li
-                        className="text-start text-mobile-body md:text-desktop-body uppercase tracking-caps"
+                        className="text-start text-mobile-body md:text-desktop-body uppercase leading-none"
                         key={item._key}
                       >
                         {item.link && (
@@ -35,7 +35,7 @@ const Footer = ({ footerMenu }) => {
                   } else {
                     return (
                       <li
-                        className="text-start text-mobile-body md:text-desktop-body uppercase tracking-caps"
+                        className="text-start text-mobile-body md:text-desktop-body uppercase leading-none"
                         key={item._key}
                       >
                         <span>{item.title}</span>
@@ -46,7 +46,7 @@ const Footer = ({ footerMenu }) => {
                 case "externalLink":
                   return (
                     <li
-                      className="text-start text-mobile-body md:text-desktop-body uppercase tracking-caps"
+                      className="text-start text-mobile-body md:text-desktop-body uppercase leading-none"
                       key={item._key}
                     >
                       {item.url !== undefined && (

@@ -166,6 +166,9 @@ module.exports = {
       auto: "auto"
     },
     extend: {
+      boxShadow: {
+        popup: "0px 0px 8px 0px rgba(0, 0, 0, 0.25)"
+      },
       fontSize: {
         "desktop-body": [
           "0.813rem",

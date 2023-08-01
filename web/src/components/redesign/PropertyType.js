@@ -3,7 +3,7 @@ import { Popover, PopoverTrigger, PopoverContent } from "@chakra-ui/core";
 import MapContainer from "../map";
 import { ImageSlider } from "./ImageSlider";
 import { StandardText } from "../global/standardText";
-import { InventorModule } from "./InventoryModule";
+import { InventoryModule } from "./InventoryModule";
 import { Link } from "gatsby";
 import { HowItWorksModal } from "./HowItWorksModal";
 import { imageUrlFor } from "../../lib/image-url";
@@ -12,7 +12,8 @@ export const PropertyTypeUI = ({
   selectedPropertyType,
   showReserveHomeForm,
   property,
-  howItWorks
+  howItWorks,
+  viewInventoryText
 }) => {
   return (
     <>
@@ -33,10 +34,11 @@ export const PropertyTypeUI = ({
               </div>
               <div className="text-left md:text-right mt-10 md:mt-0">
                 {selectedPropertyType._rawInventory && (
-                  <InventorModule
+                  <InventoryModule
                     title={property.title}
                     propertyType={selectedPropertyType.propertyType}
                     data={selectedPropertyType}
+                    viewInventoryText={viewInventoryText}
                   />
                 )}
               </div>

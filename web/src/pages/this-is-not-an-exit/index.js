@@ -98,6 +98,7 @@ export const query = graphql`
         priceCaption
         _rawCheckboxText(resolveReferences: { maxDepth: 10 })
       }
+      viewInventory
     }
   }
 `;
@@ -132,22 +133,51 @@ const HomeRedesignPage = ({ location, data }) => {
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     const property = searchParams.get("property");
+    const propertyType = searchParams.get("propertyType");
+    const form = searchParams.get("form");
     if (property) {
       const propertyFound = properties.find(prop => prop.id === property);
       if (propertyFound) {
         setSelectedCity(propertyFound.city);
         setSelectedProperty(propertyFound);
+
+        if (propertyType) {
+          const propertyTypeFound = propertiesTypes.find(prop => prop.id === propertyType);
+          console.log(propertyType, propertyTypeFound);
+          if (propertyTypeFound) {
+            setSelectedPropertyType(propertyTypeFound);
+          }
+        }
+
+        if (form === "open") {
+          setShowReserveHomeForm(true);
+        }
       }
     }
   }, []);
 
   useEffect(() => {
     if (selectedCity) {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
       if (filteredProperties.length === 1) {
         setSelectedProperty(filteredProperties[0]);
       }
+    } else {
+      if (window.innerWidth < 768) {
+        document.body.style.overflow = "hidden";
+        document.body.style.touchAction = "none";
+      }
     }
   }, [selectedCity]);
+
+  useEffect(() => {
+    document.body.classList.add("hide-intercom");
+
+    return () => {
+      document.body.classList.remove("hide-intercom");
+    };
+  }, []);
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
@@ -176,16 +206,46 @@ const HomeRedesignPage = ({ location, data }) => {
         window.scrollTo({ top, behavior: "smooth" });
       }
     }, 500);
+
+    const searchParams = new URLSearchParams(window.location.search);
+    if (showReserveHomeForm) {
+      searchParams.set("form", "open");
+    } else {
+      searchParams.delete("form");
+    }
+
+    const paramsString = searchParams.toString();
+
+    window.history.replaceState(
+      {},
+      "",
+      `${window.location.pathname}${paramsString.length ? `?${paramsString}` : ""}`
+    );
   }, [showReserveHomeForm]);
 
   useEffect(() => {
     setTimeout(() => {
-      if (selectedPropertyType?.id && propertyTypeRef.current) {
+      if (!showReserveHomeForm && selectedPropertyType?.id && propertyTypeRef.current) {
         const offset = window.innerWidth < 768 ? 16 : 40;
         const top = propertyTypeRef.current.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: "smooth" });
       }
     }, 500);
+
+    const searchParams = new URLSearchParams(window.location.search);
+    if (selectedPropertyType?.id) {
+      searchParams.set("propertyType", selectedPropertyType.id);
+    } else {
+      searchParams.delete("propertyType");
+    }
+
+    const paramsString = searchParams.toString();
+
+    window.history.replaceState(
+      {},
+      "",
+      `${window.location.pathname}${paramsString.length ? `?${paramsString}` : ""}`
+    );
   }, [selectedPropertyType]);
 
   const onSelectCity = city => {
@@ -243,6 +303,7 @@ const HomeRedesignPage = ({ location, data }) => {
                       selectedPropertyType={selectedPropertyType}
                       showReserveHomeForm={showReserveHomeForm}
                       howItWorks={howItWorks}
+                      viewInventoryText={data.site?.viewInventory ?? "View Inventory"}
                     />
                   </div>
                 )}

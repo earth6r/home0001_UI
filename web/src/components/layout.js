@@ -72,11 +72,7 @@ const Layout = ({
     if (typeof window != `undefined`) {
       /* Check because window is undefined during build */
       // If rnd page is shown intercom messanger icon is hidden
-      if (
-        rnd ||
-        (window.location.pathname === "/this-is-not-an-exit" &&
-          !window.location.search.includes("property"))
-      ) {
+      if (rnd) {
         document.body.classList.add("hide-intercom");
       }
 

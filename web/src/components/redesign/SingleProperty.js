@@ -30,7 +30,6 @@ export const SingleProperty = ({
           ref={selectedPropertyRef}
           className="animate-in flex flex-col text-mobile-body md:text-desktop-body mt-10 md:mt-20"
         >
-          <span className="pb-4">{selectedProperty.title}</span>
           <img
             className="max-w-[560px] md:max-w-[unset] h-auto w-auto mb-10"
             src={imageUrlFor(selectedProperty.image)
@@ -41,6 +40,7 @@ export const SingleProperty = ({
             width="560"
             alt=""
           />
+          <span className="mb-10">{selectedProperty.title}</span>
           {selectedProperty?._rawDescription ? (
             <div className="pr-mobile-menu md:pr-0">
               <StandardText data={selectedProperty?._rawDescription} />

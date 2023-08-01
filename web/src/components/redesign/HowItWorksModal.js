@@ -8,11 +8,13 @@ export const HowItWorksModal = ({ data }) => {
 
   const onOpenModal = () => {
     document.body.style.overflow = "hidden";
+    document.body.style.touchAction = "none";
     setIsOpen(true);
   };
 
   const onCloseModal = () => {
     document.body.style.overflow = "";
+    document.body.style.touchAction = "";
     setIsOpen(false);
   };
 
@@ -31,7 +33,7 @@ export const HowItWorksModal = ({ data }) => {
         onClick={onOpenModal}
         className="border-b border-dashed mt-10 text-mobile-body md:text-desktop-body"
       >
-        How It Works
+        {data.title ?? "How It Works"}
       </button>
     </div>
   );

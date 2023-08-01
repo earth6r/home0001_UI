@@ -2,16 +2,18 @@ import React, { useState } from "react";
 import { InventoryTable } from "./InventoryTable";
 import Modal from "./Modal";
 
-export const InventorModule = ({ data, title, propertyType }) => {
+export const InventoryModule = ({ data, title, propertyType, viewInventoryText }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const onOpenModal = () => {
     document.body.style.overflow = "hidden";
+    document.body.style.touchAction = "none";
     setIsOpen(true);
   };
 
   const onCloseModal = () => {
     document.body.style.overflow = "";
+    document.body.style.touchAction = "";
     setIsOpen(false);
   };
 
@@ -36,7 +38,7 @@ export const InventorModule = ({ data, title, propertyType }) => {
         onClick={onOpenModal}
         className="border-b border-dashed text-mobile-body md:text-desktop-body"
       >
-        View Inventory
+        {viewInventoryText}
       </button>
     </>
   );

@@ -110,6 +110,11 @@ export default {
       name: 'reserveHomeForm',
       type: 'reserveHomeForm',
       title: 'Reserve Home Form'
+    },
+    {
+      name: 'viewInventory',
+      type: 'string',
+      title: 'View Inventory'
     }
   ]
 }
