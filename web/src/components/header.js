@@ -239,7 +239,7 @@ const Header = ({
                   return (
                     <li
                       onClick={onHideNav}
-                      className="text-start text-mobile-body md:text-desktop-body uppercase leading-none"
+                      className="text-start text-mobile-body md:text-desktop-body uppercase tracking-caps leading-none"
                       key={index}
                     >
                       <PageLink onClick={onHideNav} to={`${item.slug}`}>
