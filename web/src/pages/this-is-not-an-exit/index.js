@@ -72,6 +72,7 @@ export const query = graphql`
         }
         _rawInventory(resolveReferences: { maxDepth: 10 })
         _rawDescription(resolveReferences: { maxDepth: 10 })
+        _rawDescriptionTwo(resolveReferences: { maxDepth: 10 })
 
         property {
           title

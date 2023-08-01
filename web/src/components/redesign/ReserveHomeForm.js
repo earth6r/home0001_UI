@@ -89,7 +89,7 @@ export const ReserveHomeForm = ({ data }) => {
                   className="h-12 max-h-12 text-center tracking-caps uppercase text-white bg-black text-mobile-body md:text-desktop-body font-serif "
                   type="submit"
                 >
-                  Pay with cash
+                  CONTINUE TO PAYMENT
                 </button>
               </div>
             </div>

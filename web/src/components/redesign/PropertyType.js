@@ -69,6 +69,11 @@ export const PropertyTypeUI = ({
           <ImageSlider images={selectedPropertyType.moreImages} />
         </div>
       ) : null}
+      {selectedPropertyType?._rawDescriptionTwo?.text && (
+        <div className="mt-10 text-mobile-body md:text-desktop-body">
+          <StandardText data={selectedPropertyType?._rawDescriptionTwo} />
+        </div>
+      )}
       <HowItWorksModal data={howItWorks} />
     </>
   );

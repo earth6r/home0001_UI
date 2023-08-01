@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -8,13 +8,17 @@ export const InventoryTable = ({ data }) => {
   const { headers, rows } = data;
   const slider = useRef(null);
   const isDesktop = useMediaQuery({ minWidth: 768 });
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const settings = {
     slidesToShow: isDesktop ? 3 : 1,
     infinite: false,
     arrows: false,
     centerMode: isDesktop ? false : true,
-    centerPadding: isDesktop ? "" : "20vw 0px 0px 0px" // Adjust the padding value as needed
+    centerPadding: isDesktop ? "" : "20vw 0px 0px 0px",
+    beforeChange: (oldIndex, newIndex) => {
+      setCurrentIndex(newIndex);
+    }
   };
 
   return (
@@ -57,14 +61,11 @@ export const InventoryTable = ({ data }) => {
         <div className="flex justify-center items-center w-full gap-2 mt-8">
           <CustomPrevButton
             onClick={() => slider.current.slickPrev()}
-            disabled={slider.current && slider.current.state.currentSlide === 0}
+            disabled={currentIndex === 0}
           />
           <CustomNextButton
             onClick={() => slider.current.slickNext()}
-            disabled={
-              slider.current &&
-              slider.current.state.currentSlide === slider.current.state.slideCount - 1
-            }
+            disabled={currentIndex === headers.length - 1}
           />
         </div>
       )}
@@ -74,7 +75,7 @@ export const InventoryTable = ({ data }) => {
 
 const CustomPrevButton = ({ disabled, onClick }) => (
   <button
-    className=" disabled:shadow-none disabled:bg-transparent disabled:opacity-40 "
+    className="disabled:shadow-none disabled:bg-transparent disabled:opacity-40 "
     onClick={onClick}
     disabled={disabled}
   >

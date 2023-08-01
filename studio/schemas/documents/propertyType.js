@@ -64,6 +64,12 @@ export default {
     },
     {
       name: 'description',
+      title: 'Description',
+      type: 'simpleText'
+    },
+    {
+      name: 'descriptionTwo',
+      title: 'Description Two',
       type: 'simpleText'
     },
     {
