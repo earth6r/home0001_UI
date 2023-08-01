@@ -15,7 +15,7 @@ export const InventoryTable = ({ data }) => {
     infinite: false,
     arrows: false,
     centerMode: isDesktop ? false : true,
-    centerPadding: isDesktop ? "" : "20vw 0px 0px 0px",
+    centerPadding: isDesktop ? "" : "50vw 0px 0px 0px",
     beforeChange: (oldIndex, newIndex) => {
       setCurrentIndex(newIndex);
     }
@@ -31,26 +31,21 @@ export const InventoryTable = ({ data }) => {
               return (
                 <div key={index} className="w-full pt-24 md:pt-16">
                   <ul>
-                    <li className="mb-4 uppercase" key={`header-${head}-${index}`}>
+                    <li className="mb-4 uppercase px-4 md:px-0" key={`header-${head}-${index}`}>
                       <p>{head}</p>
                     </li>
-                    {rows &&
-                      rows.map(row => {
-                        return (
-                          <li key={`row-${row._key}`} className="flex flex-row center py-0 px-0">
-                            {row.cells &&
-                              row.cells.map((cell, index) => {
-                                if (index == currentHeader) {
-                                  return (
-                                    <p key={index} className="">
-                                      {cell.text}
-                                    </p>
-                                  );
-                                }
-                              })}
-                          </li>
-                        );
-                      })}
+                    {rows?.map(row => {
+                      return (
+                        <li key={`row-${row._key}`} className="flex mx-4 md:mx-0 md:mr-4">
+                          {row.cells &&
+                            row.cells.map((cell, index) => {
+                              if (index == currentHeader) {
+                                return <p key={index}>{cell.text}</p>;
+                              }
+                            })}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               );
@@ -75,7 +70,7 @@ export const InventoryTable = ({ data }) => {
 
 const CustomPrevButton = ({ disabled, onClick }) => (
   <button
-    className="disabled:shadow-none disabled:bg-transparent disabled:opacity-40 "
+    className="disabled:shadow-none disabled:bg-transparent disabled:opacity-40"
     onClick={onClick}
     disabled={disabled}
   >

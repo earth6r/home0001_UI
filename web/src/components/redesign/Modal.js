@@ -40,7 +40,7 @@ export default function Modal({ isOpen, onClose, children }) {
         onClick={onClose}
       >
         <div
-          className="relative bg-white px-4 md:px-10 text-mobile-body md:text-desktop-body w-full h-full overflow-auto"
+          className="relative bg-white text-mobile-body md:text-desktop-body w-full h-full overflow-auto"
           onClick={e => e.stopPropagation()}
         >
           <CloseButton onClose={onClose} />

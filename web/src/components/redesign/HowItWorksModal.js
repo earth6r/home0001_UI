@@ -21,12 +21,14 @@ export const HowItWorksModal = ({ data }) => {
   return (
     <div>
       <Modal isOpen={isOpen} onClose={onCloseModal}>
-        <HowItWorksComponent
-          data={{
-            sanityHowItWorksPage: data
-          }}
-          hasPadding
-        />
+        <div className="px-4 md:px-10">
+          <HowItWorksComponent
+            data={{
+              sanityHowItWorksPage: data
+            }}
+            hasPadding
+          />
+        </div>
       </Modal>
 
       <button
