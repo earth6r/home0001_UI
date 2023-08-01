@@ -25,8 +25,8 @@ export const InventoryTable = ({ data }) => {
             let currentHeader = index;
             if (head.length > 0) {
               return (
-                <div className="w-full pt-24 md:pt-16">
-                  <ul key={index}>
+                <div key={index} className="w-full pt-24 md:pt-16">
+                  <ul>
                     <li className="mb-4 uppercase" key={`header-${head}-${index}`}>
                       <p>{head}</p>
                     </li>

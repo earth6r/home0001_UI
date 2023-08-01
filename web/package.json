@@ -86,6 +86,7 @@
     "react-slick": "^0.29.0",
     "react-sticky": "^6.0.3",
     "react-tabs": "^3.1.1",
+    "react-transition-group": "^4.4.5",
     "react-youtube": "^10.0.0",
     "shuffle-array": "^1.0.1",
     "slick-carousel": "^1.8.1",

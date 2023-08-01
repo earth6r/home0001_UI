@@ -6,6 +6,7 @@ import GridRow from "./grid/grid-row";
 import EarthLogoMobile from "../components/images/logos/earth-logo-mobile.svg";
 import { PageLink } from "../components/link";
 import { HomesContext } from "./context/HomesContext";
+import { CSSTransition } from "react-transition-group";
 
 const Header = ({
   mainMenu,
@@ -227,37 +228,31 @@ const Header = ({
             </button>
           </nav>
 
-          <nav
-            className={`${showThinBanner && thinBanner ? "mt-16 md:mt-4" : ""} ${
-              showNav
-                ? "block overflow-auto z-40 bg-white md:shadow-none transition-none"
-                : "hidden"
-            } fixed top-0 pt-20 md:pt-[9.125rem] left-0 w-full h-full`}
-          >
-            <ul className="px-4 md:px-10 flex flex-col gap-10">
-              {newMenu.map((item, index) => {
-                return (
-                  <li
-                    onClick={onHideNav}
-                    className="text-start text-mobile-body md:text-desktop-body uppercase tracking-caps"
-                    key={index++}
-                  >
-                    <PageLink onClick={onHideNav} to={`${item.slug}`}>
-                      <span>{item.title}</span>
-                    </PageLink>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
+          <CSSTransition in={showNav} timeout={2500} classNames="fade" unmountOnExit>
+            <nav
+              className={`${
+                showThinBanner && thinBanner ? "mt-16 md:mt-4" : ""
+              } overflow-auto z-40 bg-white md:shadow-none fixed top-0 pt-20 md:pt-[9.125rem] left-0 w-full h-full`}
+            >
+              <ul className="px-4 md:px-10 flex flex-col gap-10">
+                {newMenu.map((item, index) => {
+                  return (
+                    <li
+                      onClick={onHideNav}
+                      className="text-start text-mobile-body md:text-desktop-body uppercase tracking-caps"
+                      key={index}
+                    >
+                      <PageLink onClick={onHideNav} to={`${item.slug}`}>
+                        <span>{item.title}</span>
+                      </PageLink>
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
+          </CSSTransition>
         </div>
       </header>
-      <div
-        style={{ zIndex: "45" }}
-        className={`${
-          showNav ? "h-full bg-black opacity-75 pointer-events-auto" : "opacity-0"
-        } fixed transition-opacity duration-150 left-0 top-0 pointer-events-none w-full`}
-      />
       <div
         className={`${
           showThinBanner && thinBanner ? "mt-12 md:mt-12" : ""
