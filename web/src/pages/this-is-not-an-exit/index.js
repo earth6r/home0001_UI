@@ -44,7 +44,7 @@ export const query = graphql`
         }
       }
     }
-    allSanityPropertyType {
+    allSanityPropertyType(sort: { fields: area }) {
       nodes {
         id
         propertyType
@@ -143,7 +143,6 @@ const HomeRedesignPage = ({ location, data }) => {
 
         if (propertyType) {
           const propertyTypeFound = propertiesTypes.find(prop => prop.id === propertyType);
-          console.log(propertyType, propertyTypeFound);
           if (propertyTypeFound) {
             setSelectedPropertyType(propertyTypeFound);
           }
@@ -223,7 +222,7 @@ const HomeRedesignPage = ({ location, data }) => {
     );
   }, [showReserveHomeForm]);
 
-  useEffect(() => {
+  const scrollToPropertyType = () => {
     setTimeout(() => {
       if (!showReserveHomeForm && selectedPropertyType?.id && propertyTypeRef.current) {
         const offset = window.innerWidth < 768 ? 16 : 40;
@@ -231,6 +230,10 @@ const HomeRedesignPage = ({ location, data }) => {
         window.scrollTo({ top, behavior: "smooth" });
       }
     }, 500);
+  };
+
+  useEffect(() => {
+    scrollToPropertyType();
 
     const searchParams = new URLSearchParams(window.location.search);
     if (selectedPropertyType?.id) {
@@ -292,6 +295,9 @@ const HomeRedesignPage = ({ location, data }) => {
                     selectedPropertyType={selectedPropertyType}
                     disableScroll={filteredProperties.length === 1}
                     onChange={propertType => {
+                      if (propertType?.id === selectedPropertyType?.id) {
+                        scrollToPropertyType();
+                      }
                       setSelectedPropertyType(propertType);
                     }}
                   />

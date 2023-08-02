@@ -57,7 +57,7 @@ const MailChimpForm = ({ signup }) => {
           name="email"
           autoComplete="email"
           ref={register({ required: true })}
-          className="px-3 py-4 placeholder:uppercase placeholder:text-mobile-body md:placeholder:text-desktop-body w-full"
+          className="text-mobile-body md:text-desktop-body newsletter px-3 py-4 placeholder:uppercase placeholder:text-mobile-body md:placeholder:text-desktop-body w-full"
           required
           placeholder="Email address"
           aria-describedby="email-helper-text"

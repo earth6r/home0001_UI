@@ -99,7 +99,7 @@
   @apply pl-1/10 pb-1em text-mobileBody pt-1/2em;
 }
 
-input:not(.e-checkout),
+input:not(.e-checkout, .newsletter),
 textarea,
 select {
   background: #ffffff;

@@ -50,14 +50,15 @@ export const SingleProperty = ({
       )}
       {propertyTypes && (
         <ul className="animate-in flex flex-col gap-4 my-10 p-0 pr-mobile-menu md:pr-0">
-          {propertyTypes.map(propertType => {
-            const { amenities, propertyType, price, area, id } = propertType;
+          {propertyTypes.map(item => {
+            const { amenities, propertyType, price, area, id, available } = item;
             return (
               <li key={id} className={`p-0 before:content-['']`}>
                 <button
-                  onClick={() => onChange(propertType)}
+                  disabled={!available}
+                  onClick={() => onChange(item)}
                   className={`p-4 border w-full flex flex-col gap-7 text-mobile-body md:text-desktop-body ${
-                    selectedPropertyType?.id === propertType.id ? "bg-black text-white" : ""
+                    selectedPropertyType?.id === item.id ? "bg-black text-white" : ""
                   }`}
                 >
                   <div className="p-0 m-0 text-left">
