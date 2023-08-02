@@ -13,7 +13,7 @@ const PopoverModule = props => {
 
   return (
     <Popover
-      isOpen={isOpen}
+      isOpen={true}
       onClose={close}
       trigger="click"
       usePortal={true}
@@ -49,7 +49,7 @@ const PopoverModule = props => {
         />
         <div className="block">
           {content && (
-            <div className="p-10 border bg-white text-base">
+            <div className="p-10 border bg-white text-mobile-body md:text-desktop-body">
               <BasePortableText blocks={content} serializers={Serializer} />
             </div>
           )}
