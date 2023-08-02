@@ -1,14 +1,7 @@
 import { Link } from "gatsby";
-import React, { useContext } from "react";
-import { HomesContext } from "../context/HomesContext";
+import React from "react";
 
 const Footer = ({ footerMenu }) => {
-  const { selectedCity } = useContext(HomesContext);
-
-  if (!selectedCity.id) {
-    return null;
-  }
-
   const menu = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
 
   return (
@@ -20,16 +13,31 @@ const Footer = ({ footerMenu }) => {
               switch (item._type) {
                 case "internalLink":
                   if (item.link) {
+                    let title = item.link.content?.main?.title;
+                    let slug = item.link.content?.main?.slug?.current;
+
+                    if (!title) {
+                      title = item.link.title;
+                    }
+
+                    if (!slug) {
+                      slug = {
+                        About: "this-is-not-an-exit/about",
+                        Contact: "this-is-not-an-exit/contact",
+                        FAQ: "this-is-not-an-exit/faq",
+                        Home: "this-is-not-an-exit",
+                        "How It Works": "this-is-not-an-exit/how-it-works",
+                        Legal: "this-is-not-an-exit/legal",
+                        Newsletter: "this-is-not-an-exit/newsletter"
+                      }[title];
+                    }
+
                     return (
                       <li
                         className="text-start text-mobile-body md:text-desktop-body uppercase leading-none"
                         key={item._key}
                       >
-                        {item.link && (
-                          <Link to={`/${item.link.content.main.slug.current}`}>
-                            {item.link.content.main.title}
-                          </Link>
-                        )}
+                        <Link to={`/${slug}`}>{title}</Link>
                       </li>
                     );
                   } else {
@@ -67,7 +75,7 @@ const Footer = ({ footerMenu }) => {
             })}
         </ul>
       </nav>
-      <p className="text-mobile-body md:text-desktop-body my-20">@2023 EARTH</p>
+      <p className="text-mobile-body md:text-desktop-body my-20">&copy;2023 EARTH</p>
     </div>
   );
 };

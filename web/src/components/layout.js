@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
-import Footer from "../components/redesign/Footer";
+import FooterHomes from "../components/redesign/Footer";
 import GridRow from "./grid/grid-row";
 import Header from "./header";
 import HeaderRnd from "./headerRnd";
@@ -27,6 +27,7 @@ const Layout = ({
   rnd = false,
   homes = false,
   rndFooterMenu,
+  homesFooterMenu,
   showNav,
   showPopupNewsletter,
   showSubNav,
@@ -37,7 +38,7 @@ const Layout = ({
   thinBanner,
   pathname
 }) => {
-  const { menuOpened } = useContext(HomesContext);
+  const { menuOpened, selectedCity } = useContext(HomesContext);
   const [showPage, setShowPage] = useState(false);
 
   useEffect(() => {
@@ -86,6 +87,8 @@ const Layout = ({
 
     return () => document.removeEventListener("scroll", positionIntercomBubble);
   });
+
+  const showHomesFooter = pathname !== "/this-is-not-an-exit" || selectedCity?.id;
 
   return (
     <div className="flex flex-col justify-between h-full">
@@ -155,8 +158,8 @@ const Layout = ({
       </div>
       {rnd ? (
         <FooterRnd blackFooter={blackFooter} footerMenu={rndFooterMenu} />
-      ) : homes ? (
-        <Footer footerMenu={footerMenu} />
+      ) : homes && showHomesFooter ? (
+        <FooterHomes footerMenu={homesFooterMenu} />
       ) : null}
     </div>
   );

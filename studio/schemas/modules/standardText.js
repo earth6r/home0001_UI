@@ -168,7 +168,8 @@ export default {
                       {type: 'faqPage'},
                       {type: 'homePage'},
                       {type: 'howItWorksPage'},
-                      {type: 'legalPage'}
+                      {type: 'legalPage'},
+                      {type: 'newsLetter'}
                       // other types you may want to link to
                     ]
                   },

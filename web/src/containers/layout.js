@@ -248,6 +248,51 @@ const query = graphql`
         }
       }
     }
+
+    homesFooterMenu: allSanityMenus(filter: { slug: { current: { eq: "homes-footer" } } }) {
+      edges {
+        node {
+          items {
+            ... on SanityExternalLink {
+              _key
+              _type
+              title
+              url
+            }
+            ... on SanityInternalLink {
+              _key
+              _type
+              link {
+                ...LinkFragment
+                ...HomeLinkFragment
+                ... on SanityAboutPage {
+                  title
+                }
+                ... on SanityContactPage {
+                  title
+                }
+                ... on SanityFaqPage {
+                  title
+                }
+                ... on SanityHomePage {
+                  title
+                }
+                ... on SanityHowItWorksPage {
+                  title
+                }
+                ... on SanityLegalPage {
+                  title
+                }
+                ... on SanityNewsLetter {
+                  title
+                }
+              }
+              title
+            }
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -304,6 +349,7 @@ function LayoutContainer(props) {
               onShowSubNav={handleShowSubNav}
               footerMenu={data.footerMenu}
               rndFooterMenu={data.rndFooterMenu}
+              homesFooterMenu={data.homesFooterMenu}
               mainMenu={data.mainMenu}
               rMenu={data.rMenu}
               subMenu={data.subMenu}

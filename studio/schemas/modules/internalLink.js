@@ -33,7 +33,8 @@ export default {
         {type: 'faqPage'},
         {type: 'homePage'},
         {type: 'howItWorksPage'},
-        {type: 'legalPage'}
+        {type: 'legalPage'},
+        {type: 'newsLetter'}
       ]
     },
     {
