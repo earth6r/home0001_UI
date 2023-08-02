@@ -13,7 +13,7 @@ const PopoverModule = props => {
 
   return (
     <Popover
-      isOpen={true}
+      isOpen={isOpen}
       onClose={close}
       trigger="click"
       usePortal={true}
