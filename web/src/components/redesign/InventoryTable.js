@@ -31,7 +31,10 @@ export const InventoryTable = ({ data }) => {
               return (
                 <div key={index} className="w-full pt-24 md:pt-16">
                   <ul>
-                    <li className="mb-4 uppercase px-4 md:px-0" key={`header-${head}-${index}`}>
+                    <li
+                      className="mb-4 uppercase tracking-caps px-4 md:px-0"
+                      key={`header-${head}-${index}`}
+                    >
                       <p>{head}</p>
                     </li>
                     {rows?.map(row => {

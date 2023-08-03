@@ -34,7 +34,7 @@ const Footer = ({ footerMenu }) => {
 
                     return (
                       <li
-                        className="text-start text-mobile-body md:text-desktop-body uppercase leading-none"
+                        className="text-start text-mobile-body md:text-desktop-body uppercase tracking-caps leading-none"
                         key={item._key}
                       >
                         <Link to={`/${slug}`}>{title}</Link>
@@ -43,7 +43,7 @@ const Footer = ({ footerMenu }) => {
                   } else {
                     return (
                       <li
-                        className="text-start text-mobile-body md:text-desktop-body uppercase leading-none"
+                        className="text-start text-mobile-body md:text-desktop-body uppercase tracking-caps leading-none"
                         key={item._key}
                       >
                         <span>{item.title}</span>
@@ -54,7 +54,7 @@ const Footer = ({ footerMenu }) => {
                 case "externalLink":
                   return (
                     <li
-                      className="text-start text-mobile-body md:text-desktop-body uppercase leading-none"
+                      className="text-start text-mobile-body md:text-desktop-body uppercase tracking-caps leading-none"
                       key={item._key}
                     >
                       {item.url !== undefined && (

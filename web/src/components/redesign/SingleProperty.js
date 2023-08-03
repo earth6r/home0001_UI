@@ -63,15 +63,15 @@ export const SingleProperty = ({
                 >
                   <div className="p-0 m-0 text-left">
                     {propertyType && (
-                      <p className="uppercase mb-0">
+                      <p className="uppercase mb-0 tracking-caps">
                         {propertyType
                           .replace("one-bedroom", "1 bedroom")
                           .replace("two-bedroom", "2 bedrooms")
                           .replace("studio-max", "studio max")}
                       </p>
                     )}
-                    {price && <p className="uppercase mb-0">{price}</p>}
-                    {area && <p className="uppercase">{area}</p>}
+                    {price && <p className="uppercase tracking-caps mb-0">{price}</p>}
+                    {area && <p className="uppercase tracking-caps">{area}</p>}
                   </div>
                   {amenities && (
                     <ul className="mb-0 p-0">

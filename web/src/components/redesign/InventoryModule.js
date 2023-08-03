@@ -22,7 +22,7 @@ export const InventoryModule = ({ data, title, propertyType, viewInventoryText }
       <Modal isOpen={isOpen} onClose={onCloseModal}>
         <div className="py-6 md:py-10 md:px-10 h-full flex flex-col">
           <p className="px-4 md:px-0">INVENTORY</p>
-          <div className="mt-10 uppercase px-4 md:px-0">
+          <div className="mt-10 uppercase tracking-caps px-4 md:px-0">
             {title && <p className="uppercase">{title}</p>} {propertyType && <p>{propertyType}</p>}{" "}
           </div>
           <div className="flex flex-col gap-20 h-full">

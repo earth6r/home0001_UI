@@ -15,6 +15,8 @@ export const PropertyTypeUI = ({
   howItWorks,
   viewInventoryText
 }) => {
+  console.log("selectedPropertyType", selectedPropertyType);
+  console.log("property", property);
   return (
     <>
       {selectedPropertyType ? (
@@ -29,10 +31,14 @@ export const PropertyTypeUI = ({
           <div className="text-mobile-body md:text-desktop-body mt-10 pr-mobile-menu md:pr-0">
             <div className="grid grid-cols-1 md:grid-cols-2">
               <div>
-                {property.unitTypes && <p className="m-0 ">{property.unitTypes}</p>}
-                {property.price && <p className="m-0">{property.price}</p>}
+                {selectedPropertyType.propertyType && (
+                  <p className="m-0 uppercase tracking-caps">{selectedPropertyType.propertyType}</p>
+                )}
+                {selectedPropertyType.price && (
+                  <p className="m-0 uppercase tracking-caps">{selectedPropertyType.price}</p>
+                )}
               </div>
-              <div className="text-left md:text-right mt-10 md:mt-0">
+              <div className="text-left md:text-right mt-10 md:mt-0 mb-10">
                 {selectedPropertyType._rawInventory && (
                   <InventoryModule
                     title={property.title}
@@ -43,22 +49,22 @@ export const PropertyTypeUI = ({
                 )}
               </div>
             </div>
-            {selectedPropertyType.map?.lat && selectedPropertyType.map?.long && (
-              <MapModule
-                text="MAP"
-                lat={selectedPropertyType.map?.lat}
-                long={selectedPropertyType.map?.long}
-              />
-            )}
+
+            {
+              //Todo: FIX Map and Unit Address Section
+              /* {property.map?.lat && property.map?.long && (
+              <MapModule text="MAP" lat={property.map?.lat} long={property.map?.long} />
+            )} */
+            }
           </div>
-          {selectedPropertyType.propertyType && (
-            <h3 className="uppercase my-10 pr-mobile-menu md:pr-0">
+          {/* {selectedPropertyType.propertyType && (
+            <h3 className="uppercase tracking-caps my-10 pr-mobile-menu md:pr-0">
               {selectedPropertyType.propertyType
                 .replace("one-bedroom", "1 bedroom")
                 .replace("two-bedroom", "2 bedrooms")
                 .replace("studio-max", "studio max")}
             </h3>
-          )}
+          )} */}
           {selectedPropertyType?._rawDescription?.text && (
             <div className="pr-mobile-menu md:pr-0 text-mobile-body md:text-desktop-body">
               <StandardText data={selectedPropertyType?._rawDescription} />
