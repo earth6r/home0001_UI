@@ -71,7 +71,17 @@ export const SingleProperty = ({
                       </p>
                     )}
                     {price && <p className="uppercase tracking-caps mb-0">{price}</p>}
-                    {area && <p className="uppercase tracking-caps">{area}</p>}
+                    {area && (
+                      <p className="uppercase tracking-caps">
+                        {area}
+                        <br />
+                        <span className="lowercase">
+                          Fully Equipped
+                          <br />
+                          Access to homes in other locations
+                        </span>
+                      </p>
+                    )}
                   </div>
                   {amenities && (
                     <ul className="mb-0 p-0">

@@ -15,8 +15,6 @@ export const PropertyTypeUI = ({
   howItWorks,
   viewInventoryText
 }) => {
-  console.log("selectedPropertyType", selectedPropertyType);
-  console.log("property", property);
   return (
     <>
       {selectedPropertyType ? (
