@@ -177,15 +177,15 @@ module.exports = {
           }
         ],
         "mobile-body": [
-          "0.875rem",
+          "12px",
           {
             lineHeight: "130%"
           }
         ]
       },
       letterSpacing: {
-        body: "0.005em",
-        caps: "0.024em"
+        body: "0.005em"
+        // caps: "0.024em"
       },
       maxWidth: {
         menu: "calc(100% - 49.23px)"
