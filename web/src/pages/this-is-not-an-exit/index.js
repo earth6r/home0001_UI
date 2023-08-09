@@ -258,7 +258,7 @@ const HomeRedesignPage = ({ location, data }) => {
       setSelectedPropertyType(null);
     }
   };
-
+  console.log("selectedCity", selectedCity);
   return (
     <Layout
       pathname={location.pathname.replace(/\/$/, "")}

@@ -36,16 +36,20 @@ export const PropertyTypeUI = ({
                 {selectedPropertyType.price && (
                   <p className="m-0 uppercase tracking-caps">{selectedPropertyType.price}</p>
                 )}
+                {selectedPropertyType.area && (
+                  <p className="m-0 uppercase tracking-caps">{selectedPropertyType.area}</p>
+                )}
               </div>
               <div className="text-left md:text-right mt-10 md:mt-0 mb-10">
-                {selectedPropertyType._rawInventory && (
-                  <InventoryModule
-                    title={property.title}
-                    propertyType={selectedPropertyType.propertyType}
-                    data={selectedPropertyType}
-                    viewInventoryText={viewInventoryText}
-                  />
-                )}
+                {selectedPropertyType._rawInventory
+                  ? selectedPropertyType.propertyType === "studio"
+                    ? "Unit 3B"
+                    : selectedPropertyType.propertyType === "studio-max"
+                    ? "Unit 4A"
+                    : selectedPropertyType.propertyType === "one-bedroom"
+                    ? "Unit 6B"
+                    : null
+                  : null}
               </div>
             </div>
 
@@ -71,6 +75,14 @@ export const PropertyTypeUI = ({
           )}
         </div>
       ) : null}
+      <div className="mt-10">
+        <InventoryModule
+          title={property.title}
+          propertyType={selectedPropertyType.propertyType}
+          data={selectedPropertyType}
+          viewInventoryText={"View complete inventory"}
+        />
+      </div>
       {selectedPropertyType.moreImages?.length ? (
         <div className="mt-10">
           <ImageSlider images={selectedPropertyType.moreImages} />
