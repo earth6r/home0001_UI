@@ -321,7 +321,7 @@ const HomeRedesignPage = ({ location, data }) => {
                         showReserveHomeForm ? "bg-white text-black" : "bg-black text-white"
                       }`}
                     >
-                      Join the waitlist for this home
+                      RESERVE THIS HOME
                     </button>
                   </div>
                 )}

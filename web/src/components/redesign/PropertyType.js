@@ -40,7 +40,7 @@ export const PropertyTypeUI = ({
                   <p className="m-0 uppercase tracking-caps">{selectedPropertyType.area}</p>
                 )}
               </div>
-              <div className="text-left md:text-right mt-10 md:mt-0 mb-10">
+              <div className="text-left md:text-right mt-10 md:mt-0">
                 {selectedPropertyType._rawInventory
                   ? selectedPropertyType.propertyType === "studio"
                     ? "Unit 3B"
