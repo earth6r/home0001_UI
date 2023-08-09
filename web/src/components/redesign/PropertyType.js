@@ -28,19 +28,13 @@ export const PropertyTypeUI = ({
             />
           )}
           <div className="text-mobile-body md:text-desktop-body mt-10 pr-mobile-menu md:pr-0">
-            <div className="grid grid-cols-1 md:grid-cols-2">
+            <div className="grid grid-cols-2 md:grid-cols-2">
               <div>
                 {selectedPropertyType.propertyType && (
                   <p className="m-0 uppercase tracking-caps">{selectedPropertyType.propertyType}</p>
                 )}
-                {selectedPropertyType.price && (
-                  <p className="m-0 uppercase tracking-caps">{selectedPropertyType.price}</p>
-                )}
-                {selectedPropertyType.area && (
-                  <p className="m-0 uppercase tracking-caps">{selectedPropertyType.area}</p>
-                )}
               </div>
-              <div className="text-left md:text-right mt-10 md:mt-0">
+              <div className="text-right md:text-right  md:mt-0">
                 {selectedPropertyType._rawInventory
                   ? selectedPropertyType.propertyType === "studio"
                     ? "Unit 3B"
@@ -51,6 +45,17 @@ export const PropertyTypeUI = ({
                     : null
                   : null}
               </div>
+            </div>
+            <div>
+              {selectedPropertyType.price && (
+                <p className="m-0 uppercase tracking-caps">{selectedPropertyType.price}</p>
+              )}
+              {selectedPropertyType.area && (
+                <p className="m-0 uppercase tracking-caps">{selectedPropertyType.area}</p>
+              )}
+              <p className="m-0">North-East Exposure</p>
+              <p className="m-0">Fully furnished and equipped with all the essentials</p>
+              <p>Artworks by internationally significant artists</p>
             </div>
 
             {
