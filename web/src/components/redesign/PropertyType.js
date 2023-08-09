@@ -74,7 +74,7 @@ export const PropertyTypeUI = ({
             </h3>
           )} */}
           {selectedPropertyType?._rawDescription?.text && (
-            <div className="pr-mobile-menu md:pr-0 text-mobile-body md:text-desktop-body">
+            <div className="mt-10 pr-mobile-menu md:pr-0 text-mobile-body md:text-desktop-body">
               <StandardText data={selectedPropertyType?._rawDescription} />
             </div>
           )}
