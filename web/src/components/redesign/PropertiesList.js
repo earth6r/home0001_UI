@@ -4,10 +4,7 @@ export const PropertiesList = ({ properties, onChange, selectedProperty }) => {
   return (
     <>
       {properties && properties.length !== 0 ? (
-        <ul
-          id="properties-list"
-          className="animate-in m-0 grid gap-10 md:gap-20 mt-10 md:mt-20 pr-mobile-menu md:pr-0 pb-0"
-        >
+        <ul className="animate-in m-0 grid gap-10 md:gap-20 mt-10 md:mt-20 pr-mobile-menu md:pr-0 pb-0">
           {properties.map(property => {
             return (
               <li className="p-0 before:content-[''] m-0" key={property.id}>

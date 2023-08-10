@@ -16,7 +16,10 @@ export const PropertyTypeUI = ({
   howItWorks,
   viewInventoryText
 }) => {
-  const { setPropertyType: setSelectedPropertyType } = useContext(HomesContext);
+  const {
+    setPropertyType: setSelectedPropertyType,
+    setReserveHomeForm: setShowReserveHomeForm
+  } = useContext(HomesContext);
 
   const returnStudioData = () => {
     return (
@@ -57,8 +60,9 @@ export const PropertyTypeUI = ({
   };
 
   const onClickSeeAll = () => {
-    document.getElementById("properties-list")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("selected-property-types")?.scrollIntoView({ behavior: "smooth" });
     setTimeout(() => {
+      setShowReserveHomeForm(false);
       setSelectedPropertyType({ id: null });
     }, 250);
   };
