@@ -42,7 +42,9 @@ export const ReserveHomeForm = ({ data }) => {
             </p>
             <div className="text-red text-2xl mb-5">22 places available out of 30</div>
             <p>
-              {`${returnUnitNumber(data.property.propertyType)} will be released for sale soon to
+              {`${
+                data.property ? returnUnitNumber(data.property.propertyType) : null
+              } will be released for sale soon to
               buyers on the waitlist. Homebuyers will be offered this home in the order they joined.`}
             </p>
             <p>
