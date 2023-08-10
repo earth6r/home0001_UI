@@ -51,6 +51,7 @@ export const SingleProperty = ({
       {propertyTypes && (
         <ul className="animate-in flex flex-col gap-4 my-10 p-0 pr-mobile-menu md:pr-0">
           {propertyTypes.map(item => {
+            console.log("item:", item);
             const { amenities, propertyType, price, area, id, available } = item;
             return (
               <li key={id} className={`p-0 before:content-['']`}>
@@ -61,28 +62,40 @@ export const SingleProperty = ({
                     selectedPropertyType?.id === item.id ? "bg-black text-white" : ""
                   }`}
                 >
-                  <div className="p-0 m-0 text-left">
-                    {propertyType && (
-                      <p className="uppercase mb-0 tracking-caps">
-                        {propertyType
-                          .replace("one-bedroom", "1 bedroom")
-                          .replace("two-bedroom", "2 bedrooms")
-                          .replace("studio-max", "studio max")}
-                      </p>
-                    )}
-                    {price && <p className="uppercase tracking-caps mb-0">{price}</p>}
-                    {area && (
-                      <p className="uppercase tracking-caps">
-                        {area}
-                        <br />
-                        <span className="capitalize">
-                          Fully Equipped
+                  <div className="grid grid-cols-7">
+                    <div className="p-0 m-0 col-span-6 text-left">
+                      {propertyType && (
+                        <p className="uppercase mb-0 tracking-caps">
+                          {propertyType
+                            .replace("one-bedroom", "1 bedroom")
+                            .replace("two-bedroom", "2 bedrooms")
+                            .replace("studio-max", "studio max")}
+                        </p>
+                      )}
+                      {price && <p className="uppercase tracking-caps mb-0">{price}</p>}
+                      {area && (
+                        <p className="uppercase tracking-caps">
+                          {area}
                           <br />
-                          Access to homes in other locations
-                        </span>
-                      </p>
-                    )}
+                          <span className="capitalize">
+                            Fully Equipped
+                            <br />
+                            Access to homes in other locations
+                          </span>
+                        </p>
+                      )}
+                    </div>
+                    <div className="p-0 m-0 text-right">
+                      {item.propertyType === "studio"
+                        ? "Unit 3B"
+                        : item.propertyType === "studio-max"
+                        ? "Unit 4A"
+                        : item.propertyType === "one-bedroom"
+                        ? "Unit 6B"
+                        : null}
+                    </div>
                   </div>
+
                   {amenities && (
                     <ul className="mb-0 p-0">
                       {amenities.map((amenity, index) => {
