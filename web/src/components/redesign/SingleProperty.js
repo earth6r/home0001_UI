@@ -77,7 +77,7 @@ export const SingleProperty = ({
                         <p className="uppercase tracking-caps">
                           {area}
                           <br />
-                          <span className="capitalize">
+                          <span className="normal-case">
                             Fully Equipped
                             <br />
                             Access to homes in other locations
