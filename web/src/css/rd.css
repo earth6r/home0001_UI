@@ -1,6 +1,6 @@
 /* R & D*/
 
-.r-d-menu{
+.r-d-menu {
   font-family: Arial, Helvetica, sans-serif;
   padding: 1.75rem 0;
 }
@@ -12,7 +12,7 @@
   left: 0;
   padding: 0 1.75rem;
   top: 50%;
-  letter-spacing: -.01em;
+  letter-spacing: -0.01em;
   transform: translateY(-50%);
   -webkit-text-stroke: 0.2px;
 
@@ -46,7 +46,7 @@
 .viewSpacer {
   min-height: 1px;
 }
-.r-d-nav-text-desktop{
+.r-d-nav-text-desktop {
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -60,7 +60,7 @@
   color: #000000;
 }
 
-.r-d-nav-text-mobile{
+.r-d-nav-text-mobile {
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -73,11 +73,11 @@
   color: #000000;
 }
 
-.r-d-tagline{
+.r-d-tagline {
   max-width: 100%;
 }
 
-.r-d-tagline-mobile{
+.r-d-tagline-mobile {
   max-width: 300px;
 }
 
@@ -238,51 +238,49 @@
   width: 100%;
 }
 
-.lightbox-pdf{
+.lightbox-pdf {
   position: fixed;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   z-index: 900;
   background: white;
   width: 100vw;
-  height:100vh;
+  height: 100vh;
   overflow-y: scroll;
-
 }
-.lightbox-pdf canvas{
+.lightbox-pdf canvas {
   display: block;
-  margin:0 auto;
+  margin: 0 auto;
 }
 
-.react-pdf__Page{
+.react-pdf__Page {
   max-height: calc(100vh - 60px);
 }
-.lightbox-pdf .left-arrow{
+.lightbox-pdf .left-arrow {
   position: absolute;
-  left:30px;
-  top:50%;
+  left: 30px;
+  top: 50%;
 }
 .lightbox-pdf .pdf-close svg {
-  width:50px;
-  height:50px;
+  width: 50px;
+  height: 50px;
+}
+.lightbox-pdf .pdf-close svg line {
+  stroke: black;
+  stroke-width: 3px;
+}
+.lightbox-pdf .pdf-close {
+  top: 70px;
+  right: 190px;
+}
 
-}
-.lightbox-pdf .pdf-close svg line{
-  stroke:black;
-  stroke-width:3px;
-}
-.lightbox-pdf .pdf-close{
-  top:70px;
-  right:190px;
-}
-
-.lightbox-pdf .right-arrow{
+.lightbox-pdf .right-arrow {
   position: absolute;
-  right:30px;
-  top:50%;
+  right: 30px;
+  top: 50%;
 }
 
-.container-no-x-scroll{
+.container-no-x-scroll {
   overflow-x: hidden;
 }
 
@@ -293,60 +291,59 @@
   -webkit-text-stroke: 0.2px;
   font-family: Arial, Helvetica, sans-serif;
 }
-.rte.rte-large .article-accordion{
-  border:none;
+.rte.rte-large .article-accordion {
+  border: none;
   font-family: Arial, sans-serif;
   line-height: 0;
 }
-.rte.rte-large .article-accordion button{
+.rte.rte-large .article-accordion button {
   /* change padding to padding-top */
-   padding: 0;
-   display:inline-block;
-   width:100%;
+  padding: 0;
+  display: inline-block;
+  width: 100%;
 }
-.rte.rte-large .article-accordion button:hover{
+.rte.rte-large .article-accordion button:hover {
   background: inherit;
 }
-.rte.rte-large .article-accordion *{
-  font-size:inherit;
-  line-height:inherit;
+.rte.rte-large .article-accordion * {
+  font-size: inherit;
+  line-height: inherit;
   font-style: normal;
   font-weight: normal;
   color: #000000;
 }
-.rte.rte-large .article-accordion .article-box{
+.rte.rte-large .article-accordion .article-box {
   width: 100%;
   padding-top: 1.35vw;
   padding-bottom: 1.35vw;
 }
-.rte.rte-large .article-accordion .article-pagebreak{
+.rte.rte-large .article-accordion .article-pagebreak {
   border-top-color: black;
   border-top-width: 1px;
 }
-.rte.rte-large .article-accordion .article-titlebox{
+.rte.rte-large .article-accordion .article-titlebox {
   display: inline;
   text-align: left;
 }
-.rte.rte-large .article-accordion .article-title{
+.rte.rte-large .article-accordion .article-title {
   font-size: max(32px, 4vw);
   line-height: max(44.8px, 5vw);
   letter-spacing: -0.33px;
-  -webkit-font-smoothing: auto;
   text-decoration: underline;
   text-underline-offset: max(4.2px, 0.9vw);
 }
 .rte.rte-large .article-accordion .article-title:hover {
   text-decoration: none;
 }
-.rte.rte-large .article-accordion .article-subtitle{
+.rte.rte-large .article-accordion .article-subtitle {
   font-size: 13px;
   line-height: 110%;
 }
-.rte .article-accordion .flag-box{
-  display:inline-flex;
+.rte .article-accordion .flag-box {
+  display: inline-flex;
 }
-.rte .article-accordion .flag{
-  font-size: .688rem;
+.rte .article-accordion .flag {
+  font-size: 0.688rem;
   line-height: 110%;
   letter-spacing: 0.03em;
 
@@ -355,18 +352,18 @@
   margin-top: -0.45rem;
   margin-bottom: 0.1rem;
 }
-.rte .article-accordion .flag-bg{
+.rte .article-accordion .flag-bg {
   font-size: 13px;
   line-height: 110%;
   letter-spacing: 0.03em;
-  display:inline-flex;
+  display: inline-flex;
   white-space: nowrap;
   margin-top: 0.45rem;
 }
-.article-tag{
+.article-tag {
   padding-top: max(11px, 0.9vw);
 }
-.rte .article-accordion .article-tag{
+.rte .article-accordion .article-tag {
   font-size: max(11px, 0.9vw);
   line-height: 110%;
   letter-spacing: 0.03em;
@@ -383,7 +380,8 @@
   font-size: max(16px, 1.6vw) !important;
   line-height: 110% !important;
 }
-.article-main-image, .article-section-image {
+.article-main-image,
+.article-section-image {
   position: relative;
 }
 .article-image-caption {
@@ -409,21 +407,22 @@
   text-underline-offset: max(4.2px, 0.9vw);
   text-decoration-thickness: max(2.5px, 0.5vw);
 }
-.gallery-image iframe, .internal-iframe iframe{
-  max-width:100%;
+.gallery-image iframe,
+.internal-iframe iframe {
+  max-width: 100%;
 }
 .standard-text a {
-  border-bottom: 2px solid;
+  border-bottom: 1px dashed;
 }
 .standard-text h1 > a {
-  border-bottom:5px solid;
+  border-bottom: 5px solid;
 }
-@media(min-width:768px){
-  .px-special{
-    padding:0 85px;
+@media (min-width: 768px) {
+  .px-special {
+    padding: 0 85px;
   }
 }
-@media(max-width:767px){
+@media (max-width: 767px) {
   .article-container {
     margin-left: 72px;
   }
@@ -466,46 +465,49 @@
     font-size: 6vw;
   }
 
-  .react-pdf__Page,.react-pdf__Page canvas{
+  .react-pdf__Page,
+  .react-pdf__Page canvas {
     max-width: calc(100vw);
   }
-  .mt-special-nav{
+  .mt-special-nav {
     margin-top: 27px !important;
   }
 
   .standard-text h1 > a {
-    border-bottom:2px solid;
+    border-bottom: 2px solid;
   }
-  .lightbox-pdf canvas{
-    transform-origin:center center;
-    transform:scale(0.7);
+  .lightbox-pdf canvas {
+    transform-origin: center center;
+    transform: scale(0.7);
   }
   .lightbox-pdf .pdf-close {
-    right:50px;
+    right: 50px;
   }
-  .lightbox-pdf .pdf-close svg{
-    width:15px;
-    height:15px;
+  .lightbox-pdf .pdf-close svg {
+    width: 15px;
+    height: 15px;
   }
-   .lightbox-pdf .pdf-close svg line{
-    stroke-width:10px;
-   }
+  .lightbox-pdf .pdf-close svg line {
+    stroke-width: 10px;
+  }
 }
 
-.rte .html-text{
-  font-size:18px;
+.rte .html-text {
+  font-size: 18px;
   line-height: 1;
 }
 
 /* rdObroud Button */
-@media(min-width: 768px){
-  .rdObround-width h2, .rte.rte-large .rdObround-width h2{
+@media (min-width: 768px) {
+  .rdObround-width h2,
+  .rte.rte-large .rdObround-width h2 {
     font-size: 0.875rem !important;
     letter-spacing: 0;
   }
 }
-.rdObround-width h2, .rte.rte-large .rdObround-width h2 {
-  font-size:0.875rem ;
+.rdObround-width h2,
+.rte.rte-large .rdObround-width h2 {
+  font-size: 0.875rem;
 }
 .rdObround-width .background-obround {
   background: rgba(255, 255, 255, 1);
@@ -515,47 +517,53 @@
   transition-property: box-shadow, background-color;
 }
 /* info section R & D */
-.info-rnd-content{
+.info-rnd-content {
   font-size: 0.75rem !important;
 }
-.info-rd a{
+.info-rd a {
   margin-bottom: 1.5rem;
   text-decoration: underline;
 }
 .rnd-mailchimp input {
-  font-size: .875rem !important;
+  font-size: 0.875rem !important;
   padding: 1.5em 0.5em !important;
   display: flex !important;
 }
 .input-margin-top {
   margin-top: 1rem !important;
 }
-form button[type="submit"], form input {
+form button[type="submit"],
+form input {
   height: 52px !important;
-  font-size: 1rem !important;
+  font-size: 1rem;
   border-radius: 0 !important;
   box-shadow: none !important;
   border: 1px solid black !important;
 }
-.rnd-mailchimp form button,.rnd-mailchimp button[type="submit"]{
+.rnd-mailchimp form button,
+.rnd-mailchimp button[type="submit"] {
   display: flex;
   line-height: 1.125rem !important;
 }
-.rnd-mailchimp form p{
-  display:none;
+.rnd-mailchimp form p {
+  display: none;
   padding: 1.5em 0.5em !important;
 }
-img{
+img {
   max-width: 500px;
 }
-.info-section{
+.info-section {
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.6);
-  animation:slide;
+  animation: slide;
   animation-iteration-count: 1;
-  animation-duration:0.2s;
+  animation-duration: 0.2s;
 }
 @keyframes slide {
-  from { transform: translateY(-500px); }
-  to { transform: translateY(0); }
+  from {
+    transform: translateY(-500px);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 /* end R & D*/

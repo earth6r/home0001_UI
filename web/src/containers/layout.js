@@ -1,10 +1,11 @@
 import { graphql, StaticQuery } from "gatsby";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Layout from "../components/layout";
 import { ThemeProvider } from "@chakra-ui/core";
 import { Global, css } from "@emotion/core";
 import * as Sentry from "@sentry/browser";
 import { Integrations } from "@sentry/tracing";
+import { HomesContext } from "../components/context/HomesContext";
 
 // Add Sentry to page to catch exceptions from users
 // only init in production env
@@ -142,13 +143,10 @@ const query = graphql`
               url
             }
             ... on SanityInternalLink {
-              _key
-              _type
               link {
                 ...LinkFragment
-                ...HomeLinkFragment
               }
-              title
+              _key
             }
           }
         }
@@ -250,14 +248,61 @@ const query = graphql`
         }
       }
     }
+
+    homesFooterMenu: allSanityMenus(filter: { slug: { current: { eq: "homes-footer" } } }) {
+      edges {
+        node {
+          items {
+            ... on SanityExternalLink {
+              _key
+              _type
+              title
+              url
+            }
+            ... on SanityInternalLink {
+              _key
+              _type
+              link {
+                ...LinkFragment
+                ...HomeLinkFragment
+                ... on SanityAboutPage {
+                  title
+                }
+                ... on SanityContactPage {
+                  title
+                }
+                ... on SanityFaqPage {
+                  title
+                }
+                ... on SanityHomePage {
+                  title
+                }
+                ... on SanityHowItWorksPage {
+                  title
+                }
+                ... on SanityLegalPage {
+                  title
+                }
+                ... on SanityNewsLetter {
+                  title
+                }
+              }
+              title
+            }
+          }
+        }
+      }
+    }
   }
 `;
 
 function LayoutContainer(props) {
+  const { setMenuOpen } = useContext(HomesContext);
   const [showNav, setShowNav] = useState(false);
   const [showSubNav, setShowSubNav] = useState(0);
   function handleShowNav() {
     setShowNav(true);
+    setMenuOpen(true);
     document.body.style.overflow = "hidden";
   }
   function handleHideNav() {
@@ -304,6 +349,7 @@ function LayoutContainer(props) {
               onShowSubNav={handleShowSubNav}
               footerMenu={data.footerMenu}
               rndFooterMenu={data.rndFooterMenu}
+              homesFooterMenu={data.homesFooterMenu}
               mainMenu={data.mainMenu}
               rMenu={data.rMenu}
               subMenu={data.subMenu}

@@ -11,17 +11,18 @@ import "focus-visible/dist/focus-visible";
 import PaymentContext from "./src/lib/payment-context";
 import { DISCOUNT_CODES } from "./src/lib/constants";
 import { trimSlashes } from "./src/lib/helpers";
-
 //stripe
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import { HomesContextProvider } from "./src/components/context/HomesContext";
+
 const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
 const ELEMENTS_OPTIONS = {
   fonts: [
     {
       // cssSrc: "https://earth6r.com/fonts/GerstnerProgramm-Regular.woff2",
-    },
-  ],
+    }
+  ]
 };
 
 export const wrapRootElement = ({ element, props }) => {
@@ -52,9 +53,11 @@ export const wrapRootElement = ({ element, props }) => {
 
   return (
     <PaymentContext.Provider value={{ discount, discountCode }}>
-      <Elements options={ELEMENTS_OPTIONS} stripe={stripePromise} {...props}>
-        {element}
-      </Elements>
+      <HomesContextProvider>
+        <Elements options={ELEMENTS_OPTIONS} stripe={stripePromise} {...props}>
+          {element}
+        </Elements>
+      </HomesContextProvider>
     </PaymentContext.Provider>
   );
 };

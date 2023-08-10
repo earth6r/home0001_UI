@@ -1,17 +1,12 @@
 import S from '@sanity/desk-tool/structure-builder'
 import {
-  MdPerson,
   MdDescription,
   MdHome,
   MdLocalOffer,
   MdSettings,
-  MdPayment,
   MdPublic,
-  MdDashboard,
-  MdAccountBalance,
   MdPeople,
-  MdInfoOutline,
-  MdFolder,
+  MdFolder
 } from 'react-icons/md'
 import IframePreview from '../previews/IframePreview'
 
@@ -20,7 +15,7 @@ const remoteURL = ''
 const localURL = 'http://localhost:8000'
 const previewURL = window.location.hostname === 'localhost' ? localURL : remoteURL
 
-export const getDefaultDocumentNode = (props) => {
+export const getDefaultDocumentNode = props => {
   /**
    * Here you can define fallback views for document types without
    * a structure definition for the document node. If you want different
@@ -28,17 +23,23 @@ export const getDefaultDocumentNode = (props) => {
    * you can set up that logic in here too.
    * https://www.sanity.io/docs/structure-builder-reference#getdefaultdocumentnode-97e44ce262c9
    */
-  const { schemaType } = props
-  if (schemaType == 'post') {
+  const {schemaType} = props
+  if (schemaType === 'post') {
     return S.document().views([
       S.view.form(),
-      S.view.component(IframePreview).title('Web preview').options({ previewURL }),
+      S.view
+        .component(IframePreview)
+        .title('Web preview')
+        .options({previewURL})
     ])
   }
-  if (schemaType == 'page') {
+  if (schemaType === 'page') {
     return S.document().views([
       S.view.form(),
-      S.view.component(IframePreview).title('Web preview').options({ previewURL }),
+      S.view
+        .component(IframePreview)
+        .title('Web preview')
+        .options({previewURL})
     ])
   }
   return S.document().views([S.view.form()])
@@ -60,7 +61,82 @@ export default () =>
       S.listItem()
         .title('Settings')
         .icon(MdSettings)
-        .child(S.editor().id('siteSettings').schemaType('siteSettings').documentId('siteSettings')),
+        .child(
+          S.editor()
+            .id('siteSettings')
+            .schemaType('siteSettings')
+            .documentId('siteSettings')
+        ),
+      S.divider(),
+      S.listItem()
+        .title('Home')
+        .child(
+          S.editor()
+            .id('homePage')
+            .schemaType('homePage')
+            .documentId('homePage')
+        ),
+      S.listItem()
+        .title('Cities')
+        .schemaType('cities')
+        .child(S.documentTypeList('cities').title('Cities')),
+      S.listItem()
+        .title('Properties')
+        .schemaType('property')
+        .child(S.documentTypeList('property').title('Properties')),
+      S.listItem()
+        .title('Property Types')
+        .schemaType('propertyType')
+        .child(S.documentTypeList('propertyType').title('Property Types')),
+      S.divider(),
+      S.listItem()
+        .title('How It Works')
+        .child(
+          S.editor()
+            .id('howItWorksPage')
+            .schemaType('howItWorksPage')
+            .documentId('howItWorksPage')
+        ),
+      S.listItem()
+        .title('FAQ')
+        .child(
+          S.editor()
+            .id('faqPage')
+            .schemaType('faqPage')
+            .documentId('faqPage')
+        ),
+      S.listItem()
+        .title('About')
+        .child(
+          S.editor()
+            .id('aboutPage')
+            .schemaType('aboutPage')
+            .documentId('aboutPage')
+        ),
+      S.listItem()
+        .title('Contact')
+        .child(
+          S.editor()
+            .id('contactPage')
+            .schemaType('contactPage')
+            .documentId('contactPage')
+        ),
+      S.listItem()
+        .title('Newsletter')
+        .child(
+          S.editor()
+            .id('newsLetter')
+            .schemaType('newsLetter')
+            .documentId('newsLetter')
+        ),
+      S.listItem()
+        .title('Legal')
+        .child(
+          S.editor()
+            .id('legalPage')
+            .schemaType('legalPage')
+            .documentId('legalPage')
+        ),
       S.divider(),
       S.listItem()
         .title('Menus')
@@ -68,7 +144,7 @@ export default () =>
           S.documentTypeList('menus')
             .title('Menus')
             .filter('_type == $type')
-            .params({ type: 'menus' })
+            .params({type: 'menus'})
         ),
       S.divider(),
       S.listItem()
@@ -86,7 +162,6 @@ export default () =>
       //   .title('View Homes')
       //   .icon(MdSettings)
       //   .child(S.editor().id('homes').schemaType('homes').documentId('homes')),
-      S.divider(),
       S.listItem()
         .title('Homes')
         .icon(MdHome)
@@ -111,7 +186,12 @@ export default () =>
       S.listItem()
         .title('R & D')
         .icon(MdPublic)
-        .child(S.editor().id('rnd').schemaType('rnd').documentId('rnd')),
+        .child(
+          S.editor()
+            .id('rnd')
+            .schemaType('rnd')
+            .documentId('rnd')
+        ),
 
       // S.listItem()
       //   .title('Artists')
@@ -171,29 +251,37 @@ export default () =>
       // defined in schema.js. We filter out those that we have
       // defined the structure above.
       ...S.documentTypeListItems().filter(
-        (listItem) =>
+        listItem =>
           ![
             'category',
             'home',
             'about',
             'checkout',
             'homes',
-            // 'howItWorks',
+            'howItWorksPage',
             'partner',
             'page',
             'rnd',
             // 'viewHomes',
-            //'artist',
-            //'gallery',
-            //'author',
-            //'viewingRoom',
-            //'fair',
-            //'exhibition',
-            //'job',
+            // 'artist',
+            // 'gallery',
+            // 'author',
+            // 'viewingRoom',
+            // 'fair',
+            // 'exhibition',
+            // 'job',
             'menus',
             'post',
             'siteSettings',
-            //'staff',
+            'homePage',
+            'cities',
+            'property',
+            'propertyType',
+            'aboutPage',
+            'contactPage',
+            'legalPage',
+            'newsLetter'
+            // 'staff',
           ].includes(listItem.getId())
-      ),
+      )
     ])

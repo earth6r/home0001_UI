@@ -1,18 +1,12 @@
 import React from "react";
-import BlockContent from "@sanity/block-content-to-react";
-import { Serializer } from "../../utils/serializer";
-import {
-  Accordion,
-  AccordionItem,
-  AccordionHeader,
-  AccordionPanel,
-} from "@chakra-ui/core";
+import { Accordion, AccordionItem, AccordionHeader, AccordionPanel } from "@chakra-ui/core";
 import PortableText from "../portableText";
-import GridRow from "../grid/grid-row";
+import Minus from "../icon/minus";
+import Plus from "../icon/plus";
 
 export interface AccordionModuleProps {
   data: {
-    title: string
+    title: string;
     accordionItems: any[];
   };
 }
@@ -20,33 +14,28 @@ export interface AccordionModuleProps {
 export const AccordionModule = ({ data }: AccordionModuleProps) => {
   const { title, accordionItems } = data;
   return (
-    <Accordion allowToggle className=" w-full">
+    <Accordion allowToggle className="my-10 w-full">
       {accordionItems.length > 0 &&
-        accordionItems.map((item, index) => (
+        accordionItems.map(item => (
           <React.Fragment key={item._key}>
-            <AccordionItem
-              className="border-none relative block accordion box max-w-4xl lg:ml-1/10 mb-1em rounded-lg"
-            >
+            <AccordionItem className="bg-white border border-[#000] flex flex-col justify-center text-mobile-body md:text-desktop-body mt-2 first:mt-0">
+              {/* @ts-ignore */}
               {({ isExpanded }) => (
                 <>
-                  <AccordionHeader className="accordion relative  h-2em p-0 pt-4.5 md:pt-1/2em pl-1/2em border-none">
-                    <h2 className="-mt-1/4em md:mt-3 w-full text-left title">{item.title}</h2>
-                    <div
-                      
-                      className="accordion-icon md:mt-0 right-0 absolute pr-3"
-                    >
-                      {isExpanded ? "–" : "+"}
+                  <AccordionHeader className="flex items-center justify-between hover:bg-white px-3 py-4 h-full">
+                    <h2 className="text-left m-0 uppercase tracking-caps text-mobile-body md:text-desktop-body">
+                      {item.title}
+                    </h2>
+                    <div className="text-[20px] font-normal">
+                      {isExpanded ? <Minus /> : <Plus />}
                     </div>
                   </AccordionHeader>
-                  <AccordionPanel 
-                  style={ title === "HIW Sections" ? { paddingLeft: "0.675rem", paddingBottom: "1em"} : { paddingBottom: "1em"}}
-                  >
+                  <AccordionPanel className="px-3 text-mobile-body md:text-desktop-body">
                     <PortableText blocks={item.text} />
                   </AccordionPanel>
                 </>
               )}
             </AccordionItem>
-            {/*<div>{index < accordionItems.length - 1 && <GridRow></GridRow>}</div>*/}
           </React.Fragment>
         ))}
     </Accordion>

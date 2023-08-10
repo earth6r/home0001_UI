@@ -13,14 +13,14 @@ import blockContent from './blockContent'
 import blockText from './blockText'
 import partner from './documents/partner'
 import siteSettings from './documents/siteSettings'
-
+import cities from './documents/cities'
 // static pages
 import landing from './documents/landing'
 import home from './documents/home'
 // import homes from './documents/homes'
-// import howItWorks from './documents/howItWorks'
+import howItWorks from './documents/howItWorks'
 import checkout from './documents/checkout'
-import about from './documents/about'
+// import about from './documents/about'
 import rnd from './documents/rnd'
 // import viewHomes from './documents/viewHomes'
 
@@ -55,6 +55,8 @@ import pane from './objects/pane'
 import viewSpacer from './objects/viewSpacer'
 import newRow from './objects/newRow'
 import newCell from './objects/newCell'
+import imageWithFile from './objects/imageWithFile'
+import reserveHomeForm from './objects/reserveHomeForm'
 
 // Modules
 import accordion from './modules/accordion'
@@ -88,6 +90,20 @@ import pageContent from './tabs/pageContent'
 
 // Content Types
 import menus from './types/menus'
+import property from './documents/property'
+import propertyType from './documents/propertyType'
+import homePage from './documents/homePage'
+import map from './objects/map'
+import simpleText from './objects/simpleText'
+import aboutPage from './documents/aboutPage'
+import inventoryModule from './modules/inventoryModule'
+import inventoryRow from './objects/inventoryRow'
+import inventoryCell from './objects/inventoryCell'
+import legalPage from './documents/legalPage'
+import newsLetter from './documents/newsLetter'
+import newsLetterForm from './objects/newsLetterForm'
+import contactPage from './documents/contactPage'
+import faqPage from './documents/faqPage'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -104,13 +120,23 @@ export default createSchema({
     // static pages
     landing,
     home,
-    about,
+    // about,
     homeUnit,
     checkout,
     // homes,
-    // howItWorks,
+    homePage,
+    cities,
+    property,
+    propertyType,
+    howItWorks,
+    faqPage,
+    aboutPage,
+    contactPage,
+    legalPage,
+    newsLetter,
     // viewHomes,
     //
+    newsLetterForm,
     accordion,
     accordionItem,
     category,
@@ -173,7 +199,14 @@ export default createSchema({
     newRow,
     rowLinkTable,
     columnHeaderTable,
-    liveVideo
+    liveVideo,
+    map,
+    simpleText,
+    inventoryModule,
+    inventoryRow,
+    inventoryCell,
+    imageWithFile,
+    reserveHomeForm
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ])

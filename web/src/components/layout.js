@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
-import Footer from "./footer";
+import React, { useState, useEffect, useRef, useContext } from "react";
+import FooterHomes from "../components/redesign/Footer";
 import GridRow from "./grid/grid-row";
 import Header from "./header";
 import HeaderRnd from "./headerRnd";
 import FooterRnd from "./footerRnd";
+import { HomesContext } from "./context/HomesContext";
 
 const Layout = ({
   bannerUrl,
@@ -24,7 +25,9 @@ const Layout = ({
   pillColor,
   rMenu,
   rnd = false,
+  homes = false,
   rndFooterMenu,
+  homesFooterMenu,
   showNav,
   showPopupNewsletter,
   showSubNav,
@@ -32,11 +35,20 @@ const Layout = ({
   siteTitle,
   strikeColor,
   subMenu,
-  thinBanner
+  thinBanner,
+  pathname
 }) => {
+  const { menuOpened, selectedCity } = useContext(HomesContext);
+  const [showPage, setShowPage] = useState(false);
+
+  useEffect(() => {
+    setShowPage(true);
+  }, []);
+
   useEffect(() => {
     function atFooter(el) {
-      return el.getBoundingClientRect().bottom <= window.innerHeight;
+      const footer = document.getElementById("footer");
+      return footer && el.getBoundingClientRect().bottom <= window.innerHeight;
     }
 
     function calculateIntercomBottom(el) {
@@ -75,6 +87,8 @@ const Layout = ({
 
     return () => document.removeEventListener("scroll", positionIntercomBubble);
   });
+
+  const showHomesFooter = pathname !== "/this-is-not-an-exit" || selectedCity?.id;
 
   return (
     <div className="flex flex-col justify-between h-full">
@@ -120,31 +134,33 @@ const Layout = ({
           subMenu={subMenu}
           rMenu={rMenu}
           isHome={isHome}
+          pathname={pathname}
         />
       )}
       <div
-        className={`${showThinBanner && !rnd ? "mt-16 md:mt-20" : "mt-8"
-          } hidden md:block container pb-1/2em absolute`}
+        className={`${
+          showThinBanner && !rnd ? "mt-16 md:mt-20" : "mt-8"
+        } hidden md:block container pb-1/2em absolute`}
       >
         <GridRow />
       </div>
       <div
         id="page-content-wrapper"
-        className={`${showThinBanner && !rnd ? "mt-16 md:mt-12md:mt-16" : "mt-0"} ${blackHeader ? " dark-theme " : ""
-          } ${rnd ? "px-special mobile-padding" : ""} container px-4 md:px-8 pb-0`}
+        className={`${showThinBanner && !rnd ? "mt-16 md:mt-12md:mt-16" : "mt-0"} ${
+          blackHeader ? " dark-theme " : ""
+        } ${
+          rnd ? "px-special mobile-padding" : ""
+        } container pb-0 transition-opacity duration-[350ms] ease-linear ${
+          showPage || !menuOpened ? "opacity-100" : "opacity-0"
+        }`}
       >
         {children}
       </div>
       {rnd ? (
         <FooterRnd blackFooter={blackFooter} footerMenu={rndFooterMenu} />
-      ) : (
-        <Footer
-          blackFooter={blackFooter}
-          showPopupNewsletter={showPopupNewsletter}
-          newsletter={newsletter}
-          footerMenu={footerMenu}
-        />
-      )}
+      ) : homes && showHomesFooter ? (
+        <FooterHomes footerMenu={homesFooterMenu} />
+      ) : null}
     </div>
   );
 };

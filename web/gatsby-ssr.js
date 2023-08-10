@@ -13,14 +13,15 @@ import "focus-visible/dist/focus-visible";
 //stripe
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import { HomesContextProvider } from "./src/components/context/HomesContext";
 const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY);
 
 const ELEMENTS_OPTIONS = {
   fonts: [
     {
       // cssSrc: "https://earth6r.com/fonts/GerstnerProgramm-Regular.woff2",
-    },
-  ],
+    }
+  ]
 };
 
 // export const onRenderBody = ({ setPostBodyComponents }) => {
@@ -45,8 +46,10 @@ const ELEMENTS_OPTIONS = {
 
 export const wrapRootElement = ({ element, props }) => {
   return (
-    <Elements options={ELEMENTS_OPTIONS} stripe={stripePromise} {...props}>
-      {element}
-    </Elements>
+    <HomesContextProvider>
+      <Elements options={ELEMENTS_OPTIONS} stripe={stripePromise} {...props}>
+        {element}
+      </Elements>
+    </HomesContextProvider>
   );
 };

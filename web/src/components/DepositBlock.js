@@ -29,7 +29,7 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  useDisclosure,
+  useDisclosure
 } from "@chakra-ui/core";
 import { distanceInWordsToNow } from "date-fns";
 
@@ -114,7 +114,7 @@ const ValueAdded = ({
   codes,
   discountCode,
   unitTitle,
-  color,
+  color
 }) => {
   let currentUri = "";
   if (typeof window != `undefined`) {
@@ -132,14 +132,14 @@ const ValueAdded = ({
       setShowRefund(0);
       if (isMobile) {
         window.Intercom("update", {
-          hide_default_launcher: false,
+          hide_default_launcher: false
         });
       }
     } else {
       setShowRefund(1);
       if (isMobile) {
         window.Intercom("update", {
-          hide_default_launcher: true,
+          hide_default_launcher: true
         });
       }
     }
@@ -287,7 +287,7 @@ const CheckoutDescription = ({
   children,
   color,
   discount,
-  discountCode,
+  discountCode
 }) => {
   const [head, ...rest] = modules;
 
@@ -361,7 +361,7 @@ const CheckoutModules = ({ unit, modules, children, discount, discountCode }) =>
   );
 };
 
-const DepositBlock = (props) => {
+const DepositBlock = props => {
   const { depositPage } = props;
 
   const [rerender, setRerender] = useState(); // or any state
@@ -384,7 +384,6 @@ const DepositBlock = (props) => {
     }
   }
 
-
   useEffect(() => {
     if (!afterRender) return;
     scrollToCheckoutOnAnchor();
@@ -395,95 +394,92 @@ const DepositBlock = (props) => {
     setAfterRender(true); // (1) will be called after DOM rendered
   }, [rerender]); // or don't set any if you want to listen to all re-render events
 
-
   function scrollToCheckoutOnAnchor() {
-   
-      if (currentUri && currentUri.split("#")[1]) {
-        if (currentUri.split("#")[1].includes("checkout")) {
-          let checkoutPosition = document
-            .querySelector("#homepage-checkout-module")
-            .getBoundingClientRect().top;
-     
-          window.scrollBy({
-            top: checkoutPosition,
-            behavior: "smooth",
-          });
-        }
-      }
+    if (currentUri && currentUri.split("#")[1]) {
+      if (currentUri.split("#")[1].includes("checkout")) {
+        let checkoutPosition = document
+          .querySelector("#homepage-checkout-module")
+          .getBoundingClientRect().top;
 
+        window.scrollBy({
+          top: checkoutPosition,
+          behavior: "smooth"
+        });
+      }
+    }
   }
 
   return (
     <>
-    {setRerender}
-    <StaticQuery
-      query={query}
-      render={(data) => {
-        let sku = "MEMB001";
-        const whatsIncluded = data.whatsIncluded.whatsIncluded;
-        const depositCounter = data.depositCounter.depositCounter;
-        const btc = data.settings.exchangeRateUSDBTC;
-        const eth = data.settings.exchangeRateUSDETH;
-        const depositBlockImage = data.depositBlockImage.depositBlockImage;
-        let bitPayID = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_REGULAR_PRICE;
-        let bitPayIDDiscounted = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_DISCOUNTED;
-        return (
-          <Container
-            className={`md:pl-20 z-40 home-deposit-module ${
-              depositPage ? "" : " pb-4 px-0 md:px-2 mt-8 md:mb-0 home-deposit-module-scroll"
-            }`}
-          >
-            <div id="homepage-checkout-module"></div>
-            <div className="max-w-2xl md:inline-block md:mt-12 md:w-4/6 lg:w-3/6">
-              {depositPage && <div className="pt-8"></div>}
-              <CheckoutOptions>
-                <CheckoutActions unit={null}>
-                  <PaymentContext.Consumer>
-                    {({ discount, discountCode }) => {
-                      return (
-                        <>
-                          <CheckoutDescription
-                            unit={null}
-                            color={null}
-                            codes={null}
-                            whatsIncluded={whatsIncluded}
-                            btc={btc}
-                            eth={eth}
-                            depositCounter={depositCounter}
-                            modules={[0]}
-                            discount={null}
-                            discountCode={null}
-                          ></CheckoutDescription>
-                          <CheckoutCreate
-                            home={null}
-                            unit={null}
-                            sku={sku}
-                            bitPayID={bitPayID}
-                            discount={null}
-                            codes={null}
-                            discountCode={null}
-                            stripePromise={stripePromise}
-                          />
-                          <CheckoutModules
-                            unit={null}
-                            modules={[0]}
-                            discount={null}
-                            discountCode={null}
-                          ></CheckoutModules>
-                        </>
-                      );
-                    }}
-                  </PaymentContext.Consumer>
-                </CheckoutActions>
-              </CheckoutOptions>
-            </div>
-            <div className="w-3/6 max-w-3xl pl-2 mt-6 align-top hidden lg:inline-block relative">
-              <Figure node={depositBlockImage} />
-            </div>
-          </Container>
-        );
-      }}
-    />
+      {setRerender}
+      <StaticQuery
+        query={query}
+        render={data => {
+          let sku = "MEMB001";
+          const whatsIncluded = data.whatsIncluded.whatsIncluded;
+          const depositCounter = data.depositCounter.depositCounter;
+          const btc = data.settings.exchangeRateUSDBTC;
+          const eth = data.settings.exchangeRateUSDETH;
+          const depositBlockImage = data.depositBlockImage.depositBlockImage;
+          let bitPayID = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_REGULAR_PRICE;
+          let bitPayIDDiscounted = process.env.GATSBY_BITPAY_MEMBERSHIP_ID_DISCOUNTED;
+          return (
+            <Container
+              className={`pt-6 md:pt-10 pb-6 md:pt-10 m-0 pl-0 z-40 home-deposit-module ${
+                depositPage ? "" : "home-deposit-module-scroll"
+              }`}
+            >
+              <div id="homepage-checkout-module"></div>
+              <div className="max-w-[19.375rem] md:max-w-[29.25rem] md:inline-block md:w-4/6 lg:w-3/6">
+                {depositPage && <div className="pt-8"></div>}
+                <CheckoutOptions>
+                  <CheckoutActions unit={null}>
+                    <PaymentContext.Consumer>
+                      {({ discount, discountCode }) => {
+                        return (
+                          <>
+                            <CheckoutDescription
+                              unit={null}
+                              color={null}
+                              codes={null}
+                              whatsIncluded={whatsIncluded}
+                              btc={btc}
+                              eth={eth}
+                              depositCounter={depositCounter}
+                              modules={[0]}
+                              discount={null}
+                              discountCode={null}
+                            ></CheckoutDescription>
+                            <CheckoutCreate
+                              home={null}
+                              unit={null}
+                              sku={sku}
+                              bitPayID={bitPayID}
+                              discount={null}
+                              codes={null}
+                              discountCode={null}
+                              stripePromise={stripePromise}
+                            />
+                            <CheckoutModules
+                              unit={null}
+                              modules={[0]}
+                              discount={null}
+                              discountCode={null}
+                            ></CheckoutModules>
+                          </>
+                        );
+                      }}
+                    </PaymentContext.Consumer>
+                  </CheckoutActions>
+                </CheckoutOptions>
+              </div>
+              <div className="w-3/6 max-w-3xl pl-2 mt-6 align-top hidden lg:inline-block relative">
+                <Figure node={depositBlockImage} />
+              </div>
+            </Container>
+          );
+        }}
+      />
     </>
   );
 };

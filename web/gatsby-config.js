@@ -55,10 +55,10 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-react-svg',
+      resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /earth-rnd-logo.*\.svg/,
+          include: /earth.*\.svg/
         }
       }
     },
@@ -156,6 +156,14 @@ module.exports = {
         // like: https://github.com/segmentio/consent-manager that will call it for you.
         // Useful for only loading the tracking script once a user has opted in to being tracked, for example.
         manualLoad: false
+      }
+    },
+    {
+      resolve: "gatsby-plugin-hubspot",
+      options: {
+        trackingCode: "39987214",
+        respectDNT: false,
+        productionOnly: true
       }
     }
   ]

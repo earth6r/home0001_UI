@@ -162,16 +162,39 @@ export default {
                     to: [
                       {type: 'page'},
                       {type: 'checkout'},
-                      {type: 'home'}
+                      {type: 'home'},
+                      {type: 'aboutPage'},
+                      {type: 'contactPage'},
+                      {type: 'faqPage'},
+                      {type: 'homePage'},
+                      {type: 'howItWorksPage'},
+                      {type: 'legalPage'},
+                      {type: 'newsLetter'}
                       // other types you may want to link to
                     ]
+                  },
+                  {
+                    name: 'anchor',
+                    title: 'Anchor',
+                    type: 'string'
+                  }
+                ]
+              },
+              {
+                name: 'anchor',
+                title: 'Anchor',
+                type: 'object',
+                icon: () => '#',
+                fields: [
+                  {
+                    name: 'anchorId',
+                    title: 'Anchor ID',
+                    type: 'string'
                   }
                 ]
               }
             ]
-          },
-          of: [{type: 'authorReference'}],
-          of: [{type: 'partnerReference'}]
+          }
         }
       ]
     }

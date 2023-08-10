@@ -132,7 +132,7 @@ const CollectivePage = props => {
         image={meta.openImage}
         ogTitle={meta.openTitle}
         ogDescription={meta.openGraphDescription}
-        ogUrl={process.env.SITE_URL + 'homes'}
+        ogUrl={process.env.SITE_URL + "homes"}
         twitterImage={meta.twitterImage}
         twitterTitle={meta.twitterTitle}
         twitterDescription={meta.twitterDescription}
