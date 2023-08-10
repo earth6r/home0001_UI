@@ -15,7 +15,43 @@ export const PropertyTypeUI = ({
   howItWorks,
   viewInventoryText
 }) => {
-  console.log("selectedPropertyType", selectedPropertyType);
+  const returnStudioData = () => {
+    return (
+      <div>
+        <p className="m-0">Elevator building</p>
+        <p className="m-0">Third floor</p>
+        <p className="m-0">Northeast exposure</p>
+        <p className="m-0">Windows onto Allen Street</p>
+        <p className="m-0">Fully furnished and equipped with all the essentials</p>
+        <p>Artworks by internationally significant artists</p>
+      </div>
+    );
+  };
+  const returnStudioMaxData = () => {
+    return (
+      <div>
+        <p className="m-0">Elevator building</p>
+        <p className="m-0">Fourth floor</p>
+        <p className="m-0">Northeast exposure</p>
+        <p className="m-0">Windows onto Allen Street</p>
+        <p className="m-0">Fully furnished and equipped with all the essentials</p>
+        <p>Artworks by internationally significant artists</p>
+      </div>
+    );
+  };
+
+  const returnOneBedroomData = () => {
+    return (
+      <div>
+        <p className="m-0">Elevator building</p>
+        <p className="m-0">Sixth floor</p>
+        <p className="m-0">Southeast exposure</p>
+        <p className="m-0">Windows onto Orchard Street</p>
+        <p className="m-0">Fully furnished and equipped with all the essentials</p>
+        <p>Artworks by internationally significant artists</p>
+      </div>
+    );
+  };
   return (
     <>
       {selectedPropertyType ? (
@@ -53,9 +89,13 @@ export const PropertyTypeUI = ({
               {selectedPropertyType.area && (
                 <p className="m-0 uppercase tracking-caps">{selectedPropertyType.area}</p>
               )}
-              <p className="m-0">North-East Exposure</p>
-              <p className="m-0">Fully furnished and equipped with all the essentials</p>
-              <p>Artworks by internationally significant artists</p>
+              {selectedPropertyType.propertyType === "studio"
+                ? returnStudioData()
+                : selectedPropertyType.propertyType === "studio-max"
+                ? returnStudioMaxData()
+                : selectedPropertyType.propertyType === "one-bedroom"
+                ? returnOneBedroomData()
+                : null}
             </div>
 
             {
@@ -99,6 +139,7 @@ export const PropertyTypeUI = ({
         </div>
       )}
       <HowItWorksModal data={howItWorks} />
+      "See other units at 49 Orchard button"
     </>
   );
 };

@@ -51,7 +51,6 @@ export const SingleProperty = ({
       {propertyTypes && (
         <ul className="animate-in flex flex-col gap-4 my-10 p-0 pr-mobile-menu md:pr-0">
           {propertyTypes.map(item => {
-            console.log("item:", item);
             const { amenities, propertyType, price, area, id, available } = item;
             return (
               <li key={id} className={`p-0 before:content-['']`}>

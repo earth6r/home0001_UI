@@ -14,6 +14,17 @@ export const ReserveHomeForm = ({ data }) => {
   const onSubmit = data => {
     window.location.href = "https://buy.stripe.com/8wM6pceRr5dscdGaEF";
   };
+  console.log("data", data);
+
+  const returnUnitNumber = unit => {
+    if (unit === "studio") {
+      return "Unit 3B";
+    } else if (unit === "studio-max") {
+      return "Unit 4A";
+    } else if (unit === "one-bedroom") {
+      return "Unit 6B";
+    }
+  };
 
   return (
     <div className="animate-in relative">
@@ -21,11 +32,21 @@ export const ReserveHomeForm = ({ data }) => {
       <div className="md:grid md:grid-cols-3 pr-mobile-menu md:pr-desktop-menu">
         <div className="md:col-start-2 md:col-span-1 pt-10 pb-20">
           <div className="relative mb-4 text-mobile-body md:text-desktop-body font-serif">
-            <p className="uppercase mb-0">{data.reserveHomeForm.title}</p>
+            <p className="uppercase mb-0">{data.siteData.reserveHomeForm.title}</p>
             <p className="mt-10">
-              <StandardText data={data.reserveHomeForm._rawSubtitle} />
+              {/* <StandardText data={data.reserveHomeForm._rawSubtitle} /> */}
+              <StandardText
+                data={`Join waitlist for unit ${returnUnitNumber(data.property.propertyType)}`}
+              />
             </p>
-            <Accordion allowToggle defaultIndex={[2]} className="my-10 w-full">
+            <p className="text-red-600 text-lg">22 places available out of 30</p>
+            <p>
+              {`${returnUnitNumber(data.property.propertyType)} will be released for sale soon to
+              buyers on the waitlist. Homebuyers will be offered this home in the order they joined.
+              In the meanwhile you can schedule a consultation with our team to help answer
+              questions, secure financing, or coordinate a property tour.`}
+            </p>
+            {/* <Accordion allowToggle defaultIndex={[2]} className="my-10 w-full">
               <AccordionItem className="bg-white border border-[#000] flex flex-col justify-center text-mobile-body md:text-desktop-body">
                 {({ isExpanded }) => (
                   <>
@@ -38,12 +59,12 @@ export const ReserveHomeForm = ({ data }) => {
                       </div>
                     </AccordionHeader>
                     <AccordionPanel className="px-3 text-mobile-body md:text-desktop-body">
-                      <PortableText blocks={data._rawWhatsIncluded} />
+                      <PortableText blocks={data.siteData._rawWhatsIncluded} />
                     </AccordionPanel>
                   </>
                 )}
               </AccordionItem>
-            </Accordion>
+            </Accordion> */}
           </div>
           <form onSubmit={handleSubmit(onSubmit)} className="w-full">
             <div className="w-full">
@@ -60,7 +81,7 @@ export const ReserveHomeForm = ({ data }) => {
                   htmlFor="terms"
                   className="relative m-0 text-mobile-body md:text-desktop-body font-serif"
                 >
-                  <StandardText data={data.reserveHomeForm._rawCheckboxText} />
+                  <StandardText data={data.siteData.reserveHomeForm._rawCheckboxText} />
                 </label>
               </div>
 
@@ -89,7 +110,7 @@ export const ReserveHomeForm = ({ data }) => {
                   className="h-12 max-h-12 text-center tracking-caps uppercase text-white bg-black text-mobile-body md:text-desktop-body font-serif "
                   type="submit"
                 >
-                  CONTINUE TO PAYMENT
+                  Join the waitlist
                 </button>
               </div>
             </div>

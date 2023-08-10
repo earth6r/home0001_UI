@@ -104,6 +104,7 @@ export const query = graphql`
 `;
 
 const HomeRedesignPage = ({ location, data }) => {
+  console.log("data:", data);
   const cities = data.allSanityHomePage.nodes[0].citiesList;
   const properties = data.allSanityProperty.nodes;
   const propertiesTypes = data.allSanityPropertyType.nodes;
@@ -258,7 +259,6 @@ const HomeRedesignPage = ({ location, data }) => {
       setSelectedPropertyType(null);
     }
   };
-  console.log("selectedCity", selectedCity);
   return (
     <Layout
       pathname={location.pathname.replace(/\/$/, "")}
@@ -330,7 +330,7 @@ const HomeRedesignPage = ({ location, data }) => {
           ) : null}
           {showReserveHomeForm ? (
             <div ref={reserveHomeRef}>
-              <ReserveHomeForm data={data.site} />
+              <ReserveHomeForm data={{ siteData: data.site, property: selectedPropertyType }} />
             </div>
           ) : null}
         </section>
