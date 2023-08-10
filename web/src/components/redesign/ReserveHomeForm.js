@@ -36,7 +36,11 @@ export const ReserveHomeForm = ({ data }) => {
             <p className="mt-10">
               {/* <StandardText data={data.reserveHomeForm._rawSubtitle} /> */}
               <StandardText
-                data={`Join waitlist for unit ${returnUnitNumber(data.property.propertyType)}`}
+                data={
+                  data.property
+                    ? `Join waitlist for unit ${returnUnitNumber(data.property.propertyType)}`
+                    : "Join waitlist for unit"
+                }
               />
             </p>
             <p className="text-red-600 text-lg">22 places available out of 30</p>

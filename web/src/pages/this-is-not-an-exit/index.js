@@ -330,7 +330,12 @@ const HomeRedesignPage = ({ location, data }) => {
           ) : null}
           {showReserveHomeForm ? (
             <div ref={reserveHomeRef}>
-              <ReserveHomeForm data={{ siteData: data.site, property: selectedPropertyType }} />
+              <ReserveHomeForm
+                data={{
+                  siteData: data.site,
+                  property: selectedPropertyType ? selectedPropertyType : null
+                }}
+              />
             </div>
           ) : null}
         </section>
