@@ -86,7 +86,7 @@ export const ReserveHomeForm = ({ data }) => {
                   htmlFor="terms"
                   className="relative m-0 text-mobile-body md:text-desktop-body font-serif"
                 >
-                  <StandardText data={data.siteData.reserveHomeForm._rawCheckboxText} />
+                  <StandardText data={data.siteData?.reserveHomeForm._rawCheckboxText} />
                 </label>
               </div>
 
