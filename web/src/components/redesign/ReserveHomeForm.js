@@ -32,23 +32,22 @@ export const ReserveHomeForm = ({ data }) => {
       <div className="md:grid md:grid-cols-3 pr-mobile-menu md:pr-desktop-menu">
         <div className="md:col-start-2 md:col-span-1 pt-10 pb-20">
           <div className="relative mb-4 text-mobile-body md:text-desktop-body font-serif">
-            <p className="uppercase mb-0">{data.siteData.reserveHomeForm.title}</p>
-            <p className="mt-10">
-              {/* <StandardText data={data.reserveHomeForm._rawSubtitle} /> */}
-              <StandardText
-                data={
-                  data.property
-                    ? `Join waitlist for unit ${returnUnitNumber(data.property.propertyType)}`
-                    : "Join waitlist for unit"
-                }
-              />
+            <p className="uppercase mb-0">
+              {data.property
+                ? `Join waitlist for unit ${returnUnitNumber(data.property.propertyType)}`
+                : "Join waitlist for unit"}
             </p>
-            <p className="text-red-600 text-lg">22 places available out of 30</p>
+            <p className="mt-10">
+              {/* <StandardText data={data.siteData.reserveHomeForm._rawSubtitle} /> */}
+            </p>
+            <div className="text-red text-2xl mb-5">22 places available out of 30</div>
             <p>
               {`${returnUnitNumber(data.property.propertyType)} will be released for sale soon to
-              buyers on the waitlist. Homebuyers will be offered this home in the order they joined.
+              buyers on the waitlist. Homebuyers will be offered this home in the order they joined.`}
+            </p>
+            <p>
               In the meanwhile you can schedule a consultation with our team to help answer
-              questions, secure financing, or coordinate a property tour.`}
+              questions, secure financing, or coordinate a property tour.
             </p>
             {/* <Accordion allowToggle defaultIndex={[2]} className="my-10 w-full">
               <AccordionItem className="bg-white border border-[#000] flex flex-col justify-center text-mobile-body md:text-desktop-body">
