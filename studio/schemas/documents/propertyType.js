@@ -93,6 +93,11 @@ export default {
       ]
     },
     {
+      name: 'seeAllButtonText',
+      title: 'See All Button Text',
+      type: 'string'
+    },
+    {
       title: 'Property',
       name: 'property',
       type: 'reference',

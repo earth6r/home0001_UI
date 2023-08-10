@@ -20,7 +20,6 @@ module.exports = {
       'dashboard-widget-structure-menu',
       'dashboard-widget-document-list',
       'dashboard-widget-netlify',
-      '@sanity/studio-hints',
       'media',
       'tabs',
       '@ssfbank/sanity-plugin-byo-table',
