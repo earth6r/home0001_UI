@@ -67,7 +67,7 @@ export const SingleProperty = ({
                         <p className="uppercase mb-0 tracking-caps">
                           {propertyType
                             .replace("one-bedroom", "1 bedroom")
-                            .replace("two-bedroom", "2 bedrooms")
+                            .replace("penthouse", "2 bedrooms")
                             .replace("studio-max", "studio max")}
                         </p>
                       )}
@@ -91,6 +91,8 @@ export const SingleProperty = ({
                         ? "UNIT 4A"
                         : item.propertyType === "one-bedroom"
                         ? "UNIT 6B"
+                        : item.propertyType === "penthouse"
+                        ? "COMING SOON"
                         : null}
                     </div>
                   </div>

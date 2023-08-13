@@ -26,7 +26,7 @@ export const ImageSlider = ({ images }) => {
 
   const settings = {
     slidesToShow: 1,
-    infinite: false,
+    infinite: true,
     arrows: false,
     beforeChange: (oldIndex, newIndex) => {
       setCurrentIndex(newIndex);
@@ -92,7 +92,7 @@ export const ImageSlider = ({ images }) => {
           <button
             className="disabled:shadow-none disabled:bg-transparent disabled:opacity-40 mr-2"
             onClick={previousImage}
-            disabled={!hasPreviousImage}
+            // disabled={!hasPreviousImage}
           >
             <svg
               className="transform rotate-180"
@@ -111,7 +111,6 @@ export const ImageSlider = ({ images }) => {
           <button
             className="disabled:shadow-none disabled:bg-transparent disabled:opacity-40"
             onClick={nextImage}
-            disabled={!hasNextImage}
           >
             <svg
               width="22"
