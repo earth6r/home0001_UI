@@ -151,7 +151,7 @@ export const PropertyTypeUI = ({
             </div>
           ) : null}
           {selectedPropertyType?._rawDescriptionTwo?.text && (
-            <div className="mt-10 text-mobile-body md:text-desktop-body">
+            <div className="mt-10 text-mobile-body md:text-desktop-body property-type-description">
               <StandardText data={selectedPropertyType?._rawDescriptionTwo} />
             </div>
           )}

@@ -60,7 +60,7 @@ export const SingleProperty = ({
                 <button
                   disabled={!available}
                   onClick={() => onChange(item)}
-                  className={`disabled:opacity-40 disabled:bg-white disabled:shadow-none p-4 border w-full flex flex-col gap-7 text-mobile-body md:text-desktop-body ${
+                  className={`disabled:opacity-40 disabled:bg-white disabled:shadow-none p-4 border w-full flex flex-col gap-2 text-mobile-body md:text-desktop-body ${
                     selectedPropertyType?.id === item.id ? "bg-black text-white" : ""
                   }`}
                 >
@@ -104,7 +104,7 @@ export const SingleProperty = ({
                     <ul className="mb-0 p-0">
                       {amenities.map((amenity, index) => {
                         return (
-                          <li key={index++} className="p-0 text-left before:content-['']">
+                          <li key={index++} className="leading-5 p-0 text-left before:content-['']">
                             <span>&ndash;&nbsp;</span>
                             <span>{amenity}</span>
                           </li>
