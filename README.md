@@ -28,13 +28,21 @@ Deployed from [sanity.io/create](https://www.sanity.io/create/?template=sanity-i
 
 If you want to turn off preview you can set `watchMode: false` in gatsby-config.js. If you just want to preview published changes you can set `overlayDrafts: false` in gatsby-config.js.
 
+## High level development tips
+
+- Make sure to copy needed environment variables from netlify
+- Run `npm run config` in the studio folder to generate sanity.json file
+- For adding new fields in Sanity:
+  - Add the new field in sanity schema files
+  - Deploy the graphql API using `npm run graphql-deploy`
+  - Add the new field to the graphql queries
+  - Use them in your components
+
 ## Deploy changes
 
 Netlify automatically deploys new changes commited to master on GitHub. If you want to change deployment branch, do so in [build & deploy settings on Netlify](https://www.netlify.com/docs/continuous-deployment/#branches-deploys).
 
+## Deploying studio changes
 
-## Stuck? Get help
-
-[![Slack Community Button](https://slack.sanity.io/badge.svg)](https://slack.sanity.io/)
-
-Join [Sanity’s developer community](https://slack.sanity.io) or ping us [on twitter](https://twitter.com/sanity_io).
+For deploying the graphql API, navigate to the studio folder and run `npm run graphql-deploy` and to deploy the studio
+changes run `npm run deploy` afterwards.

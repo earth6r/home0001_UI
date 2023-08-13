@@ -70,6 +70,7 @@ export const query = graphql`
             }
           }
         }
+        seeAllButtonText
         _rawInventory(resolveReferences: { maxDepth: 10 })
         _rawDescription(resolveReferences: { maxDepth: 10 })
         _rawDescriptionTwo(resolveReferences: { maxDepth: 10 })
@@ -104,7 +105,6 @@ export const query = graphql`
 `;
 
 const HomeRedesignPage = ({ location, data }) => {
-  console.log("data:", data);
   const cities = data.allSanityHomePage.nodes[0].citiesList;
   const properties = data.allSanityProperty.nodes;
   const propertiesTypes = data.allSanityPropertyType.nodes;
