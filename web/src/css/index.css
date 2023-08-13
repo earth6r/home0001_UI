@@ -401,3 +401,7 @@ a:hover {
     right: 2.5rem !important;
   }
 }
+
+.property-type-description li {
+  padding-left: 20px !important;
+}
