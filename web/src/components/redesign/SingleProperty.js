@@ -23,6 +23,17 @@ export const SingleProperty = ({
     }
   }, [selectedProperty, selectedPropertyRef, selectedPropertyType, disableScroll]);
 
+  const returnStudioUnavailableData = () => {
+    return (
+      <div>
+        UNIT 2B <br /> UNIT 4B
+      </div>
+    );
+  };
+
+  const returnStudioMaxUnavailableData = () => {
+    return <div>UNIT 2A</div>;
+  };
   return (
     <>
       {selectedProperty && (
@@ -88,15 +99,28 @@ export const SingleProperty = ({
                       )}
                     </div>
                     <div className="p-0 m-0 text-right">
-                      {item.propertyType === "studio"
-                        ? "UNIT 3B"
-                        : item.propertyType === "studio-max"
-                        ? "UNIT 4A"
-                        : item.propertyType === "one-bedroom"
-                        ? "UNIT 6B"
-                        : item.propertyType === "penthouse"
-                        ? "COMING SOON"
-                        : null}
+                      <div className="flex flex-col">
+                        <div className="p-0 m-0 text-right">
+                          {/*todo: add this section to sanity*/}
+                          {item.propertyType === "studio"
+                            ? "UNIT 3B"
+                            : item.propertyType === "studio-max"
+                            ? "UNIT 4A"
+                            : item.propertyType === "one-bedroom"
+                            ? "UNIT 6B"
+                            : item.propertyType === "penthouse"
+                            ? "COMING SOON"
+                            : null}
+                        </div>
+                        <div className="p-0 m-0 text-right opacity-40 line-through">
+                          {/*todo: add this section to sanity*/}
+                          {item.propertyType === "studio"
+                            ? returnStudioUnavailableData()
+                            : item.propertyType === "studio-max"
+                            ? returnStudioMaxUnavailableData()
+                            : item.propertyType === "one-bedroom"}
+                        </div>
+                      </div>
                     </div>
                   </div>
 
