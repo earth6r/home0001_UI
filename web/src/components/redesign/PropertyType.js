@@ -100,7 +100,7 @@ export const PropertyTypeUI = ({
                     : null}
                 </div>
               </div>
-              <div>
+              <div className="leading-6">
                 {selectedPropertyType.price && (
                   <p className="m-0 uppercase tracking-caps">{selectedPropertyType.price}</p>
                 )}
@@ -132,12 +132,12 @@ export const PropertyTypeUI = ({
               </h3>
             )} */}
             {selectedPropertyType?._rawDescription?.text && (
-              <div className="mt-10 pr-mobile-menu md:pr-0 text-mobile-body md:text-desktop-body property-type-description">
+              <div className="mt-5 pr-mobile-menu md:pr-0 text-mobile-body md:text-desktop-body property-type-description">
                 <StandardText data={selectedPropertyType?._rawDescription} />
               </div>
             )}
           </div>
-          <div className="mt-10">
+          <div>
             <InventoryModule
               title={property.title}
               propertyType={selectedPropertyType.propertyType}
@@ -146,7 +146,7 @@ export const PropertyTypeUI = ({
             />
           </div>
           {selectedPropertyType.moreImages?.length ? (
-            <div className="mt-10">
+            <div className="mt-5">
               <ImageSlider images={selectedPropertyType.moreImages} />
             </div>
           ) : null}
