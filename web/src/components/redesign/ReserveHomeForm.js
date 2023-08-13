@@ -14,8 +14,8 @@ export const ReserveHomeForm = ({ data }) => {
   const onSubmit = data => {
     window.location.href = "https://buy.stripe.com/8wM6pceRr5dscdGaEF";
   };
-  console.log("data", data);
 
+  //todo add a unit prop to this component
   const returnUnitNumber = unit => {
     if (unit === "studio") {
       return "Unit 3B";
@@ -37,20 +37,14 @@ export const ReserveHomeForm = ({ data }) => {
                 ? `Join waitlist for unit ${returnUnitNumber(data.property.propertyType)}`
                 : "Join waitlist for unit"}
             </p>
-            <p className="mt-10">
-              {/* <StandardText data={data.siteData.reserveHomeForm._rawSubtitle} /> */}
-            </p>
-            <div className="text-red text-2xl mb-5">22 places available out of 30</div>
+
             <p>
               {`${
                 data.property ? returnUnitNumber(data.property.propertyType) : null
               } will be released for sale soon to
-              buyers on the waitlist. Homebuyers will be offered this home in the order they joined.`}
+              buyers on the waitlist. Homebuyers will be offered this home in the order they joined. Once you’re offered the property, you can secure it with a small deposit and will have the chance to spend a few nights in the property to see how it feels before going ahead with the purchase. The Earth team will be available to answer questions, help secure financing, etc. `}
             </p>
-            <p>
-              In the meanwhile you can schedule a consultation with our team to help answer
-              questions, secure financing, or coordinate a property tour.
-            </p>
+            <p>Join the waitlist for {returnUnitNumber(data.property.propertyType)} here:</p>
             {/* <Accordion allowToggle defaultIndex={[2]} className="my-10 w-full">
               <AccordionItem className="bg-white border border-[#000] flex flex-col justify-center text-mobile-body md:text-desktop-body">
                 {({ isExpanded }) => (
@@ -73,7 +67,7 @@ export const ReserveHomeForm = ({ data }) => {
           </div>
           <form onSubmit={handleSubmit(onSubmit)} className="w-full">
             <div className="w-full">
-              <div className="flex items-center justify-start p-0 mb-10">
+              {/* <div className="flex items-center justify-start p-0 mb-10">
                 <input
                   type="checkbox"
                   id="terms"
@@ -90,7 +84,7 @@ export const ReserveHomeForm = ({ data }) => {
                     <StandardText data={data.siteData.reserveHomeForm._rawCheckboxText} />
                   ) : null}
                 </label>
-              </div>
+              </div> */}
 
               <div className="relative flex flex-col gap-2">
                 <input
