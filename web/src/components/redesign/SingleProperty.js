@@ -61,8 +61,8 @@ export const SingleProperty = ({
                     selectedPropertyType?.id === item.id ? "bg-black text-white" : ""
                   }`}
                 >
-                  <div className="grid grid-cols-7">
-                    <div className="p-0 m-0 col-span-6 text-left">
+                  <div className="grid grid-cols-5 w-full">
+                    <div className="p-0 m-0 col-span-4 text-left">
                       {propertyType && (
                         <p className="uppercase mb-0 tracking-caps">
                           {propertyType
@@ -86,11 +86,11 @@ export const SingleProperty = ({
                     </div>
                     <div className="p-0 m-0 text-right">
                       {item.propertyType === "studio"
-                        ? "Unit 3B"
+                        ? "UNIT 3B"
                         : item.propertyType === "studio-max"
-                        ? "Unit 4A"
+                        ? "UNIT 4A"
                         : item.propertyType === "one-bedroom"
-                        ? "Unit 6B"
+                        ? "UNIT 6B"
                         : null}
                     </div>
                   </div>

@@ -126,22 +126,21 @@ const Header = ({
 
   const newMenu = [
     {
-      title: "How It Works",
-      slug: "/this-is-not-an-exit/how-it-works"
-    },
-    {
       title: "About",
       slug: "/this-is-not-an-exit/about"
     },
     {
-      title: "Contact",
-      slug: "/this-is-not-an-exit/contact"
+      title: "How It Works",
+      slug: "/this-is-not-an-exit/how-it-works"
     },
     {
       title: "Newsletter",
       slug: "/this-is-not-an-exit/newsletter"
     },
-
+    {
+      title: "Contact",
+      slug: "/this-is-not-an-exit/contact"
+    },
     {
       title: "Legal",
       slug: "/this-is-not-an-exit/legal"
