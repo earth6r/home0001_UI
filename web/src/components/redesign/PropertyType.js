@@ -23,7 +23,7 @@ export const PropertyTypeUI = ({
 
   const returnStudioData = () => {
     return (
-      <div>
+      <div className="leading-6">
         <p className="m-0">Elevator building</p>
         <p className="m-0">Third floor</p>
         <p className="m-0">Northeast exposure</p>
@@ -79,27 +79,25 @@ export const PropertyTypeUI = ({
                 }))}
               />
             )}
-            <div className="text-mobile-body md:text-desktop-body mt-10 pr-mobile-menu md:pr-0">
-              <div className="grid grid-cols-2 md:grid-cols-2">
-                <div>
-                  {selectedPropertyType.propertyType && (
-                    <p className="m-0 uppercase tracking-caps">
-                      {selectedPropertyType.propertyType}
-                    </p>
-                  )}
-                </div>
-                <div className="text-right md:text-right  md:mt-0">
-                  {selectedPropertyType._rawInventory
-                    ? selectedPropertyType.propertyType === "studio"
-                      ? "Unit 3B"
-                      : selectedPropertyType.propertyType === "studio-max"
-                      ? "Unit 4A"
-                      : selectedPropertyType.propertyType === "one-bedroom"
-                      ? "Unit 6B"
-                      : null
-                    : null}
-                </div>
+            <div className="grid grid-cols-2 md:grid-cols-2 leading-6 mt-10">
+              <div>
+                {selectedPropertyType.propertyType && (
+                  <p className="m-0 uppercase tracking-caps">{selectedPropertyType.propertyType}</p>
+                )}
               </div>
+              <div className="text-right md:text-right  md:mt-0">
+                {selectedPropertyType._rawInventory
+                  ? selectedPropertyType.propertyType === "studio"
+                    ? "UNIT 3B"
+                    : selectedPropertyType.propertyType === "studio-max"
+                    ? "UNIT 4A"
+                    : selectedPropertyType.propertyType === "one-bedroom"
+                    ? "UNIT 6B"
+                    : null
+                  : null}
+              </div>
+            </div>
+            <div className="text-mobile-body md:text-desktop-body pr-mobile-menu md:pr-0">
               <div className="leading-6">
                 {selectedPropertyType.price && (
                   <p className="m-0 uppercase tracking-caps">{selectedPropertyType.price}</p>
@@ -132,7 +130,7 @@ export const PropertyTypeUI = ({
               </h3>
             )} */}
             {selectedPropertyType?._rawDescription?.text && (
-              <div className="mt-5 pr-mobile-menu md:pr-0 text-mobile-body md:text-desktop-body property-type-description">
+              <div className="mt-9 mb-5 pr-mobile-menu md:pr-0 text-mobile-body md:text-desktop-body property-type-description">
                 <StandardText data={selectedPropertyType?._rawDescription} />
               </div>
             )}
