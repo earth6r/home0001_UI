@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const submit_hubspot_form = async (fullName, email) => {
+export const submit_hubspot_form = async (fullName, email, unitOfInterest) => {
   const portalId = "39987214";
   const formGuid = "904d697d-988d-4b01-a150-670f28231f3d";
   const config = {
@@ -24,6 +24,10 @@ export const submit_hubspot_form = async (fullName, email) => {
         {
           name: "email",
           value: email
+        },
+        {
+          name: "unit_of_interest",
+          value: unitOfInterest
         }
       ]
     },

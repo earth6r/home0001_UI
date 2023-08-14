@@ -25,7 +25,12 @@ export const ReserveHomeForm = ({ data }) => {
       email: data.email,
       unit_of_interest: unitOfInterest
     };
-    await submit_hubspot_form(hubspotData);
+    console.log(hubspotData);
+    await submit_hubspot_form(
+      hubspotData.full_name,
+      hubspotData.email,
+      hubspotData.unit_of_interest
+    );
     setSubmitted(true);
   };
 
