@@ -1,4 +1,4 @@
-import React, { createRef, useEffect } from "react";
+import React, { createRef, useEffect, useRef } from "react";
 import { StandardText } from "../global/standardText";
 import { imageUrlFor } from "../../lib/image-url";
 
@@ -10,6 +10,27 @@ export const SingleProperty = ({
   disableScroll = false
 }) => {
   const selectedPropertyRef = createRef();
+  const propertyTypesRef = useRef();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!propertyTypesRef.current) return;
+
+      const rect = propertyTypesRef.current.getBoundingClientRect();
+      if (rect.top <= window.innerHeight && rect.top + rect.height >= 0) {
+        document.body.classList.remove("hide-intercom");
+      } else {
+        document.body.classList.add("hide-intercom");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   useEffect(() => {
     if (!disableScroll) {
       setTimeout(() => {
@@ -61,6 +82,7 @@ export const SingleProperty = ({
       )}
       {propertyTypes && (
         <ul
+          ref={propertyTypesRef}
           id="selected-property-types"
           className="animate-in flex flex-col gap-4 my-10 p-0 pr-mobile-menu md:pr-0"
         >
