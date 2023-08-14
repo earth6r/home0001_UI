@@ -196,7 +196,7 @@ const Header = ({
                 className="flex items-center h-full"
               >
                 <div className="flex items-center h-3">
-                  <EarthLogo height="11" width="46" />
+                  <EarthLogo height="10.6" width="43" />
                 </div>
                 <span className={`${forwarder == "new-eelam" ? "" : "hidden"} new-eelam-header`}>
                   [FKA New Eelam]
