@@ -218,10 +218,10 @@ const Header = ({
                 Menu
               </p>
               <span className={`${showNav ? "" : "hidden"}`}>
-                <span className="hidden md:block h-10 w-10">
+                <span className="hidden md:block h-10 w-10 rounded-xl">
                   <Icon symbol="closeMenu" />
                 </span>
-                <span className="md:hidden block h-3 w-3 my-px md:my-0">
+                <span className="md:hidden block h-3 w-3 md:my-0">
                   <Icon symbol="closeMenuMobile" />
                 </span>
               </span>

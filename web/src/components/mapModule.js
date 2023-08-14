@@ -24,10 +24,8 @@ const MapModule = props => {
           {text && (
             <sup
               aria-label={`Open Map`}
-              className="inline-block map-button text-desktopCaption box-menu py-1 relative px-2"
-            >
-              {"MAP"}
-            </sup>
+              className="inline-block map-button text-desktopCaption py-1 relative"
+            ></sup>
           )}
         </PopoverTrigger>
         <PopoverContent
