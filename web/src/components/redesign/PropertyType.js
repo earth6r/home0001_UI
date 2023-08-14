@@ -144,7 +144,7 @@ export const PropertyTypeUI = ({
             />
           </div>
           {selectedPropertyType.moreImages?.length ? (
-            <div className="mt-5">
+            <div className="mt-10 brightness-90">
               <ImageSlider images={selectedPropertyType.moreImages} />
             </div>
           ) : null}
