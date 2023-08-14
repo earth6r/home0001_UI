@@ -1,7 +1,7 @@
 import React, { createRef, useEffect, useRef } from "react";
 import { StandardText } from "../global/standardText";
 import { imageUrlFor } from "../../lib/image-url";
-
+import MapModule from "../mapModule";
 export const SingleProperty = ({
   onChange,
   propertyTypes,
@@ -55,6 +55,7 @@ export const SingleProperty = ({
   const returnStudioMaxUnavailableData = () => {
     return <div>UNIT 2A</div>;
   };
+  console.log(selectedProperty);
   return (
     <>
       {selectedProperty && (
@@ -72,7 +73,11 @@ export const SingleProperty = ({
             width="560"
             alt=""
           />
-          <span className="mb-10">{selectedProperty.title}</span>
+          {/**ToDO: add city, zip */}
+          <span>{selectedProperty.title}</span>
+          <span>10002, NYC</span>
+          {/* <MapModule text="MAP" lat={selectedProperty.map.lat} long={selectedProperty.map.long} /> */}
+          <span className="mb-8">MAP</span>
           {selectedProperty?._rawDescription ? (
             <div className="pr-mobile-menu md:pr-0">
               <StandardText data={selectedProperty?._rawDescription} />
