@@ -55,11 +55,13 @@ export const ReserveHomeForm = ({ data }) => {
 
               <p>
                 {`${
-                  data.property ? returnUnitNumber(data.property.propertyType) : null
+                  data.property ? returnUnitNumber(data.property.propertyType) : "This unit"
                 } will be released for sale soon to
               buyers on the waitlist. Homebuyers will be offered this home in the order they joined. Once you’re offered the property, you can secure it with a small deposit and will have the chance to spend a few nights in the property to see how it feels before going ahead with the purchase. The Earth team will be available to answer questions, help secure financing, etc. `}
               </p>
-              <p>Join the waitlist for {returnUnitNumber(data.property.propertyType)} here:</p>
+              <p>{`Join the waitlist for ${
+                data.property ? returnUnitNumber(data.property.propertyType) : "this unit"
+              } here:`}</p>
               {/* <Accordion allowToggle defaultIndex={[2]} className="my-10 w-full">
               <AccordionItem className="bg-white border border-[#000] flex flex-col justify-center text-mobile-body md:text-desktop-body">
                 {({ isExpanded }) => (
@@ -83,9 +85,11 @@ export const ReserveHomeForm = ({ data }) => {
           ) : (
             <div className="relative mb-4 text-mobile-body md:text-desktop-body font-serif">
               <p>
-                Thank you for submitting your interest in{" "}
-                {returnUnitNumber(data.property.propertyType)}. Please check your email for
-                confirmation.{" "}
+                {`
+                Thank you for submitting your interest in
+                ${
+                  data.property ? returnUnitNumber(data.property.propertyType) : "this unit"
+                }. We will be in contact when you are granted access to view the property.`}
               </p>
             </div>
           )}
