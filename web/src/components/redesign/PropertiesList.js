@@ -1,7 +1,6 @@
 import React from "react";
 
 export const PropertiesList = ({ properties, onChange, selectedProperty }) => {
-  console.log("properties:", properties);
   return (
     <>
       {properties && properties.length !== 0 ? (

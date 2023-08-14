@@ -186,6 +186,8 @@ const HomeRedesignPage = ({ location, data }) => {
       document.body.classList.remove("hide-intercom");
       searchParams.set("property", selectedProperty.id);
     } else {
+      // Hide intercom bubble when property is unselected
+      document.body.classList.add("hide-intercom");
       searchParams.delete("property");
     }
 
