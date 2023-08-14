@@ -13,7 +13,9 @@ export const ReserveHomeForm = ({ data }) => {
       return "Unit 6B";
     }
   };
-  const unitOfInterest = returnUnitNumber(data.property.propertyType);
+  const unitOfInterest = data.property.propertyType
+    ? returnUnitNumber(data.property.propertyType)
+    : null;
   const [submitted, setSubmitted] = useState(false);
   const { register, handleSubmit } = useForm({
     shouldUseNativeValidation: true
