@@ -4,6 +4,7 @@ import Icon from "./icon";
 import CircleButton from "./global/circleButton";
 import GridRow from "./grid/grid-row";
 import EarthLogoMobile from "../components/images/logos/earth-logo-mobile.svg";
+import EarthLogo from "../components/images/logos/earth-logo-mobile.svg";
 import { PageLink } from "../components/link";
 import { HomesContext } from "./context/HomesContext";
 import { CSSTransition } from "react-transition-group";
@@ -195,7 +196,7 @@ const Header = ({
                 className="flex items-center h-full"
               >
                 <div className="flex items-center h-3">
-                  <EarthLogoMobile height="12" width="48" />
+                  <EarthLogo height="11" width="46" />
                 </div>
                 <span className={`${forwarder == "new-eelam" ? "" : "hidden"} new-eelam-header`}>
                   [FKA New Eelam]

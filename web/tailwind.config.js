@@ -171,7 +171,7 @@ module.exports = {
       },
       fontSize: {
         "desktop-body": [
-          "0.813rem",
+          "12px",
           {
             lineHeight: "135%"
           }
