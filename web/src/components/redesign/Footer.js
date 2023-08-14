@@ -75,7 +75,7 @@ const Footer = ({ footerMenu }) => {
             })}
         </ul>
       </nav>
-      <p className="text-mobile-body md:text-desktop-body my-20">&copy;2023 EARTH</p>
+      <p className="text-mobile-body md:text-desktop-body my-20">&copy; 2023 EARTH</p>
     </div>
   );
 };
