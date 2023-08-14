@@ -77,7 +77,7 @@ export const SingleProperty = ({
           <span>{selectedProperty.title}</span>
           <span>10002, NYC</span>
           {/* <MapModule text="MAP" lat={selectedProperty.map.lat} long={selectedProperty.map.long} /> */}
-          <span className="mb-8">MAP</span>
+          <span className="mb-9">MAP</span>
           {selectedProperty?._rawDescription ? (
             <div className="pr-mobile-menu md:pr-0">
               <StandardText data={selectedProperty?._rawDescription} />
@@ -85,6 +85,7 @@ export const SingleProperty = ({
           ) : null}
         </div>
       )}
+      {<div className="mt-10 mb-10">Choose an available home at 49 Orchard here:</div>}
       {propertyTypes && (
         <ul
           ref={propertyTypesRef}
