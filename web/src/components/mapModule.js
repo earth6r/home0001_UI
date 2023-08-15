@@ -18,23 +18,22 @@ const MapModule = props => {
   const { text, lat, long } = props;
   return (
     <>
-      {text}
       <Popover placement="bottom" trigger="click" usePortal={true} gutter={10}>
         <PopoverTrigger>
-          {text && (
-            <sup
-              aria-label={`Open Map`}
-              className="inline-block map-button text-desktopCaption py-1 relative"
-            ></sup>
-          )}
+          <button
+            aria-label={`Open Map`}
+            className="text-mobile-body md:text-desktop-body w-6 border-b border-dashed"
+          >
+            {text}
+          </button>
         </PopoverTrigger>
         <PopoverContent
           bg="transparent"
-          className="border-none md:ml-64 max-w-1xl md:max-w-2xl md:block no-shadow text-mobileBody p-0 md:text-desktopBody"
+          className="border-none  max-w-1xl md:max-w-2xl md:block no-shadow p-0 ml-6"
           zIndex={65}
         >
           <span className="block">
-            <span className="block px-1em py-1em bg-white text-mobileBody md:text-desktopBody">
+            <span className="border block bg-white text-mobileBody md:text-desktopBody">
               <MapContainer lat={lat} long={long}></MapContainer>
             </span>
           </span>
