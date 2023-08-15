@@ -1,14 +1,9 @@
-const onClickSeeAll = () => {
-  document.getElementById("selected-property-types")?.scrollIntoView({ behavior: "smooth" });
-  setTimeout(() => {
-    setShowReserveHomeForm(false);
-    setSelectedPropertyType(null);
-  }, 250);
-};
-
 export const BackToTopButton = () => {
-  returrn(
-    <>
+  const onClickSeeAll = () => {
+    document.getElementById("selected-property-types")?.scrollIntoView({ behavior: "smooth" });
+  };
+  return (
+    <div>
       <button
         onClick={onClickSeeAll}
         className="border-b border-dashed mt-9 text-mobile-body md:text-desktop-body"
@@ -16,6 +11,6 @@ export const BackToTopButton = () => {
         Back to top
       </button>
       ↑
-    </>
+    </div>
   );
 };

@@ -59,14 +59,6 @@ export const PropertyTypeUI = ({
     );
   };
 
-  const onClickSeeAll = () => {
-    document.getElementById("selected-property-types")?.scrollIntoView({ behavior: "smooth" });
-    setTimeout(() => {
-      setShowReserveHomeForm(false);
-      setSelectedPropertyType(null);
-    }, 250);
-  };
-
   return (
     <>
       {selectedPropertyType?.id ? (
