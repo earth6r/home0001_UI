@@ -79,7 +79,7 @@ export const PropertyTypeUI = ({
                 }))}
               />
             )}
-            <div className="grid grid-cols-2 md:grid-cols-2 leading-6 mt-10">
+            <div className="grid grid-cols-2 md:grid-cols-2 mt-10">
               <div>
                 {selectedPropertyType.propertyType && (
                   <p className="m-0 uppercase tracking-caps">{selectedPropertyType.propertyType}</p>
@@ -98,7 +98,7 @@ export const PropertyTypeUI = ({
               </div>
             </div>
             <div className="text-mobile-body md:text-desktop-body pr-mobile-menu md:pr-0">
-              <div className="leading-6">
+              <div>
                 {selectedPropertyType.price && (
                   <p className="m-0 uppercase tracking-caps">{selectedPropertyType.price}</p>
                 )}

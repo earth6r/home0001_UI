@@ -55,7 +55,6 @@ export const SingleProperty = ({
   const returnStudioMaxUnavailableData = () => {
     return <div>UNIT 2A</div>;
   };
-  console.log(selectedProperty);
   return (
     <>
       {selectedProperty && (
@@ -102,17 +101,28 @@ export const SingleProperty = ({
                     selectedPropertyType?.id === item.id ? "bg-black text-white" : ""
                   }`}
                 >
-                  <div className="grid grid-cols-5 w-full">
-                    <div className="p-0 m-0 col-span-4 text-left">
-                      {propertyType && (
+                  <div className="grid grid-cols-6 w-full gap-x-4">
+                    {propertyType == "studio-max" ? (
+                      <div className="tracking-tight p-0 m-0 col-span-2 text-left">
                         <p className="uppercase mb-0 tracking-caps">
-                          {propertyType
-                            .replace("one-bedroom", "1 bedroom")
-                            .replace("penthouse", "2 bedrooms")
-                            .replace("studio-max", "studio max")}
+                          {propertyType.replace("studio-max", "studio max")}
                         </p>
-                      )}
-                      {price && <p className="uppercase tracking-caps mb-0">{price}</p>}
+                        {price && <p className="uppercase tracking-caps mb-0">{price}</p>}
+                      </div>
+                    ) : (
+                      <div className="p-0 m-0 col-span-2 text-left">
+                        {propertyType && (
+                          <p className="uppercase mb-0 tracking-caps">
+                            {propertyType
+                              .replace("one-bedroom", "1 bedroom")
+                              .replace("penthouse", "2 bedrooms")}
+                          </p>
+                        )}
+                        {price && <p className="uppercase tracking-caps mb-0">{price}</p>}
+                      </div>
+                    )}
+
+                    <div className="p-0 m-0 text-left col-span-4">
                       {area && (
                         <p className="uppercase tracking-caps">
                           {area}
@@ -125,10 +135,50 @@ export const SingleProperty = ({
                         </p>
                       )}
                     </div>
+                  </div>
+                  <div className="grid grid-cols-6 w-full">
+                    <div className="p-0 m-0 col-span-2 text-left ">
+                      {propertyType
+                        ? propertyType === "studio"
+                          ? "UNIT 3B"
+                          : propertyType === "studio-max"
+                          ? "UNIT 4A"
+                          : propertyType === "one-bedroom"
+                          ? "UNIT 6B"
+                          : null
+                        : null}
+                      <div className="opacity-40 line-through">
+                        {item.propertyType === "studio"
+                          ? returnStudioUnavailableData()
+                          : item.propertyType === "studio-max"
+                          ? returnStudioMaxUnavailableData()
+                          : item.propertyType === "one-bedroom"}
+                      </div>
+                    </div>
+                    <div className="p-0 m-0 text-left col-span-4">
+                      {amenities && (
+                        <ul className="mb-0 p-0">
+                          {amenities.map((amenity, index) => {
+                            return (
+                              <li
+                                key={index++}
+                                className="leading-5 p-0 text-left before:content-['']"
+                              >
+                                <span>&ndash;&nbsp;</span>
+                                <span>{amenity}</span>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+
+                  {/*<div className="grid grid-cols-6 w-full">
+                    <div className="p-0 m-0 col-span-2 text-left"></div>
                     <div className="p-0 m-0 text-right">
                       <div className="flex flex-col">
                         <div className="p-0 m-0 text-right">
-                          {/*todo: add this section to sanity*/}
                           {item.propertyType === "studio"
                             ? "UNIT 3B"
                             : item.propertyType === "studio-max"
@@ -140,29 +190,11 @@ export const SingleProperty = ({
                             : null}
                         </div>
                         <div className="p-0 m-0 text-right opacity-40 line-through">
-                          {/*todo: add this section to sanity*/}
-                          {item.propertyType === "studio"
-                            ? returnStudioUnavailableData()
-                            : item.propertyType === "studio-max"
-                            ? returnStudioMaxUnavailableData()
-                            : item.propertyType === "one-bedroom"}
+                          
                         </div>
                       </div>
                     </div>
-                  </div>
-
-                  {amenities && (
-                    <ul className="mb-0 p-0">
-                      {amenities.map((amenity, index) => {
-                        return (
-                          <li key={index++} className="leading-5 p-0 text-left before:content-['']">
-                            <span>&ndash;&nbsp;</span>
-                            <span>{amenity}</span>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  )}
+                      </div>*/}
                 </button>
               </li>
             );
