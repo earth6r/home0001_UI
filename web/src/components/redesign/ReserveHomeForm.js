@@ -114,7 +114,7 @@ export const ReserveHomeForm = ({ data }) => {
                 </label>
               </div> */}
 
-                <div className="relative flex flex-col gap-2">
+                <div className="relative flex flex-col gap-4">
                   <input
                     type="text"
                     id="full_name"
