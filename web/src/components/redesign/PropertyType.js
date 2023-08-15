@@ -158,8 +158,9 @@ export const PropertyTypeUI = ({
             onClick={onClickSeeAll}
             className="border-b border-dashed mt-9 text-mobile-body md:text-desktop-body"
           >
-            {selectedPropertyType.seeAllButtonText ?? "See other units"}
+            See other units
           </button>
+          ↑
         </>
       ) : null}
     </>
