@@ -125,7 +125,7 @@ export const PropertyTypeUI = ({
             <h3 className="uppercase tracking-caps my-10 pr-mobile-menu md:pr-0">
             {selectedPropertyType.propertyType
               .replace("one-bedroom", "1 bedroom")
-              .replace("two-bedroom", "2 bedrooms")
+              .replace("two-bedroom", "2 bedroom")
               .replace("studio-max", "studio max")}
               </h3>
             )} */}
