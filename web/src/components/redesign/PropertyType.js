@@ -149,18 +149,11 @@ export const PropertyTypeUI = ({
             </div>
           ) : null}
           {selectedPropertyType?._rawDescriptionTwo?.text && (
-            <div className="mt-10 text-mobile-body md:text-desktop-body property-type-description">
+            <div className="mt-5 pr-mobile-menu md:pr-0 text-mobile-body md:text-desktop-body property-type-description">
               <StandardText data={selectedPropertyType?._rawDescriptionTwo} />
             </div>
           )}
           <HowItWorksModal data={howItWorks} />
-          <button
-            onClick={onClickSeeAll}
-            className="border-b border-dashed mt-9 text-mobile-body md:text-desktop-body"
-          >
-            See other units
-          </button>
-          ↑
         </>
       ) : null}
     </>

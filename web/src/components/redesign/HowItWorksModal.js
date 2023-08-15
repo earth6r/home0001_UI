@@ -33,7 +33,7 @@ export const HowItWorksModal = ({ data }) => {
 
       <button
         onClick={onOpenModal}
-        className="border-b border-dashed mt-9 text-mobile-body md:text-desktop-body"
+        className="border-b border-dashed mt-4 text-mobile-body md:text-desktop-body"
       >
         {data.title ?? "How It Works"}
       </button>
