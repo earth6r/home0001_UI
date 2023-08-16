@@ -73,10 +73,23 @@ export const SingleProperty = ({
             width="560"
             alt=""
           />
-          {/**ToDO: add city, zip */}
-          <span>{selectedProperty.title}</span>
-          <span>10002, NYC</span>
-          <MapModule text="Map" lat={selectedProperty.map.lat} long={selectedProperty.map.long} />
+          <div className="grid grid-cols-2 md:grid-cols-2 mt-10">
+            <div>
+              <p>
+                {selectedProperty.title}
+                <br />
+                10002, NYC
+              </p>
+            </div>
+            <div className="text-right md:text-right ml-3">
+              <MapModule
+                text="Map"
+                lat={selectedProperty.map.lat}
+                long={selectedProperty.map.long}
+              />
+            </div>
+          </div>
+
           {selectedProperty?._rawDescription ? (
             <div className="pr-mobile-menu md:pr-0 mt-9">
               <StandardText data={selectedProperty?._rawDescription} />
