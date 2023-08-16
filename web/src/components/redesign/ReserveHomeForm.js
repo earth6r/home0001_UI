@@ -49,14 +49,14 @@ export const ReserveHomeForm = ({ data }) => {
               <p className="uppercase mb-9">
                 {data.property
                   ? `Join waitlist for unit ${returnUnitNumber(data.property.propertyType)}`
-                  : "Join waitlist for unit"}
+                  : "Join waitlist"}
               </p>
 
               <p>
                 {`${
-                  data.property ? returnUnitNumber(data.property.propertyType) : "This unit"
+                  data.property ? returnUnitNumber(data.property.propertyType) : "New units"
                 } will be released for sale soon to
-              buyers on the waitlist. Homebuyers will be offered this home in the order they joined. Once you’re offered the property, you can secure it with a small deposit and will have the chance to spend a few nights in the property to see how it feels before going ahead with the purchase. The Earth team will be available to answer questions, help secure financing, etc. `}
+              buyers on the waitlist. Homebuyers will be offered properties in the order they joined. Once you’re offered the property, you can secure it with a small deposit and will have the chance to spend a few nights in the property to see how it feels before going ahead with the purchase. The Earth team will be available to answer questions, help secure financing, etc. `}
               </p>
               <p>{`Join the waitlist for ${
                 data.property ? returnUnitNumber(data.property.propertyType) : "this unit"
