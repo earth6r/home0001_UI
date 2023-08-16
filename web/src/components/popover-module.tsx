@@ -49,7 +49,7 @@ const PopoverModule = props => {
         />
         <div className="block">
           {content && (
-            <div className="p-10 border bg-white mr-3 text-mobile-body md:text-desktop-body">
+            <div className="p-10 border bg-white sub-i-6:mr-3 text-mobile-body md:text-desktop-body">
               <BasePortableText blocks={content} serializers={Serializer} />
             </div>
           )}

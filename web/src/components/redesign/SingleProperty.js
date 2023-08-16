@@ -116,25 +116,15 @@ export const SingleProperty = ({
                   }`}
                 >
                   <div className="grid grid-cols-6 w-full gap-x-4">
-                    {propertyType == "studio-max" ? (
-                      <div className="tracking-tight p-0 m-0 col-span-2 text-left">
-                        <p className="uppercase mb-0 tracking-caps">
-                          {propertyType.replace("studio-max", "studio max")}
-                        </p>
-                        {price && <p className="uppercase tracking-caps mb-0">{price}</p>}
-                      </div>
-                    ) : (
-                      <div className="p-0 m-0 col-span-2 text-left">
-                        {propertyType && (
-                          <p className="uppercase mb-0 tracking-caps">
-                            {propertyType
-                              .replace("one-bedroom", "1 bedroom")
-                              .replace("penthouse", "2 bedroom")}
-                          </p>
-                        )}
-                        {price && <p className="uppercase tracking-caps mb-0">{price}</p>}
-                      </div>
-                    )}
+                    <div className="sub-i-6:tracking-tighter p-0 m-0 col-span-2 text-left">
+                      <p className="uppercase mb-0 tracking-caps">
+                        {propertyType
+                          .replace("studio-max", "studio max")
+                          .replace("one-bedroom", "1 bedroom")
+                          .replace("penthouse", "2 bedroom")}
+                      </p>
+                      {price && <p className="uppercase tracking-caps mb-0">{price}</p>}
+                    </div>
 
                     <div className="p-0 m-0 text-left col-span-4">
                       {propertyType
