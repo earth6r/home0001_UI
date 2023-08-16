@@ -183,8 +183,6 @@ const HomeRedesignPage = ({ location, data }) => {
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
     if (selectedProperty?.id) {
-      // Show intercom bubble when property is chosen
-      document.body.classList.remove("hide-intercom");
       searchParams.set("property", selectedProperty.id);
     } else {
       // Hide intercom bubble when property is unselected
