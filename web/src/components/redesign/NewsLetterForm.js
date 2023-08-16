@@ -23,8 +23,6 @@ const HubspotNewsletterForm = () => {
     let result;
     try {
       result = await submit_hubspot_newsletter_form(data.email);
-      console.log("result", result);
-      console.log("data", data);
       setResult("success");
     } catch (error) {
       setResult("error");

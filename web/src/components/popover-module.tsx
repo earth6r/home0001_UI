@@ -18,7 +18,7 @@ const PopoverModule = props => {
       trigger="click"
       usePortal={true}
       gutter={10}
-      placement="top"
+      placement="top-end"
     >
       <PopoverTrigger>
         {text && (
@@ -35,7 +35,7 @@ const PopoverModule = props => {
       <PopoverContent
         id={text + "-content-popover"}
         bg="transparent"
-        className="border-none max-w-2xl shadow-popup"
+        className="border-none max-w-2xl "
         zIndex={50}
       >
         <PopoverCloseButton
@@ -49,7 +49,7 @@ const PopoverModule = props => {
         />
         <div className="block">
           {content && (
-            <div className="p-10 border bg-white text-mobile-body md:text-desktop-body">
+            <div className="p-10 border bg-white mr-3 text-mobile-body md:text-desktop-body">
               <BasePortableText blocks={content} serializers={Serializer} />
             </div>
           )}
