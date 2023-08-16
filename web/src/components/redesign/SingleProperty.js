@@ -161,9 +161,8 @@ export const SingleProperty = ({
                         <ul className="mb-0 p-0">
                           {amenities.map((amenity, index) => {
                             return (
-                              <li key={index++} className="pl-0 text-left before:content-['']">
-                                <span>&ndash;&nbsp;</span>
-                                <span>{amenity}</span>{" "}
+                              <li key={index++} className="pl-3 text-left before:content-['–']">
+                                <span>{amenity}</span>
                               </li>
                             );
                           })}
@@ -174,7 +173,7 @@ export const SingleProperty = ({
                   {/* <div className="grid grid-cols-6 w-full">
                     <div className="pl-0 m-0 col-span-2 text-left leading-5"></div>
                     <div className="p-0 m-0 text-left col-span-4">
-                      
+
                     </div>
                   </div> */}
 
@@ -194,7 +193,7 @@ export const SingleProperty = ({
                             : null}
                         </div>
                         <div className="p-0 m-0 text-right opacity-40 line-through">
-                          
+
                         </div>
                       </div>
                     </div>
