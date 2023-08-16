@@ -7,6 +7,7 @@ import { imageUrlFor } from "../../lib/image-url";
 export const ImageSlider = ({ images }) => {
   const slider = createRef(null);
   const captionRef = useRef();
+  console.log("captionRef:", captionRef);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentCaption, setCurrentCaption] = useState(0);
 
