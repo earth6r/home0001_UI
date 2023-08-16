@@ -2,47 +2,47 @@ import React from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import addToMailchimp from "gatsby-plugin-mailchimp";
+import { submit_hubspot_newsletter_form } from "../../utils/axios";
 import { Input, Button } from "@chakra-ui/core";
 
 export const NewsLetterForm = ({ data }) => {
   return (
     <div className="flex flex-col gap-4 max-w-[19.375rem] md:max-w-[29.25rem]">
       <p className="text-mobile-body md:text-desktop-body mb-0 p-0">{data.title}</p>
-      <MailChimpForm signup />
+      <HubspotNewsletterForm />
     </div>
   );
 };
 
-const MailChimpForm = ({ signup }) => {
+const HubspotNewsletterForm = () => {
   const { register, handleSubmit, errors } = useForm();
   const [result, setResult] = useState({});
   const [msg, setMsg] = useState("");
 
   const onSubmit = async data => {
     let result;
-    if (signup) {
-      result = await addToMailchimp(data.email, {}, process.env.GATSBY_MAILCHIMP_SIGNUP_ENDPOINT);
-    } else {
-      result = await addToMailchimp(data.email);
+    try {
+      result = await submit_hubspot_newsletter_form(data.email);
+      console.log("result", result);
+      console.log("data", data);
+      setResult("success");
+    } catch (error) {
+      setResult("error");
+      console.log(error);
     }
-
-    setResult(result.result);
-    setMsg(result.msg);
   };
 
   return result === "success" ? (
     <>
       <h3 className="text-mobileLarge md:text-desktopBody">
-        {signup ? <>You&#39;re signed up.</> : <>Thank you for signing up.</>}
+        Thank you for signing up.
         <br />
       </h3>
 
-      {signup ? null : (
-        <p className="pt-1em text-mobileBody md:text-desktopCaption">
-          We'll share occasional updates on new homes, new locations, and new projects as the
-          network expands.
-        </p>
-      )}
+      <p className="pt-1em text-mobileBody md:text-desktopCaption">
+        We'll share occasional updates on new homes, new locations, and new projects as the network
+        expands.
+      </p>
     </>
   ) : (
     <>
