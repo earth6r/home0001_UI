@@ -159,7 +159,7 @@ const MapModule = props => {
     <>
       <Popover placement="bottom" trigger="click" usePortal={true} gutter={10}>
         <PopoverTrigger>
-          <button aria-label={`Open Map`} className=" border-b border-dashed uppercase">
+          <button aria-label={`Open Map`} className="border-b-[1.5px] border-dashed uppercase">
             {text}
           </button>
         </PopoverTrigger>
