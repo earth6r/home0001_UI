@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { submit_hubspot_form } from "../../utils/axios";
+import { submit_hubspot_waitlist_form } from "../../utils/axios";
 
 export const ReserveHomeForm = ({ data }) => {
   //todo add a unit prop to this component
@@ -31,7 +31,7 @@ export const ReserveHomeForm = ({ data }) => {
       email: data.email,
       unit_of_interest: unitOfInterest
     };
-    await submit_hubspot_form(
+    await submit_hubspot_waitlist_form(
       hubspotData.full_name,
       hubspotData.email,
       hubspotData.unit_of_interest
