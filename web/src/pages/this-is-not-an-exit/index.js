@@ -271,7 +271,7 @@ const HomeRedesignPage = ({ location, data }) => {
       <Container>
         <section>
           <div className="md:grid md:grid-cols-3 md:pr-desktop-menu">
-            <div className="col-start-2 mb-10 md:pr-0 text-mobile-body md:text-desktop-body property-type-description">
+            <div className="col-start-2 mb-10 md:mb-20 md:pr-0 text-mobile-body md:text-desktop-body property-type-description">
               Own one home, live flexibly between many places.
               <br /> Fully equipped XN–0LF homes are available to buy in:
             </div>
