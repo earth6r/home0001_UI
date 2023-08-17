@@ -136,12 +136,12 @@ export const PropertyTypeUI = ({
             />
           </div>
           {selectedPropertyType.moreImages?.length ? (
-            <div className="mt-10 brightness-90">
+            <div className="mt-10">
               <ImageSlider images={selectedPropertyType.moreImages} />
             </div>
           ) : null}
           {selectedPropertyType?._rawDescriptionTwo?.text && (
-            <div className="mt-5 pr-mobile-menu md:pr-0 text-mobile-body md:text-desktop-body property-type-description">
+            <div className="mt-10 pr-mobile-menu md:pr-0 text-mobile-body md:text-desktop-body property-type-description">
               <StandardText data={selectedPropertyType?._rawDescriptionTwo} />
             </div>
           )}
