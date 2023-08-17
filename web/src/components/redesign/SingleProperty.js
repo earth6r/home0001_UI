@@ -116,7 +116,7 @@ export const SingleProperty = ({
                   }`}
                 >
                   <div className="grid grid-cols-6 w-full gap-x-4">
-                    <div className="sub-i-6:tracking-tighter p-0 m-0 col-span-2 text-left">
+                    <div className="p-0 m-0 col-span-2 text-left">
                       <p className="uppercase mb-0 tracking-caps">
                         {propertyType
                           .replace("studio-max", "studio max")
