@@ -103,7 +103,7 @@ export const SingleProperty = ({
         <ul
           ref={propertyTypesRef}
           id="selected-property-types"
-          className="animate-in flex flex-col gap-4 my-10 p-0 pr-mobile-menu md:pr-0"
+          className="animate-in flex flex-col gap-3 my-10 p-0 pr-mobile-menu md:pr-0"
         >
           {propertyTypes.map(item => {
             const { amenities, propertyType, price, area, id, available } = item;
@@ -112,22 +112,22 @@ export const SingleProperty = ({
                 <button
                   disabled={!available}
                   onClick={() => onChange(item)}
-                  className={`disabled:opacity-40 disabled:bg-white disabled:shadow-none p-4 border w-full flex flex-col gap-2 text-mobile-body md:text-desktop-body ${
+                  className={`disabled:opacity-40 disabled:bg-white disabled:shadow-none p-2 border w-full flex flex-col gap-2 text-mobile-body md:text-desktop-body ${
                     selectedPropertyType?.id === item.id ? "bg-black text-white" : ""
                   }`}
                 >
-                  <div className="grid grid-cols-6 w-full gap-x-4">
-                    <div className="p-0 m-0 col-span-2 text-left">
+                  <div className="grid grid-cols-8 w-full gap-x-4">
+                    <div className="p-0 m-0 col-span-3 text-left">
                       <p className="uppercase mb-0 tracking-caps">
                         {propertyType
                           .replace("studio-max", "studio max")
                           .replace("one-bedroom", "1 bedroom")
                           .replace("penthouse", "2 bedroom")}
                       </p>
-                      {price && <p className="uppercase tracking-caps mb-0">{price}</p>}
+                      {price && <p className="tracking-caps mb-0">{price}</p>}
                     </div>
 
-                    <div className="p-0 m-0 text-left col-span-4">
+                    <div className="p-0 m-0 text-left col-start-4 col-span-4">
                       {propertyType
                         ? propertyType === "studio"
                           ? "UNIT 3B"
@@ -142,7 +142,7 @@ export const SingleProperty = ({
                           {area}
                           <br />
                           <span className="normal-case">
-                            Fully Equipped
+                            Fully equipped
                             <br />
                             Access to homes in other locations
                           </span>
