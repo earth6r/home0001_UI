@@ -270,6 +270,10 @@ const HomeRedesignPage = ({ location, data }) => {
       <SEO title="Homes" />
       <Container>
         <section>
+          <div className="mb-10 md:pr-0 text-mobile-body md:text-desktop-body">
+            Own one home, live flexibly between many places.
+            <br /> Fully equipped XN–0LF homes are available to buy in:
+          </div>
           <CitiesList
             cities={cities}
             onChange={city => onSelectCity(city)}
