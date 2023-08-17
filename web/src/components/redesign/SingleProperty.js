@@ -112,7 +112,7 @@ export const SingleProperty = ({
                 <button
                   disabled={!available}
                   onClick={() => onChange(item)}
-                  className={`disabled:opacity-40 disabled:bg-white disabled:shadow-none p-2 border w-full flex flex-col gap-2 text-mobile-body md:text-desktop-body ${
+                  className={`disabled:opacity-40 disabled:bg-white disabled:shadow-none p-4  min-h-[16rem] border w-full flex flex-col gap-2 text-mobile-body md:text-desktop-body ${
                     selectedPropertyType?.id === item.id ? "bg-black text-white" : ""
                   }`}
                 >
@@ -127,7 +127,7 @@ export const SingleProperty = ({
                       {price && <p className="tracking-caps mb-0">{price}</p>}
                     </div>
 
-                    <div className="p-0 m-0 text-left col-start-4 col-span-4">
+                    <div className="p-0 m-0 text-left col-start-4 col-span-5">
                       {propertyType
                         ? propertyType === "studio"
                           ? "UNIT 3B"
