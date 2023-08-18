@@ -14,7 +14,6 @@ export const ImageSlider = ({ images }) => {
 
   const swiperRef = useRef();
   const captionRef = useRef();
-  console.log("captionRef:", captionRef);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentCaption, setCurrentCaption] = useState(0);
 

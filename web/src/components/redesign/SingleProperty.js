@@ -17,7 +17,6 @@ export const SingleProperty = ({
       if (!propertyTypesRef.current) return;
 
       const rect = propertyTypesRef.current.getBoundingClientRect();
-      console.log(rect.top, window.innerHeight, rect.top + rect.height);
       if (rect.top <= window.innerHeight) {
         document.body.classList.remove("hide-intercom");
       } else {
