@@ -30,7 +30,7 @@ export const AccordionModule = ({ data }: AccordionModuleProps) => {
                       {isExpanded ? <Minus /> : <Plus />}
                     </div>
                   </AccordionHeader>
-                  <AccordionPanel className="px-3 text-mobile-body md:text-desktop-body">
+                  <AccordionPanel className="pr-10 text-mobile-body md:text-desktop-body">
                     <PortableText blocks={item.text} />
                   </AccordionPanel>
                 </>
