@@ -71,14 +71,12 @@ export const PropertyTypeUI = ({
                 }))}
               />
             )}
-            <div className="grid grid-cols-2 md:grid-cols-2 mt-10">
+            <div className="mt-10 mb-4">
               <div>
                 {selectedPropertyType.propertyType && (
-                  <p className="m-0 uppercase tracking-caps">{selectedPropertyType.propertyType}</p>
-                )}
-              </div>
-              <div className="text-right md:text-right  md:mt-0">
-                {selectedPropertyType._rawInventory
+                  <p className="m-0 uppercase tracking-caps">{selectedPropertyType.propertyType}
+                    :&nbsp;
+                    {selectedPropertyType._rawInventory
                   ? selectedPropertyType.propertyType === "studio"
                     ? "UNIT 3B"
                     : selectedPropertyType.propertyType === "studio-max"
@@ -86,16 +84,17 @@ export const PropertyTypeUI = ({
                     : selectedPropertyType.propertyType === "one-bedroom"
                     ? "UNIT 6B"
                     : null
-                  : null}
+                  : null}</p>
+                )}
               </div>
             </div>
             <div className="text-mobile-body md:text-desktop-body pr-mobile-menu md:pr-0">
-              <div>
+              <div className="">
                 {selectedPropertyType.price && (
                   <p className="m-0 uppercase tracking-caps">{selectedPropertyType.price}</p>
                 )}
                 {selectedPropertyType.area && (
-                  <p className="m-0 uppercase tracking-caps">{selectedPropertyType.area}</p>
+                  <p className="mb-4 m-0 uppercase tracking-caps">{selectedPropertyType.area}</p>
                 )}
                 {selectedPropertyType.propertyType === "studio"
                   ? returnStudioData()
