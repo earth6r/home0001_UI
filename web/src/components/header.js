@@ -205,29 +205,33 @@ const Header = ({
                 </span>
               </PageLink>
             </h1>
-            <button
-              style={{ borderColor: "#000000" }}
-              className="outline-none relative z-50 flex items-center"
-              onClick={showNav ? onHideNav : onShowNav}
-              role="button"
-              aria-label="Open the menu"
-            >
-              <p
-                className={`${
-                  showNav ? "hidden" : ""
-                } tracking-caps leading-none uppercase text-mobile-body md:text-desktop-body`}
+            <div className="h-3 w-3 md:h-10 md:w-10 relative z-50">
+              <button
+                style={{ borderColor: "#000000" }}
+                className={`outline-none flex items-center justify-center absolute h-10 w-10 ${
+                  showNav ? "-left-[0.875rem]" : "-left-[1.75rem]"
+                } -top-[0.875rem] md:left-0 md:top-0`}
+                onClick={showNav ? onHideNav : onShowNav}
+                role="button"
+                aria-label="Open the menu"
               >
-                Menu
-              </p>
-              <span className={`${showNav ? "" : "hidden"}`}>
-                <span className="hidden md:block h-10 w-10 rounded-xl">
-                  <Icon symbol="closeMenu" />
+                <p
+                  className={`${
+                    showNav ? "hidden" : ""
+                  } tracking-caps leading-none uppercase text-mobile-body md:text-desktop-body`}
+                >
+                  Menu
+                </p>
+                <span className={`${showNav ? "" : "hidden"}`}>
+                  <span className="hidden md:block h-10 w-10 rounded-xl">
+                    <Icon symbol="closeMenu" />
+                  </span>
+                  <span className="md:hidden block h-3 w-3 md:my-0">
+                    <Icon symbol="closeMenuMobile" />
+                  </span>
                 </span>
-                <span className="md:hidden block h-3 w-3 md:my-0">
-                  <Icon symbol="closeMenuMobile" />
-                </span>
-              </span>
-            </button>
+              </button>
+            </div>
           </nav>
 
           <CSSTransition in={showNav} timeout={2500} classNames="fade" unmountOnExit>
