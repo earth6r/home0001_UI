@@ -111,7 +111,7 @@ export const SingleProperty = ({
                 <button
                   disabled={!available}
                   onClick={() => onChange(item)}
-                  className={`disabled:opacity-40 disabled:bg-white disabled:shadow-none p-4  min-h-[16rem] border w-full flex flex-col gap-2 text-mobile-body md:text-desktop-body ${
+                  className={`disabled:opacity-30 disabled:bg-white disabled:shadow-none p-4  min-h-[16rem] border w-full flex flex-col gap-2 text-mobile-body md:text-desktop-body ${
                     selectedPropertyType?.id === item.id ? "bg-black text-white" : ""
                   }`}
                 >
@@ -137,9 +137,9 @@ export const SingleProperty = ({
                           : null
                         : null}
                       {area && (
-                        <p className="uppercase tracking-caps">
+                        <p className="mb-5 p-0 m-0 uppercase tracking-caps">
                           {area}
-                          <br />
+                          <br /><br />
                           <span className="normal-case">
                             Fully equipped
                             <br />
