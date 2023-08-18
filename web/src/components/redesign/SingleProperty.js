@@ -12,24 +12,24 @@ export const SingleProperty = ({
   const selectedPropertyRef = createRef();
   const propertyTypesRef = useRef();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!propertyTypesRef.current) return;
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (!propertyTypesRef.current) return;
 
-      const rect = propertyTypesRef.current.getBoundingClientRect();
-      if (rect.top <= window.innerHeight) {
-        document.body.classList.remove("hide-intercom");
-      } else {
-        document.body.classList.add("hide-intercom");
-      }
-    };
+  //     const rect = propertyTypesRef.current.getBoundingClientRect();
+  //     if (rect.top <= window.innerHeight) {
+  //       document.body.classList.remove("hide-intercom");
+  //     } else {
+  //       document.body.classList.add("hide-intercom");
+  //     }
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   useEffect(() => {
     if (!disableScroll) {
@@ -119,9 +119,9 @@ export const SingleProperty = ({
                     <div className="p-0 m-0 col-span-3 text-left">
                       <p className="uppercase mb-0 tracking-caps">
                         {propertyType
-                          .replace("studio-max", "studio max")
-                          .replace("one-bedroom", "1 bedroom")
-                          .replace("penthouse", "2 bedroom")}
+                          ?.replace("studio-max", "studio max")
+                          ?.replace("one-bedroom", "1 bedroom")
+                          ?.replace("penthouse", "2 bedroom")}
                       </p>
                       {price && <p className="tracking-caps mb-0">{price}</p>}
                     </div>
