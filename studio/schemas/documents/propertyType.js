@@ -24,7 +24,6 @@ export default {
           { title: '1 BEDROOM', value: 'one-bedroom' },
           { title: '2 BEDROOM', value: 'two-bedroom' },
           { title: 'PENTHOUSE', value: 'penthouse' },
-          { title: '4 BEDROOM', value: 'four-bedroom'}
           { title: 'Condominium', value: 'condominium' }
         ]
       }
