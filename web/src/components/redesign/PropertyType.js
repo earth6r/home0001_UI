@@ -71,7 +71,7 @@ export const PropertyTypeUI = ({
                 }))}
               />
             )}
-            <div className="mt-10 mb-4">
+            <div className="mt-10">
               <div>
                 {selectedPropertyType.propertyType && (
                   <p className="m-0 uppercase tracking-caps">{selectedPropertyType.propertyType}
@@ -91,10 +91,10 @@ export const PropertyTypeUI = ({
             <div className="text-mobile-body md:text-desktop-body pr-mobile-menu md:pr-0">
               <div className="">
                 {selectedPropertyType.price && (
-                  <p className="m-0 uppercase tracking-caps">{selectedPropertyType.price}</p>
+                  <p className="m-0">{selectedPropertyType.price}</p>
                 )}
                 {selectedPropertyType.area && (
-                  <p className="mb-4 m-0 uppercase tracking-caps">{selectedPropertyType.area}</p>
+                  <p className="mb-4 m-0">{selectedPropertyType.area}</p>
                 )}
                 {selectedPropertyType.propertyType === "studio"
                   ? returnStudioData()
@@ -158,7 +158,7 @@ const MapModule = props => {
     <>
       <Popover placement="bottom" trigger="click" usePortal={true} gutter={10}>
         <PopoverTrigger>
-          <button aria-label={`Open Map`} className="border-b-[1.5px] border-dashed uppercase">
+          <button aria-label={`Open Map`} className="border-b-[2px] border-dashed uppercase">
             {text}
           </button>
         </PopoverTrigger>

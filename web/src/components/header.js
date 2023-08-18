@@ -197,7 +197,7 @@ const Header = ({
               >
                 <div className="flex items-center h-3">
                   <p className="tracking-caps leading-none uppercase text-mobile-body md:text-desktop-body">
-                    XN--0LF
+                    <EarthLogo height="0.875em" width="auto" />
                   </p>
                 </div>
                 <span className={`${forwarder == "new-eelam" ? "" : "hidden"} new-eelam-header`}>
@@ -209,7 +209,7 @@ const Header = ({
               <button
                 style={{ borderColor: "#000000" }}
                 className={`outline-none flex items-center justify-center absolute h-10 w-10 ${
-                  showNav ? "-left-[0.875rem]" : "-left-[1.75rem]"
+                  showNav ? "-left-[0.875rem]" : "-left-[1.65rem]"
                 } -top-[0.875rem] md:left-0 md:top-0`}
                 onClick={showNav ? onHideNav : onShowNav}
                 role="button"

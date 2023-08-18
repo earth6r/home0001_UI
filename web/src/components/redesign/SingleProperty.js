@@ -97,7 +97,7 @@ export const SingleProperty = ({
           ) : null}
         </div>
       )}
-      {<div className="mt-10 mb-10">Choose an available home at 49 Orchard here:</div>}
+      {<div className="mt-9 mb-10">Choose an available home at 49 Orchard here:</div>}
       {propertyTypes && (
         <ul
           ref={propertyTypesRef}
@@ -137,7 +137,7 @@ export const SingleProperty = ({
                           : null
                         : null}
                       {area && (
-                        <p className="mb-5 p-0 m-0 uppercase tracking-caps">
+                        <p className="mb-5 p-0 m-0 tracking-caps">
                           {area}
                           <br /><br />
                           <span className="normal-case">

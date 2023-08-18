@@ -82,7 +82,7 @@ export const ReserveHomeForm = ({ data }) => {
             </Accordion> */}
             </div>
           ) : (
-            <div className="relative mb-4 text-mobile-body md:text-desktop-body font-serif">
+            <div className="relative mb-4 text-mobile-body md:text-desktop-body">
               <p>
                 {`
                 Thank you for submitting your interest in
@@ -136,7 +136,7 @@ export const ReserveHomeForm = ({ data }) => {
                 </div>
                 <div className="relative mt-10 flex flex-col gap-2 md:gap-4">
                   <button
-                    className="h-12 max-h-12 text-center tracking-caps uppercase text-white bg-black text-mobile-body md:text-desktop-body font-serif "
+                    className="tracking-normal h-12 max-h-12 text-center tracking-caps uppercase text-white bg-black text-mobile-body md:text-desktop-body"
                     type="submit"
                   >
                     Join the waitlist
