@@ -27,7 +27,7 @@ export const query = graphql`
   }
 `;
 const HowItWorksRedignPage = ({ data }) => {
-  const pageTitle = data.sanityHowItWorksPage.title || "How It Works";
+  const pageTitle = data.sanityHowItWorksPage.title || "How it works";
 
   return (
     <Layout showPopupNewsletter={true} rnd={false} homes>

@@ -86,7 +86,7 @@
 .rte ul li {
   /* counter-increment: rte-list; */
   @apply pl-1/10 relative;
-  padding-bottom: 0.7em;
+  padding-bottom: 1rem;
 }
 
 .rte ul:not(.table, .column-header) li:before {
@@ -106,14 +106,14 @@ select {
   box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.3), -5px -5px 11px rgba(255, 255, 255, 0);
   will-change: box-shadow;
   transition: box-shadow 5s linear;
-  fontsmoothing: "antialiased";
+  font-smoothing: "antialiased";
   @apply py-1/2em text-mobileBody h-2em truncate block p-0 m-0 pt-1em rounded-lg;
   line-height: 2.25em !important;
 }
 
 .e-checkout {
   background: #ffffff;
-  fontsmoothing: "antialiased";
+  font-smoothing: "antialiased";
   margin: 0 !important;
   line-height: 2.25em !important;
   cursor: pointer;
@@ -254,7 +254,7 @@ input::placeholder {
 
   form button,
   button[type="submit"] {
-    @apply text-desktopBody;
+    @apply text-mobileBody;
     line-height: 2.25em !important;
   }
 

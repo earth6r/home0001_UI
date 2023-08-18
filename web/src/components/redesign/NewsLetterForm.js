@@ -60,7 +60,7 @@ const HubspotNewsletterForm = () => {
           placeholder="Email address"
           aria-describedby="email-helper-text"
         />
-        <Button mt={4} type="submit" className="bg-black w-full text-white">
+        <Button mt={4} type="submit" className="text-mobile-body bg-black w-full text-white">
           Submit
         </Button>
         {result === "error" && (
