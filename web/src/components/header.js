@@ -172,7 +172,7 @@ const Header = ({
       <header
         className={`${showThinBanner && thinBanner ? "mt-16 md:mt-8" : ""} ${
           blackHeader ? "black-header " : ""
-        } ${showNav ? "z-70" : "z-50"} fixed w-full left-0 top-0`}
+        } ${showNav ? "z-70" : "z-50"} fixed w-full left-0 top-0 select-none`}
       >
         <div
           className={`${

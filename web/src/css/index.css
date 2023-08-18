@@ -12,6 +12,11 @@
 @tailwind components;
 @tailwind utilities;
 
+::selection {
+  color: white;
+  background: black;
+}
+
 html {
   font-family: Arial, Helvetica, sans-serif, "arial-unicode";
 }

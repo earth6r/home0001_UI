@@ -73,7 +73,7 @@ export const SingleProperty = ({
             width="560"
             alt=""
           />
-          <div className="grid grid-cols-2 md:grid-cols-2">
+          <div className="">
             <div>
               <p>
                 {selectedProperty.title}
@@ -81,7 +81,7 @@ export const SingleProperty = ({
                 10002, NYC
               </p>
             </div>
-            <div className="text-right md:text-right ml-3">
+            <div className="mt-4">
               <MapModule
                 text="Map"
                 lat={selectedProperty.map.lat}
@@ -91,7 +91,7 @@ export const SingleProperty = ({
           </div>
 
           {selectedProperty?._rawDescription ? (
-            <div className="pr-mobile-menu md:pr-0 mt-9">
+            <div className="pr-mobile-menu md:pr-0 mt-8">
               <StandardText data={selectedProperty?._rawDescription} />
             </div>
           ) : null}
