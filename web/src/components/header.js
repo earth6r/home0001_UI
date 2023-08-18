@@ -197,7 +197,7 @@ const Header = ({
               >
                 <div className="flex items-center h-3">
                   <p className="tracking-caps leading-none uppercase text-mobile-body md:text-desktop-body">
-                    <EarthLogo height="0.875em" width="auto" />
+                    <EarthLogo height="0.875em" width="auto"/>
                   </p>
                 </div>
                 <span className={`${forwarder == "new-eelam" ? "" : "hidden"} new-eelam-header`}>
