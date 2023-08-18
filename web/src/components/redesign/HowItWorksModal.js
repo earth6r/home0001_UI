@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HowItWorksComponent from "./HowItWorksComponent";
 import { CSSTransition } from "react-transition-group";
 import Modal from "./Modal";
@@ -17,6 +17,13 @@ export const HowItWorksModal = ({ data }) => {
     document.body.style.touchAction = "";
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    };
+  }, []);
 
   return (
     <div>

@@ -63,7 +63,7 @@ export const ImageSlider = ({ images }) => {
           className="max-w-[560px] md:max-w-[unset] -ml-4 w-[calc(100%_+_2rem)]"
         >
           {images?.map((image, index) =>
-            image.image.asset ? (
+            image.image?.asset ? (
               <img
                 key={index}
                 className="max-w-[560px] md:max-w-[unset] px-4 h-full w-full object-cover"
