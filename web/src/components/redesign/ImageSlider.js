@@ -75,7 +75,7 @@ export const ImageSlider = ({ images }) => {
           className="mySwiper max-w-[560px] md:max-w-[unset] -ml-4 w-[calc(100%_+_2rem)]"
         >
           {images?.map((image, index) =>
-            image.image.asset ? (
+            image.image?.asset ? (
               <SwiperSlide>
                 <div className="swiper-zoom-container">
                   <img

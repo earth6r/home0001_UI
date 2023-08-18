@@ -260,6 +260,14 @@ const HomeRedesignPage = ({ location, data }) => {
       setSelectedPropertyType(null);
     }
   };
+
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    };
+  }, []);
+
   return (
     <Layout
       pathname={location.pathname.replace(/\/$/, "")}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { InventoryTable } from "./InventoryTable";
 import Modal from "./Modal";
 
@@ -16,6 +16,13 @@ export const InventoryModule = ({ data, title, propertyType, viewInventoryText }
     document.body.style.touchAction = "";
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    };
+  }, []);
 
   return (
     <>
