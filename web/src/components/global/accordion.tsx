@@ -22,8 +22,9 @@ export const AccordionModule = ({ data }: AccordionModuleProps) => {
               {/* @ts-ignore */}
               {({ isExpanded }) => (
                 <>
-                  <AccordionHeader className="flex items-center justify-between hover:bg-white px-3 py-4 h-full">
-                    <h2 className="text-left m-0 uppercase tracking-caps text-mobile-body md:text-desktop-body">
+                  <AccordionHeader className="flex items-center justify-between hover:bg-white px-4
+                   py-4 h-full">
+                    <h2 className="text-left mr-2 m-0 uppercase tracking-caps text-mobile-body md:text-desktop-body">
                       {item.title}
                     </h2>
                     <div className="text-[20px] font-normal">
