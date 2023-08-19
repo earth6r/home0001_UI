@@ -111,12 +111,12 @@ export const SingleProperty = ({
                 <button
                   disabled={!available}
                   onClick={() => onChange(item)}
-                  className={`disabled:opacity-30 disabled:bg-white disabled:shadow-none p-4  min-h-[16rem] border w-full flex flex-col gap-2 text-mobile-body md:text-desktop-body ${
+                  className={`disabled:opacity-30 disabled:bg-white disabled:shadow-none p-4  min-h-[20rem] border w-full flex flex-col gap-2 text-mobile-body md:text-desktop-body ${
                     selectedPropertyType?.id === item.id ? "bg-black text-white" : ""
                   }`}
                 >
-                  <div className="grid grid-cols-8 w-full gap-x-4">
-                    <div className="p-0 m-0 col-span-3 text-left">
+                  <div className="grid property-type-button w-full">
+                    <div className="p-0 m-0 text-left">
                       <p className="uppercase mb-0 tracking-caps">
                         {propertyType
                           ?.replace("studio-max", "studio max")
@@ -126,7 +126,7 @@ export const SingleProperty = ({
                       {price && <p className="tracking-caps mb-0">{price}</p>}
                     </div>
 
-                    <div className="p-0 m-0 text-left col-start-4 col-span-5">
+                    <div className="p-0 m-0 text-left">
                       {propertyType
                         ? propertyType === "studio"
                           ? "UNIT 3B"
@@ -160,14 +160,14 @@ export const SingleProperty = ({
                       )}
                     </div>
                   </div>
-                  {/* <div className="grid grid-cols-6 w-full">
+                  {/* <div className="grid grid-cols-11 w-full">
                     <div className="pl-0 m-0 col-span-2 text-left leading-5"></div>
                     <div className="p-0 m-0 text-left col-span-4">
 
                     </div>
                   </div> */}
 
-                  {/*<div className="grid grid-cols-6 w-full">
+                  {/*<div className="grid grid-cols-11 w-full">
                     <div className="p-0 m-0 col-span-2 text-left"></div>
                     <div className="p-0 m-0 text-right">
                       <div className="flex flex-col">

@@ -74,8 +74,12 @@ export const PropertyTypeUI = ({
             <div className="mt-10">
               <div>
                 {selectedPropertyType.propertyType && (
-                  <p className="m-0 uppercase tracking-caps">{selectedPropertyType.propertyType}
+                  <p className="m-0 uppercase tracking-caps">{selectedPropertyType.propertyType
+              .replace("one-bedroom", "1 bedroom")
+              .replace("two-bedroom", "2 bedroom")
+              .replace("studio-max", "studio max")}
                     :&nbsp;
+                    
                     {selectedPropertyType._rawInventory
                   ? selectedPropertyType.propertyType === "studio"
                     ? "UNIT 3B"
@@ -84,7 +88,8 @@ export const PropertyTypeUI = ({
                     : selectedPropertyType.propertyType === "one-bedroom"
                     ? "UNIT 6B"
                     : null
-                  : null}</p>
+                  : null}
+                </p>
                 )}
               </div>
             </div>
@@ -103,6 +108,7 @@ export const PropertyTypeUI = ({
                   : selectedPropertyType.propertyType === "one-bedroom"
                   ? returnOneBedroomData()
                   : null}
+
               </div>
 
               {
