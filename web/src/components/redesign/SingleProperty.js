@@ -9,6 +9,16 @@ export const SingleProperty = ({
   selectedPropertyType,
   disableScroll = false
 }) => {
+  function capitalizeAddress(str) {
+    const number = str.substring(0, str.indexOf(" "));
+    const street = str.substring(str.indexOf(" ") + 1).slice(0, -3);
+
+    const lowerCaseStreet = street.toLowerCase(); // convert string to lower case
+    const firstLetter = lowerCaseStreet.charAt(0).toUpperCase(); // upper case the first character
+    const streetWithoutFirstChar = lowerCaseStreet.slice(1); // remove first character from lower case string
+
+    return number + " " + firstLetter + streetWithoutFirstChar;
+  }
   const selectedPropertyRef = createRef();
   const propertyTypesRef = useRef();
 
@@ -56,6 +66,7 @@ export const SingleProperty = ({
   const returnStudioMaxUnavailableData = () => {
     return <div>UNIT 2A</div>;
   };
+  console.log(selectedProperty);
   return (
     <>
       {selectedProperty && (
@@ -97,7 +108,11 @@ export const SingleProperty = ({
           ) : null}
         </div>
       )}
-      {<div className="mt-9 mb-10">Choose an available home at 49 Orchard here:</div>}
+      {
+        <div className="mt-9 mb-10">
+          Choose an available home at {capitalizeAddress(selectedProperty.title)} here:
+        </div>
+      }
       {propertyTypes && (
         <ul
           ref={propertyTypesRef}
@@ -123,27 +138,25 @@ export const SingleProperty = ({
                           ?.replace("one-bedroom", "1 bedroom")
                           ?.replace("three-story-townhouse", "3 story townhouse")
                           ?.replace("penthouse", "2 bedroom")}
-                          &nbsp;—&nbsp;
-                          {propertyType
-                        ? propertyType === "studio"
-                          ? "UNIT 3B"
-                          : propertyType === "studio-max"
-                          ? "UNIT 4A"
-                          : propertyType === "one-bedroom"
-                          ? "UNIT 6B"
-                          : null
-                        : null}
+                        &nbsp;—&nbsp;
+                        {propertyType
+                          ? propertyType === "studio"
+                            ? "UNIT 3B"
+                            : propertyType === "studio-max"
+                            ? "UNIT 4A"
+                            : propertyType === "one-bedroom"
+                            ? "UNIT 6B"
+                            : null
+                          : null}
                       </p>
-                      <p className="col-start-2 text-right mb-0 tracking-caps">
-                      {price}
-                      </p>
+                      <p className="col-start-2 text-right mb-0 tracking-caps">{price}</p>
                     </div>
                     <div className="p-0 mt-4 text-left">
                       {area && (
                         <p className="mb-5 p-0 m-0">
                           {area}
                           <br />
-                          Fully equipped 
+                          Fully equipped
                           <br />
                           Access to homes in other locations
                         </p>
