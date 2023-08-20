@@ -78,7 +78,7 @@ export const SingleProperty = ({
               <p>
                 {selectedProperty.title}
                 <br />
-                10002, NYC
+                {selectedProperty.postcode}
               </p>
             </div>
             <div className="mt-4">
