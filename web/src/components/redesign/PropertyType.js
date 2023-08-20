@@ -66,8 +66,10 @@ export const PropertyTypeUI = ({
         <>
           <div className="animate-in flex flex-col text-mobile-body md:text-desktop-body relative">
             {selectedPropertyType.propertyType === "two-bedrooms" ? (
-              <div>
-                <p>Coming soon...</p>
+              <div className="">
+                <div className="absolute z-50 w-[100%] mt-[62.5%]">
+                  <p className="text-white text-center">COMING SOON</p>
+                </div>
                 {selectedPropertyType?.images && selectedPropertyType.images.length !== 0 && (
                   <ImageSlider
                     images={selectedPropertyType.images.map(image => ({
@@ -93,7 +95,7 @@ export const PropertyTypeUI = ({
                   <p className="m-0 uppercase tracking-caps">
                     {selectedPropertyType.propertyType
                       .replace("one-bedroom", "1 bedroom")
-                      .replace("two-bedrooms", "3 story townhouse")
+                      .replace("two-bedrooms", "3 story townhouse — TYPE A")
                       .replace("studio-max", "studio max")}
                     {selectedPropertyType.propertyType != "two-bedrooms" ? (
                       <span>&nbsp;—&nbsp;</span>
