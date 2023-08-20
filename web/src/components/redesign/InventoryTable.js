@@ -9,6 +9,7 @@ export const InventoryTable = ({ data }) => {
   const slider = useRef(null);
   const isDesktop = useMediaQuery({ minWidth: 768 });
   const [currentIndex, setCurrentIndex] = useState(0);
+  console.log("currentIndex:", currentIndex);
 
   const settings = {
     slidesToShow: isDesktop ? 3 : 1,
@@ -39,7 +40,7 @@ export const InventoryTable = ({ data }) => {
                     </li>
                     {rows?.map(row => {
                       return (
-                        <li key={`row-${row._key}`} className="flex mx-4 md:mx-0 md:mr-4">
+                        <li key={`row-${row._key}`} className="flex mb-2 mx-4 md:mx-0 md:mr-4">
                           {row.cells &&
                             row.cells.map((cell, index) => {
                               if (index == currentHeader) {
@@ -63,7 +64,7 @@ export const InventoryTable = ({ data }) => {
           />
           <CustomNextButton
             onClick={() => slider.current.slickNext()}
-            disabled={currentIndex === headers.length - 1}
+            disabled={currentIndex === 1}
           />
         </div>
       )}

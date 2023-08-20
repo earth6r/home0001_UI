@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HowItWorksComponent from "./HowItWorksComponent";
 import { CSSTransition } from "react-transition-group";
 import Modal from "./Modal";
@@ -18,6 +18,13 @@ export const HowItWorksModal = ({ data }) => {
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    };
+  }, []);
+
   return (
     <div>
       <Modal isOpen={isOpen} onClose={onCloseModal}>
@@ -33,9 +40,9 @@ export const HowItWorksModal = ({ data }) => {
 
       <button
         onClick={onOpenModal}
-        className="border-b border-dashed mt-10 text-mobile-body md:text-desktop-body"
+        className="border-b-[2px] border-dashed mt-4 text-mobile-body md:text-desktop-body"
       >
-        {data.title ?? "How It Works"}
+        {data.title ?? "How it works"}
       </button>
     </div>
   );

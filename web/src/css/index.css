@@ -12,8 +12,13 @@
 @tailwind components;
 @tailwind utilities;
 
+::selection {
+  color: white;
+  background: black;
+}
+
 html {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif, "arial-unicode";
 }
 h6 {
   opacity: 0.5;
@@ -39,6 +44,11 @@ body {
   font-feature-settings: "kern" 1, "dlig" 1;
   -webkit-font-feature-settings: "kern" 1, "dlig" 1;
   -moz-font-feature-settings: "kern" 1, "dlig" 1;
+}
+
+.property-type-button {
+  grid-template-columns: 70% auto;
+  grid-gap: ;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

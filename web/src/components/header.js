@@ -4,6 +4,7 @@ import Icon from "./icon";
 import CircleButton from "./global/circleButton";
 import GridRow from "./grid/grid-row";
 import EarthLogoMobile from "../components/images/logos/earth-logo-mobile.svg";
+import EarthLogo from "../components/images/logos/earth-logo-mobile.svg";
 import { PageLink } from "../components/link";
 import { HomesContext } from "./context/HomesContext";
 import { CSSTransition } from "react-transition-group";
@@ -126,25 +127,24 @@ const Header = ({
 
   const newMenu = [
     {
-      title: "How It Works",
-      slug: "/this-is-not-an-exit/how-it-works"
-    },
-    {
       title: "About",
-      slug: "/this-is-not-an-exit/about"
+      slug: "/homes/about"
     },
     {
-      title: "Contact",
-      slug: "/this-is-not-an-exit/contact"
+      title: "How It Works",
+      slug: "/homes/how-it-works"
     },
     {
       title: "Newsletter",
-      slug: "/this-is-not-an-exit/newsletter"
+      slug: "/homes/newsletter"
     },
-
+    {
+      title: "Contact",
+      slug: "/homes/contact"
+    },
     {
       title: "Legal",
-      slug: "/this-is-not-an-exit/legal"
+      slug: "/homes/legal"
     }
   ];
   return (
@@ -172,7 +172,7 @@ const Header = ({
       <header
         className={`${showThinBanner && thinBanner ? "mt-16 md:mt-8" : ""} ${
           blackHeader ? "black-header " : ""
-        } ${showNav ? "z-70" : "z-50"} fixed w-full left-0 top-0`}
+        } ${showNav ? "z-70" : "z-50"} fixed w-full left-0 top-0 select-none`}
       >
         <div
           className={`${
@@ -192,40 +192,46 @@ const Header = ({
                   setSelectedPropertyType(null);
                   setShowReserveHomeForm(false);
                 }}
-                to="/this-is-not-an-exit"
+                to="/homes"
                 className="flex items-center h-full"
               >
                 <div className="flex items-center h-3">
-                  <EarthLogoMobile height="12" width="48" />
+                  <p className="tracking-caps leading-none uppercase text-mobile-body md:text-desktop-body">
+                    <EarthLogo height="0.875em" width="3.6em" />
+                  </p>
                 </div>
                 <span className={`${forwarder == "new-eelam" ? "" : "hidden"} new-eelam-header`}>
                   [FKA New Eelam]
                 </span>
               </PageLink>
             </h1>
-            <button
-              style={{ borderColor: "#000000" }}
-              className="outline-none relative z-50 flex items-center"
-              onClick={showNav ? onHideNav : onShowNav}
-              role="button"
-              aria-label="Open the menu"
-            >
-              <p
-                className={`${
-                  showNav ? "hidden" : ""
-                } tracking-caps leading-none uppercase text-mobile-body md:text-desktop-body`}
+            <div className="h-3 w-3 md:h-10 md:w-10 relative z-50">
+              <button
+                style={{ borderColor: "#000000" }}
+                className={`outline-none flex items-center justify-center absolute h-10 w-10 ${
+                  showNav ? "-left-[0.875rem]" : "-left-[1.65rem]"
+                } -top-[0.875rem] md:left-0 md:top-0`}
+                onClick={showNav ? onHideNav : onShowNav}
+                role="button"
+                aria-label="Open the menu"
               >
-                Menu
-              </p>
-              <span className={`${showNav ? "" : "hidden"}`}>
-                <span className="hidden md:block h-10 w-10">
-                  <Icon symbol="closeMenu" />
+                <p
+                  className={`${
+                    showNav ? "hidden" : ""
+                  } tracking-caps leading-none uppercase text-mobile-body md:text-desktop-body`}
+                >
+                  Menu
+                </p>
+                <span className={`${showNav ? "" : "hidden"}`}>
+                  <span className="hidden md:block h-10 w-10 rounded-xl">
+                    <Icon symbol="closeMenu" />
+                  </span>
+                  <span className="md:hidden block h-3 w-3 md:my-0">
+                    <Icon symbol="closeMenuMobile" />
+                  </span>
                 </span>
-                <span className="md:hidden block h-3 w-3 my-px md:my-0">
-                  <Icon symbol="closeMenuMobile" />
-                </span>
-              </span>
-            </button>
+              </button>
+            </div>
           </nav>
 
           <CSSTransition in={showNav} timeout={2500} classNames="fade" unmountOnExit>

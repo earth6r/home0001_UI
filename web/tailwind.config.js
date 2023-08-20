@@ -171,13 +171,13 @@ module.exports = {
       },
       fontSize: {
         "desktop-body": [
-          "0.813rem",
+          "13px",
           {
             lineHeight: "135%"
           }
         ],
         "mobile-body": [
-          "12px",
+          "13px",
           {
             lineHeight: "130%"
           }

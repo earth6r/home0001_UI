@@ -6,6 +6,10 @@ import { MdPlace } from "react-icons/md";
 const AnyReactComponent = ({ text }) => <div className="location-circle"></div>;
 
 const MapContainer = props => {
+  const mapOptions = {
+    gesturehandling: "none",
+    styles: styles
+  };
   const { lat, long } = props;
   let center = { lat: parseFloat(lat), lng: parseFloat(long) };
   let zoomLevel = 14;
@@ -20,7 +24,7 @@ const MapContainer = props => {
     <div className={`map-module-wrapper ${myclass}`} style={{ height: "600px", width: "100%" }}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.GATSBY_GOOGLE_MAPS }}
-        options={{ styles }}
+        options={mapOptions}
         defaultCenter={center}
         defaultZoom={zoomLevel}
       >

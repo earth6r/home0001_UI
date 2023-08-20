@@ -185,12 +185,12 @@ const serializers = {
             page: `/${mark.reference.content?.main?.slug?.current}`,
             home: `/homes/locations/${mark.reference.content?.main?.slug?.current}`,
             checkout: `/homes/checkout/${mark.reference.content?.main?.slug?.current}`,
-            aboutPage: `/this-is-not-an-exit/about`,
-            contactPage: `/this-is-not-an-exit/contact`,
-            faqPage: `/this-is-not-an-exit/faq`,
-            homePage: `/this-is-not-an-exit`,
-            howItWorksPage: `/this-is-not-an-exit/how-it-works`,
-            legalPage: `/this-is-not-an-exit/legal`
+            aboutPage: `/homes/about`,
+            contactPage: `/homes/contact`,
+            faqPage: `/homes/faq`,
+            homePage: `/homes`,
+            howItWorksPage: `/homes/how-it-works`,
+            legalPage: `/homes/legal`
           };
 
           return (

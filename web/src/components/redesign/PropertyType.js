@@ -16,6 +16,7 @@ export const PropertyTypeUI = ({
   howItWorks,
   viewInventoryText
 }) => {
+  console.log("selectedPropertyType:", selectedPropertyType);
   const {
     setPropertyType: setSelectedPropertyType,
     setReserveHomeForm: setShowReserveHomeForm
@@ -58,13 +59,15 @@ export const PropertyTypeUI = ({
       </div>
     );
   };
-
-  const onClickSeeAll = () => {
-    document.getElementById("selected-property-types")?.scrollIntoView({ behavior: "smooth" });
-    setTimeout(() => {
-      setShowReserveHomeForm(false);
-      setSelectedPropertyType(null);
-    }, 250);
+  const returnLAData = () => {
+    return (
+      <div>
+        <p className="m-0">Oversized 3-bedroom home</p>
+        <p className="m-0">Fully furnished and equipped with all the essentials</p>
+        <p className="m-0">Artworks by internationally significant artists</p>
+        <p className="m-0">Northwestern/ Southwestern exposures</p>
+      </div>
+    );
   };
 
   return (
@@ -72,40 +75,58 @@ export const PropertyTypeUI = ({
       {selectedPropertyType?.id ? (
         <>
           <div className="animate-in flex flex-col text-mobile-body md:text-desktop-body relative">
-            {selectedPropertyType?.images && selectedPropertyType.images.length !== 0 && (
-              <ImageSlider
-                images={selectedPropertyType.images.map(image => ({
-                  image
-                }))}
-              />
-            )}
-            <div className="text-mobile-body md:text-desktop-body mt-10 pr-mobile-menu md:pr-0">
-              <div className="grid grid-cols-2 md:grid-cols-2">
-                <div>
-                  {selectedPropertyType.propertyType && (
-                    <p className="m-0 uppercase tracking-caps">
-                      {selectedPropertyType.propertyType}
-                    </p>
-                  )}
-                </div>
-                <div className="text-right md:text-right  md:mt-0">
-                  {selectedPropertyType._rawInventory
-                    ? selectedPropertyType.propertyType === "studio"
-                      ? "Unit 3B"
-                      : selectedPropertyType.propertyType === "studio-max"
-                      ? "Unit 4A"
-                      : selectedPropertyType.propertyType === "one-bedroom"
-                      ? "Unit 6B"
-                      : null
-                    : null}
-                </div>
-              </div>
+            {selectedPropertyType.propertyType === "two-bedrooms" ? (
               <div>
-                {selectedPropertyType.price && (
-                  <p className="m-0 uppercase tracking-caps">{selectedPropertyType.price}</p>
+                <div className="absolute z-50 w-[100%] mt-[62.5%]">
+                  <p className="text-white text-center">COMING SOON</p>
+                </div>
+                {selectedPropertyType?.images && selectedPropertyType.images.length !== 0 && (
+                  <ImageSlider
+                    images={selectedPropertyType.images.map(image => ({
+                      image
+                    }))}
+                  />
                 )}
+              </div>
+            ) : (
+              selectedPropertyType?.images &&
+              selectedPropertyType.images.length !== 0 && (
+                <ImageSlider
+                  images={selectedPropertyType.images.map(image => ({
+                    image
+                  }))}
+                />
+              )
+            )}
+            <div className="mt-10">
+              <div>
+                {selectedPropertyType.propertyType && (
+                  <p className="m-0 uppercase tracking-caps">
+                    {selectedPropertyType.propertyType
+                      .replace("one-bedroom", "1 bedroom")
+                      .replace("two-bedrooms", "3 story townhouse — TYPE A")
+                      .replace("studio-max", "studio max")}
+                    {selectedPropertyType.propertyType != "two-bedrooms" ? (
+                      <span>&nbsp;—&nbsp;</span>
+                    ) : null}
+                    {selectedPropertyType._rawInventory
+                      ? selectedPropertyType.propertyType === "studio"
+                        ? "UNIT 3B"
+                        : selectedPropertyType.propertyType === "studio-max"
+                        ? "UNIT 4A"
+                        : selectedPropertyType.propertyType === "one-bedroom"
+                        ? "UNIT 6B"
+                        : null
+                      : null}
+                  </p>
+                )}
+              </div>
+            </div>
+            <div className="text-mobile-body md:text-desktop-body pr-mobile-menu md:pr-0">
+              <div className="">
+                {selectedPropertyType.price && <p className="m-0">{selectedPropertyType.price}</p>}
                 {selectedPropertyType.area && (
-                  <p className="m-0 uppercase tracking-caps">{selectedPropertyType.area}</p>
+                  <p className="mb-4 m-0">{selectedPropertyType.area}</p>
                 )}
                 {selectedPropertyType.propertyType === "studio"
                   ? returnStudioData()
@@ -113,6 +134,8 @@ export const PropertyTypeUI = ({
                   ? returnStudioMaxData()
                   : selectedPropertyType.propertyType === "one-bedroom"
                   ? returnOneBedroomData()
+                  : selectedPropertyType.propertyType == "two-bedrooms"
+                  ? returnLAData()
                   : null}
               </div>
 
@@ -127,41 +150,37 @@ export const PropertyTypeUI = ({
             <h3 className="uppercase tracking-caps my-10 pr-mobile-menu md:pr-0">
             {selectedPropertyType.propertyType
               .replace("one-bedroom", "1 bedroom")
-              .replace("two-bedroom", "2 bedrooms")
+              .replace("two-bedroom", "3 story townhouse")
               .replace("studio-max", "studio max")}
               </h3>
             )} */}
             {selectedPropertyType?._rawDescription?.text && (
-              <div className="mt-10 pr-mobile-menu md:pr-0 text-mobile-body md:text-desktop-body property-type-description">
+              <div className="mt-5 pr-mobile-menu md:pr-0 text-mobile-body md:text-desktop-body property-type-description">
                 <StandardText data={selectedPropertyType?._rawDescription} />
               </div>
             )}
           </div>
-          <div className="mt-10">
-            <InventoryModule
-              title={property.title}
-              propertyType={selectedPropertyType.propertyType}
-              data={selectedPropertyType}
-              viewInventoryText={"View complete inventory"}
-            />
-          </div>
+          {selectedPropertyType.propertyType != "two-bedrooms" ? (
+            <div>
+              <InventoryModule
+                title={property.title}
+                propertyType={selectedPropertyType.propertyType}
+                data={selectedPropertyType}
+                viewInventoryText={"View sample inventory"}
+              />
+            </div>
+          ) : null}
           {selectedPropertyType.moreImages?.length ? (
             <div className="mt-10">
               <ImageSlider images={selectedPropertyType.moreImages} />
             </div>
           ) : null}
           {selectedPropertyType?._rawDescriptionTwo?.text && (
-            <div className="mt-10 text-mobile-body md:text-desktop-body">
+            <div className="mt-10 pr-mobile-menu md:pr-0 text-mobile-body md:text-desktop-body property-type-description">
               <StandardText data={selectedPropertyType?._rawDescriptionTwo} />
             </div>
           )}
           <HowItWorksModal data={howItWorks} />
-          <button
-            onClick={onClickSeeAll}
-            className="border-b border-dashed mt-10 text-mobile-body md:text-desktop-body"
-          >
-            {selectedPropertyType.seeAllButtonText ?? "See other units"}
-          </button>
         </>
       ) : null}
     </>
@@ -175,7 +194,7 @@ const MapModule = props => {
     <>
       <Popover placement="bottom" trigger="click" usePortal={true} gutter={10}>
         <PopoverTrigger>
-          <button aria-label={`Open Map`} className=" border-b border-dashed uppercase">
+          <button aria-label={`Open Map`} className="border-b-[2px] border-dashed uppercase">
             {text}
           </button>
         </PopoverTrigger>

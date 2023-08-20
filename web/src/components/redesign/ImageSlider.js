@@ -3,30 +3,23 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { imageUrlFor } from "../../lib/image-url";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/zoom";
+import { Zoom, Navigation } from "swiper/modules";
+import { useSwiper } from "swiper/react";
 
 export const ImageSlider = ({ images }) => {
-  const slider = createRef(null);
+  const swiper = useSwiper();
+
+  const swiperRef = useRef();
   const captionRef = useRef();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentCaption, setCurrentCaption] = useState(0);
 
-  const previousImage = () => {
-    captionRef.current?.classList?.add("opacity-0");
-    if (slider.current) {
-      slider.current.slickPrev();
-    }
-  };
-
-  const nextImage = () => {
-    captionRef.current?.classList?.add("opacity-0");
-    if (slider.current) {
-      slider.current.slickNext();
-    }
-  };
-
   const settings = {
     slidesToShow: 1,
-    infinite: false,
+    infinite: true,
     arrows: false,
     beforeChange: (oldIndex, newIndex) => {
       setCurrentIndex(newIndex);
@@ -51,35 +44,44 @@ export const ImageSlider = ({ images }) => {
       <div className="relative image-slider">
         <div
           className="hidden md:block cursor-pointer w-1/2 h-full absolute top-0 left-0 z-10"
-          onClick={previousImage}
+          onClick={() => swiperRef.current.slidePrev()}
         />
         <div
           className="hidden md:block cursor-pointer w-1/2 h-full absolute top-0 right-0 z-10"
-          onClick={nextImage}
+          onClick={() => swiperRef.current.slideNext()}
         />
-        <Slider
-          ref={slider}
-          {...settings}
-          className="max-w-[560px] md:max-w-[unset] -ml-4 w-[calc(100%_+_2rem)]"
+        <Swiper
+          zoom={true}
+          loop={true}
+          onSwiper={swiper => {
+            swiperRef.current = swiper;
+          }}
+          mousewheel={{ forceToAxis: true }}
+          modules={[Zoom, Navigation]}
+          className="mySwiper max-w-[560px] md:max-w-[unset] -ml-4 w-[calc(100%_+_2rem)]"
         >
           {images?.map((image, index) =>
-            image.image.asset ? (
-              <img
-                key={index}
-                className="max-w-[560px] md:max-w-[unset] px-4 h-full w-full object-cover"
-                src={imageUrlFor(image.image)
-                  .width(1000)
-                  .auto("format")
-                  .url()}
-                alt=""
-              />
+            image.image?.asset ? (
+              <SwiperSlide>
+                <div className="swiper-zoom-container">
+                  <img
+                    key={index}
+                    className="max-w-[560px] md:max-w-[unset] px-4 h-full w-full object-cover"
+                    src={imageUrlFor(image.image)
+                      .width(1000)
+                      .auto("format")
+                      .url()}
+                    alt=""
+                  />
+                </div>
+              </SwiperSlide>
             ) : null
           )}
-        </Slider>
+        </Swiper>
       </div>
 
       <div className="mt-4">
-        {images[currentIndex]?.file?.asset?.url ? (
+        {/* {images[currentIndex]?.file?.asset?.url ? (
           <a
             className="hover:text-[#000] w-fit flex items-center mt-4 text-mobile-body md:text-desktop-body"
             href={images[currentIndex]?.file?.asset?.url}
@@ -87,12 +89,11 @@ export const ImageSlider = ({ images }) => {
           >
             Download <span className="block ml-1 mb-1">↓</span>
           </a>
-        ) : null}
+        ) : null} */}
         <div className="flex justify-center items-center max-w-[560px] md:max-w-[unset]">
           <button
-            className="disabled:shadow-none disabled:bg-transparent disabled:opacity-40 mr-2"
-            onClick={previousImage}
-            disabled={!hasPreviousImage}
+            onClick={() => swiperRef.current.slidePrev()}
+            className="review-swiper-button-prev disabled:shadow-none disabled:bg-transparent disabled:opacity-40 mr-2"
           >
             <svg
               className="transform rotate-180"
@@ -110,8 +111,7 @@ export const ImageSlider = ({ images }) => {
           </button>
           <button
             className="disabled:shadow-none disabled:bg-transparent disabled:opacity-40"
-            onClick={nextImage}
-            disabled={!hasNextImage}
+            onClick={() => swiperRef.current.slideNext()}
           >
             <svg
               width="22"

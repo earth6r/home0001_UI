@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { InventoryTable } from "./InventoryTable";
 import Modal from "./Modal";
 
@@ -17,13 +17,23 @@ export const InventoryModule = ({ data, title, propertyType, viewInventoryText }
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    };
+  }, []);
+  console.log("propertyType in inevntory", propertyType);
   return (
     <>
       <Modal isOpen={isOpen} onClose={onCloseModal}>
         <div className="py-6 md:py-10 md:px-10 h-full flex flex-col">
-          <p className="px-4 md:px-0">INVENTORY</p>
+          <p className="px-4 md:px-0">SAMPLE INVENTORY</p>
           <div className="mt-10 uppercase tracking-caps px-4 md:px-0">
-            {title && <p className="uppercase">{title}</p>} {propertyType && <p>{propertyType}</p>}{" "}
+            {title && <p className="uppercase">{title}</p>}{" "}
+            {propertyType == "two-bedrooms"
+              ? "3-STORY TOWNHOUSE"
+              : propertyType && <p>{propertyType}</p>}{" "}
           </div>
           <div className="flex flex-col gap-20 h-full">
             {data._rawInventory &&
@@ -36,7 +46,7 @@ export const InventoryModule = ({ data, title, propertyType, viewInventoryText }
 
       <button
         onClick={onOpenModal}
-        className="border-b border-dashed text-mobile-body md:text-desktop-body"
+        className="border-b-[1.5px] border-dashed text-mobile-body md:text-desktop-body"
       >
         {viewInventoryText}
       </button>

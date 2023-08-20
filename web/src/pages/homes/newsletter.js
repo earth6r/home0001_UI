@@ -23,7 +23,7 @@ export const query = graphql`
 `;
 
 const NewsLetterPageRedesign = ({ data }) => {
-  const pageTitle = data.sanityNewsLetter.title || "How It Works";
+  const pageTitle = data.sanityNewsLetter.title || "How it works";
   const sections = data.sanityNewsLetter._rawSections;
   const content = (sections || []).map(module => {
     const ComponentToRender = sectionTypeComponentMap[module._type];

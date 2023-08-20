@@ -22,13 +22,13 @@ const Footer = ({ footerMenu }) => {
 
                     if (!slug) {
                       slug = {
-                        About: "this-is-not-an-exit/about",
-                        Contact: "this-is-not-an-exit/contact",
-                        FAQ: "this-is-not-an-exit/faq",
-                        Home: "this-is-not-an-exit",
-                        "How It Works": "this-is-not-an-exit/how-it-works",
-                        Legal: "this-is-not-an-exit/legal",
-                        Newsletter: "this-is-not-an-exit/newsletter"
+                        About: "homes/about",
+                        Contact: "homes/contact",
+                        FAQ: "homes/faq",
+                        Home: "homes",
+                        "How It Works": "homes/how-it-works",
+                        Legal: "homes/legal",
+                        Newsletter: "homes/newsletter"
                       }[title];
                     }
 
@@ -75,7 +75,7 @@ const Footer = ({ footerMenu }) => {
             })}
         </ul>
       </nav>
-      <p className="text-mobile-body md:text-desktop-body my-20">&copy;2023 EARTH</p>
+      <p className="mb-4 text-mobile-body md:text-desktop-body my-20">&copy; 2023 EARTH</p>
     </div>
   );
 };

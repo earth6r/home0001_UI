@@ -10,6 +10,7 @@ import Container from "../../components/redesign/Container";
 import { HomesContext } from "../../components/context/HomesContext";
 import { ReserveHomeForm } from "../../components/redesign/ReserveHomeForm";
 import { set } from "react-ga";
+import { BackToTopButton } from "../../components/redesign/BackToTopButton";
 
 export const query = graphql`
   {
@@ -111,6 +112,7 @@ const HomeRedesignPage = ({ location, data }) => {
   const howItWorks = data.sanityHowItWorksPage;
 
   const propertyTypeRef = createRef();
+  const selectedPropertyRef = createRef();
   const {
     selectedCity,
     setCity: setSelectedCity,
@@ -121,7 +123,6 @@ const HomeRedesignPage = ({ location, data }) => {
     showReserveHomeForm,
     setReserveHomeForm: setShowReserveHomeForm
   } = useContext(HomesContext);
-
   const filteredProperties = selectedCity
     ? properties.filter(property => property?.city?.id === selectedCity?.id)
     : [];
@@ -157,10 +158,12 @@ const HomeRedesignPage = ({ location, data }) => {
   }, []);
 
   useEffect(() => {
+    console.log("selected", selectedCity);
     if (selectedCity) {
       document.body.style.overflow = "";
       document.body.style.touchAction = "";
       if (filteredProperties.length === 1) {
+        console.log("filteredProperties:", filteredProperties);
         setSelectedProperty(filteredProperties[0]);
       }
     } else {
@@ -178,14 +181,26 @@ const HomeRedesignPage = ({ location, data }) => {
       document.body.classList.remove("hide-intercom");
     };
   }, []);
-
+  const scrollToProperty = () => {
+    setTimeout(() => {
+      if (selectedProperty?.id && selectedPropertyRef.current && !selectedPropertyType) {
+        const offset = window.innerWidth < 768 ? 16 : 40;
+        const top =
+          selectedPropertyRef.current.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    });
+  };
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
     if (selectedProperty?.id) {
-      // Show intercom bubble when property is chosen
-      document.body.classList.remove("hide-intercom");
       searchParams.set("property", selectedProperty.id);
+      console.log("scrolling");
+      console.log("selectedProperty", selectedProperty);
+      scrollToProperty();
     } else {
+      // Hide intercom bubble when property is unselected
+      document.body.classList.add("hide-intercom");
       searchParams.delete("property");
     }
 
@@ -225,7 +240,8 @@ const HomeRedesignPage = ({ location, data }) => {
 
   const scrollToPropertyType = () => {
     setTimeout(() => {
-      if (!showReserveHomeForm && selectedPropertyType?.id && propertyTypeRef.current) {
+      if (selectedPropertyType?.id && propertyTypeRef.current) {
+        console.log("scrolling on timeout");
         const offset = window.innerWidth < 768 ? 16 : 40;
         const top = propertyTypeRef.current.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: "smooth" });
@@ -253,12 +269,21 @@ const HomeRedesignPage = ({ location, data }) => {
   }, [selectedPropertyType]);
 
   const onSelectCity = city => {
+    console.log("city:", city);
     if (city.id !== selectedCity?.id) {
       setSelectedCity(city);
       setSelectedProperty(null);
       setSelectedPropertyType(null);
     }
   };
+
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    };
+  }, []);
+
   return (
     <Layout
       pathname={location.pathname.replace(/\/$/, "")}
@@ -269,6 +294,14 @@ const HomeRedesignPage = ({ location, data }) => {
       <SEO title="Homes" />
       <Container>
         <section>
+          <div className="md:pr-desktop-menu">
+            <div className="pr-mobile-menu md:pr-0 mb-8 md:mb-20 text-mobile-body md:text-desktop-body property-type-description">
+              Own one home, live flexibly between many places.
+            </div>
+            <div className="pr-mobile-menu md:pr-0 mb-9 md:mb-20 text-mobile-body md:text-desktop-body property-type-description">
+              Fully equipped homes available to buy in:
+            </div>
+          </div>
           <CitiesList
             cities={cities}
             onChange={city => onSelectCity(city)}
@@ -289,18 +322,20 @@ const HomeRedesignPage = ({ location, data }) => {
                   />
                 ) : null}
                 {selectedProperty?.id && (
-                  <SingleProperty
-                    propertyTypes={filteredPropertiesTypes}
-                    selectedProperty={selectedProperty}
-                    selectedPropertyType={selectedPropertyType}
-                    disableScroll={filteredProperties.length === 1}
-                    onChange={propertType => {
-                      if (propertType?.id === selectedPropertyType?.id) {
-                        scrollToPropertyType();
-                      }
-                      setSelectedPropertyType(propertType);
-                    }}
-                  />
+                  <div ref={selectedPropertyRef}>
+                    <SingleProperty
+                      propertyTypes={filteredPropertiesTypes}
+                      selectedProperty={selectedProperty}
+                      selectedPropertyType={selectedPropertyType}
+                      disableScroll={filteredProperties.length === 1}
+                      onChange={propertType => {
+                        if (propertType?.id === selectedPropertyType?.id) {
+                          scrollToPropertyType();
+                        }
+                        setSelectedPropertyType(propertType);
+                      }}
+                    />
+                  </div>
                 )}
                 {selectedProperty?.id && selectedPropertyType && (
                   <div ref={propertyTypeRef}>
@@ -317,12 +352,15 @@ const HomeRedesignPage = ({ location, data }) => {
                   <div className="pr-mobile-menu md:pr-0">
                     <button
                       onClick={() => setShowReserveHomeForm(prev => !prev)}
-                      className={` text-center outline-none mt-10 mb-20 tracking-caps uppercase block w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-mobile-body md:text-desktop-body ${
-                        showReserveHomeForm ? "bg-white text-black" : "bg-black text-white"
+                      className={` text-center outline-none mt-9  tracking-caps uppercase block w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-mobile-body md:text-desktop-body ${
+                        showReserveHomeForm
+                          ? "bg-white text-black mb-10"
+                          : "bg-black text-white mb-1"
                       }`}
                     >
                       RESERVE THIS HOME
                     </button>
+                    {!showReserveHomeForm ? <BackToTopButton /> : null}
                   </div>
                 )}
               </div>
