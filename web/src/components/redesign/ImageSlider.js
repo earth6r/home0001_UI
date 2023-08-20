@@ -70,6 +70,7 @@ export const ImageSlider = ({ images }) => {
           onSwiper={swiper => {
             swiperRef.current = swiper;
           }}
+          mousewheel={{ forceToAxis: true }}
           modules={[Zoom, Navigation]}
           className="mySwiper max-w-[560px] md:max-w-[unset] -ml-4 w-[calc(100%_+_2rem)]"
         >
