@@ -10,7 +10,7 @@
 .rte ul,
 .rte ol {
   /*  @apply max-w-6xl;*/
-  padding-bottom: 1rem;
+  /*padding-bottom: 1rem;*/
 }
 
 .rte ul li > ul,
