@@ -11,11 +11,6 @@ export default {
       type: 'string'
     },
     {
-      name: 'postcode',
-      title 'Postcode',
-      type: 'string'
-    },
-    {
       name: 'unitTypes',
       title: 'Unit Types',
       type: 'string'
