@@ -111,23 +111,19 @@ export const SingleProperty = ({
                 <button
                   disabled={!available}
                   onClick={() => onChange(item)}
-                  className={`disabled:opacity-30 disabled:bg-white disabled:shadow-none p-4  min-h-[20rem] border w-full flex flex-col gap-2 text-mobile-body md:text-desktop-body ${
+                  className={`disabled:opacity-30 disabled:bg-white disabled:shadow-none p-4  min-h-[16rem] border w-full flex flex-col gap-2 text-mobile-body md:text-desktop-body ${
                     selectedPropertyType?.id === item.id ? "bg-black text-white" : ""
                   }`}
                 >
-                  <div className="grid property-type-button w-full">
-                    <div className="p-0 m-0 text-left">
-                      <p className="uppercase mb-0 tracking-caps">
+                  <div className="w-full">
+                    <div className="grid property-type-button p-0 m-0">
+                      <p className="col-start-1 text-left uppercase mb-0 tracking-caps">
                         {propertyType
                           ?.replace("studio-max", "studio max")
                           ?.replace("one-bedroom", "1 bedroom")
                           ?.replace("penthouse", "2 bedroom")}
-                      </p>
-                      {price && <p className="tracking-caps mb-0">{price}</p>}
-                    </div>
-
-                    <div className="p-0 m-0 text-left">
-                      {propertyType
+                          &nbsp;—&nbsp;
+                          {propertyType
                         ? propertyType === "studio"
                           ? "UNIT 3B"
                           : propertyType === "studio-max"
@@ -136,15 +132,19 @@ export const SingleProperty = ({
                           ? "UNIT 6B"
                           : null
                         : null}
+                      </p>
+                      <p className="col-start-2 text-right mb-0 tracking-caps">
+                      {price}
+                      </p>
+                    </div>
+                    <div className="p-0 mt-4 text-left">
                       {area && (
-                        <p className="mb-5 p-0 m-0 tracking-caps">
+                        <p className="mb-5 p-0 m-0">
                           {area}
-                          <br /><br />
-                          <span className="normal-case">
-                            Fully equipped
-                            <br />
-                            Access to homes in other locations
-                          </span>
+                          <br />
+                          Fully equipped 
+                          <br />
+                          Access to homes in other locations
                         </p>
                       )}
                       {amenities && (

@@ -47,12 +47,8 @@ body {
 }
 
 .property-type-button {
-  grid-template-columns: 0.4fr 0.6fr;
-  grid-gap: 0.75rem;
-}
-
-.property-type-left {
-  grid-column-start: 1;
+  grid-template-columns: auto auto;
+  grid-gap: ;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
