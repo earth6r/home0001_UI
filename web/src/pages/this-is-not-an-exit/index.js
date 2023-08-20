@@ -122,7 +122,7 @@ const HomeRedesignPage = ({ location, data }) => {
     showReserveHomeForm,
     setReserveHomeForm: setShowReserveHomeForm
   } = useContext(HomesContext);
-
+  console.log("selectedPropertyType", selectedPropertyType);
   const filteredProperties = selectedCity
     ? properties.filter(property => property?.city?.id === selectedCity?.id)
     : [];
@@ -280,8 +280,8 @@ const HomeRedesignPage = ({ location, data }) => {
         <section>
           <div className="md:pr-desktop-menu">
             <div className="pr-mobile-menu md:pr-0 col-start-2 mb-9 md:mb-20 text-mobile-body md:text-desktop-body property-type-description">
-              Own one home, live flexibly between many places.
-              Fully equipped homes available to buy in:
+              Own one home, live flexibly between many places. Fully equipped homes available to buy
+              in:
             </div>
           </div>
           <CitiesList

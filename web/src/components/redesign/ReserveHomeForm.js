@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { submit_hubspot_waitlist_form } from "../../utils/axios";
 
 export const ReserveHomeForm = ({ data }) => {
+  console.log("data:", data);
   //todo add a unit prop to this component
   const returnUnitNumber = unit => {
     if (unit === "studio") {
