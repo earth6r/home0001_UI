@@ -8,7 +8,7 @@ const AnyReactComponent = ({ text }) => <div className="location-circle"></div>;
 const MapContainer = props => {
   const mapOptions = {
     gesturehandling: "none",
-    style: styles
+    styles: styles
   };
   const { lat, long } = props;
   let center = { lat: parseFloat(lat), lng: parseFloat(long) };
