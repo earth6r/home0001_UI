@@ -1,4 +1,9 @@
 [[redirects]]
+  from = "/"
+  to = "/homes/"
+  status = 301
+  
+[[redirects]]
   from = "/homes/checkout/membership/homes"
   to = "/homes/locations"
   status = 301
