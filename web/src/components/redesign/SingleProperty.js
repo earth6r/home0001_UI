@@ -54,18 +54,6 @@ export const SingleProperty = ({
     }
   }, [selectedProperty, selectedPropertyRef, selectedPropertyType, disableScroll]);
 
-  const returnStudioUnavailableData = () => {
-    return (
-      <div>
-        <div>UNIT 2B</div>
-        <div>UNIT 4B</div>
-      </div>
-    );
-  };
-
-  const returnStudioMaxUnavailableData = () => {
-    return <div>UNIT 2A</div>;
-  };
   console.log(selectedProperty);
   return (
     <>
@@ -140,7 +128,8 @@ export const SingleProperty = ({
                               ?.replace("one-bedroom", "1 bedroom")
                               ?.replace("three-story-townhouse", "3 story townhouse")
                               ?.replace("penthouse", "2 bedroom")}
-                        &nbsp;—&nbsp;
+
+                        {selectedProperty.city.title != "LA" ? <span>&nbsp;—&nbsp;</span> : null}
                         {propertyType
                           ? propertyType === "studio"
                             ? "UNIT 3B"
