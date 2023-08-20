@@ -139,7 +139,7 @@ export const PropertyTypeUI = ({
               title={property.title}
               propertyType={selectedPropertyType.propertyType}
               data={selectedPropertyType}
-              viewInventoryText={"View complete inventory"}
+              viewInventoryText={"View sample inventory"}
             />
           </div>
           {selectedPropertyType.moreImages?.length ? (
