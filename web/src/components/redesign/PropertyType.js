@@ -75,31 +75,27 @@ export const PropertyTypeUI = ({
               <div>
                 {selectedPropertyType.propertyType && (
                   <p className="m-0 uppercase tracking-caps">
-                    {
-                      selectedPropertyType.propertyType
+                    {selectedPropertyType.propertyType
                       .replace("one-bedroom", "1 bedroom")
-                      .replace("two-bedroom", "2 bedroom")
-                      .replace("studio-max", "studio max")
-                    }
-                      &nbsp;—&nbsp;
+                      .replace("two-bedroom", "3 story townhouse")
+                      .replace("studio-max", "studio max")}
+                    {selectedProperty.city.title != "LA" ? <span>&nbsp;—&nbsp;</span> : null}
                     {selectedPropertyType._rawInventory
-                  ? selectedPropertyType.propertyType === "studio"
-                    ? "UNIT 3B"
-                    : selectedPropertyType.propertyType === "studio-max"
-                    ? "UNIT 4A"
-                    : selectedPropertyType.propertyType === "one-bedroom"
-                    ? "UNIT 6B"
-                    : null
-                  : null}
-                </p>
+                      ? selectedPropertyType.propertyType === "studio"
+                        ? "UNIT 3B"
+                        : selectedPropertyType.propertyType === "studio-max"
+                        ? "UNIT 4A"
+                        : selectedPropertyType.propertyType === "one-bedroom"
+                        ? "UNIT 6B"
+                        : null
+                      : null}
+                  </p>
                 )}
               </div>
             </div>
             <div className="text-mobile-body md:text-desktop-body pr-mobile-menu md:pr-0">
               <div className="">
-                {selectedPropertyType.price && (
-                  <p className="m-0">{selectedPropertyType.price}</p>
-                )}
+                {selectedPropertyType.price && <p className="m-0">{selectedPropertyType.price}</p>}
                 {selectedPropertyType.area && (
                   <p className="mb-4 m-0">{selectedPropertyType.area}</p>
                 )}
@@ -110,7 +106,6 @@ export const PropertyTypeUI = ({
                   : selectedPropertyType.propertyType === "one-bedroom"
                   ? returnOneBedroomData()
                   : null}
-
               </div>
 
               {
