@@ -13,7 +13,7 @@ export const ReserveHomeForm = ({ data }) => {
       return "Unit 6B";
     }
   };
-  let unitOfInterest;
+  let unitOfInterest = "all";
 
   useEffect(() => {
     if (data.property && data.property.propertyType)
@@ -48,7 +48,7 @@ export const ReserveHomeForm = ({ data }) => {
             <div className="relative mb-4 text-mobile-body md:text-desktop-body font-serif">
               <p className="uppercase mb-9">
                 {data.property
-                  ? `Join waitlist for unit ${returnUnitNumber(data.property.propertyType)}`
+                  ? `Join waitlist for ${returnUnitNumber(data.property.propertyType)}`
                   : "Join waitlist"}
               </p>
 
