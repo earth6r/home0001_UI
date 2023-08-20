@@ -17,20 +17,6 @@ export const ImageSlider = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentCaption, setCurrentCaption] = useState(0);
 
-  const previousImage = () => {
-    captionRef.current?.classList?.add("opacity-0");
-    if (slider.current) {
-      slider.current.slickPrev();
-    }
-  };
-
-  const nextImage = () => {
-    captionRef.current?.classList?.add("opacity-0");
-    if (slider.current) {
-      slider.current.slickNext();
-    }
-  };
-
   const settings = {
     slidesToShow: 1,
     infinite: true,
@@ -58,11 +44,11 @@ export const ImageSlider = ({ images }) => {
       <div className="relative image-slider">
         <div
           className="hidden md:block cursor-pointer w-1/2 h-full absolute top-0 left-0 z-10"
-          onClick={previousImage}
+          onClick={() => swiperRef.current.slidePrev()}
         />
         <div
           className="hidden md:block cursor-pointer w-1/2 h-full absolute top-0 right-0 z-10"
-          onClick={nextImage}
+          onClick={() => swiperRef.current.slideNext()}
         />
         <Swiper
           zoom={true}
