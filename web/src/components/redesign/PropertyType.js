@@ -65,12 +65,28 @@ export const PropertyTypeUI = ({
       {selectedPropertyType?.id ? (
         <>
           <div className="animate-in flex flex-col text-mobile-body md:text-desktop-body relative">
-            {selectedPropertyType?.images && selectedPropertyType.images.length !== 0 && (
-              <ImageSlider
-                images={selectedPropertyType.images.map(image => ({
-                  image
-                }))}
-              />
+            {selectedPropertyType.propertyType === "two-bedrooms" ? (
+              <div>
+                <div className="absolute z-50 w-[100%] mt-[62.5%]">
+                  <p className="text-white text-center">COMING SOON</p>
+                </div>
+                {selectedPropertyType?.images && selectedPropertyType.images.length !== 0 && (
+                  <ImageSlider
+                    images={selectedPropertyType.images.map(image => ({
+                      image
+                    }))}
+                  />
+                )}
+              </div>
+            ) : (
+              selectedPropertyType?.images &&
+              selectedPropertyType.images.length !== 0 && (
+                <ImageSlider
+                  images={selectedPropertyType.images.map(image => ({
+                    image
+                  }))}
+                />
+              )
             )}
             <div className="mt-10">
               <div>
@@ -78,7 +94,7 @@ export const PropertyTypeUI = ({
                   <p className="m-0 uppercase tracking-caps">
                     {selectedPropertyType.propertyType
                       .replace("one-bedroom", "1 bedroom")
-                      .replace("two-bedrooms", "3 story townhouse")
+                      .replace("two-bedrooms", "3 story townhouse — TYPE A")
                       .replace("studio-max", "studio max")}
                     {selectedPropertyType.propertyType != "two-bedrooms" ? (
                       <span>&nbsp;—&nbsp;</span>
