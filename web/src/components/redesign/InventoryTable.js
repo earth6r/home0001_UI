@@ -9,6 +9,7 @@ export const InventoryTable = ({ data }) => {
   const slider = useRef(null);
   const isDesktop = useMediaQuery({ minWidth: 768 });
   const [currentIndex, setCurrentIndex] = useState(0);
+  console.log("currentIndex:", currentIndex);
 
   const settings = {
     slidesToShow: isDesktop ? 3 : 1,
@@ -63,7 +64,7 @@ export const InventoryTable = ({ data }) => {
           />
           <CustomNextButton
             onClick={() => slider.current.slickNext()}
-            disabled={currentIndex === headers.length - 1}
+            disabled={currentIndex === 1}
           />
         </div>
       )}
