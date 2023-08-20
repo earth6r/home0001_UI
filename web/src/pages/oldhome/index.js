@@ -4,12 +4,12 @@ import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
-} from "../lib/helpers";
-import Container from "../components/container";
-import GraphQLErrorList from "../components/graphql-error-list";
-import SEO from "../components/seo";
-import Layout from "../containers/layout";
-import { RenderModules } from "../utils/renderModules";
+} from "../../lib/helpers";
+import Container from "../../components/container";
+import GraphQLErrorList from "../../components/graphql-error-list";
+import SEO from "../../components/seo";
+import Layout from "../../containers/layout";
+import { RenderModules } from "../../utils/renderModules";
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
