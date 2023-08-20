@@ -1,2 +1,9 @@
+[[redirects]]
+  from = "/"
+  to = "/homes"
+  status = 301
+  force = false
+  query = {path = ":path"}
+
 [dev]
   functions = "functions"
