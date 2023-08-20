@@ -16,6 +16,7 @@ export const PropertyTypeUI = ({
   howItWorks,
   viewInventoryText
 }) => {
+  console.log("selectedPropertyType:", selectedPropertyType);
   const {
     setPropertyType: setSelectedPropertyType,
     setReserveHomeForm: setShowReserveHomeForm
@@ -77,9 +78,11 @@ export const PropertyTypeUI = ({
                   <p className="m-0 uppercase tracking-caps">
                     {selectedPropertyType.propertyType
                       .replace("one-bedroom", "1 bedroom")
-                      .replace("two-bedroom", "3 story townhouse")
+                      .replace("two-bedrooms", "3 story townhouse")
                       .replace("studio-max", "studio max")}
-                    {selectedProperty.city.title != "LA" ? <span>&nbsp;—&nbsp;</span> : null}
+                    {selectedPropertyType.propertyType != "two-bedrooms" ? (
+                      <span>&nbsp;—&nbsp;</span>
+                    ) : null}
                     {selectedPropertyType._rawInventory
                       ? selectedPropertyType.propertyType === "studio"
                         ? "UNIT 3B"
