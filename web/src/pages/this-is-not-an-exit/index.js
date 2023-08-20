@@ -112,6 +112,7 @@ const HomeRedesignPage = ({ location, data }) => {
   const howItWorks = data.sanityHowItWorksPage;
 
   const propertyTypeRef = createRef();
+  const selectedPropertyRef = createRef();
   const {
     selectedCity,
     setCity: setSelectedCity,
@@ -122,7 +123,6 @@ const HomeRedesignPage = ({ location, data }) => {
     showReserveHomeForm,
     setReserveHomeForm: setShowReserveHomeForm
   } = useContext(HomesContext);
-  console.log("selectedPropertyType", selectedPropertyType);
   const filteredProperties = selectedCity
     ? properties.filter(property => property?.city?.id === selectedCity?.id)
     : [];
@@ -158,10 +158,12 @@ const HomeRedesignPage = ({ location, data }) => {
   }, []);
 
   useEffect(() => {
+    console.log("selected", selectedCity);
     if (selectedCity) {
       document.body.style.overflow = "";
       document.body.style.touchAction = "";
       if (filteredProperties.length === 1) {
+        console.log("filteredProperties:", filteredProperties);
         setSelectedProperty(filteredProperties[0]);
       }
     } else {
@@ -179,11 +181,23 @@ const HomeRedesignPage = ({ location, data }) => {
       document.body.classList.remove("hide-intercom");
     };
   }, []);
-
+  const scrollToProperty = () => {
+    setTimeout(() => {
+      if (selectedProperty?.id && selectedPropertyRef.current && !selectedPropertyType) {
+        const offset = window.innerWidth < 768 ? 16 : 40;
+        const top =
+          selectedPropertyRef.current.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    });
+  };
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
     if (selectedProperty?.id) {
       searchParams.set("property", selectedProperty.id);
+      console.log("scrolling");
+      console.log("selectedProperty", selectedProperty);
+      scrollToProperty();
     } else {
       // Hide intercom bubble when property is unselected
       document.body.classList.add("hide-intercom");
@@ -227,6 +241,7 @@ const HomeRedesignPage = ({ location, data }) => {
   const scrollToPropertyType = () => {
     setTimeout(() => {
       if (selectedPropertyType?.id && propertyTypeRef.current) {
+        console.log("scrolling on timeout");
         const offset = window.innerWidth < 768 ? 16 : 40;
         const top = propertyTypeRef.current.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: "smooth" });
@@ -254,6 +269,7 @@ const HomeRedesignPage = ({ location, data }) => {
   }, [selectedPropertyType]);
 
   const onSelectCity = city => {
+    console.log("city:", city);
     if (city.id !== selectedCity?.id) {
       setSelectedCity(city);
       setSelectedProperty(null);
@@ -304,18 +320,20 @@ const HomeRedesignPage = ({ location, data }) => {
                   />
                 ) : null}
                 {selectedProperty?.id && (
-                  <SingleProperty
-                    propertyTypes={filteredPropertiesTypes}
-                    selectedProperty={selectedProperty}
-                    selectedPropertyType={selectedPropertyType}
-                    disableScroll={filteredProperties.length === 1}
-                    onChange={propertType => {
-                      if (propertType?.id === selectedPropertyType?.id) {
-                        scrollToPropertyType();
-                      }
-                      setSelectedPropertyType(propertType);
-                    }}
-                  />
+                  <div ref={selectedPropertyRef}>
+                    <SingleProperty
+                      propertyTypes={filteredPropertiesTypes}
+                      selectedProperty={selectedProperty}
+                      selectedPropertyType={selectedPropertyType}
+                      disableScroll={filteredProperties.length === 1}
+                      onChange={propertType => {
+                        if (propertType?.id === selectedPropertyType?.id) {
+                          scrollToPropertyType();
+                        }
+                        setSelectedPropertyType(propertType);
+                      }}
+                    />
+                  </div>
                 )}
                 {selectedProperty?.id && selectedPropertyType && (
                   <div ref={propertyTypeRef}>
