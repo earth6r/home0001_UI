@@ -121,6 +121,7 @@ export const SingleProperty = ({
                         {propertyType
                           ?.replace("studio-max", "studio max")
                           ?.replace("one-bedroom", "1 bedroom")
+                          ?.replace("three-story-townhouse", "3 story townhouse")
                           ?.replace("penthouse", "2 bedroom")}
                           &nbsp;—&nbsp;
                           {propertyType

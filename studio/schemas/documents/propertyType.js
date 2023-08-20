@@ -22,7 +22,7 @@ export default {
           { title: 'STUDIO', value: 'studio' },
           { title: 'STUDIO MAX', value: 'studio-max' },
           { title: '1 BEDROOM', value: 'one-bedroom' },
-          { title: '2 BEDROOM', value: 'two-bedroom' },
+          { title: '3 STORY TOWNHOUSE', value: 'three-story-townhouse' },
           { title: 'PENTHOUSE', value: 'penthouse' },
           { title: 'Condominium', value: 'condominium' }
         ]
