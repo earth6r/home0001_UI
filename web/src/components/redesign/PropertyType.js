@@ -65,28 +65,13 @@ export const PropertyTypeUI = ({
       {selectedPropertyType?.id ? (
         <>
           <div className="animate-in flex flex-col text-mobile-body md:text-desktop-body relative">
-            {selectedPropertyType.propertyType === "two-bedrooms" ? (
-              <div>
-                <p>Coming soon...</p>
-                {selectedPropertyType?.images && selectedPropertyType.images.length !== 0 && (
-                  <ImageSlider
-                    images={selectedPropertyType.images.map(image => ({
-                      image
-                    }))}
-                  />
-                )}
-              </div>
-            ) : (
-              selectedPropertyType?.images &&
-              selectedPropertyType.images.length !== 0 && (
-                <ImageSlider
-                  images={selectedPropertyType.images.map(image => ({
-                    image
-                  }))}
-                />
-              )
+            {selectedPropertyType?.images && selectedPropertyType.images.length !== 0 && (
+              <ImageSlider
+                images={selectedPropertyType.images.map(image => ({
+                  image
+                }))}
+              />
             )}
-
             <div className="mt-10">
               <div>
                 {selectedPropertyType.propertyType && (

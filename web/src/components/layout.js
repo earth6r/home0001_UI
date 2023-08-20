@@ -88,7 +88,7 @@ const Layout = ({
     return () => document.removeEventListener("scroll", positionIntercomBubble);
   });
 
-  const showHomesFooter = pathname !== "/this-is-not-an-exit" || selectedCity?.id;
+  const showHomesFooter = pathname !== "/homes" || selectedCity?.id;
 
   return (
     <div className="flex flex-col justify-between h-full">

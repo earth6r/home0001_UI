@@ -128,23 +128,23 @@ const Header = ({
   const newMenu = [
     {
       title: "About",
-      slug: "/this-is-not-an-exit/about"
+      slug: "/homes/about"
     },
     {
       title: "How It Works",
-      slug: "/this-is-not-an-exit/how-it-works"
+      slug: "/homes/how-it-works"
     },
     {
       title: "Newsletter",
-      slug: "/this-is-not-an-exit/newsletter"
+      slug: "/homes/newsletter"
     },
     {
       title: "Contact",
-      slug: "/this-is-not-an-exit/contact"
+      slug: "/homes/contact"
     },
     {
       title: "Legal",
-      slug: "/this-is-not-an-exit/legal"
+      slug: "/homes/legal"
     }
   ];
   return (
@@ -192,7 +192,7 @@ const Header = ({
                   setSelectedPropertyType(null);
                   setShowReserveHomeForm(false);
                 }}
-                to="/this-is-not-an-exit"
+                to="/homes"
                 className="flex items-center h-full"
               >
                 <div className="flex items-center h-3">
