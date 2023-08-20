@@ -32,10 +32,9 @@ const HubspotNewsletterForm = () => {
 
   return result === "success" ? (
     <>
-      <h3 className="text-mobileLarge md:text-desktopBody">
-        Your data - our harvest.
-        <br />
-      </h3>
+      <div className="relative mb-4 text-mobile-body md:text-desktop-body font-serif">
+        <p>Your data — our harvest.</p>
+      </div>
     </>
   ) : (
     <>
