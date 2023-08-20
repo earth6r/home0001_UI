@@ -122,7 +122,7 @@ export const SingleProperty = ({
                     <div className="grid property-type-button p-0 m-0">
                       <p className="col-start-1 text-left uppercase mb-0 tracking-caps">
                         {selectedProperty.city.title == "LA"
-                          ? "3 Story Townhouse"
+                          ? "3 Story Townhouse — TYPE A"
                           : propertyType
                               ?.replace("studio-max", "studio max")
                               ?.replace("one-bedroom", "1 bedroom")
