@@ -160,14 +160,16 @@ export const PropertyTypeUI = ({
               </div>
             )}
           </div>
-          <div>
-            <InventoryModule
-              title={property.title}
-              propertyType={selectedPropertyType.propertyType}
-              data={selectedPropertyType}
-              viewInventoryText={"View sample inventory"}
-            />
-          </div>
+          {selectedPropertyType.propertyType != "two-bedrooms" ? (
+            <div>
+              <InventoryModule
+                title={property.title}
+                propertyType={selectedPropertyType.propertyType}
+                data={selectedPropertyType}
+                viewInventoryText={"View sample inventory"}
+              />
+            </div>
+          ) : null}
           {selectedPropertyType.moreImages?.length ? (
             <div className="mt-10">
               <ImageSlider images={selectedPropertyType.moreImages} />
