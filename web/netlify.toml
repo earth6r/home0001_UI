@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/"
-  to = "/homes"
+  to = "/homes/"
   status = 301
 
 [dev]
