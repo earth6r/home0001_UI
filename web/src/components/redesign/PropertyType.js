@@ -59,6 +59,16 @@ export const PropertyTypeUI = ({
       </div>
     );
   };
+  const returnLAData = () => {
+    return (
+      <div>
+        <p className="m-0">Oversized 3-bedroom home</p>
+        <p className="m-0">Fully furnished and equipped with all the essentials</p>
+        <p className="m-0">Artworks by internationally significant artists</p>
+        <p className="m-0">Northwestern/ Southwestern exposures</p>
+      </div>
+    );
+  };
 
   return (
     <>
@@ -124,6 +134,8 @@ export const PropertyTypeUI = ({
                   ? returnStudioMaxData()
                   : selectedPropertyType.propertyType === "one-bedroom"
                   ? returnOneBedroomData()
+                  : selectedPropertyType.propertyType == "two-bedrooms"
+                  ? returnLAData()
                   : null}
               </div>
 
