@@ -78,7 +78,7 @@ export const SingleProperty = ({
               <p>
                 {selectedProperty.title}
                 <br />
-                {selectedProperty.postcode}
+                {selectedProperty.price}
               </p>
             </div>
             <div className="mt-4">
