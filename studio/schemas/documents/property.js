@@ -12,7 +12,7 @@ export default {
     },
     {
       name: 'postcode',
-      title 'Postcode'
+      title 'Postcode',
       type: 'string'
     },
     {
