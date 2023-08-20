@@ -66,7 +66,7 @@ export const PropertyTypeUI = ({
         <>
           <div className="animate-in flex flex-col text-mobile-body md:text-desktop-body relative">
             {selectedPropertyType.propertyType === "two-bedrooms" ? (
-              <div className="">
+              <div>
                 <div className="absolute z-50 w-[100%] mt-[62.5%]">
                   <p className="text-white text-center">COMING SOON</p>
                 </div>

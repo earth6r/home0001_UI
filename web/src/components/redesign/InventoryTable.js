@@ -39,7 +39,7 @@ export const InventoryTable = ({ data }) => {
                     </li>
                     {rows?.map(row => {
                       return (
-                        <li key={`row-${row._key}`} className="flex mx-4 md:mx-0 md:mr-4">
+                        <li key={`row-${row._key}`} className="flex mb-2 mx-4 md:mx-0 md:mr-4">
                           {row.cells &&
                             row.cells.map((cell, index) => {
                               if (index == currentHeader) {
