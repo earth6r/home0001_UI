@@ -33,14 +33,9 @@ const HubspotNewsletterForm = () => {
   return result === "success" ? (
     <>
       <h3 className="text-mobileLarge md:text-desktopBody">
-        Thank you for signing up.
+        Your data - our harvest.
         <br />
       </h3>
-
-      <p className="pt-1em text-mobileBody md:text-desktopCaption">
-        We'll share occasional updates on new homes, new locations, and new projects as the network
-        expands.
-      </p>
     </>
   ) : (
     <>
@@ -60,7 +55,11 @@ const HubspotNewsletterForm = () => {
           placeholder="Email address"
           aria-describedby="email-helper-text"
         />
-        <Button mt={4} type="submit" className="tracking-normal text-mobile-body bg-black w-full text-white">
+        <Button
+          mt={4}
+          type="submit"
+          className="tracking-normal text-mobile-body bg-black w-full text-white"
+        >
           Submit
         </Button>
         {result === "error" && (
