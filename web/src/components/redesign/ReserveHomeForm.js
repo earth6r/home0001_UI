@@ -12,6 +12,8 @@ export const ReserveHomeForm = ({ data }) => {
       return "Unit 4A";
     } else if (unit === "one-bedroom") {
       return "Unit 6B";
+    } else if (unit === "two-bedrooms") {
+      return "1308 Douglas";
     }
   };
   let unitOfInterest = "all";
