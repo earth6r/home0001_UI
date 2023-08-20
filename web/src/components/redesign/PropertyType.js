@@ -74,12 +74,14 @@ export const PropertyTypeUI = ({
             <div className="mt-10">
               <div>
                 {selectedPropertyType.propertyType && (
-                  <p className="m-0 uppercase tracking-caps">{selectedPropertyType.propertyType
-              .replace("one-bedroom", "1 bedroom")
-              .replace("two-bedroom", "2 bedroom")
-              .replace("studio-max", "studio max")}
-                    :&nbsp;
-                    
+                  <p className="m-0 uppercase tracking-caps">
+                    {
+                      selectedPropertyType.propertyType
+                      .replace("one-bedroom", "1 bedroom")
+                      .replace("two-bedroom", "2 bedroom")
+                      .replace("studio-max", "studio max")
+                    }
+                      &nbsp;—&nbsp;
                     {selectedPropertyType._rawInventory
                   ? selectedPropertyType.propertyType === "studio"
                     ? "UNIT 3B"
@@ -122,12 +124,12 @@ export const PropertyTypeUI = ({
             <h3 className="uppercase tracking-caps my-10 pr-mobile-menu md:pr-0">
             {selectedPropertyType.propertyType
               .replace("one-bedroom", "1 bedroom")
-              .replace("two-bedroom", "2 bedroom")
+              .replace("two-bedroom", "3 story townhouse")
               .replace("studio-max", "studio max")}
               </h3>
             )} */}
             {selectedPropertyType?._rawDescription?.text && (
-              <div className="mt-5 pr-mobile-menu md:pr-0 text-mobile-body md:text-desktop-body property-type-description">
+              <div className="mb-[-1rem] mt-5 pr-mobile-menu md:pr-0 text-mobile-body md:text-desktop-body property-type-description">
                 <StandardText data={selectedPropertyType?._rawDescription} />
               </div>
             )}
