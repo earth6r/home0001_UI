@@ -76,29 +76,15 @@ export const PropertyTypeUI = ({
       {selectedPropertyType?.id ? (
         <>
           <div className="animate-in flex flex-col text-mobile-body md:text-desktop-body relative">
-            {selectedPropertyType.propertyType === "two-bedrooms" ? (
-              <div>
-                <div className="absolute z-50 w-[100%] mt-[62.5%]">
-                  <p className="text-white text-center">COMING SOON</p>
-                </div>
-                {selectedPropertyType?.images && selectedPropertyType.images.length !== 0 && (
-                  <ImageSlider
-                    images={selectedPropertyType.images.map(image => ({
-                      image
-                    }))}
-                  />
-                )}
-              </div>
-            ) : (
-              selectedPropertyType?.images &&
-              selectedPropertyType.images.length !== 0 && (
+            <div>
+              {selectedPropertyType?.images && selectedPropertyType.images.length !== 0 && (
                 <ImageSlider
                   images={selectedPropertyType.images.map(image => ({
                     image
                   }))}
                 />
-              )
-            )}
+              )}
+            </div>
             <div className="mt-10">
               <div>
                 {selectedPropertyType.propertyType && (
@@ -173,7 +159,21 @@ export const PropertyTypeUI = ({
           ) : null}
           {selectedPropertyType.moreImages?.length ? (
             <div className="mt-10">
-              <ImageSlider images={selectedPropertyType.moreImages} />
+              {selectedPropertyType.propertyType === "two-bedrooms" ? (
+                <div>
+                  <div className="absolute z-50 w-[100%] mt-[62.5%]">
+                    <p className="text-white text-center">COMING SOON</p>
+                  </div>
+                  {selectedPropertyType?.images && selectedPropertyType.images.length !== 0 && (
+                    <ImageSlider images={selectedPropertyType.moreImages} />
+                  )}
+                </div>
+              ) : (
+                selectedPropertyType?.images &&
+                selectedPropertyType.images.length !== 0 && (
+                  <ImageSlider images={selectedPropertyTypemoreImages} />
+                )
+              )}
             </div>
           ) : null}
           {selectedPropertyType?._rawDescriptionTwo?.text && (
