@@ -249,7 +249,7 @@ const Header = ({
                       key={index}
                     >
                       <PageLink onClick={onHideNav} to={`${item.slug}`}>
-                        <span className="pr-10">{item.title}</span>
+                        <span className="pr-10 -mr-10 pt-2 -mt-2 pb-2 -mb-2">{item.title}</span>
                       </PageLink>
                     </li>
                   );

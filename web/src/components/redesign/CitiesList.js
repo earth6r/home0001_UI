@@ -12,7 +12,7 @@ export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
                 onClick={() => onChange(city)}
                 className={`${
                   selectedCity?.id === city.id ? "underline" : ""
-                } cursor-pointer p-0 before:content-[''] disabled:bg-transparent tracking-caps leading-none uppercase disabled:opacity-30 disabled:shadow-none leading-none`}
+                } cursor-pointer p-5 -m-5 before:content-[''] disabled:bg-transparent tracking-caps leading-none uppercase disabled:opacity-30 disabled:shadow-none leading-none`}
               >
                 {city.title}
               </button>
