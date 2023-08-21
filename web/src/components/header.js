@@ -240,16 +240,16 @@ const Header = ({
                 showThinBanner && thinBanner ? "mt-16 md:mt-4" : ""
               } overflow-auto z-40 bg-white md:shadow-none fixed top-0 pt-[4.875rem] md:pt-[9.125rem] left-0 w-full h-full`}
             >
-              <ul className="px-4 md:px-10 flex flex-col gap-10">
+              <ul className="px-4 md:px-10 flex flex-col gap-10 w-full">
                 {newMenu.map((item, index) => {
                   return (
                     <li
                       onClick={onHideNav}
-                      className="text-start text-mobile-body md:text-desktop-body uppercase tracking-caps leading-none"
+                      className="text-start text-mobile-body md:text-desktop-body uppercase tracking-caps leading-none w-full"
                       key={index}
                     >
                       <PageLink onClick={onHideNav} to={`${item.slug}`}>
-                        <span>{item.title}</span>
+                        <span className="pr-10">{item.title}</span>
                       </PageLink>
                     </li>
                   );
