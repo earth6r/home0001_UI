@@ -104,7 +104,7 @@ export const PropertyTypeUI = ({
                   <p className="m-0 uppercase tracking-caps">
                     {selectedPropertyType.propertyType
                       .replace("one-bedroom", "1 bedroom")
-                      .replace("two-bedrooms", "3 story townhouse — TYPE A")
+                      .replace("two-bedrooms", "townhouse — #6")
                       .replace("studio-max", "studio max")}
                     {selectedPropertyType.propertyType != "two-bedrooms" ? (
                       <span>&nbsp;—&nbsp;</span>
