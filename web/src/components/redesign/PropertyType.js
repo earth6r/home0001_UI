@@ -158,11 +158,11 @@ export const PropertyTypeUI = ({
             </div>
           ) : null}
           {selectedPropertyType.moreImages?.length ? (
-            <div className="mt-10">
+            <div className="w-full mt-10">
               {selectedPropertyType.propertyType === "two-bedrooms" ? (
-                <div>
-                  <div className="absolute z-50 w-[92%] mt-[62.5%]">
-                    <p className="text-white text-center">COMING SOON</p>
+                <div className="w-full relative">
+                  <div className="absolute z-10 w-full max-w-[560px] top-[46%]">
+                    <p className="text-white text-center leading-none ">COMING SOON</p>
                   </div>
                   {selectedPropertyType?.images && selectedPropertyType.images.length !== 0 && (
                     <ImageSlider images={selectedPropertyType.moreImages} />
