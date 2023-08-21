@@ -62,10 +62,11 @@ export const PropertyTypeUI = ({
   const returnLAData = () => {
     return (
       <div>
-        <p className="m-0">Oversized 3-bedroom home</p>
+        <p className="m-0">Oversized 3-bedroom home over three floors</p>
+        <p className="m-0">Northwestern / Southwestern exposures</p>
         <p className="m-0">Fully furnished and equipped with all the essentials</p>
         <p className="m-0">Artworks by internationally significant artists</p>
-        <p className="m-0">Northwestern/ Southwestern exposures</p>
+        <p className="m-0">Close to Elysian Park and everything on Sunset</p>
       </div>
     );
   };
