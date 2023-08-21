@@ -161,7 +161,7 @@ export const PropertyTypeUI = ({
             <div className="mt-10">
               {selectedPropertyType.propertyType === "two-bedrooms" ? (
                 <div>
-                  <div className="absolute z-50 w-[100%] mt-[62.5%]">
+                  <div className="absolute z-50 w-[92%] mt-[62.5%]">
                     <p className="text-white text-center">COMING SOON</p>
                   </div>
                   {selectedPropertyType?.images && selectedPropertyType.images.length !== 0 && (
