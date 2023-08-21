@@ -114,7 +114,7 @@ export const SingleProperty = ({
                 <button
                   disabled={!available}
                   onClick={() => onChange(item)}
-                  className={`disabled:opacity-30 disabled:bg-white disabled:shadow-none p-4  min-h-[18rem] border w-full flex flex-col gap-2 text-mobile-body md:text-desktop-body ${
+                  className={`disabled:opacity-30 disabled:bg-white disabled:shadow-none p-4 min-h-[18rem] border w-full flex flex-grow justify-stretch flex-col text-mobile-body md:text-desktop-body ${
                     selectedPropertyType?.id === item.id ? "bg-black text-white" : ""
                   }`}
                 >
@@ -142,7 +142,7 @@ export const SingleProperty = ({
                       </p>
                       <p className="col-start-2 text-right mb-0 tracking-caps">{price}</p>
                     </div>
-                    <div className="p-0 mt-4 text-left">
+                    <div className="p-0 mt-4 mb-4 text-left">
                       {area && (
                         <p className="mb-5 p-0 m-0">
                           {area}
@@ -163,9 +163,10 @@ export const SingleProperty = ({
                           })}
                         </ul>
                       )}
-                      <div className="flex justify-end">
-                        <p className="text-right border-b-2 border-dashed">See more</p>
                       </div>
+                    <div className="absolute bottom-[16px] right-[16px]">
+                      
+                        <p className=" text-right border-b-2 border-dashed">See more</p>
                     </div>
                   </div>
                   {/* <div className="grid grid-cols-11 w-full">
