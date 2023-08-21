@@ -171,7 +171,7 @@ export const PropertyTypeUI = ({
               ) : (
                 selectedPropertyType?.images &&
                 selectedPropertyType.images.length !== 0 && (
-                  <ImageSlider images={selectedPropertyTypemoreImages} />
+                  <ImageSlider images={selectedPropertyType.moreImages} />
                 )
               )}
             </div>

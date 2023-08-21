@@ -163,6 +163,7 @@ export const SingleProperty = ({
                           })}
                         </ul>
                       )}
+                      <span className="border-b-2 border-dashed">See more</span>
                     </div>
                   </div>
                   {/* <div className="grid grid-cols-11 w-full">
