@@ -158,12 +158,10 @@ const HomeRedesignPage = ({ location, data }) => {
   }, []);
 
   useEffect(() => {
-    console.log("selected", selectedCity);
     if (selectedCity) {
       document.body.style.overflow = "";
       document.body.style.touchAction = "";
       if (filteredProperties.length === 1) {
-        console.log("filteredProperties:", filteredProperties);
         setSelectedProperty(filteredProperties[0]);
       }
     } else {
@@ -195,8 +193,6 @@ const HomeRedesignPage = ({ location, data }) => {
     const searchParams = new URLSearchParams(window.location.search);
     if (selectedProperty?.id) {
       searchParams.set("property", selectedProperty.id);
-      console.log("scrolling");
-      console.log("selectedProperty", selectedProperty);
       scrollToProperty();
     } else {
       // Hide intercom bubble when property is unselected
@@ -241,7 +237,6 @@ const HomeRedesignPage = ({ location, data }) => {
   const scrollToPropertyType = () => {
     setTimeout(() => {
       if (selectedPropertyType?.id && propertyTypeRef.current) {
-        console.log("scrolling on timeout");
         const offset = window.innerWidth < 768 ? 16 : 40;
         const top = propertyTypeRef.current.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: "smooth" });
@@ -269,7 +264,6 @@ const HomeRedesignPage = ({ location, data }) => {
   }, [selectedPropertyType]);
 
   const onSelectCity = city => {
-    console.log("city:", city);
     if (city.id !== selectedCity?.id) {
       setSelectedCity(city);
       setSelectedProperty(null);

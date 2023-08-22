@@ -35,6 +35,7 @@ const HowItWorksRedignPage = ({ data }) => {
       <Container>
         <HowItWorksComponent data={data} />
         <ReserveHomeForm data={data.site} />
+        <div id="reserve-home-form" />
       </Container>
     </Layout>
   );

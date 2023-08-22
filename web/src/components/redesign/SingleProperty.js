@@ -9,6 +9,7 @@ export const SingleProperty = ({
   selectedPropertyType,
   disableScroll = false
 }) => {
+  console.log(selectedProperty);
   function capitalizeAddress(str) {
     const number = str.substring(0, str.indexOf(" "));
     const street = str.substring(str.indexOf(" ") + 1).slice(0, -3);
@@ -54,7 +55,6 @@ export const SingleProperty = ({
     }
   }, [selectedProperty, selectedPropertyRef, selectedPropertyType, disableScroll]);
 
-  console.log(selectedProperty);
   return (
     <>
       {selectedProperty && (
@@ -109,6 +109,7 @@ export const SingleProperty = ({
         >
           {propertyTypes.map(item => {
             const { amenities, propertyType, price, area, id, available } = item;
+            console.log("propertyType:", propertyType);
             return (
               <li key={id} className={`p-0 before:content-['']`}>
                 <button
@@ -121,7 +122,9 @@ export const SingleProperty = ({
                   <div className="w-full">
                     <div className="grid property-type-button p-0 m-0">
                       <p className="col-start-1 text-left uppercase mb-0 tracking-caps">
-                        {selectedProperty.city.title == "LA"
+                        {selectedProperty.city.title == "LA" && propertyType === "penthouse"
+                          ? "Townhouse — #7"
+                          : selectedProperty.city.title == "LA" && propertyType === "two-bedrooms"
                           ? "Townhouse — #6"
                           : propertyType
                               ?.replace("studio-max", "studio max")
@@ -163,10 +166,9 @@ export const SingleProperty = ({
                           })}
                         </ul>
                       )}
-                      </div>
+                    </div>
                     <div className="absolute bottom-[16px] right-[16px]">
-                      
-                        <p className=" text-right border-b-2 border-dashed">See more</p>
+                      <p className=" text-right border-b-2 border-dashed">See more</p>
                     </div>
                   </div>
                   {/* <div className="grid grid-cols-11 w-full">

@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { submit_hubspot_waitlist_form } from "../../utils/axios";
 
 export const ReserveHomeForm = ({ data }) => {
-  console.log("data:", data);
   //todo add a unit prop to this component
   const returnUnitNumber = unit => {
     if (unit === "studio") {
@@ -12,13 +11,14 @@ export const ReserveHomeForm = ({ data }) => {
       return "Unit 4A";
     } else if (unit === "one-bedroom") {
       return "Unit 6B";
-    } else if (unit === "two-bedrooms") {
+    } else if (unit === "two-bedrooms" || unit === "penthouse") {
       return "1308 Douglas";
     }
   };
   let unitOfInterest = "all";
 
   useEffect(() => {
+    console.log("data", data);
     if (data.property && data.property.propertyType)
       unitOfInterest = returnUnitNumber(data.property.propertyType);
   }, [data]);
@@ -59,11 +59,15 @@ export const ReserveHomeForm = ({ data }) => {
                 {`${
                   data.property ? returnUnitNumber(data.property.propertyType) : "New units"
                 } will be released for sale soon to
-              buyers on the waitlist. Homebuyers will be offered properties in the order they joined. Once you’re offered the property, you can secure it with a small deposit and will have the chance to spend a few nights in the property to see how it feels before going ahead with the purchase. The EARTH team will be available to answer questions, help secure financing, etc. `}
+              buyers on the waitlist. Homebuyers will be offered properties in the order they joined.`}{" "}
+              </p>
+              <p>
+                Once you’re offered the property, you can secure it with a small deposit. The EARTH
+                team will be available to answer questions, help secure financing, etc.
               </p>
               <p>
                 {data.property && returnUnitNumber(data.property.propertyType)
-                  ? `Join the waitlist for ${returnUnitNumber(data.property.propertyType)} here`
+                  ? `Join the waitlist for ${returnUnitNumber(data.property.propertyType)} here:`
                   : "Join the waitlist for a home here:"}
               </p>
               {/* <Accordion allowToggle defaultIndex={[2]} className="my-10 w-full">
@@ -92,7 +96,7 @@ export const ReserveHomeForm = ({ data }) => {
                 {data.property && returnUnitNumber(data.property.propertyType)
                   ? `Thank you for joining the ${returnUnitNumber(
                       data.property.propertyType
-                    )} waitlist. We will be in touch when you are granted access to view the property.`
+                    )} waitlist. We’ll be in touch when this home is released.`
                   : "Thank you for joining the waitlist to buy an Earth home. We will be in touch when you are granted access to view the property."}
               </p>
             </div>

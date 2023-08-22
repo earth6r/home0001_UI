@@ -23,7 +23,6 @@ export const InventoryModule = ({ data, title, propertyType, viewInventoryText }
       document.body.style.touchAction = "";
     };
   }, []);
-  console.log("propertyType in inevntory", propertyType);
   return (
     <>
       <Modal isOpen={isOpen} onClose={onCloseModal}>
