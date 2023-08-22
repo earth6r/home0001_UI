@@ -39,11 +39,16 @@ figure img {
 
 body {
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility!important;
   margin: 0;
   font-feature-settings: "kern" 1, "dlig" 1;
   -webkit-font-feature-settings: "kern" 1, "dlig" 1;
   -moz-font-feature-settings: "kern" 1, "dlig" 1;
+}
+
+button {
+  text-rendering: optimizeLegibility;
 }
 
 .property-type-button {
