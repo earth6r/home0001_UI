@@ -59,9 +59,11 @@ export const ReserveHomeForm = ({ data }) => {
                 {`${
                   data.property ? returnUnitNumber(data.property.propertyType) : "New units"
                 } will be released for sale soon to
-              buyers on the waitlist. Homebuyers will be offered properties in the order they joined. ${(
-                <br />
-              )}Once you’re offered the property, you can secure it with a small deposit. The EARTH team will be available to answer questions, help secure financing, etc. `}
+              buyers on the waitlist. Homebuyers will be offered properties in the order they joined.`}{" "}
+              </p>
+              <p>
+                Once you’re offered the property, you can secure it with a small deposit. The EARTH
+                team will be available to answer questions, help secure financing, etc.
               </p>
               <p>
                 {data.property && returnUnitNumber(data.property.propertyType)
