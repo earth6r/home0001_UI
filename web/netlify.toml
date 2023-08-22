@@ -1,7 +1,2 @@
-[[redirects]]
-  from = "/"
-  to = "/homes/"
-  status = 301
-
 [dev]
   functions = "functions"
