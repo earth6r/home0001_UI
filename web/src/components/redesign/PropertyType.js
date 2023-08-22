@@ -119,7 +119,11 @@ export const PropertyTypeUI = ({
             </div>
             <div className="text-mobile-body md:text-desktop-body pr-mobile-menu md:pr-0">
               <div className="">
-                {selectedPropertyType.price && <p className="m-0">{selectedPropertyType.price}</p>}
+                {selectedPropertyType.price == "Inquire"
+                  ? "Price upon request"
+                  : selectedPropertyType.price && (
+                      <p className="m-0">{selectedPropertyType.price}</p>
+                    )}
                 {selectedPropertyType.area && (
                   <p className="mb-4 m-0">{selectedPropertyType.area}</p>
                 )}

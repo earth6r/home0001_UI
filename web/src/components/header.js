@@ -193,7 +193,7 @@ const Header = ({
                   setShowReserveHomeForm(false);
                 }}
                 to="/homes"
-                className="flex items-center h-full"
+                className="flex items-center h-full p-1 -m-1"
               >
                 <div className="flex items-center h-3">
                   <p className="tracking-caps leading-none uppercase text-mobile-body md:text-desktop-body mt-[-1px]">

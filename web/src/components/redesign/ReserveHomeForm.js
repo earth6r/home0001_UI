@@ -62,13 +62,13 @@ export const ReserveHomeForm = ({ data }) => {
               buyers on the waitlist. Homebuyers will be offered properties in the order they joined.`}{" "}
               </p>
               <p>
-                Once you’re offered the property, you can secure it with a small deposit. The EARTH
-                team will be available to answer questions, help secure financing, etc.
+                Once you’re offered a property you want, you can secure it with a small deposit. The
+                EARTH team will be available to answer questions, help secure financing, etc.
               </p>
               <p>
                 {data.property && returnUnitNumber(data.property.propertyType)
                   ? `Join the waitlist for ${returnUnitNumber(data.property.propertyType)} here:`
-                  : "Join the waitlist for a home here:"}
+                  : "Join the waitlist for an EARTH home here:"}
               </p>
               {/* <Accordion allowToggle defaultIndex={[2]} className="my-10 w-full">
               <AccordionItem className="bg-white border border-[#000] flex flex-col justify-center text-mobile-body md:text-desktop-body">
