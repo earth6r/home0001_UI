@@ -5,7 +5,7 @@ const Footer = ({ footerMenu }) => {
   const menu = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
 
   return (
-    <div className="animate-in px-4 md:px-10 mt-20">
+    <div className="animate-in px-4 md:px-20 mt-20">
       <nav>
         <ul className="flex flex-col gap-10">
           {menu &&
