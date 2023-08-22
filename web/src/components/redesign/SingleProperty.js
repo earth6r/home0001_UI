@@ -9,6 +9,7 @@ export const SingleProperty = ({
   selectedPropertyType,
   disableScroll = false
 }) => {
+  console.log(selectedProperty);
   function capitalizeAddress(str) {
     const number = str.substring(0, str.indexOf(" "));
     const street = str.substring(str.indexOf(" ") + 1).slice(0, -3);
@@ -108,6 +109,7 @@ export const SingleProperty = ({
         >
           {propertyTypes.map(item => {
             const { amenities, propertyType, price, area, id, available } = item;
+            console.log("propertyType:", propertyType);
             return (
               <li key={id} className={`p-0 before:content-['']`}>
                 <button
@@ -122,7 +124,7 @@ export const SingleProperty = ({
                       <p className="col-start-1 text-left uppercase mb-0 tracking-caps">
                         {selectedProperty.city.title == "LA" && propertyType === "studio"
                           ? "Townhouse — #7"
-                          : selectedProperty.city.title == "LA" && propertyType === "two-bedroom"
+                          : selectedProperty.city.title == "LA" && propertyType === "two-bedrooms"
                           ? "Townhouse — #6"
                           : propertyType
                               ?.replace("studio-max", "studio max")
