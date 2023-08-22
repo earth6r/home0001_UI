@@ -30,7 +30,7 @@ const HowItWorksComponent = ({ data, hasPadding = false }) => {
           {pageTitle}
         </h2>
         <div>{content}</div>
-        <div className="mb-10 md:mb-20">
+        <div className="mb-10 md:mb-20 standard-text">
           <StandardText data={text} />
         </div>
       </div>
