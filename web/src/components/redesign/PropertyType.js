@@ -133,7 +133,8 @@ export const PropertyTypeUI = ({
                   ? returnStudioMaxData()
                   : selectedPropertyType.propertyType === "one-bedroom"
                   ? returnOneBedroomData()
-                  : selectedPropertyType.propertyType == "two-bedrooms"
+                  : selectedPropertyType.propertyType == "two-bedrooms" ||
+                    selectedPropertyType.propertyType == "penthouse"
                   ? returnLAData()
                   : null}
               </div>
