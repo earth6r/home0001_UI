@@ -11,7 +11,7 @@ export const ReserveHomeForm = ({ data }) => {
       return "Unit 4A";
     } else if (unit === "one-bedroom") {
       return "Unit 6B";
-    } else if (unit === "two-bedrooms") {
+    } else if (unit === "two-bedrooms" || unit === "penthouse") {
       return "1308 Douglas";
     }
   };
