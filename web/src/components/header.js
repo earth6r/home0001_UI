@@ -196,7 +196,7 @@ const Header = ({
                 className="flex items-center h-full"
               >
                 <div className="flex items-center h-3">
-                  <p className="tracking-caps leading-none uppercase text-mobile-body md:text-desktop-body">
+                  <p className="tracking-caps leading-none uppercase text-mobile-body md:text-desktop-body mt-[-1px]">
                     <EarthLogo height="0.875em" width="3.6em" />
                   </p>
                 </div>
