@@ -45,7 +45,7 @@ export const InventoryModule = ({ data, title, propertyType, viewInventoryText }
 
       <button
         onClick={onOpenModal}
-        className="border-b-[1.5px] border-dashed text-mobile-body md:text-desktop-body"
+        className="border-b-[2px] border-dashed text-mobile-body md:text-desktop-body"
       >
         {viewInventoryText}
       </button>

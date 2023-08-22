@@ -56,7 +56,7 @@ export const InventoryTable = ({ data }) => {
           })}
       </Slider>
       {headers && ((!isDesktop && headers.length > 1) || (isDesktop && headers.length > 3)) && (
-        <div className="flex justify-center items-center w-full gap-2 mt-8">
+        <div className="absolute bottom-4 flex justify-center items-center w-full gap-2 mt-8">
           <CustomPrevButton
             onClick={() => slider.current.slickPrev()}
             disabled={currentIndex === 0}
