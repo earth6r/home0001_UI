@@ -122,7 +122,7 @@ export const SingleProperty = ({
                   <div className="w-full">
                     <div className="grid property-type-button p-0 m-0">
                       <p className="col-start-1 text-left uppercase mb-0 tracking-caps">
-                        {selectedProperty.city.title == "LA" && propertyType === "studio"
+                        {selectedProperty.city.title == "LA" && propertyType === "penthouse"
                           ? "Townhouse — #7"
                           : selectedProperty.city.title == "LA" && propertyType === "two-bedrooms"
                           ? "Townhouse — #6"
