@@ -41,7 +41,7 @@ const FaqRedesignPage = ({ data }) => {
             <h2 className="uppercase tracking-caps leading-none mb-10 md:mb-20 font-normal text-mobile-body md:text-desktop-body">
               {pageTitle}
             </h2>
-            <div className="mb-10 md:mb-20">{content}</div>
+            <div className="mb-10 md:mb-20 standard-text">{content}</div>
           </div>
         </div>
       </Container>
