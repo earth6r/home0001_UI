@@ -26,7 +26,7 @@ export const PropertyTypeUI = ({
       <div>
         <p className="m-0">Elevator building</p>
         <p className="m-0">Third floor</p>
-        <p className="m-0">Northeast exposure</p>
+        <p className="m-0">Northwest exposure</p>
         <p className="m-0">Windows onto Allen Street</p>
         <p className="m-0">Fully furnished and equipped with all the essentials</p>
         <p>Artworks by internationally significant artists</p>
@@ -38,7 +38,7 @@ export const PropertyTypeUI = ({
       <div>
         <p className="m-0">Elevator building</p>
         <p className="m-0">Fourth floor</p>
-        <p className="m-0">Northeast exposure</p>
+        <p className="m-0">Northwest exposure</p>
         <p className="m-0">Windows onto Allen Street</p>
         <p className="m-0">Fully furnished and equipped with all the essentials</p>
         <p>Artworks by internationally significant artists</p>
