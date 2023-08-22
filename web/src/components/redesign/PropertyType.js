@@ -155,7 +155,8 @@ export const PropertyTypeUI = ({
               </div>
             )}
           </div>
-          {selectedPropertyType.propertyType != "two-bedrooms" ? (
+          {selectedPropertyType.propertyType != "two-bedrooms" &&
+          selectedPropertyType.propertyType != "penthouse" ? (
             <div>
               <InventoryModule
                 title={property.title}
@@ -167,7 +168,8 @@ export const PropertyTypeUI = ({
           ) : null}
           {selectedPropertyType.moreImages?.length ? (
             <div className="w-full mt-10">
-              {selectedPropertyType.propertyType === "two-bedrooms" ? (
+              {selectedPropertyType.propertyType === "two-bedrooms" ||
+              selectedPropertyType.propertyType === "penthouse" ? (
                 <div className="w-full relative">
                   <div className="absolute z-10 w-full max-w-[560px] top-[46%]">
                     <p className="text-white text-center leading-none ">COMING SOON</p>
