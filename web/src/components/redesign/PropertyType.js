@@ -99,7 +99,8 @@ export const PropertyTypeUI = ({
                                   .replace("studio-max", "studio max")))
                     }
 
-                    {selectedPropertyType.propertyType != "two-bedrooms" ? (
+                    {selectedPropertyType.propertyType != "two-bedrooms" &&
+                    selectedPropertyType.propertyType != "penthouse" ? (
                       <span>&nbsp;—&nbsp;</span>
                     ) : null}
                     {selectedPropertyType._rawInventory
