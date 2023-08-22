@@ -34,8 +34,8 @@ const HowItWorksRedignPage = ({ data }) => {
       <SEO title={pageTitle} />
       <Container>
         <HowItWorksComponent data={data} />
-        <div id="reserve-home-form" />
         <ReserveHomeForm data={data.site} />
+        <div id="reserve-home-form" />
       </Container>
     </Layout>
   );
