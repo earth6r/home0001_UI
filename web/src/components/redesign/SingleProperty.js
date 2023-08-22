@@ -54,7 +54,6 @@ export const SingleProperty = ({
     }
   }, [selectedProperty, selectedPropertyRef, selectedPropertyType, disableScroll]);
 
-  console.log(selectedProperty);
   return (
     <>
       {selectedProperty && (
@@ -121,7 +120,9 @@ export const SingleProperty = ({
                   <div className="w-full">
                     <div className="grid property-type-button p-0 m-0">
                       <p className="col-start-1 text-left uppercase mb-0 tracking-caps">
-                        {selectedProperty.city.title == "LA"
+                        {selectedProperty.city.title == "LA" && propertyType === "studio"
+                          ? "Townhouse — #7"
+                          : selectedProperty.city.title == "LA" && propertyType === "two-bedroom"
                           ? "Townhouse — #6"
                           : propertyType
                               ?.replace("studio-max", "studio max")
@@ -163,10 +164,9 @@ export const SingleProperty = ({
                           })}
                         </ul>
                       )}
-                      </div>
+                    </div>
                     <div className="absolute bottom-[16px] right-[16px]">
-                      
-                        <p className=" text-right border-b-2 border-dashed">See more</p>
+                      <p className=" text-right border-b-2 border-dashed">See more</p>
                     </div>
                   </div>
                   {/* <div className="grid grid-cols-11 w-full">

@@ -9,7 +9,6 @@ export const InventoryTable = ({ data }) => {
   const slider = useRef(null);
   const isDesktop = useMediaQuery({ minWidth: 768 });
   const [currentIndex, setCurrentIndex] = useState(0);
-  console.log("currentIndex:", currentIndex);
 
   const settings = {
     slidesToShow: isDesktop ? 3 : 1,

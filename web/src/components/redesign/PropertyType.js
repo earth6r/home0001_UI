@@ -16,7 +16,6 @@ export const PropertyTypeUI = ({
   howItWorks,
   viewInventoryText
 }) => {
-  console.log("selectedPropertyType:", selectedPropertyType);
   const {
     setPropertyType: setSelectedPropertyType,
     setReserveHomeForm: setShowReserveHomeForm
