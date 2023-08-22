@@ -123,9 +123,9 @@ export const SingleProperty = ({
                     <div className="grid property-type-button p-0 m-0">
                       <p className="col-start-1 text-left uppercase mb-0 tracking-caps">
                         {selectedProperty.city.title == "LA" && propertyType === "penthouse"
-                          ? "Townhouse — #7"
-                          : selectedProperty.city.title == "LA" && propertyType === "two-bedrooms"
                           ? "Townhouse — #6"
+                          : selectedProperty.city.title == "LA" && propertyType === "two-bedrooms"
+                          ? "Townhouse — #7"
                           : propertyType
                               ?.replace("studio-max", "studio max")
                               ?.replace("one-bedroom", "1 bedroom")
