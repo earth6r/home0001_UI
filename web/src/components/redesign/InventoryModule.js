@@ -32,7 +32,13 @@ export const InventoryModule = ({ data, title, propertyType, viewInventoryText }
             {title && <p className="uppercase">{title}</p>}{" "}
             {propertyType == "two-bedrooms"
               ? "3-STORY TOWNHOUSE"
-              : propertyType && <p>{propertyType}</p>}{" "}
+              : propertyType && (
+                  <p>
+                    {propertyType
+                      .replace("one-bedroom", "1 bedroom")
+                      .replace("studio-max", "studio max")}
+                  </p>
+                )}{" "}
           </div>
           <div className="flex flex-col gap-20 h-full">
             {data._rawInventory &&
