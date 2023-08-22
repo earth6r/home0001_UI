@@ -40,6 +40,7 @@ figure img {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent!important;
   text-rendering: optimizeLegibility!important;
   margin: 0;
   font-feature-settings: "kern" 1, "dlig" 1;
@@ -49,6 +50,7 @@ body {
 
 button {
   text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent!important;
 }
 
 .property-type-button {
