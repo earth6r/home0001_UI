@@ -91,10 +91,10 @@ export const PropertyTypeUI = ({
                     {
                       (selectedPropertyType.property.title =
                         "1308 DOUGLAS ST." && selectedPropertyType.propertyType == "two-bedrooms"
-                          ? "TOWNHOUSE - #6"
+                          ? <span>TOWNHOUSE&nbsp;&mdash;&nbsp;#6</span>
                           : (selectedPropertyType.property.title =
                               "1308 DOUGLAS ST." && selectedPropertyType.propertyType == "penthouse"
-                                ? "TOWNHOUSE - #7"
+                                ? <span>TOWNHOUSE&nbsp;&mdash;&nbsp;#7</span>
                                 : selectedPropertyType.propertyType
                                     .replace("one-bedroom", "1 bedroom")
                                     .replace("studio-max", "studio max")))
