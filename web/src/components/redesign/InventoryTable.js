@@ -17,6 +17,8 @@ export const InventoryTable = ({ data }) => {
     centerMode: isDesktop ? false : true,
     centerPadding: isDesktop ? "" : "50vw 0px 0px 0px",
     beforeChange: (oldIndex, newIndex) => {
+      console.log("newIndex:", newIndex);
+      console.log("oldIndex:", oldIndex);
       setCurrentIndex(newIndex);
     }
   };
@@ -63,7 +65,7 @@ export const InventoryTable = ({ data }) => {
           />
           <CustomNextButton
             onClick={() => slider.current.slickNext()}
-            disabled={currentIndex === 1}
+            disabled={isDesktop ? currentIndex === 1 : currentIndex === 3}
           />
         </div>
       )}
