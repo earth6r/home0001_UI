@@ -17,8 +17,6 @@ export const InventoryTable = ({ data }) => {
     centerMode: isDesktop ? false : true,
     centerPadding: isDesktop ? "" : "50vw 0px 0px 0px",
     beforeChange: (oldIndex, newIndex) => {
-      console.log("newIndex:", newIndex);
-      console.log("oldIndex:", oldIndex);
       setCurrentIndex(newIndex);
     }
   };

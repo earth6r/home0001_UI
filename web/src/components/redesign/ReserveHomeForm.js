@@ -70,25 +70,6 @@ export const ReserveHomeForm = ({ data }) => {
                   ? `Join the waitlist for ${returnUnitNumber(data.property.propertyType)} here:`
                   : "Join the waitlist for an EARTH home here:"}
               </p>
-              {/* <Accordion allowToggle defaultIndex={[2]} className="my-10 w-full">
-              <AccordionItem className="bg-white border border-[#000] flex flex-col justify-center text-mobile-body md:text-desktop-body">
-                {({ isExpanded }) => (
-                  <>
-                    <AccordionHeader className="flex items-center justify-between hover:bg-white px-3 py-4 h-full">
-                      <h2 className="m-0 tracking-caps uppercase text-mobile-body md:text-desktop-body">
-                        What's included?
-                      </h2>
-                      <div className="text-[20px] font-normal">
-                        {isExpanded ? <Minus /> : <Plus />}
-                      </div>
-                    </AccordionHeader>
-                    <AccordionPanel className="px-3 text-mobile-body md:text-desktop-body">
-                      <PortableText blocks={data.siteData._rawWhatsIncluded} />
-                    </AccordionPanel>
-                  </>
-                )}
-              </AccordionItem>
-            </Accordion> */}
             </div>
           ) : (
             <div className="relative mb-4 text-mobile-body md:text-desktop-body">
@@ -104,25 +85,6 @@ export const ReserveHomeForm = ({ data }) => {
           {!submitted ? (
             <form onSubmit={handleSubmit(onSubmit)} className="w-full">
               <div className="w-full">
-                {/* <div className="flex items-center justify-start p-0 mb-10">
-                <input
-                  type="checkbox"
-                  id="terms"
-                  name="terms"
-                  className="outline-none border-black border-1 p-2 relative m-0 shadow-none left-0 top-0"
-                  required
-                  ref={register({ required: true })}
-                />
-                <label
-                  htmlFor="terms"
-                  className="relative m-0 text-mobile-body md:text-desktop-body font-serif"
-                >
-                  {data.siteData ? (
-                    <StandardText data={data.siteData.reserveHomeForm._rawCheckboxText} />
-                  ) : null}
-                </label>
-              </div> */}
-
                 <div className="relative flex flex-col gap-4">
                   <input
                     type="text"
