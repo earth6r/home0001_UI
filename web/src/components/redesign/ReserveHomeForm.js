@@ -81,10 +81,10 @@ export const ReserveHomeForm = ({ data }) => {
             <div className="relative mb-4 text-mobile-body md:text-desktop-body">
               <p>
                 {data.property && returnUnitNumber(data.property.propertyType)
-                  ? `Thank you for joining the waitlist for ${returnUnitNumber(
+                  ? `You are on the waitlist for ${returnUnitNumber(
                       data.property.propertyType
-                    )}. We’ll be in touch when this home is released.`
-                  : "Thank you for joining the waitlist to buy an Earth home. We will be in touch when you are granted access to view the property."}
+                    )}! We’ll be in touch when this home is released.`
+                  : "You're on the waitlist! We’ll be in touch as homes are released for sale."}
               </p>
             </div>
           )}
