@@ -18,7 +18,7 @@ export const ReserveHomeForm = ({ data }) => {
   let unitOfInterest = "all";
 
   useEffect(() => {
-    console.log("data", data);
+    console.log(data);
     if (data.property && data.property.propertyType)
       unitOfInterest = returnUnitNumber(data.property.propertyType);
   }, [data]);
@@ -57,13 +57,19 @@ export const ReserveHomeForm = ({ data }) => {
 
               <p>
                 {`${
-                  data.property ? returnUnitNumber(data.property.propertyType) : "New units"
-                } will be released for sale soon to
-              buyers on the waitlist. Homebuyers will be offered properties in the order they joined.`}{" "}
+                  data.property ? returnUnitNumber(data.property.propertyType) : "New homes"
+                } will be released for sale ${
+                  data.property ? "soon" : null
+                } to buyers on the waitlist. Homebuyers will be offered this home in the order they joined.`}
               </p>
+
               <p>
-                Once you’re offered a property you want, you can secure it with a small deposit. The
-                EARTH team will be available to answer questions, help secure financing, etc.
+                {`${
+                  data.property.propertyType == "two-bedrooms" ||
+                  data.property.propertyType == "penthouse"
+                    ? "Once you receive an offer, you can secure it with a small deposit and schedule a tour before going ahead with the purchase."
+                    : "Once you receive an offer, you can secure it with a small deposit and will have the chance to spend a few nights in the property to see how it feels before going ahead with the purchase."
+                } The EARTH team will be available to answer questions, help secure financing, etc.`}
               </p>
               <p>
                 {data.property && returnUnitNumber(data.property.propertyType)
@@ -75,9 +81,9 @@ export const ReserveHomeForm = ({ data }) => {
             <div className="relative mb-4 text-mobile-body md:text-desktop-body">
               <p>
                 {data.property && returnUnitNumber(data.property.propertyType)
-                  ? `Thank you for joining the ${returnUnitNumber(
+                  ? `Thank you for joining the waitlist for ${returnUnitNumber(
                       data.property.propertyType
-                    )} waitlist. We’ll be in touch when this home is released.`
+                    )}. We’ll be in touch when this home is released.`
                   : "Thank you for joining the waitlist to buy an Earth home. We will be in touch when you are granted access to view the property."}
               </p>
             </div>
