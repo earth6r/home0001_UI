@@ -63,7 +63,7 @@ export const InventoryTable = ({ data }) => {
           />
           <CustomNextButton
             onClick={() => slider.current.slickNext()}
-            disabled={currentIndex === 1}
+            disabled={isDesktop ? currentIndex === 1 : currentIndex === 3}
           />
         </div>
       )}
