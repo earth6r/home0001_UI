@@ -165,6 +165,14 @@ module.exports = {
         respectDNT: false,
         productionOnly: true
       }
+    },
+    {
+      resolve: `gatsby-plugin-hotjar`,
+      options: {
+        includeInDevelopment: true,
+        id: process.env.HOTJAR_ID,
+        sv: process.env.HOTJAR_SNIPPET_VERSION
+      }
     }
   ]
 };

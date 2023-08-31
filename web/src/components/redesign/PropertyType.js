@@ -20,7 +20,6 @@ export const PropertyTypeUI = ({
     setPropertyType: setSelectedPropertyType,
     setReserveHomeForm: setShowReserveHomeForm
   } = useContext(HomesContext);
-  console.log("selectedPropertyType", selectedPropertyType);
   const returnStudioData = () => {
     return (
       <div>
@@ -90,14 +89,20 @@ export const PropertyTypeUI = ({
                   <p className="m-0 uppercase tracking-caps">
                     {
                       (selectedPropertyType.property.title =
-                        "1308 DOUGLAS ST." && selectedPropertyType.propertyType == "two-bedrooms"
-                          ? <span>TOWNHOUSE&nbsp;&mdash;&nbsp;#6</span>
-                          : (selectedPropertyType.property.title =
-                              "1308 DOUGLAS ST." && selectedPropertyType.propertyType == "penthouse"
-                                ? <span>TOWNHOUSE&nbsp;&mdash;&nbsp;#7</span>
-                                : selectedPropertyType.propertyType
-                                    .replace("one-bedroom", "1 bedroom")
-                                    .replace("studio-max", "studio max")))
+                        "1308 DOUGLAS ST." &&
+                        selectedPropertyType.propertyType == "two-bedrooms" ? (
+                          <span>TOWNHOUSE&nbsp;&mdash;&nbsp;#6</span>
+                        ) : (
+                          (selectedPropertyType.property.title =
+                            "1308 DOUGLAS ST." &&
+                            selectedPropertyType.propertyType == "penthouse" ? (
+                              <span>TOWNHOUSE&nbsp;&mdash;&nbsp;#7</span>
+                            ) : (
+                              selectedPropertyType.propertyType
+                                .replace("one-bedroom", "1 bedroom")
+                                .replace("studio-max", "studio max")
+                            ))
+                        ))
                     }
 
                     {selectedPropertyType.propertyType != "two-bedrooms" &&
