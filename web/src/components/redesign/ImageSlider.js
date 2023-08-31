@@ -1,17 +1,11 @@
 import React, { useState, createRef, useRef, useEffect } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { imageUrlFor } from "../../lib/image-url";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/zoom";
 import { Zoom, Navigation } from "swiper/modules";
-import { useSwiper } from "swiper/react";
 
 export const ImageSlider = ({ images }) => {
-  const swiper = useSwiper();
-
   const swiperRef = useRef();
   const captionRef = useRef();
   const [currentIndex, setCurrentIndex] = useState(0);
