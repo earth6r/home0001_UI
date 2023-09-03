@@ -210,7 +210,7 @@ const Header = ({
                 style={{ borderColor: "#000000" }}
                 className={`outline-none flex items-center justify-center absolute h-10 w-10 ${
                   showNav ? "-left-[0.875rem]" : "-left-[1.65rem]"
-                } -top-[0.875rem] md:left-0 md:top-0`}
+                } -top-[0.9rem] md:left-0 md:top-[-0.25rem]`}
                 onClick={showNav ? onHideNav : onShowNav}
                 role="button"
                 aria-label="Open the menu"
