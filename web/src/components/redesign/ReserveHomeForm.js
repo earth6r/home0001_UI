@@ -64,7 +64,9 @@ export const ReserveHomeForm = ({ data }) => {
                     : "New homes"
                 } will be released for sale ${
                   data.property ? "soon" : ""
-                } to buyers on the waitlist. Homebuyers will be offered this home in the order they joined.`}
+                } to buyers on the waitlist. Homebuyers will be offered ${
+                  data.property && data.property.propertyType ? "this home" : "homes"
+                } in the order they joined.`}
               </p>
 
               <p>
