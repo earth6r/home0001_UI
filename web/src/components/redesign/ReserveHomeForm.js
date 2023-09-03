@@ -48,15 +48,14 @@ export const ReserveHomeForm = ({ data }) => {
     <div className="animate-in relative">
       <div className="w-screen h-full -ml-4 md:-ml-10 absolute bg-whitesmoke"></div>
       <div className="md:grid md:grid-cols-3 pr-mobile-menu md:pr-desktop-menu">
-        <div className="md:col-start-2 md:col-span-1 pt-10 pb-10">
+        <div className="md:col-start-2 md:col-span-1 pt-10 pb-11">
           {!submitted ? (
             <div className="relative mb-4 text-mobile-body md:text-desktop-body font-serif">
               <p className="uppercase mb-9">
                 {data.property
                   ? `Join the waitlist for ${returnUnitNumber(data.property.propertyType)}`
-                  : "Join waitlist"}
+                  : "Join the waitlist"}
               </p>
-
               <p>
                 {`${
                   data.property && data.property.propertyType
