@@ -18,6 +18,10 @@ const HubspotNewsletterForm = () => {
   const { register, handleSubmit, errors } = useForm();
   const [result, setResult] = useState({});
   const [msg, setMsg] = useState("");
+  const [cityChecked, setCityChecked] = useState(false);
+  const handleCheckChange = event => {
+    setCityChecked(event.target.checked);
+  };
 
   const onSubmit = async data => {
     let result;
@@ -46,7 +50,7 @@ const HubspotNewsletterForm = () => {
         name="email"
         autoComplete="email"
         ref={register({ required: true })}
-        className="text-mobile-body md:text-desktop-body newsletter px-3 py-4 placeholder:uppercase placeholder:text-mobile-body md:placeholder:text-desktop-body w-full"
+        className="text-mobile-body md:text-desktop-body newsletter px-3 py-4 placeholder:uppercase placeholder:text-mobile-body md:placeholder:text-desktop-body w-full h-8"
         required
         placeholder="Email address"
         aria-describedby="email-helper-text"
@@ -77,9 +81,24 @@ const HubspotNewsletterForm = () => {
         <label className="text-left ml-2">Mexico City (coming soon)</label>
       </div>
       <div className="mb-4">
-        <input className="" type="checkbox" ref={register({ required: false })} name="Else" />
-        <label className="text-left ml-2">Somewhere else</label>
+        <input
+          className=""
+          type="checkbox"
+          ref={register({ required: false })}
+          name="Else"
+          onChange={handleCheckChange}
+        />
+        <label className="text-left ml-2">Somewhere else:</label>
       </div>
+      <input
+        type="text"
+        placeholder="ENTER A CITY"
+        ref={register({ required: false })}
+        name="City"
+        className={`${
+          cityChecked ? "mb-4" : "invisible"
+        } text-mobile-body md:text-desktop-body newsletter px-3 py-4 placeholder:uppercase placeholder:text-mobile-body md:placeholder:text-desktop-body w-full h-8`}
+      />
       <button
         mt={4}
         type="submit"

@@ -24,7 +24,8 @@ export const submit_hubspot_newsletter_form = async data => {
         { name: "nyc", value: data.NYC },
         { name: "paris", value: data.Paris },
         { name: "cdmx", value: data.CDMX },
-        { name: "else", value: data.Else }
+        { name: "else", value: data.Else },
+        { name: "city", value: data.City }
       ]
     },
     config
