@@ -61,82 +61,81 @@ export const GeneralReservationForm = ({ data }) => {
                     autocomplete="off"
                     ref={register({ required: true })}
                   />
-                </div>
-                <p className="mt-4">Where do you want to live?</p>
-                <div className="mb-4">
+                  <p className="mt-4">Where do you want to live?</p>
+                  <div className="mb-4">
+                    <input
+                      className=""
+                      type="checkbox"
+                      ref={register({ required: false })}
+                      name="LA"
+                    />
+                    <label className="text-left ml-2 ">Los Angeles</label>
+                  </div>
+                  <div className="mb-4">
+                    <input
+                      className=""
+                      type="checkbox"
+                      ref={register({ required: false })}
+                      name="NYC"
+                    />
+                    <label className="text-left ml-2 ">New York</label>
+                  </div>
+                  <div className="mb-4">
+                    <input
+                      className=""
+                      type="checkbox"
+                      ref={register({ required: false })}
+                      name="Paris"
+                    />
+                    <label className="text-left ml-2">Paris (coming soon)</label>
+                  </div>
+                  <div className="mb-4">
+                    <input
+                      className=""
+                      type="checkbox"
+                      ref={register({ required: false })}
+                      name="London"
+                    />
+                    <label className="text-left ml-2">London (coming soon)</label>
+                  </div>
+                  <div className="mb-4">
+                    <input
+                      className=""
+                      type="checkbox"
+                      ref={register({ required: false })}
+                      name="Berlin"
+                    />
+                    <label className="text-left ml-2">Berlin (coming soon)</label>
+                  </div>
+                  <div className="mb-4">
+                    <input
+                      className=""
+                      type="checkbox"
+                      ref={register({ required: false })}
+                      name="CDMX"
+                    />
+                    <label className="text-left ml-2">Mexico City (coming soon)</label>
+                  </div>
+                  <div className="mb-4">
+                    <input
+                      className=""
+                      type="checkbox"
+                      ref={register({ required: false })}
+                      name="Else"
+                      onChange={handleCheckChange}
+                    />
+                    <label className="text-left ml-2">Somewhere else:</label>
+                  </div>
                   <input
-                    className=""
-                    type="checkbox"
+                    type="text"
+                    placeholder="ENTER A CITY"
                     ref={register({ required: false })}
-                    name="LA"
+                    name="City"
+                    className={`${
+                      cityChecked ? "mb-4" : "invisible"
+                    } text-mobile-body md:text-desktop-body newsletter px-3 py-4 placeholder:uppercase placeholder:text-mobile-body md:placeholder:text-desktop-body w-full h-8`}
                   />
-                  <label className="text-left ml-2 ">Los Angeles</label>
                 </div>
-                <div className="mb-4">
-                  <input
-                    className=""
-                    type="checkbox"
-                    ref={register({ required: false })}
-                    name="NYC"
-                  />
-                  <label className="text-left ml-2 ">New York</label>
-                </div>
-                <div className="mb-4">
-                  <input
-                    className=""
-                    type="checkbox"
-                    ref={register({ required: false })}
-                    name="Paris"
-                  />
-                  <label className="text-left ml-2">Paris (coming soon)</label>
-                </div>
-                <div className="mb-4">
-                  <input
-                    className=""
-                    type="checkbox"
-                    ref={register({ required: false })}
-                    name="London"
-                  />
-                  <label className="text-left ml-2">London (coming soon)</label>
-                </div>
-                <div className="mb-4">
-                  <input
-                    className=""
-                    type="checkbox"
-                    ref={register({ required: false })}
-                    name="Berlin"
-                  />
-                  <label className="text-left ml-2">Berlin (coming soon)</label>
-                </div>
-                <div className="mb-4">
-                  <input
-                    className=""
-                    type="checkbox"
-                    ref={register({ required: false })}
-                    name="CDMX"
-                  />
-                  <label className="text-left ml-2">Mexico City (coming soon)</label>
-                </div>
-                <div className="mb-4">
-                  <input
-                    className=""
-                    type="checkbox"
-                    ref={register({ required: false })}
-                    name="Else"
-                    onChange={handleCheckChange}
-                  />
-                  <label className="text-left ml-2">Somewhere else:</label>
-                </div>
-                <input
-                  type="text"
-                  placeholder="ENTER A CITY"
-                  ref={register({ required: false })}
-                  name="City"
-                  className={`${
-                    cityChecked ? "mb-4" : "invisible"
-                  } text-mobile-body md:text-desktop-body newsletter px-3 py-4 placeholder:uppercase placeholder:text-mobile-body md:placeholder:text-desktop-body w-full h-8`}
-                />
-
                 <div className="relative mt-10 flex flex-col gap-2 md:gap-4">
                   <button
                     className="tracking-normal h-12 max-h-12 text-center tracking-caps uppercase text-white bg-black text-mobile-body md:text-desktop-body"
