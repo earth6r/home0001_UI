@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const submit_hubspot_newsletter_form = async email => {
+export const submit_hubspot_newsletter_form = async data => {
   const portalId = "39987214";
   const formGuid = "0a972b3a-40d9-48b9-8f04-e506812ebe4f";
   const config = {
@@ -16,8 +16,15 @@ export const submit_hubspot_newsletter_form = async email => {
       fields: [
         {
           name: "email",
-          value: email
-        }
+          value: data.email
+        },
+        { name: "berlin", value: data.Berlin },
+        { name: "la", value: data.LA },
+        { name: "london", value: data.London },
+        { name: "nyc", value: data.NYC },
+        { name: "paris", value: data.Paris },
+        { name: "cdmx", value: data.CDMX },
+        { name: "else", value: data.Else }
       ]
     },
     config
