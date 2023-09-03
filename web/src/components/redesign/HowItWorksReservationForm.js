@@ -6,6 +6,10 @@ export const GeneralReservationForm = ({ data }) => {
   const { register, handleSubmit } = useForm({
     shouldUseNativeValidation: true
   });
+  const [cityChecked, setCityChecked] = useState(false);
+  const handleCheckChange = event => {
+    setCityChecked(event.target.checked);
+  };
 
   const onSubmit = async data => {
     if (data.fax_data !== "no-data") return;
