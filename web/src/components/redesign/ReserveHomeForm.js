@@ -30,6 +30,7 @@ export const ReserveHomeForm = ({ data }) => {
   });
 
   const onSubmit = async data => {
+    if (data.fax_data !== "no-data") return;
     const hubspotData = {
       full_name: data.full_name,
       email: data.email,
@@ -111,6 +112,15 @@ export const ReserveHomeForm = ({ data }) => {
                     name="email"
                     className="outline-none border-black bg-transparent placeholder:opacity-[36] px-4 py-2 h-12 w-full text-mobile-body md:text-desktop-body font-serif"
                     required
+                    ref={register({ required: true })}
+                  />
+                  <input
+                    type="text"
+                    name="fax_data"
+                    className="best-in-class"
+                    value="no-data"
+                    tabindex="-1"
+                    autocomplete="off"
                     ref={register({ required: true })}
                   />
                 </div>
