@@ -88,7 +88,7 @@ const HubspotNewsletterForm = () => {
           name="Else"
           onChange={handleCheckChange}
         />
-        <label className="text-left ml-2">Somewhere else:</label>
+        <label className="text-left ml-2">Somewhere else</label>
       </div>
       <input
         type="text"
