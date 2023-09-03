@@ -7,21 +7,13 @@ import { Zoom, Navigation } from "swiper/modules";
 
 export const ImageSlider = ({ images }) => {
   const swiperRef = useRef();
+  useEffect(() => {
+    swiperRef.current.slideTo(0);
+  }, [images]);
+
   const captionRef = useRef();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentCaption, setCurrentCaption] = useState(0);
-
-  const settings = {
-    slidesToShow: 1,
-    infinite: true,
-    arrows: false,
-    beforeChange: (oldIndex, newIndex) => {
-      setCurrentIndex(newIndex);
-    },
-    afterChange: () => {
-      captionRef.current?.classList?.remove("opacity-0");
-    }
-  };
 
   useEffect(() => {
     if (images[currentIndex]?.caption) {
@@ -31,8 +23,6 @@ export const ImageSlider = ({ images }) => {
     }
   }, [currentIndex]);
 
-  const hasPreviousImage = currentIndex !== 0;
-  const hasNextImage = currentIndex !== images.length - 1;
   return (
     <>
       <div className="relative image-slider">

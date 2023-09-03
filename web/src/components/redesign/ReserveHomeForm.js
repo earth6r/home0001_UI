@@ -11,14 +11,15 @@ export const ReserveHomeForm = ({ data }) => {
       return "Unit 4A";
     } else if (unit === "one-bedroom") {
       return "Unit 6B";
-    } else if (unit === "two-bedrooms" || unit === "penthouse") {
-      return "1308 Douglas";
+    } else if (unit === "two-bedrooms") {
+      return "Townhouse #6";
+    } else if (unit === "penthouse") {
+      return "Townhouse #7";
     }
   };
   let unitOfInterest = "all";
 
   useEffect(() => {
-    console.log("data", data);
     if (data.property && data.property.propertyType)
       unitOfInterest = returnUnitNumber(data.property.propertyType);
   }, [data]);
@@ -29,6 +30,7 @@ export const ReserveHomeForm = ({ data }) => {
   });
 
   const onSubmit = async data => {
+    if (data.fax_data !== "no-data") return;
     const hubspotData = {
       full_name: data.full_name,
       email: data.email,
@@ -57,13 +59,21 @@ export const ReserveHomeForm = ({ data }) => {
 
               <p>
                 {`${
-                  data.property ? returnUnitNumber(data.property.propertyType) : "New units"
-                } will be released for sale soon to
-              buyers on the waitlist. Homebuyers will be offered properties in the order they joined.`}{" "}
+                  data.property && data.property.propertyType
+                    ? returnUnitNumber(data.property.propertyType)
+                    : "New homes"
+                } will be released for sale ${
+                  data.property ? "soon" : null
+                } to buyers on the waitlist. Homebuyers will be offered this home in the order they joined.`}
               </p>
+
               <p>
-                Once you’re offered a property you want, you can secure it with a small deposit. The
-                EARTH team will be available to answer questions, help secure financing, etc.
+                {`${
+                  (data.property && data.property.propertyType == "two-bedrooms") ||
+                  (data.property && data.property.propertyType == "penthouse")
+                    ? "Once you receive an offer, you can secure it with a small deposit and schedule a tour before going ahead with the purchase."
+                    : "Once you receive an offer, you can secure it with a small deposit and will have the chance to spend a few nights in the property to see how it feels before going ahead with the purchase."
+                } The EARTH team will be available to answer questions, help secure financing, etc.`}
               </p>
               <p>
                 {data.property && returnUnitNumber(data.property.propertyType)
@@ -75,10 +85,10 @@ export const ReserveHomeForm = ({ data }) => {
             <div className="relative mb-4 text-mobile-body md:text-desktop-body">
               <p>
                 {data.property && returnUnitNumber(data.property.propertyType)
-                  ? `Thank you for joining the ${returnUnitNumber(
+                  ? `You are on the waitlist for ${returnUnitNumber(
                       data.property.propertyType
-                    )} waitlist. We’ll be in touch when this home is released.`
-                  : "Thank you for joining the waitlist to buy an Earth home. We will be in touch when you are granted access to view the property."}
+                    )}! We’ll be in touch when this home is released.`
+                  : "You're on the waitlist! We’ll be in touch as homes are released for sale."}
               </p>
             </div>
           )}
@@ -102,6 +112,15 @@ export const ReserveHomeForm = ({ data }) => {
                     name="email"
                     className="outline-none border-black bg-transparent placeholder:opacity-[36] px-4 py-2 h-12 w-full text-mobile-body md:text-desktop-body font-serif"
                     required
+                    ref={register({ required: true })}
+                  />
+                  <input
+                    type="text"
+                    name="fax_data"
+                    className="best-in-class"
+                    value="no-data"
+                    tabindex="-1"
+                    autocomplete="off"
                     ref={register({ required: true })}
                   />
                 </div>

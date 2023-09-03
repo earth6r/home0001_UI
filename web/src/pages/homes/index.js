@@ -265,6 +265,7 @@ const HomeRedesignPage = ({ location, data }) => {
 
   const onSelectCity = city => {
     if (city.id !== selectedCity?.id) {
+      setShowReserveHomeForm(false);
       setSelectedCity(city);
       setSelectedProperty(null);
       setSelectedPropertyType(null);
@@ -309,6 +310,7 @@ const HomeRedesignPage = ({ location, data }) => {
                   <PropertiesList
                     properties={filteredProperties}
                     onChange={property => {
+                      setShowReserveHomeForm(false);
                       setSelectedProperty(property);
                       setSelectedPropertyType(null);
                     }}
@@ -326,6 +328,7 @@ const HomeRedesignPage = ({ location, data }) => {
                         if (propertType?.id === selectedPropertyType?.id) {
                           scrollToPropertyType();
                         }
+                        setShowReserveHomeForm(false);
                         setSelectedPropertyType(propertType);
                       }}
                     />
