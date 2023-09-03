@@ -179,7 +179,7 @@ const Header = ({
             showNav ? "h-full" : ""
           } flex w-full md:bg-transparent md:relative justify-between md:justify-between items-center content-center`}
         >
-          <nav className="flex justify-between items-center w-full px-4 py-6 md:p-10">
+          <nav className="flex justify-between items-center w-full px-4 pt-6 md:pt-10 md:px-10">
             <h1 className="relative menu z-50 md:h-10">
               <PageLink
                 onClick={() => {
@@ -210,7 +210,7 @@ const Header = ({
                 style={{ borderColor: "#000000" }}
                 className={`outline-none flex items-center justify-center absolute h-10 w-10 ${
                   showNav ? "-left-[0.875rem]" : "-left-[1.65rem]"
-                } -top-[0.875rem] md:left-0 md:top-0`}
+                } -top-[0.9rem] md:left-0 md:top-[-0.25rem]`}
                 onClick={showNav ? onHideNav : onShowNav}
                 role="button"
                 aria-label="Open the menu"
