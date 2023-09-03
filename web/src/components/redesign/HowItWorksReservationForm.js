@@ -57,7 +57,7 @@ export const GeneralReservationForm = ({ data }) => {
                     ref={register({ required: true })}
                   />
                   <input
-                    placeholder="EMAIL"
+                    placeholder="YOUR EMAIL"
                     type="email"
                     id="email"
                     name="email"

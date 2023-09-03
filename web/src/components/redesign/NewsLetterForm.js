@@ -52,7 +52,7 @@ const HubspotNewsletterForm = () => {
         ref={register({ required: true })}
         className="text-mobile-body md:text-desktop-body newsletter px-3 py-4 placeholder:uppercase placeholder:text-mobile-body md:placeholder:text-desktop-body w-full h-8"
         required
-        placeholder="Email address"
+        placeholder="YOUR EMAIL"
         aria-describedby="email-helper-text"
       />
       <p className="mt-4">Where do you want to live?</p>
