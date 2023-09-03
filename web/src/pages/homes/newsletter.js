@@ -31,6 +31,7 @@ const NewsLetterPageRedesign = ({ data }) => {
       <ComponentToRender key={module._key} type={module._type} data={module} />
     ) : null;
   });
+  console.log("content", content);
   return (
     <Layout showPopupNewsletter={true} rnd={false} homes>
       <SEO title={pageTitle} />

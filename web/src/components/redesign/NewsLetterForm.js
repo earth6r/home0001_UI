@@ -54,6 +54,8 @@ const HubspotNewsletterForm = () => {
           placeholder="Email address"
           aria-describedby="email-helper-text"
         />
+        Where do you want to live?
+        <Input type="checkbox">Los Angeles</Input>
         <Button
           mt={4}
           type="submit"
