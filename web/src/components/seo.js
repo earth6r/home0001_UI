@@ -27,7 +27,6 @@ function SEO({
         // ReactGA.initialize('UA-133011720-1');
         // ReactGA.pageview(window.location.pathname + window.location.search);
         const metaDescription = description || (data.site && data.site.description) || "";
-        console.log("metaDescription:", metaDescription);
         const siteTitle = (data.site && data.site.title) || "";
         const siteAuthor = (data.site && data.site.author && data.site.author.name) || "";
         const metaImage =

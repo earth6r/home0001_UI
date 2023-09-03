@@ -234,7 +234,7 @@ const Header = ({
             </div>
           </nav>
 
-          <CSSTransition in={showNav} timeout={2500} classNames="fade" unmountOnExit>
+          <CSSTransition in={showNav} timeout={500} classNames="fade" unmountOnExit>
             <nav
               className={`${
                 showThinBanner && thinBanner ? "mt-16 md:mt-4" : ""
