@@ -145,7 +145,7 @@ export const GeneralReservationForm = ({ data }) => {
                     ref={register({ required: false })}
                     name="City"
                     className={`${
-                      cityChecked ? "mb-4" : "invisible"
+                      cityChecked ? "mb-4" : "hidden"
                     } outline-none border-black bg-transparent placeholder:opacity-[36] px-4 py-2 h-12 w-full text-mobile-body md:text-desktop-body font-serif`}
                   />
                 </div>

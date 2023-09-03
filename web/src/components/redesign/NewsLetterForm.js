@@ -96,7 +96,7 @@ const HubspotNewsletterForm = () => {
         ref={register({ required: false })}
         name="City"
         className={`${
-          cityChecked ? "mb-4" : "invisible"
+          cityChecked ? "mb-4" : "hidden"
         } text-mobile-body md:text-desktop-body newsletter px-3 py-4 placeholder:uppercase placeholder:text-mobile-body md:placeholder:text-desktop-body w-full h-8`}
       />
       <button
