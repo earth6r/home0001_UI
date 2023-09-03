@@ -349,7 +349,7 @@ const HomeRedesignPage = ({ location, data }) => {
                   <div className="pr-mobile-menu md:pr-0">
                     <button
                       onClick={() => setShowReserveHomeForm(prev => !prev)}
-                      className={` text-center outline-none mt-9  tracking-caps uppercase block w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-mobile-body md:text-desktop-body ${
+                      className={`mb-9 text-center outline-none mt-9  tracking-caps uppercase block w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-mobile-body md:text-desktop-body ${
                         showReserveHomeForm
                           ? "bg-white text-black mb-10"
                           : "bg-black text-white mb-1"
@@ -357,7 +357,21 @@ const HomeRedesignPage = ({ location, data }) => {
                     >
                       RESERVE THIS HOME
                     </button>
-                    {!showReserveHomeForm ? <BackToTopButton /> : null}
+                    {!showReserveHomeForm ? (
+                      <>
+                        <p>
+                          Not the home for you?{" "}
+                          <a
+                            href="/homes/newsletter"
+                            className="border-b-[2px] border-dashed mt-9 text-mobile-body md:text-desktop-body mt-8"
+                          >
+                            Sign up here
+                          </a>{" "}
+                          for updates on new buildings in new locations.
+                        </p>
+                        <BackToTopButton />
+                      </>
+                    ) : null}
                   </div>
                 )}
               </div>

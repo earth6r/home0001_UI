@@ -22,7 +22,11 @@ export default class MailChimpForm extends React.Component {
     e.preventDefault();
     let result;
     if (this.props.signup) {
-      result = await addToMailchimp(this.state.email, {}, process.env.GATSBY_MAILCHIMP_SIGNUP_ENDPOINT);
+      result = await addToMailchimp(
+        this.state.email,
+        {},
+        process.env.GATSBY_MAILCHIMP_SIGNUP_ENDPOINT
+      );
     } else {
       result = await addToMailchimp(this.state.email);
     }
@@ -72,7 +76,7 @@ export default class MailChimpForm extends React.Component {
               id="email"
               className="mx-0 pl-1/2em w-full pt-0 input-margin-top"
               required
-              placeholder="Email address"
+              placeholder="Your email"
               aria-describedby="email-helper-text"
             />
           </FormControl>

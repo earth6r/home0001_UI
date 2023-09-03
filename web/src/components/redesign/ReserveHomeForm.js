@@ -56,7 +56,6 @@ export const ReserveHomeForm = ({ data }) => {
                   ? `Join the waitlist for ${returnUnitNumber(data.property.propertyType)}`
                   : "Join the waitlist"}
               </p>
-
               <p>
                 {`${
                   data.property && data.property.propertyType

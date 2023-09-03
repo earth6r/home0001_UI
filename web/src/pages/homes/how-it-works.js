@@ -5,7 +5,7 @@ import SEO from "../../components/seo";
 import { graphql } from "gatsby";
 import HowItWorksComponent from "../../components/redesign/HowItWorksComponent";
 import { ReserveHomeForm } from "../../components/redesign/ReserveHomeForm";
-
+import { GeneralReservationForm } from "../../components/redesign/HowItWorksReservationForm";
 export const query = graphql`
   {
     sanityHowItWorksPage {
@@ -34,7 +34,7 @@ const HowItWorksRedignPage = ({ data }) => {
       <SEO title={pageTitle} />
       <Container>
         <HowItWorksComponent data={data} />
-        <ReserveHomeForm data={data.site} />
+        <GeneralReservationForm data={data.site} />
         <div id="reserve-home-form" />
       </Container>
     </Layout>
