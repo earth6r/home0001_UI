@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-
+import { submit_general_hubspot_waitlist_form } from "../../utils/axios";
 export const GeneralReservationForm = ({ data }) => {
   const [submitted, setSubmitted] = useState(false);
   const { register, handleSubmit } = useForm({
@@ -146,7 +146,7 @@ export const GeneralReservationForm = ({ data }) => {
                     name="City"
                     className={`${
                       cityChecked ? "mb-4" : "invisible"
-                    } text-mobile-body md:text-desktop-body newsletter px-3 py-4 placeholder:uppercase placeholder:text-mobile-body md:placeholder:text-desktop-body w-full h-8`}
+                    } outline-none border-black bg-transparent placeholder:opacity-[36] px-4 py-2 h-12 w-full text-mobile-body md:text-desktop-body font-serif`}
                   />
                 </div>
                 <div className="relative mt-10 flex flex-col gap-2 md:gap-4">
