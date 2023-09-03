@@ -28,6 +28,17 @@ export const GeneralReservationForm = ({ data }) => {
           {!submitted ? (
             <div className="relative mb-4 text-mobile-body md:text-desktop-body font-serif">
               <p className="uppercase mb-9">Join waitlist</p>
+              <p>
+                New homes will be released for sale soon to buyers on the waitlist. Homebuyers will
+                be offered homes in the order they joined.
+              </p>
+              <p>
+                When you're offered a home you want, you can secure it with a small deposit and will
+                have the chance to either tour the property or spend a few nights in your new
+                home-to-be to see how it feels before going ahead with the purchase. The EARTH team
+                will be available to answer questions, help secure financing, etc.
+              </p>
+              <p>Join the waitlist for an EARTH home here:</p>
             </div>
           ) : (
             <div className="relative mb-4 text-mobile-body md:text-desktop-body">
