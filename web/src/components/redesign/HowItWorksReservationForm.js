@@ -14,9 +14,7 @@ export const GeneralReservationForm = ({ data }) => {
   const onSubmit = async data => {
     if (data.fax_data !== "no-data") return;
     console.log("data", data);
-    // await submit_general_hubspot_waitlist_form(
-    //  data
-    // );
+    await submit_general_hubspot_waitlist_form(data);
     setSubmitted(true);
   };
 

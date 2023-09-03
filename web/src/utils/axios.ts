@@ -31,6 +31,41 @@ export const submit_hubspot_newsletter_form = async data => {
     config
   );
 };
+
+export const submit_general_hubspot_waitlist_form = async data => {
+  const portalId = "39987214";
+  const formGuid = "a367593d-e145-4375-b75d-1ca928b87ab5";
+  const config = {
+    // important!
+    headers: {
+      "Content-Type": "application/json"
+    }
+  };
+
+  const response = await axios.post(
+    `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`,
+    {
+      portalId,
+      formGuid,
+      fields: [
+        { name: "full_name", value: data.full_name },
+        {
+          name: "email",
+          value: data.email
+        },
+        { name: "berlin", value: data.Berlin },
+        { name: "la", value: data.LA },
+        { name: "london", value: data.London },
+        { name: "nyc", value: data.NYC },
+        { name: "paris", value: data.Paris },
+        { name: "cdmx", value: data.CDMX },
+        { name: "else", value: data.Else },
+        { name: "city", value: data.City }
+      ]
+    },
+    config
+  );
+};
 export const submit_hubspot_waitlist_form = async (fullName, email, unitOfInterest) => {
   const portalId = "39987214";
   const formGuid = "904d697d-988d-4b01-a150-670f28231f3d";
