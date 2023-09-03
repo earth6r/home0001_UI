@@ -11,14 +11,15 @@ export const ReserveHomeForm = ({ data }) => {
       return "Unit 4A";
     } else if (unit === "one-bedroom") {
       return "Unit 6B";
-    } else if (unit === "two-bedrooms" || unit === "penthouse") {
-      return "1308 Douglas";
+    } else if (unit === "two-bedrooms") {
+      return "TOWNHOUSE - #6";
+    } else if (unit === "penthouse") {
+      return "TOWNHOUSE - #7";
     }
   };
   let unitOfInterest = "all";
 
   useEffect(() => {
-    console.log(data);
     if (data.property && data.property.propertyType)
       unitOfInterest = returnUnitNumber(data.property.propertyType);
   }, [data]);

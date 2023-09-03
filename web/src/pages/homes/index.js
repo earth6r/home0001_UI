@@ -329,7 +329,6 @@ const HomeRedesignPage = ({ location, data }) => {
                           scrollToPropertyType();
                         }
                         setShowReserveHomeForm(false);
-                        console.log("change si n");
                         setSelectedPropertyType(propertType);
                       }}
                     />
