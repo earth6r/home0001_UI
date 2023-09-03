@@ -39,7 +39,7 @@ export const GeneralReservationForm = ({ data }) => {
               <p>Join the waitlist for an EARTH home here:</p>
             </div>
           ) : (
-            <div className="relative mb-4 text-mobile-body md:text-desktop-body">
+            <div className="relative mb-2 text-mobile-body md:text-desktop-body">
               <p>You're on the waitlist. We’ll be in touch as homes are released for sale.</p>
             </div>
           )}
