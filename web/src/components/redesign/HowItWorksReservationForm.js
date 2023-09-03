@@ -149,7 +149,7 @@ export const GeneralReservationForm = ({ data }) => {
                     } outline-none border-black bg-transparent placeholder:opacity-[36] px-4 py-2 h-12 w-full text-mobile-body md:text-desktop-body font-serif`}
                   />
                 </div>
-                <div className="relative mt-4 flex flex-col gap-2 md:gap-4">
+                <div className="relative mt-6 flex flex-col gap-2 md:gap-4">
                   <button
                     className="tracking-normal h-12 max-h-12 text-center tracking-caps uppercase text-white bg-black text-mobile-body md:text-desktop-body"
                     type="submit"

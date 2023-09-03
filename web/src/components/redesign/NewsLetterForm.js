@@ -100,7 +100,7 @@ const HubspotNewsletterForm = () => {
         } text-mobile-body md:text-desktop-body newsletter px-3 py-4 placeholder:uppercase placeholder:text-mobile-body md:placeholder:text-desktop-body w-full h-8`}
       />
       <button
-        mt={4}
+        mt={6}
         type="submit"
         className="tracking-normal text-mobile-body bg-black w-full text-white"
       >
