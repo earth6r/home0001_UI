@@ -53,14 +53,14 @@ export const submit_general_hubspot_waitlist_form = async data => {
           name: "email",
           value: data.email
         },
-        { name: "berlin", value: data.Berlin },
-        { name: "la", value: data.LA },
-        { name: "london", value: data.London },
-        { name: "nyc", value: data.NYC },
-        { name: "paris", value: data.Paris },
-        { name: "cdmx", value: data.CDMX },
-        { name: "else", value: data.Else },
-        { name: "city", value: data.City }
+        { name: "berlin_general", value: data.Berlin },
+        { name: "la_general", value: data.LA },
+        { name: "london_general", value: data.London },
+        { name: "nyc_general", value: data.NYC },
+        { name: "paris_general", value: data.Paris },
+        { name: "cdmx_general", value: data.CDMX },
+        { name: "else_general", value: data.Else },
+        { name: "city_general", value: data.City }
       ]
     },
     config
