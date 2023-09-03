@@ -12,9 +12,9 @@ export const ReserveHomeForm = ({ data }) => {
     } else if (unit === "one-bedroom") {
       return "Unit 6B";
     } else if (unit === "two-bedrooms") {
-      return "TOWNHOUSE - #6";
+      return "Townhouse #6";
     } else if (unit === "penthouse") {
-      return "TOWNHOUSE - #7";
+      return "Townhouse #7";
     }
   };
   let unitOfInterest = "all";
