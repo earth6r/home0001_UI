@@ -53,7 +53,7 @@ export const ReserveHomeForm = ({ data }) => {
             <div className="relative mb-4 text-mobile-body md:text-desktop-body font-serif">
               <p className="uppercase mb-9">
                 {data.property
-                  ? `Join waitlist for ${returnUnitNumber(data.property.propertyType)}`
+                  ? `Join the waitlist for ${returnUnitNumber(data.property.propertyType)}`
                   : "Join waitlist"}
               </p>
 

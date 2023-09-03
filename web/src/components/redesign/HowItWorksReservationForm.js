@@ -25,7 +25,7 @@ export const GeneralReservationForm = ({ data }) => {
         <div className="md:col-start-2 md:col-span-1 pt-10 pb-10">
           {!submitted ? (
             <div className="relative mb-4 text-mobile-body md:text-desktop-body font-serif">
-              <p className="uppercase mb-9">Join waitlist</p>
+              <p className="uppercase mb-9">Join the waitlist</p>
               <p>
                 New homes will be released for sale soon to buyers on the waitlist. Homebuyers will
                 be offered homes in the order they joined.
