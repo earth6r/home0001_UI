@@ -1,13 +1,9 @@
 import React from "react";
-import Container from "../../components/redesign/Container";
-import Layout from "../../containers/layout";
-import SEO from "../../components/seo";
-import { RenderModules } from "../../utils/renderModules";
-import dummyData from "../../../../dummyData.json";
-import DepositBlock from "../../components/DepositBlock";
-import { AccordionModule } from "../../components/global/accordion";
-import { StandardText } from "../../components/global/standardText";
-import { useForm } from "react-hook-form";
+import Container from "../components/redesign/Container";
+import Layout from "../containers/layout";
+import SEO from "../components/seo";
+import { AccordionModule } from "../components/global/accordion";
+import { StandardText } from "../components/global/standardText";
 import { graphql } from "gatsby";
 
 const sectionTypeComponentMap = {

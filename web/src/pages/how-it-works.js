@@ -1,11 +1,10 @@
 import React from "react";
-import Container from "../../components/redesign/Container";
-import Layout from "../../containers/layout";
-import SEO from "../../components/seo";
+import Container from "../components/redesign/Container";
+import Layout from "../containers/layout";
+import SEO from "../components/seo";
 import { graphql } from "gatsby";
-import HowItWorksComponent from "../../components/redesign/HowItWorksComponent";
-import { ReserveHomeForm } from "../../components/redesign/ReserveHomeForm";
-import { GeneralReservationForm } from "../../components/redesign/HowItWorksReservationForm";
+import HowItWorksComponent from "../components/redesign/HowItWorksComponent";
+import { GeneralReservationForm } from "../components/redesign/HowItWorksReservationForm";
 export const query = graphql`
   {
     sanityHowItWorksPage {
