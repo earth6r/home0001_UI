@@ -76,12 +76,12 @@ export const ReserveHomeForm = ({ data }) => {
                     : data.property && data.property.propertyType
                     ? "Once you receive an offer, you can secure it with a small deposit and will have the chance to spend a few nights in the property to see how it feels before going ahead with the purchase."
                     : "When you're offered a home you want, you can secure it with a small deposit and will have the chance to either tour the property or spend a few nights in your new home-to-be to see how it feels before going ahead with the purchase."
-                } The EARTH team will be available to answer questions, help secure financing, etc.`}
+                } The Home0001 team will be available to answer questions, help secure financing, etc.`}
               </p>
               <p>
                 {data.property && returnUnitNumber(data.property.propertyType)
                   ? `Join the waitlist for ${returnUnitNumber(data.property.propertyType)} here:`
-                  : "Join the waitlist for an EARTH home here:"}
+                  : "Join the waitlist for an 0001 home here:"}
               </p>
             </div>
           ) : (

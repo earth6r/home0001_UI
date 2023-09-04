@@ -3,8 +3,6 @@ import ReactHtmlParser from "react-html-parser";
 import Icon from "./icon";
 import CircleButton from "./global/circleButton";
 import GridRow from "./grid/grid-row";
-import EarthLogoMobile from "../components/images/logos/earth-logo-mobile.svg";
-import EarthLogo from "../components/images/logos/earth-logo-mobile.svg";
 import { PageLink } from "../components/link";
 import { HomesContext } from "./context/HomesContext";
 import { CSSTransition } from "react-transition-group";
@@ -197,7 +195,7 @@ const Header = ({
               >
                 <div className="flex items-center h-3">
                   <p className="tracking-caps leading-none uppercase text-mobile-body md:text-desktop-body mt-[-1px]">
-                    <EarthLogo height="0.875em" width="3.6em" />
+                    HOME0001
                   </p>
                 </div>
                 <span className={`${forwarder == "new-eelam" ? "" : "hidden"} new-eelam-header`}>
