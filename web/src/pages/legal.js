@@ -1,11 +1,11 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import SEO from "../../components/seo";
-import Container from "../../components/redesign/Container";
-import Layout from "../../containers/layout";
+import SEO from "../components/seo";
+import Container from "../components/redesign/Container";
+import Layout from "../containers/layout";
 
-import { StandardText } from "../../components/global/standardText";
+import { StandardText } from "../components/global/standardText";
 
 export const query = graphql`
   {
