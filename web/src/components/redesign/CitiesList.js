@@ -10,8 +10,8 @@ export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
               <button
                 disabled={city.disabled}
                 onClick={() => onChange(city)}
-                className={`${
-                  selectedCity?.id === city.id ? "underline" : ""
+                className={`${selectedCity?.id === city.id ? "font-black" : ""} ${
+                  city.disabled ? "" : "underline"
                 } cursor-pointer p-5 -m-5 before:content-[''] disabled:bg-transparent tracking-caps leading-none uppercase disabled:opacity-30 disabled:shadow-none leading-none`}
               >
                 {city.title}

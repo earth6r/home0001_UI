@@ -412,7 +412,10 @@
   max-width: 100%;
 }
 .standard-text a {
-  border-bottom: 2px dashed;
+  border-bottom: 2px solid;
+}
+.standard-text a:hover {
+  font-weight: bold;
 }
 .standard-text h1 > a {
   border-bottom: 5px solid;
