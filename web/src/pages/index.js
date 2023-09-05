@@ -361,7 +361,7 @@ const HomeRedesignPage = ({ location, data }) => {
                         <p>
                           Not the home for you?{" "}
                           <a
-                            href="/homes/newsletter"
+                            href="/newsletter"
                             className="border-b-[2px] border-dashed mt-9 text-mobile-body md:text-desktop-body mt-8"
                           >
                             Sign up here

@@ -143,7 +143,7 @@ export const SingleProperty = ({
                       </p>
                       <p className="col-start-2 text-right mb-0 tracking-caps">{price}</p>
                     </div>
-                    <div className="p-0 mt-4 mb-4 text-left">
+                    <div className="p-0 mt-4 mb-2 text-left">
                       {area && (
                         <p className="mb-5 p-0 m-0">
                           {area}
@@ -165,8 +165,12 @@ export const SingleProperty = ({
                         </ul>
                       )}
                     </div>
-                    <div className="absolute bottom-[16px] right-[16px]">
-                      <p className=" text-right border-b-2 border-dashed">See more</p>
+                    <div
+                      className={`bg-black ${
+                        selectedPropertyType?.id === item.id ? "hidden" : null
+                      }`}
+                    >
+                      <p className="text-white py-2">EXPLORE</p>
                     </div>
                   </div>
                   {/* <div className="grid grid-cols-11 w-full">

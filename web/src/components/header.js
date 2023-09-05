@@ -46,10 +46,10 @@ const Header = ({
   if (bannerUrl !== undefined && bannerUrl !== null) {
     switch (bannerUrl._type) {
       case "home":
-        uri = "/homes/locations";
+        uri = "/locations";
         break;
       case "checkout":
-        uri = "/homes/checkout";
+        uri = "/checkout";
         break;
       default:
         uri = "";
@@ -126,23 +126,23 @@ const Header = ({
   const newMenu = [
     {
       title: "About",
-      slug: "/homes/about"
+      slug: "/about"
     },
     {
       title: "How It Works",
-      slug: "/homes/how-it-works"
+      slug: "/how-it-works"
     },
     {
       title: "Newsletter",
-      slug: "/homes/newsletter"
+      slug: "/newsletter"
     },
     {
       title: "Contact",
-      slug: "/homes/contact"
+      slug: "/contact"
     },
     {
       title: "Legal",
-      slug: "/homes/legal"
+      slug: "/legal"
     }
   ];
   return (
@@ -190,7 +190,7 @@ const Header = ({
                   setSelectedPropertyType(null);
                   setShowReserveHomeForm(false);
                 }}
-                to="/homes"
+                to="/"
                 className="flex items-center h-full p-1 -m-1"
               >
                 <div className="flex items-center h-3">

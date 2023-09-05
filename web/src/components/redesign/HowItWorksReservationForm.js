@@ -158,7 +158,7 @@ export const GeneralReservationForm = ({ data }) => {
                   </button>
                   <p className="mt-5">
                     Got questions?{" "}
-                    <a className="border-dashed border-b-[2px]" href="/homes/contact">
+                    <a className="border-dashed border-b-[2px]" href="/contact">
                       Ask us anything
                     </a>
                     .

@@ -183,14 +183,14 @@ const serializers = {
           const anchor = mark.anchor ? `#${mark.anchor}` : "";
           const typeToSlug = {
             page: `/${mark.reference.content?.main?.slug?.current}`,
-            home: `/homes/locations/${mark.reference.content?.main?.slug?.current}`,
-            checkout: `/homes/checkout/${mark.reference.content?.main?.slug?.current}`,
-            aboutPage: `/homes/about`,
-            contactPage: `/homes/contact`,
-            faqPage: `/homes/faq`,
-            homePage: `/homes`,
-            howItWorksPage: `/homes/how-it-works`,
-            legalPage: `/homes/legal`
+            home: `/locations/${mark.reference.content?.main?.slug?.current}`,
+            checkout: `/checkout/${mark.reference.content?.main?.slug?.current}`,
+            aboutPage: `/about`,
+            contactPage: `/contact`,
+            faqPage: `/faq`,
+            homePage: ``,
+            howItWorksPage: `/how-it-works`,
+            legalPage: `/legal`
           };
 
           return (
@@ -207,7 +207,7 @@ const serializers = {
         }
       } else if (mark.homeLink) {
         return (
-          <PageLink className="internal-link" title="" to={`/homes`}>
+          <PageLink className="internal-link" title="" to={`/`}>
             {children}
           </PageLink>
         );
