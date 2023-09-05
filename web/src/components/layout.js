@@ -38,6 +38,7 @@ const Layout = ({
   thinBanner,
   pathname
 }) => {
+  console.log("pathname:", pathname);
   const { menuOpened, selectedCity } = useContext(HomesContext);
   const [showPage, setShowPage] = useState(false);
 
@@ -88,7 +89,7 @@ const Layout = ({
     return () => document.removeEventListener("scroll", positionIntercomBubble);
   });
 
-  const showHomesFooter = pathname !== "/" || selectedCity?.id;
+  const showHomesFooter = pathname !== "" || selectedCity?.id;
 
   return (
     <div className="flex flex-col justify-between h-full">
