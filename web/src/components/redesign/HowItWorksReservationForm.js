@@ -33,10 +33,10 @@ export const GeneralReservationForm = ({ data }) => {
               <p>
                 When you're offered a home you want, you can secure it with a small deposit and will
                 have the chance to either tour the property or spend a few nights in your new
-                home-to-be to see how it feels before going ahead with the purchase. The EARTH team
-                will be available to answer questions, help secure financing, etc.
+                home-to-be to see how it feels before going ahead with the purchase. The Home0001
+                team will be available to answer questions, help secure financing, etc.
               </p>
-              <p>Join the waitlist for an EARTH home here:</p>
+              <p>Join the waitlist for an 0001 home here:</p>
             </div>
           ) : (
             <div className="relative mb-2 text-mobile-body md:text-desktop-body">

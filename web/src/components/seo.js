@@ -45,8 +45,10 @@ function SEO({
         return (
           <Helmet
             htmlAttributes={{ lang }}
-            title={title === "" ? `Earth` : `${title}`}
-            titleTemplate={title === `Earth` || title === "EARTH" ? title : `%s | ${siteTitle}`}
+            title={title === "" ? `Home0001` : `${title}`}
+            titleTemplate={
+              title === `Home0001` || title === "Home0001" ? title : `%s | ${siteTitle}`
+            }
           >
             {/* <link rel="stylesheet" href="/fonts/fonts.css"></link> */}
             {/* <link rel="preload" href="/fonts/fonts.css" as="style"></link> */}
@@ -57,13 +59,13 @@ function SEO({
               content={keywords && keywords.length > 0 ? keywords.join(", ") : ""}
             />
             <meta property="og:type" content="website" />
-            <meta property="og:title" content={ogTitle ?? "Earth"} />
+            <meta property="og:title" content={ogTitle ?? "Home0001"} />
             <meta property="og:description" content={ogDescription ?? metaDescription} />
             <meta property="og:image" content={metaImage} />
             <meta property="og:url" content={ogUrl ?? ""} />
             <meta name="twitter:card" content="summary" />
             <meta name="twitter:creator" content={siteAuthor} />
-            <meta name="twitter:title" content={twitterTitle ?? "Earth"} />
+            <meta name="twitter:title" content={twitterTitle ?? "Home0001"} />
             <meta name="twitter:description" content={twitterDescription ?? metaDescription} />
             <meta name="twitter:image" content={metaTwitterImage ?? metaImage} />
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
