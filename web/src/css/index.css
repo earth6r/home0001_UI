@@ -87,6 +87,10 @@ th {
   margin: 0;
 }
 
+input, textarea, select, button {
+  letter-spacing: inherit !important;
+}
+
 small {
   font-size: 100% !important;
 }
