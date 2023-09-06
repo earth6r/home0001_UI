@@ -6,9 +6,8 @@ export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
   const [cookies, setCookie, removeCookie] = useCookies();
   console.log("cookies:", cookies["hubspotutk"]);
 
-  const sendHubspotClickEvent = async city => {
+  const sendHubspotClickEvent = city => {
     const _hsq = (window._hsq = window._hsq || []);
-    console.log("_hsq:", _hsq);
     _hsq.push([
       "trackCustomBehaviorEvent",
       {
@@ -25,7 +24,7 @@ export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
             <li key={city.id} className="p-0 before:content-[''] leading-none">
               <button
                 disabled={city.disabled}
-                onClick={async () => {
+                onClick={() => {
                   onChange(city);
                   sendHubspotClickEvent(city.title);
                   console.log(city);

@@ -6,6 +6,7 @@ import SVG from "../components/svg";
 
 const PopoverModule = props => {
   const { text, logo, content } = props;
+  console.log("content:", content);
 
   const [isOpen, setIsOpen] = React.useState(false);
   const open = () => setIsOpen(!isOpen);
