@@ -1,7 +1,8 @@
-import React, { createRef, useEffect, useRef } from "react";
+import React, { createRef, useEffect, useRef, useState } from "react";
 import { StandardText } from "../global/standardText";
 import { imageUrlFor } from "../../lib/image-url";
 import MapModule from "../mapModule";
+import { set } from "react-ga";
 export const SingleProperty = ({
   onChange,
   propertyTypes,
@@ -54,6 +55,29 @@ export const SingleProperty = ({
     }
   }, [selectedProperty, selectedPropertyRef, selectedPropertyType, disableScroll]);
 
+  const [propertyImageIsLoading, setPropertyImageIsLoading] = useState(true);
+  const propertyImageURL = imageUrlFor(selectedProperty.image)
+    .width(1000)
+    .auto("format")
+    .url();
+  const cacheImages = async srcArray => {
+    const promises = await srcArray.map(src => {
+      return new Promise(function(resolve, reject) {
+        const img = new Image();
+        img.src = src;
+        img.onload = resolve();
+        img.onerror = reject();
+      });
+    });
+    await Promise.all(promises);
+    setPropertyImageIsLoading(false);
+  };
+
+  useEffect(() => {
+    const img = [propertyImageURL];
+    cacheImages(img);
+  }, []);
+
   return (
     <>
       {selectedProperty && (
@@ -63,10 +87,13 @@ export const SingleProperty = ({
         >
           <img
             className="max-w-[560px] md:max-w-[unset] h-auto w-auto mb-10"
-            src={imageUrlFor(selectedProperty.image)
-              .width(1000)
-              .auto("format")
-              .url()}
+            src={
+              propertyImageIsLoading
+                ? selectedProperty.title.city === "LA"
+                  ? "https://cdn.discordapp.com/attachments/1107680835995443210/1148863906689863711/anna-hand-cover-pic-test.jpg"
+                  : "https://cdn.discordapp.com/attachments/1107680835995443210/1148864243328880660/49-orchard-front-new.jpg"
+                : propertyImageURL
+            }
             height="487"
             width="560"
             alt=""
