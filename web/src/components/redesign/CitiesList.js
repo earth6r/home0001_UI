@@ -8,7 +8,7 @@ export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
     _hsq.push([
       "trackCustomBehaviorEvent",
       {
-        name: "pe43771996_click_nyc"
+        name: "pe43771996_clicked_nyc_button"
       }
     ]);
   };
