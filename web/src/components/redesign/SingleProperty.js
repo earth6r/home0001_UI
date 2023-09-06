@@ -128,11 +128,11 @@ export const SingleProperty = ({
                 <button
                   disabled={!available}
                   onClick={() => onChange(item)}
-                  className={`disabled:opacity-30 disabled:bg-white disabled:shadow-none p-4 min-h-[18rem] border w-full flex flex-grow justify-stretch flex-col text-mobile-body md:text-desktop-body ${
+                  className={`disabled:opacity-30 disabled:bg-white disabled:shadow-none p-4 min-h-[16rem] border w-full grid justify-stretch flex-col text-mobile-body md:text-desktop-body ${
                     selectedPropertyType?.id === item.id ? "bg-black text-white" : ""
                   }`}
                 >
-                  <div className="w-full">
+                  <div className=" justify-self-stretch w-full">
                     <div className="grid property-type-button p-0 m-0">
                       <p className="col-start-1 text-left uppercase mb-0 tracking-caps">
                         {selectedProperty.city.title == "LA" && propertyType === "penthouse"
@@ -181,7 +181,7 @@ export const SingleProperty = ({
                       )}
                     </div>
                     <div
-                      className={`bg-black ${
+                      className={`bg-black mb-[2px] ${
                         selectedPropertyType?.id === item.id ? "hidden" : null
                       }`}
                     >
