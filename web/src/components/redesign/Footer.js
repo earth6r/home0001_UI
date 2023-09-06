@@ -2,7 +2,6 @@ import { Link } from "gatsby";
 import React from "react";
 
 const Footer = ({ footerMenu }) => {
-  console.log("footerMenu:", footerMenu);
   const menu = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
 
   return (
