@@ -289,10 +289,13 @@ const HomeRedesignPage = ({ location, data }) => {
       <Container>
         <section>
           <div className="md:pr-desktop-menu">
-            <div className="pr-mobile-menu md:pr-0 mb-8 md:mb-20 text-mobile-body md:text-desktop-body property-type-description">
-              Own one home, live flexibly between many places.
+            <div className="uppercase pr-mobile-menu md:pr-0 mb-8 md:mb-20 text-mobile-body md:text-desktop-body property-type-description">
+              Own one home.
             </div>
-            <div className="pr-mobile-menu md:pr-0 mb-9 md:mb-20 text-mobile-body md:text-desktop-body property-type-description">
+            <div className="uppercase pr-mobile-menu md:pr-0 mb-8 md:mb-20 text-mobile-body md:text-desktop-body property-type-description">
+              Live flexibly between many places.
+            </div>
+            <div className="uppercase pr-mobile-menu md:pr-0 mb-9 md:mb-20 text-mobile-body md:text-desktop-body property-type-description">
               Fully equipped homes available to buy in:
             </div>
           </div>
@@ -362,7 +365,7 @@ const HomeRedesignPage = ({ location, data }) => {
                           Not the home for you?{" "}
                           <a
                             href="/newsletter"
-                            className="border-b-[2px] border-dashed mt-9 text-mobile-body md:text-desktop-body mt-8"
+                            className="border-b-[2px] border-solid mt-9 text-mobile-body md:text-desktop-body mt-8"
                           >
                             Sign up here
                           </a>{" "}

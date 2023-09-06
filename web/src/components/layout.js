@@ -38,7 +38,6 @@ const Layout = ({
   thinBanner,
   pathname
 }) => {
-  console.log("pathname:", pathname);
   const { menuOpened, selectedCity } = useContext(HomesContext);
   const [showPage, setShowPage] = useState(false);
 

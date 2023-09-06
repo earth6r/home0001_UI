@@ -2,6 +2,7 @@ import { Link } from "gatsby";
 import React from "react";
 
 const Footer = ({ footerMenu }) => {
+  console.log("footerMenu:", footerMenu);
   const menu = footerMenu !== undefined ? footerMenu.edges[0].node.items : null;
 
   return (
@@ -22,13 +23,13 @@ const Footer = ({ footerMenu }) => {
 
                     if (!slug) {
                       slug = {
-                        About: "homes/about",
-                        Contact: "homes/contact",
-                        FAQ: "homes/faq",
-                        Home: "homes",
-                        "How It Works": "homes/how-it-works",
-                        Legal: "homes/legal",
-                        Newsletter: "homes/newsletter"
+                        About: "about",
+                        Contact: "contact",
+                        FAQ: "faq",
+                        Home: "",
+                        "How It Works": "how-it-works",
+                        Legal: "legal",
+                        Newsletter: "newsletter"
                       }[title];
                     }
 
