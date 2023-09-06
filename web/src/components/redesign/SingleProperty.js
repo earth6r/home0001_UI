@@ -1,7 +1,10 @@
-import React, { createRef, useEffect, useRef } from "react";
+import React, { createRef, useEffect, useRef, useState } from "react";
 import { StandardText } from "../global/standardText";
 import { imageUrlFor } from "../../lib/image-url";
 import MapModule from "../mapModule";
+import ProgressiveImage from "react-progressive-image";
+
+import { set } from "react-ga";
 export const SingleProperty = ({
   onChange,
   propertyTypes,
@@ -61,16 +64,28 @@ export const SingleProperty = ({
           ref={selectedPropertyRef}
           className="animate-in flex flex-col text-mobile-body md:text-desktop-body mt-10 md:mt-20"
         >
-          <img
-            className="max-w-[560px] md:max-w-[unset] h-auto w-auto mb-10"
+          <ProgressiveImage
             src={imageUrlFor(selectedProperty.image)
               .width(1000)
               .auto("format")
               .url()}
-            height="487"
-            width="560"
-            alt=""
-          />
+            placeholder={
+              selectedProperty.title.city === "LA"
+                ? "https://cdn.discordapp.com/attachments/1107680835995443210/1148863906689863711/anna-hand-cover-pic-test.jpg"
+                : "https://cdn.discordapp.com/attachments/1107680835995443210/1148864243328880660/49-orchard-front-new.jpg"
+            }
+          >
+            {src => (
+              <img
+                className="max-w-[560px] md:max-w-[unset] h-auto w-auto mb-10"
+                src={src}
+                height="487"
+                width="560"
+                alt=""
+              />
+            )}
+          </ProgressiveImage>
+
           <div className="">
             <div>
               <p>
