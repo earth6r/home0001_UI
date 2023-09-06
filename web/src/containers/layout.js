@@ -6,7 +6,7 @@ import { Global, css } from "@emotion/core";
 import * as Sentry from "@sentry/browser";
 import { Integrations } from "@sentry/tracing";
 import { HomesContext } from "../components/context/HomesContext";
-
+import { CookiesProvider } from "react-cookie";
 // Add Sentry to page to catch exceptions from users
 // only init in production env
 try {
@@ -326,35 +326,37 @@ function LayoutContainer(props) {
         }
 
         return (
-          <ThemeProvider>
-            <Global styles={GlobalStyles} />
-            <Layout
-              {...props}
-              showPopupNewsletter={props.showPopupNewsletter}
-              showThinBanner={props.isCheckout ? false : data.showThinBanner.showthinbanner}
-              thinBanner={data.thinBanner.thinbanner}
-              bannerUrl={data.bannerUrl.edges[0].node._rawUrl}
-              bannerUrlTitle={data.bannerUrlTitle.bannerUrlTitle}
-              infoSection={data.all.edges[0].node._rawInfosection}
-              infoSectionBelow={data.belowInfo.edges[0].node._rawInfosectionBelow}
-              newsletter={data.all.edges[0].node._rawNewsletterText}
-              showNav={showNav}
-              showSubNav={showSubNav}
-              siteTitle={data.site.title}
-              pillColor={data.pillColor.pillColor}
-              strikeColor={data.strikeColor.strikeColor}
-              onHideNav={handleHideNav}
-              onShowNav={handleShowNav}
-              onHideSubNav={handleHideSubNav}
-              onShowSubNav={handleShowSubNav}
-              footerMenu={data.footerMenu}
-              rndFooterMenu={data.rndFooterMenu}
-              homesFooterMenu={data.homesFooterMenu}
-              mainMenu={data.mainMenu}
-              rMenu={data.rMenu}
-              subMenu={data.subMenu}
-            />
-          </ThemeProvider>
+          <CookiesProvider>
+            <ThemeProvider>
+              <Global styles={GlobalStyles} />
+              <Layout
+                {...props}
+                showPopupNewsletter={props.showPopupNewsletter}
+                showThinBanner={props.isCheckout ? false : data.showThinBanner.showthinbanner}
+                thinBanner={data.thinBanner.thinbanner}
+                bannerUrl={data.bannerUrl.edges[0].node._rawUrl}
+                bannerUrlTitle={data.bannerUrlTitle.bannerUrlTitle}
+                infoSection={data.all.edges[0].node._rawInfosection}
+                infoSectionBelow={data.belowInfo.edges[0].node._rawInfosectionBelow}
+                newsletter={data.all.edges[0].node._rawNewsletterText}
+                showNav={showNav}
+                showSubNav={showSubNav}
+                siteTitle={data.site.title}
+                pillColor={data.pillColor.pillColor}
+                strikeColor={data.strikeColor.strikeColor}
+                onHideNav={handleHideNav}
+                onShowNav={handleShowNav}
+                onHideSubNav={handleHideSubNav}
+                onShowSubNav={handleShowSubNav}
+                footerMenu={data.footerMenu}
+                rndFooterMenu={data.rndFooterMenu}
+                homesFooterMenu={data.homesFooterMenu}
+                mainMenu={data.mainMenu}
+                rMenu={data.rMenu}
+                subMenu={data.subMenu}
+              />
+            </ThemeProvider>
+          </CookiesProvider>
         );
       }}
     />

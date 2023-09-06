@@ -1,7 +1,10 @@
 import React from "react";
+import { useCookies } from "react-cookie";
 
 export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
   const clickEventsObject = { NYC: "pe43771996_click_nyc" };
+  const [cookies, setCookie, removeCookie] = useCookies();
+  console.log("cookies:", cookies["hubspotutk"]);
 
   const sendHubspotClickEvent = async city => {
     const _hsq = (window._hsq = window._hsq || []);
@@ -22,7 +25,7 @@ export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
             <li key={city.id} className="p-0 before:content-[''] leading-none">
               <button
                 disabled={city.disabled}
-                onClick={() => {
+                onClick={async () => {
                   onChange(city);
                   sendHubspotClickEvent(city.title);
                   console.log(city);
