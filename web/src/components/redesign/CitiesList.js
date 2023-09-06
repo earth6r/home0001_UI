@@ -1,4 +1,6 @@
 import React from "react";
+import useCookies from "react-cookie";
+
 export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
   const clickEventsObject = { NYC: "pe43771996_click_nyc" };
   const [cookies, setCookie, removeCookie] = useCookies(["hubspotutk"]);
