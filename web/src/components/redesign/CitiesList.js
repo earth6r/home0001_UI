@@ -1,13 +1,14 @@
 import React from "react";
 export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
   const clickEventsObject = { NYC: "pe43771996_click_nyc" };
-  const _hsq = (window._hsq = window._hsq || []);
+
   const sendHubspotClickEvent = city => {
+    const _hsq = (window._hsq = window._hsq || []);
+    console.log("_hsq:", _hsq);
     _hsq.push([
       "trackCustomBehaviorEvent",
       {
-        name: "pe43771996_click_nyc",
-        properties: { hs_city: "Houston" }
+        name: "pe43771996_click_nyc"
       }
     ]);
   };
