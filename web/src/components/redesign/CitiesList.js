@@ -11,7 +11,7 @@ export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
                 disabled={city.disabled}
                 onClick={() => onChange(city)}
                 className={`${selectedCity?.id === city.id ? "font-black" : ""} ${
-                  city.disabled ? "" : "underline"
+                  city.disabled ? "" : "underline underline-offset-4 decoration-2"
                 } cursor-pointer p-5 -m-5 before:content-[''] disabled:bg-transparent tracking-caps leading-none uppercase disabled:opacity-30 disabled:shadow-none leading-none`}
               >
                 {city.title}

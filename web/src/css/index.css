@@ -222,6 +222,10 @@ a:hover {
   color: black !important;
 }
 
+button[aria-expanded="true"] {
+  font-weight: 900;
+}
+
 .inventory-slider .slick-list {
   height: 100%;
 }
