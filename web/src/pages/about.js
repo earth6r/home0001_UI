@@ -4,6 +4,7 @@ import Layout from "../containers/layout";
 import SEO from "../components/seo";
 import { graphql } from "gatsby";
 import { StandardText } from "../components/global/standardText";
+var _hsq = (window._hsq = window._hsq || []);
 
 export const query = graphql`
   {
@@ -17,6 +18,8 @@ export const query = graphql`
 `;
 
 const AboutPageRedesign = ({ data }) => {
+  _hsq.push(["setPath", "/about"]);
+  _hsq.push(["trackPageView"]);
   const content = data.allSanityAboutPage.nodes[0];
 
   return (
