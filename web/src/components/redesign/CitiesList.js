@@ -6,9 +6,7 @@ export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
   const [cookies, setCookie, removeCookie] = useCookies();
   console.log("cookies:", cookies["hubspotutk"]);
 
-  // const sendHubspotClickEvent = async (event, utk) => {
   const sendHubspotClickEvent = () => {
-    const data = { cookieId: utk, eventFired: event };
     if (typeof window !== undefined) {
       var _hsq = (window._hsq = window._hsq || []);
 
@@ -34,8 +32,7 @@ export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
                 disabled={city.disabled}
                 onClick={() => {
                   onChange(city);
-                  // if (cookies["hubspotutk"])
-                  //   sendHubspotClickEvent("clicked NYC Button", cookies["hubspotutk"]);
+                  sendHubspotClickEvent();
                 }}
                 className={`${selectedCity?.id === city.id ? "font-black" : ""} ${
                   city.disabled ? "" : "underline"
