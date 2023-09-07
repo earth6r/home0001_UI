@@ -236,9 +236,9 @@ const Header = ({
             <nav
               className={`${
                 showThinBanner && thinBanner ? "mt-16 md:mt-4" : ""
-              } overflow-auto z-40 bg-white md:shadow-none fixed top-0 pt-[4.875rem] md:pt-[9.125rem] left-0 w-full h-full`}
+              } overflow-auto z-40 bg-white md:shadow-none fixed top-0 pt-[4.1rem] md:pt-[7rem] left-0 w-full h-full`}
             >
-              <ul className="px-4 md:px-10 flex flex-col gap-10 w-full">
+              <ul className="px-4 md:px-10 flex flex-col gap-12 w-full">
                 {newMenu.map((item, index) => {
                   return (
                     <li

@@ -289,13 +289,10 @@ const HomeRedesignPage = ({ location, data }) => {
       <Container>
         <section>
           <div className="md:pr-desktop-menu">
-            <div className="uppercase pr-mobile-menu md:pr-0 mb-8 md:mb-20 text-mobile-body md:text-desktop-body property-type-description">
-              Own one home.
+            <div className="uppercase pr-[40%] pr-mobile-menu md:pr-0 mb-12 md:mb-18 text-mobile-body md:text-desktop-body property-type-description">
+              Own one home. Live flexibly between many places.
             </div>
-            <div className="uppercase pr-mobile-menu md:pr-0 mb-8 md:mb-20 text-mobile-body md:text-desktop-body property-type-description">
-              Live flexibly between many places.
-            </div>
-            <div className="uppercase pr-mobile-menu md:pr-0 mb-9 md:mb-20 text-mobile-body md:text-desktop-body property-type-description">
+            <div className="uppercase pr-[50%] pr-mobile-menu md:pr-0 mb-12 md:mb-18 text-mobile-body md:text-desktop-body property-type-description">
               Fully equipped homes available to buy in:
             </div>
           </div>
@@ -351,7 +348,7 @@ const HomeRedesignPage = ({ location, data }) => {
                   <div className="pr-mobile-menu md:pr-0">
                     <button
                       onClick={() => setShowReserveHomeForm(prev => !prev)}
-                      className={`mb-9 text-center outline-none mt-9  tracking-caps uppercase block w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-mobile-body md:text-desktop-body ${
+                      className={`mb-9 text-center outline-none mt-9 tracking-caps uppercase block w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-mobile-body md:text-desktop-body ${
                         showReserveHomeForm
                           ? "bg-white text-black mb-10"
                           : "bg-black text-white mb-1"
@@ -365,7 +362,7 @@ const HomeRedesignPage = ({ location, data }) => {
                           Not the home for you?{" "}
                           <a
                             href="/newsletter"
-                            className="border-b-[2px] border-solid mt-9 text-mobile-body md:text-desktop-body mt-8"
+                            className="border-b-[1.5px] border-solid mt-9 text-mobile-body md:text-desktop-body mt-8"
                           >
                             Sign up here
                           </a>{" "}
