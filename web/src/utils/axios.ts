@@ -5,14 +5,14 @@ const hubspotGeneralWaitlistFormGuid = process.env.HUBSPOT_GENERAL_WAITLIST_FORM
 const hubspotUnitWaitlistFormGuid = process.env.HUBSPOT_UNIT_WAITLIST_FORM_ID;
 const hubspotNewsletterFormGuid = process.env.HUBSPOT_NEWSLETTER_FORM_ID;
 
-export const submit_custom_hubspot_event = async data => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json"
-    }
-  };
-  const response = await axios.post();
-};
+// export const submit_custom_hubspot_event = async data => {
+//   const config = {
+//     headers: {
+//       "Content-Type": "application/json"
+//     }
+//   };
+//   const response = await axios.post();
+// };
 
 export const submit_hubspot_newsletter_form = async data => {
   const portalId = hubspotPortalId;

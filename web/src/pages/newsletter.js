@@ -23,6 +23,10 @@ export const query = graphql`
 `;
 
 const NewsLetterPageRedesign = ({ data }) => {
+  var _hsq = (window._hsq = window._hsq || []);
+  _hsq.push(["setPath", "/newsletter"]);
+  _hsq.push(["trackPageView"]);
+
   const pageTitle = data.sanityNewsLetter.title || "How it works";
   const sections = data.sanityNewsLetter._rawSections;
   const content = (sections || []).map(module => {

@@ -5,6 +5,7 @@ import SEO from "../components/seo";
 import { graphql } from "gatsby";
 import HowItWorksComponent from "../components/redesign/HowItWorksComponent";
 import { GeneralReservationForm } from "../components/redesign/HowItWorksReservationForm";
+
 export const query = graphql`
   {
     sanityHowItWorksPage {
@@ -26,6 +27,9 @@ export const query = graphql`
   }
 `;
 const HowItWorksRedignPage = ({ data }) => {
+  var _hsq = (window._hsq = window._hsq || []);
+  _hsq.push(["setPath", "/how-it-works"]);
+  _hsq.push(["trackPageView"]);
   const pageTitle = data.sanityHowItWorksPage.title || "How it works";
 
   return (
