@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { InventoryTable } from "./InventoryTable";
 import Modal from "./Modal";
+import { sendHubspotClickEvent } from "../../utils/hubspotEvents";
 
 export const InventoryModule = ({ data, title, propertyType, viewInventoryText }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const onOpenModal = () => {
+    sendHubspotClickEvent("clicked view inventory", propertyType);
     document.body.style.overflow = "hidden";
     document.body.style.touchAction = "none";
     setIsOpen(true);

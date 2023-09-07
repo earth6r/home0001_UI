@@ -3,6 +3,7 @@ import { StandardText } from "../global/standardText";
 import { imageUrlFor } from "../../lib/image-url";
 import MapModule from "../mapModule";
 import ProgressiveImage from "react-progressive-image";
+import { sendHubspotClickEvent } from "../../utils/hubspotEvents";
 
 import { set } from "react-ga";
 export const SingleProperty = ({
@@ -127,7 +128,10 @@ export const SingleProperty = ({
               <li key={id} className={`p-0 before:content-['']`}>
                 <button
                   disabled={!available}
-                  onClick={() => onChange(item)}
+                  onClick={() => {
+                    onChange(item);
+                    sendHubspotClickEvent("tile clicked", item.property.title);
+                  }}
                   className={`transition-colors disabled:opacity-30 disabled:bg-white disabled:shadow-none p-4 min-h-[16rem] border w-full grid justify-stretch flex-col text-mobile-body md:text-desktop-body ${
                     selectedPropertyType?.id === item.id ? "bg-black text-white" : ""
                   }`}

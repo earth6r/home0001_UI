@@ -11,7 +11,6 @@ export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
                 disabled={city.disabled}
                 onClick={() => {
                   onChange(city);
-                  console.log(city);
                   sendHubspotClickEvent(`clicked ${city.title}`, "clicked");
                 }}
                 className={`${selectedCity?.id === city.id ? "font-black" : ""} ${
