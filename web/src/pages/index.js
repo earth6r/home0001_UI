@@ -347,7 +347,10 @@ const HomeRedesignPage = ({ location, data }) => {
                 {selectedPropertyType && (
                   <div className="pr-mobile-menu md:pr-0">
                     <button
-                      onClick={() => setShowReserveHomeForm(prev => !prev)}
+                      onClick={() => {
+                        setShowReserveHomeForm(prev => !prev);
+                        sendHubspotClickEvent("clicked reserve this home", selectedPropertyType);
+                      }}
                       className={`mb-9 text-center outline-none mt-9 tracking-caps uppercase block w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-mobile-body md:text-desktop-body ${
                         showReserveHomeForm
                           ? "bg-white text-black mb-10"
