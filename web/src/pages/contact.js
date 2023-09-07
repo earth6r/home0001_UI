@@ -17,7 +17,7 @@ export const query = graphql`
 
 const ContactPageRedesign = ({ data }) => {
   useEffect(() => {
-    if (window !== undefined && window._hsq !== undefined) {
+    if (typeof window !== undefined && window._hsq !== undefined) {
       var _hsq = (window._hsq = window._hsq || []);
       _hsq.push(["setPath", "/contact"]);
       _hsq.push(["trackPageView"]);

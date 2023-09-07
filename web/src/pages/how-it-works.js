@@ -28,7 +28,7 @@ export const query = graphql`
 `;
 const HowItWorksRedignPage = ({ data }) => {
   useEffect(() => {
-    if (window !== undefined && window._hsq !== undefined) {
+    if (typeof window !== undefined && window._hsq !== undefined) {
       var _hsq = (window._hsq = window._hsq || []);
       _hsq.push(["setPath", "/how-it-works"]);
       _hsq.push(["trackPageView"]);

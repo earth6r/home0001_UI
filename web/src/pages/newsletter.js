@@ -24,7 +24,7 @@ export const query = graphql`
 
 const NewsLetterPageRedesign = ({ data }) => {
   useEffect(() => {
-    if (window !== undefined && window._hsq !== undefined) {
+    if (typeof window !== undefined && window._hsq !== undefined) {
       var _hsq = (window._hsq = window._hsq || []);
       _hsq.push(["setPath", "/newsletter"]);
       _hsq.push(["trackPageView"]);
