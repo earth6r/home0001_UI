@@ -14,6 +14,13 @@ const hubspotNewsletterFormGuid = process.env.HUBSPOT_NEWSLETTER_FORM_ID;
 //   const response = await axios.post();
 // };
 
+export const post_db_cookie_custom_event = async data => {
+  const response = await axios.post(
+    "https://us-central1-homeearthnet.cloudfunctions.net/createCookie",
+    { cookieId: data.utk, eventFired: data.eventFired }
+  );
+  console.log("axios response", response);
+};
 export const submit_hubspot_newsletter_form = async data => {
   const portalId = hubspotPortalId;
   const formGuid = hubspotNewsletterFormGuid;
