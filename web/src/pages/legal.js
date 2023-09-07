@@ -19,7 +19,7 @@ export const query = graphql`
 `;
 
 const LegalPageRedesign = ({ data }) => {
-  if (typeof window !== undefined && window._hsq !== undefined) {
+  if (typeof window !== undefined) {
     var _hsq = (window._hsq = window._hsq || []);
     _hsq.push(["setPath", "/legal"]);
     _hsq.push(["trackPageView"]);

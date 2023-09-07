@@ -7,13 +7,15 @@ export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
   console.log("cookies:", cookies["hubspotutk"]);
 
   const sendHubspotClickEvent = city => {
-    const _hsq = (window._hsq = window._hsq || []);
-    _hsq.push([
-      "trackCustomBehaviorEvent",
-      {
-        name: "pe43771996_clicked_nyc_button"
-      }
-    ]);
+    if (typeof window !== undefined && window._hsq !== undefined) {
+      var _hsq = (window._hsq = window._hsq || []);
+      _hsq.push([
+        "trackCustomBehaviorEvent",
+        {
+          name: "pe43771996_clicked_nyc_button"
+        }
+      ]);
+    }
   };
 
   return (

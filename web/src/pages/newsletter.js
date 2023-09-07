@@ -23,7 +23,7 @@ export const query = graphql`
 `;
 
 const NewsLetterPageRedesign = ({ data }) => {
-  if (typeof window !== undefined && window._hsq !== undefined) {
+  if (typeof window !== undefined) {
     var _hsq = (window._hsq = window._hsq || []);
     _hsq.push(["setPath", "/newsletter"]);
     _hsq.push(["trackPageView"]);

@@ -17,7 +17,7 @@ export const query = graphql`
 `;
 
 const AboutPageRedesign = ({ data }) => {
-  if (typeof window !== undefined && window._hsq !== undefined) {
+  if (typeof window !== undefined) {
     var _hsq = (window._hsq = window._hsq || []);
     _hsq.push(["setPath", "/about"]);
     _hsq.push(["trackPageView"]);
