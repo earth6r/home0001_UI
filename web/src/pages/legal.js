@@ -19,13 +19,11 @@ export const query = graphql`
 `;
 
 const LegalPageRedesign = ({ data }) => {
-  useEffect(() => {
-    if (typeof window !== undefined && window._hsq !== undefined) {
-      var _hsq = (window._hsq = window._hsq || []);
-      _hsq.push(["setPath", "/legal"]);
-      _hsq.push(["trackPageView"]);
-    }
-  }, []);
+  if (typeof window !== undefined && window._hsq !== undefined) {
+    var _hsq = (window._hsq = window._hsq || []);
+    _hsq.push(["setPath", "/legal"]);
+    _hsq.push(["trackPageView"]);
+  }
   const content = data.allSanityLegalPage.nodes[0];
 
   return (

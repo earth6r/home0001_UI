@@ -20,13 +20,11 @@ export const query = graphql`
   }
 `;
 const FaqRedesignPage = ({ data }) => {
-  useEffect(() => {
-    if (typeof window !== undefined && window._hsq !== undefined) {
-      var _hsq = (window._hsq = window._hsq || []);
-      _hsq.push(["setPath", "/faq"]);
-      _hsq.push(["trackPageView"]);
-    }
-  }, []);
+  if (typeof window !== undefined && window._hsq !== undefined) {
+    var _hsq = (window._hsq = window._hsq || []);
+    _hsq.push(["setPath", "/faq"]);
+    _hsq.push(["trackPageView"]);
+  }
   const pageTitle = data.sanityFaqPage.title || "FAQ";
   const sections = data.sanityFaqPage._rawSections;
   const content = (sections || []).map(module => {
