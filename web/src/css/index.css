@@ -222,8 +222,9 @@ a:hover {
   color: black !important;
 }
 
-button[aria-expanded="true"] {
-  font-weight: 900;
+button[aria-haspopup="dialog"][aria-expanded="true"] {
+  font-weight: 600;
+  @apply transition-all
 }
 
 .inventory-slider .slick-list {
