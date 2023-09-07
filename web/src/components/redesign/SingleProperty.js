@@ -111,11 +111,7 @@ export const SingleProperty = ({
           ) : null}
         </div>
       )}
-      {
-        <div className="mt-9 mb-10">
-          Choose an available home at {capitalizeAddress(selectedProperty.title)} here:
-        </div>
-      }
+      {<div className="mt-9 mb-10">Choose an available 0001 home here:</div>}
       {propertyTypes && (
         <ul
           ref={propertyTypesRef}
