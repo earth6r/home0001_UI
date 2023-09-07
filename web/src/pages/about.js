@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Container from "../components/redesign/Container";
 import Layout from "../containers/layout";
 import SEO from "../components/seo";

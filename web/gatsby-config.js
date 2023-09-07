@@ -163,7 +163,7 @@ module.exports = {
       options: {
         trackingCode: "43771996",
         respectDNT: false,
-        productionOnly: false
+        productionOnly: true
       }
     }
   ]
