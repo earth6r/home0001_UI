@@ -16,9 +16,11 @@ export const query = graphql`
 `;
 
 const ContactPageRedesign = ({ data }) => {
-  var _hsq = (window._hsq = window._hsq || []);
-  _hsq.push(["setPath", "/contact"]);
-  _hsq.push(["trackPageView"]);
+  if (window !== undefined && window._hsq !== undefined) {
+    var _hsq = (window._hsq = window._hsq || []);
+    _hsq.push(["setPath", "/contact"]);
+    _hsq.push(["trackPageView"]);
+  }
   const content = data.allSanityContactPage.nodes[0];
 
   return (

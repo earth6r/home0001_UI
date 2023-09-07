@@ -27,9 +27,11 @@ export const query = graphql`
   }
 `;
 const HowItWorksRedignPage = ({ data }) => {
-  var _hsq = (window._hsq = window._hsq || []);
-  _hsq.push(["setPath", "/how-it-works"]);
-  _hsq.push(["trackPageView"]);
+  if (window !== undefined && window._hsq !== undefined) {
+    var _hsq = (window._hsq = window._hsq || []);
+    _hsq.push(["setPath", "/how-it-works"]);
+    _hsq.push(["trackPageView"]);
+  }
   const pageTitle = data.sanityHowItWorksPage.title || "How it works";
 
   return (

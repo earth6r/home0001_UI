@@ -17,9 +17,11 @@ export const query = graphql`
 `;
 
 const AboutPageRedesign = ({ data }) => {
-  var _hsq = (window._hsq = window._hsq || []);
-  _hsq.push(["setPath", "/about"]);
-  _hsq.push(["trackPageView"]);
+  if (window !== undefined && window._hsq !== undefined) {
+    var _hsq = (window._hsq = window._hsq || []);
+    _hsq.push(["setPath", "/about"]);
+    _hsq.push(["trackPageView"]);
+  }
   const content = data.allSanityAboutPage.nodes[0];
 
   return (
