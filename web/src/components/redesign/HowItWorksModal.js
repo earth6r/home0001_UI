@@ -40,7 +40,7 @@ export const HowItWorksModal = ({ data }) => {
 
       <button
         onClick={onOpenModal}
-        className="border-b-[2px] border-solid mt-4 text-mobile-body md:text-desktop-body"
+        className="border-b-[1.5px] border-solid mt-4 text-mobile-body md:text-desktop-body"
       >
         {data.title ?? "How it works"}
       </button>

@@ -136,7 +136,7 @@ export const ReserveHomeForm = ({ data }) => {
                   </button>
                   <p className="mt-5">
                     Got questions?{" "}
-                    <a className="border-solid border-b-[2px]" href="/contact">
+                    <a className="border-solid border-b-[1.5px]" href="/contact">
                       Ask us anything
                     </a>
                     .

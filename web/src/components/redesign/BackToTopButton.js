@@ -7,7 +7,7 @@ export const BackToTopButton = () => {
     <div>
       <button
         onClick={onClickSeeAll}
-        className="border-b-[2px] border-solid mt-9 text-mobile-body md:text-desktop-body"
+        className="border-b-[1.5px] border-solid mt-9 text-mobile-body md:text-desktop-body"
       >
         Back to top ↑
       </button>

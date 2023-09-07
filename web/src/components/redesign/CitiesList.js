@@ -15,10 +15,10 @@ export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
                   sendHubspotClickEvent(`clicked ${city.title}`, "clicked");
                 }}
                 className={`${selectedCity?.id === city.id ? "font-black" : ""} ${
-                  city.disabled ? "" : "decoration-black underline underline-offset-4 decoration-2"
+                  city.disabled ? "" : "decoration-black"
                 } cursor-pointer p-5 -m-5 before:content-[''] disabled:bg-transparent tracking-caps leading-none uppercase disabled:opacity-40 disabled:shadow-none leading-none`}
               >
-                {city.title}
+                <p className={`${city.disabled ? "" : "border-b-[1.5px]"}`}>{city.title}</p>
               </button>
             </li>
           ))}
