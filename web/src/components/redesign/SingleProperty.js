@@ -128,7 +128,7 @@ export const SingleProperty = ({
                 <button
                   disabled={!available}
                   onClick={() => onChange(item)}
-                  className={`disabled:opacity-30 disabled:bg-white disabled:shadow-none p-4 min-h-[16rem] border w-full grid justify-stretch flex-col text-mobile-body md:text-desktop-body ${
+                  className={`transition-colors disabled:opacity-30 disabled:bg-white disabled:shadow-none p-4 min-h-[16rem] border w-full grid justify-stretch flex-col text-mobile-body md:text-desktop-body ${
                     selectedPropertyType?.id === item.id ? "bg-black text-white" : ""
                   }`}
                 >
