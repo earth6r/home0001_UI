@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Container from "../components/redesign/Container";
 import Layout from "../containers/layout";
 import SEO from "../components/seo";
@@ -17,11 +17,14 @@ export const query = graphql`
 `;
 
 const AboutPageRedesign = ({ data }) => {
-  if (window !== undefined && window._hsq !== undefined) {
-    var _hsq = (window._hsq = window._hsq || []);
-    _hsq.push(["setPath", "/about"]);
-    _hsq.push(["trackPageView"]);
-  }
+  useEffect(() => {
+    if (window !== undefined && window._hsq !== undefined) {
+      var _hsq = (window._hsq = window._hsq || []);
+      _hsq.push(["setPath", "/about"]);
+      _hsq.push(["trackPageView"]);
+    }
+  }, []);
+
   const content = data.allSanityAboutPage.nodes[0];
 
   return (

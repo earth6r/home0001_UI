@@ -23,11 +23,13 @@ export const query = graphql`
 `;
 
 const NewsLetterPageRedesign = ({ data }) => {
-  if (window !== undefined && window._hsq !== undefined) {
-    var _hsq = (window._hsq = window._hsq || []);
-    _hsq.push(["setPath", "/newsletter"]);
-    _hsq.push(["trackPageView"]);
-  }
+  useEffect(() => {
+    if (window !== undefined && window._hsq !== undefined) {
+      var _hsq = (window._hsq = window._hsq || []);
+      _hsq.push(["setPath", "/newsletter"]);
+      _hsq.push(["trackPageView"]);
+    }
+  }, []);
 
   const pageTitle = data.sanityNewsLetter.title || "How it works";
   const sections = data.sanityNewsLetter._rawSections;
