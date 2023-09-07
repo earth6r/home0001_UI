@@ -30,6 +30,7 @@
   padding-right: 0.0625rem;
   line-height: 115% !important;
   top: -1px;
+  white-space: pre-wrap;
   /* font-size: inherit; */
   transform: translateY(0em);
   cursor: pointer;
