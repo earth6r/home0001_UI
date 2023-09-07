@@ -34,7 +34,9 @@ export const submit_hubspot_newsletter_form = async data => {
 
 export const submit_general_hubspot_waitlist_form = async data => {
   const portalId = process.env.HUBSPOT_PORTAL_ID;
+  console.log("portalId:", portalId);
   const formGuid = process.env.HUBSPOT_GENERAL_WAITLIST_FORM_ID;
+  console.log("formGuid:", formGuid);
   const config = {
     // important!
     headers: {
