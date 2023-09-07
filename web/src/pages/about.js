@@ -18,13 +18,6 @@ export const query = graphql`
 
 const AboutPageRedesign = ({ data }) => {
   const content = data.allSanityAboutPage.nodes[0];
-  useEffect(() => {
-    if (typeof window !== undefined) {
-      var _hsq = (window._hsq = window._hsq || []);
-      _hsq.push(["setPath", "/about"]);
-      // _hsq.push(["trackPageView"]);
-    }
-  }, []);
 
   return (
     <Layout showPopupNewsletter={true} rnd={false} homes>
