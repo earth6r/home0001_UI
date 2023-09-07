@@ -290,7 +290,7 @@ const HomeRedesignPage = ({ location, data }) => {
       <Container>
         <section>
           <div className="md:pr-desktop-menu">
-            <div className="uppercase pr-[40%] md:pr-0 mb-12 md:mb-16 text-mobile-body md:text-desktop-body property-type-description">
+            <div className="uppercase pr-[30%] md:pr-0 mb-12 md:mb-16 text-mobile-body md:text-desktop-body property-type-description">
               Own one home. Live flexibly between many places.
             </div>
             <div className="uppercase pr-[50%] md:pr-0 mb-12 md:mb-16 text-mobile-body md:text-desktop-body property-type-description">
