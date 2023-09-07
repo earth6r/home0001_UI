@@ -412,7 +412,7 @@
   max-width: 100%;
 }
 .standard-text a {
-  border-bottom: 2px solid;
+  border-bottom: 1.5px solid;
 }
 .standard-text a:hover {
   font-weight: bold;
