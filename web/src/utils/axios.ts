@@ -1,12 +1,8 @@
 import axios from "axios";
 
-const hubspotPortalId = process.env.HUBSPOT_PORTAL_ID;
-const hubspotGeneralWaitlistFormGuid = process.env.HUBSPOT_GENERAL_WAITLIST_FORM_ID;
-const hubspotUnitWaitlistFormGuid = process.env.HUBSPOT_UNIT_WAITLIST_FORM_ID;
-const hubspotNewsletterFormGuid = process.env.HUBSPOT_NEWSLETTER_FORM_ID;
 export const submit_hubspot_newsletter_form = async data => {
-  const portalId = hubspotPortalId;
-  const formGuid = hubspotNewsletterFormGuid;
+  const portalId = process.env.HUBSPOT_PORTAL_ID;
+  const formGuid = process.env.HUBSPOT_NEWSLETTER_FORM_ID;
   const config = {
     headers: {
       "Content-Type": "application/json"
@@ -37,8 +33,8 @@ export const submit_hubspot_newsletter_form = async data => {
 };
 
 export const submit_general_hubspot_waitlist_form = async data => {
-  const portalId = hubspotPortalId;
-  const formGuid = hubspotGeneralWaitlistFormGuid;
+  const portalId = process.env.HUBSPOT_PORTAL_ID;
+  const formGuid = process.env.HUBSPOT_GENERAL_WAITLIST_FORM_ID;
   const config = {
     // important!
     headers: {
@@ -71,8 +67,8 @@ export const submit_general_hubspot_waitlist_form = async data => {
   );
 };
 export const submit_hubspot_waitlist_form = async (fullName, email, unitOfInterest) => {
-  const portalId = hubspotPortalId;
-  const formGuid = hubspotUnitWaitlistFormGuid;
+  const portalId = process.env.HUBSPOT_PORTAL_ID;
+  const formGuid = process.env.HUBSPOT_UNIT_WAITLIST_FORM_ID;
   const config = {
     // important!
     headers: {

@@ -10,6 +10,7 @@ import Container from "../components/redesign/Container";
 import { HomesContext } from "../components/context/HomesContext";
 import { ReserveHomeForm } from "../components/redesign/ReserveHomeForm";
 import { BackToTopButton } from "../components/redesign/BackToTopButton";
+import { sendHubspotClickEvent } from "../utils/hubspotEvents";
 
 export const query = graphql`
   {
