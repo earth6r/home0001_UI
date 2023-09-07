@@ -15,21 +15,13 @@ export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
       _hsq.push([
         "trackCustomBehavioralEvent",
         {
-          name: "pe43771996_clicked_nyc_js_code"
+          name: "pe43771996_clicked_nyc_js_code",
+          properties: {
+            city_clicked: "tester"
+          }
         }
       ]);
     }
-
-    //   _hsq.push([
-    //     "trackCustomBehaviorEvent",
-    //     {
-    //       name: "pe43771996_clicked_nyc_button"
-    //     }
-    //   ]);
-    //   console.log("sent hsq push");
-    // }
-
-    // await post_db_cookie_custom_event(data);
   };
 
   return (
