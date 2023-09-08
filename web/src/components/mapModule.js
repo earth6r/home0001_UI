@@ -22,7 +22,7 @@ const MapModule = props => {
         <PopoverTrigger>
           <button
             aria-label={`Open Map`}
-            className="text-mobile-body md:text-desktop-body border-b-[1.5px] border-solid"
+            className="hover:font-bold text-mobile-body md:text-desktop-body border-b-[1.5px] border-solid"
           >
             {text}
           </button>
