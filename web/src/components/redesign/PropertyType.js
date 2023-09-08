@@ -8,32 +8,7 @@ import { Link } from "gatsby";
 import { HowItWorksModal } from "./HowItWorksModal";
 import { imageUrlFor } from "../../lib/image-url";
 import { HomesContext } from "../context/HomesContext";
-
-const ExtendedInfoModal = () => {
-  return (
-    <>
-      <div className="pr-mobile-menu md:pr-0">
-        <button
-          onClick={() => {
-            console.log("clicked");
-          }}
-          className="mb-9 text-center outline-none mt-9 tracking-caps uppercase block w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-mobile-body md:text-desktop-body bg-white text-black mb-10"
-        >
-          VIEW EXTENDED INFORMATION
-        </button>
-      </div>
-
-      <div>
-        <p>THE 0001 HOUSING NETWORK</p>
-        <p>
-          Home0001 is a distributed housing collective: in addition to community dinners and events,
-          homeowners get access to 0001 homes in other cities for free. No nightly rate; just a
-          cleaning fee each time. Own one home; live flexibly between multiple locations.
-        </p>
-      </div>
-    </>
-  );
-};
+import { ExtendedInfoModule } from "./ExtendedInfoModule";
 
 export const PropertyTypeUI = ({
   selectedPropertyType,
@@ -42,8 +17,6 @@ export const PropertyTypeUI = ({
   howItWorks,
   viewInventoryText
 }) => {
-  console.log("property", property);
-  console.log("selectedPropertyType", selectedPropertyType);
   const {
     setPropertyType: setSelectedPropertyType,
     setReserveHomeForm: setShowReserveHomeForm
@@ -221,13 +194,13 @@ export const PropertyTypeUI = ({
               )}
             </div>
           ) : null}
-          {property.city.title == "LA" ? <ExtendedInfoModal /> : null}
+          {property.city.title == "LA" ? <ExtendedInfoModule /> : null}
           {selectedPropertyType?._rawDescriptionTwo?.text && (
             <div className="mt-10 pr-mobile-menu md:pr-0 text-mobile-body md:text-desktop-body property-type-description">
               <StandardText data={selectedPropertyType?._rawDescriptionTwo} />
             </div>
           )}
-          {property.city.title != "LA" ? <ExtendedInfoModal /> : null}
+          {property.city.title != "LA" ? <ExtendedInfoModule /> : null}
           <HowItWorksModal data={howItWorks} />
         </>
       ) : null}
