@@ -21,6 +21,7 @@ export const PropertyTypeUI = ({
     setPropertyType: setSelectedPropertyType,
     setReserveHomeForm: setShowReserveHomeForm
   } = useContext(HomesContext);
+  console.log("selectedPropertyType upstream", selectedPropertyType);
   const returnStudioData = () => {
     return (
       <div>
@@ -194,13 +195,27 @@ export const PropertyTypeUI = ({
               )}
             </div>
           ) : null}
-          {property.city.title == "LA" ? <ExtendedInfoModule /> : null}
+          {property.city.title == "LA" ? (
+            <ExtendedInfoModule
+              data={{
+                type: selectedPropertyType.propertyType,
+                sqft: selectedPropertyType.area
+              }}
+            />
+          ) : null}
           {selectedPropertyType?._rawDescriptionTwo?.text && (
             <div className="mt-10 pr-mobile-menu md:pr-0 text-mobile-body md:text-desktop-body property-type-description">
               <StandardText data={selectedPropertyType?._rawDescriptionTwo} />
             </div>
           )}
-          {property.city.title != "LA" ? <ExtendedInfoModule /> : null}
+          {property.city.title != "LA" ? (
+            <ExtendedInfoModule
+              data={{
+                type: selectedPropertyType.property.title,
+                sqft: selectedPropertyType.area
+              }}
+            />
+          ) : null}
           <HowItWorksModal data={howItWorks} />
         </>
       ) : null}

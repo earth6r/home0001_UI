@@ -20,6 +20,7 @@ function SEO({
   twitterTitle,
   twitterDescription
 }) {
+  console.log("title:", title);
   return (
     <StaticQuery
       query={detailsQuery}
@@ -46,9 +47,7 @@ function SEO({
           <Helmet
             htmlAttributes={{ lang }}
             title={title === "" ? `Home0001` : `${title}`}
-            titleTemplate={
-              title === `Home0001` || title === "Home0001" ? title : `%s | ${siteTitle}`
-            }
+            titleTemplate={title === `Homes` || title === "Homes" ? siteTitle : `%s | ${siteTitle}`}
           >
             {/* <link rel="stylesheet" href="/fonts/fonts.css"></link> */}
             {/* <link rel="preload" href="/fonts/fonts.css" as="style"></link> */}

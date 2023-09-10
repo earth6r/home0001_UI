@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "./Modal";
+import { AllenData, LAData } from "./ExtendedInfoData";
 
 export const ExtendedInfoModule = data => {
-  const { title, propertyType } = data;
+  const { type, sqft } = data.data;
+  console.log("sqft:", sqft);
+  console.log("type:", type);
+
   const [isOpen, setIsOpen] = useState(false);
 
   const onOpenModal = () => {
@@ -27,21 +31,20 @@ export const ExtendedInfoModule = data => {
     <>
       <Modal isOpen={isOpen} onClose={onCloseModal}>
         <div className="py-6 md:py-10 md:px-10 h-full flex flex-col">
-          <p className="px-4 md:px-0">Additional Information</p>
-          <div className="mt-10 uppercase tracking-caps px-4 md:px-0">
-            {title && <p className="uppercase">{title}</p>}
-            {propertyType == "two-bedrooms"
-              ? "3-STORY TOWNHOUSE"
-              : propertyType && (
-                  <p>
-                    {propertyType
-                      .replace("one-bedroom", "1 bedroom")
-                      .replace("studio-max", "studio max")}
-                  </p>
-                )}{" "}
-            <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Overview</div>
-            <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Schools</div>
+          <p className="px-4 md:px-0 uppercase">Technical Information</p>
+          <div className="mt-10 tracking-caps px-4 md:px-0">
+            <p className="uppercase">
+              {type == "studio" || type == "studio max" || type == "1 bedroom"
+                ? "48 ALLEN ST"
+                : "1308 DOUGLAS ST"}
+            </p>
+            <p className="uppercase">{type}</p>
           </div>
+          {type == "two-bedrooms" || type == "penthouse" ? (
+            <LAData type={type} sqft={sqft} />
+          ) : (
+            <AllenData type={type} sqft={sqft} />
+          )}
         </div>
       </Modal>
       <div className="pr-mobile-menu md:pr-0">
