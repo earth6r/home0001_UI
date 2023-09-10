@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { InventoryTable } from "./InventoryTable";
+import { InventoryTableV2 } from "./InventoryTableV2";
+
 import Modal from "./Modal";
 import { sendHubspotClickEvent } from "../../utils/hubspotEvents";
 
@@ -28,25 +30,22 @@ export const InventoryModule = ({ data, title, propertyType, viewInventoryText }
   return (
     <>
       <Modal isOpen={isOpen} onClose={onCloseModal}>
-        <div className="py-6 md:py-10 md:px-10 h-full flex flex-col">
-          <p className="px-4 md:px-0">SAMPLE INVENTORY</p>
-          <div className="mt-10 uppercase tracking-caps px-4 md:px-0">
-            {title && <p className="uppercase">{title}</p>}{" "}
-            {propertyType == "two-bedrooms"
-              ? "3-STORY TOWNHOUSE"
-              : propertyType && (
-                  <p>
-                    {propertyType
-                      .replace("one-bedroom", "1 bedroom")
-                      .replace("studio-max", "studio max")}
-                  </p>
-                )}{" "}
-          </div>
-          <div className="flex flex-col gap-20 h-full">
-            {data._rawInventory &&
-              data._rawInventory.map((data, index) => {
-                return <InventoryTable data={data} key={index} />;
-              })}
+        <div className="pb-10">
+          <div className="py-6 md:py-10 md:px-10 h-full flex flex-col">
+            <p className="px-4 md:px-0">SAMPLE INVENTORY</p>
+            <div className="mt-10 uppercase tracking-caps px-4 md:px-0">
+              {title && <p className="uppercase">{title}</p>}{" "}
+              {propertyType == "two-bedrooms"
+                ? "3-STORY TOWNHOUSE"
+                : propertyType && (
+                    <p>
+                      {propertyType
+                        .replace("one-bedroom", "1 bedroom")
+                        .replace("studio-max", "studio max")}
+                    </p>
+                  )}{" "}
+            </div>
+            <InventoryTableV2 data={propertyType} />
           </div>
         </div>
       </Modal>

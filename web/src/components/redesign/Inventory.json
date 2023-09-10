@@ -1,0 +1,618 @@
+[
+    {
+      "Status": "Unavailable",
+      "Product Name": "Rotring pens",
+      "Furniture Type": "Pens",
+      "Room": "Utility Closet",
+      "Units": "3B, 4A, 6B, LA",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Samsung Jet 75 Vacuum Cleaner",
+      "Furniture Type": "Vacuum Cleaner",
+      "Room": "Utility Closet",
+      "Units": "3B, 4A, 6B, LA",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Mid/night Hand Soap",
+      "Furniture Type": "Soap",
+      "Room": "Bathroom",
+      "Units": "3B, 4A, 6B, LA",
+      "Quantity": 6
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Mid/night Shower Gel",
+      "Furniture Type": "Shower Gel",
+      "Room": "Bathroom",
+      "Units": "3B, 4A, 6B, LA",
+      "Quantity": 3
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Mid/night Shampoo",
+      "Furniture Type": "Shampoo",
+      "Room": "Bathroom",
+      "Units": "3B, 4A, 6B, LA",
+      "Quantity": 3
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Mid/night Conditioner",
+      "Furniture Type": "Conditioner",
+      "Room": "Bathroom",
+      "Units": "3B, 4A, 6B, LA",
+      "Quantity": 3
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Muji Toilet Brush",
+      "Furniture Type": "Toilet Brush",
+      "Room": "Bathroom",
+      "Units": "3B, 4A, 6B, LA",
+      "Quantity": 6
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Cozy Earth bath towels",
+      "Furniture Type": "Bath Towels",
+      "Room": "Bathroom",
+      "Units": "3B, 4A, 6B, LA",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Cozy Earth hand towels",
+      "Furniture Type": "Hand Towels",
+      "Room": "Bathroom",
+      "Units": "3B, 4A, 6B, LA",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Cozy Earth bathrobes",
+      "Furniture Type": "Bathrobes",
+      "Room": "Bathroom",
+      "Units": "3B, 4A, 6B, LA",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Stainless Steel Bathroom Shelves",
+      "Furniture Type": "Shelves Custom Sink",
+      "Room": "Bathroom",
+      "Units": "3B, 4A, 6B, LA",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Custom Stainless Steel Shelves Shower Shelves",
+      "Furniture Type": "Shelves Custom Shower",
+      "Room": "Bathroom",
+      "Units": "3B, 4A, 6B, LA",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Kohler Mirror Cabinet",
+      "Furniture Type": "",
+      "Room": "Bathroom",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Unistrut Queen Bed",
+      "Furniture Type": "Bed",
+      "Room": "Bedroom",
+      "Units": "3B, 4A, 6B, LA",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Casper Down Pillows",
+      "Furniture Type": "Pillow",
+      "Room": "Bedroom",
+      "Units": "3B, 4A, 6B, LA",
+      "Quantity": 6
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Casper Premium Mattress",
+      "Furniture Type": "Mattress",
+      "Room": "Bedroom",
+      "Units": "3B, 4A, 6B, LA",
+      "Quantity": 3
+    },
+    {
+      "Status": "Available",
+      "Product Name": "DeWoolfson European Square Pillows (pending)",
+      "Furniture Type": "European Square Pillows",
+      "Room": "Bedroom",
+      "Units": "3B, 4A, 6B, LA",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Cozy Earth Deluxe Bamboo Bedding Set",
+      "Furniture Type": "Cozy Earth Bedding",
+      "Room": "Bedroom",
+      "Units": "3B, 4A, 6B, LA",
+      "Quantity": 1
+    },
+    {
+      "Status": "",
+      "Product Name": "Cozy Earth Duvet",
+      "Furniture Type": "Cozy Earth Bedding",
+      "Room": "Bedroom",
+      "Units": "3B, 4A, 6B, LA",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "U hook",
+      "Furniture Type": "Lamp Hooks",
+      "Room": "Bedroom",
+      "Units": "3B",
+      "Quantity": 1
+    },
+    {
+      "Status": "",
+      "Product Name": "New Tendency Meta Side Table",
+      "Furniture Type": "",
+      "Room": "Bedroom",
+      "Units": "6B, LA",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Wall Mounted Stainless Steel Coat Hooks",
+      "Furniture Type": "",
+      "Room": "Living",
+      "Units": "3B, 6B",
+      "Quantity": 2
+    },
+    {
+      "Status": "Available",
+      "Product Name": "GE Electric Kettle",
+      "Furniture Type": "Kettle",
+      "Room": "Kitchen",
+      "Units": "4A",
+      "Quantity": 3
+    },
+    {
+      "Status": "Available",
+      "Product Name": "SOLAC 2-slice Toaster",
+      "Furniture Type": "Toaster",
+      "Room": "Kitchen",
+      "Units": "4A, 6B",
+      "Quantity": 3
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Better Houseware Drying Rack",
+      "Furniture Type": "Drying Rack",
+      "Room": "Kitchen",
+      "Units": "6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Pottery Barn Linen Dish Towels",
+      "Furniture Type": "Dish Towels",
+      "Room": "Kitchen",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 2
+    },
+    {
+      "Status": "Available",
+      "Product Name": "IKEA Kvot Drying Rack",
+      "Furniture Type": "Drying Rack",
+      "Room": "Kitchen",
+      "Units": "3B, 4A",
+      "Quantity": 2
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Victorinox Swiss Modern Chef’s Knife",
+      "Furniture Type": "Knife",
+      "Room": "Kitchen",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Victorinox Swiss Modern Serrated Knife",
+      "Furniture Type": "Knife",
+      "Room": "Kitchen",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Yamazaki Home Cutlery Expandable Cutlery Inset Tray",
+      "Furniture Type": "Cutlery Tray",
+      "Room": "Kitchen",
+      "Units": "4A",
+      "Quantity": 3
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Cuisinart 10-piece Stainless Steel Cookware Set",
+      "Furniture Type": "Cookware",
+      "Room": "Kitchen",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 3
+    },
+    {
+      "Status": "Available",
+      "Product Name": "8 x Duralex USA Provence Tumblers 10oz",
+      "Furniture Type": "Glasses",
+      "Room": "Kitchen",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 3
+    },
+    {
+      "Status": "Available",
+      "Product Name": "8 x Iitala Teema Dinnerware (Dinner Plates, Salad Plates, Breakfast Bowls, Large Bowls)",
+      "Furniture Type": "Plates",
+      "Room": "Kitchen",
+      "Units": "4A, 6B, 3B",
+      "Quantity": 2
+    },
+    {
+      "Status": "Available",
+      "Product Name": "16 x Iitala Teema Dinnerware (Dinner Plates, Salad Plates, Breakfast Bowls, Large Bowls)",
+      "Furniture Type": "Plates",
+      "Room": "Kitchen",
+      "Units": "LA",
+      "Quantity": 2
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Pyrex 6-piece Rectangular Food Storage Set",
+      "Furniture Type": "Food Storage",
+      "Room": "Kitchen",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Method Yuzu Dish Soap",
+      "Furniture Type": "Dish Soap",
+      "Room": "Kitchen",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "",
+      "Product Name": "Polyurethane Foam Dish Sponge",
+      "Furniture Type": "",
+      "Room": "Kitchen",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Delonghi Coffee Maker",
+      "Furniture Type": "Coffee Maker",
+      "Room": "Kitchen",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 3
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Zojirushi NL-AAC10 Rice cooker",
+      "Furniture Type": "Rice Cooker",
+      "Room": "Kitchen",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 3
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Cylinda-line Salt and pepper shakers",
+      "Furniture Type": "Salt & Pepper",
+      "Room": "Kitchen",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Tramontina Non-stick Pan 14”",
+      "Furniture Type": "Non-stick Pan",
+      "Room": "Kitchen",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Tramontina Non-stick Pan 10”",
+      "Furniture Type": "Non-stick Pan",
+      "Room": "Kitchen",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Laguiole Evolution White Plastic Flatware",
+      "Furniture Type": "Cutlery",
+      "Room": "Kitchen",
+      "Units": "3B",
+      "Quantity": 2
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Laguiole Evolution Stainless Steel Flatware",
+      "Furniture Type": "Cutlery",
+      "Room": "Kitchen",
+      "Units": "4A",
+      "Quantity": 2
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Sabre Loft Vintage Silver Flatware 4 piece Set",
+      "Furniture Type": "Cultery",
+      "Room": "Kitchen",
+      "Units": "3B",
+      "Quantity": 4
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Hasami Porcelain HP020 13oz Mug",
+      "Furniture Type": "Mug",
+      "Room": "Kitchen",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Simplehuman Cabinet Bin",
+      "Furniture Type": "Trash",
+      "Room": "Kitchen",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Schott Zwiesel Verbelle Wine Glasses",
+      "Furniture Type": "Glasses",
+      "Room": "Kitchen",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 8
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Simplehuman Undercounter bin",
+      "Furniture Type": "Trash",
+      "Room": "Kitchen",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Pyrex Baking Dish",
+      "Furniture Type": "",
+      "Room": "Kitchen",
+      "Units": "4A",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Pyrex Mixing Bowls",
+      "Furniture Type": "",
+      "Room": "Kitchen",
+      "Units": "4A",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Unistrut Bench",
+      "Furniture Type": "Unistrut Bench",
+      "Room": "Living",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Unistrut and Linoleum-faced Multiplex Table/Desk",
+      "Furniture Type": "Table/Desk",
+      "Room": "Living",
+      "Units": "4A",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Custom Linoleum Bench",
+      "Furniture Type": "Linoleum Bench",
+      "Room": "Living",
+      "Units": "4A",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Custom Full-Height Room Mirror",
+      "Furniture Type": "Mirror",
+      "Room": "Living",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 3
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Artek Stool 60 by Alvar Aalto",
+      "Furniture Type": "Stool",
+      "Room": "Living",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 7
+    },
+    {
+      "Status": "Available",
+      "Product Name": "NCP S-1500 by Snohetta",
+      "Furniture Type": "Chair",
+      "Room": "Living",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 8
+    },
+    {
+      "Status": "Available",
+      "Product Name": "S-Y-S ABS Storage Crates (24 x 15 x 7)",
+      "Furniture Type": "Storage Containers",
+      "Room": "Living",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 5
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Nordic Knots Grand Rug Sand",
+      "Furniture Type": "Rug",
+      "Room": "Living",
+      "Units": "3B, 4A",
+      "Quantity": 3
+    },
+    {
+      "Status": "Available",
+      "Product Name": "New Tendency Float Shelf Grey",
+      "Furniture Type": "Shelf",
+      "Room": "Living",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 3
+    },
+    {
+      "Status": "Available",
+      "Product Name": "LG C2 55” TV",
+      "Furniture Type": "TV",
+      "Room": "Living",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 3
+    },
+    {
+      "Status": "Available",
+      "Product Name": "FLOS Mayday Lamp (Black) by Konstantin Grcic",
+      "Furniture Type": "Lamp4",
+      "Room": "Living",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 5
+    },
+    {
+      "Status": "Available",
+      "Product Name": "B&O A1 Bluetooth Speaker",
+      "Furniture Type": "Speaker",
+      "Room": "Living",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 3
+    },
+    {
+      "Status": "Available",
+      "Product Name": "FASO first-aid kit",
+      "Furniture Type": "First Aid Kit",
+      "Room": "Living",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 3
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Rowenta Accessteam Cordreel Black Iron",
+      "Furniture Type": "Steam Iron",
+      "Room": "Living",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Artworks",
+      "Furniture Type": "Art",
+      "Room": "Living",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Hay Palissade Table",
+      "Furniture Type": "Table",
+      "Room": "Living",
+      "Units": "3B",
+      "Quantity": 2
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Window Blinds",
+      "Furniture Type": "Blind Cassettes",
+      "Room": "Living",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Curt Modular Sofa by AMBIVALENZ (10 Modules)",
+      "Furniture Type": "Sofa",
+      "Room": "Living",
+      "Units": "6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Manufactum Stainless Steel Tray",
+      "Furniture Type": "",
+      "Room": "Living",
+      "Units": "6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Blacksaw The Siempre Mohair Throw",
+      "Furniture Type": "",
+      "Room": "Living",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Peloton Row (Optional Extra)",
+      "Furniture Type": "Gym",
+      "Room": "Living",
+      "Units": "6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Artek Stool 64 by Alvar Aalto",
+      "Furniture Type": "6B stool",
+      "Room": "Living",
+      "Units": "6B",
+      "Quantity": 3
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Hay Moiré Kelim Rug",
+      "Furniture Type": "6B rug",
+      "Room": "Living",
+      "Units": "6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Glaro Aluminum Coat Hanger, Open Loop",
+      "Furniture Type": "Hangers",
+      "Room": "Living",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Edding markers",
+      "Furniture Type": "Markers",
+      "Room": "Utility Closet",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 1
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Mykita Tool Kit",
+      "Furniture Type": "Tools",
+      "Room": "Utility Closet",
+      "Units": "3B, 4A, 6B",
+      "Quantity": 3
+    }
+  ]

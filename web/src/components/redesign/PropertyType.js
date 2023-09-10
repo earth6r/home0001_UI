@@ -21,7 +21,6 @@ export const PropertyTypeUI = ({
     setPropertyType: setSelectedPropertyType,
     setReserveHomeForm: setShowReserveHomeForm
   } = useContext(HomesContext);
-  console.log("selectedPropertyType upstream", selectedPropertyType);
   const returnStudioData = () => {
     return (
       <div>
@@ -167,17 +166,16 @@ export const PropertyTypeUI = ({
               </div>
             )}
           </div>
-          {selectedPropertyType.propertyType != "two-bedrooms" &&
-          selectedPropertyType.propertyType != "penthouse" ? (
-            <div>
-              <InventoryModule
-                title={property.title}
-                propertyType={selectedPropertyType.propertyType}
-                data={selectedPropertyType}
-                viewInventoryText={"View sample inventory"}
-              />
-            </div>
-          ) : null}
+
+          <div>
+            <InventoryModule
+              title={property.title}
+              propertyType={selectedPropertyType.propertyType}
+              data={selectedPropertyType}
+              viewInventoryText={"View sample inventory"}
+            />
+          </div>
+
           {selectedPropertyType.moreImages?.length ? (
             <div className="w-full mt-10">
               {selectedPropertyType.propertyType === "two-bedrooms" ||

@@ -20,7 +20,6 @@ function SEO({
   twitterTitle,
   twitterDescription
 }) {
-  console.log("title:", title);
   return (
     <StaticQuery
       query={detailsQuery}
