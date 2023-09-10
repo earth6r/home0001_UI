@@ -3,7 +3,7 @@ const PropertyTypeRoomMap = {
   "one-bedroom": "6B",
   "studio-max": "4A",
   studio: "3B",
-  "two-bedroom": "LA"
+  "two-bedrooms": "LA"
 };
 export const InventoryTableV2 = ({ data }) => {
   console.log("data:", data);
