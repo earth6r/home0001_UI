@@ -21,7 +21,6 @@ export const PropertyTypeUI = ({
     setPropertyType: setSelectedPropertyType,
     setReserveHomeForm: setShowReserveHomeForm
   } = useContext(HomesContext);
-  console.log("selectedPropertyType upstream", selectedPropertyType);
   const returnStudioData = () => {
     return (
       <div>
