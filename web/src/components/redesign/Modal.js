@@ -4,7 +4,7 @@ import { CSSTransition } from "react-transition-group";
 
 const CloseButton = ({ onClose }) => {
   return (
-    <div className="z-50 absolute top-4 right-4 md:top-10 md:right-10 text-mobile-body md:text-desktop-body">
+    <div className="z-50 fixed top-4 right-4 md:p-10 md:top-10 md:right-10 text-mobile-body md:text-desktop-body">
       <button onClick={onClose}>
         <svg
           className="hidden md:block"
