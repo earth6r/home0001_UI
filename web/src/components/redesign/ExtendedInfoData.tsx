@@ -148,7 +148,7 @@ export const AllenData = ({ type, sqft }) => {
         <br />
         Parking: Monthly parking lot across street
       </p>
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Unit specifications:</div>
+      {/* <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Unit specifications:</div>
       <p className="px-4 md:px-0">
         Heating: Central <br />
         Cooling: Central <br />
@@ -158,7 +158,7 @@ export const AllenData = ({ type, sqft }) => {
         Cabinets: Alta Cucina kitchen <br />
         Fixtures: Porcelanosa <br />
         Outdoor space: En-suite full-door entry onto fire escape balcony overlooking Allen Street{" "}
-      </p>
+      </p> */}
       <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Districts and zone:</div>
       <p className="px-4 md:px-0">
         Community District: 103 <br />
