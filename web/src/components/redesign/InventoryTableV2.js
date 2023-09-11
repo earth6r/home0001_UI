@@ -14,7 +14,7 @@ export const InventoryTableV2 = ({ data }) => {
       <div className="mt-10 px-4 md:px-0">
         {headerItem.toUpperCase()}
         {Inventory.map(item => {
-          console.log("data", data);
+          console.log("item", item);
           if (item.Room == headerItem && item.Units.includes(PropertyTypeRoomMap[data]))
             return (
               <p>

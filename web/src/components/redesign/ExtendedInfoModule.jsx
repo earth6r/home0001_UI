@@ -4,8 +4,6 @@ import { AllenData, LAData } from "./ExtendedInfoData";
 
 export const ExtendedInfoModule = data => {
   const { type, sqft } = data.data;
-  console.log("sqft:", sqft);
-  console.log("type:", type);
 
   const [isOpen, setIsOpen] = useState(false);
 
