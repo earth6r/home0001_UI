@@ -1,4 +1,4 @@
-import * as Inventory from "./Inventory.json";
+import Inventory from "./Inventory.json";
 const PropertyTypeRoomMap = {
   "one-bedroom": "6B",
   "studio-max": "4A",
