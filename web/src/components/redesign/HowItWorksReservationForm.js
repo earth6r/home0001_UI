@@ -21,9 +21,9 @@ export const GeneralReservationForm = ({ data }) => {
     <div className="animate-in relative">
       <div className="w-screen h-full -ml-4 md:-ml-10 absolute bg-whitesmoke"></div>
       <div className="md:grid md:grid-cols-3 pr-mobile-menu md:pr-desktop-menu">
-        <div className="md:col-start-2 md:col-span-1 pt-10 pb-10">
+        <div className="md:col-start-2 md:col-span-1 pt-12 pb-[50px]">
           {!submitted ? (
-            <div className="relative mb-4 text-mobile-body md:text-desktop-body font-serif">
+            <div className="relative mb-4 text-mobile-body md:text-desktop-body">
               <p className="uppercase mb-9">Join the waitlist</p>
               <p>
                 New homes will be released for sale soon to buyers on the waitlist. Homebuyers will
@@ -38,7 +38,7 @@ export const GeneralReservationForm = ({ data }) => {
               <p>Join the waitlist for an 0001 home here:</p>
             </div>
           ) : (
-            <div className="relative mb-2 text-mobile-body md:text-desktop-body">
+            <div className="relative text-mobile-body md:text-desktop-body">
               <p>You're on the waitlist. We’ll be in touch as homes are released for sale.</p>
             </div>
           )}
