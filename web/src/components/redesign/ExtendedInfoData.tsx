@@ -125,7 +125,9 @@ export const AllenData = ({ type, sqft }) => {
         <br />
         Cabinets: Alta Cucina kitchen <br />
         Fixtures: Porcelanosa <br />
-        Outdoor space: En-suite full-door entry onto fire escape balcony overlooking Allen Street
+        {type == "1 bedroom"
+          ? "Laundry: En-suite Bosch washer/dryer"
+          : "Outdoor space: En-suite full-door entry onto fire escape balcony overlooking Allen Street"}
       </p>
       <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Building specifications:</div>
       <p className="px-4 md:px-0">
