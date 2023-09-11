@@ -11,11 +11,11 @@ export const InventoryTableV2 = ({ data }) => {
   return Headers.map(headerItem => {
     return (
       <div className="mt-10 px-4 md:px-0">
-        {headerItem.toUpperCase()}
+        <p className="mb-4">{headerItem.toUpperCase()}</p>
         {Inventory.map(item => {
           if (item.Room == headerItem && item.Units.includes(PropertyTypeRoomMap[data]))
             return (
-              <p>
+              <p className="mb-2">
                 {item.Quantity > 1 ? `${item.Quantity} x ` : null}
                 {item["Product Name"]}
               </p>
