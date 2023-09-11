@@ -14,7 +14,7 @@ export const LAData = () => {
           </tr>
         </table>
       </div>
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Unit specifications:</div>
+      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Unit specifications</div>
       <p className="px-4 md:px-0">
         Bedrooms: 3<br />
         Baths: 3.5
@@ -39,7 +39,7 @@ export const LAData = () => {
         <br />
         Appliances: Stainless steel Bosch
       </p>
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Districts and Zoning:</div>
+      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Districts and Zoning</div>
       <p className="px-4 md:px-0">
         Community District: 103 <br />
         Neighborhood Council: 44 - Echo Park
@@ -50,19 +50,19 @@ export const LAData = () => {
         <br />
         Parcel: 5406011019
       </p>
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">School District:</div>
+      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">School District</div>
       <p className="px-4 md:px-0">
         School District: Los Angeles Unified School District <br />
         Elementary: Logan Academy <br />
         High School: Belmont Senior High
       </p>
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Parks:</div>
+      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Parks</div>
       <p className="px-4 md:px-0">
         Elysian Park (0.1 miles) <br />
         Echo Park (0.6 miles) <br />
         Dodger Stadium (0.4 miles)
       </p>
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0"> Neighborhood History:</div>
+      <div className="mt-10 uppercase tracking-caps px-4 md:px-0"> Neighborhood History</div>
       <p className="px-4 md:px-0">
         Echo Park is a neighborhood in the east-central region of Los Angeles, California. Located
         to the northwest of Downtown, it is bordered by Silver Lake to the west and Chinatown to the
@@ -107,7 +107,7 @@ export const AllenData = ({ type, sqft }) => {
           </tr>
         </table>
       </div>
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Unit specifications:</div>
+      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Unit specifications</div>
       <p className="px-4 md:px-0">
         Bedrooms: {type == "1 bedroom" ? type : "Studio"}
         <br />
@@ -129,7 +129,7 @@ export const AllenData = ({ type, sqft }) => {
           ? "Laundry: En-suite Bosch washer/dryer"
           : "Outdoor space: En-suite full-door entry onto fire escape balcony overlooking Allen Street"}
       </p>
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Building specifications:</div>
+      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Building specifications</div>
       <p className="px-4 md:px-0">
         Type: Condominium <br />
         Built: 1900
@@ -161,7 +161,7 @@ export const AllenData = ({ type, sqft }) => {
         Fixtures: Porcelanosa <br />
         Outdoor space: En-suite full-door entry onto fire escape balcony overlooking Allen Street{" "}
       </p> */}
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Districts and zone:</div>
+      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Districts and zone</div>
       <p className="px-4 md:px-0">
         Community District: 103 <br />
         City Council District: 1 <br />
@@ -178,7 +178,7 @@ export const AllenData = ({ type, sqft }) => {
         <br />
         Middle school: M.S. 131 (06,07,08,SE)
       </p>
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Colleges:</div>
+      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Colleges</div>
       <p className="px-4 md:px-0">
         Cooper Union: 0.8 miles
         <br />
@@ -192,13 +192,13 @@ export const AllenData = ({ type, sqft }) => {
         <br />
         Columbia: 6.7 miles
       </p>
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Parks:</div>
+      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Parks</div>
       <p className="px-4 md:px-0">
         Sara D. Roosevelt Park: 0.13 miles <br />
         Seward Park: 0.16 miles <br />
         Straus ParK: 0.17 miles{" "}
       </p>
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Museums:</div>
+      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Museums</div>
       <p className="px-4 md:px-0">
         Tenement Museum: 0.17 miles
         <br />
