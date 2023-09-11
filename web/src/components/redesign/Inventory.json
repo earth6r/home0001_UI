@@ -29,7 +29,7 @@
       "Furniture Type": "Shower Gel",
       "Room": "Bathroom",
       "Units": "3B, 4A, 6B, LA",
-      "Quantity": 3
+      "Quantity": 1
     },
     {
       "Status": "Available",
@@ -37,7 +37,7 @@
       "Furniture Type": "Shampoo",
       "Room": "Bathroom",
       "Units": "3B, 4A, 6B, LA",
-      "Quantity": 3
+      "Quantity": 1
     },
     {
       "Status": "Available",
@@ -45,7 +45,7 @@
       "Furniture Type": "Conditioner",
       "Room": "Bathroom",
       "Units": "3B, 4A, 6B, LA",
-      "Quantity": 3
+      "Quantity": 1
     },
     {
       "Status": "Available",
@@ -117,7 +117,7 @@
       "Furniture Type": "Pillow",
       "Room": "Bedroom",
       "Units": "3B, 4A, 6B, LA",
-      "Quantity": 6
+      "Quantity": 2
     },
     {
       "Status": "Available",
@@ -125,7 +125,7 @@
       "Furniture Type": "Mattress",
       "Room": "Bedroom",
       "Units": "3B, 4A, 6B, LA",
-      "Quantity": 3
+      "Quantity": 1
     },
     {
       "Status": "Available",
@@ -133,7 +133,7 @@
       "Furniture Type": "European Square Pillows",
       "Room": "Bedroom",
       "Units": "3B, 4A, 6B, LA",
-      "Quantity": 1
+      "Quantity": 2
     },
     {
       "Status": "Available",
@@ -141,11 +141,11 @@
       "Furniture Type": "Cozy Earth Bedding",
       "Room": "Bedroom",
       "Units": "3B, 4A, 6B, LA",
-      "Quantity": 1
+      "Quantity": 2
     },
     {
       "Status": "",
-      "Product Name": "Cozy Earth Duvet",
+      "Product Name": "Cozy Earth Down Duvet",
       "Furniture Type": "Cozy Earth Bedding",
       "Room": "Bedroom",
       "Units": "3B, 4A, 6B, LA",
@@ -181,7 +181,7 @@
       "Furniture Type": "Kettle",
       "Room": "Kitchen",
       "Units": "4A",
-      "Quantity": 3
+      "Quantity": 1
     },
     {
       "Status": "Available",
@@ -189,7 +189,7 @@
       "Furniture Type": "Toaster",
       "Room": "Kitchen",
       "Units": "4A, 6B",
-      "Quantity": 3
+      "Quantity": 1
     },
     {
       "Status": "Available",
@@ -237,7 +237,7 @@
       "Furniture Type": "Cutlery Tray",
       "Room": "Kitchen",
       "Units": "4A",
-      "Quantity": 3
+      "Quantity": 1
     },
     {
       "Status": "Available",
@@ -245,23 +245,23 @@
       "Furniture Type": "Cookware",
       "Room": "Kitchen",
       "Units": "3B, 4A, 6B",
-      "Quantity": 3
+      "Quantity": 1
     },
     {
       "Status": "Available",
-      "Product Name": "8 x Duralex USA Provence Tumblers 10oz",
+      "Product Name": "Duralex USA Provence Tumblers 10oz",
       "Furniture Type": "Glasses",
       "Room": "Kitchen",
       "Units": "3B, 4A, 6B",
-      "Quantity": 3
+      "Quantity": 8
     },
     {
       "Status": "Available",
-      "Product Name": "8 x Iitala Teema Dinnerware (Dinner Plates, Salad Plates, Breakfast Bowls, Large Bowls)",
+      "Product Name": "Iitala Teema Dinnerware (Dinner Plates, Salad Plates, Breakfast Bowls, Large Bowls)",
       "Furniture Type": "Plates",
       "Room": "Kitchen",
       "Units": "4A, 6B, 3B",
-      "Quantity": 2
+      "Quantity": 16
     },
     {
       "Status": "Available",
@@ -269,7 +269,7 @@
       "Furniture Type": "Plates",
       "Room": "Kitchen",
       "Units": "LA",
-      "Quantity": 2
+      "Quantity": 1
     },
     {
       "Status": "Available",
@@ -301,7 +301,7 @@
       "Furniture Type": "Coffee Maker",
       "Room": "Kitchen",
       "Units": "3B, 4A, 6B",
-      "Quantity": 3
+      "Quantity": 1
     },
     {
       "Status": "Available",
@@ -309,7 +309,7 @@
       "Furniture Type": "Rice Cooker",
       "Room": "Kitchen",
       "Units": "3B, 4A, 6B",
-      "Quantity": 3
+      "Quantity": 1
     },
     {
       "Status": "Available",
@@ -437,15 +437,23 @@
       "Furniture Type": "Mirror",
       "Room": "Living",
       "Units": "3B, 4A, 6B",
-      "Quantity": 3
+      "Quantity": 1
     },
     {
       "Status": "Available",
-      "Product Name": "Artek Stool 60 by Alvar Aalto",
+      "Product Name": "Artek Stool 60",
       "Furniture Type": "Stool",
       "Room": "Living",
       "Units": "3B, 4A, 6B",
-      "Quantity": 7
+      "Quantity": 2
+    },
+    {
+      "Status": "Available",
+      "Product Name": "Artek Stool 60",
+      "Furniture Type": "Stool",
+      "Room": "Bedroom",
+      "Units": "6B",
+      "Quantity": 1
     },
     {
       "Status": "Available",
@@ -469,7 +477,7 @@
       "Furniture Type": "Rug",
       "Room": "Living",
       "Units": "3B, 4A",
-      "Quantity": 3
+      "Quantity": 1
     },
     {
       "Status": "Available",
@@ -477,7 +485,7 @@
       "Furniture Type": "Shelf",
       "Room": "Living",
       "Units": "3B, 4A, 6B",
-      "Quantity": 3
+      "Quantity": 1
     },
     {
       "Status": "Available",
@@ -485,7 +493,7 @@
       "Furniture Type": "TV",
       "Room": "Living",
       "Units": "3B, 4A, 6B",
-      "Quantity": 3
+      "Quantity": 1
     },
     {
       "Status": "Available",
@@ -493,7 +501,7 @@
       "Furniture Type": "Lamp4",
       "Room": "Living",
       "Units": "3B, 4A, 6B",
-      "Quantity": 5
+      "Quantity": 2
     },
     {
       "Status": "Available",
@@ -501,7 +509,7 @@
       "Furniture Type": "Speaker",
       "Room": "Living",
       "Units": "3B, 4A, 6B",
-      "Quantity": 3
+      "Quantity": 1
     },
     {
       "Status": "Available",
@@ -509,7 +517,7 @@
       "Furniture Type": "First Aid Kit",
       "Room": "Living",
       "Units": "3B, 4A, 6B",
-      "Quantity": 3
+      "Quantity": 1
     },
     {
       "Status": "Available",
@@ -581,7 +589,7 @@
       "Furniture Type": "6B stool",
       "Room": "Living",
       "Units": "6B",
-      "Quantity": 3
+      "Quantity": 2
     },
     {
       "Status": "Available",
@@ -613,6 +621,6 @@
       "Furniture Type": "Tools",
       "Room": "Utility Closet",
       "Units": "3B, 4A, 6B",
-      "Quantity": 3
+      "Quantity": 1
     }
   ]
