@@ -140,8 +140,8 @@ module.exports = {
       "sub-i-6": "360px",
       tiny: "460px",
       sm: "640px",
-      md: "768px",
-      lg: "1024px",
+      md: "1024px",
+      lg: "1200px",
       "max-font": "1083px",
       xl: "1280px",
       "2xl": "1536px"
