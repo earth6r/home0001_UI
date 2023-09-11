@@ -5,7 +5,7 @@
     "Furniture Type": "Soap",
     "Room": "Bathroom",
     "Units": "3B, 4A, 6B, LA",
-    "Quantity": 6
+    "Quantity": 1
   },
   {
     "Status": "Available",
@@ -37,7 +37,7 @@
     "Furniture Type": "Toilet Brush",
     "Room": "Bathroom",
     "Units": "3B, 4A, 6B, LA",
-    "Quantity": 6
+    "Quantity": 1
   },
   {
     "Status": "Available",
