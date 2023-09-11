@@ -4,8 +4,38 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/zoom";
 import { Zoom, Navigation } from "swiper/modules";
+import PhotoSwipe from "photoswipe";
+import PhotoSwipeLightbox from "photoswipe/dist/photoswipe-lightbox.esm.js";
+import "photoswipe/style.css";
 
 export const ImageSlider = ({ images }) => {
+  const photo_swipe_options = {
+    gallery: "#swiper-gallery",
+    pswpModule: PhotoSwipe,
+    // set background opacity
+    bgOpacity: 1,
+    showHideOpacity: true,
+    children: "a",
+    loop: true,
+    showHideAnimationType: "zoom" /* options: fade, zoom, none */,
+
+    /* Click on image moves to the next slide */
+    imageClickAction: "next",
+    tapAction: "next",
+
+    /* ## Hiding a specific UI element ## */
+    zoom: false,
+    close: true,
+    counter: true,
+    arrowKeys: true,
+    /* ## Options ## */
+    bgOpacity: "1" /* deafult: 0.8 */,
+    wheelToZoom: true /* deafult: undefined */
+  };
+
+  const lightbox = new PhotoSwipeLightbox(photo_swipe_options);
+  lightbox.init();
+
   const swiperRef = useRef();
   useEffect(() => {
     swiperRef.current.slideTo(0);
@@ -25,15 +55,16 @@ export const ImageSlider = ({ images }) => {
 
   return (
     <>
-      <div className="relative image-slider">
-        <div
+      <div className="relative image-slider" id={"swiper-gallery"}>
+        {/* <div
           className="hidden md:block cursor-pointer w-1/2 h-full absolute top-0 left-0 z-10"
           onClick={() => swiperRef.current.slidePrev()}
         />
         <div
           className="hidden md:block cursor-pointer w-1/2 h-full absolute top-0 right-0 z-10"
           onClick={() => swiperRef.current.slideNext()}
-        />
+        /> */}
+
         <Swiper
           zoom={true}
           loop={true}
