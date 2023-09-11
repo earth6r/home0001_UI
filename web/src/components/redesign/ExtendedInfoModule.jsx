@@ -50,7 +50,7 @@ export const ExtendedInfoModule = data => {
           onClick={onOpenModal}
           className="mb-9 text-center outline-none mt-9 tracking-caps uppercase block w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-mobile-body md:text-desktop-body bg-white text-black mb-10"
         >
-          VIEW EXTENDED INFORMATION
+          FACT SHEET
         </button>
       </div>
 
