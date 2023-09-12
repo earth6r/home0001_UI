@@ -34,7 +34,7 @@ export const ExtendedInfoModule = data => {
             <p className="uppercase">
               {type == "studio" || type == "studio max" || type == "1 bedroom"
                 ? "48 ALLEN ST"
-                : "1308 DOUGLAS ST"}
+                : "1322 DOUGLAS ST"}
             </p>
             <p className="uppercase">{type}</p>
           </div>

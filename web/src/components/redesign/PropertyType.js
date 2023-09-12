@@ -90,12 +90,12 @@ export const PropertyTypeUI = ({
                   <p className="m-0 uppercase tracking-caps">
                     {
                       (selectedPropertyType.property.title =
-                        "1308 DOUGLAS ST." &&
+                        "1322 DOUGLAS ST." &&
                         selectedPropertyType.propertyType == "two-bedrooms" ? (
                           <span>TOWNHOUSE&nbsp;&mdash;&nbsp;#6</span>
                         ) : (
                           (selectedPropertyType.property.title =
-                            "1308 DOUGLAS ST." &&
+                            "1322 DOUGLAS ST." &&
                             selectedPropertyType.propertyType == "penthouse" ? (
                               <span>TOWNHOUSE&nbsp;&mdash;&nbsp;#7</span>
                             ) : (
