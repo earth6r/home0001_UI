@@ -119,7 +119,7 @@ export const AllenData = ({ type, sqft }) => {
         Cooling: Central
         <br />
         Stove: Summit electric <br />
-        Oven: stainless steel Bosch
+        Oven: Stainless steel Bosch
         <br />
         Refrigerator: Blomberg
         <br />
@@ -135,7 +135,7 @@ export const AllenData = ({ type, sqft }) => {
         Built: 1900
         <br />
         Renovated: 2021-’23 <br />
-        Elevator building: yes
+        Elevator building: Yes
         <br />
         Floors: 7 story <br />
         Heating: Central
@@ -150,17 +150,7 @@ export const AllenData = ({ type, sqft }) => {
         <br />
         Parking: Monthly parking lot across street
       </p>
-      {/* <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Unit specifications:</div>
-      <p className="px-4 md:px-0">
-        Heating: Central <br />
-        Cooling: Central <br />
-        Stove: Summit electric <br />
-        Oven: stainless steel Bosch <br />
-        Refrigerator: Blomberg <br />
-        Cabinets: Alta Cucina kitchen <br />
-        Fixtures: Porcelanosa <br />
-        Outdoor space: En-suite full-door entry onto fire escape balcony overlooking Allen Street{" "}
-      </p> */}
+
       <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Districts and zone</div>
       <p className="px-4 md:px-0">
         Community District: 103 <br />
