@@ -4,7 +4,7 @@ const propertyTaxChart = { "1 bedroom": "$1,183.53", studio: "$564.35", "studio 
 
 export const LAData = () => {
   return (
-    <div className="pb-10">
+    <div className="pb-10" id="buyers-guide">
       <div className=" mt-10 uppercase tracking-caps px-4 md:px-0">
         Taxes and Fees
         <table>
@@ -15,30 +15,53 @@ export const LAData = () => {
         </table>
       </div>
       <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Unit specifications</div>
-      <p className="px-4 md:px-0">
-        Bedrooms: 3<br />
-        Baths: 3.5
-        <br />
-        Sq Ft: 1,983
-        <br />
-        Built: 2023
-        <br />
-        Heating: Central
-        <br />
-        Cooling: Central
-        <br />
-        Bedrooms: 3<br />
-        Bathrooms: 3.5
-        <br />
-        Pets: Allowed <br />
-        Solar: Rooftop solar
-        <br />
-        Parking: Two-car garage
-        <br />
-        Amenities: Full private roof deck
-        <br />
-        Appliances: Stainless steel Bosch
-      </p>
+      <table>
+        <tr>
+          <td>Bedrooms:</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>Bath:</td>
+          <td>3.5</td>
+        </tr>
+        <tr>
+          <td>Sq Ft:</td>
+          <td>1,983</td>
+        </tr>
+        <tr>
+          <td>Built:</td>
+          <td>2023</td>
+        </tr>
+        <tr>
+          <td>Heating:</td>
+          <td>Central</td>
+        </tr>
+        <tr>
+          <td>Cooling:</td>
+          <td>Central</td>
+        </tr>
+        <tr>
+          <td>Pets:</td>
+          <td>Allowed</td>
+        </tr>
+        <tr>
+          <td>Solar:</td>
+          <td>Rooftop solar</td>
+        </tr>
+        <tr>
+          <td>Parking:</td>
+          <td>Two-car garage</td>
+        </tr>
+        <tr>
+          <td>Amenities:</td>
+          <td>Full private roof deck</td>
+        </tr>
+        <tr>
+          <td>Appliances:</td>
+          <td>Stainless steel Bosch</td>
+        </tr>
+      </table>
+
       <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Districts and Zoning</div>
       <p className="px-4 md:px-0">
         Community District: 103 <br />
