@@ -5,32 +5,14 @@ import "swiper/css";
 import "swiper/css/zoom";
 import { Zoom, Navigation } from "swiper/modules";
 import PhotoSwipe from "photoswipe";
-import PhotoSwipeLightbox from "photoswipe/dist/photoswipe-lightbox.esm.js";
+import PhotoSwipeLightbox from "/photoswipe/photoswipe-lightbox.esm.js";
 import "photoswipe/style.css";
 
 export const ImageSlider = ({ images }) => {
-  const photo_swipe_options = {
-    gallery: "#swiper-gallery",
+  const external_photo_swipe_options = {
+    dataSource: items,
     pswpModule: PhotoSwipe,
-    // set background opacity
-    bgOpacity: 1,
-    showHideOpacity: true,
-    children: "a",
-    loop: true,
-    showHideAnimationType: "zoom" /* options: fade, zoom, none */,
-
-    /* Click on image moves to the next slide */
-    imageClickAction: "next",
-    tapAction: "next",
-
-    /* ## Hiding a specific UI element ## */
-    zoom: false,
-    close: true,
-    counter: true,
-    arrowKeys: true,
-    /* ## Options ## */
-    bgOpacity: "1" /* deafult: 0.8 */,
-    wheelToZoom: true /* deafult: undefined */
+    showHideAnimationType: "none"
   };
 
   const lightbox = new PhotoSwipeLightbox(photo_swipe_options);
@@ -45,6 +27,20 @@ export const ImageSlider = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentCaption, setCurrentCaption] = useState(0);
 
+  const items = images.map((image, index) => ({
+    src: imageUrlFor(image.image)
+      .width(1000)
+      .auto("format")
+      .url(),
+    w: "1000px",
+    h: "2000px",
+    alt: ""
+  }));
+  const openLightbox = index => {
+    if (lightbox) {
+      lightbox.loadAndOpen(index);
+    }
+  };
   useEffect(() => {
     if (images[currentIndex]?.caption) {
       setTimeout(() => setCurrentCaption(images[currentIndex]?.caption), 250);
@@ -55,7 +51,7 @@ export const ImageSlider = ({ images }) => {
 
   return (
     <>
-      <div className="relative image-slider" id={"swiper-gallery"}>
+      <div className="relative image-slider">
         {/* <div
           className="hidden md:block cursor-pointer w-1/2 h-full absolute top-0 left-0 z-10"
           onClick={() => swiperRef.current.slidePrev()}
@@ -66,6 +62,7 @@ export const ImageSlider = ({ images }) => {
         /> */}
 
         <Swiper
+          id="swiper-gallery"
           zoom={true}
           loop={true}
           onSwiper={swiper => {
@@ -78,7 +75,7 @@ export const ImageSlider = ({ images }) => {
           {images?.map((image, index) =>
             image.image?.asset ? (
               <SwiperSlide>
-                <div className="swiper-zoom-container">
+                <div id="img_container" className="swiper-zoom-container">
                   <img
                     key={index}
                     className="max-w-[560px] md:max-w-[unset] px-4 h-full w-full object-cover"
@@ -87,6 +84,7 @@ export const ImageSlider = ({ images }) => {
                       .auto("format")
                       .url()}
                     alt=""
+                    onClick={() => openLightbox(index)}
                   />
                 </div>
               </SwiperSlide>
