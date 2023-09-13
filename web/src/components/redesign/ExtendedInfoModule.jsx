@@ -45,22 +45,13 @@ export const ExtendedInfoModule = data => {
           )}
         </div>
       </Modal>
-      <div className="pr-mobile-menu md:pr-0">
+      <div className="pr-mobile-menu md:pr-0 pb-4">
         <button
           onClick={onOpenModal}
-          className="mb-9 text-center outline-none mt-9 tracking-caps uppercase block w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-mobile-body md:text-desktop-body bg-white text-black mb-10"
+          className="hover:font-bold border-b-[1.5px] border-solid text-mobile-body md:text-desktop-body"
         >
-          FACT SHEET
+          View fact sheet
         </button>
-      </div>
-
-      <div>
-        <p>THE 0001 HOUSING NETWORK</p>
-        <p>
-          Home0001 is a distributed housing collective: in addition to community dinners and events,
-          homeowners get access to 0001 homes in other cities for free. No nightly rate; just a
-          cleaning fee each time. Own one home; live flexibly between multiple locations.
-        </p>
       </div>
     </>
   );

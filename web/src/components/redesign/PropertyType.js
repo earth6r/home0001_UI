@@ -166,7 +166,14 @@ export const PropertyTypeUI = ({
               </div>
             )}
           </div>
-
+          <div>
+            <ExtendedInfoModule
+              data={{
+                type: selectedPropertyType.propertyType,
+                sqft: selectedPropertyType.area
+              }}
+            />
+          </div>
           <div>
             <InventoryModule
               title={property.title}
@@ -175,7 +182,6 @@ export const PropertyTypeUI = ({
               viewInventoryText={"View sample inventory"}
             />
           </div>
-
           {selectedPropertyType.moreImages?.length ? (
             <div className="w-full mt-10">
               {selectedPropertyType.propertyType === "two-bedrooms" ||
@@ -193,27 +199,12 @@ export const PropertyTypeUI = ({
               )}
             </div>
           ) : null}
-          {property.city.title == "LA" ? (
-            <ExtendedInfoModule
-              data={{
-                type: selectedPropertyType.propertyType,
-                sqft: selectedPropertyType.area
-              }}
-            />
-          ) : null}
           {selectedPropertyType?._rawDescriptionTwo?.text && (
             <div className="mt-10 pr-mobile-menu md:pr-0 text-mobile-body md:text-desktop-body property-type-description">
               <StandardText data={selectedPropertyType?._rawDescriptionTwo} />
             </div>
           )}
-          {property.city.title != "LA" ? (
-            <ExtendedInfoModule
-              data={{
-                type: selectedPropertyType.property.title,
-                sqft: selectedPropertyType.area
-              }}
-            />
-          ) : null}
+          s
           <HowItWorksModal data={howItWorks} />
         </>
       ) : null}
