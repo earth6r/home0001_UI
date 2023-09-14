@@ -48,6 +48,7 @@ body {
   -moz-font-feature-settings: "kern" 1, "dlig" 1;
 }
 
+
 button {
   text-rendering: optimizeLegibility;
   -webkit-tap-highlight-color: transparent!important;
@@ -147,6 +148,20 @@ small {
 .hide-intercom .intercom-lightweight-app,
 .hide-intercom .intercom-app {
   display: none;
+}
+
+.buyers_guide {
+  @apply grid;
+  @apply grid-flow-col;
+  grid-template-columns: 1fr 3fr;
+}
+
+@media screen and (max-width: 768px) {
+  .buyers_guide {
+    @apply grid;
+    @apply grid-flow-col;
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .instagram-logo {

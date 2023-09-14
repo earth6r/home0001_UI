@@ -5,64 +5,45 @@ const propertyTaxChart = { "1 bedroom": "$1,183.53", studio: "$564.35", "studio 
 export const LAData = () => {
   return (
     <div className="pb-10" id="buyers-guide">
-      <div className=" mt-10 uppercase tracking-caps px-4 md:px-0">
-        Taxes and Fees
-        <table>
-          <tr>
-            <td className="pr-10">Property Tax (monthly):</td>
-            <td>$1,614.58</td>
-          </tr>
-        </table>
+      <div className="mt-10 mb-4 uppercase px-4 md:px-0">Taxes and Fees</div>
+      <div className="px-4 buyers_guide">
+        <ul>
+          <li>Property Tax (monthly):</li>
+        </ul>
+        <ul>
+          <li>$1,614.58</li>
+        </ul>
       </div>
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Unit specifications</div>
-      <table>
-        <tr>
-          <td>Bedrooms:</td>
-          <td>3</td>
-        </tr>
-        <tr>
-          <td>Bath:</td>
-          <td>3.5</td>
-        </tr>
-        <tr>
-          <td>Sq Ft:</td>
-          <td>1,983</td>
-        </tr>
-        <tr>
-          <td>Built:</td>
-          <td>2023</td>
-        </tr>
-        <tr>
-          <td>Heating:</td>
-          <td>Central</td>
-        </tr>
-        <tr>
-          <td>Cooling:</td>
-          <td>Central</td>
-        </tr>
-        <tr>
-          <td>Pets:</td>
-          <td>Allowed</td>
-        </tr>
-        <tr>
-          <td>Solar:</td>
-          <td>Rooftop solar</td>
-        </tr>
-        <tr>
-          <td>Parking:</td>
-          <td>Two-car garage</td>
-        </tr>
-        <tr>
-          <td>Amenities:</td>
-          <td>Full private roof deck</td>
-        </tr>
-        <tr>
-          <td>Appliances:</td>
-          <td>Stainless steel Bosch</td>
-        </tr>
-      </table>
-
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Districts and Zoning</div>
+      <div className="mt-10 mb-4 uppercase px-4 md:px-0">Unit specifications</div>
+      <div className="px-4 buyers_guide">
+        <ul>
+          <li>Bedrooms:</li>
+          <li>Bath:</li>
+          <li>Sq Ft:</li>
+          <li>Built:</li>
+          <li>Heating:</li>
+          <li>Cooling:</li>
+          <li>Pets:</li>
+          <li>Solar:</li>
+          <li>Parking:</li>
+          <li>Amenities:</li>
+          <li>Appliances:</li>
+        </ul>
+        <ul>
+          <li>3</li>
+          <li>3.5</li>
+          <li>1,983</li>
+          <li>2023</li>
+          <li>Central</li>
+          <li>Central</li>
+          <li>Allowed</li>
+          <li>Rooftop solar</li>
+          <li>Two-car garage</li>
+          <li>Full private roof deck</li>
+          <li>Stainless steel Bosch</li>
+        </ul>
+      </div>
+      <div className="mt-10 mb-4 uppercase tracking-caps px-4 md:px-0">Districts and Zoning</div>
       <p className="px-4 md:px-0">
         Community District: 103 <br />
         Neighborhood Council: 44 - Echo Park
@@ -73,19 +54,19 @@ export const LAData = () => {
         <br />
         Parcel: 5406011019
       </p>
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">School District</div>
+      <div className="mt-10 mb-4 uppercase tracking-caps px-4 md:px-0">School District</div>
       <p className="px-4 md:px-0">
         School District: Los Angeles Unified School District <br />
         Elementary: Logan Academy <br />
         High School: Belmont Senior High
       </p>
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Parks</div>
+      <div className="mt-10 mb-4 uppercase tracking-caps px-4 md:px-0">Parks</div>
       <p className="px-4 md:px-0">
         Elysian Park (0.1 miles) <br />
         Echo Park (0.6 miles) <br />
         Dodger Stadium (0.4 miles)
       </p>
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0"> Neighborhood History</div>
+      <div className="mt-10 mb-4 uppercase tracking-caps px-4 md:px-0"> Neighborhood History</div>
       <p className="px-4 md:px-0">
         Echo Park is a neighborhood in the east-central region of Los Angeles, California. Located
         to the northwest of Downtown, it is bordered by Silver Lake to the west and Chinatown to the
