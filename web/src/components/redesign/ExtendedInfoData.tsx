@@ -1,6 +1,6 @@
 import React from "react";
-const commonPriceChart = { "1 bedroom": "$1,560.28", studio: "$744.01", "studio max": "$761.64" };
-const propertyTaxChart = { "1 bedroom": "$1,183.53", studio: "$564.35", "studio max": "$577.72" };
+const commonPriceChart = { "one-bedroom": "$1,560.28", studio: "$744.01", "studio-max": "$761.64" };
+const propertyTaxChart = { "one-bedroom": "$1,183.53", studio: "$564.35", "studio-max": "$577.72" };
 
 export const LAData = () => {
   return (
