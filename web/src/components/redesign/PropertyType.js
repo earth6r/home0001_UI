@@ -204,7 +204,7 @@ export const PropertyTypeUI = ({
               <StandardText data={selectedPropertyType?._rawDescriptionTwo} />
             </div>
           )}
-          s
+
           <HowItWorksModal data={howItWorks} />
         </>
       ) : null}
