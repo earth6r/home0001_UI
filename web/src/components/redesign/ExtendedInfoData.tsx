@@ -240,7 +240,7 @@ export const AllenData = ({ type, sqft }) => {
       <div className="px-4 buyers_guide">
         <ul>
           <li>Tenement Museum:</li>
-          <li>New Museum of Contemporary Art:</li>
+          <li>New Museum:</li>
           <li>Museum Of Chinese In America:</li>
         </ul>
         <ul>
