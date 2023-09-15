@@ -32,6 +32,15 @@ export const ExtendedInfoModule = data => {
           <p className="px-4 md:px-0 uppercase">Fact Sheet</p>
           <div className="mt-10 tracking-caps px-4 md:px-0">
             <p className="uppercase">
+              {type == "studio"
+                ? "STUDIO - UNIT 3B"
+                : type == "studio-max"
+                ? "STUDIO MAX - UNIT 4A"
+                : type == "one-bedroom"
+                ? "1 BEDROOM - UNIT 6B"
+                : "TOWNHOUSE – #6"}
+            </p>
+            <p className="uppercase">
               {type == "studio" || type == "studio-max" || type == "one-bedroom"
                 ? "48 ALLEN ST"
                 : "1322 DOUGLAS ST"}
