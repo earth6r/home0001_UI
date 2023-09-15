@@ -315,6 +315,7 @@ function LayoutContainer(props) {
   function handleHideSubNav() {
     setShowSubNav(2);
   }
+
   return (
     <StaticQuery
       query={query}

@@ -132,8 +132,6 @@ const HomeRedesignPage = ({ location, data }) => {
 
   const reserveHomeRef = createRef();
 
-  const [isIgBrowser, setIsIgBrowser] = useState(false);
-
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     const property = searchParams.get("property");
@@ -157,10 +155,6 @@ const HomeRedesignPage = ({ location, data }) => {
         }
       }
     }
-
-    let ua = navigator.userAgent || navigator.vendor || window.opera;
-    let isInstagram = ua.indexOf("Instagram") > -1 ? true : false;
-    setIsIgBrowser(isInstagram);
   }, []);
 
   useEffect(() => {

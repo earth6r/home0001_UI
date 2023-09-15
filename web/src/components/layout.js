@@ -40,9 +40,13 @@ const Layout = ({
 }) => {
   const { menuOpened, selectedCity } = useContext(HomesContext);
   const [showPage, setShowPage] = useState(false);
+  const [isIgBrowser, setIsIgBrowser] = useState(false);
 
   useEffect(() => {
     setShowPage(true);
+    let ua = navigator.userAgent || navigator.vendor || window.opera;
+    let isInstagram = ua.indexOf("Instagram") > -1 ? true : false;
+    setIsIgBrowser(isInstagram);
   }, []);
 
   useEffect(() => {
@@ -91,7 +95,7 @@ const Layout = ({
   const showHomesFooter = pathname !== "" || selectedCity?.id;
 
   return (
-    <div className="flex flex-col justify-between h-full">
+    <div className={`flex flex-col justify-between h-full ${isIgBrowser ? "mt-20" : null}`}>
       {rnd ? (
         <HeaderRnd
           showThinBanner={showThinBanner}
