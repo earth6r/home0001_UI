@@ -5,8 +5,8 @@ const propertyTaxChart = { "one-bedroom": "$1,183.53", studio: "$564.35", "studi
 export const LAData = () => {
   return (
     <div className="pb-10" id="buyers-guide">
-      <div className="mt-10 uppercase px-4 md:px-0">Taxes and Fees (Estimated)</div>
-      <div className="px-4 buyers_guide">
+      <div className="mt-10 mb-4 uppercase px-4 md:px-0">Taxes and Fees (Estimated)</div>
+      <div className="px-4 md:px-0 buyers_guide">
         <ul>
           <li>Property Tax (monthly):</li>
         </ul>
@@ -14,8 +14,8 @@ export const LAData = () => {
           <li>$1,614.58</li>
         </ul>
       </div>
-      <div className="mt-10 uppercase px-4 md:px-0">Unit specifications</div>
-      <div className="px-4 buyers_guide">
+      <div className="mt-10 mb-4 uppercase px-4 md:px-0">Unit specifications</div>
+      <div className="px-4 md:px-0 buyers_guide">
         <ul>
           <li>Bedrooms:</li>
           <li>Bath:</li>
@@ -43,8 +43,8 @@ export const LAData = () => {
           <li>Stainless steel Bosch</li>
         </ul>
       </div>
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Districts and Zoning</div>
-      <div className="px-4 buyers_guide">
+      <div className="mt-10 mb-4 uppercase tracking-caps px-4 md:px-0">Districts and Zoning</div>
+      <div className="px-4 md:px-0 buyers_guide">
         <ul>
           <li>Community District:</li>
           <li>Neighborhood Council:</li>
@@ -63,8 +63,8 @@ export const LAData = () => {
         </ul>
       </div>
 
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">School District</div>
-      <div className="px-4 buyers_guide">
+      <div className="mt-10 mb-4 uppercase tracking-caps px-4 md:px-0">School District</div>
+      <div className="px-4 md:px-0 buyers_guide">
         <ul>
           <li>School District:</li>
           <li>Elementary:</li>
@@ -76,8 +76,8 @@ export const LAData = () => {
           <li>Belmont Senior High</li>
         </ul>
       </div>
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Parks</div>
-      <div className="px-4 buyers_guide">
+      <div className="mt-10 mb-4 uppercase tracking-caps px-4 md:px-0">Parks</div>
+      <div className="px-4 md:px-0 buyers_guide">
         <ul>
           <li>Elysian Park:</li>
           <li>Echo Park:</li>
@@ -95,8 +95,10 @@ export const LAData = () => {
 export const AllenData = ({ type, sqft }) => {
   return (
     <div className="pb-10">
-      <div className=" mt-10 uppercase tracking-caps px-4 md:px-0">Taxes and Fees (Estimated)</div>
-      <div className="px-4 buyers_guide">
+      <div className=" mt-10 mb-4 uppercase tracking-caps px-4 md:px-0">
+        Taxes and Fees (Estimated)
+      </div>
+      <div className="px-4 md:px-0 buyers_guide">
         <ul>
           <li>Common Charges:</li>
           <li>Property Tax:</li>
@@ -107,8 +109,8 @@ export const AllenData = ({ type, sqft }) => {
         </ul>
       </div>
 
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Unit specifications</div>
-      <div className="px-4 buyers_guide">
+      <div className="mt-10 mb-4 uppercase tracking-caps px-4 md:px-0">Unit specifications</div>
+      <div className="px-4 md:px-0  buyers_guide">
         <ul>
           <li>Bedrooms:</li>
           <li>Bath:</li>
@@ -140,8 +142,8 @@ export const AllenData = ({ type, sqft }) => {
           )}
         </ul>
       </div>
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Building specifications</div>
-      <div className="px-4 buyers_guide">
+      <div className="mt-10 mb-4 uppercase tracking-caps px-4 md:px-0">Building specifications</div>
+      <div className="px-4 md:px-0 buyers_guide">
         <ul>
           <li>Type:</li>
           <li>Built:</li>
@@ -172,8 +174,8 @@ export const AllenData = ({ type, sqft }) => {
         </ul>
       </div>
 
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Districts and zone</div>
-      <div className="px-4 buyers_guide">
+      <div className="mt-10 mb-4 uppercase tracking-caps px-4 md:px-0">Districts and zone</div>
+      <div className="px-4 md:px-0 buyers_guide">
         <ul>
           <li>Community District:</li>
           <li>City Council District:</li>
@@ -191,8 +193,8 @@ export const AllenData = ({ type, sqft }) => {
           <li>308 / Lot 23</li>
         </ul>
       </div>
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Education</div>
-      <div className="px-4 buyers_guide">
+      <div className="mt-10 mb-4 uppercase tracking-caps px-4 md:px-0">Education</div>
+      <div className="px-4 md:px-0 buyers_guide">
         <ul>
           <li>School District:</li>
           <li>Elementary:</li>
@@ -204,8 +206,8 @@ export const AllenData = ({ type, sqft }) => {
           <li>M.S. 131 (06,07,08,SE)</li>
         </ul>
       </div>
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Colleges</div>
-      <div className="px-4 buyers_guide">
+      <div className="mt-10 mb-4 uppercase tracking-caps px-4 md:px-0">Colleges</div>
+      <div className="px-4 md:px-0 buyers_guide">
         <ul>
           <li>Cooper Union:</li>
           <li>Pace University:</li>
@@ -223,8 +225,8 @@ export const AllenData = ({ type, sqft }) => {
           <li>6.7 miles</li>
         </ul>
       </div>
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Parks</div>
-      <div className="px-4 buyers_guide">
+      <div className="mt-10 mb-4 uppercase tracking-caps px-4 md:px-0">Parks</div>
+      <div className="px-4 md:px-0 buyers_guide">
         <ul>
           <li>Sara D. Roosevelt Park:</li>
           <li>Seward Park:</li>
@@ -236,8 +238,8 @@ export const AllenData = ({ type, sqft }) => {
           <li>0.17 miles</li>
         </ul>
       </div>
-      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Museums</div>
-      <div className="px-4 buyers_guide">
+      <div className="mt-10 mb-4 uppercase tracking-caps px-4 md:px-0">Museums</div>
+      <div className="px-4 md:px-0 buyers_guide">
         <ul>
           <li>Tenement Museum:</li>
           <li>New Museum:</li>
