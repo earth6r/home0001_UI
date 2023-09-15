@@ -5,7 +5,7 @@ const propertyTaxChart = { "one-bedroom": "$1,183.53", studio: "$564.35", "studi
 export const LAData = () => {
   return (
     <div className="pb-10" id="buyers-guide">
-      <div className="mt-10 mb-4 uppercase px-4 md:px-0">Taxes and Fees</div>
+      <div className="mt-10 uppercase px-4 md:px-0">Taxes and Fees</div>
       <div className="px-4 buyers_guide">
         <ul>
           <li>Property Tax (monthly):</li>
@@ -14,7 +14,7 @@ export const LAData = () => {
           <li>$1,614.58</li>
         </ul>
       </div>
-      <div className="mt-10 mb-4 uppercase px-4 md:px-0">Unit specifications</div>
+      <div className="mt-10 uppercase px-4 md:px-0">Unit specifications</div>
       <div className="px-4 buyers_guide">
         <ul>
           <li>Bedrooms:</li>
@@ -43,7 +43,7 @@ export const LAData = () => {
           <li>Stainless steel Bosch</li>
         </ul>
       </div>
-      <div className="mt-10 mb-4 uppercase tracking-caps px-4 md:px-0">Districts and Zoning</div>
+      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Districts and Zoning</div>
       <div className="px-4 buyers_guide">
         <ul>
           <li>Community District:</li>
@@ -63,7 +63,7 @@ export const LAData = () => {
         </ul>
       </div>
 
-      <div className="mt-10 mb-4 uppercase tracking-caps px-4 md:px-0">School District</div>
+      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">School District</div>
       <div className="px-4 buyers_guide">
         <ul>
           <li>School District:</li>
@@ -76,7 +76,7 @@ export const LAData = () => {
           <li>Belmont Senior High</li>
         </ul>
       </div>
-      <div className="mt-10 mb-4 uppercase tracking-caps px-4 md:px-0">Parks</div>
+      <div className="mt-10 uppercase tracking-caps px-4 md:px-0">Parks</div>
       <div className="px-4 buyers_guide">
         <ul>
           <li>Elysian Park:</li>

@@ -29,7 +29,7 @@ export const ExtendedInfoModule = data => {
     <>
       <Modal isOpen={isOpen} onClose={onCloseModal}>
         <div className="py-6 md:py-10 md:px-10 h-full flex flex-col">
-          <p className="px-4 md:px-0 uppercase">Technical Information</p>
+          <p className="px-4 md:px-0 uppercase">Fact Sheet</p>
           <div className="mt-10 tracking-caps px-4 md:px-0">
             <p className="uppercase">
               {type == "studio" || type == "studio-max" || type == "one-bedroom"
@@ -48,9 +48,9 @@ export const ExtendedInfoModule = data => {
       <div className="pr-mobile-menu md:pr-0 pb-4">
         <button
           onClick={onOpenModal}
-          className="mb-9 text-center outline-none mt-9 tracking-caps uppercase block w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-mobile-body md:text-desktop-body bg-white text-black mb-10"
+          className="hover:font-bold border-b-[1.5px] border-solid text-mobile-body md:text-desktop-body"
         >
-          FACT SHEET
+          View fact sheet
         </button>
       </div>
     </>
