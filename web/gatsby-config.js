@@ -92,23 +92,17 @@ module.exports = {
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
-          "G-KEGLW66M2J" // GA4
-          // "G-5MVXFH60YX" // GA4 2
+          "G-KEGLW66M2J", // GA4
+          "GT-577MG9R"
         ],
-        // This object gets passed directly to the gtag config command
-        // This config will be shared across all trackingIds
         gtagConfig: {
           // optimize_id: "OPT-MWRZP22", // Google Optimize container ID
           anonymize_ip: true,
           cookie_expires: 0
         },
-        // This object is used for configuration specific to this plugin
         pluginConfig: {
-          // Puts tracking script in the head instead of the body
           head: true,
-          // Setting this parameter is also optional
           respectDNT: true
-          // Avoids sending pageview hits from custom paths
           // exclude: ["/preview/**", "/do-not-track/me/too/"],
         }
       }
