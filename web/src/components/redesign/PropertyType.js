@@ -176,7 +176,7 @@ export const PropertyTypeUI = ({
               viewInventoryText={"View sample inventory"}
             />
           </div>
-          <div className="pt-5">
+          <div className="">
             <ExtendedInfoModule
               data={{
                 type: selectedPropertyType.propertyType,

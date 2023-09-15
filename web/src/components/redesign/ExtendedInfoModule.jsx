@@ -53,10 +53,10 @@ export const ExtendedInfoModule = data => {
           )}
         </div>
       </Modal>
-      <div className="pr-mobile-menu md:pr-0 pb-4">
+      <div className="pr-mobile-menu md:pr-0">
         <button
           onClick={onOpenModal}
-          className="mb-2 text-center outline-none mt-9 tracking-caps uppercase block w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-mobile-body md:text-desktop-body bg-white text-black mb-10"
+          className="text-center outline-none mt-9 mb-9 tracking-caps uppercase block w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-mobile-body md:text-desktop-body bg-white text-black"
         >
           fact sheet
         </button>
