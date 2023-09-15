@@ -166,20 +166,21 @@ export const PropertyTypeUI = ({
               </div>
             )}
           </div>
-          <div>
-            <ExtendedInfoModule
-              data={{
-                type: selectedPropertyType.propertyType,
-                sqft: selectedPropertyType.area
-              }}
-            />
-          </div>
+
           <div>
             <InventoryModule
               title={property.title}
               propertyType={selectedPropertyType.propertyType}
               data={selectedPropertyType}
               viewInventoryText={"View sample inventory"}
+            />
+          </div>
+          <div className="py-10">
+            <ExtendedInfoModule
+              data={{
+                type: selectedPropertyType.propertyType,
+                sqft: selectedPropertyType.area
+              }}
             />
           </div>
           {selectedPropertyType.moreImages?.length ? (

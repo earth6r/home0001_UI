@@ -164,6 +164,10 @@ small {
   }
 }
 
+.buyers_guide li {
+  margin: 0.5em 0;
+}
+
 .instagram-logo {
   width: 20px;
   top: 0px;
