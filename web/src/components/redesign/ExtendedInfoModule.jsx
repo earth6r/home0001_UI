@@ -40,12 +40,11 @@ export const ExtendedInfoModule = data => {
                 ? "1 BEDROOM - UNIT 6B"
                 : "TOWNHOUSE – #6"}
             </p>
-            <p className="uppercase">
+            <p className="uppercase mt-4">
               {type == "studio" || type == "studio-max" || type == "one-bedroom"
                 ? "48 ALLEN ST"
                 : "1322 DOUGLAS ST"}
             </p>
-            <p className="uppercase">{type}</p>
           </div>
           {type == "two-bedrooms" || type == "penthouse" ? (
             <LAData type={type} sqft={sqft} />
