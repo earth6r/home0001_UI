@@ -307,14 +307,6 @@
     "Status": "Available",
     "Quantity": 1,
     "Product Name": "Hay Moiré Kelim Rug (Black)",
-    "Furniture Type": "6B rug",
-    "Room": "Bedroom",
-    "Units": "6B"
-  },
-  {
-    "Status": "Available",
-    "Quantity": 1,
-    "Product Name": "Hay Moiré Kelim Rug (Black)",
     "Furniture Type": "",
     "Room": "Bedroom",
     "Units": "LA"
@@ -514,7 +506,7 @@
   {
     "Status": "Available",
     "Quantity": 2,
-    "Product Name": "New Tendency ‘Meta’ Side Tables",
+    "Product Name": "New Tendency Meta Side Tables",
     "Furniture Type": "",
     "Room": "Living",
     "Units": "LA"
@@ -522,7 +514,7 @@
   {
     "Status": "Available",
     "Quantity": 1,
-    "Product Name": "New Tendency Float Shelf Grey",
+    "Product Name": "New Tendency Float Shelf (Grey)",
     "Furniture Type": "Shelf",
     "Room": "Living",
     "Units": "3B, 4A, 6B, LA"
@@ -533,7 +525,7 @@
     "Product Name": "New Tendency Meta Side Table",
     "Furniture Type": "Bedside Table",
     "Room": "Bedroom",
-    "Units": "6B, LA"
+    "Units": "6B"
   },
   {
     "Status": "Available",
@@ -554,7 +546,7 @@
   {
     "Status": "Available",
     "Quantity": 1,
-    "Product Name": "Optional Artwork from the Earth Collection OR LG C2 55” TV",
+    "Product Name": "Optional Artwork OR LG C2 55” TV",
     "Furniture Type": "",
     "Room": "Living",
     "Units": "LA"
@@ -737,7 +729,7 @@
   },
   {
     "Status": "Available",
-    "Quantity": 3,
+    "Quantity": 1,
     "Product Name": "Stanley Tool Kit",
     "Furniture Type": "Tools",
     "Room": "Utility Closet",
