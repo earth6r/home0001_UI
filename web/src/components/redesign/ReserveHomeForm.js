@@ -22,6 +22,7 @@ export const ReserveHomeForm = ({ data }) => {
   useEffect(() => {
     if (data.property && data.property.propertyType)
       unitOfInterest = returnUnitNumber(data.property.propertyType);
+    console.log("unitOfInterest:", unitOfInterest);
   }, [data]);
 
   const [submitted, setSubmitted] = useState(false);
@@ -30,6 +31,12 @@ export const ReserveHomeForm = ({ data }) => {
   });
 
   const onSubmit = async data => {
+    if (typeof window !== "undefined") {
+      window.gtag("event", "click", {
+        event_name: "submit reserve form",
+        "unit of interest": unitOfInterest
+      });
+    }
     if (data.fax_data !== "no-data") return;
     const hubspotData = {
       full_name: data.full_name,

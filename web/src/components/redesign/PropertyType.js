@@ -70,7 +70,6 @@ export const PropertyTypeUI = ({
     );
   };
 
-  console.log("selectedPropertyType", selectedPropertyType);
   return (
     <>
       {selectedPropertyType?.id ? (
