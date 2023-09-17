@@ -1,6 +1,6 @@
 [
   {
-    "Status": "Available",
+    "Status": "Unavailable",
     "Quantity": 1,
     "Product Name": "Ambivalenz Curt Modular Sofa in Military Green (10 Modules)",
     "Furniture Type": "Sofa",
@@ -408,11 +408,11 @@
     "Units": "3B"
   },
   {
-    "Status": "Available",
+    "Status": "Unavailable",
     "Quantity": 1,
     "Product Name": "Lehni Swiss-made ‘Bett 2’ King Size Bed (200cm x 200cm)",
     "Furniture Type": "",
-    "Room": "Living",
+    "Room": "Bedroom",
     "Units": "LA"
   },
   {
@@ -544,7 +544,7 @@
     "Units": "3B, 4A"
   },
   {
-    "Status": "Available",
+    "Status": "Unavailable",
     "Quantity": 1,
     "Product Name": "Optional Artwork OR LG C2 55” TV",
     "Furniture Type": "",
@@ -658,7 +658,7 @@
   {
     "Status": "Available",
     "Quantity": 4,
-    "Product Name": "S-Y-S Storage Containers (48 x 15 x7)",
+    "Product Name": "S-Y-S Storage Containers (48 x 15 x 7)",
     "Furniture Type": "",
     "Room": "Living",
     "Units": "3B, 4A, 6B, LA"
@@ -874,10 +874,18 @@
   {
     "Status": "Available",
     "Quantity": 1,
-    "Product Name": "Wall Mounted Stainless Steel Coat Hooks",
+    "Product Name": "Wall-mounted Stainless Steel Coat Hooks",
     "Furniture Type": "",
     "Room": "Living",
     "Units": "3B, 4A, 6B, LA"
+  },
+  {
+    "Status": "Available",
+    "Quantity": 1,
+    "Product Name": "Wall-mounted Stainless Steel Coat Hooks",
+    "Furniture Type": "",
+    "Room": "Bedroom",
+    "Units": "LA"
   },
   {
     "Status": "Available",
