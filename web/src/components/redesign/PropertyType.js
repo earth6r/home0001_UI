@@ -167,7 +167,7 @@ export const PropertyTypeUI = ({
             )}
           </div>
 
-          <div>
+          <div className=" hidden">
             <InventoryModule
               title={property.title}
               propertyType={selectedPropertyType.propertyType}
