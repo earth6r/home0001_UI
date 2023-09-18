@@ -264,6 +264,13 @@ const HomeRedesignPage = ({ location, data }) => {
   }, [selectedPropertyType]);
 
   const onSelectCity = city => {
+    if (typeof window !== "undefined") {
+      window.gtag("event", "click", {
+        event_name: "select city",
+        "city of interest": city
+      });
+    }
+
     if (city.id !== selectedCity?.id) {
       setShowReserveHomeForm(false);
       setSelectedCity(city);
