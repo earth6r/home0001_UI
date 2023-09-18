@@ -267,7 +267,7 @@ const HomeRedesignPage = ({ location, data }) => {
     if (typeof window !== "undefined") {
       window.gtag("event", "click", {
         event_name: "select city",
-        "city of interest": city
+        "city of interest": city.id
       });
     }
 
