@@ -264,7 +264,6 @@ const HomeRedesignPage = ({ location, data }) => {
   }, [selectedPropertyType]);
 
   const onSelectCity = city => {
-    console.log("city:", city);
     if (typeof window !== "undefined") {
       window.gtag("event", "click", {
         event_name: "select city",
