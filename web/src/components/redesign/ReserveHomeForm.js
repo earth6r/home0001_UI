@@ -104,24 +104,26 @@ export const ReserveHomeForm = ({ data }) => {
             <form onSubmit={handleSubmit(onSubmit)} className="w-full">
               <div className="w-full">
                 <div className="relative flex flex-col gap-4">
-                  <input
-                    type="text"
-                    id="first_name"
-                    name="first_name"
-                    className="outline-none border-black bg-transparent placeholder:opacity-[36] px-4 py-2 h-12 w-full text-mobile-body md:text-desktop-body font-serif"
-                    placeholder="FIRST NAME"
-                    required
-                    ref={register({ required: true })}
-                  />
-                  <input
-                    type="text"
-                    id="last_name"
-                    name="last_name"
-                    className="outline-none border-black bg-transparent placeholder:opacity-[36] px-4 py-2 h-12 w-full text-mobile-body md:text-desktop-body font-serif"
-                    placeholder="LAST NAME"
-                    required
-                    ref={register({ required: true })}
-                  />
+                  <div className="flex flex-row gap-4">
+                    <input
+                      type="text"
+                      id="first_name"
+                      name="first_name"
+                      className="outline-none border-black bg-transparent placeholder:opacity-[36] px-4 py-2 h-12 w-full text-mobile-body md:text-desktop-body font-serif"
+                      placeholder="FIRST NAME"
+                      required
+                      ref={register({ required: true })}
+                    />
+                    <input
+                      type="text"
+                      id="last_name"
+                      name="last_name"
+                      className="outline-none border-black bg-transparent placeholder:opacity-[36] px-4 py-2 h-12 w-full text-mobile-body md:text-desktop-body font-serif"
+                      placeholder="LAST NAME"
+                      required
+                      ref={register({ required: true })}
+                    />
+                  </div>
                   <input
                     placeholder="EMAIL"
                     type="email"

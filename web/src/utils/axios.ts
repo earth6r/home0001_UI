@@ -48,7 +48,8 @@ export const submit_general_hubspot_waitlist_form = async data => {
       portalId,
       formGuid,
       fields: [
-        { name: "full_name", value: data.full_name },
+        { name: "firstname", value: data.first_name },
+        { name: "lastname", value: data.last_name },
         {
           name: "email",
           value: data.email
