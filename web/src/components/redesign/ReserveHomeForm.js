@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { submit_hubspot_waitlist_form } from "../../utils/axios";
-import { submitReservationFormEvent } from "../../utils/googleAnalyticsEvents";
+import { fireSubmitReservationFormEvent } from "../../utils/googleAnalyticsEvents";
 export const ReserveHomeForm = ({ data }) => {
   //todo add a unit prop to this component
   const returnUnitNumber = unit => {
@@ -31,7 +31,7 @@ export const ReserveHomeForm = ({ data }) => {
   });
 
   const onSubmit = async data => {
-    submitReservationFormEvent(unitOfInterest);
+    fireSubmitReservationFormEvent(unitOfInterest);
 
     if (data.fax_data !== "no-data") return;
     const hubspotData = {

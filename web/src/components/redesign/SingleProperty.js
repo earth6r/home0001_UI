@@ -4,7 +4,7 @@ import { imageUrlFor } from "../../lib/image-url";
 import MapModule from "../mapModule";
 import ProgressiveImage from "react-progressive-image";
 import { sendHubspotClickEvent } from "../../utils/hubspotEvents";
-import { clickedUnitTileEvent } from "../../utils/googleAnalyticsEvents";
+import { fireClickedUnitTileEvent } from "../../utils/googleAnalyticsEvents";
 
 import { set } from "react-ga";
 export const SingleProperty = ({
@@ -128,7 +128,7 @@ export const SingleProperty = ({
                   onClick={() => {
                     onChange(item);
                     sendHubspotClickEvent("tile clicked", propertyType);
-                    clickedUnitTileEvent(propertyType);
+                    fireClickedUnitTileEvent(propertyType);
                   }}
                   className={`transition-colors disabled:opacity-30 disabled:bg-white disabled:shadow-none p-4 min-h-[16rem] border w-full grid justify-stretch flex-col text-mobile-body md:text-desktop-body ${
                     selectedPropertyType?.id === item.id ? "bg-black text-white" : ""
