@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { submit_hubspot_waitlist_form } from "../../utils/axios";
-
+import { submitReservationFormEvent } from "../../utils/googleAnalyticsEvents";
 export const ReserveHomeForm = ({ data }) => {
   //todo add a unit prop to this component
   const returnUnitNumber = unit => {
@@ -31,12 +31,8 @@ export const ReserveHomeForm = ({ data }) => {
   });
 
   const onSubmit = async data => {
-    if (typeof window !== "undefined") {
-      window.gtag("event", "click", {
-        event_name: "submit reserve form",
-        "unit of interest": unitOfInterest
-      });
-    }
+    submitReservationFormEvent(unitOfInterest);
+
     if (data.fax_data !== "no-data") return;
     const hubspotData = {
       full_name: data.full_name,

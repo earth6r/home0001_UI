@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { InventoryTable } from "./InventoryTable";
 import { InventoryTableV2 } from "./InventoryTableV2";
-
+import { viewInventoryEvent } from "../../utils/googleAnalyticsEvents";
 import Modal from "./Modal";
 import { sendHubspotClickEvent } from "../../utils/hubspotEvents";
 
@@ -10,6 +9,7 @@ export const InventoryModule = ({ data, title, propertyType, viewInventoryText }
 
   const onOpenModal = () => {
     sendHubspotClickEvent("clicked view inventory", propertyType);
+    viewInventoryEvent(propertyType);
     document.body.style.overflow = "hidden";
     document.body.style.touchAction = "none";
     setIsOpen(true);
