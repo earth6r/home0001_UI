@@ -92,8 +92,7 @@ module.exports = {
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
-          "G-KEGLW66M2J", // GA4
-          "GT-577MG9R"
+          "G-ZWMYHN30CX" // GA4
         ],
         gtagConfig: {
           // optimize_id: "OPT-MWRZP22", // Google Optimize container ID
