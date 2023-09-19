@@ -8,7 +8,7 @@ export const ExtendedInfoModule = data => {
   const [isOpen, setIsOpen] = useState(false);
 
   const onOpenModal = type => {
-    fireViewFactSheetEvent(type);
+    // fireViewFactSheetEvent(type);
     document.body.style.overflow = "hidden";
     document.body.style.touchAction = "none";
     setIsOpen(true);
@@ -56,7 +56,7 @@ export const ExtendedInfoModule = data => {
       </Modal>
       <div className="pr-mobile-menu md:pr-0">
         <button
-          onClick={onOpenModal(type)}
+          onClick={() => onOpenModal(type)}
           className="text-center outline-none mt-9 mb-9 tracking-caps uppercase block w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-mobile-body md:text-desktop-body bg-white text-black"
         >
           fact sheet
