@@ -4,14 +4,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/zoom";
 import { Zoom, Navigation } from "swiper/modules";
-import PhotoSwipe from "photoswipe";
+// import PhotoSwipe from "/photoswipe/photoswipe.esm.js";
 import PhotoSwipeLightbox from "/photoswipe/photoswipe-lightbox.esm.js";
 import "photoswipe/style.css";
 
 export const ImageSlider = ({ images }) => {
   const external_photo_swipe_options = {
     dataSource: items,
-    pswpModule: PhotoSwipe,
+    pswpModule: () => import("/photoswipe/photoswipe.esm.js"),
     showHideAnimationType: "none"
   };
 
