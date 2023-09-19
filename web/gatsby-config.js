@@ -92,23 +92,16 @@ module.exports = {
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
-          "G-70W92XYTX9", // GA4
-          "UA-190900607-1" // Google Analytics (classic)
+          "G-ZWMYHN30CX" // GA4
         ],
-        // This object gets passed directly to the gtag config command
-        // This config will be shared across all trackingIds
         gtagConfig: {
-          optimize_id: "OPT-MWRZP22", // Google Optimize container ID
+          // optimize_id: "OPT-MWRZP22", // Google Optimize container ID
           anonymize_ip: true,
           cookie_expires: 0
         },
-        // This object is used for configuration specific to this plugin
         pluginConfig: {
-          // Puts tracking script in the head instead of the body
           head: true,
-          // Setting this parameter is also optional
           respectDNT: true
-          // Avoids sending pageview hits from custom paths
           // exclude: ["/preview/**", "/do-not-track/me/too/"],
         }
       }
@@ -161,7 +154,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-hubspot",
       options: {
-        trackingCode: "43771996",
+        trackingCode: ["39987214", "43771996"],
         respectDNT: false,
         productionOnly: true
       }

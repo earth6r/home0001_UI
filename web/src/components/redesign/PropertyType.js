@@ -90,12 +90,12 @@ export const PropertyTypeUI = ({
                   <p className="m-0 uppercase tracking-caps">
                     {
                       (selectedPropertyType.property.title =
-                        "1308 DOUGLAS ST." &&
+                        "1322 DOUGLAS ST." &&
                         selectedPropertyType.propertyType == "two-bedrooms" ? (
                           <span>TOWNHOUSE&nbsp;&mdash;&nbsp;#6</span>
                         ) : (
                           (selectedPropertyType.property.title =
-                            "1308 DOUGLAS ST." &&
+                            "1322 DOUGLAS ST." &&
                             selectedPropertyType.propertyType == "penthouse" ? (
                               <span>TOWNHOUSE&nbsp;&mdash;&nbsp;#7</span>
                             ) : (
@@ -167,7 +167,7 @@ export const PropertyTypeUI = ({
             )}
           </div>
 
-          <div>
+          <div className=" hidden">
             <InventoryModule
               title={property.title}
               propertyType={selectedPropertyType.propertyType}
@@ -175,7 +175,14 @@ export const PropertyTypeUI = ({
               viewInventoryText={"View sample inventory"}
             />
           </div>
-
+          <div className="">
+            <ExtendedInfoModule
+              data={{
+                type: selectedPropertyType.propertyType,
+                sqft: selectedPropertyType.area
+              }}
+            />
+          </div>
           {selectedPropertyType.moreImages?.length ? (
             <div className="w-full mt-10">
               {selectedPropertyType.propertyType === "two-bedrooms" ||
@@ -193,27 +200,12 @@ export const PropertyTypeUI = ({
               )}
             </div>
           ) : null}
-          {property.city.title == "LA" ? (
-            <ExtendedInfoModule
-              data={{
-                type: selectedPropertyType.propertyType,
-                sqft: selectedPropertyType.area
-              }}
-            />
-          ) : null}
           {selectedPropertyType?._rawDescriptionTwo?.text && (
             <div className="mt-10 pr-mobile-menu md:pr-0 text-mobile-body md:text-desktop-body property-type-description">
               <StandardText data={selectedPropertyType?._rawDescriptionTwo} />
             </div>
           )}
-          {property.city.title != "LA" ? (
-            <ExtendedInfoModule
-              data={{
-                type: selectedPropertyType.property.title,
-                sqft: selectedPropertyType.area
-              }}
-            />
-          ) : null}
+
           <HowItWorksModal data={howItWorks} />
         </>
       ) : null}

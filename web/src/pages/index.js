@@ -11,7 +11,7 @@ import { HomesContext } from "../components/context/HomesContext";
 import { ReserveHomeForm } from "../components/redesign/ReserveHomeForm";
 import { BackToTopButton } from "../components/redesign/BackToTopButton";
 import { sendHubspotClickEvent } from "../utils/hubspotEvents";
-
+import { viewOpenedReserveFormEvent } from "../utils/googleAnalyticsEvents";
 export const query = graphql`
   {
     allSanityHomePage {
@@ -351,6 +351,7 @@ const HomeRedesignPage = ({ location, data }) => {
                       onClick={() => {
                         setShowReserveHomeForm(prev => !prev);
                         sendHubspotClickEvent("clicked reserve this home", selectedPropertyType);
+                        viewOpenedReserveFormEvent(selectedPropertyType);
                       }}
                       className={`mb-9 text-center outline-none mt-9 tracking-caps uppercase block w-full h-12 max-h-12 py-2 px-3 text-left uppercase border border-[#000] text-mobile-body md:text-desktop-body ${
                         showReserveHomeForm

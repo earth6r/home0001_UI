@@ -7,13 +7,27 @@ const PropertyTypeRoomMap = {
 };
 export const InventoryTableV2 = ({ data }) => {
   console.log("data:", data);
-  const Headers = ["Bedroom", "Living", "Bathroom", "Kitchen", "Utility Closet"];
+  const NYCHeaders = ["Bedroom", "Living", "Bathroom", "Kitchen", "Utility Closet"];
+  const LAHeaders = [
+    "Bedroom",
+    "Living",
+    "Bathroom",
+    "Kitchen",
+    "Utility Closet",
+    "Rooftop",
+    "Variation A: Gym"
+  ];
+  let Headers = data == "two-bedrooms" || data == "penthouse" ? LAHeaders : NYCHeaders;
   return Headers.map(headerItem => {
     return (
       <div className="mt-10 px-4 md:px-0">
         <p className="mb-4">{headerItem.toUpperCase()}</p>
         {Inventory.map(item => {
-          if (item.Room == headerItem && item.Units.includes(PropertyTypeRoomMap[data]))
+          if (
+            item.Room == headerItem &&
+            item.Units.includes(PropertyTypeRoomMap[data]) &&
+            item.Status == "Available"
+          )
             return (
               <p className="mb-2">
                 {item.Quantity > 1 ? `${item.Quantity} x ` : null}

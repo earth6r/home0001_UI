@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { submit_hubspot_waitlist_form } from "../../utils/axios";
-
+import { fireSubmitReservationFormEvent } from "../../utils/googleAnalyticsEvents";
 export const ReserveHomeForm = ({ data }) => {
   //todo add a unit prop to this component
   const returnUnitNumber = unit => {
@@ -22,6 +22,7 @@ export const ReserveHomeForm = ({ data }) => {
   useEffect(() => {
     if (data.property && data.property.propertyType)
       unitOfInterest = returnUnitNumber(data.property.propertyType);
+    console.log("unitOfInterest:", unitOfInterest);
   }, [data]);
 
   const [submitted, setSubmitted] = useState(false);
@@ -30,14 +31,18 @@ export const ReserveHomeForm = ({ data }) => {
   });
 
   const onSubmit = async data => {
+    fireSubmitReservationFormEvent(unitOfInterest);
+
     if (data.fax_data !== "no-data") return;
     const hubspotData = {
-      full_name: data.full_name,
+      first_name: data.first_name,
+      last_name: data.last_name,
       email: data.email,
       unit_of_interest: unitOfInterest
     };
     await submit_hubspot_waitlist_form(
-      hubspotData.full_name,
+      hubspotData.first_name,
+      hubspotData.last_name,
       hubspotData.email,
       hubspotData.unit_of_interest
     );
@@ -99,15 +104,26 @@ export const ReserveHomeForm = ({ data }) => {
             <form onSubmit={handleSubmit(onSubmit)} className="w-full">
               <div className="w-full">
                 <div className="relative flex flex-col gap-4">
-                  <input
-                    type="text"
-                    id="full_name"
-                    name="full_name"
-                    className="outline-none border-black bg-transparent placeholder:opacity-[36] px-4 py-2 h-12 w-full text-mobile-body md:text-desktop-body font-serif"
-                    placeholder="FULL NAME"
-                    required
-                    ref={register({ required: true })}
-                  />
+                  <div className="flex flex-row gap-4">
+                    <input
+                      type="text"
+                      id="first_name"
+                      name="first_name"
+                      className="outline-none border-black bg-transparent placeholder:opacity-[36] px-4 py-2 h-12 w-full text-mobile-body md:text-desktop-body font-serif"
+                      placeholder="FIRST NAME"
+                      required
+                      ref={register({ required: true })}
+                    />
+                    <input
+                      type="text"
+                      id="last_name"
+                      name="last_name"
+                      className="outline-none border-black bg-transparent placeholder:opacity-[36] px-4 py-2 h-12 w-full text-mobile-body md:text-desktop-body font-serif"
+                      placeholder="LAST NAME"
+                      required
+                      ref={register({ required: true })}
+                    />
+                  </div>
                   <input
                     placeholder="EMAIL"
                     type="email"
