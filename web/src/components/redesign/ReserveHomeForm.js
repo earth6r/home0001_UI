@@ -35,12 +35,14 @@ export const ReserveHomeForm = ({ data }) => {
 
     if (data.fax_data !== "no-data") return;
     const hubspotData = {
-      full_name: data.full_name,
+      first_name: data.first_name,
+      last_name: data.last_name,
       email: data.email,
       unit_of_interest: unitOfInterest
     };
     await submit_hubspot_waitlist_form(
-      hubspotData.full_name,
+      hubspotData.first_name,
+      hubspotData.last_name,
       hubspotData.email,
       hubspotData.unit_of_interest
     );
@@ -104,10 +106,19 @@ export const ReserveHomeForm = ({ data }) => {
                 <div className="relative flex flex-col gap-4">
                   <input
                     type="text"
-                    id="full_name"
-                    name="full_name"
+                    id="first_name"
+                    name="first_name"
                     className="outline-none border-black bg-transparent placeholder:opacity-[36] px-4 py-2 h-12 w-full text-mobile-body md:text-desktop-body font-serif"
-                    placeholder="FULL NAME"
+                    placeholder="FIRST NAME"
+                    required
+                    ref={register({ required: true })}
+                  />
+                  <input
+                    type="text"
+                    id="last_name"
+                    name="last_name"
+                    className="outline-none border-black bg-transparent placeholder:opacity-[36] px-4 py-2 h-12 w-full text-mobile-body md:text-desktop-body font-serif"
+                    placeholder="LAST NAME"
                     required
                     ref={register({ required: true })}
                   />
