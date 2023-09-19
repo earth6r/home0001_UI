@@ -265,7 +265,7 @@ const HomeRedesignPage = ({ location, data }) => {
 
   const onSelectCity = city => {
     if (typeof window !== "undefined") {
-      window.gtag("event", "click", {
+      window.gtag("event", "click city button", {
         event_name: "select city",
         "city of interest": city.title
       });
