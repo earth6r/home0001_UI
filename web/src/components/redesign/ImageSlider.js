@@ -4,8 +4,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/zoom";
 import { Zoom, Navigation } from "swiper/modules";
+import PhotoSwipeLightbox from "photoswipe/lightbox";
+import "photoswipe/style.css";
 
 export const ImageSlider = ({ images }) => {
+  console.log("images:", images);
   const swiperRef = useRef();
   useEffect(() => {
     swiperRef.current.slideTo(0);
@@ -15,6 +18,14 @@ export const ImageSlider = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentCaption, setCurrentCaption] = useState(0);
 
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "#swiper-photoswipe-gallery",
+    children: "a",
+    bgOpacity: 1.0,
+    // showHideAnimationType: "none",
+    pswpModule: () => import("photoswipe")
+  });
+  lightbox.init();
   useEffect(() => {
     if (images[currentIndex]?.caption) {
       setTimeout(() => setCurrentCaption(images[currentIndex]?.caption), 250);
@@ -26,14 +37,15 @@ export const ImageSlider = ({ images }) => {
   return (
     <>
       <div className="relative image-slider">
-        <div
+        {/* <div
           className="hidden md:block cursor-pointer w-1/2 h-full absolute top-0 left-0 z-10"
           onClick={() => swiperRef.current.slidePrev()}
         />
         <div
           className="hidden md:block cursor-pointer w-1/2 h-full absolute top-0 right-0 z-10"
           onClick={() => swiperRef.current.slideNext()}
-        />
+        /> */}
+
         <Swiper
           zoom={true}
           loop={true}
@@ -47,16 +59,25 @@ export const ImageSlider = ({ images }) => {
           {images?.map((image, index) =>
             image.image?.asset ? (
               <SwiperSlide>
-                <div className="swiper-zoom-container">
-                  <img
-                    key={index}
-                    className="max-w-[560px] md:max-w-[unset] px-4 h-full w-full object-cover"
-                    src={imageUrlFor(image.image)
+                <div className="swiper-zoom-container" id="swiper-photoswipe-gallery">
+                  <a
+                    href={imageUrlFor(image.image)
                       .width(1000)
                       .auto("format")
                       .url()}
-                    alt=""
-                  />
+                    data-pswp-width="3200"
+                    data-pswp-height="4000"
+                  >
+                    <img
+                      key={index}
+                      className="max-w-[560px] md:max-w-[unset] px-4 h-full w-full object-cover"
+                      src={imageUrlFor(image.image)
+                        .width(1000)
+                        .auto("format")
+                        .url()}
+                      alt=""
+                    />
+                  </a>
                 </div>
               </SwiperSlide>
             ) : null
