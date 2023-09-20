@@ -1,4 +1,4 @@
-import React, { useState, createRef, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { imageUrlFor } from "../../lib/image-url";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -6,14 +6,15 @@ import "swiper/css/zoom";
 import { Zoom, Navigation } from "swiper/modules";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
+import { fireClickedImageGalleryEvent } from "../../utils/googleAnalyticsEvents";
 
-export const ImageSlider = ({ images }) => {
+export const ImageSlider = ({ images, propertyType, galleryId }) => {
   const psImages = images?.map((image, index) => {
     return {
       src: imageUrlFor(image.image).url(),
       width: 3200,
       height: 4000,
-      alt: "HOME0001"
+      alt: "Own one home. Live flexibly between many places."
     };
   });
 
@@ -25,6 +26,7 @@ export const ImageSlider = ({ images }) => {
   const captionRef = useRef();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentCaption, setCurrentCaption] = useState(0);
+  const [imageEventFired, setImageEventFired] = useState(false);
 
   const lightbox = new PhotoSwipeLightbox({
     dataSource: psImages,
@@ -70,18 +72,14 @@ export const ImageSlider = ({ images }) => {
             image.image?.asset ? (
               <SwiperSlide>
                 <div className="swiper-zoom-container" id="swiper-photoswipe-gallery">
-                  {/* <a
-                    href={imageUrlFor(image.image)
-                      .width(1000)
-                      .auto("format")
-                      .url()}
-                    data-pswp-width="3200"
-                    data-pswp-height="4000"
-                  > */}
                   <img
                     key={index}
                     onClick={() => {
                       lightbox.loadAndOpen(index);
+                      if (!imageEventFired) {
+                        fireClickedImageGalleryEvent(galleryId, propertyType);
+                        setImageEventFired(true);
+                      }
                     }}
                     className="max-w-[560px] md:max-w-[unset] px-4 h-full w-full object-cover"
                     src={imageUrlFor(image.image)
@@ -90,7 +88,6 @@ export const ImageSlider = ({ images }) => {
                       .url()}
                     alt=""
                   />
-                  {/* </a> */}
                 </div>
               </SwiperSlide>
             ) : null
