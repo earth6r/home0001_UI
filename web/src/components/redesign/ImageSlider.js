@@ -33,7 +33,13 @@ export const ImageSlider = ({ images, propertyType, galleryId }) => {
     showHideAnimationType: "none",
     bgOpacity: 1.0,
     pswpModule: () => import("photoswipe"),
-    preloaderDelay: 0
+    preloaderDelay: 0,
+    loop: true,
+    pinchToClose: false,
+    closeOnVerticalDrag: false,
+    arrowKeys: true,
+    preloadFirstSlide: true,
+    preload: [1, 2]
   });
 
   lightbox.init();
