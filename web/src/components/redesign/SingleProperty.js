@@ -72,7 +72,7 @@ export const SingleProperty = ({
               .auto("format")
               .url()}
             placeholder={
-              selectedProperty.title.city === "LA"
+              selectedProperty.title.city === "1322 DOUGLAS ST."
                 ? "https://cdn.discordapp.com/attachments/1107680835995443210/1148863906689863711/anna-hand-cover-pic-test.jpg"
                 : "https://cdn.discordapp.com/attachments/1107680835995443210/1148864243328880660/49-orchard-front-new.jpg"
             }
