@@ -8,7 +8,15 @@ import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
 
 export const ImageSlider = ({ images }) => {
-  console.log("images:", images);
+  const psImages = images?.map((image, index) => {
+    return {
+      src: imageUrlFor(image.image).url(),
+      width: 3200,
+      height: 4000,
+      alt: "HOME0001"
+    };
+  });
+
   const swiperRef = useRef();
   useEffect(() => {
     swiperRef.current.slideTo(0);
@@ -19,13 +27,15 @@ export const ImageSlider = ({ images }) => {
   const [currentCaption, setCurrentCaption] = useState(0);
 
   const lightbox = new PhotoSwipeLightbox({
-    gallery: "#swiper-photoswipe-gallery",
-    children: "a",
+    dataSource: psImages,
+    showHideAnimationType: "none",
     bgOpacity: 1.0,
-    // showHideAnimationType: "none",
-    pswpModule: () => import("photoswipe")
+    pswpModule: () => import("photoswipe"),
+    preloaderDelay: 0
   });
+
   lightbox.init();
+
   useEffect(() => {
     if (images[currentIndex]?.caption) {
       setTimeout(() => setCurrentCaption(images[currentIndex]?.caption), 250);
@@ -60,24 +70,27 @@ export const ImageSlider = ({ images }) => {
             image.image?.asset ? (
               <SwiperSlide>
                 <div className="swiper-zoom-container" id="swiper-photoswipe-gallery">
-                  <a
+                  {/* <a
                     href={imageUrlFor(image.image)
                       .width(1000)
                       .auto("format")
                       .url()}
                     data-pswp-width="3200"
                     data-pswp-height="4000"
-                  >
-                    <img
-                      key={index}
-                      className="max-w-[560px] md:max-w-[unset] px-4 h-full w-full object-cover"
-                      src={imageUrlFor(image.image)
-                        .width(1000)
-                        .auto("format")
-                        .url()}
-                      alt=""
-                    />
-                  </a>
+                  > */}
+                  <img
+                    key={index}
+                    onClick={() => {
+                      lightbox.loadAndOpen(index);
+                    }}
+                    className="max-w-[560px] md:max-w-[unset] px-4 h-full w-full object-cover"
+                    src={imageUrlFor(image.image)
+                      .width(1000)
+                      .auto("format")
+                      .url()}
+                    alt=""
+                  />
+                  {/* </a> */}
                 </div>
               </SwiperSlide>
             ) : null
