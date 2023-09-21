@@ -141,7 +141,7 @@ export const SingleProperty = ({
                         : propertyType === "one-bedroom"
                         ? "https://ik.imagekit.io/ljqwnqnom/6b-crop_bwk_K5HGXq.jpg?updatedAt=1695338494153"
                         : propertyType === "penthouse"
-                        ? "https://ik.imagekit.io/ljqwnqnom/6b-crop_bwk_K5HGXq.jpg?updatedAt=1695338494153" // image needs to be updated
+                        ? "https://ik.imagekit.io/ljqwnqnom/la-crop_EO2XRE0Ul.jpg?updatedAt=1695340424216" // image needs to be updated
                         : propertyType === "two-bedrooms"
                         ? "https://ik.imagekit.io/ljqwnqnom/6b-crop_bwk_K5HGXq.jpg?updatedAt=1695338494153" // image needs to be updated
                         : null
@@ -153,7 +153,7 @@ export const SingleProperty = ({
                         src={src}
                         height="487"
                         width="560"
-                        alt=""
+                        alt="apartment preview image"
                       />
                     )}
                   </ProgressiveImage>
