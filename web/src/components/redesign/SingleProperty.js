@@ -132,7 +132,8 @@ export const SingleProperty = ({
                     selectedPropertyType?.id === item.id ? "bg-black text-white" : ""
                   }`}
                 >
-                  <ProgressiveImage
+                  <img
+                    className="h-auto w-auto mb-5"
                     src={
                       propertyType === "studio"
                         ? "https://ik.imagekit.io/ljqwnqnom/3b-crop_QLBrb49fr.jpg?updatedAt=1695338494133"
@@ -146,17 +147,10 @@ export const SingleProperty = ({
                         ? "https://ik.imagekit.io/ljqwnqnom/6b-crop_bwk_K5HGXq.jpg?updatedAt=1695338494153" // image needs to be updated
                         : null
                     }
-                  >
-                    {src => (
-                      <img
-                        className="h-auto w-auto mb-5"
-                        src={src}
-                        height="487"
-                        width="560"
-                        alt="apartment preview image"
-                      />
-                    )}
-                  </ProgressiveImage>
+                    height="487"
+                    width="560"
+                    alt="apartment preview image"
+                  />
                   <div className="justify-self-stretch w-full">
                     <div className="grid property-type-button p-0 m-0">
                       <p className="col-start-1 text-left uppercase mb-0 tracking-caps">
