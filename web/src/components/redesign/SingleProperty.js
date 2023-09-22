@@ -116,7 +116,7 @@ export const SingleProperty = ({
         <ul
           ref={propertyTypesRef}
           id="selected-property-types"
-          className="animate-in flex flex-col gap-3 my-10 p-0 pr-mobile-menu md:pr-0"
+          className="mx-[-1rem] animate-in flex flex-col gap-3 my-10"
         >
           {propertyTypes.map(item => {
             const { amenities, propertyType, price, area, id, available } = item;
@@ -128,7 +128,7 @@ export const SingleProperty = ({
                     onChange(item);
                     sendHubspotClickEvent("tile clicked", propertyType);
                   }}
-                  className={`transition-colors disabled:opacity-30 disabled:bg-white disabled:shadow-none p-4 min-h-[16rem] border w-full grid justify-stretch flex-col text-mobile-body md:text-desktop-body ${
+                  className={`transition-colors disabled:opacity-30 disabled:bg-white disabled:shadow-none p-4 min-h-[16rem] w-full grid justify-stretch flex-col text-mobile-body md:text-desktop-body ${
                     selectedPropertyType?.id === item.id ? "bg-black text-white" : ""
                   }`}
                 >
@@ -142,7 +142,7 @@ export const SingleProperty = ({
                         : propertyType === "one-bedroom"
                         ? "https://ik.imagekit.io/ljqwnqnom/6b-crop_bwk_K5HGXq.jpg?updatedAt=1695338494153"
                         : propertyType === "penthouse"
-                        ? "https://ik.imagekit.io/ljqwnqnom/la-crop_EO2XRE0Ul.jpg?updatedAt=1695340424216" // image needs to be updated
+                        ? "https://ik.imagekit.io/ljqwnqnom/la-crop_EO2XRE0Ul.jpg?updatedAt=1695340424216"
                         : propertyType === "two-bedrooms"
                         ? "https://ik.imagekit.io/ljqwnqnom/6b-crop_bwk_K5HGXq.jpg?updatedAt=1695338494153" // image needs to be updated
                         : null
@@ -200,11 +200,12 @@ export const SingleProperty = ({
                       )}
                     </div>
                     <div
-                      className={`bg-black mb-[2px] ${
+                      className={`bg-black mb-[2px] flex flex-row justify-between items-center h-12 max-h-12 ${
                         selectedPropertyType?.id === item.id ? "hidden" : null
                       }`}
                     >
-                      <p className="text-white py-2">EXPLORE</p>
+                      <p className="text-white mb-0 py-2 text-left pl-4">EXPLORE</p>
+                      <p className="text-white py-2 pb-[0.55rem] text-[16px] text-right pr-4">→</p>
                     </div>
                   </div>
                   {/* <div className="grid grid-cols-11 w-full">
