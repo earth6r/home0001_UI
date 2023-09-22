@@ -188,7 +188,7 @@ export const SingleProperty = ({
                         </p>
                       )}
                       {amenities && (
-                        <ul className="mb-0 p-0">
+                        <ul className="hidden mb-0 p-0">
                           {amenities.map((amenity, index) => {
                             return (
                               <li key={index++} className="pl-3 text-left before:content-['–']">
