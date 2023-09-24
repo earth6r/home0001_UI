@@ -204,7 +204,22 @@ export const SingleProperty = ({
                         selectedPropertyType?.id === item.id ? "hidden" : null
                       }`}
                     >
-                      <p className="mb-0 py-2 text-left pl-4">EXPLORE</p>
+                      <p className="mb-0 py-2 text-left pl-4">
+                        EXPLORE{" "}
+                        {propertyType
+                          ? propertyType === "studio"
+                            ? "UNIT 3B"
+                            : propertyType === "studio-max"
+                            ? "UNIT 4A"
+                            : propertyType === "one-bedroom"
+                            ? "UNIT 6B"
+                            : propertyType === "two-bedrooms"
+                            ? "TOWNHOUSE #6"
+                            : propertyType === "penthouse"
+                            ? "TOWNHOUSE #7"
+                            : null
+                          : null}
+                      </p>
                       <p className=" py-2 pb-[0.55rem] text-[16px] text-right pr-4">→</p>
                     </div>
                   </div>
