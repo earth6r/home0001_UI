@@ -128,9 +128,7 @@ export const SingleProperty = ({
                     onChange(item);
                     sendHubspotClickEvent("tile clicked", propertyType);
                   }}
-                  className={`transition-colors disabled:opacity-30 disabled:bg-white disabled:shadow-none p-4 min-h-[16rem] w-full grid justify-stretch flex-col text-mobile-body md:text-desktop-body ${
-                    selectedPropertyType?.id === item.id ? "bg-black text-white" : ""
-                  }`}
+                  className={`transition-colors disabled:opacity-30 disabled:bg-white disabled:shadow-none p-4 min-h-[16rem] w-full grid justify-stretch flex-col text-mobile-body md:text-desktop-body `}
                 >
                   <img
                     className="h-auto w-auto mb-5"
