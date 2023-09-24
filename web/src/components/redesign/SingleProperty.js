@@ -111,12 +111,12 @@ export const SingleProperty = ({
           ) : null}
         </div>
       )}
-      {<div className="mt-9 mb-10">Choose an available 0001 home here:</div>}
+      {<div className="mt-9 mb-0">Choose an available 0001 home here:</div>}
       {propertyTypes && (
         <ul
           ref={propertyTypesRef}
           id="selected-property-types"
-          className="mx-[-1rem] animate-in flex flex-col gap-3 my-10"
+          className="mx-[-1rem] animate-in flex flex-col gap-3 mt-7"
         >
           {propertyTypes.map(item => {
             const { amenities, propertyType, price, area, id, available } = item;
