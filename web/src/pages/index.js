@@ -132,6 +132,18 @@ const HomeRedesignPage = ({ location, data }) => {
 
   const reserveHomeRef = createRef();
 
+  const handlePopstate = event => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get("property");
+    console.log("myParam:", myParam);
+    // Handle back button click and update component state accordingly
+    const currentState = event.state;
+    // if (currentState && currentState.page === "myComponent") {
+    //   // Handle the back navigation within your component
+    //   // You can update the component's state or perform any desired action
+    // }
+  };
+
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     const property = searchParams.get("property");
@@ -155,6 +167,15 @@ const HomeRedesignPage = ({ location, data }) => {
         }
       }
     }
+    document.body.classList.add("hide-intercom");
+    window.addEventListener("popstate", handlePopstate);
+
+    return () => {
+      document.body.classList.remove("hide-intercom");
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+      window.removeEventListener("popstate", handlePopstate);
+    };
   }, []);
 
   useEffect(() => {
@@ -172,13 +193,6 @@ const HomeRedesignPage = ({ location, data }) => {
     }
   }, [selectedCity]);
 
-  useEffect(() => {
-    document.body.classList.add("hide-intercom");
-
-    return () => {
-      document.body.classList.remove("hide-intercom");
-    };
-  }, []);
   const scrollToProperty = () => {
     setTimeout(() => {
       if (selectedProperty?.id && selectedPropertyRef.current && !selectedPropertyType) {
@@ -202,7 +216,7 @@ const HomeRedesignPage = ({ location, data }) => {
 
     const paramsString = searchParams.toString();
 
-    window.history.replaceState(
+    window.history.pushState(
       {},
       "",
       `${window.location.pathname}${paramsString.length ? `?${paramsString}` : ""}`
@@ -227,7 +241,7 @@ const HomeRedesignPage = ({ location, data }) => {
 
     const paramsString = searchParams.toString();
 
-    window.history.replaceState(
+    window.history.pushState(
       {},
       "",
       `${window.location.pathname}${paramsString.length ? `?${paramsString}` : ""}`
@@ -256,7 +270,7 @@ const HomeRedesignPage = ({ location, data }) => {
 
     const paramsString = searchParams.toString();
 
-    window.history.replaceState(
+    window.history.pushState(
       {},
       "",
       `${window.location.pathname}${paramsString.length ? `?${paramsString}` : ""}`
@@ -271,13 +285,6 @@ const HomeRedesignPage = ({ location, data }) => {
       setSelectedPropertyType(null);
     }
   };
-
-  useEffect(() => {
-    return () => {
-      document.body.style.overflow = "";
-      document.body.style.touchAction = "";
-    };
-  }, []);
 
   return (
     <Layout
