@@ -48,7 +48,8 @@ export const submit_general_hubspot_waitlist_form = async data => {
       portalId,
       formGuid,
       fields: [
-        { name: "full_name", value: data.full_name },
+        { name: "firstname", value: data.first_name },
+        { name: "lastname", value: data.last_name },
         {
           name: "email",
           value: data.email
@@ -66,7 +67,7 @@ export const submit_general_hubspot_waitlist_form = async data => {
     config
   );
 };
-export const submit_hubspot_waitlist_form = async (fullName, email, unitOfInterest) => {
+export const submit_hubspot_waitlist_form = async (firstName, lastName, email, unitOfInterest) => {
   const portalId = "39987214";
   const formGuid = "904d697d-988d-4b01-a150-670f28231f3d";
   const config = {
@@ -83,8 +84,12 @@ export const submit_hubspot_waitlist_form = async (fullName, email, unitOfIntere
       formGuid,
       fields: [
         {
-          name: "full_name",
-          value: fullName
+          name: "firstname",
+          value: firstName
+        },
+        {
+          name: "lastname",
+          value: lastName
         },
 
         {

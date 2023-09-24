@@ -1,5 +1,6 @@
 import React from "react";
 import { sendHubspotClickEvent } from "../../utils/hubspotEvents";
+import { fireCityClickEvent } from "../../utils/googleAnalyticsEvents";
 export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
   return (
     <>
@@ -12,6 +13,7 @@ export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
                 onClick={() => {
                   onChange(city);
                   sendHubspotClickEvent(`clicked ${city.title}`, "clicked");
+                  fireCityClickEvent(city.title);
                 }}
                 className={`${selectedCity?.id === city.id ? "font-black" : ""} ${
                   city.disabled ? "" : "decoration-black"
