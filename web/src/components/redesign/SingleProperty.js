@@ -144,7 +144,7 @@ export const SingleProperty = ({
                         : propertyType === "penthouse"
                         ? "https://ik.imagekit.io/ljqwnqnom/website-crops/web-crops_0000_townhouse-unit6_SSykCiaoad.jpg?updatedAt=1695582813370"
                         : propertyType === "two-bedrooms"
-                        ? "https://ik.imagekit.io/ljqwnqnom/6b-crop_bwk_K5HGXq.jpg?updatedAt=1695338494153" // image needs to be updated
+                        ? "https://ik.imagekit.io/ljqwnqnom/website-crops/web-crops_0000_townhouse-unit7_C7U24vgy3.jpg?updatedAt=1695595761734"
                         : null
                     }
                     height="487"
