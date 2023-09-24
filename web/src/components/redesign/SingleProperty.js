@@ -198,7 +198,9 @@ export const SingleProperty = ({
                       )}
                     </div>
                     <div
-                      className={`border mb-[2px] flex flex-row justify-between items-center h-12 max-h-12 `}
+                      className={`border mb-[2px] flex flex-row justify-between items-center h-12 max-h-12 ${
+                        selectedPropertyType?.id === item.id ? "bg-black text-white" : ""
+                      }`}
                     >
                       <p className="mb-0 py-2 text-left pl-4">
                         {selectedPropertyType?.id === item.id
