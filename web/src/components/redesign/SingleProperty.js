@@ -134,13 +134,13 @@ export const SingleProperty = ({
                     className="h-auto w-auto mb-5"
                     src={
                       propertyType === "studio"
-                        ? "https://ik.imagekit.io/ljqwnqnom/3b-crop_QLBrb49fr.jpg?updatedAt=1695338494133"
+                        ? "https://ik.imagekit.io/ljqwnqnom/website-crops/web-crops_0003_studio-3b_75_icJ2Pt.jpg?updatedAt=1695582813645"
                         : propertyType === "studio-max"
-                        ? "https://ik.imagekit.io/ljqwnqnom/4a-crop_qq0SdJw7A.jpg?updatedAt=1695338494347"
+                        ? "https://ik.imagekit.io/ljqwnqnom/website-crops/web-crops_0002_studiomax-4a_Ylv6XHtE1.jpg?updatedAt=1695582813444"
                         : propertyType === "one-bedroom"
-                        ? "https://ik.imagekit.io/ljqwnqnom/6b-crop_bwk_K5HGXq.jpg?updatedAt=1695338494153"
+                        ? "https://ik.imagekit.io/ljqwnqnom/website-crops/web-crops_0001_apartment-6b_dKmCnkr31x.jpg?updatedAt=1695582813383"
                         : propertyType === "penthouse"
-                        ? "https://ik.imagekit.io/ljqwnqnom/la-crop_EO2XRE0Ul.jpg?updatedAt=1695340424216"
+                        ? "https://ik.imagekit.io/ljqwnqnom/website-crops/web-crops_0000_townhouse-unit6_SSykCiaoad.jpg?updatedAt=1695582813370"
                         : propertyType === "two-bedrooms"
                         ? "https://ik.imagekit.io/ljqwnqnom/6b-crop_bwk_K5HGXq.jpg?updatedAt=1695338494153" // image needs to be updated
                         : null
