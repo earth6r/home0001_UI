@@ -134,9 +134,9 @@ export const SingleProperty = ({
                     className="h-auto w-auto mb-5"
                     src={
                       propertyType === "studio"
-                        ? "https://ik.imagekit.io/ljqwnqnom/website-crops/web-crops_0003_studio-3b_75_icJ2Pt.jpg?updatedAt=1695582813645"
+                        ? "https://ik.imagekit.io/ljqwnqnom/website-crops/web-crops_0003_studio-3b_rtdwHgdlm.jpg?updatedAt=1695583486796"
                         : propertyType === "studio-max"
-                        ? "https://ik.imagekit.io/ljqwnqnom/website-crops/web-crops_0002_studiomax-4a_Ylv6XHtE1.jpg?updatedAt=1695582813444"
+                        ? "https://ik.imagekit.io/ljqwnqnom/website-crops/web-crops_0002_studiomax-4a_P57lJMsbj.jpg?updatedAt=1695583486965"
                         : propertyType === "one-bedroom"
                         ? "https://ik.imagekit.io/ljqwnqnom/website-crops/web-crops_0001_apartment-6b_dKmCnkr31x.jpg?updatedAt=1695582813383"
                         : propertyType === "penthouse"
