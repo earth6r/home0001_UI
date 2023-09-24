@@ -240,7 +240,7 @@ const HomeRedesignPage = ({ location, data }) => {
       if (selectedPropertyType?.id && propertyTypeRef.current) {
         const offset = window.innerWidth < 768 ? 16 : 40;
         const top = propertyTypeRef.current.getBoundingClientRect().top + window.scrollY - offset;
-        animateScrollTo(top, { speed: 2000 });
+        animateScrollTo(top, { speed: 1000 });
       }
     }, 500);
   };

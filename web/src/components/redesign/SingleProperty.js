@@ -200,25 +200,27 @@ export const SingleProperty = ({
                       )}
                     </div>
                     <div
-                      className={`border mb-[2px] flex flex-row justify-between items-center h-12 max-h-12 ${
-                        selectedPropertyType?.id === item.id ? "hidden" : null
-                      }`}
+                      className={`border mb-[2px] flex flex-row justify-between items-center h-12 max-h-12 `}
                     >
                       <p className="mb-0 py-2 text-left pl-4">
-                        EXPLORE{" "}
-                        {propertyType
-                          ? propertyType === "studio"
-                            ? "UNIT 3B"
-                            : propertyType === "studio-max"
-                            ? "UNIT 4A"
-                            : propertyType === "one-bedroom"
-                            ? "UNIT 6B"
-                            : propertyType === "two-bedrooms"
-                            ? "TOWNHOUSE #6"
-                            : propertyType === "penthouse"
-                            ? "TOWNHOUSE #7"
+                        {selectedPropertyType?.id === item.id
+                          ? "SELECTED"
+                          : `EXPLORE
+                        ${
+                          propertyType
+                            ? propertyType === "studio"
+                              ? "UNIT 3B"
+                              : propertyType === "studio-max"
+                              ? "UNIT 4A"
+                              : propertyType === "one-bedroom"
+                              ? "UNIT 6B"
+                              : propertyType === "two-bedrooms"
+                              ? "TOWNHOUSE #6"
+                              : propertyType === "penthouse"
+                              ? "TOWNHOUSE #7"
+                              : null
                             : null
-                          : null}
+                        }`}
                       </p>
                       <p className=" py-2 pb-[0.55rem] text-[16px] text-right pr-4">→</p>
                     </div>
