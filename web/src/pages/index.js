@@ -144,6 +144,8 @@ const HomeRedesignPage = ({ location, data }) => {
       setShowReserveHomeForm(false);
     } else if (myPropertyParam) {
       setSelectedProperty(false);
+      setShowReserveHomeForm(false);
+      setSelectedProperty(false);
     } else if (!myPropertyParam) {
       setSelectedCity(false);
     }
