@@ -143,7 +143,6 @@ const HomeRedesignPage = ({ location, data }) => {
     if (myPropertyTypeParam) {
       setShowReserveHomeForm(false);
     } else if (myPropertyParam) {
-      setSelectedProperty(false);
       setShowReserveHomeForm(false);
       setSelectedPropertyType(false);
     } else if (!myPropertyParam) {
