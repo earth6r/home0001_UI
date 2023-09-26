@@ -9,12 +9,10 @@ const NotFoundPage = () => {
 
   return (
     <>
-      {isRnd === undefined ? null : (
-        <Layout rnd={false}>
-          <SEO title="404: Not found" />
-          <p className="mt-24">You just hit a page that isn&#39;t real.</p>
-        </Layout>
-      )}
+      <Layout rnd={false}>
+        <SEO title="404: Not found" />
+        <p className="mt-24">You just hit a page that isn&#39;t real.</p>
+      </Layout>
     </>
   );
 };
