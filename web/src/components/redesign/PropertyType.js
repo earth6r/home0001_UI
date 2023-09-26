@@ -74,7 +74,7 @@ export const PropertyTypeUI = ({
     <>
       {selectedPropertyType?.id ? (
         <>
-          <div className="animate-in flex flex-col text-mobile-body md:text-desktop-body relative">
+          <div className="mt-10 animate-in flex flex-col text-mobile-body md:text-desktop-body relative">
             <div>
               {selectedPropertyType?.images && selectedPropertyType.images.length !== 0 && (
                 <ImageSlider

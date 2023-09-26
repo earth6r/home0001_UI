@@ -72,7 +72,7 @@ export const SingleProperty = ({
               .auto("format")
               .url()}
             placeholder={
-              selectedProperty.title.city === "1322 DOUGLAS ST."
+              selectedProperty.title === "1322 DOUGLAS ST."
                 ? "https://cdn.discordapp.com/attachments/1107680835995443210/1148863906689863711/anna-hand-cover-pic-test.jpg"
                 : "https://cdn.discordapp.com/attachments/1107680835995443210/1148864243328880660/49-orchard-front-new.jpg"
             }
@@ -112,12 +112,12 @@ export const SingleProperty = ({
           ) : null}
         </div>
       )}
-      {<div className="mt-9 mb-10">Choose an available 0001 home here:</div>}
+      {<div className="mt-9 mb-0">Choose an available 0001 home here:</div>}
       {propertyTypes && (
         <ul
           ref={propertyTypesRef}
           id="selected-property-types"
-          className="animate-in flex flex-col gap-3 my-10 p-0 pr-mobile-menu md:pr-0"
+          className="mx-[-1rem] animate-in flex flex-col gap-3 mt-7"
         >
           {propertyTypes.map(item => {
             const { amenities, propertyType, price, area, id, available } = item;
@@ -130,11 +130,28 @@ export const SingleProperty = ({
                     sendHubspotClickEvent("tile clicked", propertyType);
                     fireClickedUnitTileEvent(propertyType);
                   }}
-                  className={`transition-colors disabled:opacity-30 disabled:bg-white disabled:shadow-none p-4 min-h-[16rem] border w-full grid justify-stretch flex-col text-mobile-body md:text-desktop-body ${
-                    selectedPropertyType?.id === item.id ? "bg-black text-white" : ""
-                  }`}
+                  className={`transition-colors disabled:opacity-30 disabled:bg-white disabled:shadow-none px-4 pt-4 pb-0 min-h-[16rem] w-full grid justify-stretch flex-col text-mobile-body md:text-desktop-body `}
                 >
-                  <div className=" justify-self-stretch w-full">
+                  <img
+                    className="h-auto w-auto mb-5"
+                    src={
+                      propertyType === "studio"
+                        ? "https://ik.imagekit.io/ljqwnqnom/website-crops/web-crops_0003_studio-3b_rtdwHgdlm.jpg?updatedAt=1695583486796"
+                        : propertyType === "studio-max"
+                        ? "https://ik.imagekit.io/ljqwnqnom/website-crops/web-crops_0002_studiomax-4a_P57lJMsbj.jpg?updatedAt=1695583486965"
+                        : propertyType === "one-bedroom"
+                        ? "https://ik.imagekit.io/ljqwnqnom/website-crops/web-crops_0001_apartment-6b_dKmCnkr31x.jpg?updatedAt=1695582813383"
+                        : propertyType === "penthouse"
+                        ? "https://ik.imagekit.io/ljqwnqnom/website-crops/web-crops_0000_townhouse-unit7_C7U24vgy3.jpg?updatedAt=1695595761734"
+                        : propertyType === "two-bedrooms"
+                        ? "https://ik.imagekit.io/ljqwnqnom/website-crops/web-crops_0000_townhouse-unit6_SSykCiaoad.jpg?updatedAt=1695582813370"
+                        : null
+                    }
+                    height="487"
+                    width="560"
+                    alt="apartment preview image"
+                  />
+                  <div className="justify-self-stretch w-full">
                     <div className="grid property-type-button p-0 m-0">
                       <p className="col-start-1 text-left uppercase mb-0 tracking-caps">
                         {selectedProperty.city.title == "LA" && propertyType === "penthouse"
@@ -171,7 +188,7 @@ export const SingleProperty = ({
                         </p>
                       )}
                       {amenities && (
-                        <ul className="mb-0 p-0">
+                        <ul className="hidden mb-0 p-0">
                           {amenities.map((amenity, index) => {
                             return (
                               <li key={index++} className="pl-3 text-left before:content-['–']">
@@ -183,11 +200,31 @@ export const SingleProperty = ({
                       )}
                     </div>
                     <div
-                      className={`bg-black mb-[2px] ${
-                        selectedPropertyType?.id === item.id ? "hidden" : null
+                      className={`border mb-[2px] flex flex-row justify-between items-center h-12 max-h-12 ${
+                        selectedPropertyType?.id === item.id ? "bg-black text-white" : ""
                       }`}
                     >
-                      <p className="text-white py-2">EXPLORE</p>
+                      <p className="mb-0 py-2 text-left pl-4">
+                        {selectedPropertyType?.id === item.id
+                          ? "SELECTED"
+                          : `EXPLORE
+                        ${
+                          propertyType
+                            ? propertyType === "studio"
+                              ? "UNIT 3B"
+                              : propertyType === "studio-max"
+                              ? "UNIT 4A"
+                              : propertyType === "one-bedroom"
+                              ? "UNIT 6B"
+                              : propertyType === "two-bedrooms"
+                              ? "TOWNHOUSE #6"
+                              : propertyType === "penthouse"
+                              ? "TOWNHOUSE #7"
+                              : null
+                            : null
+                        }`}
+                      </p>
+                      <p className=" py-2 pb-[0.55rem] text-[16px] text-right pr-4">→</p>
                     </div>
                   </div>
                   {/* <div className="grid grid-cols-11 w-full">

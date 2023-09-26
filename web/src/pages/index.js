@@ -11,6 +11,8 @@ import { HomesContext } from "../components/context/HomesContext";
 import { ReserveHomeForm } from "../components/redesign/ReserveHomeForm";
 import { BackToTopButton } from "../components/redesign/BackToTopButton";
 import { sendHubspotClickEvent } from "../utils/hubspotEvents";
+import animateScrollTo from "animated-scroll-to";
+
 import { viewOpenedReserveFormEvent } from "../utils/googleAnalyticsEvents";
 export const query = graphql`
   {
@@ -253,7 +255,7 @@ const HomeRedesignPage = ({ location, data }) => {
       if (selectedPropertyType?.id && propertyTypeRef.current) {
         const offset = window.innerWidth < 768 ? 16 : 40;
         const top = propertyTypeRef.current.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: "smooth" });
+        animateScrollTo(top, { speed: 1000 });
       }
     }, 500);
   };
