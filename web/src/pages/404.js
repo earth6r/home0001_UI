@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import Layout from "../containers/layout";
-import SEO from '../components/seo'
+import SEO from "../components/seo";
 
 const NotFoundPage = () => {
   const [isRnd, setIsRnd] = useState(undefined);
 
   useEffect(() => {
-    const chunks = window.location.pathname.split('/');
-    if (chunks.length > 1 && chunks[1] === 'homes') {
+    const chunks = window.location.pathname.split("/");
+    if (chunks.length > 1 && chunks[1] === "homes") {
       setIsRnd(false);
     } else {
       setIsRnd(true);
@@ -17,8 +17,8 @@ const NotFoundPage = () => {
   return (
     <>
       {isRnd === undefined ? null : (
-        <Layout rnd={isRnd}>
-          <SEO title='404: Not found' />
+        <Layout rnd={false}>
+          <SEO title="404: Not found" />
           <p className="mt-24">You just hit a page that isn&#39;t real.</p>
         </Layout>
       )}
@@ -26,4 +26,4 @@ const NotFoundPage = () => {
   );
 };
 
-export default NotFoundPage
+export default NotFoundPage;
