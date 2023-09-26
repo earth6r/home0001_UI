@@ -145,6 +145,9 @@ const HomeRedesignPage = ({ location, data }) => {
     } else if (myPropertyParam) {
       setShowReserveHomeForm(false);
       setSelectedPropertyType(false);
+      const offset = window.innerWidth < 768 ? 16 : 40;
+      const top = propertyTypeRef.current.getBoundingClientRect().top + window.scrollY - offset;
+      animateScrollTo(top, { speed: 1000 });
     } else if (!myPropertyParam) {
       setSelectedCity(false);
     }
