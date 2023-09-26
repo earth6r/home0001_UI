@@ -3,15 +3,8 @@ import Layout from "../containers/layout";
 import SEO from "../components/seo";
 
 const NotFoundPage = () => {
-  const [isRnd, setIsRnd] = useState(undefined);
-
   useEffect(() => {
     const chunks = window.location.pathname.split("/");
-    if (chunks.length > 1 && chunks[1] === "homes") {
-      setIsRnd(false);
-    } else {
-      setIsRnd(true);
-    }
   }, []);
 
   return (
