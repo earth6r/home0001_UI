@@ -136,8 +136,20 @@ const HomeRedesignPage = ({ location, data }) => {
 
   const handlePopstate = event => {
     const urlParams = new URLSearchParams(window.location.search);
-    const myParam = urlParams.get("property");
-    console.log("myParam:", myParam);
+    const myPropertyParam = urlParams.get("property");
+    const myPropertyTypeParam = urlParams.get("propertyType");
+    const myFormParam = urlParams.get("form");
+
+    if (myPropertyTypeParam) {
+      setShowReserveHomeForm(false);
+    } else if (myPropertyParam) {
+      setSelectedProperty(false);
+    } else if (!myPropertyParam) {
+      setSelectedCity(false);
+    }
+    console.log("myPropertyParam:", myPropertyParam);
+    console.log("myPropertyTypeParam:", myPropertyTypeParam);
+    console.log("myFormParam:", myFormParam);
     // Handle back button click and update component state accordingly
     const currentState = event.state;
     // if (currentState && currentState.page === "myComponent") {
