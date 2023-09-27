@@ -133,7 +133,7 @@ const HomeRedesignPage = ({ location, data }) => {
     : [];
 
   const reserveHomeRef = createRef();
-
+  console.log("selectedPropertyType", selectedPropertyType);
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     const property = searchParams.get("property");
