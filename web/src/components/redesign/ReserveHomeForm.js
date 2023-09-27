@@ -22,7 +22,6 @@ export const ReserveHomeForm = ({ data }) => {
   useEffect(() => {
     if (data.property && data.property.propertyType)
       unitOfInterest = returnUnitNumber(data.property.propertyType);
-    console.log("unitOfInterest:", unitOfInterest);
   }, [data]);
 
   const [submitted, setSubmitted] = useState(false);
