@@ -13,6 +13,8 @@ export const GeneralReservationForm = ({ data }) => {
 
   const onSubmit = async data => {
     if (data.fax_data !== "no-data") return;
+    fireSubmitReservationFormEvent("general");
+
     await submit_general_hubspot_waitlist_form(data);
     setSubmitted(true);
   };
