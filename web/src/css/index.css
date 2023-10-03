@@ -457,3 +457,11 @@ button[aria-haspopup="dialog"][aria-expanded="true"] {
   width: 0;
   z-index: -1;
 }
+
+.prop-type-selector {
+  @apply mb-8
+}
+
+.prop-type-selector:last-child {
+  @apply mb-0
+}
