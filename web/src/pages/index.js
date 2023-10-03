@@ -151,9 +151,7 @@ const HomeRedesignPage = ({ location, data }) => {
     } else if (!myPropertyParam) {
       setSelectedCity(false);
     }
-    console.log("myPropertyParam:", myPropertyParam);
-    console.log("myPropertyTypeParam:", myPropertyTypeParam);
-    console.log("myFormParam:", myFormParam);
+
     // Handle back button click and update component state accordingly
     const currentState = event.state;
     // if (currentState && currentState.page === "myComponent") {

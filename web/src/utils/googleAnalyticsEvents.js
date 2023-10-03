@@ -33,6 +33,6 @@ export const fireClickedUnitTileEvent = propertyType => {
 export const viewOpenedReserveFormEvent = propertyType => {
   console.log("propertyType:", propertyType);
   if (typeof window !== "undefined" && typeof window.gtag === "function") {
-    window.gtag("event", `opened_reserve_form_for_${propertyType}`);
+    window.gtag("event", `opened_reserve_form_for_${propertyType.propert.title}`);
   }
 };
