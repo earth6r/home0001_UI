@@ -122,7 +122,7 @@ export const SingleProperty = ({
           {propertyTypes.map(item => {
             const { amenities, propertyType, price, area, id, available } = item;
             return (
-              <li key={id} className={`p-0 before:content-['']`}>
+              <li key={id} className={`prop-type-selector p-0 before:content-['']`}>
                 <button
                   disabled={!available}
                   onClick={() => {
