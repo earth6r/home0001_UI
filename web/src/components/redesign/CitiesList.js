@@ -3,7 +3,6 @@ import { sendHubspotClickEvent } from "../../utils/hubspotEvents";
 import { fireCityClickEvent } from "../../utils/googleAnalyticsEvents";
 
 export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
-  const [fired, setFired] = useState(0);
   return (
     <>
       {cities && cities.length !== 0 ? (
@@ -13,8 +12,6 @@ export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
               <button
                 disabled={city.disabled}
                 onClick={() => {
-                  const currentFired = fired + 1;
-                  console.log(currentFired);
                   onChange(city);
                   sendHubspotClickEvent(`clicked ${city.title}`, "clicked");
                   fireCityClickEvent(city.title);
