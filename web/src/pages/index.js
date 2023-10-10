@@ -313,10 +313,10 @@ const HomeRedesignPage = ({ location, data }) => {
       <Container>
         <section>
           <div className="lg:pr-desktop-menu lg:grid lg:grid-cols-3 lg:gap-x-10">
-            <div className="text-mobile-landing lg:text-desktop-landing uppercase pr-10 lg:pr-0 mb-12 lg:mb-16 text-mobile-body property-type-description">
+            <div className="max-w-[390px] text-mobile-landing lg:text-desktop-landing uppercase pr-10 lg:pr-0 mb-12 lg:mb-16 text-mobile-body property-type-description">
               Own one home. Live flexibly between many places.
             </div>
-            <div className="text-mobile-landing lg:text-desktop-landing uppercase pr-10 lg:pr-0 lg:order-last mb-12 lg:mb-16 text-mobile-body property-type-description">
+            <div className="max-w-[390px] text-mobile-landing lg:text-desktop-landing uppercase pr-10 lg:pr-0 lg:order-last mb-12 lg:mb-16 text-mobile-body property-type-description">
               Fully equipped homes available to own.
             </div>
             <CitiesList
