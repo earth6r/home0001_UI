@@ -465,3 +465,7 @@ button[aria-haspopup="dialog"][aria-expanded="true"] {
 .prop-type-selector:last-child {
   @apply mb-0
 }
+
+.header-grad {
+  background: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%);
+}

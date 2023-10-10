@@ -177,7 +177,7 @@ const Header = ({
             showNav ? "h-full" : ""
           } flex w-full md:bg-transparent md:relative justify-between md:justify-between items-center content-center`}
         >
-          <nav className="flex justify-between items-center w-full px-4 pt-6 md:pt-10 md:px-10">
+          <nav className="header-grad flex justify-between items-center w-full px-4 pt-6 md:pt-10 md:px-10">
             <h1 className="relative menu z-50 md:h-10">
               <PageLink
                 onClick={() => {
