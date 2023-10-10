@@ -316,8 +316,8 @@ const HomeRedesignPage = ({ location, data }) => {
             <div className="text-landing uppercase pr-10 lg:pr-0 mb-12 lg:mb-16 text-mobile-body property-type-description">
               Own one home. Live flexibly between many places.
             </div>
-            <div className="text-landing uppercase pr-10 lg:pr-0 mb-12 lg:mb-16 text-mobile-body property-type-description">
-              Fully equipped homes available to buy in:
+            <div className="text-landing uppercase pr-10 lg:pr-0 lg:order-last mb-12 lg:mb-16 text-mobile-body property-type-description">
+              Fully equipped homes available to own
             </div>
             <CitiesList
               cities={cities}
