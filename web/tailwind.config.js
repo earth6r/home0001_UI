@@ -177,13 +177,13 @@ module.exports = {
           }
         ],
         "desktop-landing": [
-          "2vw",
+          "3vw",
           {
             lineHeight: "135%"
           }
         ],
         "mobile-landing": [
-          "4vh",
+          "4.5vh",
           {
             lineHeight: "130%"
           }
