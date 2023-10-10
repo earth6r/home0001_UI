@@ -465,8 +465,3 @@ button[aria-haspopup="dialog"][aria-expanded="true"] {
 .prop-type-selector:last-child {
   @apply mb-0
 }
-
-.text-landing {
-  font-size: 4vh !important;
-  line-height: 130% !important;
-}

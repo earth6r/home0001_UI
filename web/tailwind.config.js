@@ -176,6 +176,18 @@ module.exports = {
             lineHeight: "135%"
           }
         ],
+        "desktop-landing": [
+          "3vw",
+          {
+            lineHeight: "135%"
+          }
+        ],
+        "mobile-landing": [
+          "4vh",
+          {
+            lineHeight: "130%"
+          }
+        ],
         "mobile-body": [
           "13px",
           {
