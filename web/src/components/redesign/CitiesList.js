@@ -6,7 +6,7 @@ export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
   return (
     <>
       {cities && cities.length !== 0 ? (
-        <ul className="pt-[2px] select-none list-none grid grid-cols-3 gap-y-[52px] md:gap-y-16 pr-10 md:pr-desktop-menu pb-0">
+        <ul className="text-landing pt-[2px] select-none list-none grid grid-cols-1 gap-y-3 lg:gap-y-3 pr-10 lg:pr-desktop-menu pb-0">
           {cities.map(city => (
             <li key={city.id} className="p-0 before:content-[''] leading-none">
               <button

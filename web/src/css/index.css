@@ -467,7 +467,6 @@ button[aria-haspopup="dialog"][aria-expanded="true"] {
 }
 
 .text-landing {
-  font-size: 15vh !important;
+  font-size: 4vh !important;
   line-height: 130% !important;
-  letter-spacing: 0.005em !important;
 }
