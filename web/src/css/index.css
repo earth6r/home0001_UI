@@ -448,7 +448,7 @@ button[aria-haspopup="dialog"][aria-expanded="true"] {
   padding-left: 20px !important;
 }
 
-.best-in-class{
+.best-in-class {
   opacity: 0;
   position: absolute;
   top: 0;
@@ -464,4 +464,10 @@ button[aria-haspopup="dialog"][aria-expanded="true"] {
 
 .prop-type-selector:last-child {
   @apply mb-0
+}
+
+.text-landing {
+  font-size: 15vh !important;
+  line-height: 130% !important;
+  letter-spacing: 0.005em !important;
 }
