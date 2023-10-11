@@ -177,7 +177,7 @@ module.exports = {
           }
         ],
         "desktop-landing": [
-          "3vw",
+          "2.9vw",
           {
             lineHeight: "135%"
           }

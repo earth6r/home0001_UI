@@ -328,8 +328,8 @@ const HomeRedesignPage = ({ location, data }) => {
           </div>
 
           {selectedCity?.id ? (
-            <div className="md:grid md:grid-cols-3 md:pr-desktop-menu">
-              <div className="md:col-start-2 md:col-span-1">
+            <div className="lg:grid lg:grid-cols-3 lg:pr-desktop-menu lg:gap-x-10">
+              <div className="lg:col-start-2 lg:col-span-1">
                 {filteredProperties.length > 1 || !selectedProperty?.id ? (
                   <PropertiesList
                     properties={filteredProperties}

@@ -31,7 +31,7 @@ export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
                   city.disabled ? "" : "decoration-black"
                 } cursor-pointer p-2 -m-2 before:content-[''] disabled:bg-transparent tracking-caps leading-none uppercase disabled:opacity-40 disabled:shadow-none leading-none`}
               >
-                <span className="flex gap-2">
+                <span className="text-left flex gap-2">
                   <img src="https://ik.imagekit.io/ljqwnqnom/arrow_4KHlnGx0T.svg?updatedAt=1696980257065"></img>
                   <p className={`${city.disabled ? "" : "border-b-[3px]"}`}>
                     {city.title == "NYC"

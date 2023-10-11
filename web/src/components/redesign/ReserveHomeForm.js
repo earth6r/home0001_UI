@@ -51,7 +51,7 @@ export const ReserveHomeForm = ({ data }) => {
   return (
     <div className="animate-in relative">
       <div className="w-screen h-full -ml-4 md:-ml-10 absolute bg-whitesmoke"></div>
-      <div className="md:grid md:grid-cols-3 pr-mobile-menu md:pr-desktop-menu">
+      <div className="lg:grid lg:grid-cols-3 lg:gap-x-10 pr-mobile-menu md:pr-desktop-menu">
         <div className="md:col-start-2 md:col-span-1 pt-12 pb-[50px]">
           {!submitted ? (
             <div className="relative mb-4 text-mobile-body md:text-desktop-body font-serif">
