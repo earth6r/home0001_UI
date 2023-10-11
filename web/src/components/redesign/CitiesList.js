@@ -33,7 +33,13 @@ export const CitiesList = ({ cities, properties, onChange, selectedCity }) => {
               >
                 <span className="flex gap-2">
                   <img src="https://ik.imagekit.io/ljqwnqnom/arrow_4KHlnGx0T.svg?updatedAt=1696980257065"></img>
-                  <p className={`${city.disabled ? "" : "border-b-[3px]"}`}>{city.title}</p>
+                  <p className={`${city.disabled ? "" : "border-b-[3px]"}`}>
+                    {city.title == "NYC"
+                      ? "New York"
+                      : city.title == "LA"
+                      ? "Los Angeles"
+                      : city.title}
+                  </p>
                 </span>
               </button>
             </li>
