@@ -33,8 +33,8 @@ const HowItWorksRedignPage = ({ data }) => {
       <SEO title={pageTitle} />
       <Container>
         <HowItWorksComponent data={data} />
-        <GeneralReservationForm data={data.site} />
         <div id="reserve-home-form" />
+        <GeneralReservationForm data={data.site} />
       </Container>
     </Layout>
   );
