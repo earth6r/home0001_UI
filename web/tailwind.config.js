@@ -179,7 +179,7 @@ module.exports = {
         "desktop-landing": [
           "2.9vw",
           {
-            lineHeight: "135%"
+            lineHeight: "120%"
           }
         ],
         "mobile-landing": [
