@@ -1,3 +1,8 @@
+export const fireClickedImageGalleryEvent = (galleryId, propertyType) => {
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    window.gtag("event", `clicked_${galleryId}_image_gallery_for_${propertyType}`);
+  }
+};
 export const fireViewFactSheetEvent = propertyType => {
   if (typeof window !== "undefined" && typeof window.gtag === "function") {
     window.gtag("event", `view_fact_sheet_for_${propertyType}`);

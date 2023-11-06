@@ -81,6 +81,8 @@ export const PropertyTypeUI = ({
                   images={selectedPropertyType.images.map(image => ({
                     image
                   }))}
+                  propertyType={selectedPropertyType.propertyType}
+                  galleryId="top"
                 />
               )}
             </div>
@@ -189,13 +191,21 @@ export const PropertyTypeUI = ({
               selectedPropertyType.propertyType === "penthouse" ? (
                 <div className="w-full relative">
                   {selectedPropertyType?.images && selectedPropertyType.images.length !== 0 && (
-                    <ImageSlider images={selectedPropertyType.moreImages} />
+                    <ImageSlider
+                      images={selectedPropertyType.moreImages}
+                      propertyType={selectedPropertyType.propertyType}
+                      galleryId="bottom"
+                    />
                   )}
                 </div>
               ) : (
                 selectedPropertyType?.images &&
                 selectedPropertyType.images.length !== 0 && (
-                  <ImageSlider images={selectedPropertyType.moreImages} />
+                  <ImageSlider
+                    images={selectedPropertyType.moreImages}
+                    propertyType={selectedPropertyType.propertyType}
+                    galleryId="bottom"
+                  />
                 )
               )}
             </div>

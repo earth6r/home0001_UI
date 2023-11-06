@@ -14,6 +14,7 @@ export const SingleProperty = ({
   selectedPropertyType,
   disableScroll = false
 }) => {
+  console.log("selectedProperty.title", selectedProperty.title);
   function capitalizeAddress(str) {
     const number = str.substring(0, str.indexOf(" "));
     const street = str.substring(str.indexOf(" ") + 1).slice(0, -3);
