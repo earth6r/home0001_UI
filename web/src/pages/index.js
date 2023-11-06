@@ -312,23 +312,24 @@ const HomeRedesignPage = ({ location, data }) => {
       <SEO title="Homes" />
       <Container>
         <section>
-          <div className="md:pr-desktop-menu">
-            <div className="uppercase pr-[30%] md:pr-0 mb-12 md:mb-16 text-mobile-body md:text-desktop-body property-type-description">
+          <div className="mb-20 lg:pr-desktop-menu lg:grid lg:grid-cols-3 lg:gap-x-10">
+            <div className="max-w-[390px] text-mobile-landing lg:text-desktop-landing uppercase pr-10 lg:pr-0 mb-12 lg:mb-16 text-mobile-body property-type-description">
               Own one home. Live flexibly between many places.
             </div>
-            <div className="uppercase pr-[50%] md:pr-0 mb-12 md:mb-16 text-mobile-body md:text-desktop-body property-type-description">
-              Fully equipped homes available to buy in:
+            <div className="max-w-[390px] text-mobile-landing lg:text-desktop-landing uppercase pr-10 lg:pr-0 lg:order-last mb-12 lg:mb-16 text-mobile-body property-type-description">
+              Fully equipped homes available to own.
             </div>
+            <CitiesList
+              cities={cities}
+              onChange={city => onSelectCity(city)}
+              selectedCity={selectedCity}
+              properties={properties}
+            />
           </div>
-          <CitiesList
-            cities={cities}
-            onChange={city => onSelectCity(city)}
-            selectedCity={selectedCity}
-            properties={properties}
-          />
+
           {selectedCity?.id ? (
-            <div className="md:grid md:grid-cols-3 md:pr-desktop-menu">
-              <div className="md:col-start-2 md:col-span-1">
+            <div className="lg:grid lg:grid-cols-3 lg:pr-desktop-menu lg:gap-x-10">
+              <div className="lg:col-start-2 lg:col-span-1">
                 {filteredProperties.length > 1 || !selectedProperty?.id ? (
                   <PropertiesList
                     properties={filteredProperties}
